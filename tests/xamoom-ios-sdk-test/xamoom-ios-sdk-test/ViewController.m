@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "XMEnduserApi.h"
 #import <RestKit/RestKit.h>
+#import "XMEnduserApi.h"
 
 @interface ViewController ()
 

@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../src/XMEnduserApi.m"
-            timestampString = "444916661.812622"
+            timestampString = "445190753.184203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-getContentById:includeStyle:includeMenu:language:"
             landmarkType = "5">
          </BreakpointContent>

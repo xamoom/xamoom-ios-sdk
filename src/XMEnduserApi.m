@@ -24,8 +24,8 @@
 
 static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 
-@implementation XMEnduserApi : NSObject
 
+@implementation XMEnduserApi : NSObject
 
 NSURL *baseURL;
 
@@ -36,18 +36,21 @@ NSURL *baseURL;
     return self;
 }
 
-- (void) container
-{
-    
-}
-
 - (void) getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language
 {
+    RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
+    
     NSDictionary *queryParams = @{@"content_id":contentId,
                                   @"include_style":style,
                                   @"include_menu":Menu,
                                   @"language":language
                                   };
+    
+    //mappings
+    RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[XMResponseGetById class]];
+    [responseMapping addAttributeMappingsFromDictionary:@{@"system_name":@"systemName",
+                                                          @"system_url":@"systemUrl",
+                                                          }];
     
     RKObjectMapping* responseContentMapping = [RKObjectMapping mappingForClass:[XMResponseContent class] ];
     [responseContentMapping addAttributeMappingsFromDictionary:@{@"description":@"descriptionOfContent",
@@ -56,16 +59,6 @@ NSURL *baseURL;
                                                                  @"image_public_url":@"imagePublicUrl",
                                                                  }];
     
-    RKObjectMapping *responseMapping = [RKObjectMapping mappingForClass:[XMResponseGetById class]];
-    [responseMapping addAttributeMappingsFromDictionary:@{@"system_name":@"systemName",
-                                                          @"system_url":@"systemUrl",
-                                                          }];
-    
-    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
-                                                                                    toKeyPath:@"content"
-                                                                                  withMapping:responseContentMapping]];
-    
-    //DYNAMIC MAPPING
     RKObjectMapping* responseContentBlockType0Mapping = [RKObjectMapping mappingForClass:[XMResponseContentBlockType0 class] ];
     [responseContentBlockType0Mapping addAttributeMappingsFromDictionary:@{@"text":@"text",
                                                                            @"public":@"publicStatus",
@@ -73,17 +66,33 @@ NSURL *baseURL;
                                                                            @"title":@"title",
                                                                            }];
     
+    RKObjectMapping* responseContentBlockType1Mapping = [RKObjectMapping mappingForClass:[XMResponseContentBlockType1 class] ];
+    [responseContentBlockType1Mapping addAttributeMappingsFromDictionary:@{@"file_id":@"fileId",
+                                                                           @"public":@"publicStatus",
+                                                                           @"content_block_type":@"contentBlockType",
+                                                                           @"title":@"title",
+                                                                           @"artists":@"artist",
+                                                                           }];
+    
+    //dynamic matcher
+    [dynamicMapping addMatcher:[RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                            expectedValue:@"0"
+                                                            objectMapping:responseContentBlockType0Mapping]];
+    
+    [dynamicMapping addMatcher:[RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                            expectedValue:@"1"
+                                                            objectMapping:responseContentBlockType1Mapping]];
     
     
-    RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
-        
-    // Configure the dynamic mapping via matchers
-    [dynamicMapping addMatcher:[RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type" expectedValue:@"0" objectMapping:responseContentBlockType0Mapping]];
-    
+    //relationships
+    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
+                                                                                    toKeyPath:@"content"
+                                                                                  withMapping:responseContentMapping]];
     
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
                                                                                     toKeyPath:@"content.content_blocks"
                                                                                   withMapping:dynamicMapping]];
+    
     
     [self talkToApi:responseMapping
      withParameters:queryParams
@@ -130,7 +139,6 @@ NSURL *baseURL;
                     XMResponseGetById *resp = [XMResponseGetById new];
                     resp = mappingResult.firstObject;
                     NSLog(@"Output: %@", resp);
-
                 }
                 failure:^(RKObjectRequestOperation *operation, NSError *error) {
                     NSLog(@"Error: %@", error);

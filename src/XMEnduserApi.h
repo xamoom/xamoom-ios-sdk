@@ -25,6 +25,7 @@
 #import "XMResponseGetById.h"
 #import "XMResponseGetByLocationIdentifier.h"
 #import "XMResponseContentBlockType0.h"
+#import "XMResponseContentBlockType1.h"
 #import "XMResponseContentBlockType3.h"
 
 @interface XMEnduserApi : NSObject
@@ -33,11 +34,13 @@
 
 
 #pragma mark public methods
+
 - (id)init;
-- (void) container;
-- (void) testDynamicMapping;
+
 - (void) getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
+
 - (void) getContentByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
+
 - (NSString*) getContentByLocation:(NSString*)payload;
 
 @end
