@@ -61,7 +61,8 @@ NSURL *baseURL;
     [dynamicMapping addMatcher:[XMResponseContentBlockType5 getDynamicMappingMatcher]];
     [dynamicMapping addMatcher:[XMResponseContentBlockType6 getDynamicMappingMatcher]];
     [dynamicMapping addMatcher:[XMResponseContentBlockType7 getDynamicMappingMatcher]];
-    //[dynamicMapping addMatcher:[XMResponseContentBlockType8 getDynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMResponseContentBlockType8 getDynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMResponseContentBlockType9 getDynamicMappingMatcher]];
     
     
     //relationships
@@ -70,7 +71,7 @@ NSURL *baseURL;
                                                                                   withMapping:responseContentMapping]];
     
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
-                                                                                    toKeyPath:@"content.content_blocks"
+                                                                                    toKeyPath:@"content.contentBlocks"
                                                                                   withMapping:dynamicMapping]];
     
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
@@ -120,7 +121,7 @@ NSURL *baseURL;
                                                                                   withMapping:responseContentMapping]];
     
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
-                                                                                    toKeyPath:@"content.content_blocks"
+                                                                                    toKeyPath:@"content.contentBlocks"
                                                                                   withMapping:dynamicMapping]];
     
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
@@ -174,7 +175,6 @@ NSURL *baseURL;
     [manager postObject:nil path:path parameters:parameters
                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                     NSLog(@"Output: %@", mappingResult.firstObject);
-                    
                 }
                 failure:^(RKObjectRequestOperation *operation, NSError *error) {
                     NSLog(@"Error: %@", error);

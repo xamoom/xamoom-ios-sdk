@@ -15,7 +15,7 @@
 @property (nonatomic, copy) NSString *descriptionOfContent;
 @property (nonatomic, copy) NSString *language;
 @property (nonatomic, copy) NSString *title;
-@property (nonatomic) NSArray *content_blocks;
+@property (nonatomic) NSArray *contentBlocks;
 
 + (RKObjectMapping*) getMapping;
 
