@@ -10,6 +10,7 @@
 		566E91503BB1B0F48D247BB1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 728C3857EE6764B458DAD8A6 /* libPods.a */; };
 		881681FF1A8A20B700419B87 /* XMResponseGetByLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 881681FE1A8A20B700419B87 /* XMResponseGetByLocation.m */; };
 		881682021A8A2AB000419B87 /* XMResponseGetByLocationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 881682011A8A2AB000419B87 /* XMResponseGetByLocationItem.m */; };
+		881682051A8A4E0500419B87 /* XMResponseContentBlockType9.m in Sources */ = {isa = PBXBuildFile; fileRef = 881682041A8A4E0500419B87 /* XMResponseContentBlockType9.m */; };
 		8858D2461A822513001B45D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2451A822513001B45D5 /* main.m */; };
 		8858D2491A822513001B45D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2481A822513001B45D5 /* AppDelegate.m */; };
 		8858D24C1A822513001B45D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D24B1A822513001B45D5 /* ViewController.m */; };
@@ -51,6 +52,8 @@
 		881681FE1A8A20B700419B87 /* XMResponseGetByLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseGetByLocation.m; path = ../../src/XMResponseGetByLocation.m; sourceTree = "<group>"; };
 		881682001A8A2AB000419B87 /* XMResponseGetByLocationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseGetByLocationItem.h; path = ../../src/XMResponseGetByLocationItem.h; sourceTree = "<group>"; };
 		881682011A8A2AB000419B87 /* XMResponseGetByLocationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseGetByLocationItem.m; path = ../../src/XMResponseGetByLocationItem.m; sourceTree = "<group>"; };
+		881682031A8A4E0500419B87 /* XMResponseContentBlockType9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseContentBlockType9.h; path = ../../src/XMResponseContentBlockType9.h; sourceTree = "<group>"; };
+		881682041A8A4E0500419B87 /* XMResponseContentBlockType9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseContentBlockType9.m; path = ../../src/XMResponseContentBlockType9.m; sourceTree = "<group>"; };
 		8858D2401A822513001B45D5 /* xamoom-ios-sdk-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xamoom-ios-sdk-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8858D2441A822513001B45D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8858D2451A822513001B45D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 				8894A4271A89F71000900366 /* XMResponseContentBlockType7.m */,
 				8894A4291A89F74500900366 /* XMResponseContentBlockType8.h */,
 				8894A42A1A89F74600900366 /* XMResponseContentBlockType8.m */,
+				881682031A8A4E0500419B87 /* XMResponseContentBlockType9.h */,
+				881682041A8A4E0500419B87 /* XMResponseContentBlockType9.m */,
 			);
 			name = XMResponseContentBlocks;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				88773E191A83771D0051EDE4 /* XMResponseContentBlock.m in Sources */,
 				8858D2461A822513001B45D5 /* main.m in Sources */,
 				8894A4341A8A07A100900366 /* XMResponseMenuItem.m in Sources */,
+				881682051A8A4E0500419B87 /* XMResponseContentBlockType9.m in Sources */,
 				889CDDC01A8268A8006ADD83 /* XMResponseGetById.m in Sources */,
 				8894A42B1A89F74600900366 /* XMResponseContentBlockType8.m in Sources */,
 				8894A4311A8A078800900366 /* XMResponseStyle.m in Sources */,

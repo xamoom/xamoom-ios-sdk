@@ -111,8 +111,8 @@ NSURL *baseURL;
     [dynamicMapping addMatcher:[XMResponseContentBlockType5 getDynamicMappingMatcher]];
     [dynamicMapping addMatcher:[XMResponseContentBlockType6 getDynamicMappingMatcher]];
     [dynamicMapping addMatcher:[XMResponseContentBlockType7 getDynamicMappingMatcher]];
-    //[dynamicMapping addMatcher:[XMResponseContentBlockType8 getDynamicMappingMatcher]];
-    
+    [dynamicMapping addMatcher:[XMResponseContentBlockType8 getDynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMResponseContentBlockType9 getDynamicMappingMatcher]];
     
     //relationships
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"

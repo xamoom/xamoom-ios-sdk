@@ -1,5 +1,5 @@
 //
-//  XMResponseContentBlockType8.h
+//  XMResponseContentBlockType9.h
 //  xamoom-ios-sdk-test
 //
 //  Created by Raphael Seher on 10/02/15.
@@ -9,14 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "XMResponseContentBlock.h"
 
-@interface XMResponseContentBlockType8 : XMResponseContentBlock
+@interface XMResponseContentBlockType9 : XMResponseContentBlock
 
-@property (nonatomic, copy) NSString *fileId;
-@property (nonatomic, copy) NSString *downloadType;
-@property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSString *spotMapTag;
 
 + (RKObjectMapping*) getMapping;
 + (RKObjectMappingMatcher*) getDynamicMappingMatcher;
-
 
 @end

@@ -38,6 +38,7 @@
 #import "XMResponseContentBlockType6.h"
 #import "XMResponseContentBlockType7.h"
 #import "XMResponseContentBlockType8.h"
+#import "XMResponseContentBlockType9.h"
 
 @interface XMEnduserApi : NSObject
 
