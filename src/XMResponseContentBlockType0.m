@@ -10,4 +10,23 @@
 
 @implementation XMResponseContentBlockType0
 
++ (RKObjectMapping*) getMapping
+{
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMResponseContentBlockType0 class] ];
+    [mapping addAttributeMappingsFromDictionary:@{@"text":@"text",
+                                                  @"public":@"publicStatus",
+                                                  @"content_block_type":@"contentBlockType",
+                                                  @"title":@"title",
+                                                  }];
+    return mapping;
+}
+
++ (RKObjectMappingMatcher*) getDynamicMappingMatcher
+{
+    RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                                   expectedValue:@"0"
+                                                                   objectMapping:[self getMapping]];
+    return matcher;
+}
+
 @end

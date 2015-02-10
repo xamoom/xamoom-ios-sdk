@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../src/XMEnduserApi.m"
-            timestampString = "445190753.184203"
+            timestampString = "445256557.695339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-getContentById:includeStyle:includeMenu:language:"
             landmarkType = "5">
          </BreakpointContent>
@@ -71,13 +71,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "xamoom-ios-sdk-test/ViewController.m"
-            timestampString = "445161199.887352"
+            filePath = "../../src/XMResponseGetById.m"
+            timestampString = "445260827.240838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "+getMapping"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

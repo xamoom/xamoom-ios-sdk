@@ -7,14 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMResponseContent.h"
-#import "XMResponseContentBlockType0.h"
+#import "XMEnduserApi.h"
+
+@class XMResponseStyle;
+@class XMResponseContent;
 
 @interface XMResponseGetById : NSObject
 
 @property (nonatomic, copy) NSString *systemName;
 @property (nonatomic, copy) NSString *systemUrl;
+@property (nonatomic, copy) NSString *systemId;
 @property (nonatomic) XMResponseContent *content;
+@property (nonatomic) NSArray *menu;
+@property (nonatomic) XMResponseStyle* style;
+
++ (RKObjectMapping*) getMapping;
 
 @end
 

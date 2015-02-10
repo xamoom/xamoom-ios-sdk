@@ -1,24 +1,22 @@
 //
-//  XMResponseContentBlockType1.m
+//  XMResponseContentBlockType7.m
 //  xamoom-ios-sdk-test
 //
-//  Created by Raphael Seher on 05.02.15.
+//  Created by Raphael Seher on 10/02/15.
 //  Copyright (c) 2015 Raphael Seher. All rights reserved.
 //
 
-#import "XMResponseContentBlockType1.h"
+#import "XMResponseContentBlockType7.h"
 
-@implementation XMResponseContentBlockType1
+@implementation XMResponseContentBlockType7
 
-
-+ (RKObjectMapping *)getMapping
++ (RKObjectMapping*) getMapping
 {
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMResponseContentBlockType1 class] ];
-    [mapping addAttributeMappingsFromDictionary:@{@"file_id":@"fileId",
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMResponseContentBlockType7 class] ];
+    [mapping addAttributeMappingsFromDictionary:@{@"soundcloud_url":@"soundcloudUrl",
                                                   @"public":@"publicStatus",
                                                   @"content_block_type":@"contentBlockType",
                                                   @"title":@"title",
-                                                  @"artists":@"artist",
                                                   }];
     return mapping;
 }
@@ -26,7 +24,7 @@
 + (RKObjectMappingMatcher*) getDynamicMappingMatcher
 {
     RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                                   expectedValue:@"1"
+                                                                   expectedValue:@"7"
                                                                    objectMapping:[self getMapping]];
     return matcher;
 }

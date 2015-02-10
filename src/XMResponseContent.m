@@ -10,4 +10,15 @@
 
 @implementation XMResponseContent
 
++(RKObjectMapping *)getMapping
+{
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMResponseContent class] ];
+    [mapping addAttributeMappingsFromDictionary:@{@"description":@"descriptionOfContent",
+                                                  @"language":@"language",
+                                                  @"title":@"title",
+                                                  @"image_public_url":@"imagePublicUrl",
+                                                  }];
+    return mapping;
+}
+
 @end

@@ -12,6 +12,9 @@
 @interface XMResponseContentBlockType3 : XMResponseContentBlock
 
 @property (nonatomic, copy) NSString *fileId;
-@property (nonatomic, strong) NSString *text;
+
++ (RKObjectMapping*) getMapping;
++ (RKObjectMappingMatcher*) getDynamicMappingMatcher;
+
 
 @end

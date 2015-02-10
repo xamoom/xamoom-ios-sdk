@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		566E91503BB1B0F48D247BB1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 728C3857EE6764B458DAD8A6 /* libPods.a */; };
+		881681FF1A8A20B700419B87 /* XMResponseGetByLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 881681FE1A8A20B700419B87 /* XMResponseGetByLocation.m */; };
+		881682021A8A2AB000419B87 /* XMResponseGetByLocationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 881682011A8A2AB000419B87 /* XMResponseGetByLocationItem.m */; };
 		8858D2461A822513001B45D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2451A822513001B45D5 /* main.m */; };
 		8858D2491A822513001B45D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2481A822513001B45D5 /* AppDelegate.m */; };
 		8858D24C1A822513001B45D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D24B1A822513001B45D5 /* ViewController.m */; };
@@ -19,6 +21,14 @@
 		88773E191A83771D0051EDE4 /* XMResponseContentBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 88773E181A83771D0051EDE4 /* XMResponseContentBlock.m */; };
 		88773E1C1A8380110051EDE4 /* XMResponseContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88773E1B1A8380110051EDE4 /* XMResponseContent.m */; };
 		88773E1F1A8391540051EDE4 /* XMResponseGetByLocationIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 88773E1E1A8391540051EDE4 /* XMResponseGetByLocationIdentifier.m */; };
+		8894A41C1A89F50100900366 /* XMResponseContentBlockType2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894A41B1A89F50100900366 /* XMResponseContentBlockType2.m */; };
+		8894A41F1A89F63800900366 /* XMResponseContentBlockType4.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894A41E1A89F63800900366 /* XMResponseContentBlockType4.m */; };
+		8894A4251A89F6CB00900366 /* XMResponseContentBlockType6.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894A4241A89F6CB00900366 /* XMResponseContentBlockType6.m */; };
+		8894A4281A89F71000900366 /* XMResponseContentBlockType7.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894A4271A89F71000900366 /* XMResponseContentBlockType7.m */; };
+		8894A42B1A89F74600900366 /* XMResponseContentBlockType8.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894A42A1A89F74600900366 /* XMResponseContentBlockType8.m */; };
+		8894A42E1A89F7A000900366 /* XMResponseContentBlockType5.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894A42D1A89F7A000900366 /* XMResponseContentBlockType5.m */; };
+		8894A4311A8A078800900366 /* XMResponseStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894A4301A8A078800900366 /* XMResponseStyle.m */; };
+		8894A4341A8A07A100900366 /* XMResponseMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8894A4331A8A07A100900366 /* XMResponseMenuItem.m */; };
 		889CDDC01A8268A8006ADD83 /* XMResponseGetById.m in Sources */ = {isa = PBXBuildFile; fileRef = 889CDDBF1A8268A8006ADD83 /* XMResponseGetById.m */; };
 		88E93FC61A83B51600955E39 /* XMResponseContentBlockType0.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E93FC51A83B51600955E39 /* XMResponseContentBlockType0.m */; };
 		88E93FC91A83B88900955E39 /* XMResponseContentBlockType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E93FC81A83B88900955E39 /* XMResponseContentBlockType1.m */; };
@@ -37,6 +47,10 @@
 
 /* Begin PBXFileReference section */
 		728C3857EE6764B458DAD8A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		881681FD1A8A20B700419B87 /* XMResponseGetByLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseGetByLocation.h; path = ../../src/XMResponseGetByLocation.h; sourceTree = "<group>"; };
+		881681FE1A8A20B700419B87 /* XMResponseGetByLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseGetByLocation.m; path = ../../src/XMResponseGetByLocation.m; sourceTree = "<group>"; };
+		881682001A8A2AB000419B87 /* XMResponseGetByLocationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseGetByLocationItem.h; path = ../../src/XMResponseGetByLocationItem.h; sourceTree = "<group>"; };
+		881682011A8A2AB000419B87 /* XMResponseGetByLocationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseGetByLocationItem.m; path = ../../src/XMResponseGetByLocationItem.m; sourceTree = "<group>"; };
 		8858D2401A822513001B45D5 /* xamoom-ios-sdk-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xamoom-ios-sdk-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8858D2441A822513001B45D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8858D2451A822513001B45D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,6 +72,22 @@
 		88773E1B1A8380110051EDE4 /* XMResponseContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseContent.m; path = ../../src/XMResponseContent.m; sourceTree = "<group>"; };
 		88773E1D1A8391540051EDE4 /* XMResponseGetByLocationIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseGetByLocationIdentifier.h; path = ../../src/XMResponseGetByLocationIdentifier.h; sourceTree = "<group>"; };
 		88773E1E1A8391540051EDE4 /* XMResponseGetByLocationIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseGetByLocationIdentifier.m; path = ../../src/XMResponseGetByLocationIdentifier.m; sourceTree = "<group>"; };
+		8894A41A1A89F50100900366 /* XMResponseContentBlockType2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseContentBlockType2.h; path = ../../src/XMResponseContentBlockType2.h; sourceTree = "<group>"; };
+		8894A41B1A89F50100900366 /* XMResponseContentBlockType2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseContentBlockType2.m; path = ../../src/XMResponseContentBlockType2.m; sourceTree = "<group>"; };
+		8894A41D1A89F63800900366 /* XMResponseContentBlockType4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseContentBlockType4.h; path = ../../src/XMResponseContentBlockType4.h; sourceTree = "<group>"; };
+		8894A41E1A89F63800900366 /* XMResponseContentBlockType4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseContentBlockType4.m; path = ../../src/XMResponseContentBlockType4.m; sourceTree = "<group>"; };
+		8894A4231A89F6CB00900366 /* XMResponseContentBlockType6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseContentBlockType6.h; path = ../../src/XMResponseContentBlockType6.h; sourceTree = "<group>"; };
+		8894A4241A89F6CB00900366 /* XMResponseContentBlockType6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseContentBlockType6.m; path = ../../src/XMResponseContentBlockType6.m; sourceTree = "<group>"; };
+		8894A4261A89F71000900366 /* XMResponseContentBlockType7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseContentBlockType7.h; path = ../../src/XMResponseContentBlockType7.h; sourceTree = "<group>"; };
+		8894A4271A89F71000900366 /* XMResponseContentBlockType7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseContentBlockType7.m; path = ../../src/XMResponseContentBlockType7.m; sourceTree = "<group>"; };
+		8894A4291A89F74500900366 /* XMResponseContentBlockType8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseContentBlockType8.h; path = ../../src/XMResponseContentBlockType8.h; sourceTree = "<group>"; };
+		8894A42A1A89F74600900366 /* XMResponseContentBlockType8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseContentBlockType8.m; path = ../../src/XMResponseContentBlockType8.m; sourceTree = "<group>"; };
+		8894A42C1A89F7A000900366 /* XMResponseContentBlockType5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseContentBlockType5.h; path = ../../src/XMResponseContentBlockType5.h; sourceTree = "<group>"; };
+		8894A42D1A89F7A000900366 /* XMResponseContentBlockType5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseContentBlockType5.m; path = ../../src/XMResponseContentBlockType5.m; sourceTree = "<group>"; };
+		8894A42F1A8A078800900366 /* XMResponseStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseStyle.h; path = ../../src/XMResponseStyle.h; sourceTree = "<group>"; };
+		8894A4301A8A078800900366 /* XMResponseStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseStyle.m; path = ../../src/XMResponseStyle.m; sourceTree = "<group>"; };
+		8894A4321A8A07A100900366 /* XMResponseMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseMenuItem.h; path = ../../src/XMResponseMenuItem.h; sourceTree = "<group>"; };
+		8894A4331A8A07A100900366 /* XMResponseMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseMenuItem.m; path = ../../src/XMResponseMenuItem.m; sourceTree = "<group>"; };
 		889CDDBE1A8268A8006ADD83 /* XMResponseGetById.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseGetById.h; path = ../../src/XMResponseGetById.h; sourceTree = "<group>"; };
 		889CDDBF1A8268A8006ADD83 /* XMResponseGetById.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMResponseGetById.m; path = ../../src/XMResponseGetById.m; sourceTree = "<group>"; };
 		88E93FC41A83B51600955E39 /* XMResponseContentBlockType0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMResponseContentBlockType0.h; path = ../../src/XMResponseContentBlockType0.h; sourceTree = "<group>"; };
@@ -179,8 +209,20 @@
 				88E93FC51A83B51600955E39 /* XMResponseContentBlockType0.m */,
 				88E93FC71A83B88900955E39 /* XMResponseContentBlockType1.h */,
 				88E93FC81A83B88900955E39 /* XMResponseContentBlockType1.m */,
+				8894A41A1A89F50100900366 /* XMResponseContentBlockType2.h */,
+				8894A41B1A89F50100900366 /* XMResponseContentBlockType2.m */,
 				88E93FCA1A83B8AF00955E39 /* XMResponseContentBlockType3.h */,
 				88E93FCB1A83B8AF00955E39 /* XMResponseContentBlockType3.m */,
+				8894A41D1A89F63800900366 /* XMResponseContentBlockType4.h */,
+				8894A41E1A89F63800900366 /* XMResponseContentBlockType4.m */,
+				8894A42C1A89F7A000900366 /* XMResponseContentBlockType5.h */,
+				8894A42D1A89F7A000900366 /* XMResponseContentBlockType5.m */,
+				8894A4231A89F6CB00900366 /* XMResponseContentBlockType6.h */,
+				8894A4241A89F6CB00900366 /* XMResponseContentBlockType6.m */,
+				8894A4261A89F71000900366 /* XMResponseContentBlockType7.h */,
+				8894A4271A89F71000900366 /* XMResponseContentBlockType7.m */,
+				8894A4291A89F74500900366 /* XMResponseContentBlockType8.h */,
+				8894A42A1A89F74600900366 /* XMResponseContentBlockType8.m */,
 			);
 			name = XMResponseContentBlocks;
 			sourceTree = "<group>";
@@ -193,8 +235,16 @@
 				889CDDBF1A8268A8006ADD83 /* XMResponseGetById.m */,
 				88773E1D1A8391540051EDE4 /* XMResponseGetByLocationIdentifier.h */,
 				88773E1E1A8391540051EDE4 /* XMResponseGetByLocationIdentifier.m */,
+				881681FD1A8A20B700419B87 /* XMResponseGetByLocation.h */,
+				881681FE1A8A20B700419B87 /* XMResponseGetByLocation.m */,
 				88773E1A1A8380110051EDE4 /* XMResponseContent.h */,
 				88773E1B1A8380110051EDE4 /* XMResponseContent.m */,
+				8894A42F1A8A078800900366 /* XMResponseStyle.h */,
+				8894A4301A8A078800900366 /* XMResponseStyle.m */,
+				8894A4321A8A07A100900366 /* XMResponseMenuItem.h */,
+				8894A4331A8A07A100900366 /* XMResponseMenuItem.m */,
+				881682001A8A2AB000419B87 /* XMResponseGetByLocationItem.h */,
+				881682011A8A2AB000419B87 /* XMResponseGetByLocationItem.m */,
 			);
 			name = mapping;
 			sourceTree = "<group>";
@@ -345,13 +395,23 @@
 				8858D24C1A822513001B45D5 /* ViewController.m in Sources */,
 				88773E1F1A8391540051EDE4 /* XMResponseGetByLocationIdentifier.m in Sources */,
 				8858D2491A822513001B45D5 /* AppDelegate.m in Sources */,
+				8894A41F1A89F63800900366 /* XMResponseContentBlockType4.m in Sources */,
+				881681FF1A8A20B700419B87 /* XMResponseGetByLocation.m in Sources */,
 				88E93FC91A83B88900955E39 /* XMResponseContentBlockType1.m in Sources */,
+				8894A42E1A89F7A000900366 /* XMResponseContentBlockType5.m in Sources */,
 				8858D26C1A8225B1001B45D5 /* XMEnduserApi.m in Sources */,
 				88773E191A83771D0051EDE4 /* XMResponseContentBlock.m in Sources */,
 				8858D2461A822513001B45D5 /* main.m in Sources */,
+				8894A4341A8A07A100900366 /* XMResponseMenuItem.m in Sources */,
 				889CDDC01A8268A8006ADD83 /* XMResponseGetById.m in Sources */,
+				8894A42B1A89F74600900366 /* XMResponseContentBlockType8.m in Sources */,
+				8894A4311A8A078800900366 /* XMResponseStyle.m in Sources */,
 				88E93FC61A83B51600955E39 /* XMResponseContentBlockType0.m in Sources */,
+				8894A4281A89F71000900366 /* XMResponseContentBlockType7.m in Sources */,
+				881682021A8A2AB000419B87 /* XMResponseGetByLocationItem.m in Sources */,
 				88773E1C1A8380110051EDE4 /* XMResponseContent.m in Sources */,
+				8894A41C1A89F50100900366 /* XMResponseContentBlockType2.m in Sources */,
+				8894A4251A89F6CB00900366 /* XMResponseContentBlockType6.m in Sources */,
 				88E93FCC1A83B8AF00955E39 /* XMResponseContentBlockType3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

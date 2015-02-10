@@ -10,4 +10,14 @@
 
 @implementation XMResponseGetById
 
++ (RKObjectMapping*) getMapping
+{
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMResponseGetById class]];
+    [mapping addAttributeMappingsFromDictionary:@{@"system_name":@"systemName",
+                                                  @"system_url":@"systemUrl",
+                                                  @"system_id":@"systemId",
+                                                  }];
+    return mapping;
+}
+
 @end

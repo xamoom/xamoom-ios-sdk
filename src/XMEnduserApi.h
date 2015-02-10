@@ -20,27 +20,62 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "XMResponseContent.h"
-#import "XMResponseContentBlock.h"
+#import <RestKit/RestKit.h>
 #import "XMResponseGetById.h"
 #import "XMResponseGetByLocationIdentifier.h"
+#import "XMResponseGetByLocation.h"
+#import "XMResponseGetByLocationItem.h"
+#import "XMResponseStyle.h"
+#import "XMResponseMenuItem.h"
+#import "XMResponseContent.h"
+#import "XMResponseContentBlock.h"
 #import "XMResponseContentBlockType0.h"
 #import "XMResponseContentBlockType1.h"
+#import "XMResponseContentBlockType2.h"
 #import "XMResponseContentBlockType3.h"
+#import "XMResponseContentBlockType4.h"
+#import "XMResponseContentBlockType5.h"
+#import "XMResponseContentBlockType6.h"
+#import "XMResponseContentBlockType7.h"
+#import "XMResponseContentBlockType8.h"
 
 @interface XMEnduserApi : NSObject
 
-@property (nonatomic, strong) XMResponseGetById* responseData;
-
+- (id)init;
 
 #pragma mark public methods
 
-- (id)init;
-
+/**
+ Description
+ 
+ @param contentId - The id of the content from xamoom backend.
+ @param includeStyle - True or False for returning the style from xamoom backend.
+ @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param language - The requested language of the content from xamoom backend.
+ @return void
+ */
 - (void) getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
 
+/**
+ Description
+ 
+ @param contentId - The id of the content from xamoom backend.
+ @param includeStyle - True or False for returning the style from xamoom backend.
+ @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param language - The requested language of the content from xamoom backend.
+ @return void
+ */
 - (void) getContentByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
 
-- (NSString*) getContentByLocation:(NSString*)payload;
+/**
+ Description
+ 
+ @param contentId - The id of the content from xamoom backend.
+ @param includeStyle - True or False for returning the style from xamoom backend.
+ @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param language - The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void) getContentByLocation:(NSString*)lat lon:(NSString*)lon language:(NSString*)language;
 
 @end

@@ -9,12 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "XMResponseContent.h"
 
+@class XMResponseStyle;
+@class XMResponseMenuItem;
+
 @interface XMResponseGetByLocationIdentifier : NSObject
 
-@property (nonatomic, strong) NSString *systemName;
-@property (nonatomic, strong) XMResponseContent *content;
-@property (nonatomic, strong) NSString *systemUrl;
-@property (nonatomic, strong) NSString *hasContent;
-@property (nonatomic, strong) NSString *hasSpot;
+@property (nonatomic, copy) NSString *systemName;
+@property (nonatomic, copy) NSString *systemUrl;
+@property (nonatomic, copy) NSString *systemId;
+@property (nonatomic, copy) NSString *hasContent;
+@property (nonatomic, copy) NSString *hasSpot;
+@property (nonatomic) XMResponseContent *content;
+@property (nonatomic) XMResponseStyle *style;
+@property (nonatomic) NSArray *menu;
+
+
+
++ (RKObjectMapping*) getMapping;
 
 @end

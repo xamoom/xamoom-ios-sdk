@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMResponseContentBlock.h"
+#import "XMEnduserApi.h"
 
 @interface XMResponseContent : NSObject
 
@@ -17,5 +17,6 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic) NSArray *content_blocks;
 
++ (RKObjectMapping*) getMapping;
 
 @end

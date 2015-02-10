@@ -10,4 +10,9 @@
 
 @implementation XMResponseContentBlock
 
++ (RKObjectMapping *)getMapping
+{
+    return nil;
+}
+
 @end

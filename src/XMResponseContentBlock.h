@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RestKit/RestKit.h>
 
 @interface XMResponseContentBlock : NSObject
 
-@property (nonatomic, strong) NSString *publicStatus;
-@property (nonatomic, strong) NSString *contentBlockType;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *publicStatus;
+@property (nonatomic, copy) NSString *contentBlockType;
+
++ (RKObjectMapping*) getMapping;
 
 @end
