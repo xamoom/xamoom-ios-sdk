@@ -36,7 +36,7 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)testButtonPressed:(id)sender {
-    
+    [api initRestkitCoreData];
 }
 
 -(void)finishedLoadData {

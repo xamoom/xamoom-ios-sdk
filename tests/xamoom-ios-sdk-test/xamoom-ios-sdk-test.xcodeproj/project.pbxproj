@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		566E91503BB1B0F48D247BB1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 728C3857EE6764B458DAD8A6 /* libPods.a */; };
+		884A5ED41A8E02B20009B97F /* _XMMCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5EC51A8E02B20009B97F /* _XMMCoreData.m */; };
+		884A5ED51A8E02B20009B97F /* _XMMCoreDataGetById.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5EC71A8E02B20009B97F /* _XMMCoreDataGetById.m */; };
+		884A5ED61A8E02B20009B97F /* _XMMCoreDataMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5EC91A8E02B20009B97F /* _XMMCoreDataMenuItem.m */; };
+		884A5ED71A8E02B20009B97F /* _XMMCoreDataStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ECB1A8E02B20009B97F /* _XMMCoreDataStyle.m */; };
+		884A5ED81A8E02B20009B97F /* XMMCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ECD1A8E02B20009B97F /* XMMCoreData.m */; };
+		884A5ED91A8E02B20009B97F /* XMMCoreDataGetById.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ECF1A8E02B20009B97F /* XMMCoreDataGetById.m */; };
+		884A5EDA1A8E02B20009B97F /* XMMCoreDataMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ED11A8E02B20009B97F /* XMMCoreDataMenuItem.m */; };
+		884A5EDB1A8E02B20009B97F /* XMMCoreDataStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ED31A8E02B20009B97F /* XMMCoreDataStyle.m */; };
 		8858D2461A822513001B45D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2451A822513001B45D5 /* main.m */; };
 		8858D2491A822513001B45D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2481A822513001B45D5 /* AppDelegate.m */; };
 		8858D24C1A822513001B45D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D24B1A822513001B45D5 /* ViewController.m */; };
@@ -16,7 +24,7 @@
 		8858D2541A822513001B45D5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8858D2521A822513001B45D5 /* LaunchScreen.xib */; };
 		8858D2601A822513001B45D5 /* xamoom_ios_sdk_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D25F1A822513001B45D5 /* xamoom_ios_sdk_testTests.m */; };
 		8858D26C1A8225B1001B45D5 /* XMMEnduserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */; };
-		8885FCD31A8DEC1A006F6B4C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8885FCD11A8DEC1A006F6B4C /* Model.xcdatamodeld */; };
+		888075CE1A8DF349001E806B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 888075CC1A8DF349001E806B /* Model.xcdatamodeld */; };
 		8885FCEA1A8DEC8C006F6B4C /* XMMResponseContentBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885FCD51A8DEC8C006F6B4C /* XMMResponseContentBlock.m */; };
 		8885FCEB1A8DEC8C006F6B4C /* XMMResponseContentBlockType0.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885FCD71A8DEC8C006F6B4C /* XMMResponseContentBlockType0.m */; };
 		8885FCEC1A8DEC8C006F6B4C /* XMMResponseContentBlockType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885FCD91A8DEC8C006F6B4C /* XMMResponseContentBlockType1.m */; };
@@ -49,6 +57,22 @@
 
 /* Begin PBXFileReference section */
 		728C3857EE6764B458DAD8A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		884A5EC41A8E02B20009B97F /* _XMMCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _XMMCoreData.h; path = ../../src/coredata/_XMMCoreData.h; sourceTree = "<group>"; };
+		884A5EC51A8E02B20009B97F /* _XMMCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _XMMCoreData.m; path = ../../src/coredata/_XMMCoreData.m; sourceTree = "<group>"; };
+		884A5EC61A8E02B20009B97F /* _XMMCoreDataGetById.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _XMMCoreDataGetById.h; path = ../../src/coredata/_XMMCoreDataGetById.h; sourceTree = "<group>"; };
+		884A5EC71A8E02B20009B97F /* _XMMCoreDataGetById.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _XMMCoreDataGetById.m; path = ../../src/coredata/_XMMCoreDataGetById.m; sourceTree = "<group>"; };
+		884A5EC81A8E02B20009B97F /* _XMMCoreDataMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _XMMCoreDataMenuItem.h; path = ../../src/coredata/_XMMCoreDataMenuItem.h; sourceTree = "<group>"; };
+		884A5EC91A8E02B20009B97F /* _XMMCoreDataMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _XMMCoreDataMenuItem.m; path = ../../src/coredata/_XMMCoreDataMenuItem.m; sourceTree = "<group>"; };
+		884A5ECA1A8E02B20009B97F /* _XMMCoreDataStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _XMMCoreDataStyle.h; path = ../../src/coredata/_XMMCoreDataStyle.h; sourceTree = "<group>"; };
+		884A5ECB1A8E02B20009B97F /* _XMMCoreDataStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _XMMCoreDataStyle.m; path = ../../src/coredata/_XMMCoreDataStyle.m; sourceTree = "<group>"; };
+		884A5ECC1A8E02B20009B97F /* XMMCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreData.h; path = ../../src/coredata/XMMCoreData.h; sourceTree = "<group>"; };
+		884A5ECD1A8E02B20009B97F /* XMMCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCoreData.m; path = ../../src/coredata/XMMCoreData.m; sourceTree = "<group>"; };
+		884A5ECE1A8E02B20009B97F /* XMMCoreDataGetById.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataGetById.h; path = ../../src/coredata/XMMCoreDataGetById.h; sourceTree = "<group>"; };
+		884A5ECF1A8E02B20009B97F /* XMMCoreDataGetById.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCoreDataGetById.m; path = ../../src/coredata/XMMCoreDataGetById.m; sourceTree = "<group>"; };
+		884A5ED01A8E02B20009B97F /* XMMCoreDataMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataMenuItem.h; path = ../../src/coredata/XMMCoreDataMenuItem.h; sourceTree = "<group>"; };
+		884A5ED11A8E02B20009B97F /* XMMCoreDataMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCoreDataMenuItem.m; path = ../../src/coredata/XMMCoreDataMenuItem.m; sourceTree = "<group>"; };
+		884A5ED21A8E02B20009B97F /* XMMCoreDataStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataStyle.h; path = ../../src/coredata/XMMCoreDataStyle.h; sourceTree = "<group>"; };
+		884A5ED31A8E02B20009B97F /* XMMCoreDataStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCoreDataStyle.m; path = ../../src/coredata/XMMCoreDataStyle.m; sourceTree = "<group>"; };
 		8858D2401A822513001B45D5 /* xamoom-ios-sdk-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xamoom-ios-sdk-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8858D2441A822513001B45D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8858D2451A822513001B45D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,7 +88,7 @@
 		8858D25F1A822513001B45D5 /* xamoom_ios_sdk_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xamoom_ios_sdk_testTests.m; sourceTree = "<group>"; };
 		8858D26A1A8225B1001B45D5 /* XMMEnduserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMEnduserApi.h; path = ../../src/XMMEnduserApi.h; sourceTree = "<group>"; };
 		8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMEnduserApi.m; path = ../../src/XMMEnduserApi.m; sourceTree = "<group>"; };
-		8885FCD21A8DEC1A006F6B4C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		888075CD1A8DF349001E806B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8885FCD41A8DEC8C006F6B4C /* XMMResponseContentBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseContentBlock.h; path = ../../src/mapping/XMMResponseContentBlock.h; sourceTree = "<group>"; };
 		8885FCD51A8DEC8C006F6B4C /* XMMResponseContentBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseContentBlock.m; path = ../../src/mapping/XMMResponseContentBlock.m; sourceTree = "<group>"; };
 		8885FCD61A8DEC8C006F6B4C /* XMMResponseContentBlockType0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseContentBlockType0.h; path = ../../src/mapping/XMMResponseContentBlockType0.h; sourceTree = "<group>"; };
@@ -209,7 +233,23 @@
 		8885FCD01A8DEBFE006F6B4C /* coredata */ = {
 			isa = PBXGroup;
 			children = (
-				8885FCD11A8DEC1A006F6B4C /* Model.xcdatamodeld */,
+				888075CC1A8DF349001E806B /* Model.xcdatamodeld */,
+				884A5EC41A8E02B20009B97F /* _XMMCoreData.h */,
+				884A5EC51A8E02B20009B97F /* _XMMCoreData.m */,
+				884A5EC61A8E02B20009B97F /* _XMMCoreDataGetById.h */,
+				884A5EC71A8E02B20009B97F /* _XMMCoreDataGetById.m */,
+				884A5EC81A8E02B20009B97F /* _XMMCoreDataMenuItem.h */,
+				884A5EC91A8E02B20009B97F /* _XMMCoreDataMenuItem.m */,
+				884A5ECA1A8E02B20009B97F /* _XMMCoreDataStyle.h */,
+				884A5ECB1A8E02B20009B97F /* _XMMCoreDataStyle.m */,
+				884A5ECC1A8E02B20009B97F /* XMMCoreData.h */,
+				884A5ECD1A8E02B20009B97F /* XMMCoreData.m */,
+				884A5ECE1A8E02B20009B97F /* XMMCoreDataGetById.h */,
+				884A5ECF1A8E02B20009B97F /* XMMCoreDataGetById.m */,
+				884A5ED01A8E02B20009B97F /* XMMCoreDataMenuItem.h */,
+				884A5ED11A8E02B20009B97F /* XMMCoreDataMenuItem.m */,
+				884A5ED21A8E02B20009B97F /* XMMCoreDataStyle.h */,
+				884A5ED31A8E02B20009B97F /* XMMCoreDataStyle.m */,
 			);
 			name = coredata;
 			sourceTree = "<group>";
@@ -409,26 +449,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				8885FCEB1A8DEC8C006F6B4C /* XMMResponseContentBlockType0.m in Sources */,
+				888075CE1A8DF349001E806B /* Model.xcdatamodeld in Sources */,
 				8885FCF01A8DEC8C006F6B4C /* XMMResponseContentBlockType5.m in Sources */,
 				8885FD031A8DEC9B006F6B4C /* XMMResponseContent.m in Sources */,
+				884A5ED91A8E02B20009B97F /* XMMCoreDataGetById.m in Sources */,
 				8885FCEF1A8DEC8C006F6B4C /* XMMResponseContentBlockType4.m in Sources */,
 				8885FCED1A8DEC8C006F6B4C /* XMMResponseContentBlockType2.m in Sources */,
+				884A5EDB1A8E02B20009B97F /* XMMCoreDataStyle.m in Sources */,
 				8858D24C1A822513001B45D5 /* ViewController.m in Sources */,
-				8885FCD31A8DEC1A006F6B4C /* Model.xcdatamodeld in Sources */,
 				8858D2491A822513001B45D5 /* AppDelegate.m in Sources */,
 				8885FD041A8DEC9B006F6B4C /* XMMResponseGetById.m in Sources */,
 				8885FD061A8DEC9B006F6B4C /* XMMResponseGetByLocationIdentifier.m in Sources */,
 				8885FD071A8DEC9B006F6B4C /* XMMResponseGetByLocationItem.m in Sources */,
 				8885FCF31A8DEC8C006F6B4C /* XMMResponseContentBlockType8.m in Sources */,
 				8885FCF21A8DEC8C006F6B4C /* XMMResponseContentBlockType7.m in Sources */,
+				884A5ED61A8E02B20009B97F /* _XMMCoreDataMenuItem.m in Sources */,
 				8885FD051A8DEC9B006F6B4C /* XMMResponseGetByLocation.m in Sources */,
+				884A5ED51A8E02B20009B97F /* _XMMCoreDataGetById.m in Sources */,
 				8885FCEA1A8DEC8C006F6B4C /* XMMResponseContentBlock.m in Sources */,
 				8885FCEC1A8DEC8C006F6B4C /* XMMResponseContentBlockType1.m in Sources */,
+				884A5ED71A8E02B20009B97F /* _XMMCoreDataStyle.m in Sources */,
 				8885FCEE1A8DEC8C006F6B4C /* XMMResponseContentBlockType3.m in Sources */,
+				884A5EDA1A8E02B20009B97F /* XMMCoreDataMenuItem.m in Sources */,
 				8885FD081A8DEC9B006F6B4C /* XMMResponseMenuItem.m in Sources */,
 				8858D26C1A8225B1001B45D5 /* XMMEnduserApi.m in Sources */,
 				8885FCF41A8DEC8C006F6B4C /* XMMResponseContentBlockType9.m in Sources */,
 				8858D2461A822513001B45D5 /* main.m in Sources */,
+				884A5ED41A8E02B20009B97F /* _XMMCoreData.m in Sources */,
+				884A5ED81A8E02B20009B97F /* XMMCoreData.m in Sources */,
 				8885FD091A8DEC9B006F6B4C /* XMMResponseStyle.m in Sources */,
 				8885FCF11A8DEC8C006F6B4C /* XMMResponseContentBlockType6.m in Sources */,
 			);
@@ -641,13 +689,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8885FCD11A8DEC1A006F6B4C /* Model.xcdatamodeld */ = {
+		888075CC1A8DF349001E806B /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8885FCD21A8DEC1A006F6B4C /* Model.xcdatamodel */,
+				888075CD1A8DF349001E806B /* Model.xcdatamodel */,
 			);
-			currentVersion = 8885FCD21A8DEC1A006F6B4C /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			currentVersion = 888075CD1A8DF349001E806B /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../../src/coredata/Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

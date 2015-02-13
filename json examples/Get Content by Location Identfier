@@ -1,0 +1,57 @@
+0 - REQUEST: POST - https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/xamoomEndUserApi/v1/get_content_by_location_identifier
+0 - Get Content by Location identifier: 200
+{
+ "system_name": "Projekt Ingeborg",
+ "has_content": "True",
+ "content": {
+  "content_blocks": [
+   {
+    "text": "\u003cp\u003eLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\u003cbr\u003e\u003c/p\u003e",
+    "public": "True",
+    "content_block_type": "0"
+   },
+   {
+    "soundcloud_url": "https://soundcloud.com/littlesimz",
+    "public": "True",
+    "content_block_type": "7"
+   },
+   {
+    "youtube_url": "https://www.youtube.com/watch?v=VEr1XhujtL0",
+    "public": "True",
+    "content_block_type": "2"
+   },
+   {
+    "text": "\u003cp\u003eLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\u003c/p\u003e\u003cp\u003eLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\u003cbr\u003e\u003c/p\u003e",
+    "public": "True",
+    "content_block_type": "0"
+   },
+   {
+    "content_id": "a3911e54085c427d95e1243844bd6aa3",
+    "public": "True",
+    "content_block_type": "6"
+   },
+   {
+    "content_id": "2c54a044f54b4b488b9aec2a10ba3f37",
+    "public": "True",
+    "content_block_type": "6"
+   },
+   {
+    "content_id": "e2fded985b524081a00f4a3b9a6707db",
+    "public": "True",
+    "content_block_type": "6"
+   }
+  ],
+  "image_public_url": "https://storage.googleapis.com/xamoom-files-dev/00ad037ec8144177ba08c8a67cf76d6e.jpg?v=0f268173dcec0c2a3787927f6c0cfa59d737554312db9ce68fa4d19dc12fe7fd522eb4ae42cf648f44decbaa71cc71426fa68227b7a7a6a0d0b50927d4bffeb8",
+  "description": "klsajfklöasj döfasjd lökasdjfölkasjd ölfjsd öflsdajf lkasdjfölksadj",
+  "language": "de",
+  "title": "Auto"
+ },
+ "system_id": "6588702901927936",
+ "has_spot": "True",
+ "system_url": "http://pingeb.org",
+ "kind": "xamoomEndUserApi#enduserItem",
+ "etag": "\"iUaPW-LRPEgeXJaF6k3vBTmdVRg/oxEnWYUDwckzjEVtXb7mTswXQ4o\""
+}
+
+
+

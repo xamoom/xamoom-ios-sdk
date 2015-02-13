@@ -27,6 +27,8 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 @implementation XMMEnduserApi : NSObject
 
 NSURL *baseURL;
+RKManagedObjectStore *managedObjectStore;
+NSArray* articles;
 
 @synthesize delegate;
 
@@ -49,7 +51,7 @@ NSURL *baseURL;
     RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
     
     RKObjectMapping* responseMapping = [XMMResponseGetById getMapping];
-    RKObjectMapping* responseContentMapping = [XMResponseContent getMapping];
+    RKObjectMapping* responseContentMapping = [XMMResponseContent getMapping];
     RKObjectMapping* responseStyleMapping = [XMMResponseStyle getMapping];
     RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem getMapping];
     
@@ -100,7 +102,7 @@ NSURL *baseURL;
     RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
     
     RKObjectMapping* responseMapping = [XMMResponseGetByLocationIdentifier getMapping];
-    RKObjectMapping* responseContentMapping = [XMResponseContent getMapping];
+    RKObjectMapping* responseContentMapping = [XMMResponseContent getMapping];
     RKObjectMapping* responseStyleMapping = [XMMResponseStyle getMapping];
     RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem getMapping];
     
@@ -142,9 +144,9 @@ NSURL *baseURL;
 - (void)getContentByLocation:(NSString*)lat lon:(NSString*)lon language:(NSString*)language
 {
     NSDictionary *queryParams = @{@"location":
-                                    @{@"lat":lat,
-                                      @"lon":lon,
-                                      },
+                                      @{@"lat":lat,
+                                        @"lon":lon,
+                                        },
                                   @"language":language,
                                   };
     
@@ -183,6 +185,119 @@ NSURL *baseURL;
                     NSLog(@"Error: %@", error);
                 }
      ];
+}
+
+- (void)getContentByIdToCoreData:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)Menu language:(NSString *)language
+{
+    
+}
+
+- (void)initRestkitCoreData
+{
+    // Initialize RestKit
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:baseURL];
+    
+    // Initialize managed object model from bundle
+    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    // Initialize managed object store
+    managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    objectManager.managedObjectStore = managedObjectStore;
+    
+    
+    // Complete Core Data stack initialization
+    [managedObjectStore createPersistentStoreCoordinator];
+    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"XMMCoreData.sqlite"];
+    NSString *seedPath = [[NSBundle mainBundle] pathForResource:@"RKSeedDatabase" ofType:@"sqlite"];
+    NSError *error;
+    NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:seedPath withConfiguration:nil options:nil error:&error];
+    NSAssert(persistentStore, @"Failed to add persistent store with error: %@", error);
+    
+    // Create the managed object contexts
+    [managedObjectStore createManagedObjectContexts];
+    
+    // Configure a managed object cache to ensure we do not create duplicate objects
+    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
+    
+    RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:managedObjectStore];
+    [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreData getMapping]];
+    
+    RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:managedObjectStore];
+    [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
+    
+    RKEntityMapping *coreDataMenuMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataMenuItem" inManagedObjectStore:managedObjectStore];
+    [coreDataMenuMapping addAttributeMappingsFromDictionary:[XMMCoreDataMenuItem getMapping]];
+    
+    
+    
+    [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
+                                                                                    toKeyPath:@"style"
+                                                                                  withMapping:coreDataStyleMapping]];
+    
+    [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
+                                                                                    toKeyPath:@"menu"
+                                                                                  withMapping:coreDataMenuMapping]];
+    
+    RKResponseDescriptor *coreDataGetByIdResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:coreDataMapping
+                                                                                                       method:RKRequestMethodPOST
+                                                                                                  pathPattern:nil
+                                                                                                      keyPath:nil
+                                                                                                  statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)
+                                                           ];
+    
+    [objectManager addResponseDescriptor:coreDataGetByIdResponseDescriptor];
+    
+    // Enable Activity Indicator Spinner
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    [self requestData];
+}
+
+- (void)requestData {
+    
+    NSLog(@"requestData");
+    
+    NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id";
+    NSDictionary *queryParams = @{@"content_id":@"a3911e54085c427d95e1243844bd6aa3",
+                                  @"include_style":@"True",
+                                  @"include_menu":@"True",
+                                  @"language":@"de",
+                                  };
+    
+    
+    [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
+    [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
+                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                    NSLog(@"Output: %@", mappingResult.firstObject);
+                    self.apiResult = mappingResult.firstObject;
+                    [delegate performSelector:@selector(finishedLoadData)];
+                    [self fetchArticlesFromContext];
+                }
+                failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                    NSLog(@"Error: %@", error);
+                }
+     ];
+}
+
+- (void)fetchArticlesFromContext {
+    
+    NSLog(@"fetchArticlesFromContext");
+    
+    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
+    
+    //NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
+    //fetchRequest.sortDescriptors = @[descriptor];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    NSLog(@"Output fetch: %@", fetchedObjects.firstObject);
+    
+    //HIER
+    test = [fetchedObjects firstObject];
+    NSLog(@"Output test: %@", test);
+    //self.articles = [articleList.articles allObjects];
+    
 }
 
 @end

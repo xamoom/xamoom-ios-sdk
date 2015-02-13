@@ -20,6 +20,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import <RestKit/RestKit.h>
 #import "XMMResponseGetById.h"
 #import "XMMResponseGetByLocationIdentifier.h"
@@ -40,6 +41,12 @@
 #import "XMMResponseContentBlockType8.h"
 #import "XMMResponseContentBlockType9.h"
 
+//Core Data
+#import "XMMCoreData.h"
+#import "XMMCoreDataGetById.h"
+#import "XMMCoreDataStyle.h"
+#import "XMMCoreDataMenuItem.h"
+
 @protocol XMEnderuserApiDelegate <NSObject>
 
 - (void) finishedLoadData;
@@ -51,7 +58,7 @@
 @property (nonatomic, strong) RKMappingResult *apiResult;
 @property (nonatomic, assign) id<XMEnderuserApiDelegate> delegate;
 
-- (id)init;
+-(id)init;
 
 #pragma mark public methods
 
@@ -64,7 +71,7 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void) getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
+- (void)getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
 
 /**
  Description
@@ -75,7 +82,7 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void) getContentByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
+- (void)getContentByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
 
 /**
  Description
@@ -86,6 +93,17 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void) getContentByLocation:(NSString*)lat lon:(NSString*)lon language:(NSString*)language;
+- (void)getContentByLocation:(NSString*)lat lon:(NSString*)lon language:(NSString*)language;
+
+/**
+ Description
+ 
+ @param contentId - The id of the content from xamoom backend.
+ @param includeStyle - True or False for returning the style from xamoom backend.
+ @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param language - The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void)initRestkitCoreData;
 
 @end
