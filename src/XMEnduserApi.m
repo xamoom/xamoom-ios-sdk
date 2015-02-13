@@ -24,10 +24,11 @@
 
 static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 
-
 @implementation XMEnduserApi : NSObject
 
 NSURL *baseURL;
+
+@synthesize delegate;
 
 -(id)init
 {
@@ -36,7 +37,7 @@ NSURL *baseURL;
     return self;
 }
 
-- (void) getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language
+- (void)getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language
 {
     NSDictionary *queryParams = @{@"content_id":contentId,
                                   @"include_style":style,
@@ -87,7 +88,7 @@ NSURL *baseURL;
            withpath:@"xamoomEndUserApi/v1/get_content_by_content_id"];
 }
 
-- (void) getContentByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu language:(NSString*)language
+- (void)getContentByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu language:(NSString*)language
 {
     NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
                                   @"include_style":style,
@@ -138,7 +139,7 @@ NSURL *baseURL;
            withpath:@"xamoomEndUserApi/v1/get_content_by_location_identifier"];
 }
 
-- (void) getContentByLocation:(NSString*)lat lon:(NSString*)lon language:(NSString*)language
+- (void)getContentByLocation:(NSString*)lat lon:(NSString*)lon language:(NSString*)language
 {
     NSDictionary *queryParams = @{@"location":
                                     @{@"lat":lat,
@@ -162,7 +163,7 @@ NSURL *baseURL;
     
 }
 
-- (void) talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path
+- (void)talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path
 {
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
     RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:objectMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
@@ -175,6 +176,8 @@ NSURL *baseURL;
     [manager postObject:nil path:path parameters:parameters
                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                     NSLog(@"Output: %@", mappingResult.firstObject);
+                    self.apiResult = mappingResult.firstObject;
+                    [delegate performSelector:@selector(finishedLoadData)];
                 }
                 failure:^(RKObjectRequestOperation *operation, NSError *error) {
                     NSLog(@"Error: %@", error);

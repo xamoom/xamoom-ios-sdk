@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMEnduserApi.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <XMEnderuserApiDelegate>
 
 - (IBAction)testButtonPressed:(id)sender;
 

@@ -40,7 +40,16 @@
 #import "XMResponseContentBlockType8.h"
 #import "XMResponseContentBlockType9.h"
 
+@protocol XMEnderuserApiDelegate <NSObject>
+
+- (void) finishedLoadData;
+
+@end
+
 @interface XMEnduserApi : NSObject
+
+@property (nonatomic, strong) RKMappingResult *apiResult;
+@property (nonatomic, assign) id<XMEnderuserApiDelegate> delegate;
 
 - (id)init;
 
