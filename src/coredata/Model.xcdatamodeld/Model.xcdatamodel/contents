@@ -26,6 +26,7 @@
         <relationship name="contentBlockType5" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType5" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType5" syncable="YES"/>
         <relationship name="contentBlockType6" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType6" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType6" syncable="YES"/>
         <relationship name="contentBlockType7" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType7" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType7" syncable="YES"/>
+        <relationship name="contentBlockType8" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType8" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType8" syncable="YES"/>
     </entity>
     <entity name="XMMCoreDataContentBlockType0" representedClassName="XMMCoreDataContentBlockType0" parentEntity="XMMCoreDataContentBlocks" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -63,6 +64,12 @@
         <attribute name="soundcloudUrl" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contentBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" inverseName="contentBlockType7" inverseEntity="XMMCoreDataContentBlocks" syncable="YES"/>
     </entity>
+    <entity name="XMMCoreDataContentBlockType8" representedClassName="XMMCoreDataContentBlockType8" parentEntity="XMMCoreDataContentBlocks" syncable="YES">
+        <attribute name="downloadType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contentBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" inverseName="contentBlockType8" inverseEntity="XMMCoreDataContentBlocks" syncable="YES"/>
+    </entity>
     <entity name="XMMCoreDataGetById" representedClassName="XMMCoreDataGetById" parentEntity="XMMCoreData" syncable="YES">
         <relationship name="content" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContent" inverseName="coreDataGetById" inverseEntity="XMMCoreDataContent" syncable="YES"/>
         <relationship name="menu" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XMMCoreDataMenuItem" inverseName="coreDataGetById" inverseEntity="XMMCoreDataMenuItem" syncable="YES"/>
@@ -85,7 +92,7 @@
     <elements>
         <element name="XMMCoreData" positionX="-1287" positionY="-13057" width="128" height="88"/>
         <element name="XMMCoreDataContent" positionX="-1478" positionY="-12816" width="128" height="133"/>
-        <element name="XMMCoreDataContentBlocks" positionX="-1746" positionY="-12789" width="189" height="28"/>
+        <element name="XMMCoreDataContentBlocks" positionX="-1746" positionY="-12789" width="189" height="238"/>
         <element name="XMMCoreDataContentBlockType0" positionX="-1674" positionY="-12996" width="243" height="73"/>
         <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12760" width="128" height="88"/>
         <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="88"/>
@@ -97,5 +104,6 @@
         <element name="XMMCoreDataContentBlockType5" positionX="-1611" positionY="-12735" width="128" height="30"/>
         <element name="XMMCoreDataContentBlockType6" positionX="-1602" positionY="-12726" width="128" height="30"/>
         <element name="XMMCoreDataContentBlockType7" positionX="-1593" positionY="-12717" width="128" height="75"/>
+        <element name="XMMCoreDataContentBlockType8" positionX="-1728" positionY="-12906" width="128" height="103"/>
     </elements>
 </model>

@@ -255,6 +255,9 @@ NSArray* articles;
     RKEntityMapping *coreDataContentBlockType7Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType7" inManagedObjectStore:managedObjectStore];
     [coreDataContentBlockType7Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType7 getMapping]];
     
+    RKEntityMapping *coreDataContentBlockType8Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType8"  inManagedObjectStore:managedObjectStore];
+    [coreDataContentBlockType8Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType8 getMapping]];
+    
     //dynamic mapping
     [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                             expectedValue:@"0"
@@ -287,6 +290,10 @@ NSArray* articles;
     [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                              expectedValue:@"7"
                                                              objectMapping:coreDataContentBlockType7Mapping]];
+    
+    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                             expectedValue:@"8"
+                                                             objectMapping:coreDataContentBlockType8Mapping]];
     
     //relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
