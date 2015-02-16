@@ -19,6 +19,8 @@
  *
  */
 
+#pragma mark imports
+
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <RestKit/RestKit.h>
@@ -62,11 +64,15 @@
 #import "XMMCoreDataGetByLocation.h"
 #import "XMMCoreDataGetByLocationItem.h"
 
+#pragma mark - Protocol / Delegate
+
 @protocol XMEnderuserApiDelegate <NSObject>
 
-- (void)finishedLoadData;
+- (void)finishedLoadData:(RKMappingResult*)results;
 
 @end
+
+#pragma mark - XMMEnduserApi
 
 @interface XMMEnduserApi : NSObject
 
@@ -75,7 +81,7 @@
 
 -(id)init;
 
-#pragma mark public methods
+#pragma mark - public methods
 
 /**
  Description

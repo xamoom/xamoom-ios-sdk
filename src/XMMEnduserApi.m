@@ -180,7 +180,7 @@ NSArray* articles;
                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                     NSLog(@"Output: %@", mappingResult.firstObject);
                     self.apiResult = mappingResult.firstObject;
-                    [delegate performSelector:@selector(finishedLoadData)];
+                    [delegate performSelector:@selector(finishedLoadData:) withObject: mappingResult];
                 }
                 failure:^(RKObjectRequestOperation *operation, NSError *error) {
                     NSLog(@"Error: %@", error);
