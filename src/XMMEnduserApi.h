@@ -58,6 +58,9 @@
 #import "XMMCoreDataContentBlockType7.h"
 #import "XMMCoreDataContentBlockType8.h"
 #import "XMMCoreDataContentBlockType9.h"
+#import "XMMCoreDataGetByLocationIdentifier.h"
+#import "XMMCoreDataGetByLocation.h"
+#import "XMMCoreDataGetByLocationItem.h"
 
 @protocol XMEnderuserApiDelegate <NSObject>
 
@@ -127,6 +130,39 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void)requestData;
+- (void)getContentByIdFromCoreData:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language;
+
+/**
+ Description
+ 
+ @param contentId - The id of the content from xamoom backend.
+ @param includeStyle - True or False for returning the style from xamoom backend.
+ @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param language - The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void)getContentByLocationIdentifierFromCoreData:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language;
+
+/**
+ Description
+ 
+ @param contentId - The id of the content from xamoom backend.
+ @param includeStyle - True or False for returning the style from xamoom backend.
+ @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param language - The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void)getContentByLocationFromCoreData:(NSString *)lat lon:(NSString *)lon language:(NSString *)language;
+
+/**
+ Description
+ 
+ @param contentId - The id of the content from xamoom backend.
+ @param includeStyle - True or False for returning the style from xamoom backend.
+ @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param language - The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void)fetchCoreDataContentBy:(NSString *)entityName;
 
 @end

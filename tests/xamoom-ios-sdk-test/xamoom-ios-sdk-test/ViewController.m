@@ -21,12 +21,12 @@ XMMEnduserApi *api;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
     
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
     [api initRestkitCoreData];
-    //[api getContentById:@"c1b98a0a44994d12876b2b4a0520d0b3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    //[api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
     //[api getContentByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
     //[api getContentByLocation:@"46.61505684231224" lon:@"14.2624694108963" language:@"de"];
 }
@@ -38,7 +38,9 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)testButtonPressed:(id)sender {
-    [api requestData];
+    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationFromCoreData:@"46.61505684231224" lon:@"14.2624694108963" language:@"de"];
 }
 
 -(void)finishedLoadData {

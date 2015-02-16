@@ -80,6 +80,31 @@
         <relationship name="menu" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XMMCoreDataMenuItem" inverseName="coreDataGetById" inverseEntity="XMMCoreDataMenuItem" syncable="YES"/>
         <relationship name="style" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataStyle" inverseName="coreDataGetById" inverseEntity="XMMCoreDataStyle" syncable="YES"/>
     </entity>
+    <entity name="XMMCoreDataGetByLocation" representedClassName="XMMCoreDataGetByLocation" syncable="YES">
+        <attribute name="kind" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XMMCoreDataGetByLocationItem" inverseName="coreDataGetByLocation" inverseEntity="XMMCoreDataGetByLocationItem" syncable="YES"/>
+    </entity>
+    <entity name="XMMCoreDataGetByLocationIdentifier" representedClassName="XMMCoreDataGetByLocationIdentifier" parentEntity="XMMCoreData" syncable="YES">
+        <attribute name="hasContent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasSpot" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="content" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContent" syncable="YES"/>
+        <relationship name="menu" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataMenuItem" syncable="YES"/>
+        <relationship name="style" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataStyle" syncable="YES"/>
+    </entity>
+    <entity name="XMMCoreDataGetByLocationItem" representedClassName="XMMCoreDataGetByLocationItem" parentEntity="XMMCoreData" syncable="YES">
+        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionOfContent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foregroundFontColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="highlightFontColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePublicUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="coreDataGetByLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataGetByLocation" inverseName="items" inverseEntity="XMMCoreDataGetByLocation" syncable="YES"/>
+    </entity>
     <entity name="XMMCoreDataMenuItem" representedClassName="XMMCoreDataMenuItem" syncable="YES">
         <attribute name="contentId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itemLabel" optional="YES" attributeType="String" syncable="YES"/>
@@ -97,19 +122,22 @@
     <elements>
         <element name="XMMCoreData" positionX="-1287" positionY="-13057" width="128" height="88"/>
         <element name="XMMCoreDataContent" positionX="-1478" positionY="-12816" width="128" height="133"/>
-        <element name="XMMCoreDataContentBlocks" positionX="-1746" positionY="-12789" width="189" height="28"/>
-        <element name="XMMCoreDataContentBlockType0" positionX="-1674" positionY="-12996" width="243" height="73"/>
-        <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12760" width="128" height="88"/>
-        <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="88"/>
-        <element name="XMMCoreDataStyle" positionX="-1163" positionY="-12618" width="128" height="148"/>
+        <element name="XMMCoreDataContentBlocks" positionX="-1953" positionY="-12609" width="189" height="28"/>
+        <element name="XMMCoreDataContentBlockType0" positionX="-1683" positionY="-12952" width="243" height="73"/>
         <element name="XMMCoreDataContentBlockType1" positionX="-1937" positionY="-12960" width="218" height="88"/>
-        <element name="XMMCoreDataContentBlockType2" positionX="-1638" positionY="-12771" width="128" height="73"/>
-        <element name="XMMCoreDataContentBlockType3" positionX="-1629" positionY="-12753" width="128" height="30"/>
-        <element name="XMMCoreDataContentBlockType4" positionX="-1620" positionY="-12744" width="128" height="30"/>
-        <element name="XMMCoreDataContentBlockType5" positionX="-1611" positionY="-12735" width="128" height="30"/>
-        <element name="XMMCoreDataContentBlockType6" positionX="-1602" positionY="-12726" width="128" height="30"/>
-        <element name="XMMCoreDataContentBlockType7" positionX="-1593" positionY="-12717" width="128" height="75"/>
-        <element name="XMMCoreDataContentBlockType8" positionX="-1728" positionY="-12906" width="128" height="103"/>
-        <element name="XMMCoreDataContentBlockType9" positionX="-1638" positionY="-12762" width="128" height="30"/>
+        <element name="XMMCoreDataContentBlockType2" positionX="-1710" positionY="-12654" width="128" height="73"/>
+        <element name="XMMCoreDataContentBlockType3" positionX="-1836" positionY="-12396" width="128" height="30"/>
+        <element name="XMMCoreDataContentBlockType4" positionX="-1586" positionY="-12504" width="128" height="30"/>
+        <element name="XMMCoreDataContentBlockType5" positionX="-1721" positionY="-12513" width="128" height="30"/>
+        <element name="XMMCoreDataContentBlockType6" positionX="-1505" positionY="-12432" width="128" height="30"/>
+        <element name="XMMCoreDataContentBlockType7" positionX="-1937" positionY="-12501" width="128" height="75"/>
+        <element name="XMMCoreDataContentBlockType8" positionX="-1640" positionY="-12829" width="128" height="103"/>
+        <element name="XMMCoreDataContentBlockType9" positionX="-1683" positionY="-12441" width="128" height="30"/>
+        <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12877" width="128" height="88"/>
+        <element name="XMMCoreDataGetByLocationItem" positionX="-819" positionY="-13165" width="243" height="223"/>
+        <element name="XMMCoreDataGetByLocationIdentifier" positionX="-947" positionY="-12781" width="128" height="28"/>
+        <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="88"/>
+        <element name="XMMCoreDataStyle" positionX="-1089" positionY="-12600" width="128" height="148"/>
+        <element name="XMMCoreDataGetByLocation" positionX="-1046" positionY="-13023" width="128" height="73"/>
     </elements>
 </model>
