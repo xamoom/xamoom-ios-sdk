@@ -10,7 +10,7 @@ extern const struct XMMCoreDataGetByIdRelationships {
 	__unsafe_unretained NSString *style;
 } XMMCoreDataGetByIdRelationships;
 
-@class NSManagedObject;
+@class XMMCoreDataContent;
 @class XMMCoreDataMenuItem;
 @class XMMCoreDataStyle;
 
@@ -23,7 +23,7 @@ extern const struct XMMCoreDataGetByIdRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataGetByIdID* objectID;
 
-@property (nonatomic, strong) NSManagedObject *content;
+@property (nonatomic, strong) XMMCoreDataContent *content;
 
 //- (BOOL)validateContent:(id*)value_ error:(NSError**)error_;
 
@@ -47,8 +47,8 @@ extern const struct XMMCoreDataGetByIdRelationships {
 
 @interface _XMMCoreDataGetById (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSManagedObject*)primitiveContent;
-- (void)setPrimitiveContent:(NSManagedObject*)value;
+- (XMMCoreDataContent*)primitiveContent;
+- (void)setPrimitiveContent:(XMMCoreDataContent*)value;
 
 - (NSMutableSet*)primitiveMenu;
 - (void)setPrimitiveMenu:(NSMutableSet*)value;
