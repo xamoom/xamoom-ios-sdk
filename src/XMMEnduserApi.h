@@ -55,6 +55,7 @@
 #import "XMMCoreDataContentBlockType4.h"
 #import "XMMCoreDataContentBlockType5.h"
 #import "XMMCoreDataContentBlockType6.h"
+#import "XMMCoreDataContentBlockType7.h"
 
 @protocol XMEnderuserApiDelegate <NSObject>
 

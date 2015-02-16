@@ -249,6 +249,12 @@ NSArray* articles;
     RKEntityMapping *coreDataContentBlockType5Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType5" inManagedObjectStore:managedObjectStore];
     [coreDataContentBlockType5Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType5 getMapping]];
     
+    RKEntityMapping *coreDataContentBlockType6Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType6" inManagedObjectStore:managedObjectStore];
+    [coreDataContentBlockType6Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType6 getMapping]];
+    
+    RKEntityMapping *coreDataContentBlockType7Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType7" inManagedObjectStore:managedObjectStore];
+    [coreDataContentBlockType7Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType7 getMapping]];
+    
     //dynamic mapping
     [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                             expectedValue:@"0"
@@ -273,6 +279,14 @@ NSArray* articles;
     [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                              expectedValue:@"5"
                                                              objectMapping:coreDataContentBlockType5Mapping]];
+    
+    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                             expectedValue:@"6"
+                                                             objectMapping:coreDataContentBlockType6Mapping]];
+    
+    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                             expectedValue:@"7"
+                                                             objectMapping:coreDataContentBlockType7Mapping]];
     
     //relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
