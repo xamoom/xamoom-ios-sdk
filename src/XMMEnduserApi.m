@@ -179,7 +179,6 @@ NSArray* articles;
     [manager postObject:nil path:path parameters:parameters
                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                     NSLog(@"Output: %@", mappingResult.firstObject);
-                    self.apiResult = mappingResult.firstObject;
                     [delegate performSelector:@selector(finishedLoadData:) withObject: mappingResult];
                 }
                 failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -513,7 +512,7 @@ NSArray* articles;
     [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                             NSLog(@"Output: %@", mappingResult.firstObject);
-                                            //[self fetchArticlesFromContext];
+                                            [delegate performSelector:@selector(finishedLoadData:) withObject: mappingResult];
                                         }
                                         failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                             NSLog(@"Error: %@", error);
@@ -521,9 +520,23 @@ NSArray* articles;
      ];
 }
 
-- (void)fetchCoreDataContentBy:(NSString *)entityName {
+- (void)fetchCoreDataContentBy:(NSString *)type {
     NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    
+    NSFetchRequest *fetchRequest;
+    
+    if ([type.lowercaseString isEqualToString:@"id"]){
+        fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
+    }
+    else if ([type.lowercaseString isEqualToString:@"location"]){
+        fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetByLocation"];
+    }
+    else if ([type.lowercaseString isEqualToString:@"locationIdentifier"]){
+        fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetByLocationIdentifier"];
+    }
+    else {
+        NSLog(@"Type not found.");
+    }
     
     //NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
     //fetchRequest.sortDescriptors = @[descriptor];
