@@ -13,6 +13,8 @@ const struct XMMCoreDataContentBlocksRelationships XMMCoreDataContentBlocksRelat
 	.content = @"content",
 	.contentBlockType0 = @"contentBlockType0",
 	.contentBlockType1 = @"contentBlockType1",
+	.contentBlockType2 = @"contentBlockType2",
+	.contentBlockType3 = @"contentBlockType3",
 };
 
 @implementation XMMCoreDataContentBlocksID
@@ -55,6 +57,10 @@ const struct XMMCoreDataContentBlocksRelationships XMMCoreDataContentBlocksRelat
 @dynamic contentBlockType0;
 
 @dynamic contentBlockType1;
+
+@dynamic contentBlockType2;
+
+@dynamic contentBlockType3;
 
 @end
 

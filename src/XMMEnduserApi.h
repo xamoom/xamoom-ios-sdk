@@ -46,10 +46,16 @@
 #import "XMMCoreDataGetById.h"
 #import "XMMCoreDataStyle.h"
 #import "XMMCoreDataMenuItem.h"
+#import "XMMCoreDataContent.h"
+#import "XMMCoreDataContentBlocks.h"
+#import "XMMCoreDataContentBlockType0.h"
+#import "XMMCoreDataContentBlockType1.h"
+#import "XMMCoreDataContentBlockType2.h"
+#import "XMMCoreDataContentBlockType3.h"
 
 @protocol XMEnderuserApiDelegate <NSObject>
 
-- (void) finishedLoadData;
+- (void)finishedLoadData;
 
 @end
 
@@ -105,5 +111,16 @@
  @return void
  */
 - (void)initRestkitCoreData;
+
+/**
+ Description
+ 
+ @param contentId - The id of the content from xamoom backend.
+ @param includeStyle - True or False for returning the style from xamoom backend.
+ @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param language - The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void)requestData;
 
 @end

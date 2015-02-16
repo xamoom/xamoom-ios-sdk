@@ -4,7 +4,7 @@
 #import "_XMMCoreDataContentBlockType1.h"
 
 const struct XMMCoreDataContentBlockType1Attributes XMMCoreDataContentBlockType1Attributes = {
-	.artists = @"artists",
+	.artist = @"artist",
 	.fileId = @"fileId",
 };
 
@@ -41,7 +41,7 @@ const struct XMMCoreDataContentBlockType1Relationships XMMCoreDataContentBlockTy
 	return keyPaths;
 }
 
-@dynamic artists;
+@dynamic artist;
 
 @dynamic fileId;
 

@@ -8,6 +8,13 @@
 
 @implementation XMMCoreDataContentBlockType2
 
-// Custom logic goes here.
++ (NSDictionary *)getMapping
+{
+    return @{@"youtube_url":@"youtubeUrl",
+             @"public":@"publicStatus",
+             @"content_block_type":@"contentBlockType",
+             @"title":@"title",
+             };
+}
 
 @end

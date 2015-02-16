@@ -10,7 +10,35 @@
         <attribute name="imagePublicUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contentBlocks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" inverseName="content" inverseEntity="XMMCoreDataContentBlocks" syncable="YES"/>
         <relationship name="coreDataGetById" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataGetById" inverseName="content" inverseEntity="XMMCoreDataGetById" syncable="YES"/>
+    </entity>
+    <entity name="XMMCoreDataContentBlocks" representedClassName="XMMCoreDataContentBlocks" syncable="YES">
+        <attribute name="contentBlockType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publicStatus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="content" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContent" inverseName="contentBlocks" inverseEntity="XMMCoreDataContent" syncable="YES"/>
+        <relationship name="contentBlockType0" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType0" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType0" syncable="YES"/>
+        <relationship name="contentBlockType1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType1" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType1" syncable="YES"/>
+        <relationship name="contentBlockType2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType2" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType2" syncable="YES"/>
+        <relationship name="contentBlockType3" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType3" syncable="YES"/>
+    </entity>
+    <entity name="XMMCoreDataContentBlockType0" representedClassName="XMMCoreDataContentBlockType0" parentEntity="XMMCoreDataContentBlocks" syncable="YES">
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contentBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" inverseName="contentBlockType0" inverseEntity="XMMCoreDataContentBlocks" syncable="YES"/>
+    </entity>
+    <entity name="XMMCoreDataContentBlockType1" representedClassName="XMMCoreDataContentBlockType1" parentEntity="XMMCoreDataContentBlocks" syncable="YES">
+        <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contentBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" inverseName="contentBlockType1" inverseEntity="XMMCoreDataContentBlocks" syncable="YES"/>
+    </entity>
+    <entity name="XMMCoreDataContentBlockType2" representedClassName="XMMCoreDataContentBlockType2" parentEntity="XMMCoreDataContentBlocks" syncable="YES">
+        <attribute name="youtubeUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contentBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" inverseName="contentBlockType2" inverseEntity="XMMCoreDataContentBlocks" syncable="YES"/>
+    </entity>
+    <entity name="XMMCoreDataContentBlockType3" representedClassName="XMMCoreDataContentBlockType3" parentEntity="XMMCoreDataContentBlocks" syncable="YES">
+        <attribute name="fileId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contentBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" syncable="YES"/>
     </entity>
     <entity name="XMMCoreDataGetById" representedClassName="XMMCoreDataGetById" parentEntity="XMMCoreData" syncable="YES">
         <relationship name="content" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContent" inverseName="coreDataGetById" inverseEntity="XMMCoreDataContent" syncable="YES"/>
@@ -32,10 +60,15 @@
         <relationship name="coreDataGetById" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataGetById" inverseName="style" inverseEntity="XMMCoreDataGetById" syncable="YES"/>
     </entity>
     <elements>
-        <element name="XMMCoreData" positionX="-1145" positionY="-12940" width="128" height="88"/>
+        <element name="XMMCoreData" positionX="-1287" positionY="-13057" width="128" height="88"/>
+        <element name="XMMCoreDataContent" positionX="-1478" positionY="-12816" width="128" height="133"/>
+        <element name="XMMCoreDataContentBlocks" positionX="-1746" positionY="-12789" width="189" height="28"/>
+        <element name="XMMCoreDataContentBlockType0" positionX="-1674" positionY="-12996" width="243" height="73"/>
         <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12760" width="128" height="88"/>
-        <element name="XMMCoreDataMenuItem" positionX="-1514" positionY="-12492" width="200" height="88"/>
-        <element name="XMMCoreDataStyle" positionX="-1262" positionY="-12546" width="128" height="148"/>
-        <element name="XMMCoreDataContent" positionX="-1053" positionY="-12520" width="128" height="118"/>
+        <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="88"/>
+        <element name="XMMCoreDataStyle" positionX="-1163" positionY="-12618" width="128" height="148"/>
+        <element name="XMMCoreDataContentBlockType1" positionX="-1937" positionY="-12960" width="218" height="88"/>
+        <element name="XMMCoreDataContentBlockType2" positionX="-1638" positionY="-12771" width="128" height="73"/>
+        <element name="XMMCoreDataContentBlockType3" positionX="-1629" positionY="-12753" width="128" height="30"/>
     </elements>
 </model>

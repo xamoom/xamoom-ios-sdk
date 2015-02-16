@@ -8,6 +8,13 @@
 
 @implementation XMMCoreDataContent
 
-// Custom logic goes here.
++ (NSDictionary *)getMapping
+{
+    return @{@"description":@"descriptionOfContent",
+             @"language":@"language",
+             @"title":@"title",
+             @"image_public_url":@"imagePublicUrl",
+             };
+}
 
 @end

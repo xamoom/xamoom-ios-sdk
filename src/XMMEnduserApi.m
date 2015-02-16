@@ -187,10 +187,7 @@ NSArray* articles;
      ];
 }
 
-- (void)getContentByIdToCoreData:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)Menu language:(NSString *)language
-{
-    
-}
+# pragma mark - Core Data
 
 - (void)initRestkitCoreData
 {
@@ -218,6 +215,10 @@ NSArray* articles;
     // Configure a managed object cache to ensure we do not create duplicate objects
     managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
     
+    
+    //mapping
+    RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
+    
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreData getMapping]];
     
@@ -227,7 +228,46 @@ NSArray* articles;
     RKEntityMapping *coreDataMenuMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataMenuItem" inManagedObjectStore:managedObjectStore];
     [coreDataMenuMapping addAttributeMappingsFromDictionary:[XMMCoreDataMenuItem getMapping]];
     
+    RKEntityMapping *coreDataContentMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContent" inManagedObjectStore:managedObjectStore];
+    [coreDataContentMapping addAttributeMappingsFromDictionary:[XMMCoreDataContent getMapping]];
     
+    RKEntityMapping *coreDataContentBlockType0Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType0" inManagedObjectStore:managedObjectStore];
+    [coreDataContentBlockType0Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType0 getMapping]];
+    
+    RKEntityMapping *coreDataContentBlockType1Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType1" inManagedObjectStore:managedObjectStore];
+    [coreDataContentBlockType1Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType1 getMapping]];
+    
+    RKEntityMapping *coreDataContentBlockType2Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType2" inManagedObjectStore:managedObjectStore];
+    [coreDataContentBlockType2Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType2 getMapping]];
+    
+    RKEntityMapping *coreDataContentBlockType3Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType3" inManagedObjectStore:managedObjectStore];
+    [coreDataContentBlockType3Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType3 getMapping]];
+    
+    //dynamic mapping
+    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                            expectedValue:@"0"
+                                                            objectMapping:coreDataContentBlockType0Mapping]];
+    
+    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                             expectedValue:@"1"
+                                                             objectMapping:coreDataContentBlockType1Mapping]];
+    
+    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                             expectedValue:@"2"
+                                                             objectMapping:coreDataContentBlockType2Mapping]];
+    
+    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                             expectedValue:@"3"
+                                                             objectMapping:coreDataContentBlockType3Mapping]];
+    
+    //relationships
+    [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
+                                                                                    toKeyPath:@"content"
+                                                                                  withMapping:coreDataContentMapping]];
+    
+    [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
+                                                                                    toKeyPath:@"content.contentBlocks"
+                                                                                  withMapping:dynamicMapping]];
     
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
                                                                                     toKeyPath:@"style"
@@ -237,19 +277,18 @@ NSArray* articles;
                                                                                     toKeyPath:@"menu"
                                                                                   withMapping:coreDataMenuMapping]];
     
+    
     RKResponseDescriptor *coreDataGetByIdResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:coreDataMapping
-                                                                                                       method:RKRequestMethodPOST
-                                                                                                  pathPattern:nil
-                                                                                                      keyPath:nil
-                                                                                                  statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)
-                                                           ];
+                                                                                                           method:RKRequestMethodPOST
+                                                                                                      pathPattern:nil
+                                                                                                          keyPath:nil
+                                                                                                      statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)
+                                                               ];
     
     [objectManager addResponseDescriptor:coreDataGetByIdResponseDescriptor];
     
     // Enable Activity Indicator Spinner
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    
-    [self requestData];
 }
 
 - (void)requestData {
@@ -266,15 +305,13 @@ NSArray* articles;
     
     [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
     [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
-                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                    NSLog(@"Output: %@", mappingResult.firstObject);
-                    self.apiResult = mappingResult.firstObject;
-                    [delegate performSelector:@selector(finishedLoadData)];
-                    [self fetchArticlesFromContext];
-                }
-                failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                    NSLog(@"Error: %@", error);
-                }
+                                        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                            NSLog(@"Output: %@", mappingResult.firstObject);
+                                            [self fetchArticlesFromContext];
+                                        }
+                                        failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                            NSLog(@"Error: %@", error);
+                                        }
      ];
 }
 
@@ -293,10 +330,9 @@ NSArray* articles;
     
     NSLog(@"Output fetch: %@", fetchedObjects.firstObject);
     
-    //HIER
+    XMMCoreDataGetById *test;
     test = [fetchedObjects firstObject];
-    NSLog(@"Output test: %@", test);
-    //self.articles = [articleList.articles allObjects];
+    NSLog(@"Output test: %@", test.content.contentBlocks);
     
 }
 

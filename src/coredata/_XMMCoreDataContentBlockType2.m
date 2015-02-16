@@ -40,6 +40,8 @@ const struct XMMCoreDataContentBlockType2Relationships XMMCoreDataContentBlockTy
 	return keyPaths;
 }
 
+@dynamic youtubeUrl;
+
 @dynamic contentBlock;
 
 @end

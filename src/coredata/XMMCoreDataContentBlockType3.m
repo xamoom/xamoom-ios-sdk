@@ -8,6 +8,13 @@
 
 @implementation XMMCoreDataContentBlockType3
 
-// Custom logic goes here.
++(NSDictionary *)getMapping
+{
+    return @{@"file_id":@"fileId",
+             @"public":@"publicStatus",
+             @"content_block_type":@"contentBlockType",
+             @"title":@"title",
+             };
+}
 
 @end

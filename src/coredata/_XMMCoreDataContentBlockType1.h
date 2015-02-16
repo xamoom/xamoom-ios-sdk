@@ -5,7 +5,7 @@
 #import "XMMCoreDataContentBlocks.h"
 
 extern const struct XMMCoreDataContentBlockType1Attributes {
-	__unsafe_unretained NSString *artists;
+	__unsafe_unretained NSString *artist;
 	__unsafe_unretained NSString *fileId;
 } XMMCoreDataContentBlockType1Attributes;
 
@@ -24,9 +24,9 @@ extern const struct XMMCoreDataContentBlockType1Relationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataContentBlockType1ID* objectID;
 
-@property (nonatomic, strong) NSString* artists;
+@property (nonatomic, strong) NSString* artist;
 
-//- (BOOL)validateArtists:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateArtist:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* fileId;
 
@@ -40,8 +40,8 @@ extern const struct XMMCoreDataContentBlockType1Relationships {
 
 @interface _XMMCoreDataContentBlockType1 (CoreDataGeneratedPrimitiveAccessors)
 
-- (NSString*)primitiveArtists;
-- (void)setPrimitiveArtists:(NSString*)value;
+- (NSString*)primitiveArtist;
+- (void)setPrimitiveArtist:(NSString*)value;
 
 - (NSString*)primitiveFileId;
 - (void)setPrimitiveFileId:(NSString*)value;
