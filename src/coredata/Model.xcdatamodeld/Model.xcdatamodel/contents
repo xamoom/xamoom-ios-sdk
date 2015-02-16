@@ -23,6 +23,7 @@
         <relationship name="contentBlockType2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType2" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType2" syncable="YES"/>
         <relationship name="contentBlockType3" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType3" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType3" syncable="YES"/>
         <relationship name="contentBlockType4" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType4" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType4" syncable="YES"/>
+        <relationship name="contentBlockType5" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlockType5" inverseName="contentBlock" inverseEntity="XMMCoreDataContentBlockType5" syncable="YES"/>
     </entity>
     <entity name="XMMCoreDataContentBlockType0" representedClassName="XMMCoreDataContentBlockType0" parentEntity="XMMCoreDataContentBlocks" syncable="YES">
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,6 +47,11 @@
         <attribute name="linkUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contentBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" inverseName="contentBlockType4" inverseEntity="XMMCoreDataContentBlocks" syncable="YES"/>
+    </entity>
+    <entity name="XMMCoreDataContentBlockType5" representedClassName="XMMCoreDataContentBlockType5" parentEntity="XMMCoreDataContentBlocks" syncable="YES">
+        <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contentBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" inverseName="contentBlockType5" inverseEntity="XMMCoreDataContentBlocks" syncable="YES"/>
     </entity>
     <entity name="XMMCoreDataGetById" representedClassName="XMMCoreDataGetById" parentEntity="XMMCoreData" syncable="YES">
         <relationship name="content" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContent" inverseName="coreDataGetById" inverseEntity="XMMCoreDataContent" syncable="YES"/>
@@ -78,5 +84,6 @@
         <element name="XMMCoreDataContentBlockType2" positionX="-1638" positionY="-12771" width="128" height="73"/>
         <element name="XMMCoreDataContentBlockType3" positionX="-1629" positionY="-12753" width="128" height="30"/>
         <element name="XMMCoreDataContentBlockType4" positionX="-1620" positionY="-12744" width="128" height="30"/>
+        <element name="XMMCoreDataContentBlockType5" positionX="-1611" positionY="-12735" width="128" height="30"/>
     </elements>
 </model>
