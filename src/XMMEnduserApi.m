@@ -270,6 +270,10 @@ NSArray* articles;
                                                              expectedValue:@"4"
                                                              objectMapping:coreDataContentBlockType4Mapping]];
     
+    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                             expectedValue:@"5"
+                                                             objectMapping:coreDataContentBlockType5Mapping]];
+    
     //relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
                                                                                     toKeyPath:@"content"
