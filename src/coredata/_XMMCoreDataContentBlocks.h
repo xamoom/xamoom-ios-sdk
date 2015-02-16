@@ -15,6 +15,7 @@ extern const struct XMMCoreDataContentBlocksRelationships {
 	__unsafe_unretained NSString *contentBlockType1;
 	__unsafe_unretained NSString *contentBlockType2;
 	__unsafe_unretained NSString *contentBlockType3;
+	__unsafe_unretained NSString *contentBlockType4;
 } XMMCoreDataContentBlocksRelationships;
 
 @class XMMCoreDataContent;
@@ -22,6 +23,7 @@ extern const struct XMMCoreDataContentBlocksRelationships {
 @class XMMCoreDataContentBlockType1;
 @class XMMCoreDataContentBlockType2;
 @class XMMCoreDataContentBlockType3;
+@class XMMCoreDataContentBlockType4;
 
 @interface XMMCoreDataContentBlocksID : NSManagedObjectID {}
 @end
@@ -64,6 +66,10 @@ extern const struct XMMCoreDataContentBlocksRelationships {
 
 //- (BOOL)validateContentBlockType3:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) XMMCoreDataContentBlockType4 *contentBlockType4;
+
+//- (BOOL)validateContentBlockType4:(id*)value_ error:(NSError**)error_;
+
 @end
 
 @interface _XMMCoreDataContentBlocks (CoreDataGeneratedPrimitiveAccessors)
@@ -91,5 +97,8 @@ extern const struct XMMCoreDataContentBlocksRelationships {
 
 - (XMMCoreDataContentBlockType3*)primitiveContentBlockType3;
 - (void)setPrimitiveContentBlockType3:(XMMCoreDataContentBlockType3*)value;
+
+- (XMMCoreDataContentBlockType4*)primitiveContentBlockType4;
+- (void)setPrimitiveContentBlockType4:(XMMCoreDataContentBlockType4*)value;
 
 @end
