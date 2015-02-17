@@ -512,7 +512,7 @@ NSArray* articles;
     [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                             NSLog(@"Output: %@", mappingResult.firstObject);
-                                            [delegate performSelector:@selector(finishedLoadData:) withObject: mappingResult];
+                                            [delegate performSelector:@selector(finishedLoadCoreData)];
                                         }
                                         failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                             NSLog(@"Error: %@", error);
@@ -520,7 +520,7 @@ NSArray* articles;
      ];
 }
 
-- (void)fetchCoreDataContentBy:(NSString *)type {
+- (NSArray*)fetchCoreDataContentBy:(NSString *)type {
     NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
     
     NSFetchRequest *fetchRequest;
@@ -545,6 +545,8 @@ NSArray* articles;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     
     NSLog(@"Output fetch: %@", fetchedObjects.firstObject);
+    
+    return fetchedObjects;
 }
 
 

@@ -70,6 +70,8 @@
 
 - (void)finishedLoadData:(RKMappingResult*)results;
 
+- (void)finishedLoadCoreData;
+
 @end
 
 #pragma mark - XMMEnduserApi
@@ -169,6 +171,6 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void)fetchCoreDataContentBy:(NSString *)entityName;
+- (NSArray*)fetchCoreDataContentBy:(NSString *)entityName;
 
 @end

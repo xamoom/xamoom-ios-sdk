@@ -45,7 +45,10 @@ XMMEnduserApi *api;
 
 - (void)finishedLoadData:(RKMappingResult *)results {
     NSLog(@"finishedLoadData: %@", results);
-    [api fetchCoreDataContentBy:@"XMMCoreDataGetById"];
+}
+
+-(void)finishedLoadCoreData {
+    NSLog(@"FetchData: %@", [api fetchCoreDataContentBy:@"ID"]);
 }
 
 @end
