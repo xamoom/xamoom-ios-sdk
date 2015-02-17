@@ -178,10 +178,13 @@ NSArray* articles;
     [manager postObject:nil path:path parameters:parameters
                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                     NSLog(@"Output: %@", mappingResult.firstObject);
+                    
+                    // Perform finishedLoadData delegate
                     if ( [delegate respondsToSelector:@selector(finishedLoadData:)] ) {
                         [delegate performSelector:@selector(finishedLoadData:) withObject: mappingResult];
                     }
                     
+                    // Perform specific finishLoadData delegates
                     if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(finishedLoadDataById:)] ) {
                         XMMResponseGetById *result = [XMMResponseGetById new];
                         result = mappingResult.firstObject;

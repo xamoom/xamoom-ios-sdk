@@ -64,24 +64,54 @@
 #import "XMMCoreDataGetByLocation.h"
 #import "XMMCoreDataGetByLocationItem.h"
 
-#pragma mark - Protocol / Delegate
-
 @class XMMResponseGetById;
 @class XMMResponseGetByLocation;
 @class XMMResponseGetByLocationIdentifier;
+
+#pragma mark - Protocol / Delegate
 
 @protocol XMEnderuserApiDelegate <NSObject>
 
 @optional
 
+/**
+ Delegate to return the results from getContentById, getContentByLocation and getContentByLocationIdentifier as RKMappingResult.
+ 
+ @param result - The result as RKMappingResult.
+ @return void
+ */
 - (void)finishedLoadData:(RKMappingResult*)result;
 
+/**
+ Delegate to return the result from getContentById as XMMResponseGetById as XMMResponseGetByID.
+ 
+ @param result - The result as XMMResponeGetById.
+ @return void
+ */
 - (void)finishedLoadDataById:(XMMResponseGetById*)result;
 
+/**
+ Delegate to return the result from getContentByLocationIdentifier as XMMResponseGetByLocationIdentifier.
+ 
+ @param result - The result as XMMResponseGetByLocationIdentifier.
+ @return void
+ */
 - (void)finishedLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier*)result;
 
+/**
+ Delegate to return the result from getContentByLocation as XMMResponseGetByLocation.
+ 
+ @param result - The result as XMMResponseGetByLocation.
+ @return void
+ */
 - (void)finishedLoadDataByLocation:(XMMResponseGetByLocation*)result;
 
+/**
+ Delegate to notify that getContentByIdFromCoreData, getContentByLocationFromCoreData, getContentByLocationIdentifierFromCoreData
+ are finished with core data. Now you can fetch the Core Data.
+ 
+ @return void
+ */
 - (void)finishedLoadCoreData;
 
 @end
