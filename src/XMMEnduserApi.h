@@ -86,7 +86,7 @@
 #pragma mark - public methods
 
 /**
- Description
+ Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
  
  @param contentId - The id of the content from xamoom backend.
  @param includeStyle - True or False for returning the style from xamoom backend.
@@ -97,9 +97,10 @@
 - (void)getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
 
 /**
- Description
+ Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not available the
+ default language will be returned.
  
- @param contentId - The id of the content from xamoom backend.
+ @param locationIdentifier - The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend.
  @param includeStyle - True or False for returning the style from xamoom backend.
  @param includeMenu - True of False for returning the menu from xamoom backend.
  @param language - The requested language of the content from xamoom backend.
@@ -108,29 +109,26 @@
 - (void)getContentByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
 
 /**
- Description
+ Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
+ default language will be returned.
  
- @param contentId - The id of the content from xamoom backend.
- @param includeStyle - True or False for returning the style from xamoom backend.
- @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param lat - The latitude of a location.
+ @param lon - The longitude of a location.
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
 - (void)getContentByLocation:(NSString*)lat lon:(NSString*)lon language:(NSString*)language;
 
 /**
- Description
+ Sets up all configurations for RestKit to work with Core Data.
  
- @param contentId - The id of the content from xamoom backend.
- @param includeStyle - True or False for returning the style from xamoom backend.
- @param includeMenu - True of False for returning the menu from xamoom backend.
- @param language - The requested language of the content from xamoom backend.
  @return void
  */
 - (void)initRestkitCoreData;
 
 /**
- Description
+ Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
+ Data will be saved in Core Data. Use -(NSArray*)fetchCoreDataContentBy:(NSString *)type to get saved data.
  
  @param contentId - The id of the content from xamoom backend.
  @param includeStyle - True or False for returning the style from xamoom backend.
@@ -141,9 +139,11 @@
 - (void)getContentByIdFromCoreData:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language;
 
 /**
- Description
+ Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not 
+ available the default language will be returned.
+ Data will be saved in Core Data. Use -(NSArray*)fetchCoreDataContentBy:(NSString *)type to get saved data.
  
- @param contentId - The id of the content from xamoom backend.
+ @param locationIdentifier - The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend.
  @param includeStyle - True or False for returning the style from xamoom backend.
  @param includeMenu - True of False for returning the menu from xamoom backend.
  @param language - The requested language of the content from xamoom backend.
@@ -152,25 +152,23 @@
 - (void)getContentByLocationIdentifierFromCoreData:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language;
 
 /**
- Description
+ Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
+ default language will be returned. Data will be saved in Core Data. Use -(NSArray*)fetchCoreDataContentBy:(NSString *)type 
+ to get saved data.
  
- @param contentId - The id of the content from xamoom backend.
- @param includeStyle - True or False for returning the style from xamoom backend.
- @param includeMenu - True of False for returning the menu from xamoom backend.
+ @param lat - The latitude of a location.
+ @param lon - The longitude of a location.
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
 - (void)getContentByLocationFromCoreData:(NSString *)lat lon:(NSString *)lon language:(NSString *)language;
 
 /**
- Description
+ Returns an array of all objects with the specific type from Core Data. Type can be "id", "locationidentifier" or "location".
  
- @param contentId - The id of the content from xamoom backend.
- @param includeStyle - True or False for returning the style from xamoom backend.
- @param includeMenu - True of False for returning the menu from xamoom backend.
- @param language - The requested language of the content from xamoom backend.
- @return void
+ @param type - The type of the saved data. Can be "id", "locationidentifier" or "location".
+ @return NSArray*
  */
-- (NSArray*)fetchCoreDataContentBy:(NSString *)entityName;
+- (NSArray*)fetchCoreDataContentBy:(NSString *)type;
 
 @end

@@ -33,22 +33,20 @@ NSArray* articles;
 
 @synthesize delegate;
 
--(id)init
-{
+-(id)init {
     self = [super init];
     baseURL = [NSURL URLWithString:BaseURLString];
     return self;
 }
 
-- (void)getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu language:(NSString*)language
-{
+- (void)getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu language:(NSString*)language {
     NSDictionary *queryParams = @{@"content_id":contentId,
                                   @"include_style":style,
                                   @"include_menu":menu,
                                   @"language":language
                                   };
     
-    //mappings
+    // Create mappings
     RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
     
     RKObjectMapping* responseMapping = [XMMResponseGetById getMapping];
@@ -56,7 +54,7 @@ NSArray* articles;
     RKObjectMapping* responseStyleMapping = [XMMResponseStyle getMapping];
     RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem getMapping];
     
-    //dynamic matcher
+    // Add dynamic matchers
     [dynamicMapping addMatcher:[XMMResponseContentBlockType0 getDynamicMappingMatcher]];
     [dynamicMapping addMatcher:[XMMResponseContentBlockType1 getDynamicMappingMatcher]];
     [dynamicMapping addMatcher:[XMMResponseContentBlockType2 getDynamicMappingMatcher]];
@@ -69,7 +67,7 @@ NSArray* articles;
     [dynamicMapping addMatcher:[XMMResponseContentBlockType9 getDynamicMappingMatcher]];
     
     
-    //relationships
+    // Create relationships
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
                                                                                     toKeyPath:@"content"
                                                                                   withMapping:responseContentMapping]];
@@ -99,7 +97,7 @@ NSArray* articles;
                                   @"language":language
                                   };
     
-    //mappings
+    // Create mappings
     RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
     
     RKObjectMapping* responseMapping = [XMMResponseGetByLocationIdentifier getMapping];
@@ -107,7 +105,7 @@ NSArray* articles;
     RKObjectMapping* responseStyleMapping = [XMMResponseStyle getMapping];
     RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem getMapping];
     
-    //dynamic matcher
+    // Add dynamic matchers
     [dynamicMapping addMatcher:[XMMResponseContentBlockType0 getDynamicMappingMatcher]];
     [dynamicMapping addMatcher:[XMMResponseContentBlockType1 getDynamicMappingMatcher]];
     [dynamicMapping addMatcher:[XMMResponseContentBlockType2 getDynamicMappingMatcher]];
@@ -119,7 +117,7 @@ NSArray* articles;
     [dynamicMapping addMatcher:[XMMResponseContentBlockType8 getDynamicMappingMatcher]];
     [dynamicMapping addMatcher:[XMMResponseContentBlockType9 getDynamicMappingMatcher]];
     
-    //relationships
+    // Create relationships
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
                                                                                     toKeyPath:@"content"
                                                                                   withMapping:responseContentMapping]];
@@ -151,11 +149,11 @@ NSArray* articles;
                                   @"language":language,
                                   };
     
-    //mappings
+    // Create mappings
     RKObjectMapping* responseMapping = [XMMResponseGetByLocation getMapping];
     RKObjectMapping* responseItemMapping = [XMMResponseGetByLocationItem getMapping];
     
-    //relationships
+    // Create relationship
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
                                                                                     toKeyPath:@"items"
                                                                                   withMapping:responseItemMapping]];
@@ -169,13 +167,14 @@ NSArray* articles;
 - (void)talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path
 {
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+    // Create ResponseDescriptor with objectMapping
     RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:objectMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
     
+    // Create ObjectManager
     RKObjectManager *manager = [RKObjectManager managerWithBaseURL:baseURL];
-    manager.requestSerializationMIMEType = RKMIMETypeJSON;
+    manager.requestSerializationMIMEType = RKMIMETypeJSON; // JSON
     
     [manager addResponseDescriptor:contentDescriptor];
-    
     [manager postObject:nil path:path parameters:parameters
                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                     NSLog(@"Output: %@", mappingResult.firstObject);
@@ -200,7 +199,6 @@ NSArray* articles;
     managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     objectManager.managedObjectStore = managedObjectStore;
     
-    
     // Complete Core Data stack initialization
     [managedObjectStore createPersistentStoreCoordinator];
     NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"XMMCoreData.sqlite"];
@@ -221,7 +219,7 @@ NSArray* articles;
 
 - (void)getContentByIdFromCoreData:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language
 {
-    //mapping
+    // Create mapping for Core Data
     RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
     
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:managedObjectStore];
@@ -266,7 +264,7 @@ NSArray* articles;
     RKEntityMapping *coreDataContentBlockType9Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType9"  inManagedObjectStore:managedObjectStore];
     [coreDataContentBlockType9Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType9 getMapping]];
     
-    //dynamic mapping
+    // Add dynamic matchers
     [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                              expectedValue:@"0"
                                                              objectMapping:coreDataContentBlockType0Mapping]];
@@ -308,7 +306,7 @@ NSArray* articles;
                                                              objectMapping:coreDataContentBlockType9Mapping]];
     
     
-    //relationships
+    // Create relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
                                                                                     toKeyPath:@"content"
                                                                                   withMapping:coreDataContentMapping]];
@@ -342,13 +340,14 @@ NSArray* articles;
                                   @"language":language,
                                   };
     
-    [self talkToApiCoreDataWithParameters:queryParams withpath:path];
+    [self talkToApiCoreDataWithParameters:queryParams
+                                 withpath:path];
 }
 
 - (void)getContentByLocationIdentifierFromCoreData:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language
 {
     
-    //mapping
+    // Create mapping
     RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
     
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocationIdentifier" inManagedObjectStore:managedObjectStore];
@@ -393,7 +392,7 @@ NSArray* articles;
     RKEntityMapping *coreDataContentBlockType9Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType9"  inManagedObjectStore:managedObjectStore];
     [coreDataContentBlockType9Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType9 getMapping]];
     
-    //dynamic mapping
+    // Add dynamic matchers
     [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                              expectedValue:@"0"
                                                              objectMapping:coreDataContentBlockType0Mapping]];
@@ -435,7 +434,7 @@ NSArray* articles;
                                                              objectMapping:coreDataContentBlockType9Mapping]];
     
     
-    //relationships
+    // Create relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
                                                                                     toKeyPath:@"content"
                                                                                   withMapping:coreDataContentMapping]];
@@ -469,18 +468,20 @@ NSArray* articles;
                                   @"language":language
                                   };
     
-    [self talkToApiCoreDataWithParameters:queryParams withpath:path];
+    [self talkToApiCoreDataWithParameters:queryParams
+                                 withpath:path];
 }
 
 - (void)getContentByLocationFromCoreData:(NSString *)lat lon:(NSString *)lon language:(NSString *)language
 {
+    // Create mapping
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocation" inManagedObjectStore:managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocation getMapping]];
     
     RKEntityMapping *coreDataItemMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocationItem" inManagedObjectStore:managedObjectStore];
     [coreDataItemMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocationItem getMapping]];
     
-    //relationships
+    // Create relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
                                                                                     toKeyPath:@"items"
                                                                                   withMapping:coreDataItemMapping]];
@@ -503,7 +504,8 @@ NSArray* articles;
                                   @"language":language,
                                   };
     
-    [self talkToApiCoreDataWithParameters:queryParams withpath:path];
+    [self talkToApiCoreDataWithParameters:queryParams
+                                 withpath:path];
 }
 
 - (void)talkToApiCoreDataWithParameters:(NSDictionary*)parameters withpath:(NSString*)path
