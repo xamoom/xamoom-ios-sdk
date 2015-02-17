@@ -66,9 +66,21 @@
 
 #pragma mark - Protocol / Delegate
 
+@class XMMResponseGetById;
+@class XMMResponseGetByLocation;
+@class XMMResponseGetByLocationIdentifier;
+
 @protocol XMEnderuserApiDelegate <NSObject>
 
-- (void)finishedLoadData:(RKMappingResult*)results;
+@optional
+
+- (void)finishedLoadData:(RKMappingResult*)result;
+
+- (void)finishedLoadDataById:(XMMResponseGetById*)result;
+
+- (void)finishedLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier*)result;
+
+- (void)finishedLoadDataByLocation:(XMMResponseGetByLocation*)result;
 
 - (void)finishedLoadCoreData;
 
@@ -78,7 +90,6 @@
 
 @interface XMMEnduserApi : NSObject
 
-@property (nonatomic, strong) RKMappingResult *apiResult;
 @property (nonatomic, assign) id<XMEnderuserApiDelegate> delegate;
 
 -(id)init;

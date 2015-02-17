@@ -21,14 +21,14 @@ XMMEnduserApi *api;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
     
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
     [api initRestkitCoreData];
     //[api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
     //[api getContentByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    //[api getContentByLocation:@"46.61505684231224" lon:@"14.2624694108963" language:@"de"];
+    [api getContentByLocation:@"46.615" lon:@"14.263" language:@"de"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,18 +38,31 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)testButtonPressed:(id)sender {
-    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    //[api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
     //[api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
     //[api getContentByLocationFromCoreData:@"46.61505684231224" lon:@"14.2624694108963" language:@"de"];
 }
 
-- (void)finishedLoadData:(RKMappingResult *)results {
-    NSLog(@"finishedLoadData: %@", results);
+-(void)finishedLoadData:(RKMappingResult *)result
+{
+    
 }
 
--(void)finishedLoadCoreData {
-    NSLog(@"FetchData: %@", [api fetchCoreDataContentBy:@"ID"]);
+- (void)finishedLoadCoreData {
+    NSLog(@"finishedLoadCoreData: %@", [api fetchCoreDataContentBy:@"ID"]);
 }
 
+- (void)finishedLoadDataById:(XMMResponseGetById *)result {
+    NSLog(@"finishedLoadDataById: %@", result);
+}
+
+- (void)finishedLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result {
+    NSLog(@"finishedLoadDataByLocationIdentifier: %@", result);
+}
+
+- (void)finishedLoadDataByLocation:(XMMResponseGetByLocation *)result {
+    NSLog(@"finishedLoadDataByLocation: %@", result);
+}
+ 
 @end
 

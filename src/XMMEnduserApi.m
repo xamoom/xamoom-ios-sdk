@@ -178,7 +178,25 @@ NSArray* articles;
     [manager postObject:nil path:path parameters:parameters
                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                     NSLog(@"Output: %@", mappingResult.firstObject);
-                    [delegate performSelector:@selector(finishedLoadData:) withObject: mappingResult];
+                    if ( [delegate respondsToSelector:@selector(finishedLoadData:)] ) {
+                        [delegate performSelector:@selector(finishedLoadData:) withObject: mappingResult];
+                    }
+                    
+                    if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(finishedLoadDataById:)] ) {
+                        XMMResponseGetById *result = [XMMResponseGetById new];
+                        result = mappingResult.firstObject;
+                        [delegate performSelector:@selector(finishedLoadDataById:) withObject:result];
+                    }
+                    else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(finishedLoadDataByLocationIdentifier:)] ) {
+                        XMMResponseGetByLocationIdentifier *result = [XMMResponseGetByLocationIdentifier new];
+                        result = mappingResult.firstObject;
+                        [delegate performSelector:@selector(finishedLoadDataByLocationIdentifier:) withObject:result];
+                    }
+                    else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(finishedLoadDataByLocation:)] ) {
+                        XMMResponseGetByLocation *result;
+                        result = mappingResult.firstObject;
+                        [delegate performSelector:@selector(finishedLoadDataByLocation:) withObject:result];
+                    }
                 }
                 failure:^(RKObjectRequestOperation *operation, NSError *error) {
                     NSLog(@"Error: %@", error);
@@ -539,9 +557,6 @@ NSArray* articles;
     else {
         NSLog(@"Type not found.");
     }
-    
-    //NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
-    //fetchRequest.sortDescriptors = @[descriptor];
     
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
