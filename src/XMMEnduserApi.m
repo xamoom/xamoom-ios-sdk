@@ -344,7 +344,6 @@ NSArray* articles;
                                                                                     toKeyPath:@"menu"
                                                                                   withMapping:coreDataMenuMapping]];
     
-    
     RKResponseDescriptor *coreDataGetByIdResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:coreDataMapping
                                                                                                            method:RKRequestMethodPOST
                                                                                                       pathPattern:nil
@@ -454,7 +453,6 @@ NSArray* articles;
                                                              expectedValue:@"9"
                                                              objectMapping:coreDataContentBlockType9Mapping]];
     
-    
     // Create relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
                                                                                     toKeyPath:@"content"
@@ -471,6 +469,7 @@ NSArray* articles;
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
                                                                                     toKeyPath:@"menu"
                                                                                   withMapping:coreDataMenuMapping]];
+    
     
     
     RKResponseDescriptor *coreDataGetByIdResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:coreDataMapping
@@ -491,6 +490,10 @@ NSArray* articles;
     
     [self talkToApiCoreDataWithParameters:queryParams
                                  withpath:path];
+}
+
+- (void)willSave {
+    NSLog(@"SAVE");
 }
 
 - (void)getContentByLocationFromCoreData:(NSString *)lat lon:(NSString *)lon language:(NSString *)language
@@ -535,6 +538,8 @@ NSArray* articles;
     [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                             NSLog(@"Output: %@", mappingResult.firstObject);
+                                            XMMCoreDataGetById *test = mappingResult.firstObject;
+                                            NSLog(@"LOOK: %@", test.content.contentBlocks);
                                             [delegate performSelector:@selector(finishedLoadCoreData)];
                                         }
                                         failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -554,7 +559,7 @@ NSArray* articles;
     else if ([type.lowercaseString isEqualToString:@"location"]){
         fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetByLocation"];
     }
-    else if ([type.lowercaseString isEqualToString:@"locationIdentifier"]){
+    else if ([type.lowercaseString isEqualToString:@"locationidentifier"]){
         fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetByLocationIdentifier"];
     }
     else {
