@@ -16,17 +16,21 @@
              };
 }
 
+-(NSString *)hashableDescription {
+    NSString *stringA = self.descriptionOfContent;
+    NSString *stringB = self.language;
+    NSString *stringC = self.title;
+    NSString *stringD = self.imagePublicUrl;
+   
+    NSString *description = [NSString stringWithFormat:@"%@,%@,%@,%@", stringA, stringB, stringC, stringD];
+    return description;
+}
+
 -(NSArray *)sortedContentBlocks {
-    
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
     NSArray *sorting = [NSArray arrayWithObject:descriptor];
     
     return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
-}
-
-- (void)willSave {
-    //NSLog(@"WILLSAVE: %@", self.contentBlocks);
-    NSLog(@"WILLSAVE: %@", [self md5HexDigest:[self.contentBlocks.allObjects componentsJoinedByString:@","]] );
 }
 
 - (NSString*)md5HexDigest:(NSString*)input {
@@ -39,6 +43,13 @@
         [ret appendFormat:@"%02x",result[i]];
     }
     return ret;
+}
+
+
+//HIER
+- (void)willSave {
+    NSLog(@"Hashing... : %@", [self hashableDescription]);
+    [self setPrimitiveValue:[self md5HexDigest:[self hashableDescription]] forKey:@"changeHash"];
 }
 
 @end

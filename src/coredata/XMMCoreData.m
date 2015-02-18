@@ -8,6 +8,8 @@
 
 @implementation XMMCoreData
 
+@synthesize objectAsHash;
+
 + (NSDictionary *)getMapping {
     return @{@"system_id" : @"systemId",
              @"system_name" : @"systemName",

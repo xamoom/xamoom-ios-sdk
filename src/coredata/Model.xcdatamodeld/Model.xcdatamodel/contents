@@ -6,6 +6,7 @@
         <attribute name="systemUrl" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="XMMCoreDataContent" representedClassName="XMMCoreDataContent" syncable="YES">
+        <attribute name="changeHash" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descriptionOfContent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imagePublicUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
@@ -122,7 +123,7 @@
     </entity>
     <elements>
         <element name="XMMCoreData" positionX="-1287" positionY="-13057" width="128" height="88"/>
-        <element name="XMMCoreDataContent" positionX="-1478" positionY="-12816" width="128" height="133"/>
+        <element name="XMMCoreDataContent" positionX="-1476" positionY="-12780" width="128" height="148"/>
         <element name="XMMCoreDataContentBlocks" positionX="-1953" positionY="-12609" width="189" height="28"/>
         <element name="XMMCoreDataContentBlockType0" positionX="-1683" positionY="-12952" width="243" height="73"/>
         <element name="XMMCoreDataContentBlockType1" positionX="-1937" positionY="-12960" width="218" height="88"/>

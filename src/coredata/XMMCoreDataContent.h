@@ -1,5 +1,5 @@
-#import "_XMMCoreDataContent.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "_XMMCoreDataContent.h"
 
 @interface XMMCoreDataContent : _XMMCoreDataContent {}
 

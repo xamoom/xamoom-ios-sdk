@@ -4,6 +4,7 @@
 #import <CoreData/CoreData.h>
 
 extern const struct XMMCoreDataContentAttributes {
+	__unsafe_unretained NSString *changeHash;
 	__unsafe_unretained NSString *descriptionOfContent;
 	__unsafe_unretained NSString *imagePublicUrl;
 	__unsafe_unretained NSString *language;
@@ -26,6 +27,10 @@ extern const struct XMMCoreDataContentRelationships {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataContentID* objectID;
+
+@property (nonatomic, strong) NSString* changeHash;
+
+//- (BOOL)validateChangeHash:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* descriptionOfContent;
 
@@ -62,6 +67,9 @@ extern const struct XMMCoreDataContentRelationships {
 @end
 
 @interface _XMMCoreDataContent (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString*)primitiveChangeHash;
+- (void)setPrimitiveChangeHash:(NSString*)value;
 
 - (NSString*)primitiveDescriptionOfContent;
 - (void)setPrimitiveDescriptionOfContent:(NSString*)value;

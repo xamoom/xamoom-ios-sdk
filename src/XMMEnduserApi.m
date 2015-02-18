@@ -285,6 +285,8 @@ NSArray* articles;
     RKEntityMapping *coreDataContentBlockType9Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType9"  inManagedObjectStore:managedObjectStore];
     [coreDataContentBlockType9Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType9 getMapping]];
     
+   
+    
     // Add dynamic matchers
     [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                              expectedValue:@"0"
@@ -492,10 +494,6 @@ NSArray* articles;
                                  withpath:path];
 }
 
-- (void)willSave {
-    NSLog(@"SAVE");
-}
-
 - (void)getContentByLocationFromCoreData:(NSString *)lat lon:(NSString *)lon language:(NSString *)language
 {
     // Create mapping
@@ -566,8 +564,6 @@ NSArray* articles;
     
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    NSLog(@"Output fetch: %@", fetchedObjects.firstObject);
     
     return fetchedObjects;
 }
