@@ -13,6 +13,7 @@
     return @{@"content_id":@"contentId",
              @"public":@"publicStatus",
              @"content_block_type":@"contentBlockType",
+             @"@metadata.mapping.collectionIndex" : @"order",
              };
 }
 

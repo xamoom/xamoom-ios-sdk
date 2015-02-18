@@ -15,6 +15,7 @@
     </entity>
     <entity name="XMMCoreDataContentBlocks" representedClassName="XMMCoreDataContentBlocks" syncable="YES">
         <attribute name="contentBlockType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="publicStatus" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="content" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContent" inverseName="contentBlocks" inverseEntity="XMMCoreDataContent" syncable="YES"/>
@@ -134,10 +135,10 @@
         <element name="XMMCoreDataContentBlockType8" positionX="-1640" positionY="-12829" width="128" height="103"/>
         <element name="XMMCoreDataContentBlockType9" positionX="-1683" positionY="-12441" width="128" height="30"/>
         <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12877" width="128" height="88"/>
-        <element name="XMMCoreDataGetByLocationItem" positionX="-819" positionY="-13165" width="243" height="223"/>
+        <element name="XMMCoreDataGetByLocation" positionX="-1046" positionY="-13023" width="128" height="73"/>
         <element name="XMMCoreDataGetByLocationIdentifier" positionX="-947" positionY="-12781" width="128" height="28"/>
+        <element name="XMMCoreDataGetByLocationItem" positionX="-819" positionY="-13165" width="243" height="223"/>
         <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="88"/>
         <element name="XMMCoreDataStyle" positionX="-1089" positionY="-12600" width="128" height="148"/>
-        <element name="XMMCoreDataGetByLocation" positionX="-1046" positionY="-13023" width="128" height="73"/>
     </elements>
 </model>

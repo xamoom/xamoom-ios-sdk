@@ -118,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../src/coredata/XMMCoreDataContent.m"
-            timestampString = "445871434.906971"
+            timestampString = "445947070.697939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "-willSave"
             landmarkType = "5">
          </BreakpointContent>

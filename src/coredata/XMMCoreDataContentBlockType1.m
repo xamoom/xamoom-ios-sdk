@@ -15,6 +15,7 @@
              @"content_block_type":@"contentBlockType",
              @"title":@"title",
              @"artists":@"artist",
+             @"@metadata.mapping.collectionIndex" : @"order",
              };
 }
 

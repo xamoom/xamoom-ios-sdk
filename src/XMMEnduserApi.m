@@ -538,8 +538,6 @@ NSArray* articles;
     [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                             NSLog(@"Output: %@", mappingResult.firstObject);
-                                            XMMCoreDataGetById *test = mappingResult.firstObject;
-                                            NSLog(@"LOOK: %@", test.content.contentBlocks);
                                             [delegate performSelector:@selector(finishedLoadCoreData)];
                                         }
                                         failure:^(RKObjectRequestOperation *operation, NSError *error) {

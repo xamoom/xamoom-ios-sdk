@@ -49,6 +49,10 @@ extern const struct XMMCoreDataGetByLocationItemRelationships {
 
 //- (BOOL)validateForegroundFontColor:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSString* highlightFontColor;
+
+//- (BOOL)validateHighlightFontColor:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* icon;
 
 //- (BOOL)validateIcon:(id*)value_ error:(NSError**)error_;
@@ -92,6 +96,9 @@ extern const struct XMMCoreDataGetByLocationItemRelationships {
 
 - (NSString*)primitiveForegroundFontColor;
 - (void)setPrimitiveForegroundFontColor:(NSString*)value;
+
+- (NSString*)primitiveHighlightFontColor;
+- (void)setPrimitiveHighlightFontColor:(NSString*)value;
 
 - (NSString*)primitiveIcon;
 - (void)setPrimitiveIcon:(NSString*)value;

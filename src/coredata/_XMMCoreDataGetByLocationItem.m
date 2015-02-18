@@ -58,6 +58,8 @@ const struct XMMCoreDataGetByLocationItemRelationships XMMCoreDataGetByLocationI
 
 @dynamic foregroundFontColor;
 
+@dynamic highlightFontColor;
+
 @dynamic icon;
 
 @dynamic imagePublicUrl;

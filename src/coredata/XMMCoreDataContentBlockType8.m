@@ -16,6 +16,7 @@
              @"content_block_type":@"contentBlockType",
              @"text":@"text",
              @"title":@"title",
+             @"@metadata.mapping.collectionIndex" : @"order",
              };
 }
 

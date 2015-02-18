@@ -26,7 +26,7 @@ XMMEnduserApi *api;
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
     [api initRestkitCoreData];
-    [api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    //[api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
     //[api getContentByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
     //[api getContentByLocation:@"46.615" lon:@"14.263" language:@"de"];
 }
@@ -49,7 +49,10 @@ XMMEnduserApi *api;
 }
 
 - (void)finishedLoadCoreData {
-    NSLog(@"finishedLoadCoreData: %lu", (unsigned long)[[api fetchCoreDataContentBy:@"id"] count]);
+    NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
+    
+    XMMCoreDataGetById *firstEntity = fetchResult.firstObject;
+    NSLog(@"Ordered ContentBlocks: %@", [firstEntity.content sortedContentBlocks]);
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {

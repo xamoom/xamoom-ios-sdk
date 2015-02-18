@@ -5,6 +5,7 @@
 
 extern const struct XMMCoreDataContentBlocksAttributes {
 	__unsafe_unretained NSString *contentBlockType;
+	__unsafe_unretained NSString *order;
 	__unsafe_unretained NSString *publicStatus;
 	__unsafe_unretained NSString *title;
 } XMMCoreDataContentBlocksAttributes;
@@ -47,6 +48,14 @@ extern const struct XMMCoreDataContentBlocksRelationships {
 @property (nonatomic, strong) NSString* contentBlockType;
 
 //- (BOOL)validateContentBlockType:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSNumber* order;
+
+@property (atomic) int16_t orderValue;
+- (int16_t)orderValue;
+- (void)setOrderValue:(int16_t)value_;
+
+//- (BOOL)validateOrder:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* publicStatus;
 
@@ -106,6 +115,12 @@ extern const struct XMMCoreDataContentBlocksRelationships {
 
 - (NSString*)primitiveContentBlockType;
 - (void)setPrimitiveContentBlockType:(NSString*)value;
+
+- (NSNumber*)primitiveOrder;
+- (void)setPrimitiveOrder:(NSNumber*)value;
+
+- (int16_t)primitiveOrderValue;
+- (void)setPrimitiveOrderValue:(int16_t)value_;
 
 - (NSString*)primitivePublicStatus;
 - (void)setPrimitivePublicStatus:(NSString*)value;

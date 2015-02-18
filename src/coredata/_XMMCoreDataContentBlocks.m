@@ -5,6 +5,7 @@
 
 const struct XMMCoreDataContentBlocksAttributes XMMCoreDataContentBlocksAttributes = {
 	.contentBlockType = @"contentBlockType",
+	.order = @"order",
 	.publicStatus = @"publicStatus",
 	.title = @"title",
 };
@@ -49,10 +50,36 @@ const struct XMMCoreDataContentBlocksRelationships XMMCoreDataContentBlocksRelat
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
+	if ([key isEqualToString:@"orderValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"order"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+
 	return keyPaths;
 }
 
 @dynamic contentBlockType;
+
+@dynamic order;
+
+- (int16_t)orderValue {
+	NSNumber *result = [self order];
+	return [result shortValue];
+}
+
+- (void)setOrderValue:(int16_t)value_ {
+	[self setOrder:[NSNumber numberWithShort:value_]];
+}
+
+- (int16_t)primitiveOrderValue {
+	NSNumber *result = [self primitiveOrder];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveOrderValue:(int16_t)value_ {
+	[self setPrimitiveOrder:[NSNumber numberWithShort:value_]];
+}
 
 @dynamic publicStatus;
 

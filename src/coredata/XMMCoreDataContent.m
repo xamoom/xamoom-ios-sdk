@@ -8,8 +8,7 @@
 
 @implementation XMMCoreDataContent
 
-+ (NSDictionary *)getMapping
-{
++ (NSDictionary *)getMapping{
     return @{@"description":@"descriptionOfContent",
              @"language":@"language",
              @"title":@"title",
@@ -17,8 +16,16 @@
              };
 }
 
+-(NSArray *)sortedContentBlocks {
+    
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+    NSArray *sorting = [NSArray arrayWithObject:descriptor];
+    
+    return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
+}
+
 - (void)willSave {
-    NSLog(@"WILLSAVE: %@", self.contentBlocks);
+    //NSLog(@"WILLSAVE: %@", self.contentBlocks);
     NSLog(@"WILLSAVE: %@", [self md5HexDigest:[self.contentBlocks.allObjects componentsJoinedByString:@","]] );
 }
 
