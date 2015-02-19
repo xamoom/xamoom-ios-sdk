@@ -20,4 +20,17 @@
              };
 }
 
+- (NSString *)hashableDescription {
+    NSString *stringA = self.publicStatus;
+    NSString *stringB = self.contentBlockType;
+    NSString *stringC = self.title;
+    NSString *stringD = (NSString*)self.order;
+    NSString *stringE = self.text;
+    NSString *stringF = self.linkType;
+    NSString *stringG = self.linkUrl;
+    
+    NSString *description = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@", stringA, stringB, stringC, stringD, stringE, stringF, stringG];
+    return description;
+}
+
 @end

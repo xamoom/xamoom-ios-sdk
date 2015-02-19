@@ -29,9 +29,9 @@
         [self.objectAsHash appendString:[block hashableDescription]];
     }
     
-    NSLog(@"HERE1: %@", self.objectAsHash);
-    
     NSLog(@"HERE: %@", [self sha1:self.objectAsHash]);
+    
+    [self setPrimitiveValue:[self sha1:self.objectAsHash] forKey:@"checksum"];
 }
 
 - (NSString *)hashableDescription {

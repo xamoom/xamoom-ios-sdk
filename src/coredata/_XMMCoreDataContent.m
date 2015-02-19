@@ -4,7 +4,6 @@
 #import "_XMMCoreDataContent.h"
 
 const struct XMMCoreDataContentAttributes XMMCoreDataContentAttributes = {
-	.changeHash = @"changeHash",
 	.descriptionOfContent = @"descriptionOfContent",
 	.imagePublicUrl = @"imagePublicUrl",
 	.language = @"language",
@@ -44,8 +43,6 @@ const struct XMMCoreDataContentRelationships XMMCoreDataContentRelationships = {
 
 	return keyPaths;
 }
-
-@dynamic changeHash;
 
 @dynamic descriptionOfContent;
 

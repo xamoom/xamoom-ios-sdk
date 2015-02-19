@@ -17,4 +17,15 @@
              };
 }
 
+- (NSString *)hashableDescription {
+    NSString *stringA = self.publicStatus;
+    NSString *stringB = self.contentBlockType;
+    NSString *stringC = self.title;
+    NSString *stringD = (NSString*)self.order;
+    NSString *stringE = self.contentId;
+    
+    NSString *description = [NSString stringWithFormat:@"%@,%@,%@,%@,%@", stringA, stringB, stringC, stringD, stringE];
+    return description;
+}
+
 @end

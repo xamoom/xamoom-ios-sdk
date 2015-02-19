@@ -4,6 +4,7 @@
 #import <CoreData/CoreData.h>
 
 extern const struct XMMCoreDataAttributes {
+	__unsafe_unretained NSString *checksum;
 	__unsafe_unretained NSString *systemId;
 	__unsafe_unretained NSString *systemName;
 	__unsafe_unretained NSString *systemUrl;
@@ -17,6 +18,10 @@ extern const struct XMMCoreDataAttributes {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataID* objectID;
+
+@property (nonatomic, strong) NSString* checksum;
+
+//- (BOOL)validateChecksum:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* systemId;
 
@@ -33,6 +38,9 @@ extern const struct XMMCoreDataAttributes {
 @end
 
 @interface _XMMCoreData (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString*)primitiveChecksum;
+- (void)setPrimitiveChecksum:(NSString*)value;
 
 - (NSString*)primitiveSystemId;
 - (void)setPrimitiveSystemId:(NSString*)value;

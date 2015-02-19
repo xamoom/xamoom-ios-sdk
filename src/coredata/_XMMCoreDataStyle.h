@@ -5,7 +5,6 @@
 
 extern const struct XMMCoreDataStyleAttributes {
 	__unsafe_unretained NSString *backgroundColor;
-	__unsafe_unretained NSString *changeHash;
 	__unsafe_unretained NSString *chromeHeaderColor;
 	__unsafe_unretained NSString *customMarker;
 	__unsafe_unretained NSString *foregroundFontColor;
@@ -31,10 +30,6 @@ extern const struct XMMCoreDataStyleRelationships {
 @property (nonatomic, strong) NSString* backgroundColor;
 
 //- (BOOL)validateBackgroundColor:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) NSString* changeHash;
-
-//- (BOOL)validateChangeHash:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* chromeHeaderColor;
 
@@ -66,9 +61,6 @@ extern const struct XMMCoreDataStyleRelationships {
 
 - (NSString*)primitiveBackgroundColor;
 - (void)setPrimitiveBackgroundColor:(NSString*)value;
-
-- (NSString*)primitiveChangeHash;
-- (void)setPrimitiveChangeHash:(NSString*)value;
 
 - (NSString*)primitiveChromeHeaderColor;
 - (void)setPrimitiveChromeHeaderColor:(NSString*)value;

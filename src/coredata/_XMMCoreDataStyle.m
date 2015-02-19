@@ -5,7 +5,6 @@
 
 const struct XMMCoreDataStyleAttributes XMMCoreDataStyleAttributes = {
 	.backgroundColor = @"backgroundColor",
-	.changeHash = @"changeHash",
 	.chromeHeaderColor = @"chromeHeaderColor",
 	.customMarker = @"customMarker",
 	.foregroundFontColor = @"foregroundFontColor",
@@ -47,8 +46,6 @@ const struct XMMCoreDataStyleRelationships XMMCoreDataStyleRelationships = {
 }
 
 @dynamic backgroundColor;
-
-@dynamic changeHash;
 
 @dynamic chromeHeaderColor;
 

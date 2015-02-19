@@ -4,6 +4,7 @@
 #import "_XMMCoreData.h"
 
 const struct XMMCoreDataAttributes XMMCoreDataAttributes = {
+	.checksum = @"checksum",
 	.systemId = @"systemId",
 	.systemName = @"systemName",
 	.systemUrl = @"systemUrl",
@@ -37,6 +38,8 @@ const struct XMMCoreDataAttributes XMMCoreDataAttributes = {
 
 	return keyPaths;
 }
+
+@dynamic checksum;
 
 @dynamic systemId;
 
