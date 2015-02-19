@@ -6,6 +6,7 @@
 extern const struct XMMCoreDataMenuItemAttributes {
 	__unsafe_unretained NSString *contentId;
 	__unsafe_unretained NSString *itemLabel;
+	__unsafe_unretained NSString *order;
 } XMMCoreDataMenuItemAttributes;
 
 extern const struct XMMCoreDataMenuItemRelationships {
@@ -31,6 +32,14 @@ extern const struct XMMCoreDataMenuItemRelationships {
 
 //- (BOOL)validateItemLabel:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSNumber* order;
+
+@property (atomic) int16_t orderValue;
+- (int16_t)orderValue;
+- (void)setOrderValue:(int16_t)value_;
+
+//- (BOOL)validateOrder:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) XMMCoreDataGetById *coreDataGetById;
 
 //- (BOOL)validateCoreDataGetById:(id*)value_ error:(NSError**)error_;
@@ -44,6 +53,12 @@ extern const struct XMMCoreDataMenuItemRelationships {
 
 - (NSString*)primitiveItemLabel;
 - (void)setPrimitiveItemLabel:(NSString*)value;
+
+- (NSNumber*)primitiveOrder;
+- (void)setPrimitiveOrder:(NSNumber*)value;
+
+- (int16_t)primitiveOrderValue;
+- (void)setPrimitiveOrderValue:(int16_t)value_;
 
 - (XMMCoreDataGetById*)primitiveCoreDataGetById;
 - (void)setPrimitiveCoreDataGetById:(XMMCoreDataGetById*)value;

@@ -1,4 +1,3 @@
-#import <CommonCrypto/CommonDigest.h>
 #import "_XMMCoreDataContent.h"
 
 @interface XMMCoreDataContent : _XMMCoreDataContent {}
@@ -11,5 +10,7 @@
  @return NSArray
  */
 - (NSArray *)sortedContentBlocks;
+
+- (NSString *)hashableDescription;
 
 @end
