@@ -40,13 +40,21 @@ extern const struct XMMCoreDataGetByLocationIdentifierRelationships {
 
 //- (BOOL)validateContent:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) XMMCoreDataMenuItem *menu;
+@property (nonatomic, strong) NSSet *menu;
 
-//- (BOOL)validateMenu:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)menuSet;
 
 @property (nonatomic, strong) XMMCoreDataStyle *style;
 
 //- (BOOL)validateStyle:(id*)value_ error:(NSError**)error_;
+
+@end
+
+@interface _XMMCoreDataGetByLocationIdentifier (MenuCoreDataGeneratedAccessors)
+- (void)addMenu:(NSSet*)value_;
+- (void)removeMenu:(NSSet*)value_;
+- (void)addMenuObject:(XMMCoreDataMenuItem*)value_;
+- (void)removeMenuObject:(XMMCoreDataMenuItem*)value_;
 
 @end
 
@@ -61,8 +69,8 @@ extern const struct XMMCoreDataGetByLocationIdentifierRelationships {
 - (XMMCoreDataContent*)primitiveContent;
 - (void)setPrimitiveContent:(XMMCoreDataContent*)value;
 
-- (XMMCoreDataMenuItem*)primitiveMenu;
-- (void)setPrimitiveMenu:(XMMCoreDataMenuItem*)value;
+- (NSMutableSet*)primitiveMenu;
+- (void)setPrimitiveMenu:(NSMutableSet*)value;
 
 - (XMMCoreDataStyle*)primitiveStyle;
 - (void)setPrimitiveStyle:(XMMCoreDataStyle*)value;

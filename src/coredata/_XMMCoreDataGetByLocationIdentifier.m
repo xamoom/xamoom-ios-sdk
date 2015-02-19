@@ -51,6 +51,15 @@ const struct XMMCoreDataGetByLocationIdentifierRelationships XMMCoreDataGetByLoc
 
 @dynamic menu;
 
+- (NSMutableSet*)menuSet {
+	[self willAccessValueForKey:@"menu"];
+
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"menu"];
+
+	[self didAccessValueForKey:@"menu"];
+	return result;
+}
+
 @dynamic style;
 
 @end

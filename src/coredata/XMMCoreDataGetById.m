@@ -16,6 +16,8 @@
 -(void)willSave {
     self.objectAsHash = [[NSMutableString alloc] init];
     
+    [self.objectAsHash appendString:[self hashableDescription]];
+    
     NSArray *menu = [self sortedMenuItem];
     for(XMMCoreDataMenuItem *item in menu) {
         [self.objectAsHash appendString:[item hashableDescription]];
@@ -66,6 +68,5 @@
     
     return [self.menu sortedArrayUsingDescriptors:sorting];
 }
-
 
 @end
