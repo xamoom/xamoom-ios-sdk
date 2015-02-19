@@ -14,6 +14,8 @@
 @implementation XMMCoreDataGetById
 
 -(void)willSave {
+    [super willSave];
+    
     self.objectAsHash = [[NSMutableString alloc] init];
     
     [self.objectAsHash appendString:[self hashableDescription]];
@@ -30,8 +32,6 @@
     for (XMMCoreDataContentBlocks *block in contentBlocks) {
         [self.objectAsHash appendString:[block hashableDescription]];
     }
-    
-    NSLog(@"HERE: %@", [self sha1:self.objectAsHash]);
     
     [self setPrimitiveValue:[self sha1:self.objectAsHash] forKey:@"checksum"];
 }

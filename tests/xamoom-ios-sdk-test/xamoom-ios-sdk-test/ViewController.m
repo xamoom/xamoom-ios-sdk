@@ -52,7 +52,7 @@ XMMEnduserApi *api;
     NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
     
     XMMCoreDataGetById *firstEntity = fetchResult.firstObject;
-    //NSLog(@"Ordered ContentBlocks: %@", [firstEntity.content sortedContentBlocks]);
+    NSLog(@"Ordered ContentBlocks: %@", [firstEntity.content sortedContentBlocks]);
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {
