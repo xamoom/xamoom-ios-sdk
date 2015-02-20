@@ -13,6 +13,7 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contentBlocks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XMMCoreDataContentBlocks" inverseName="content" inverseEntity="XMMCoreDataContentBlocks" syncable="YES"/>
         <relationship name="coreDataGetById" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataGetById" inverseName="content" inverseEntity="XMMCoreDataGetById" syncable="YES"/>
+        <relationship name="coreDataGetByLocationIdentifier" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="XMMCoreDataGetByLocationIdentifier" inverseName="content" inverseEntity="XMMCoreDataGetByLocationIdentifier" syncable="YES"/>
     </entity>
     <entity name="XMMCoreDataContentBlocks" representedClassName="XMMCoreDataContentBlocks" syncable="YES">
         <attribute name="contentBlockType" optional="YES" attributeType="String" syncable="YES"/>
@@ -89,9 +90,9 @@
     <entity name="XMMCoreDataGetByLocationIdentifier" representedClassName="XMMCoreDataGetByLocationIdentifier" parentEntity="XMMCoreData" syncable="YES">
         <attribute name="hasContent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasSpot" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="content" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataContent" syncable="YES"/>
-        <relationship name="menu" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XMMCoreDataMenuItem" syncable="YES"/>
-        <relationship name="style" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataStyle" syncable="YES"/>
+        <relationship name="content" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="XMMCoreDataContent" inverseName="coreDataGetByLocationIdentifier" inverseEntity="XMMCoreDataContent" syncable="YES"/>
+        <relationship name="menu" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="XMMCoreDataMenuItem" inverseName="coreDataGetByLocationIdentifier" inverseEntity="XMMCoreDataMenuItem" syncable="YES"/>
+        <relationship name="style" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="XMMCoreDataStyle" inverseName="coreDataGetByLocationIdentifier" inverseEntity="XMMCoreDataStyle" syncable="YES"/>
     </entity>
     <entity name="XMMCoreDataGetByLocationItem" representedClassName="XMMCoreDataGetByLocationItem" parentEntity="XMMCoreData" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
@@ -112,6 +113,7 @@
         <attribute name="itemLabel" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="coreDataGetById" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataGetById" inverseName="menu" inverseEntity="XMMCoreDataGetById" syncable="YES"/>
+        <relationship name="coreDataGetByLocationIdentifier" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="XMMCoreDataGetByLocationIdentifier" inverseName="menu" inverseEntity="XMMCoreDataGetByLocationIdentifier" syncable="YES"/>
     </entity>
     <entity name="XMMCoreDataStyle" representedClassName="XMMCoreDataStyle" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
@@ -121,10 +123,11 @@
         <attribute name="highlightFontColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="coreDataGetById" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataGetById" inverseName="style" inverseEntity="XMMCoreDataGetById" syncable="YES"/>
+        <relationship name="coreDataGetByLocationIdentifier" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="XMMCoreDataGetByLocationIdentifier" inverseName="style" inverseEntity="XMMCoreDataGetByLocationIdentifier" syncable="YES"/>
     </entity>
     <elements>
         <element name="XMMCoreData" positionX="-1287" positionY="-13057" width="128" height="103"/>
-        <element name="XMMCoreDataContent" positionX="-1458" positionY="-12780" width="128" height="133"/>
+        <element name="XMMCoreDataContent" positionX="-1458" positionY="-12780" width="128" height="28"/>
         <element name="XMMCoreDataContentBlocks" positionX="-1953" positionY="-12609" width="189" height="28"/>
         <element name="XMMCoreDataContentBlockType0" positionX="-1683" positionY="-12952" width="243" height="73"/>
         <element name="XMMCoreDataContentBlockType1" positionX="-1937" positionY="-12960" width="218" height="88"/>
@@ -138,9 +141,9 @@
         <element name="XMMCoreDataContentBlockType9" positionX="-1683" positionY="-12441" width="128" height="30"/>
         <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12877" width="128" height="88"/>
         <element name="XMMCoreDataGetByLocation" positionX="-1046" positionY="-13023" width="128" height="73"/>
-        <element name="XMMCoreDataGetByLocationIdentifier" positionX="-864" positionY="-12780" width="128" height="118"/>
+        <element name="XMMCoreDataGetByLocationIdentifier" positionX="-864" positionY="-12780" width="128" height="28"/>
         <element name="XMMCoreDataGetByLocationItem" positionX="-819" positionY="-13165" width="243" height="223"/>
-        <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="103"/>
-        <element name="XMMCoreDataStyle" positionX="-1089" positionY="-12600" width="128" height="148"/>
+        <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="28"/>
+        <element name="XMMCoreDataStyle" positionX="-1089" positionY="-12600" width="128" height="28"/>
     </elements>
 </model>

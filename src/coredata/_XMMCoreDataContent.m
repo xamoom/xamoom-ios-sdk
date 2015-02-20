@@ -13,6 +13,7 @@ const struct XMMCoreDataContentAttributes XMMCoreDataContentAttributes = {
 const struct XMMCoreDataContentRelationships XMMCoreDataContentRelationships = {
 	.contentBlocks = @"contentBlocks",
 	.coreDataGetById = @"coreDataGetById",
+	.coreDataGetByLocationIdentifier = @"coreDataGetByLocationIdentifier",
 };
 
 @implementation XMMCoreDataContentID
@@ -64,6 +65,8 @@ const struct XMMCoreDataContentRelationships XMMCoreDataContentRelationships = {
 }
 
 @dynamic coreDataGetById;
+
+@dynamic coreDataGetByLocationIdentifier;
 
 @end
 

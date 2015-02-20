@@ -4,4 +4,6 @@
 
 + (NSDictionary *)getMapping;
 
+- (NSArray *)sortedMenuItem;
+
 @end

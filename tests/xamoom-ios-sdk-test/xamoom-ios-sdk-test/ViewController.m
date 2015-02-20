@@ -21,7 +21,7 @@ XMMEnduserApi *api;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
     
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
@@ -43,16 +43,27 @@ XMMEnduserApi *api;
     //[api getContentByLocationFromCoreData:@"46.61505684231224" lon:@"14.2624694108963" language:@"de"];
 }
 
+- (IBAction)test2ButtonPressen:(id)sender {
+    //[api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationIdentifierFromCoreData:@"3fi7c" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+}
+
 -(void)finishedLoadData:(RKMappingResult *)result
 {
     
 }
 
 - (void)finishedLoadCoreData {
-    NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
+    NSArray* fetchResult = [api fetchCoreDataContentBy:@"locationIdentifier"];
     
-    XMMCoreDataGetById *firstEntity = fetchResult.firstObject;
-    NSLog(@"Ordered ContentBlocks: %@", [firstEntity.content sortedContentBlocks]);
+    XMMCoreDataGetByLocationIdentifier *firstEntity = fetchResult.firstObject;
+    
+    //NSLog(@"Style: %@", firstEntity.style);
+    //NSLog(@"Menu: %@", firstEntity.menu);
+    
+    for (XMMCoreDataMenuItem *item in [firstEntity sortedMenuItem]) {
+       NSLog(@"Menu: %@", item.itemLabel);
+    }
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {
