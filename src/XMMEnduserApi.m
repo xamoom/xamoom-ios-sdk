@@ -322,7 +322,6 @@ NSArray* articles;
     
     [coreDataContentBlockType9Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"spotMapTag" ]];
     
-    
     // Add dynamic matchers
     [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                              expectedValue:@"0"
@@ -440,7 +439,6 @@ NSArray* articles;
     [coreDataContentBlockType1Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType1 getMapping]];
     
     [coreDataContentBlockType1Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"artist", @"fileId" ]];
-    
     
     RKEntityMapping *coreDataContentBlockType2Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType2" inManagedObjectStore:managedObjectStore];
     [coreDataContentBlockType2Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType2 getMapping]];
