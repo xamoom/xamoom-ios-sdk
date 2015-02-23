@@ -13,6 +13,17 @@
 
 @implementation XMMCoreDataGetByLocationIdentifier
 
+@synthesize objectAsHash;
+
++ (void)load {
+    @autoreleasepool {
+        [[NSNotificationCenter defaultCenter] addObserver: (id)[self class]
+                                                 selector: @selector(objectContextWillSave:)
+                                                     name: NSManagedObjectContextWillSaveNotification
+                                                   object: nil];
+    }
+}
+
 + (NSDictionary *)getMapping
 {
     return @{@"system_name":@"systemName",
@@ -23,7 +34,17 @@
              };
 }
 
--(void)willSave {
++ (void) objectContextWillSave: (NSNotification*) notification {
+    
+    NSManagedObjectContext* context = [notification object];
+    NSSet* allModified = [context.insertedObjects setByAddingObjectsFromSet: context.updatedObjects];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat: @"self isKindOfClass: %@", [self class]];
+    NSSet* modifiable = [allModified filteredSetUsingPredicate: predicate];
+    [modifiable makeObjectsPerformSelector: @selector(setGeneratedChecksum)];
+}
+
+-(void)setGeneratedChecksum {
+
     self.objectAsHash = [[NSMutableString alloc] init];
     
     [self.objectAsHash appendString:[self hashableDescription]];
@@ -33,8 +54,14 @@
         [self.objectAsHash appendString:[item hashableDescription]];
     }
     
-    [self.objectAsHash appendString:[self.style hashableDescription]];
-    [self.objectAsHash appendString:[self.content hashableDescription]];
+    if (self.style != nil) {
+        [self.objectAsHash appendString:[self.style hashableDescription]];
+    }
+    
+    if (self.content != nil) {
+       [self.objectAsHash appendString:[self.content hashableDescription]];
+    }
+    
     
     NSArray *contentBlocks = self.content.sortedContentBlocks;
     for (XMMCoreDataContentBlocks *block in contentBlocks) {

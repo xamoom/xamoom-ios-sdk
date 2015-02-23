@@ -3,12 +3,6 @@
 
 #import "_XMMCoreDataContentBlockType8.h"
 
-const struct XMMCoreDataContentBlockType8Attributes XMMCoreDataContentBlockType8Attributes = {
-	.downloadType = @"downloadType",
-	.fileId = @"fileId",
-	.text = @"text",
-};
-
 const struct XMMCoreDataContentBlockType8Relationships XMMCoreDataContentBlockType8Relationships = {
 	.contentBlock = @"contentBlock",
 };
@@ -41,12 +35,6 @@ const struct XMMCoreDataContentBlockType8Relationships XMMCoreDataContentBlockTy
 
 	return keyPaths;
 }
-
-@dynamic downloadType;
-
-@dynamic fileId;
-
-@dynamic text;
 
 @dynamic contentBlock;
 

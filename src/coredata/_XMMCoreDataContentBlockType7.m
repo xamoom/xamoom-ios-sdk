@@ -3,10 +3,6 @@
 
 #import "_XMMCoreDataContentBlockType7.h"
 
-const struct XMMCoreDataContentBlockType7Attributes XMMCoreDataContentBlockType7Attributes = {
-	.soundcloudUrl = @"soundcloudUrl",
-};
-
 const struct XMMCoreDataContentBlockType7Relationships XMMCoreDataContentBlockType7Relationships = {
 	.contentBlock = @"contentBlock",
 };
@@ -39,8 +35,6 @@ const struct XMMCoreDataContentBlockType7Relationships XMMCoreDataContentBlockTy
 
 	return keyPaths;
 }
-
-@dynamic soundcloudUrl;
 
 @dynamic contentBlock;
 

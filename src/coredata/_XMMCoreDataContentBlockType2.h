@@ -4,10 +4,6 @@
 #import <CoreData/CoreData.h>
 #import "XMMCoreDataContentBlocks.h"
 
-extern const struct XMMCoreDataContentBlockType2Attributes {
-	__unsafe_unretained NSString *youtubeUrl;
-} XMMCoreDataContentBlockType2Attributes;
-
 extern const struct XMMCoreDataContentBlockType2Relationships {
 	__unsafe_unretained NSString *contentBlock;
 } XMMCoreDataContentBlockType2Relationships;
@@ -23,10 +19,6 @@ extern const struct XMMCoreDataContentBlockType2Relationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataContentBlockType2ID* objectID;
 
-@property (nonatomic, strong) NSString* youtubeUrl;
-
-//- (BOOL)validateYoutubeUrl:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) XMMCoreDataContentBlocks *contentBlock;
 
 //- (BOOL)validateContentBlock:(id*)value_ error:(NSError**)error_;
@@ -34,9 +26,6 @@ extern const struct XMMCoreDataContentBlockType2Relationships {
 @end
 
 @interface _XMMCoreDataContentBlockType2 (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSString*)primitiveYoutubeUrl;
-- (void)setPrimitiveYoutubeUrl:(NSString*)value;
 
 - (XMMCoreDataContentBlocks*)primitiveContentBlock;
 - (void)setPrimitiveContentBlock:(XMMCoreDataContentBlocks*)value;

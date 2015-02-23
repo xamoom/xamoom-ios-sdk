@@ -19,12 +19,6 @@
              };
 }
 
-//used to generate hashes
-- (void)willSave {
-    //NSLog(@"Hashing... : %@", [self sha1:[self hashableDescription]]);
-    //[self setPrimitiveValue:[self sha1:[self hashableDescription]] forKey:@"changeHash"];
-}
-
 - (NSString *)hashableDescription {
     NSString *stringA = self.foregroundFontColor;
     NSString *stringB = self.backgroundColor;

@@ -3,10 +3,6 @@
 
 #import "_XMMCoreDataContentBlockType3.h"
 
-const struct XMMCoreDataContentBlockType3Attributes XMMCoreDataContentBlockType3Attributes = {
-	.fileId = @"fileId",
-};
-
 const struct XMMCoreDataContentBlockType3Relationships XMMCoreDataContentBlockType3Relationships = {
 	.contentBlock = @"contentBlock",
 };
@@ -39,8 +35,6 @@ const struct XMMCoreDataContentBlockType3Relationships XMMCoreDataContentBlockTy
 
 	return keyPaths;
 }
-
-@dynamic fileId;
 
 @dynamic contentBlock;
 

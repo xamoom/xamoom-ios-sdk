@@ -3,10 +3,6 @@
 
 #import "_XMMCoreDataContentBlockType2.h"
 
-const struct XMMCoreDataContentBlockType2Attributes XMMCoreDataContentBlockType2Attributes = {
-	.youtubeUrl = @"youtubeUrl",
-};
-
 const struct XMMCoreDataContentBlockType2Relationships XMMCoreDataContentBlockType2Relationships = {
 	.contentBlock = @"contentBlock",
 };
@@ -39,8 +35,6 @@ const struct XMMCoreDataContentBlockType2Relationships XMMCoreDataContentBlockTy
 
 	return keyPaths;
 }
-
-@dynamic youtubeUrl;
 
 @dynamic contentBlock;
 

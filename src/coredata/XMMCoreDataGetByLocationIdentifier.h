@@ -2,6 +2,8 @@
 
 @interface XMMCoreDataGetByLocationIdentifier : _XMMCoreDataGetByLocationIdentifier {}
 
++ (void)load;
+
 + (NSDictionary *)getMapping;
 
 - (NSArray *)sortedMenuItem;

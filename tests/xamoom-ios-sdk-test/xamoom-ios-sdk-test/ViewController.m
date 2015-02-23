@@ -21,7 +21,7 @@ XMMEnduserApi *api;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
     
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
@@ -58,8 +58,8 @@ XMMEnduserApi *api;
     
     XMMCoreDataGetByLocationIdentifier *firstEntity = fetchResult.firstObject;
     
-    //NSLog(@"Style: %@", firstEntity.style);
-    //NSLog(@"Menu: %@", firstEntity.menu);
+    NSLog(@"Style: %@", firstEntity.style);
+    NSLog(@"Content: %@", firstEntity.content);
     
     for (XMMCoreDataMenuItem *item in [firstEntity sortedMenuItem]) {
        NSLog(@"Menu: %@", item.itemLabel);

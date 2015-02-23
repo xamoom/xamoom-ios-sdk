@@ -26,12 +26,8 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 
 @implementation XMMEnduserApi : NSObject
 
-NSURL *baseURL;
-RKManagedObjectStore *managedObjectStore;
-RKObjectManager *objectManager;
-NSArray* articles;
 
-@synthesize delegate;
+@synthesize delegate, baseURL, objectManager, managedObjectStore;
 
 -(id)init {
     self = [super init];
@@ -236,15 +232,10 @@ NSArray* articles;
     
     // Enable Activity Indicator Spinner
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    
-    [self getByLocationIdentifierMapping];
-    [self getByIdMapping];
 }
 
 - (void)getByIdMapping {
     // Create mapping
-    RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
-    
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetById getMapping]];
     
@@ -265,103 +256,8 @@ NSArray* articles;
     
     [coreDataContentMapping setIdentificationAttributes:@[ @"imagePublicUrl", @"descriptionOfContent", @"language", @"title" ]];
     
-    RKEntityMapping *coreDataContentBlockType0Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType0" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType0Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType0 getMapping]];
-    
-    [coreDataContentBlockType0Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"text" ]];
-    
-    RKEntityMapping *coreDataContentBlockType1Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType1" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType1Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType1 getMapping]];
-    
-    [coreDataContentBlockType1Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"artist", @"fileId" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType2Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType2" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType2Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType2 getMapping]];
-    
-    [coreDataContentBlockType2Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"youtubeUrl" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType3Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType3" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType3Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType3 getMapping]];
-    
-    [coreDataContentBlockType3Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"fileId"]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType4Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType4" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType4Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType4 getMapping]];
-    
-    [coreDataContentBlockType4Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"linkType", @"linkUrl", @"text"  ]];
-    
-    RKEntityMapping *coreDataContentBlockType5Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType5" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType5Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType5 getMapping]];
-    
-    [coreDataContentBlockType5Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"artist", @"fileId" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType6Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType6" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType6Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType6 getMapping]];
-    
-    [coreDataContentBlockType6Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"contentId" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType7Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType7" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType7Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType7 getMapping]];
-    
-    [coreDataContentBlockType7Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"soundcloudUrl" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType8Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType8"  inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType8Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType8 getMapping]];
-    
-    [coreDataContentBlockType8Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"downloadType", @"fileId", @"text" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType9Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType9"  inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType9Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType9 getMapping]];
-    
-    [coreDataContentBlockType9Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"spotMapTag" ]];
-    
-    // Add dynamic matchers
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"0"
-                                                             objectMapping:coreDataContentBlockType0Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"1"
-                                                             objectMapping:coreDataContentBlockType1Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"2"
-                                                             objectMapping:coreDataContentBlockType2Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"3"
-                                                             objectMapping:coreDataContentBlockType3Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"4"
-                                                             objectMapping:coreDataContentBlockType4Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"5"
-                                                             objectMapping:coreDataContentBlockType5Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"6"
-                                                             objectMapping:coreDataContentBlockType6Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"7"
-                                                             objectMapping:coreDataContentBlockType7Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"8"
-                                                             objectMapping:coreDataContentBlockType8Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"9"
-                                                             objectMapping:coreDataContentBlockType9Mapping]];
+    RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:managedObjectStore];
+    [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];
     
     
     // Create relationships
@@ -371,7 +267,7 @@ NSArray* articles;
     
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
                                                                                     toKeyPath:@"content.contentBlocks"
-                                                                                  withMapping:dynamicMapping]];
+                                                                                  withMapping:coreDataContentBlocksMapping]];
     
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
                                                                                     toKeyPath:@"style"
@@ -393,7 +289,7 @@ NSArray* articles;
 
 - (void)getContentByIdFromCoreData:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language
 {
-    
+    [self getByIdMapping];
     
     NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id";
     NSDictionary *queryParams = @{@"content_id":contentId,
@@ -408,8 +304,6 @@ NSArray* articles;
 
 - (void)getByLocationIdentifierMapping {
     // Create mapping
-    RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
-    
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocationIdentifier" inManagedObjectStore:managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocationIdentifier getMapping]];
     
@@ -430,103 +324,8 @@ NSArray* articles;
     
     [coreDataContentMapping setIdentificationAttributes:@[ @"imagePublicUrl", @"descriptionOfContent", @"language", @"title" ]];
     
-    RKEntityMapping *coreDataContentBlockType0Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType0" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType0Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType0 getMapping]];
-    
-    [coreDataContentBlockType0Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"text" ]];
-    
-    RKEntityMapping *coreDataContentBlockType1Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType1" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType1Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType1 getMapping]];
-    
-    [coreDataContentBlockType1Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"artist", @"fileId" ]];
-    
-    RKEntityMapping *coreDataContentBlockType2Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType2" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType2Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType2 getMapping]];
-    
-    [coreDataContentBlockType2Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"youtubeUrl" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType3Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType3" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType3Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType3 getMapping]];
-    
-    [coreDataContentBlockType3Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"fileId"]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType4Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType4" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType4Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType4 getMapping]];
-    
-    [coreDataContentBlockType4Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"linkType", @"linkUrl", @"text"  ]];
-    
-    RKEntityMapping *coreDataContentBlockType5Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType5" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType5Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType5 getMapping]];
-    
-    [coreDataContentBlockType5Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"artist", @"fileId" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType6Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType6" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType6Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType6 getMapping]];
-    
-    [coreDataContentBlockType6Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"contentId" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType7Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType7" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType7Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType7 getMapping]];
-    
-    [coreDataContentBlockType7Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"soundcloudUrl" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType8Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType8"  inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType8Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType8 getMapping]];
-    
-    [coreDataContentBlockType8Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"downloadType", @"fileId", @"text" ]];
-    
-    
-    RKEntityMapping *coreDataContentBlockType9Mapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlockType9"  inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlockType9Mapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlockType9 getMapping]];
-    
-    [coreDataContentBlockType9Mapping setIdentificationAttributes:@[ @"order", @"contentBlockType", @"publicStatus", @"title", @"spotMapTag" ]];
-    
-    
-    // Add dynamic matchers
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"0"
-                                                             objectMapping:coreDataContentBlockType0Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"1"
-                                                             objectMapping:coreDataContentBlockType1Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"2"
-                                                             objectMapping:coreDataContentBlockType2Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"3"
-                                                             objectMapping:coreDataContentBlockType3Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"4"
-                                                             objectMapping:coreDataContentBlockType4Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"5"
-                                                             objectMapping:coreDataContentBlockType5Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"6"
-                                                             objectMapping:coreDataContentBlockType6Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"7"
-                                                             objectMapping:coreDataContentBlockType7Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"8"
-                                                             objectMapping:coreDataContentBlockType8Mapping]];
-    
-    [dynamicMapping addMatcher: [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                             expectedValue:@"9"
-                                                             objectMapping:coreDataContentBlockType9Mapping]];
+    RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:managedObjectStore];
+    [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];
     
     // Create relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
@@ -535,7 +334,7 @@ NSArray* articles;
     
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
                                                                                     toKeyPath:@"content.contentBlocks"
-                                                                                  withMapping:dynamicMapping]];
+                                                                                  withMapping:coreDataContentBlocksMapping]];
     
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
                                                                                     toKeyPath:@"style"
@@ -557,6 +356,9 @@ NSArray* articles;
 
 - (void)getContentByLocationIdentifierFromCoreData:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language
 {
+    
+    [self getByLocationIdentifierMapping];
+    
     NSString *path = @"xamoomEndUserApi/v1/get_content_by_location_identifier";
     NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
                                   @"include_style":style,

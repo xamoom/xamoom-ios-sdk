@@ -3,12 +3,6 @@
 
 #import "_XMMCoreDataContentBlockType4.h"
 
-const struct XMMCoreDataContentBlockType4Attributes XMMCoreDataContentBlockType4Attributes = {
-	.linkType = @"linkType",
-	.linkUrl = @"linkUrl",
-	.text = @"text",
-};
-
 const struct XMMCoreDataContentBlockType4Relationships XMMCoreDataContentBlockType4Relationships = {
 	.contentBlock = @"contentBlock",
 };
@@ -41,12 +35,6 @@ const struct XMMCoreDataContentBlockType4Relationships XMMCoreDataContentBlockTy
 
 	return keyPaths;
 }
-
-@dynamic linkType;
-
-@dynamic linkUrl;
-
-@dynamic text;
 
 @dynamic contentBlock;
 

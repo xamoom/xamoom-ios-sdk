@@ -2,6 +2,8 @@
 
 @interface XMMCoreDataContentBlocks : _XMMCoreDataContentBlocks {}
 
++ (NSDictionary *)getMapping;
+
 - (NSString *)hashableDescription;
 
 @end
