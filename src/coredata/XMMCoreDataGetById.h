@@ -2,6 +2,10 @@
 
 @interface XMMCoreDataGetById : _XMMCoreDataGetById {}
 
-+ (void)load;
+- (NSArray *)sortedMenuItem;
+
++ (NSDictionary *)getMapping;
+
+- (void)willSave;
 
 @end

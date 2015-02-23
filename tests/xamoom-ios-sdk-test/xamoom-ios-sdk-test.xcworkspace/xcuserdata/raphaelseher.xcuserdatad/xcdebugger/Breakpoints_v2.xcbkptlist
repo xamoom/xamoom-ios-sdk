@@ -101,22 +101,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "xamoom-ios-sdk-test/ViewController.m"
-            timestampString = "445767629.697519"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "../../src/XMMEnduserApi.m"
             timestampString = "446376799.029501"
             startingColumnNumber = "9223372036854775807"
@@ -133,13 +117,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/coredata/XMMCoreDataGetByLocationIdentifier.m"
-            timestampString = "446380345.381782"
+            filePath = "../../src/XMMEnduserApi.m"
+            timestampString = "446381950.864165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-setGeneratedChecksum"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "-getByIdMapping"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -149,45 +133,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/coredata/XMMCoreDataGetByLocationIdentifier.m"
-            timestampString = "446380345.381782"
+            filePath = "../../src/XMMEnduserApi.m"
+            timestampString = "446392177.069042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-setGeneratedChecksum"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/coredata/XMMCoreDataGetByLocationIdentifier.m"
-            timestampString = "446380345.381782"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-setGeneratedChecksum"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/coredata/XMMCoreDataGetByLocationIdentifier.m"
-            timestampString = "446380345.381782"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "+objectContextWillSave:"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
+            landmarkName = "-getContentByLocationFromCoreData:lon:language:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

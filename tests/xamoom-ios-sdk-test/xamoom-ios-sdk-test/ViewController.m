@@ -34,13 +34,11 @@ XMMEnduserApi *api;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
 }
 
 - (IBAction)testButtonPressed:(id)sender {
     //[api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
     [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    //[api getContentByLocationFromCoreData:@"46.61505684231224" lon:@"14.2624694108963" language:@"de"];
 }
 
 - (IBAction)test2ButtonPressen:(id)sender {
@@ -48,19 +46,12 @@ XMMEnduserApi *api;
     [api getContentByLocationIdentifierFromCoreData:@"3fi7c" includeStyle:@"True" includeMenu:@"True" language:@"de"];
 }
 
--(void)finishedLoadData:(RKMappingResult *)result
-{
-    
-}
-
 - (void)finishedLoadCoreData {
     NSArray* fetchResult = [api fetchCoreDataContentBy:@"locationIdentifier"];
     
     XMMCoreDataGetByLocationIdentifier *firstEntity = fetchResult.firstObject;
     
-    NSLog(@"Style: %@", firstEntity.style);
-    NSLog(@"Content: %@", firstEntity.content);
-    NSLog(@"Content: %@", firstEntity.menu);
+    NSLog(@"fetchResult: %@", firstEntity);
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {

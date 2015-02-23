@@ -307,7 +307,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocationIdentifier" inManagedObjectStore:managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocationIdentifier getMapping]];
     
-    [coreDataMapping setIdentificationAttributes:@[ @"checksum" ]];
+    [coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId" ]];
     
     RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:managedObjectStore];
     [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
@@ -326,6 +326,9 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     
     RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:managedObjectStore];
     [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];
+    
+    [coreDataContentBlocksMapping setIdentificationAttributes:@[ @"artist", @"contentBlockType", @"contentId", @"downloadType", @"fileId", @"linkType", @"linkUrl", @"order", @"publicStatus", @"soundcloudUrl", @"spotMapTag", @"text", @"title", @"youtubeUrl" ]];
+
     
     // Create relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
@@ -414,6 +417,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
                                             NSLog(@"Output: %@", mappingResult.firstObject);
                                             
                                             [delegate performSelector:@selector(finishedLoadCoreData)];
+                                            //[self deleteEntitiesWithoutContent];
                                         }
                                         failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                             NSLog(@"Error: %@", error);
@@ -439,9 +443,12 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
         NSLog(@"Type not found.");
     }
     
+    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"content == nil || content.@count =0"];
+    //[fetchRequest setPredicate:predicate];
+    
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
+        
     return fetchedObjects;
 }
 
