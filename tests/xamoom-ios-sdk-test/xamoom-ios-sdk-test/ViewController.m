@@ -60,10 +60,7 @@ XMMEnduserApi *api;
     
     NSLog(@"Style: %@", firstEntity.style);
     NSLog(@"Content: %@", firstEntity.content);
-    
-    for (XMMCoreDataMenuItem *item in [firstEntity sortedMenuItem]) {
-       NSLog(@"Menu: %@", item.itemLabel);
-    }
+    NSLog(@"Content: %@", firstEntity.menu);
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {

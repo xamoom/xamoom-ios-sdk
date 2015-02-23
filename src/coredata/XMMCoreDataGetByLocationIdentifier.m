@@ -15,15 +15,6 @@
 
 @synthesize objectAsHash;
 
-+ (void)load {
-    @autoreleasepool {
-        [[NSNotificationCenter defaultCenter] addObserver: (id)[self class]
-                                                 selector: @selector(objectContextWillSave:)
-                                                     name: NSManagedObjectContextWillSaveNotification
-                                                   object: nil];
-    }
-}
-
 + (NSDictionary *)getMapping
 {
     return @{@"system_name":@"systemName",
@@ -34,6 +25,15 @@
              };
 }
 
++ (void)load {
+    @autoreleasepool {
+        [[NSNotificationCenter defaultCenter] addObserver: (id)[self class]
+                                                 selector: @selector(objectContextWillSave:)
+                                                     name: NSManagedObjectContextWillSaveNotification
+                                                   object: nil];
+    }
+}
+
 + (void) objectContextWillSave: (NSNotification*) notification {
     
     NSManagedObjectContext* context = [notification object];
@@ -41,6 +41,11 @@
     NSPredicate* predicate = [NSPredicate predicateWithFormat: @"self isKindOfClass: %@", [self class]];
     NSSet* modifiable = [allModified filteredSetUsingPredicate: predicate];
     [modifiable makeObjectsPerformSelector: @selector(setGeneratedChecksum)];
+    
+    for (XMMCoreDataGetByLocationIdentifier *item in modifiable) {
+        NSLog(@"HERE2: %@", item.content);
+    }
+    
 }
 
 -(void)setGeneratedChecksum {
