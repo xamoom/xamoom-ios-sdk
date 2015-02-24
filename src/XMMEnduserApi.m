@@ -241,13 +241,13 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetById getMapping]];
     
-    //[coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId", @"checksum", @"hasContent", @"hasSpot" ]];
-    [coreDataMapping setIdentificationAttributes:@[ @"checksum" ]];
+    //[coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId", @"hasContent", @"hasSpot", @"checksum", @"content" ]];
+    //[coreDataMapping setIdentificationAttributes:@[ @"checksum" ]];
     
     RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
     
-    [coreDataStyleMapping setIdentificationAttributes:@[ @"icon", @"backgroundColor", @"chromeHeaderColor", @"customMarker", @"foregroundFontColor", @"highlightFontColor" ]];
+    //[coreDataStyleMapping setIdentificationAttributes:@[ @"icon", @"backgroundColor", @"chromeHeaderColor", @"customMarker", @"foregroundFontColor", @"highlightFontColor" ]];
     
     RKEntityMapping *coreDataMenuMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataMenuItem" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataMenuMapping addAttributeMappingsFromDictionary:[XMMCoreDataMenuItem getMapping]];
@@ -257,13 +257,12 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     RKEntityMapping *coreDataContentMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContent" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataContentMapping addAttributeMappingsFromDictionary:[XMMCoreDataContent getMapping]];
     
-    [coreDataContentMapping setIdentificationAttributes:@[ @"imagePublicUrl", @"descriptionOfContent", @"language", @"title" ]];
+    //[coreDataContentMapping setIdentificationAttributes:@[ @"imagePublicUrl", @"descriptionOfContent", @"language", @"title" ]];
     
     RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
-    [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];
+    [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];    
     
-    
-    // Create relationships
+    // Create relationship
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
                                                                                     toKeyPath:@"content"
                                                                                   withMapping:coreDataContentMapping]];

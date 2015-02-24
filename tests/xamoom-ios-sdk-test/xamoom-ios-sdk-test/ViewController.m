@@ -42,8 +42,8 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)test2ButtonPressen:(id)sender {
-    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    //[api getContentByLocationIdentifierFromCoreData:@"3fi7c" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    //[api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationIdentifierFromCoreData:@"3fi7c" includeStyle:@"True" includeMenu:@"True" language:@"de"];
 }
 
 - (void)finishedLoadCoreData {

@@ -102,11 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../src/XMMEnduserApi.m"
-            timestampString = "446456878.847379"
+            timestampString = "446457624.565602"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-getContentByLocationIdentifier:includeStyle:includeMenu:language:"
             landmarkType = "5">
          </BreakpointContent>
@@ -118,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../src/XMMEnduserApi.m"
-            timestampString = "446456878.847379"
+            timestampString = "446457624.565602"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "-getByIdMapping"
             landmarkType = "5">
          </BreakpointContent>
@@ -134,11 +134,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../src/XMMEnduserApi.m"
-            timestampString = "446457101.270753"
+            timestampString = "446458319.626363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "377"
-            endingLineNumber = "377"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
             landmarkName = "-getContentByLocationFromCoreData:lon:language:"
             landmarkType = "5">
          </BreakpointContent>
