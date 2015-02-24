@@ -4,6 +4,4 @@
 
 + (NSDictionary *)getMapping;
 
-- (NSString *)hashableDescription;
-
 @end

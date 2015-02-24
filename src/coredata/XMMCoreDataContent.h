@@ -11,6 +11,4 @@
  */
 - (NSArray *)sortedContentBlocks;
 
-- (NSString *)hashableDescription;
-
 @end

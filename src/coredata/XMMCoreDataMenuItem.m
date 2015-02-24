@@ -15,13 +15,4 @@
              };
 }
 
-- (NSString *)hashableDescription {
-    NSString *stringA = self.itemLabel;
-    NSString *stringB = self.contentId;
-    NSString *stringC = (NSString*)self.order;
-
-    NSString *description = [NSString stringWithFormat:@"%@,%@,%@", stringA, stringB, stringC];
-    return description;
-}
-
 @end

@@ -24,14 +24,4 @@
     return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
 }
 
-- (NSString *)hashableDescription {
-    NSString *stringA = self.descriptionOfContent;
-    NSString *stringB = self.language;
-    NSString *stringC = self.title;
-    NSString *stringD = self.imagePublicUrl;
-    
-    NSString *description = [NSString stringWithFormat:@"%@,%@,%@,%@", stringA, stringB, stringC, stringD];
-    return description;
-}
-
 @end
