@@ -14,7 +14,6 @@ const struct XMMCoreDataStyleAttributes XMMCoreDataStyleAttributes = {
 
 const struct XMMCoreDataStyleRelationships XMMCoreDataStyleRelationships = {
 	.coreDataGetById = @"coreDataGetById",
-	.coreDataGetByLocationIdentifier = @"coreDataGetByLocationIdentifier",
 };
 
 @implementation XMMCoreDataStyleID
@@ -59,8 +58,6 @@ const struct XMMCoreDataStyleRelationships XMMCoreDataStyleRelationships = {
 @dynamic icon;
 
 @dynamic coreDataGetById;
-
-@dynamic coreDataGetByLocationIdentifier;
 
 @end
 

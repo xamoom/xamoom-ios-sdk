@@ -2,7 +2,15 @@
 // Make changes to XMMCoreDataGetById.h instead.
 
 #import <CoreData/CoreData.h>
-#import "XMMCoreData.h"
+
+extern const struct XMMCoreDataGetByIdAttributes {
+	__unsafe_unretained NSString *checksum;
+	__unsafe_unretained NSString *hasContent;
+	__unsafe_unretained NSString *hasSpot;
+	__unsafe_unretained NSString *systemId;
+	__unsafe_unretained NSString *systemName;
+	__unsafe_unretained NSString *systemUrl;
+} XMMCoreDataGetByIdAttributes;
 
 extern const struct XMMCoreDataGetByIdRelationships {
 	__unsafe_unretained NSString *content;
@@ -14,14 +22,38 @@ extern const struct XMMCoreDataGetByIdRelationships {
 @class XMMCoreDataMenuItem;
 @class XMMCoreDataStyle;
 
-@interface XMMCoreDataGetByIdID : XMMCoreDataID {}
+@interface XMMCoreDataGetByIdID : NSManagedObjectID {}
 @end
 
-@interface _XMMCoreDataGetById : XMMCoreData {}
+@interface _XMMCoreDataGetById : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataGetByIdID* objectID;
+
+@property (nonatomic, strong) NSString* checksum;
+
+//- (BOOL)validateChecksum:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* hasContent;
+
+//- (BOOL)validateHasContent:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* hasSpot;
+
+//- (BOOL)validateHasSpot:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* systemId;
+
+//- (BOOL)validateSystemId:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* systemName;
+
+//- (BOOL)validateSystemName:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* systemUrl;
+
+//- (BOOL)validateSystemUrl:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) XMMCoreDataContent *content;
 
@@ -46,6 +78,24 @@ extern const struct XMMCoreDataGetByIdRelationships {
 @end
 
 @interface _XMMCoreDataGetById (CoreDataGeneratedPrimitiveAccessors)
+
+- (NSString*)primitiveChecksum;
+- (void)setPrimitiveChecksum:(NSString*)value;
+
+- (NSString*)primitiveHasContent;
+- (void)setPrimitiveHasContent:(NSString*)value;
+
+- (NSString*)primitiveHasSpot;
+- (void)setPrimitiveHasSpot:(NSString*)value;
+
+- (NSString*)primitiveSystemId;
+- (void)setPrimitiveSystemId:(NSString*)value;
+
+- (NSString*)primitiveSystemName;
+- (void)setPrimitiveSystemName:(NSString*)value;
+
+- (NSString*)primitiveSystemUrl;
+- (void)setPrimitiveSystemUrl:(NSString*)value;
 
 - (XMMCoreDataContent*)primitiveContent;
 - (void)setPrimitiveContent:(XMMCoreDataContent*)value;

@@ -44,13 +44,11 @@
 #import "XMMResponseContentBlockType9.h"
 
 //Core Data
-#import "XMMCoreData.h"
 #import "XMMCoreDataGetById.h"
 #import "XMMCoreDataStyle.h"
 #import "XMMCoreDataMenuItem.h"
 #import "XMMCoreDataContent.h"
 #import "XMMCoreDataContentBlocks.h"
-#import "XMMCoreDataGetByLocationIdentifier.h"
 #import "XMMCoreDataGetByLocation.h"
 #import "XMMCoreDataGetByLocationItem.h"
 

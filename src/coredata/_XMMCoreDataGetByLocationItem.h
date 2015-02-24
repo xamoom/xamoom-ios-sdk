@@ -2,7 +2,6 @@
 // Make changes to XMMCoreDataGetByLocationItem.h instead.
 
 #import <CoreData/CoreData.h>
-#import "XMMCoreData.h"
 
 extern const struct XMMCoreDataGetByLocationItemAttributes {
 	__unsafe_unretained NSString *backgroundColor;
@@ -24,10 +23,10 @@ extern const struct XMMCoreDataGetByLocationItemRelationships {
 
 @class XMMCoreDataGetByLocation;
 
-@interface XMMCoreDataGetByLocationItemID : XMMCoreDataID {}
+@interface XMMCoreDataGetByLocationItemID : NSManagedObjectID {}
 @end
 
-@interface _XMMCoreDataGetByLocationItem : XMMCoreData {}
+@interface _XMMCoreDataGetByLocationItem : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;

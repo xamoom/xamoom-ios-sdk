@@ -26,8 +26,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 
 @implementation XMMEnduserApi : NSObject
 
-
-@synthesize delegate, baseURL, objectManager, managedObjectStore;
+@synthesize delegate, baseURL;
 
 -(id)init {
     self = [super init];
@@ -208,13 +207,13 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 - (void)initRestkitCoreData
 {
     // Initialize RestKit
-    objectManager = [RKObjectManager managerWithBaseURL:baseURL];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:baseURL];
     [RKObjectManager setSharedManager:objectManager];
     
     // Initialize managed object model from bundle
     NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     // Initialize managed object store
-    managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     objectManager.managedObjectStore = managedObjectStore;
     
     // Complete Core Data stack initialization
@@ -233,31 +232,34 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     
     // Enable Activity Indicator Spinner
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    [self getByIdMapping];
 }
 
 - (void)getByIdMapping {
     // Create mapping
-    RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:managedObjectStore];
+    RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetById getMapping]];
     
-    [coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId", @"checksum" ]];
+    //[coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId", @"checksum", @"hasContent", @"hasSpot" ]];
+    [coreDataMapping setIdentificationAttributes:@[ @"checksum" ]];
     
-    RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:managedObjectStore];
+    RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
     
     [coreDataStyleMapping setIdentificationAttributes:@[ @"icon", @"backgroundColor", @"chromeHeaderColor", @"customMarker", @"foregroundFontColor", @"highlightFontColor" ]];
     
-    RKEntityMapping *coreDataMenuMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataMenuItem" inManagedObjectStore:managedObjectStore];
+    RKEntityMapping *coreDataMenuMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataMenuItem" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataMenuMapping addAttributeMappingsFromDictionary:[XMMCoreDataMenuItem getMapping]];
     
     [coreDataMenuMapping setIdentificationAttributes:@[ @"order", @"contentId", @"itemLabel" ]];
     
-    RKEntityMapping *coreDataContentMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContent" inManagedObjectStore:managedObjectStore];
+    RKEntityMapping *coreDataContentMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContent" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataContentMapping addAttributeMappingsFromDictionary:[XMMCoreDataContent getMapping]];
     
     [coreDataContentMapping setIdentificationAttributes:@[ @"imagePublicUrl", @"descriptionOfContent", @"language", @"title" ]];
     
-    RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:managedObjectStore];
+    RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];
     
     
@@ -290,8 +292,6 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 
 - (void)getContentByIdFromCoreData:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language
 {
-    [self getByIdMapping];
-    
     NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id";
     NSDictionary *queryParams = @{@"content_id":contentId,
                                   @"include_style":style,
@@ -303,66 +303,8 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
                                  withpath:path];
 }
 
-- (void)getByLocationIdentifierMapping {
-    // Create mapping
-    RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocationIdentifier" inManagedObjectStore:managedObjectStore];
-    [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocationIdentifier getMapping]];
-    
-    [coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId", @"checksum" ]];
-    
-    RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:managedObjectStore];
-    [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
-    
-    [coreDataStyleMapping setIdentificationAttributes:@[ @"icon", @"backgroundColor", @"chromeHeaderColor", @"customMarker", @"foregroundFontColor", @"highlightFontColor" ]];
-    
-    RKEntityMapping *coreDataMenuMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataMenuItem" inManagedObjectStore:managedObjectStore];
-    [coreDataMenuMapping addAttributeMappingsFromDictionary:[XMMCoreDataMenuItem getMapping]];
-    
-    [coreDataMenuMapping setIdentificationAttributes:@[ @"order", @"contentId", @"itemLabel" ]];
-    
-    RKEntityMapping *coreDataContentMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContent" inManagedObjectStore:managedObjectStore];
-    [coreDataContentMapping addAttributeMappingsFromDictionary:[XMMCoreDataContent getMapping]];
-    
-    [coreDataContentMapping setIdentificationAttributes:@[ @"imagePublicUrl", @"descriptionOfContent", @"language", @"title" ]];
-    
-    RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:managedObjectStore];
-    [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];
-    
-    [coreDataContentBlocksMapping setIdentificationAttributes:@[ @"artist", @"contentBlockType", @"contentId", @"downloadType", @"fileId", @"linkType", @"linkUrl", @"order", @"publicStatus", @"soundcloudUrl", @"spotMapTag", @"text", @"title", @"youtubeUrl" ]];
-
-    
-    // Create relationships
-    [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
-                                                                                    toKeyPath:@"content"
-                                                                                  withMapping:coreDataContentMapping]];
-    
-    [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
-                                                                                    toKeyPath:@"content.contentBlocks"
-                                                                                  withMapping:coreDataContentBlocksMapping]];
-    
-    [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
-                                                                                    toKeyPath:@"style"
-                                                                                  withMapping:coreDataStyleMapping]];
-    
-    [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
-                                                                                    toKeyPath:@"menu"
-                                                                                  withMapping:coreDataMenuMapping]];
-    
-    RKResponseDescriptor *coreDataGetLocationIdentifierResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:coreDataMapping
-                                                                                                           method:RKRequestMethodPOST
-                                                                                                      pathPattern:nil
-                                                                                                          keyPath:nil
-                                                                                                      statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)
-                                                               ];
-    
-    [[RKObjectManager sharedManager] addResponseDescriptor:coreDataGetLocationIdentifierResponseDescriptor];
-}
-
 - (void)getContentByLocationIdentifierFromCoreData:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language
 {
-    
-    [self getByLocationIdentifierMapping];
-    
     NSString *path = @"xamoomEndUserApi/v1/get_content_by_location_identifier";
     NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
                                   @"include_style":style,
@@ -377,10 +319,10 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 - (void)getContentByLocationFromCoreData:(NSString *)lat lon:(NSString *)lon language:(NSString *)language
 {
     // Create mapping
-    RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocation" inManagedObjectStore:managedObjectStore];
+    RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocation" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocation getMapping]];
     
-    RKEntityMapping *coreDataItemMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocationItem" inManagedObjectStore:managedObjectStore];
+    RKEntityMapping *coreDataItemMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocationItem" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataItemMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocationItem getMapping]];
     
     // Create relationships
@@ -396,7 +338,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
                                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)
                                                                ];
     
-    [objectManager addResponseDescriptor:coreDataGetByIdResponseDescriptor];
+    [[RKObjectManager sharedManager] addResponseDescriptor:coreDataGetByIdResponseDescriptor];
     
     NSString *path = @"xamoomEndUserApi/v1/get_content_by_location";
     NSDictionary *queryParams = @{@"location":
@@ -418,7 +360,6 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
                                             NSLog(@"Output: %@", mappingResult.firstObject);
                                             
                                             [delegate performSelector:@selector(finishedLoadCoreData)];
-                                            //[self deleteEntitiesWithoutContent];
                                         }
                                         failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                             NSLog(@"Error: %@", error);
@@ -428,7 +369,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 
 - (NSArray*)fetchCoreDataContentBy:(NSString *)type {
     NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-
+    
     NSFetchRequest *fetchRequest;
     
     if ([type.lowercaseString isEqualToString:@"id"]){
@@ -444,12 +385,9 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
         NSLog(@"Type not found.");
     }
     
-    //NSPredicate *predicate = [NSPredicate predicateWithFormat:@"content == nil || content.@count =0"];
-    //[fetchRequest setPredicate:predicate];
-    
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-        
+    
     return fetchedObjects;
 }
 

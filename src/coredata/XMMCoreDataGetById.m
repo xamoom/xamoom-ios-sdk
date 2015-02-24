@@ -13,10 +13,14 @@
 
 @implementation XMMCoreDataGetById
 
+@synthesize objectAsHash;
+
 + (NSDictionary *)getMapping {
     return @{@"system_name":@"systemName",
              @"system_url":@"systemUrl",
              @"system_id":@"systemId",
+             @"has_content":@"hasContent",
+             @"has_spot":@"hasSpot",
              };
 }
 
