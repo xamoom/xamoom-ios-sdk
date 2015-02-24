@@ -209,6 +209,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 {
     // Initialize RestKit
     objectManager = [RKObjectManager managerWithBaseURL:baseURL];
+    [RKObjectManager setSharedManager:objectManager];
     
     // Initialize managed object model from bundle
     NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
@@ -239,7 +240,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetById getMapping]];
     
-    [coreDataMapping setIdentificationAttributes:@[ @"checksum" ]];
+    [coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId", @"checksum" ]];
     
     RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:managedObjectStore];
     [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
@@ -284,7 +285,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
                                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)
                                                                ];
     
-    [objectManager addResponseDescriptor:coreDataGetByIdResponseDescriptor];
+    [[RKObjectManager sharedManager] addResponseDescriptor:coreDataGetByIdResponseDescriptor];
 }
 
 - (void)getContentByIdFromCoreData:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language
@@ -307,7 +308,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocationIdentifier" inManagedObjectStore:managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocationIdentifier getMapping]];
     
-    [coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId" ]];
+    [coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId", @"checksum" ]];
     
     RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:managedObjectStore];
     [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
@@ -354,7 +355,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
                                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)
                                                                ];
     
-    [objectManager addResponseDescriptor:coreDataGetLocationIdentifierResponseDescriptor];
+    [[RKObjectManager sharedManager] addResponseDescriptor:coreDataGetLocationIdentifierResponseDescriptor];
 }
 
 - (void)getContentByLocationIdentifierFromCoreData:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language
@@ -411,8 +412,8 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 
 - (void)talkToApiCoreDataWithParameters:(NSDictionary*)parameters withpath:(NSString*)path
 {
-    objectManager.requestSerializationMIMEType = RKMIMETypeJSON;
-    [objectManager postObject:nil path:path parameters:parameters
+    [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
+    [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                             NSLog(@"Output: %@", mappingResult.firstObject);
                                             

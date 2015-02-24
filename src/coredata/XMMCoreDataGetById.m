@@ -13,8 +13,6 @@
 
 @implementation XMMCoreDataGetById
 
-
-
 + (NSDictionary *)getMapping {
     return @{@"system_name":@"systemName",
              @"system_url":@"systemUrl",
