@@ -5,6 +5,7 @@
 
 const struct XMMCoreDataGetByIdAttributes XMMCoreDataGetByIdAttributes = {
 	.checksum = @"checksum",
+	.contentId = @"contentId",
 	.hasContent = @"hasContent",
 	.hasSpot = @"hasSpot",
 	.systemId = @"systemId",
@@ -48,6 +49,8 @@ const struct XMMCoreDataGetByIdRelationships XMMCoreDataGetByIdRelationships = {
 }
 
 @dynamic checksum;
+
+@dynamic contentId;
 
 @dynamic hasContent;
 

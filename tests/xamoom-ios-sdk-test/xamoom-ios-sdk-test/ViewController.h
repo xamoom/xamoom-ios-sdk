@@ -11,7 +11,7 @@
 
 @interface ViewController : UIViewController <XMEnderuserApiDelegate>
 
-- (IBAction)testButtonPressed:(id)sender;
+- (IBAction)clickTestButton1:(id)sender;
+- (IBAction)clickTestButton2:(id)sender;
 
 @end
-

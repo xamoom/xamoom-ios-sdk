@@ -22,7 +22,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="testButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OvT-OL-BOP"/>
+                                    <action selector="clickTestButton1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZhN-9a-EyT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXN-gb-pSe">
@@ -31,8 +31,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="test2ButtonPressen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m4b-3r-rsh"/>
-                                    <action selector="testButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wy5-Ft-p9a"/>
+                                    <action selector="clickTestButton2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yip-nO-tjr"/>
                                 </connections>
                             </button>
                         </subviews>

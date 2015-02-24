@@ -242,7 +242,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetById getMapping]];
     
     //[coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId", @"hasContent", @"hasSpot", @"checksum", @"content" ]];
-    //[coreDataMapping setIdentificationAttributes:@[ @"checksum" ]];
+    [coreDataMapping setIdentificationAttributes:@[ @"contentId" ]];
     
     RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
@@ -252,7 +252,7 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     RKEntityMapping *coreDataMenuMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataMenuItem" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataMenuMapping addAttributeMappingsFromDictionary:[XMMCoreDataMenuItem getMapping]];
     
-    [coreDataMenuMapping setIdentificationAttributes:@[ @"order", @"contentId", @"itemLabel" ]];
+    //[coreDataMenuMapping setIdentificationAttributes:@[ @"order", @"contentId", @"itemLabel" ]];
     
     RKEntityMapping *coreDataContentMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContent" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataContentMapping addAttributeMappingsFromDictionary:[XMMCoreDataContent getMapping]];
@@ -260,9 +260,10 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     //[coreDataContentMapping setIdentificationAttributes:@[ @"imagePublicUrl", @"descriptionOfContent", @"language", @"title" ]];
     
     RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
-    [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];    
+    [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];
     
     // Create relationship
+    
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
                                                                                     toKeyPath:@"content"
                                                                                   withMapping:coreDataContentMapping]];
@@ -357,7 +358,6 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                             NSLog(@"Output: %@", mappingResult.firstObject);
-                                            
                                             [delegate performSelector:@selector(finishedLoadCoreData)];
                                         }
                                         failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -390,6 +390,21 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     return fetchedObjects;
 }
 
-
+- (void)getExistingChecksumsFromCoreData {
+    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+    NSFetchRequest *fetchRequest;
+    fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
+    
+    [fetchRequest setResultType:NSDictionaryResultType];
+    [fetchRequest setReturnsDistinctResults:YES];
+    [fetchRequest setPropertiesToFetch:@[@"checksum"]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    
+    NSMutableArray *existingChecksums = [fetchedObjects valueForKey:@"checksum"];
+    
+    NSLog(@"existingChecksums: %@", existingChecksums);
+}
 
 @end

@@ -27,6 +27,7 @@
     </entity>
     <entity name="XMMCoreDataGetById" representedClassName="XMMCoreDataGetById" syncable="YES">
         <attribute name="checksum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contentId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasContent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasSpot" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="systemId" optional="YES" attributeType="String" syncable="YES"/>
@@ -72,7 +73,7 @@
     <elements>
         <element name="XMMCoreDataContent" positionX="-1458" positionY="-12780" width="128" height="133"/>
         <element name="XMMCoreDataContentBlocks" positionX="-1629" positionY="-13129" width="189" height="268"/>
-        <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12877" width="128" height="178"/>
+        <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12877" width="128" height="195"/>
         <element name="XMMCoreDataGetByLocation" positionX="-1046" positionY="-13023" width="128" height="73"/>
         <element name="XMMCoreDataGetByLocationItem" positionX="-819" positionY="-13165" width="243" height="223"/>
         <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="103"/>

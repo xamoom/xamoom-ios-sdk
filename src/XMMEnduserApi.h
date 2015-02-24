@@ -109,10 +109,7 @@
 @interface XMMEnduserApi : NSObject
 
 @property (nonatomic, assign) id<XMEnderuserApiDelegate> delegate;
-@property RKObjectManager *objectManager;
-@property RKManagedObjectStore *managedObjectStore;
 @property NSURL *baseURL;
-
 
 -(id)init;
 
@@ -203,5 +200,7 @@
  @return NSArray*
  */
 - (NSArray*)fetchCoreDataContentBy:(NSString *)type;
+
++ (BOOL)checkExistingChecksums:(NSString *)checksum;
 
 @end

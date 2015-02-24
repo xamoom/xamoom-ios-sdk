@@ -36,16 +36,6 @@ XMMEnduserApi *api;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)testButtonPressed:(id)sender {
-    //[api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-}
-
-- (IBAction)test2ButtonPressen:(id)sender {
-    //[api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    [api getContentByLocationIdentifierFromCoreData:@"3fi7c" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-}
-
 - (void)finishedLoadCoreData {
     //NSArray* fetchResult = [api fetchCoreDataContentBy:@"locationIdentifier"];
     //XMMCoreDataGetByLocationIdentifier *firstEntity = fetchResult.firstObject;
@@ -63,5 +53,17 @@ XMMEnduserApi *api;
 - (void)finishedLoadDataByLocation:(XMMResponseGetByLocation *)result {
     NSLog(@"finishedLoadDataByLocation: %@", result);
 }
- 
+
+- (IBAction)clickTestButton1:(id)sender {
+    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    NSLog(@"clickTestButton1");
+}
+
+- (IBAction)clickTestButton2:(id)sender {
+    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationIdentifierFromCoreData:@"3fi7c" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    NSLog(@"clickTestButton2");
+}
+
 @end

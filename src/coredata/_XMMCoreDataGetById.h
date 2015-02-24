@@ -5,6 +5,7 @@
 
 extern const struct XMMCoreDataGetByIdAttributes {
 	__unsafe_unretained NSString *checksum;
+	__unsafe_unretained NSString *contentId;
 	__unsafe_unretained NSString *hasContent;
 	__unsafe_unretained NSString *hasSpot;
 	__unsafe_unretained NSString *systemId;
@@ -34,6 +35,10 @@ extern const struct XMMCoreDataGetByIdRelationships {
 @property (nonatomic, strong) NSString* checksum;
 
 //- (BOOL)validateChecksum:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* contentId;
+
+//- (BOOL)validateContentId:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* hasContent;
 
@@ -81,6 +86,9 @@ extern const struct XMMCoreDataGetByIdRelationships {
 
 - (NSString*)primitiveChecksum;
 - (void)setPrimitiveChecksum:(NSString*)value;
+
+- (NSString*)primitiveContentId;
+- (void)setPrimitiveContentId:(NSString*)value;
 
 - (NSString*)primitiveHasContent;
 - (void)setPrimitiveHasContent:(NSString*)value;
