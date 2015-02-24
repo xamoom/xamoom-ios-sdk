@@ -241,29 +241,21 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetById getMapping]];
     
-    //[coreDataMapping setIdentificationAttributes:@[ @"systemName", @"systemUrl", @"systemId", @"hasContent", @"hasSpot", @"checksum", @"content" ]];
     [coreDataMapping setIdentificationAttributes:@[ @"contentId" ]];
     
     RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
     
-    //[coreDataStyleMapping setIdentificationAttributes:@[ @"icon", @"backgroundColor", @"chromeHeaderColor", @"customMarker", @"foregroundFontColor", @"highlightFontColor" ]];
-    
     RKEntityMapping *coreDataMenuMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataMenuItem" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataMenuMapping addAttributeMappingsFromDictionary:[XMMCoreDataMenuItem getMapping]];
     
-    //[coreDataMenuMapping setIdentificationAttributes:@[ @"order", @"contentId", @"itemLabel" ]];
-    
     RKEntityMapping *coreDataContentMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContent" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataContentMapping addAttributeMappingsFromDictionary:[XMMCoreDataContent getMapping]];
-    
-    //[coreDataContentMapping setIdentificationAttributes:@[ @"imagePublicUrl", @"descriptionOfContent", @"language", @"title" ]];
     
     RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];
     
     // Create relationship
-    
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
                                                                                     toKeyPath:@"content"
                                                                                   withMapping:coreDataContentMapping]];
@@ -388,23 +380,6 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     
     return fetchedObjects;
-}
-
-- (void)getExistingChecksumsFromCoreData {
-    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    NSFetchRequest *fetchRequest;
-    fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
-    
-    [fetchRequest setResultType:NSDictionaryResultType];
-    [fetchRequest setReturnsDistinctResults:YES];
-    [fetchRequest setPropertiesToFetch:@[@"checksum"]];
-    
-    NSError *error = nil;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    NSMutableArray *existingChecksums = [fetchedObjects valueForKey:@"checksum"];
-    
-    NSLog(@"existingChecksums: %@", existingChecksums);
 }
 
 @end
