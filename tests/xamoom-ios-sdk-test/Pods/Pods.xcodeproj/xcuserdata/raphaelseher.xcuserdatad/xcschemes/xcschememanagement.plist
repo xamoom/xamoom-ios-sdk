@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-QRCodeReaderViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RKValueTransformers.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>272E3013C6F69DCC122ADCD8</key>
+		<key>38A3C75A4B77C668BD5A6C12</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>83492B144F8950BF9143301B</key>
+		<key>3E21E04BA52F4E836F1832C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EC861B430888EE013BCDD28</key>
+		<key>49C9B21CE3717951AD7559FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F2BDD1FC746508140DAF7BF</key>
+		<key>4CC17221FD879B4B84C5CA05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA20D00B7F1FE4CA59825B25</key>
+		<key>5F31E7DD7C522C3A5C5D7560</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D218E19FE572B1CBE5B8E379</key>
+		<key>B03C5919F48B8BB37F5FB164</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E5A8E2295886DC3074DCB471</key>
+		<key>C5B6F20EF8F7222D163C526C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F981366F2F7C00E778017C15</key>
 		<dict>
 			<key>primary</key>
 			<true/>

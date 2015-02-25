@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_ISO8601DateFormatterValueTransformer 6
 #define COCOAPODS_VERSION_PATCH_ISO8601DateFormatterValueTransformer 0
 
+// QRCodeReaderViewController
+#define COCOAPODS_POD_AVAILABLE_QRCodeReaderViewController
+#define COCOAPODS_VERSION_MAJOR_QRCodeReaderViewController 2
+#define COCOAPODS_VERSION_MINOR_QRCodeReaderViewController 0
+#define COCOAPODS_VERSION_PATCH_QRCodeReaderViewController 0
+
 // RKValueTransformers
 #define COCOAPODS_POD_AVAILABLE_RKValueTransformers
 #define COCOAPODS_VERSION_MAJOR_RKValueTransformers 1

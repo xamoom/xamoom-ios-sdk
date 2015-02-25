@@ -19,11 +19,6 @@
 		88301E621A9DF24500F24F84 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E431A9DF24500F24F84 /* NSString+HTML.m */; };
 		88301E631A9DF24500F24F84 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E451A9DF24500F24F84 /* NSString+XMLEntities.m */; };
 		88301E641A9DF24500F24F84 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E471A9DF24500F24F84 /* RootViewController.m */; };
-		88301E651A9DF24500F24F84 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 88301E491A9DF24500F24F84 /* LICENSE */; };
-		88301E661A9DF24500F24F84 /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E4B1A9DF24500F24F84 /* QRCameraSwitchButton.m */; };
-		88301E671A9DF24500F24F84 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E4E1A9DF24500F24F84 /* QRCodeReaderView.m */; };
-		88301E681A9DF24500F24F84 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E501A9DF24500F24F84 /* QRCodeReaderViewController.m */; };
-		88301E691A9DF24500F24F84 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 88301E511A9DF24500F24F84 /* README.md */; };
 		884A5ED91A8E02B20009B97F /* XMMCoreDataGetById.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ECF1A8E02B20009B97F /* XMMCoreDataGetById.m */; };
 		884A5EDA1A8E02B20009B97F /* XMMCoreDataMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ED11A8E02B20009B97F /* XMMCoreDataMenuItem.m */; };
 		884A5EDB1A8E02B20009B97F /* XMMCoreDataStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ED31A8E02B20009B97F /* XMMCoreDataStyle.m */; };
@@ -116,15 +111,6 @@
 		88301E451A9DF24500F24F84 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
 		88301E461A9DF24500F24F84 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		88301E471A9DF24500F24F84 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		88301E491A9DF24500F24F84 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		88301E4A1A9DF24500F24F84 /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCameraSwitchButton.h; sourceTree = "<group>"; };
-		88301E4B1A9DF24500F24F84 /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCameraSwitchButton.m; sourceTree = "<group>"; };
-		88301E4C1A9DF24500F24F84 /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
-		88301E4D1A9DF24500F24F84 /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderView.h; sourceTree = "<group>"; };
-		88301E4E1A9DF24500F24F84 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
-		88301E4F1A9DF24500F24F84 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
-		88301E501A9DF24500F24F84 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
-		88301E511A9DF24500F24F84 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		884A5ECE1A8E02B20009B97F /* XMMCoreDataGetById.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataGetById.h; path = ../../src/coredata/XMMCoreDataGetById.h; sourceTree = "<group>"; };
 		884A5ECF1A8E02B20009B97F /* XMMCoreDataGetById.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCoreDataGetById.m; path = ../../src/coredata/XMMCoreDataGetById.m; sourceTree = "<group>"; };
 		884A5ED01A8E02B20009B97F /* XMMCoreDataMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataMenuItem.h; path = ../../src/coredata/XMMCoreDataMenuItem.h; sourceTree = "<group>"; };
@@ -271,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				88301E321A9DF24500F24F84 /* MWFeedParser */,
-				88301E481A9DF24500F24F84 /* QRCodeReaderViewController */,
 			);
 			name = lib;
 			path = ../../lib;
@@ -303,22 +288,6 @@
 				88301E471A9DF24500F24F84 /* RootViewController.m */,
 			);
 			path = MWFeedParser;
-			sourceTree = "<group>";
-		};
-		88301E481A9DF24500F24F84 /* QRCodeReaderViewController */ = {
-			isa = PBXGroup;
-			children = (
-				88301E491A9DF24500F24F84 /* LICENSE */,
-				88301E4A1A9DF24500F24F84 /* QRCameraSwitchButton.h */,
-				88301E4B1A9DF24500F24F84 /* QRCameraSwitchButton.m */,
-				88301E4C1A9DF24500F24F84 /* QRCodeReaderDelegate.h */,
-				88301E4D1A9DF24500F24F84 /* QRCodeReaderView.h */,
-				88301E4E1A9DF24500F24F84 /* QRCodeReaderView.m */,
-				88301E4F1A9DF24500F24F84 /* QRCodeReaderViewController.h */,
-				88301E501A9DF24500F24F84 /* QRCodeReaderViewController.m */,
-				88301E511A9DF24500F24F84 /* README.md */,
-			);
-			path = QRCodeReaderViewController;
 			sourceTree = "<group>";
 		};
 		8858D2371A822513001B45D5 = {
@@ -607,7 +576,6 @@
 			files = (
 				8858D24F1A822513001B45D5 /* Main.storyboard in Resources */,
 				8858D2541A822513001B45D5 /* LaunchScreen.xib in Resources */,
-				88301E651A9DF24500F24F84 /* LICENSE in Resources */,
 				8858D2511A822513001B45D5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,7 +633,6 @@
 				8885FCF01A8DEC8C006F6B4C /* XMMResponseContentBlockType5.m in Sources */,
 				88301E5F1A9DF24500F24F84 /* MWFeedParser.m in Sources */,
 				88301E631A9DF24500F24F84 /* NSString+XMLEntities.m in Sources */,
-				88301E681A9DF24500F24F84 /* QRCodeReaderViewController.m in Sources */,
 				88301E5E1A9DF24500F24F84 /* MWFeedItem.m in Sources */,
 				8885FD031A8DEC9B006F6B4C /* XMMResponseContent.m in Sources */,
 				884A5ED91A8E02B20009B97F /* XMMCoreDataGetById.m in Sources */,
@@ -679,7 +646,6 @@
 				8858D24C1A822513001B45D5 /* ViewController.m in Sources */,
 				88301E611A9DF24500F24F84 /* NSDate+InternetDateTime.m in Sources */,
 				88301E5C1A9DF24500F24F84 /* GTMNSString+HTML.m in Sources */,
-				88301E671A9DF24500F24F84 /* QRCodeReaderView.m in Sources */,
 				8858D2491A822513001B45D5 /* AppDelegate.m in Sources */,
 				8885FD041A8DEC9B006F6B4C /* XMMResponseGetById.m in Sources */,
 				8885FD061A8DEC9B006F6B4C /* XMMResponseGetByLocationIdentifier.m in Sources */,
@@ -706,14 +672,12 @@
 				8874BE7B1A92382800730B7E /* _XMMCoreDataContentBlockType7.m in Sources */,
 				8858D26C1A8225B1001B45D5 /* XMMEnduserApi.m in Sources */,
 				8874BE7A1A92382800730B7E /* _XMMCoreDataContentBlockType6.m in Sources */,
-				88301E691A9DF24500F24F84 /* README.md in Sources */,
 				8874BE7E1A92382800730B7E /* _XMMCoreDataGetById.m in Sources */,
 				8885FCF41A8DEC8C006F6B4C /* XMMResponseContentBlockType9.m in Sources */,
 				88301E601A9DF24500F24F84 /* MWFeedParserAppDelegate.m in Sources */,
 				8858D2461A822513001B45D5 /* main.m in Sources */,
 				8874BE7D1A92382800730B7E /* _XMMCoreDataContentBlockType9.m in Sources */,
 				88301E621A9DF24500F24F84 /* NSString+HTML.m in Sources */,
-				88301E661A9DF24500F24F84 /* QRCameraSwitchButton.m in Sources */,
 				8885FD091A8DEC9B006F6B4C /* XMMResponseStyle.m in Sources */,
 				8885FCF11A8DEC8C006F6B4C /* XMMResponseContentBlockType6.m in Sources */,
 				88B73CB01A91DDDE009D16F7 /* XMMCoreDataContent.m in Sources */,
