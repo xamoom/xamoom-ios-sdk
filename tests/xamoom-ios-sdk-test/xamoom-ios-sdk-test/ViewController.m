@@ -40,6 +40,7 @@ XMMEnduserApi *api;
     for (XMMCoreDataGetById *entity in fetchResult) {
         self.outputTextView.text = entity.description;
     }
+    NSLog(@"finishedLoadCoreData: %@", fetchResult);
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {
