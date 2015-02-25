@@ -359,15 +359,10 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 }
 
 - (NSArray*)fetchCoreDataContentBy:(NSString *)type {
-    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    
     NSFetchRequest *fetchRequest;
     
     if ([type.lowercaseString isEqualToString:@"id"]){
         fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
-    }
-    else if ([type.lowercaseString isEqualToString:@"location"]){
-        fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetByLocation"];
     }
     else if ([type.lowercaseString isEqualToString:@"locationidentifier"]){
         fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetByLocationIdentifier"];
@@ -376,10 +371,39 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
         NSLog(@"Type not found.");
     }
     
+    return [self executeFetch:fetchRequest];
+}
+
+- (NSArray *)executeFetch:(NSFetchRequest *)fetchRequest {
+    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
     return fetchedObjects;
+}
+
+- (BOOL)deleteCoreDataEntityBy:(NSString *)contentId {
+    NSFetchRequest *fetchRequest;
+    fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"contentId == %@", contentId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray *results = [self executeFetch:fetchRequest];
+    
+    if ([results count] == 1) {
+        NSLog(@"%@", [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext);
+        [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext deleteObject:[results firstObject]];
+        [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext saveToPersistentStore:nil];
+        NSLog(@"Entitiy with contentId %@ deleted", contentId);
+        return YES;
+    }
+    else if ([results count] > 1) {
+        NSLog(@"Error deleting object. There are objects with the same contentId");
+    }
+    else {
+        NSLog(@"Error deleting object. There is no object with the contentId %@", contentId);
+    }
+    
+    return NO;
 }
 
 @end

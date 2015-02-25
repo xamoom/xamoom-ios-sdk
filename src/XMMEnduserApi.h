@@ -196,11 +196,17 @@
 /**
  Returns an array of all objects with the specific type from Core Data. Type can be "id", "locationidentifier" or "location".
  
- @param type - The type of the saved data. Can be "id", "locationidentifier" or "location".
+ @param type - The type of the saved data. Can be "id" or "location".
  @return NSArray*
  */
 - (NSArray*)fetchCoreDataContentBy:(NSString *)type;
 
-+ (BOOL)checkExistingChecksums:(NSString *)checksum;
+/**
+ Description
+ 
+ @param contentId - The content id from the entity you want to delete in core data
+ @return void
+ */
+- (BOOL)deleteCoreDataEntityBy:(NSString *)contentId;
 
 @end
