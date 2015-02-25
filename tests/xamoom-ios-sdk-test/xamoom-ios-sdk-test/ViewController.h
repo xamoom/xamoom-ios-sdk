@@ -15,5 +15,6 @@
 
 - (IBAction)clickTestButton1:(id)sender;
 - (IBAction)clickTestButton2:(id)sender;
+- (IBAction)scanAction:(id)sender;
 
 @end

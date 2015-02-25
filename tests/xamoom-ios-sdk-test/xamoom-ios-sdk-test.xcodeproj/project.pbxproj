@@ -543,6 +543,7 @@
 				TargetAttributes = {
 					8858D23F1A822513001B45D5 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 55MDUF7392;
 					};
 					8858D2581A822513001B45D5 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -809,6 +810,7 @@
 			baseConfigurationReference = 954975F2808E50A1D816B29B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
 				INFOPLIST_FILE = "xamoom-ios-sdk-test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -821,6 +823,7 @@
 			baseConfigurationReference = BCE3267516CC34A8D4B03A5B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
 				INFOPLIST_FILE = "xamoom-ios-sdk-test/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
