@@ -11,10 +11,17 @@
 
 @interface ViewController : UIViewController <XMEnderuserApiDelegate>
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UITextView *outputTextView;
 
-- (IBAction)clickTestButton1:(id)sender;
-- (IBAction)clickTestButton2:(id)sender;
 - (IBAction)scanAction:(id)sender;
+
+- (IBAction)getContentByIdAction:(id)sender;
+- (IBAction)getContentByLocationIdentifierAction:(id)sender;
+- (IBAction)getContentByLocationAction:(id)sender;
+
+- (IBAction)getContentByIdFromCoreDataAction:(id)sender;
+- (IBAction)getContentByLocationIdentifierFromCoreDataAction:(id)sender;
+
+- (IBAction)getContentFromRSSFeedAction:(id)sender;
 
 @end

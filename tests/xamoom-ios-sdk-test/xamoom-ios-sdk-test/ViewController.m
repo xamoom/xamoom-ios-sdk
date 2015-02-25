@@ -10,7 +10,7 @@
 #import <RestKit/RestKit.h>
 #import "XMMEnduserApi.h"
 
-@interface ViewController ()
+@interface ViewController () <QRCodeReaderDelegate>
 
 @end
 
@@ -27,15 +27,6 @@ XMMEnduserApi *api;
     api.delegate = self;
     api.rssBaseUrl = @"http://xamoom.com/feed/";
     [api initRestkitCoreData];
-    [api getContentFromRSSFeed];
-    
-    [api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    [api getContentByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    [api getContentByLocation:@"46.615" lon:@"14.263" language:@"de"];
-    
-    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    [api deleteCoreDataEntityBy:@"a3911e54085c427d95e1243844bd6aa3"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,41 +34,52 @@ XMMEnduserApi *api;
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - XMMEnduserApi Delegates
 - (void)finishedLoadCoreData {
     NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
-    XMMCoreDataGetById *firstEntity = fetchResult.firstObject;
-    NSLog(@"fetchResult: %@", firstEntity);
+    for (XMMCoreDataGetById *entity in fetchResult) {
+        self.outputTextView.text = entity.description;
+    }
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {
-    NSLog(@"finishedLoadDataById: %@", result.content.contentBlocks);
+    NSLog(@"finishedLoadDataById: %@", result.description);
+    self.outputTextView.text = result.description;
 }
 
 - (void)finishedLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result {
     NSLog(@"finishedLoadDataByLocationIdentifier: %@", result);
+    self.outputTextView.text = result.description;
 }
 
 - (void)finishedLoadDataByLocation:(XMMResponseGetByLocation *)result {
     NSLog(@"finishedLoadDataByLocation: %@", result);
+    self.outputTextView.text = result.description;
 }
 
 - (void)finishedLoadRSS:(NSMutableArray *)result {
     for (XMMRSSEntry *item in result) {
         NSLog(@"finishedLoadRSS: %@", item);
+        self.outputTextView.text = item.description;
     }
-    
-    XMMRSSEntry *item = result.firstObject;
-    [self.webView loadHTMLString:item.content baseURL:nil];
-
 }
 
-- (IBAction)clickTestButton1:(id)sender {
-    
+#pragma mark - QRCodeReader Delegate Methods
+
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"Completion with result: %@", result);
+        self.outputTextView.text = result;
+    }];
 }
 
-- (IBAction)clickTestButton2:(id)sender {
-    
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+#pragma mark - Actions
 
 - (IBAction)scanAction:(id)sender
 {
@@ -92,25 +94,37 @@ XMMEnduserApi *api;
     
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
         NSLog(@"Completion with result: %@", resultAsString);
+        self.outputTextView.text = resultAsString;
     }];
     
     [self presentViewController:reader animated:YES completion:NULL];
 }
 
-#pragma mark - QRCodeReader Delegate Methods
-
-- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
-{
-    [self dismissViewControllerAnimated:YES completion:^{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCodeReader" message:result delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }];
+- (IBAction)getContentByIdAction:(id)sender {
+    [api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
 }
 
-- (void)readerDidCancel:(QRCodeReaderViewController *)reader
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
+- (IBAction)getContentByLocationIdentifierAction:(id)sender {
+    [api getContentByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
 }
+
+- (IBAction)getContentByLocationAction:(id)sender {
+    [api getContentByLocation:@"46.615" lon:@"14.263" language:@"de"];
+}
+
+- (IBAction)getContentByIdFromCoreDataAction:(id)sender {
+    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+}
+
+- (IBAction)getContentByLocationIdentifierFromCoreDataAction:(id)sender {
+    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+}
+
+- (IBAction)getContentFromRSSFeedAction:(id)sender {
+    [api getContentFromRSSFeed];
+}
+
+
 
 
 @end

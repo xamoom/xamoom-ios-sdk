@@ -17,29 +17,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxC-kX-Etf">
-                                <rect key="frame" x="16" y="20" width="30" height="30"/>
-                                <state key="normal" title="Test">
+                                <rect key="frame" x="16" y="20" width="108" height="30"/>
+                                <state key="normal" title="getContentById">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickTestButton1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZhN-9a-EyT"/>
+                                    <action selector="getContentByIdAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8pJ-aF-MV5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXN-gb-pSe">
-                                <rect key="frame" x="16" y="58" width="37" height="30"/>
-                                <state key="normal" title="Test2">
+                                <rect key="frame" x="16" y="58" width="214" height="30"/>
+                                <state key="normal" title="getContentByLocationIdentifier">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickTestButton2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yip-nO-tjr"/>
+                                    <action selector="getContentByLocationIdentifierAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aWF-Fq-naz"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NeB-iz-hXb">
-                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWg-aa-mfP">
-                                <rect key="frame" x="16" y="89" width="35" height="30"/>
+                                <rect key="frame" x="324" y="20" width="35" height="30"/>
                                 <state key="normal" title="Scan">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -47,12 +43,60 @@
                                     <action selector="scanAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3I4-3U-0Mp"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHR-eB-y0r">
+                                <rect key="frame" x="16" y="96" width="154" height="30"/>
+                                <state key="normal" title="getContentByLocation">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getContentByLocationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhT-aE-w3v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ds-lg-Anh">
+                                <rect key="frame" x="16" y="167" width="208" height="30"/>
+                                <state key="normal" title="getContentByIdFromCoreData">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getContentByIdFromCoreDataAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3eM-VY-aci"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YU-Fy-fTS">
+                                <rect key="frame" x="16" y="205" width="310" height="30"/>
+                                <state key="normal" title="getContentByLocationIdentfierFromCoreData">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getContentByLocationIdentifierFromCoreDataAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gZJ-AZ-pmB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWu-gq-GWe">
+                                <rect key="frame" x="16" y="275" width="177" height="30"/>
+                                <state key="normal" title="getContentFromRSSFeed">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getContentFromRSSFeedAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a7g-v8-qcS"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XKK-fR-cIO">
+                                <rect key="frame" x="16" y="355" width="343" height="292"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Output" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQn-0t-Hyh">
+                                <rect key="frame" x="16" y="326" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="webView" destination="NeB-iz-hXb" id="HwE-ME-QLQ"/>
+                        <outlet property="outputTextView" destination="XKK-fR-cIO" id="0aZ-ZB-ZDo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
