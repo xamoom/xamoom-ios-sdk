@@ -20,15 +20,22 @@ XMMEnduserApi *api;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
     
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
+    api.rssBaseUrl = @"http://xamoom.com/feed/";
     [api initRestkitCoreData];
-    //[api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    //[api getContentByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    //[api getContentByLocation:@"46.615" lon:@"14.263" language:@"de"];
+    [api getContentFromRSSFeed];
+    
+    [api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocation:@"46.615" lon:@"14.263" language:@"de"];
+    
+    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api deleteCoreDataEntityBy:@"a3911e54085c427d95e1243844bd6aa3"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,9 +44,9 @@ XMMEnduserApi *api;
 }
 
 - (void)finishedLoadCoreData {
-    //NSArray* fetchResult = [api fetchCoreDataContentBy:@"locationIdentifier"];
-    //XMMCoreDataGetByLocationIdentifier *firstEntity = fetchResult.firstObject;
-    //NSLog(@"fetchResult: %@", firstEntity);
+    NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
+    XMMCoreDataGetById *firstEntity = fetchResult.firstObject;
+    NSLog(@"fetchResult: %@", firstEntity);
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {
@@ -54,15 +61,24 @@ XMMEnduserApi *api;
     NSLog(@"finishedLoadDataByLocation: %@", result);
 }
 
+- (void)finishedLoadRSS:(NSMutableArray *)result {
+    for (XMMRSSEntry *item in result) {
+        NSLog(@"finishedLoadRSS: %@", item);
+    }
+    
+    XMMRSSEntry *item = result.firstObject;
+    [self.webView loadHTMLString:item.content baseURL:nil];
+
+}
+
 - (IBAction)clickTestButton1:(id)sender {
-    //[api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    //[api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    [api deleteCoreDataEntityBy:@"a3911e54085c427d95e1243844bd6aa3"];
+    
 }
 
 - (IBAction)clickTestButton2:(id)sender {
-    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    //[api getContentByLocationIdentifierFromCoreData:@"3fi7c" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    
 }
+
+
 
 @end

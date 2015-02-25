@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		566E91503BB1B0F48D247BB1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 728C3857EE6764B458DAD8A6 /* libPods.a */; };
+		88301E1C1A9DC21400F24F84 /* XMMRSSEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E1B1A9DC21400F24F84 /* XMMRSSEntry.m */; };
+		88301E5B1A9DF24500F24F84 /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E341A9DF24500F24F84 /* DetailTableViewController.m */; };
+		88301E5C1A9DF24500F24F84 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E361A9DF24500F24F84 /* GTMNSString+HTML.m */; };
+		88301E5D1A9DF24500F24F84 /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E381A9DF24500F24F84 /* MWFeedInfo.m */; };
+		88301E5E1A9DF24500F24F84 /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E3A1A9DF24500F24F84 /* MWFeedItem.m */; };
+		88301E5F1A9DF24500F24F84 /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E3C1A9DF24500F24F84 /* MWFeedParser.m */; };
+		88301E601A9DF24500F24F84 /* MWFeedParserAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E3F1A9DF24500F24F84 /* MWFeedParserAppDelegate.m */; };
+		88301E611A9DF24500F24F84 /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E411A9DF24500F24F84 /* NSDate+InternetDateTime.m */; };
+		88301E621A9DF24500F24F84 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E431A9DF24500F24F84 /* NSString+HTML.m */; };
+		88301E631A9DF24500F24F84 /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E451A9DF24500F24F84 /* NSString+XMLEntities.m */; };
+		88301E641A9DF24500F24F84 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E471A9DF24500F24F84 /* RootViewController.m */; };
+		88301E651A9DF24500F24F84 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 88301E491A9DF24500F24F84 /* LICENSE */; };
+		88301E661A9DF24500F24F84 /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E4B1A9DF24500F24F84 /* QRCameraSwitchButton.m */; };
+		88301E671A9DF24500F24F84 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E4E1A9DF24500F24F84 /* QRCodeReaderView.m */; };
+		88301E681A9DF24500F24F84 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E501A9DF24500F24F84 /* QRCodeReaderViewController.m */; };
+		88301E691A9DF24500F24F84 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 88301E511A9DF24500F24F84 /* README.md */; };
 		884A5ED91A8E02B20009B97F /* XMMCoreDataGetById.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ECF1A8E02B20009B97F /* XMMCoreDataGetById.m */; };
 		884A5EDA1A8E02B20009B97F /* XMMCoreDataMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ED11A8E02B20009B97F /* XMMCoreDataMenuItem.m */; };
 		884A5EDB1A8E02B20009B97F /* XMMCoreDataStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ED31A8E02B20009B97F /* XMMCoreDataStyle.m */; };
@@ -73,6 +89,42 @@
 
 /* Begin PBXFileReference section */
 		728C3857EE6764B458DAD8A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		88301DA71A9DBB8800F24F84 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		88301DA91A9DBB9300F24F84 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		88301DAB1A9DBB9C00F24F84 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		88301DAD1A9DBBB100F24F84 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		88301E1A1A9DC21400F24F84 /* XMMRSSEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMRSSEntry.h; sourceTree = "<group>"; };
+		88301E1B1A9DC21400F24F84 /* XMMRSSEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMRSSEntry.m; sourceTree = "<group>"; };
+		88301E331A9DF24500F24F84 /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
+		88301E341A9DF24500F24F84 /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
+		88301E351A9DF24500F24F84 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		88301E361A9DF24500F24F84 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		88301E371A9DF24500F24F84 /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedInfo.h; sourceTree = "<group>"; };
+		88301E381A9DF24500F24F84 /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedInfo.m; sourceTree = "<group>"; };
+		88301E391A9DF24500F24F84 /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedItem.h; sourceTree = "<group>"; };
+		88301E3A1A9DF24500F24F84 /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedItem.m; sourceTree = "<group>"; };
+		88301E3B1A9DF24500F24F84 /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser.h; sourceTree = "<group>"; };
+		88301E3C1A9DF24500F24F84 /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParser.m; sourceTree = "<group>"; };
+		88301E3D1A9DF24500F24F84 /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParser_Private.h; sourceTree = "<group>"; };
+		88301E3E1A9DF24500F24F84 /* MWFeedParserAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWFeedParserAppDelegate.h; sourceTree = "<group>"; };
+		88301E3F1A9DF24500F24F84 /* MWFeedParserAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWFeedParserAppDelegate.m; sourceTree = "<group>"; };
+		88301E401A9DF24500F24F84 /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
+		88301E411A9DF24500F24F84 /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
+		88301E421A9DF24500F24F84 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		88301E431A9DF24500F24F84 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
+		88301E441A9DF24500F24F84 /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLEntities.h"; sourceTree = "<group>"; };
+		88301E451A9DF24500F24F84 /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XMLEntities.m"; sourceTree = "<group>"; };
+		88301E461A9DF24500F24F84 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		88301E471A9DF24500F24F84 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		88301E491A9DF24500F24F84 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		88301E4A1A9DF24500F24F84 /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCameraSwitchButton.h; sourceTree = "<group>"; };
+		88301E4B1A9DF24500F24F84 /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCameraSwitchButton.m; sourceTree = "<group>"; };
+		88301E4C1A9DF24500F24F84 /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		88301E4D1A9DF24500F24F84 /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderView.h; sourceTree = "<group>"; };
+		88301E4E1A9DF24500F24F84 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
+		88301E4F1A9DF24500F24F84 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		88301E501A9DF24500F24F84 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		88301E511A9DF24500F24F84 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		884A5ECE1A8E02B20009B97F /* XMMCoreDataGetById.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataGetById.h; path = ../../src/coredata/XMMCoreDataGetById.h; sourceTree = "<group>"; };
 		884A5ECF1A8E02B20009B97F /* XMMCoreDataGetById.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCoreDataGetById.m; path = ../../src/coredata/XMMCoreDataGetById.m; sourceTree = "<group>"; };
 		884A5ED01A8E02B20009B97F /* XMMCoreDataMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataMenuItem.h; path = ../../src/coredata/XMMCoreDataMenuItem.h; sourceTree = "<group>"; };
@@ -205,6 +257,70 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		88301E191A9DC21400F24F84 /* RSS */ = {
+			isa = PBXGroup;
+			children = (
+				88301E1A1A9DC21400F24F84 /* XMMRSSEntry.h */,
+				88301E1B1A9DC21400F24F84 /* XMMRSSEntry.m */,
+			);
+			name = RSS;
+			path = ../../src/RSS;
+			sourceTree = "<group>";
+		};
+		88301E1D1A9DF24500F24F84 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				88301E321A9DF24500F24F84 /* MWFeedParser */,
+				88301E481A9DF24500F24F84 /* QRCodeReaderViewController */,
+			);
+			name = lib;
+			path = ../../lib;
+			sourceTree = "<group>";
+		};
+		88301E321A9DF24500F24F84 /* MWFeedParser */ = {
+			isa = PBXGroup;
+			children = (
+				88301E331A9DF24500F24F84 /* DetailTableViewController.h */,
+				88301E341A9DF24500F24F84 /* DetailTableViewController.m */,
+				88301E351A9DF24500F24F84 /* GTMNSString+HTML.h */,
+				88301E361A9DF24500F24F84 /* GTMNSString+HTML.m */,
+				88301E371A9DF24500F24F84 /* MWFeedInfo.h */,
+				88301E381A9DF24500F24F84 /* MWFeedInfo.m */,
+				88301E391A9DF24500F24F84 /* MWFeedItem.h */,
+				88301E3A1A9DF24500F24F84 /* MWFeedItem.m */,
+				88301E3B1A9DF24500F24F84 /* MWFeedParser.h */,
+				88301E3C1A9DF24500F24F84 /* MWFeedParser.m */,
+				88301E3D1A9DF24500F24F84 /* MWFeedParser_Private.h */,
+				88301E3E1A9DF24500F24F84 /* MWFeedParserAppDelegate.h */,
+				88301E3F1A9DF24500F24F84 /* MWFeedParserAppDelegate.m */,
+				88301E401A9DF24500F24F84 /* NSDate+InternetDateTime.h */,
+				88301E411A9DF24500F24F84 /* NSDate+InternetDateTime.m */,
+				88301E421A9DF24500F24F84 /* NSString+HTML.h */,
+				88301E431A9DF24500F24F84 /* NSString+HTML.m */,
+				88301E441A9DF24500F24F84 /* NSString+XMLEntities.h */,
+				88301E451A9DF24500F24F84 /* NSString+XMLEntities.m */,
+				88301E461A9DF24500F24F84 /* RootViewController.h */,
+				88301E471A9DF24500F24F84 /* RootViewController.m */,
+			);
+			path = MWFeedParser;
+			sourceTree = "<group>";
+		};
+		88301E481A9DF24500F24F84 /* QRCodeReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88301E491A9DF24500F24F84 /* LICENSE */,
+				88301E4A1A9DF24500F24F84 /* QRCameraSwitchButton.h */,
+				88301E4B1A9DF24500F24F84 /* QRCameraSwitchButton.m */,
+				88301E4C1A9DF24500F24F84 /* QRCodeReaderDelegate.h */,
+				88301E4D1A9DF24500F24F84 /* QRCodeReaderView.h */,
+				88301E4E1A9DF24500F24F84 /* QRCodeReaderView.m */,
+				88301E4F1A9DF24500F24F84 /* QRCodeReaderViewController.h */,
+				88301E501A9DF24500F24F84 /* QRCodeReaderViewController.m */,
+				88301E511A9DF24500F24F84 /* README.md */,
+			);
+			path = QRCodeReaderViewController;
+			sourceTree = "<group>";
+		};
 		8858D2371A822513001B45D5 = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +390,8 @@
 				8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */,
 				8885FCD01A8DEBFE006F6B4C /* coredata */,
 				88E93FC01A83B3B700955E39 /* mapping */,
+				88301E191A9DC21400F24F84 /* RSS */,
+				88301E1D1A9DF24500F24F84 /* lib */,
 			);
 			name = "xamoom-ios-sdk";
 			sourceTree = "<group>";
@@ -396,6 +514,10 @@
 		FBBA45687E405BB9EDD1EEEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88301DAD1A9DBBB100F24F84 /* libz.1.2.5.dylib */,
+				88301DAB1A9DBB9C00F24F84 /* MobileCoreServices.framework */,
+				88301DA91A9DBB9300F24F84 /* SystemConfiguration.framework */,
+				88301DA71A9DBB8800F24F84 /* CFNetwork.framework */,
 				728C3857EE6764B458DAD8A6 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -485,6 +607,7 @@
 			files = (
 				8858D24F1A822513001B45D5 /* Main.storyboard in Resources */,
 				8858D2541A822513001B45D5 /* LaunchScreen.xib in Resources */,
+				88301E651A9DF24500F24F84 /* LICENSE in Resources */,
 				8858D2511A822513001B45D5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +663,10 @@
 				8885FCEB1A8DEC8C006F6B4C /* XMMResponseContentBlockType0.m in Sources */,
 				888075CE1A8DF349001E806B /* Model.xcdatamodeld in Sources */,
 				8885FCF01A8DEC8C006F6B4C /* XMMResponseContentBlockType5.m in Sources */,
+				88301E5F1A9DF24500F24F84 /* MWFeedParser.m in Sources */,
+				88301E631A9DF24500F24F84 /* NSString+XMLEntities.m in Sources */,
+				88301E681A9DF24500F24F84 /* QRCodeReaderViewController.m in Sources */,
+				88301E5E1A9DF24500F24F84 /* MWFeedItem.m in Sources */,
 				8885FD031A8DEC9B006F6B4C /* XMMResponseContent.m in Sources */,
 				884A5ED91A8E02B20009B97F /* XMMCoreDataGetById.m in Sources */,
 				8885FCEF1A8DEC8C006F6B4C /* XMMResponseContentBlockType4.m in Sources */,
@@ -550,6 +677,9 @@
 				884A5EDB1A8E02B20009B97F /* XMMCoreDataStyle.m in Sources */,
 				8874BE741A92382800730B7E /* _XMMCoreDataContentBlockType0.m in Sources */,
 				8858D24C1A822513001B45D5 /* ViewController.m in Sources */,
+				88301E611A9DF24500F24F84 /* NSDate+InternetDateTime.m in Sources */,
+				88301E5C1A9DF24500F24F84 /* GTMNSString+HTML.m in Sources */,
+				88301E671A9DF24500F24F84 /* QRCodeReaderView.m in Sources */,
 				8858D2491A822513001B45D5 /* AppDelegate.m in Sources */,
 				8885FD041A8DEC9B006F6B4C /* XMMResponseGetById.m in Sources */,
 				8885FD061A8DEC9B006F6B4C /* XMMResponseGetByLocationIdentifier.m in Sources */,
@@ -563,8 +693,10 @@
 				8885FD051A8DEC9B006F6B4C /* XMMResponseGetByLocation.m in Sources */,
 				8885FCEA1A8DEC8C006F6B4C /* XMMResponseContentBlock.m in Sources */,
 				8874BE751A92382800730B7E /* _XMMCoreDataContentBlockType1.m in Sources */,
+				88301E5B1A9DF24500F24F84 /* DetailTableViewController.m in Sources */,
 				8885FCEC1A8DEC8C006F6B4C /* XMMResponseContentBlockType1.m in Sources */,
 				88B73CB11A91DDDE009D16F7 /* XMMCoreDataContentBlocks.m in Sources */,
+				88301E1C1A9DC21400F24F84 /* XMMRSSEntry.m in Sources */,
 				8885FCEE1A8DEC8C006F6B4C /* XMMResponseContentBlockType3.m in Sources */,
 				8874BE7C1A92382800730B7E /* _XMMCoreDataContentBlockType8.m in Sources */,
 				884A5EDA1A8E02B20009B97F /* XMMCoreDataMenuItem.m in Sources */,
@@ -574,15 +706,21 @@
 				8874BE7B1A92382800730B7E /* _XMMCoreDataContentBlockType7.m in Sources */,
 				8858D26C1A8225B1001B45D5 /* XMMEnduserApi.m in Sources */,
 				8874BE7A1A92382800730B7E /* _XMMCoreDataContentBlockType6.m in Sources */,
+				88301E691A9DF24500F24F84 /* README.md in Sources */,
 				8874BE7E1A92382800730B7E /* _XMMCoreDataGetById.m in Sources */,
 				8885FCF41A8DEC8C006F6B4C /* XMMResponseContentBlockType9.m in Sources */,
+				88301E601A9DF24500F24F84 /* MWFeedParserAppDelegate.m in Sources */,
 				8858D2461A822513001B45D5 /* main.m in Sources */,
 				8874BE7D1A92382800730B7E /* _XMMCoreDataContentBlockType9.m in Sources */,
+				88301E621A9DF24500F24F84 /* NSString+HTML.m in Sources */,
+				88301E661A9DF24500F24F84 /* QRCameraSwitchButton.m in Sources */,
 				8885FD091A8DEC9B006F6B4C /* XMMResponseStyle.m in Sources */,
 				8885FCF11A8DEC8C006F6B4C /* XMMResponseContentBlockType6.m in Sources */,
 				88B73CB01A91DDDE009D16F7 /* XMMCoreDataContent.m in Sources */,
 				8874BE4A1A92358100730B7E /* XMMCoreDataGetByLocationItem.m in Sources */,
+				88301E641A9DF24500F24F84 /* RootViewController.m in Sources */,
 				8874BE831A92382800730B7E /* _XMMCoreDataStyle.m in Sources */,
+				88301E5D1A9DF24500F24F84 /* MWFeedInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

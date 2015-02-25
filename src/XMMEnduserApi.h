@@ -24,6 +24,10 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <RestKit/RestKit.h>
+
+#import "XMMRSSEntry.h"
+#import "NSString+HTML.h"
+
 #import "XMMResponseGetById.h"
 #import "XMMResponseGetByLocationIdentifier.h"
 #import "XMMResponseGetByLocation.h"
@@ -102,14 +106,25 @@
  */
 - (void)finishedLoadCoreData;
 
+/**
+ Delegate to notifiy that getContentFromRSSFeed are finished with loading and parsing the rss feed from url.
+ 
+ @param result - The result as NSMuteableArray.
+ @return void
+ */
+- (void)finishedLoadRSS:(NSMutableArray*)result;
+
+
 @end
 
 #pragma mark - XMMEnduserApi
 
-@interface XMMEnduserApi : NSObject
+@interface XMMEnduserApi : NSObject <NSXMLParserDelegate>
 
 @property (nonatomic, assign) id<XMEnderuserApiDelegate> delegate;
-@property NSURL *baseURL;
+@property (readonly) NSURL *baseURL;
+@property NSString *rssBaseUrl;
+@property (retain) NSMutableArray *RSSEntries;
 
 -(id)init;
 
@@ -205,8 +220,15 @@
  Description
  
  @param contentId - The content id from the entity you want to delete in core data
- @return void
+ @return BOOL - Yes if it got deleted, no if not.
  */
 - (BOOL)deleteCoreDataEntityBy:(NSString *)contentId;
+
+/**
+ Gets the rss feed and parses it from a specific url.
+ 
+ @return void
+ */
+- (void)getContentFromRSSFeed;
 
 @end

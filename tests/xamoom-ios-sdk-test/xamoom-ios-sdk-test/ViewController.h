@@ -11,6 +11,8 @@
 
 @interface ViewController : UIViewController <XMEnderuserApiDelegate>
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+
 - (IBAction)clickTestButton1:(id)sender;
 - (IBAction)clickTestButton2:(id)sender;
 

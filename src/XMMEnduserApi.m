@@ -26,7 +26,10 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
 
 @implementation XMMEnduserApi : NSObject
 
-@synthesize delegate, baseURL;
+XMMRSSEntry *rssItem;
+NSMutableString *element;
+
+@synthesize delegate, baseURL, RSSEntries;
 
 -(id)init {
     self = [super init];
@@ -390,7 +393,6 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     NSArray *results = [self executeFetch:fetchRequest];
     
     if ([results count] == 1) {
-        NSLog(@"%@", [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext);
         [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext deleteObject:[results firstObject]];
         [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext saveToPersistentStore:nil];
         NSLog(@"Entitiy with contentId %@ deleted", contentId);
@@ -404,6 +406,93 @@ static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-de
     }
     
     return NO;
+}
+
+- (void)getContentFromRSSFeed {
+    NSLog(@"Starting with RSS");
+    
+    RSSEntries = [NSMutableArray new];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.rssBaseUrl]];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+                               [parser setDelegate:self];
+                               [parser parse];
+                           }];
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
+    
+    element = [NSMutableString string];
+    if ([elementName isEqualToString:@"item"]) {
+        rssItem = [XMMRSSEntry new];
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+    if(element == nil) {
+        element = [[NSMutableString alloc] init];
+    }
+    [element appendString:string];
+}
+
+- (void)parser:(NSXMLParser*)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
+    if (rssItem != nil) {
+        if ([elementName isEqualToString:@"title"]) {
+            rssItem.title = [element stringByDecodingHTMLEntities];
+        }
+        
+        if([elementName isEqualToString:@"link"]) {
+            rssItem.link = [element stringByDecodingHTMLEntities];
+        }
+        
+        if([elementName isEqualToString:@"comments"]) {
+            rssItem.comments = [element stringByDecodingHTMLEntities];
+        }
+        
+        if([elementName isEqualToString:@"pubDate"]) {
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
+            NSDate *date = [dateFormat dateFromString:element];
+            rssItem.pubDate = date;
+        }
+        
+        if([elementName isEqualToString:@"category"]) {
+            rssItem.category = [element stringByDecodingHTMLEntities];
+        }
+        
+        if([elementName isEqualToString:@"guid"]) {
+            rssItem.guid = [element stringByDecodingHTMLEntities];
+        }
+        
+        if([elementName isEqualToString:@"description"]) {
+            rssItem.descriptionOfContent = [element stringByDecodingHTMLEntities];
+        }
+        
+        if([elementName isEqualToString:@"content:encoded"]) {
+            rssItem.content = [element stringByDecodingHTMLEntities];
+        }
+        
+        if([elementName isEqualToString:@"wfw:commentRss"]) {
+            rssItem.wfw = [element stringByDecodingHTMLEntities];
+        }
+        
+        if([elementName isEqualToString:@"slash:comments"]) {
+            rssItem.slash = [element stringByDecodingHTMLEntities];
+        }
+        
+        if ([elementName isEqualToString:@"item"]) {
+            [RSSEntries addObject:rssItem];
+            rssItem = nil;
+        }
+    }
+}
+
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+    [delegate performSelector:@selector(finishedLoadRSS:) withObject:RSSEntries];
 }
 
 @end
