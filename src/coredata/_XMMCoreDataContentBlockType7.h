@@ -4,10 +4,6 @@
 #import <CoreData/CoreData.h>
 #import "XMMCoreDataContentBlocks.h"
 
-extern const struct XMMCoreDataContentBlockType7Attributes {
-	__unsafe_unretained NSString *soundcloudUrl;
-} XMMCoreDataContentBlockType7Attributes;
-
 extern const struct XMMCoreDataContentBlockType7Relationships {
 	__unsafe_unretained NSString *contentBlock;
 } XMMCoreDataContentBlockType7Relationships;
@@ -23,10 +19,6 @@ extern const struct XMMCoreDataContentBlockType7Relationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataContentBlockType7ID* objectID;
 
-@property (nonatomic, strong) NSString* soundcloudUrl;
-
-//- (BOOL)validateSoundcloudUrl:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) XMMCoreDataContentBlocks *contentBlock;
 
 //- (BOOL)validateContentBlock:(id*)value_ error:(NSError**)error_;
@@ -34,9 +26,6 @@ extern const struct XMMCoreDataContentBlockType7Relationships {
 @end
 
 @interface _XMMCoreDataContentBlockType7 (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSString*)primitiveSoundcloudUrl;
-- (void)setPrimitiveSoundcloudUrl:(NSString*)value;
 
 - (XMMCoreDataContentBlocks*)primitiveContentBlock;
 - (void)setPrimitiveContentBlock:(XMMCoreDataContentBlocks*)value;

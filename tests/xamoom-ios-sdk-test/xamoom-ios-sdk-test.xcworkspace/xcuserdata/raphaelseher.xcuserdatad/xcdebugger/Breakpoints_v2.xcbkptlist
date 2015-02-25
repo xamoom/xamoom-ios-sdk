@@ -101,13 +101,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "xamoom-ios-sdk-test/ViewController.m"
-            timestampString = "445767629.697519"
+            filePath = "../../src/XMMEnduserApi.m"
+            timestampString = "446457624.565602"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "-getByIdMapping"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../src/XMMEnduserApi.m"
+            timestampString = "446485289.190942"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "-getContentByLocationFromCoreData:lon:language:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

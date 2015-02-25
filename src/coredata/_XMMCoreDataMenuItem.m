@@ -11,7 +11,6 @@ const struct XMMCoreDataMenuItemAttributes XMMCoreDataMenuItemAttributes = {
 
 const struct XMMCoreDataMenuItemRelationships XMMCoreDataMenuItemRelationships = {
 	.coreDataGetById = @"coreDataGetById",
-	.coreDataGetByLocationIdentifier = @"coreDataGetByLocationIdentifier",
 };
 
 @implementation XMMCoreDataMenuItemID
@@ -74,8 +73,6 @@ const struct XMMCoreDataMenuItemRelationships XMMCoreDataMenuItemRelationships =
 }
 
 @dynamic coreDataGetById;
-
-@dynamic coreDataGetByLocationIdentifier;
 
 @end
 

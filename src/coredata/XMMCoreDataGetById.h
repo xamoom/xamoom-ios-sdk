@@ -1,5 +1,9 @@
 #import "_XMMCoreDataGetById.h"
 
 @interface XMMCoreDataGetById : _XMMCoreDataGetById {}
-// Custom logic goes here.
+
+- (NSArray *)sortedMenuItem;
+
++ (NSDictionary *)getMapping;
+
 @end

@@ -3,10 +3,6 @@
 
 #import "_XMMCoreDataContentBlockType9.h"
 
-const struct XMMCoreDataContentBlockType9Attributes XMMCoreDataContentBlockType9Attributes = {
-	.spotMapTag = @"spotMapTag",
-};
-
 const struct XMMCoreDataContentBlockType9Relationships XMMCoreDataContentBlockType9Relationships = {
 	.contentBlock = @"contentBlock",
 };
@@ -39,8 +35,6 @@ const struct XMMCoreDataContentBlockType9Relationships XMMCoreDataContentBlockTy
 
 	return keyPaths;
 }
-
-@dynamic spotMapTag;
 
 @dynamic contentBlock;
 

@@ -3,10 +3,6 @@
 
 #import "_XMMCoreDataContentBlockType6.h"
 
-const struct XMMCoreDataContentBlockType6Attributes XMMCoreDataContentBlockType6Attributes = {
-	.contentId = @"contentId",
-};
-
 const struct XMMCoreDataContentBlockType6Relationships XMMCoreDataContentBlockType6Relationships = {
 	.contentBlock = @"contentBlock",
 };
@@ -39,8 +35,6 @@ const struct XMMCoreDataContentBlockType6Relationships XMMCoreDataContentBlockTy
 
 	return keyPaths;
 }
-
-@dynamic contentId;
 
 @dynamic contentBlock;
 

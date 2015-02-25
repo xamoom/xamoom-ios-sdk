@@ -3,6 +3,16 @@
 
 #import "_XMMCoreDataGetById.h"
 
+const struct XMMCoreDataGetByIdAttributes XMMCoreDataGetByIdAttributes = {
+	.checksum = @"checksum",
+	.contentId = @"contentId",
+	.hasContent = @"hasContent",
+	.hasSpot = @"hasSpot",
+	.systemId = @"systemId",
+	.systemName = @"systemName",
+	.systemUrl = @"systemUrl",
+};
+
 const struct XMMCoreDataGetByIdRelationships XMMCoreDataGetByIdRelationships = {
 	.content = @"content",
 	.menu = @"menu",
@@ -37,6 +47,20 @@ const struct XMMCoreDataGetByIdRelationships XMMCoreDataGetByIdRelationships = {
 
 	return keyPaths;
 }
+
+@dynamic checksum;
+
+@dynamic contentId;
+
+@dynamic hasContent;
+
+@dynamic hasSpot;
+
+@dynamic systemId;
+
+@dynamic systemName;
+
+@dynamic systemUrl;
 
 @dynamic content;
 

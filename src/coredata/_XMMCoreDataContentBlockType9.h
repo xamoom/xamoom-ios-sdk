@@ -4,10 +4,6 @@
 #import <CoreData/CoreData.h>
 #import "XMMCoreDataContentBlocks.h"
 
-extern const struct XMMCoreDataContentBlockType9Attributes {
-	__unsafe_unretained NSString *spotMapTag;
-} XMMCoreDataContentBlockType9Attributes;
-
 extern const struct XMMCoreDataContentBlockType9Relationships {
 	__unsafe_unretained NSString *contentBlock;
 } XMMCoreDataContentBlockType9Relationships;
@@ -23,10 +19,6 @@ extern const struct XMMCoreDataContentBlockType9Relationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataContentBlockType9ID* objectID;
 
-@property (nonatomic, strong) NSString* spotMapTag;
-
-//- (BOOL)validateSpotMapTag:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) XMMCoreDataContentBlocks *contentBlock;
 
 //- (BOOL)validateContentBlock:(id*)value_ error:(NSError**)error_;
@@ -34,9 +26,6 @@ extern const struct XMMCoreDataContentBlockType9Relationships {
 @end
 
 @interface _XMMCoreDataContentBlockType9 (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSString*)primitiveSpotMapTag;
-- (void)setPrimitiveSpotMapTag:(NSString*)value;
 
 - (XMMCoreDataContentBlocks*)primitiveContentBlock;
 - (void)setPrimitiveContentBlock:(XMMCoreDataContentBlocks*)value;

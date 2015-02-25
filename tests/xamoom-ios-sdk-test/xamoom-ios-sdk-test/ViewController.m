@@ -21,7 +21,7 @@ XMMEnduserApi *api;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+    //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
     
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
@@ -34,36 +34,12 @@ XMMEnduserApi *api;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-}
-
-- (IBAction)testButtonPressed:(id)sender {
-    //[api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    //[api getContentByLocationFromCoreData:@"46.61505684231224" lon:@"14.2624694108963" language:@"de"];
-}
-
-- (IBAction)test2ButtonPressen:(id)sender {
-    //[api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-    [api getContentByLocationIdentifierFromCoreData:@"3fi7c" includeStyle:@"True" includeMenu:@"True" language:@"de"];
-}
-
--(void)finishedLoadData:(RKMappingResult *)result
-{
-    
 }
 
 - (void)finishedLoadCoreData {
-    NSArray* fetchResult = [api fetchCoreDataContentBy:@"locationIdentifier"];
-    
-    XMMCoreDataGetByLocationIdentifier *firstEntity = fetchResult.firstObject;
-    
-    //NSLog(@"Style: %@", firstEntity.style);
-    //NSLog(@"Menu: %@", firstEntity.menu);
-    
-    for (XMMCoreDataMenuItem *item in [firstEntity sortedMenuItem]) {
-       NSLog(@"Menu: %@", item.itemLabel);
-    }
+    //NSArray* fetchResult = [api fetchCoreDataContentBy:@"locationIdentifier"];
+    //XMMCoreDataGetByLocationIdentifier *firstEntity = fetchResult.firstObject;
+    //NSLog(@"fetchResult: %@", firstEntity);
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {
@@ -77,5 +53,17 @@ XMMEnduserApi *api;
 - (void)finishedLoadDataByLocation:(XMMResponseGetByLocation *)result {
     NSLog(@"finishedLoadDataByLocation: %@", result);
 }
- 
+
+- (IBAction)clickTestButton1:(id)sender {
+    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    NSLog(@"clickTestButton1");
+}
+
+- (IBAction)clickTestButton2:(id)sender {
+    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentByLocationIdentifierFromCoreData:@"3fi7c" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    NSLog(@"clickTestButton2");
+}
+
 @end

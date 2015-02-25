@@ -4,37 +4,27 @@
 #import <CoreData/CoreData.h>
 
 extern const struct XMMCoreDataContentBlocksAttributes {
+	__unsafe_unretained NSString *artist;
 	__unsafe_unretained NSString *contentBlockType;
+	__unsafe_unretained NSString *contentId;
+	__unsafe_unretained NSString *downloadType;
+	__unsafe_unretained NSString *fileId;
+	__unsafe_unretained NSString *linkType;
+	__unsafe_unretained NSString *linkUrl;
 	__unsafe_unretained NSString *order;
 	__unsafe_unretained NSString *publicStatus;
+	__unsafe_unretained NSString *soundcloudUrl;
+	__unsafe_unretained NSString *spotMapTag;
+	__unsafe_unretained NSString *text;
 	__unsafe_unretained NSString *title;
+	__unsafe_unretained NSString *youtubeUrl;
 } XMMCoreDataContentBlocksAttributes;
 
 extern const struct XMMCoreDataContentBlocksRelationships {
 	__unsafe_unretained NSString *content;
-	__unsafe_unretained NSString *contentBlockType0;
-	__unsafe_unretained NSString *contentBlockType1;
-	__unsafe_unretained NSString *contentBlockType2;
-	__unsafe_unretained NSString *contentBlockType3;
-	__unsafe_unretained NSString *contentBlockType4;
-	__unsafe_unretained NSString *contentBlockType5;
-	__unsafe_unretained NSString *contentBlockType6;
-	__unsafe_unretained NSString *contentBlockType7;
-	__unsafe_unretained NSString *contentBlockType8;
-	__unsafe_unretained NSString *contentBlockType9;
 } XMMCoreDataContentBlocksRelationships;
 
 @class XMMCoreDataContent;
-@class XMMCoreDataContentBlockType0;
-@class XMMCoreDataContentBlockType1;
-@class XMMCoreDataContentBlockType2;
-@class XMMCoreDataContentBlockType3;
-@class XMMCoreDataContentBlockType4;
-@class XMMCoreDataContentBlockType5;
-@class XMMCoreDataContentBlockType6;
-@class XMMCoreDataContentBlockType7;
-@class XMMCoreDataContentBlockType8;
-@class XMMCoreDataContentBlockType9;
 
 @interface XMMCoreDataContentBlocksID : NSManagedObjectID {}
 @end
@@ -45,9 +35,33 @@ extern const struct XMMCoreDataContentBlocksRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataContentBlocksID* objectID;
 
+@property (nonatomic, strong) NSString* artist;
+
+//- (BOOL)validateArtist:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* contentBlockType;
 
 //- (BOOL)validateContentBlockType:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* contentId;
+
+//- (BOOL)validateContentId:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* downloadType;
+
+//- (BOOL)validateDownloadType:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* fileId;
+
+//- (BOOL)validateFileId:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* linkType;
+
+//- (BOOL)validateLinkType:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* linkUrl;
+
+//- (BOOL)validateLinkUrl:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* order;
 
@@ -61,60 +75,54 @@ extern const struct XMMCoreDataContentBlocksRelationships {
 
 //- (BOOL)validatePublicStatus:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSString* soundcloudUrl;
+
+//- (BOOL)validateSoundcloudUrl:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* spotMapTag;
+
+//- (BOOL)validateSpotMapTag:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* text;
+
+//- (BOOL)validateText:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* title;
 
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* youtubeUrl;
+
+//- (BOOL)validateYoutubeUrl:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) XMMCoreDataContent *content;
 
 //- (BOOL)validateContent:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) XMMCoreDataContentBlockType0 *contentBlockType0;
-
-//- (BOOL)validateContentBlockType0:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) XMMCoreDataContentBlockType1 *contentBlockType1;
-
-//- (BOOL)validateContentBlockType1:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) XMMCoreDataContentBlockType2 *contentBlockType2;
-
-//- (BOOL)validateContentBlockType2:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) XMMCoreDataContentBlockType3 *contentBlockType3;
-
-//- (BOOL)validateContentBlockType3:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) XMMCoreDataContentBlockType4 *contentBlockType4;
-
-//- (BOOL)validateContentBlockType4:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) XMMCoreDataContentBlockType5 *contentBlockType5;
-
-//- (BOOL)validateContentBlockType5:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) XMMCoreDataContentBlockType6 *contentBlockType6;
-
-//- (BOOL)validateContentBlockType6:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) XMMCoreDataContentBlockType7 *contentBlockType7;
-
-//- (BOOL)validateContentBlockType7:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) XMMCoreDataContentBlockType8 *contentBlockType8;
-
-//- (BOOL)validateContentBlockType8:(id*)value_ error:(NSError**)error_;
-
-@property (nonatomic, strong) XMMCoreDataContentBlockType9 *contentBlockType9;
-
-//- (BOOL)validateContentBlockType9:(id*)value_ error:(NSError**)error_;
-
 @end
 
 @interface _XMMCoreDataContentBlocks (CoreDataGeneratedPrimitiveAccessors)
 
+- (NSString*)primitiveArtist;
+- (void)setPrimitiveArtist:(NSString*)value;
+
 - (NSString*)primitiveContentBlockType;
 - (void)setPrimitiveContentBlockType:(NSString*)value;
+
+- (NSString*)primitiveContentId;
+- (void)setPrimitiveContentId:(NSString*)value;
+
+- (NSString*)primitiveDownloadType;
+- (void)setPrimitiveDownloadType:(NSString*)value;
+
+- (NSString*)primitiveFileId;
+- (void)setPrimitiveFileId:(NSString*)value;
+
+- (NSString*)primitiveLinkType;
+- (void)setPrimitiveLinkType:(NSString*)value;
+
+- (NSString*)primitiveLinkUrl;
+- (void)setPrimitiveLinkUrl:(NSString*)value;
 
 - (NSNumber*)primitiveOrder;
 - (void)setPrimitiveOrder:(NSNumber*)value;
@@ -125,40 +133,22 @@ extern const struct XMMCoreDataContentBlocksRelationships {
 - (NSString*)primitivePublicStatus;
 - (void)setPrimitivePublicStatus:(NSString*)value;
 
+- (NSString*)primitiveSoundcloudUrl;
+- (void)setPrimitiveSoundcloudUrl:(NSString*)value;
+
+- (NSString*)primitiveSpotMapTag;
+- (void)setPrimitiveSpotMapTag:(NSString*)value;
+
+- (NSString*)primitiveText;
+- (void)setPrimitiveText:(NSString*)value;
+
 - (NSString*)primitiveTitle;
 - (void)setPrimitiveTitle:(NSString*)value;
 
+- (NSString*)primitiveYoutubeUrl;
+- (void)setPrimitiveYoutubeUrl:(NSString*)value;
+
 - (XMMCoreDataContent*)primitiveContent;
 - (void)setPrimitiveContent:(XMMCoreDataContent*)value;
-
-- (XMMCoreDataContentBlockType0*)primitiveContentBlockType0;
-- (void)setPrimitiveContentBlockType0:(XMMCoreDataContentBlockType0*)value;
-
-- (XMMCoreDataContentBlockType1*)primitiveContentBlockType1;
-- (void)setPrimitiveContentBlockType1:(XMMCoreDataContentBlockType1*)value;
-
-- (XMMCoreDataContentBlockType2*)primitiveContentBlockType2;
-- (void)setPrimitiveContentBlockType2:(XMMCoreDataContentBlockType2*)value;
-
-- (XMMCoreDataContentBlockType3*)primitiveContentBlockType3;
-- (void)setPrimitiveContentBlockType3:(XMMCoreDataContentBlockType3*)value;
-
-- (XMMCoreDataContentBlockType4*)primitiveContentBlockType4;
-- (void)setPrimitiveContentBlockType4:(XMMCoreDataContentBlockType4*)value;
-
-- (XMMCoreDataContentBlockType5*)primitiveContentBlockType5;
-- (void)setPrimitiveContentBlockType5:(XMMCoreDataContentBlockType5*)value;
-
-- (XMMCoreDataContentBlockType6*)primitiveContentBlockType6;
-- (void)setPrimitiveContentBlockType6:(XMMCoreDataContentBlockType6*)value;
-
-- (XMMCoreDataContentBlockType7*)primitiveContentBlockType7;
-- (void)setPrimitiveContentBlockType7:(XMMCoreDataContentBlockType7*)value;
-
-- (XMMCoreDataContentBlockType8*)primitiveContentBlockType8;
-- (void)setPrimitiveContentBlockType8:(XMMCoreDataContentBlockType8*)value;
-
-- (XMMCoreDataContentBlockType9*)primitiveContentBlockType9;
-- (void)setPrimitiveContentBlockType9:(XMMCoreDataContentBlockType9*)value;
 
 @end

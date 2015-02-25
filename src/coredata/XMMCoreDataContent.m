@@ -24,20 +24,4 @@
     return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
 }
 
-//used to generate hashes
-- (void)willSave {
-    //NSLog(@"Hashing... : %@", [self sha1:[self hashableDescription]]);
-    //[self setPrimitiveValue:[self sha1:[self hashableDescription]] forKey:@"changeHash"];
-}
-
-- (NSString *)hashableDescription {
-    NSString *stringA = self.descriptionOfContent;
-    NSString *stringB = self.language;
-    NSString *stringC = self.title;
-    NSString *stringD = self.imagePublicUrl;
-    
-    NSString *description = [NSString stringWithFormat:@"%@,%@,%@,%@", stringA, stringB, stringC, stringD];
-    return description;
-}
-
 @end

@@ -4,24 +4,24 @@
 #import "_XMMCoreDataContentBlocks.h"
 
 const struct XMMCoreDataContentBlocksAttributes XMMCoreDataContentBlocksAttributes = {
+	.artist = @"artist",
 	.contentBlockType = @"contentBlockType",
+	.contentId = @"contentId",
+	.downloadType = @"downloadType",
+	.fileId = @"fileId",
+	.linkType = @"linkType",
+	.linkUrl = @"linkUrl",
 	.order = @"order",
 	.publicStatus = @"publicStatus",
+	.soundcloudUrl = @"soundcloudUrl",
+	.spotMapTag = @"spotMapTag",
+	.text = @"text",
 	.title = @"title",
+	.youtubeUrl = @"youtubeUrl",
 };
 
 const struct XMMCoreDataContentBlocksRelationships XMMCoreDataContentBlocksRelationships = {
 	.content = @"content",
-	.contentBlockType0 = @"contentBlockType0",
-	.contentBlockType1 = @"contentBlockType1",
-	.contentBlockType2 = @"contentBlockType2",
-	.contentBlockType3 = @"contentBlockType3",
-	.contentBlockType4 = @"contentBlockType4",
-	.contentBlockType5 = @"contentBlockType5",
-	.contentBlockType6 = @"contentBlockType6",
-	.contentBlockType7 = @"contentBlockType7",
-	.contentBlockType8 = @"contentBlockType8",
-	.contentBlockType9 = @"contentBlockType9",
 };
 
 @implementation XMMCoreDataContentBlocksID
@@ -59,7 +59,19 @@ const struct XMMCoreDataContentBlocksRelationships XMMCoreDataContentBlocksRelat
 	return keyPaths;
 }
 
+@dynamic artist;
+
 @dynamic contentBlockType;
+
+@dynamic contentId;
+
+@dynamic downloadType;
+
+@dynamic fileId;
+
+@dynamic linkType;
+
+@dynamic linkUrl;
 
 @dynamic order;
 
@@ -83,29 +95,17 @@ const struct XMMCoreDataContentBlocksRelationships XMMCoreDataContentBlocksRelat
 
 @dynamic publicStatus;
 
+@dynamic soundcloudUrl;
+
+@dynamic spotMapTag;
+
+@dynamic text;
+
 @dynamic title;
 
+@dynamic youtubeUrl;
+
 @dynamic content;
-
-@dynamic contentBlockType0;
-
-@dynamic contentBlockType1;
-
-@dynamic contentBlockType2;
-
-@dynamic contentBlockType3;
-
-@dynamic contentBlockType4;
-
-@dynamic contentBlockType5;
-
-@dynamic contentBlockType6;
-
-@dynamic contentBlockType7;
-
-@dynamic contentBlockType8;
-
-@dynamic contentBlockType9;
 
 @end
 

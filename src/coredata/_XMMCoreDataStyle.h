@@ -14,11 +14,9 @@ extern const struct XMMCoreDataStyleAttributes {
 
 extern const struct XMMCoreDataStyleRelationships {
 	__unsafe_unretained NSString *coreDataGetById;
-	__unsafe_unretained NSString *coreDataGetByLocationIdentifier;
 } XMMCoreDataStyleRelationships;
 
 @class XMMCoreDataGetById;
-@class XMMCoreDataGetByLocationIdentifier;
 
 @interface XMMCoreDataStyleID : NSManagedObjectID {}
 @end
@@ -57,10 +55,6 @@ extern const struct XMMCoreDataStyleRelationships {
 
 //- (BOOL)validateCoreDataGetById:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) XMMCoreDataGetByLocationIdentifier *coreDataGetByLocationIdentifier;
-
-//- (BOOL)validateCoreDataGetByLocationIdentifier:(id*)value_ error:(NSError**)error_;
-
 @end
 
 @interface _XMMCoreDataStyle (CoreDataGeneratedPrimitiveAccessors)
@@ -85,8 +79,5 @@ extern const struct XMMCoreDataStyleRelationships {
 
 - (XMMCoreDataGetById*)primitiveCoreDataGetById;
 - (void)setPrimitiveCoreDataGetById:(XMMCoreDataGetById*)value;
-
-- (XMMCoreDataGetByLocationIdentifier*)primitiveCoreDataGetByLocationIdentifier;
-- (void)setPrimitiveCoreDataGetByLocationIdentifier:(XMMCoreDataGetByLocationIdentifier*)value;
 
 @end

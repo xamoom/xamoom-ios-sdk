@@ -4,10 +4,6 @@
 #import <CoreData/CoreData.h>
 #import "XMMCoreDataContentBlocks.h"
 
-extern const struct XMMCoreDataContentBlockType6Attributes {
-	__unsafe_unretained NSString *contentId;
-} XMMCoreDataContentBlockType6Attributes;
-
 extern const struct XMMCoreDataContentBlockType6Relationships {
 	__unsafe_unretained NSString *contentBlock;
 } XMMCoreDataContentBlockType6Relationships;
@@ -23,10 +19,6 @@ extern const struct XMMCoreDataContentBlockType6Relationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataContentBlockType6ID* objectID;
 
-@property (nonatomic, strong) NSString* contentId;
-
-//- (BOOL)validateContentId:(id*)value_ error:(NSError**)error_;
-
 @property (nonatomic, strong) XMMCoreDataContentBlocks *contentBlock;
 
 //- (BOOL)validateContentBlock:(id*)value_ error:(NSError**)error_;
@@ -34,9 +26,6 @@ extern const struct XMMCoreDataContentBlockType6Relationships {
 @end
 
 @interface _XMMCoreDataContentBlockType6 (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSString*)primitiveContentId;
-- (void)setPrimitiveContentId:(NSString*)value;
 
 - (XMMCoreDataContentBlocks*)primitiveContentBlock;
 - (void)setPrimitiveContentBlock:(XMMCoreDataContentBlocks*)value;

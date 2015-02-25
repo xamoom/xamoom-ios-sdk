@@ -13,6 +13,8 @@
 
 @implementation XMMCoreDataGetByLocationIdentifier
 
+@synthesize objectAsHash;
+
 + (NSDictionary *)getMapping
 {
     return @{@"system_name":@"systemName",
@@ -23,7 +25,11 @@
              };
 }
 
--(void)willSave {
+- (void)willSave {
+    [self setGeneratedChecksumLI];
+}
+
+-(void)setGeneratedChecksumLI {
     self.objectAsHash = [[NSMutableString alloc] init];
     
     [self.objectAsHash appendString:[self hashableDescription]];
@@ -33,8 +39,13 @@
         [self.objectAsHash appendString:[item hashableDescription]];
     }
     
-    [self.objectAsHash appendString:[self.style hashableDescription]];
-    [self.objectAsHash appendString:[self.content hashableDescription]];
+    if (self.style != nil) {
+        [self.objectAsHash appendString:[self.style hashableDescription]];
+    }
+    
+    if (self.content != nil) {
+       [self.objectAsHash appendString:[self.content hashableDescription]];
+    }
     
     NSArray *contentBlocks = self.content.sortedContentBlocks;
     for (XMMCoreDataContentBlocks *block in contentBlocks) {

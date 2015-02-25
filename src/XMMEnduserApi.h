@@ -44,23 +44,11 @@
 #import "XMMResponseContentBlockType9.h"
 
 //Core Data
-#import "XMMCoreData.h"
 #import "XMMCoreDataGetById.h"
 #import "XMMCoreDataStyle.h"
 #import "XMMCoreDataMenuItem.h"
 #import "XMMCoreDataContent.h"
 #import "XMMCoreDataContentBlocks.h"
-#import "XMMCoreDataContentBlockType0.h"
-#import "XMMCoreDataContentBlockType1.h"
-#import "XMMCoreDataContentBlockType2.h"
-#import "XMMCoreDataContentBlockType3.h"
-#import "XMMCoreDataContentBlockType4.h"
-#import "XMMCoreDataContentBlockType5.h"
-#import "XMMCoreDataContentBlockType6.h"
-#import "XMMCoreDataContentBlockType7.h"
-#import "XMMCoreDataContentBlockType8.h"
-#import "XMMCoreDataContentBlockType9.h"
-#import "XMMCoreDataGetByLocationIdentifier.h"
 #import "XMMCoreDataGetByLocation.h"
 #import "XMMCoreDataGetByLocationItem.h"
 
@@ -121,6 +109,7 @@
 @interface XMMEnduserApi : NSObject
 
 @property (nonatomic, assign) id<XMEnderuserApiDelegate> delegate;
+@property NSURL *baseURL;
 
 -(id)init;
 
@@ -211,5 +200,7 @@
  @return NSArray*
  */
 - (NSArray*)fetchCoreDataContentBy:(NSString *)type;
+
++ (BOOL)checkExistingChecksums:(NSString *)checksum;
 
 @end
