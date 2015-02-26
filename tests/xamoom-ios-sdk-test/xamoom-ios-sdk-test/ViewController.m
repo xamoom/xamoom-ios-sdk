@@ -35,10 +35,8 @@ XMMEnduserApi *api;
 
 - (void)finishedLoadCoreData {
     NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
-    for (XMMCoreDataGetById *entity in fetchResult) {
-        self.outputTextView.text = entity.description;
-    }
     NSLog(@"finishedLoadCoreData: %@", fetchResult);
+    self.outputTextView.text = fetchResult.description;
 }
 
 - (void)finishedLoadDataById:(XMMResponseGetById *)result {
@@ -58,9 +56,7 @@ XMMEnduserApi *api;
 
 - (void)finishedLoadDataBySpotMap:(XMMResponseGetSpotMap *)result {
     NSLog(@"finishedLoadDataBySpotMap: %@", result);
-    for (XMMResponseGetSpotMapItem *item in result.items) {
-        NSLog(@"Item: %@", item.displayName);
-    }
+    self.outputTextView.text = result.description;
 }
 
 - (void)finishedLoadRSS:(NSMutableArray *)result {
