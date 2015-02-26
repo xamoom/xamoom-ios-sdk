@@ -4,7 +4,6 @@
 #import <CoreData/CoreData.h>
 
 extern const struct XMMCoreDataGetByIdAttributes {
-	__unsafe_unretained NSString *checksum;
 	__unsafe_unretained NSString *contentId;
 	__unsafe_unretained NSString *hasContent;
 	__unsafe_unretained NSString *hasSpot;
@@ -31,10 +30,6 @@ extern const struct XMMCoreDataGetByIdRelationships {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) XMMCoreDataGetByIdID* objectID;
-
-@property (nonatomic, strong) NSString* checksum;
-
-//- (BOOL)validateChecksum:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSString* contentId;
 
@@ -83,9 +78,6 @@ extern const struct XMMCoreDataGetByIdRelationships {
 @end
 
 @interface _XMMCoreDataGetById (CoreDataGeneratedPrimitiveAccessors)
-
-- (NSString*)primitiveChecksum;
-- (void)setPrimitiveChecksum:(NSString*)value;
 
 - (NSString*)primitiveContentId;
 - (void)setPrimitiveContentId:(NSString*)value;

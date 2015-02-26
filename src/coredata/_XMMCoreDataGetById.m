@@ -4,7 +4,6 @@
 #import "_XMMCoreDataGetById.h"
 
 const struct XMMCoreDataGetByIdAttributes XMMCoreDataGetByIdAttributes = {
-	.checksum = @"checksum",
 	.contentId = @"contentId",
 	.hasContent = @"hasContent",
 	.hasSpot = @"hasSpot",
@@ -47,8 +46,6 @@ const struct XMMCoreDataGetByIdRelationships XMMCoreDataGetByIdRelationships = {
 
 	return keyPaths;
 }
-
-@dynamic checksum;
 
 @dynamic contentId;
 
