@@ -56,6 +56,13 @@ XMMEnduserApi *api;
     self.outputTextView.text = result.description;
 }
 
+- (void)finishedLoadDataBySpotMap:(XMMResponseGetSpotMap *)result {
+    NSLog(@"finishedLoadDataBySpotMap: %@", result);
+    for (XMMResponseGetSpotMapItem *item in result.items) {
+        NSLog(@"Item: %@", item.displayName);
+    }
+}
+
 - (void)finishedLoadRSS:(NSMutableArray *)result {
     for (XMMRSSEntry *item in result) {
         NSLog(@"finishedLoadRSS: %@", item);
@@ -96,6 +103,10 @@ XMMEnduserApi *api;
 
 - (IBAction)getContentByLocationAction:(id)sender {
     [api getContentByLocation:@"46.615" lon:@"14.263" language:@"de"];
+}
+
+- (IBAction)getSpotMapAction:(id)sender {
+    [api getSpotMap:@"6588702901927936" mapTag:@"stw" language:@"de"];
 }
 
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender {

@@ -34,6 +34,8 @@
 #import "XMMResponseGetByLocationIdentifier.h"
 #import "XMMResponseGetByLocation.h"
 #import "XMMResponseGetByLocationItem.h"
+#import "XMMResponseGetSpotMap.h"
+#import "XMMResponseGetSpotMapItem.h"
 #import "XMMResponseStyle.h"
 #import "XMMResponseMenuItem.h"
 #import "XMMResponseContent.h"
@@ -61,6 +63,7 @@
 @class XMMResponseGetById;
 @class XMMResponseGetByLocation;
 @class XMMResponseGetByLocationIdentifier;
+@class XMMResponseGetSpotMap;
 
 #pragma mark - Protocol / Delegate
 
@@ -99,6 +102,14 @@
  @return void
  */
 - (void)finishedLoadDataByLocation:(XMMResponseGetByLocation*)result;
+
+/**
+ Delegate to return the result from getSpotMap as XMMResponseGetSpotMap.
+ 
+ @param result - The result as XMMResponseGetSpotMap.
+ @return void
+ */
+- (void)finishedLoadDataBySpotMap:(XMMResponseGetSpotMap*)result;
 
 /**
  Delegate to notify that getContentByIdFromCoreData, getContentByLocationFromCoreData, getContentByLocationIdentifierFromCoreData
@@ -168,6 +179,16 @@
 - (void)getContentByLocation:(NSString*)lat lon:(NSString*)lon language:(NSString*)language;
 
 /**
+ Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.
+ 
+ @param systemId - The id of the wanted system.
+ @param mapTag - The Tag of the wanted spots.
+ @param language - The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void)getSpotMap:(NSString*)systemId mapTag:(NSString*)mapTag language:(NSString*)language;
+
+/**
  Sets up all configurations for RestKit to work with Core Data.
  
  @return void
@@ -235,8 +256,10 @@
 - (void)getContentFromRSSFeed;
 
 /**
- Gets the rss feed and parses it from a specific url.
+ Starts the QRCodeReaderViewController to scan qr codes.
  
+ @param viewController - The ViewController from where you want to call the QRCodeReader (usually self)
+ @param automaticAPIRequest - Yes to start after scan automatically a getContentByLocationIdentifier request
  @return void
  */
 - (void)startQRCodeReader:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest;

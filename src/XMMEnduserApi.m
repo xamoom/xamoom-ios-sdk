@@ -37,7 +37,6 @@ NSMutableString *element;
     self.apiBaseURL = [NSURL URLWithString:apiBaseURLString];
     self.rssBaseUrl = rssBaseURLString;
     self.systemLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
-    NSLog(@"SystemLanguage: %@", self.systemLanguage);
     return self;
 }
 
@@ -47,7 +46,7 @@ NSMutableString *element;
     NSDictionary *queryParams = @{@"content_id":contentId,
                                   @"include_style":style,
                                   @"include_menu":menu,
-                                  @"language":language
+                                  @"language":language,
                                   };
     
     // Create mappings
@@ -98,7 +97,7 @@ NSMutableString *element;
     NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
                                   @"include_style":style,
                                   @"include_menu":menu,
-                                  @"language":language
+                                  @"language":language,
                                   };
     
     // Create mappings
@@ -166,6 +165,39 @@ NSMutableString *element;
      withParameters:queryParams
            withpath:@"xamoomEndUserApi/v1/get_content_by_location"];
     
+}
+
+- (void)getSpotMap:(NSString *)systemId mapTag:(NSString *)mapTag language:(NSString *)language
+{
+    RKObjectMapping* responseMapping = [XMMResponseGetSpotMap getMapping];
+    RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem getMapping];
+    
+    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
+                                                                                    toKeyPath:@"items"
+                                                                                  withMapping:responseItemMapping]];
+    
+    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+    // Create ResponseDescriptor with objectMapping
+    RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
+    
+    // Create ObjectManager
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:apiBaseURL];
+    manager.requestSerializationMIMEType = RKMIMETypeJSON; // JSON
+    
+    NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%@/%@/%@", systemId, mapTag, language];
+    
+    [manager addResponseDescriptor:contentDescriptor];
+    [manager getObject:nil path:path parameters:nil
+                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                    NSLog(@"Output: %@", mappingResult.firstObject);
+                    XMMResponseGetSpotMap *result = [XMMResponseGetSpotMap new];
+                    result = mappingResult.firstObject;
+                    [delegate performSelector:@selector(finishedLoadDataBySpotMap:) withObject:result];
+                }
+                failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                    NSLog(@"Error: %@", error);
+                }
+     ];
 }
 
 - (void)talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path
