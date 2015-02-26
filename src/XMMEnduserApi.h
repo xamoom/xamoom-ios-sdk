@@ -127,6 +127,7 @@
 @property NSURL *apiBaseURL;
 @property NSString *rssBaseUrl;
 @property NSMutableArray *rssEntries;
+@property NSString *systemLanguage;
 
 -(id)init;
 

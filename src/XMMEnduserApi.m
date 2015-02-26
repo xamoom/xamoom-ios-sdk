@@ -36,6 +36,8 @@ NSMutableString *element;
     self = [super init];
     self.apiBaseURL = [NSURL URLWithString:apiBaseURLString];
     self.rssBaseUrl = rssBaseURLString;
+    self.systemLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSLog(@"SystemLanguage: %@", self.systemLanguage);
     return self;
 }
 
