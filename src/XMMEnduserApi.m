@@ -516,8 +516,11 @@ NSMutableString *element;
     
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
         if (automaticAPIRequest) {
-            [self getLocationIdentifierFromURL:resultAsString];
-            //NSLog(@"OMG: %@", resultAsString);
+            [self getContentByLocationIdentifier:[self getLocationIdentifierFromURL:resultAsString]
+                                    includeStyle:@"True"
+                                     includeMenu:@"True"
+                                        language:@"de"
+             ];
         }
     }];
     
@@ -525,7 +528,11 @@ NSMutableString *element;
 }
 
 - (NSString*)getLocationIdentifierFromURL:(NSString*)URL {
-    
+    NSURL* realUrl = [NSURL URLWithString:URL];
+    NSString *path = [realUrl path];
+    path = [path stringByReplacingOccurrencesOfString:@"/" withString:@""];
+    NSLog(@"Path: %@", path);
+    return path;
 }
 
 @end
