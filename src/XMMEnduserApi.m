@@ -22,20 +22,24 @@
 #import "XMMEnduserApi.h"
 #import <RestKit/RestKit.h>
 
-static NSString * const BaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
+static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
+static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 
 @implementation XMMEnduserApi : NSObject
 
 XMMRSSEntry *rssItem;
 NSMutableString *element;
 
-@synthesize delegate, baseURL, RSSEntries;
+@synthesize delegate, apiBaseURL, rssEntries;
 
 -(id)init {
     self = [super init];
-    baseURL = [NSURL URLWithString:BaseURLString];
+    self.apiBaseURL = [NSURL URLWithString:apiBaseURLString];
+    self.rssBaseUrl = rssBaseURLString;
     return self;
 }
+
+#pragma mark - gets from API
 
 - (void)getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu language:(NSString*)language {
     NSDictionary *queryParams = @{@"content_id":contentId,
@@ -169,7 +173,7 @@ NSMutableString *element;
     RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:objectMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
     
     // Create ObjectManager
-    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:baseURL];
+    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:apiBaseURL];
     manager.requestSerializationMIMEType = RKMIMETypeJSON; // JSON
     
     [manager addResponseDescriptor:contentDescriptor];
@@ -210,7 +214,7 @@ NSMutableString *element;
 - (void)initRestkitCoreData
 {
     // Initialize RestKit
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:baseURL];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
     [RKObjectManager setSharedManager:objectManager];
     
     // Initialize managed object model from bundle
@@ -408,10 +412,12 @@ NSMutableString *element;
     return NO;
 }
 
+#pragma mark - RSS
+
 - (void)getContentFromRSSFeed {
     NSLog(@"Starting with RSS");
     
-    RSSEntries = [NSMutableArray new];
+    rssEntries = [NSMutableArray new];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.rssBaseUrl]];
     
@@ -485,14 +491,41 @@ NSMutableString *element;
         }
         
         if ([elementName isEqualToString:@"item"]) {
-            [RSSEntries addObject:rssItem];
+            [rssEntries addObject:rssItem];
             rssItem = nil;
         }
     }
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    [delegate performSelector:@selector(finishedLoadRSS:) withObject:RSSEntries];
+    [delegate performSelector:@selector(finishedLoadRSS:) withObject:rssEntries];
+}
+
+#pragma mark - QRCodeReaderViewController
+
+- (void)startQRCodeReader:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest {
+    static QRCodeReaderViewController *reader = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        reader                        = [QRCodeReaderViewController new];
+        reader.modalPresentationStyle = UIModalPresentationFormSheet;
+    });
+    
+    reader.delegate = viewController;
+    
+    [reader setCompletionWithBlock:^(NSString *resultAsString) {
+        if (automaticAPIRequest) {
+            [self getLocationIdentifierFromURL:resultAsString];
+            //NSLog(@"OMG: %@", resultAsString);
+        }
+    }];
+    
+    [viewController presentViewController:reader animated:YES completion:NULL];
+}
+
+- (NSString*)getLocationIdentifierFromURL:(NSString*)URL {
+    
 }
 
 @end

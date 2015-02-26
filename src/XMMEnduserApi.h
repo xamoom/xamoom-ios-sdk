@@ -124,9 +124,9 @@
 @interface XMMEnduserApi : NSObject <NSXMLParserDelegate>
 
 @property (nonatomic, assign) id<XMEnderuserApiDelegate> delegate;
-@property (readonly) NSURL *baseURL;
+@property NSURL *apiBaseURL;
 @property NSString *rssBaseUrl;
-@property (retain) NSMutableArray *RSSEntries;
+@property NSMutableArray *rssEntries;
 
 -(id)init;
 
@@ -232,5 +232,12 @@
  @return void
  */
 - (void)getContentFromRSSFeed;
+
+/**
+ Gets the rss feed and parses it from a specific url.
+ 
+ @return void
+ */
+- (void)startQRCodeReader:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest;
 
 @end

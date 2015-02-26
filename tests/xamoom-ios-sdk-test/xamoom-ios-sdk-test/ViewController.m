@@ -21,11 +21,8 @@ XMMEnduserApi *api;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-    
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
-    api.rssBaseUrl = @"http://xamoom.com/feed/";
     [api initRestkitCoreData];
 }
 
@@ -35,6 +32,7 @@ XMMEnduserApi *api;
 }
 
 #pragma mark - XMMEnduserApi Delegates
+
 - (void)finishedLoadCoreData {
     NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
     for (XMMCoreDataGetById *entity in fetchResult) {
@@ -84,21 +82,8 @@ XMMEnduserApi *api;
 
 - (IBAction)scanAction:(id)sender
 {
-    static QRCodeReaderViewController *reader = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        reader                        = [QRCodeReaderViewController new];
-        reader.modalPresentationStyle = UIModalPresentationFormSheet;
-    });
-    reader.delegate = self;
-    
-    [reader setCompletionWithBlock:^(NSString *resultAsString) {
-        NSLog(@"Completion with result: %@", resultAsString);
-        self.outputTextView.text = resultAsString;
-    }];
-    
-    [self presentViewController:reader animated:YES completion:NULL];
+    [api startQRCodeReader:self
+            withAPIRequest:YES];
 }
 
 - (IBAction)getContentByIdAction:(id)sender {
