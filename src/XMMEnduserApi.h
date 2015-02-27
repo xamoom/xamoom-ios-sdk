@@ -65,7 +65,7 @@
 @class XMMResponseGetByLocationIdentifier;
 @class XMMResponseGetSpotMap;
 
-#pragma mark - Protocol / Delegate
+#pragma mark - XMMEnderuserApiDelegate
 
 @protocol XMMEnderuserApiDelegate <NSObject>
 
@@ -127,7 +127,6 @@
  */
 - (void)finishedLoadRSS:(NSMutableArray*)result;
 
-
 @end
 
 #pragma mark - XMMEnduserApi
@@ -147,7 +146,8 @@
 
 -(id)init;
 
-#pragma mark - public methods
+#pragma mark public methods
+#pragma mark API calls
 
 /**
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
@@ -192,6 +192,8 @@
  @return void
  */
 - (void)getSpotMap:(NSString*)systemId mapTag:(NSString*)mapTag language:(NSString*)language;
+
+#pragma mark Core Data
 
 /**
  Sets up all configurations for RestKit to work with Core Data.
@@ -253,12 +255,16 @@
  */
 - (BOOL)deleteCoreDataEntityBy:(NSString *)contentId;
 
+#pragma mark RSS
+
 /**
  Gets the rss feed and parses it from a specific url.
  
  @return void
  */
 - (void)getContentFromRSSFeed;
+
+#pragma mark QRCodeReaderViewController
 
 /**
  Starts the QRCodeReaderViewController to scan qr codes.

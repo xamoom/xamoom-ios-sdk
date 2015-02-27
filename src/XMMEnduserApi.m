@@ -25,6 +25,8 @@
 static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 
+#pragma mark - XMMEnduserApi
+
 @implementation XMMEnduserApi : NSObject
 
 @synthesize delegate, apiBaseURL, rssEntries;
@@ -38,7 +40,8 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
     return self;
 }
 
-#pragma mark - gets from API
+#pragma mark public methods
+#pragma mark API calls
 
 - (void)getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu language:(NSString*)language {
     NSDictionary *queryParams = @{@"content_id":contentId,

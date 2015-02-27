@@ -117,7 +117,4 @@ XMMEnduserApi *api;
     [api getContentFromRSSFeed];
 }
 
-
-
-
 @end
