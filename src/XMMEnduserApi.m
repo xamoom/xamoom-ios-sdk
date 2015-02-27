@@ -193,7 +193,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
                    NSLog(@"Output: %@", mappingResult.firstObject);
                    XMMResponseGetSpotMap *result = [XMMResponseGetSpotMap new];
                    result = mappingResult.firstObject;
-                   [delegate performSelector:@selector(finishedLoadDataBySpotMap:) withObject:result];
+                   [delegate performSelector:@selector(didLoadDataBySpotMap:) withObject:result];
                }
                failure:^(RKObjectRequestOperation *operation, NSError *error) {
                    NSLog(@"Error: %@", error);
@@ -217,25 +217,25 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
                     NSLog(@"Output: %@", mappingResult.firstObject);
                     
                     // Perform finishedLoadData delegate
-                    if ( [delegate respondsToSelector:@selector(finishedLoadData:)] ) {
-                        [delegate performSelector:@selector(finishedLoadData:) withObject: mappingResult];
+                    if ( [delegate respondsToSelector:@selector(didLoadData:)] ) {
+                        [delegate performSelector:@selector(didLoadData:) withObject: mappingResult];
                     }
                     
                     // Perform specific finishLoadData delegates
-                    if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(finishedLoadDataById:)] ) {
+                    if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(didLoadDataById:)] ) {
                         XMMResponseGetById *result = [XMMResponseGetById new];
                         result = mappingResult.firstObject;
-                        [delegate performSelector:@selector(finishedLoadDataById:) withObject:result];
+                        [delegate performSelector:@selector(didLoadDataById:) withObject:result];
                     }
-                    else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(finishedLoadDataByLocationIdentifier:)] ) {
+                    else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(didLoadDataByLocationIdentifier:)] ) {
                         XMMResponseGetByLocationIdentifier *result = [XMMResponseGetByLocationIdentifier new];
                         result = mappingResult.firstObject;
-                        [delegate performSelector:@selector(finishedLoadDataByLocationIdentifier:) withObject:result];
+                        [delegate performSelector:@selector(didLoadDataByLocationIdentifier:) withObject:result];
                     }
-                    else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(finishedLoadDataByLocation:)] ) {
+                    else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(didLoadDataByLocation:)] ) {
                         XMMResponseGetByLocation *result;
                         result = mappingResult.firstObject;
-                        [delegate performSelector:@selector(finishedLoadDataByLocation:) withObject:result];
+                        [delegate performSelector:@selector(didLoadDataByLocation:) withObject:result];
                     }
                 }
                 failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -394,7 +394,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
         [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                 NSLog(@"Output: %@", mappingResult.firstObject);
-                                                [delegate performSelector:@selector(finishedLoadCoreData)];
+                                                [delegate performSelector:@selector(didLoadCoreData)];
                                             }
                                             failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                 NSLog(@"Error: %@", error);
@@ -550,7 +550,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    [delegate performSelector:@selector(finishedLoadRSS:) withObject:rssEntries];
+    [delegate performSelector:@selector(didLoadRSS:) withObject:rssEntries];
 }
 
 #pragma mark - QRCodeReaderViewController

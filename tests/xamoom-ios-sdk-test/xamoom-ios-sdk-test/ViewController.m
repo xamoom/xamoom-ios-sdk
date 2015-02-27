@@ -33,33 +33,33 @@ XMMEnduserApi *api;
 
 #pragma mark - XMMEnduserApi Delegates
 
-- (void)finishedLoadCoreData {
+- (void)didLoadCoreData {
     NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
     NSLog(@"finishedLoadCoreData: %@", fetchResult);
     self.outputTextView.text = fetchResult.description;
 }
 
-- (void)finishedLoadDataById:(XMMResponseGetById *)result {
+- (void)didLoadDataById:(XMMResponseGetById *)result {
     NSLog(@"finishedLoadDataById: %@", result.description);
     self.outputTextView.text = result.description;
 }
 
-- (void)finishedLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result {
+- (void)didLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result {
     NSLog(@"finishedLoadDataByLocationIdentifier: %@", result);
     self.outputTextView.text = result.description;
 }
 
-- (void)finishedLoadDataByLocation:(XMMResponseGetByLocation *)result {
+- (void)didLoadDataByLocation:(XMMResponseGetByLocation *)result {
     NSLog(@"finishedLoadDataByLocation: %@", result);
     self.outputTextView.text = result.description;
 }
 
-- (void)finishedLoadDataBySpotMap:(XMMResponseGetSpotMap *)result {
+- (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap *)result {
     NSLog(@"finishedLoadDataBySpotMap: %@", result);
     self.outputTextView.text = result.description;
 }
 
-- (void)finishedLoadRSS:(NSMutableArray *)result {
+- (void)didLoadRSS:(NSMutableArray *)result {
     for (XMMRSSEntry *item in result) {
         NSLog(@"finishedLoadRSS: %@", item);
         self.outputTextView.text = item.description;

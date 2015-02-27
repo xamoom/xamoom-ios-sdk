@@ -77,7 +77,7 @@
  @param result - The result as RKMappingResult.
  @return void
  */
-- (void)finishedLoadData:(RKMappingResult*)result;
+- (void)didLoadData:(RKMappingResult*)result;
 
 /**
  Delegate to return the result from getContentById as XMMResponseGetById as XMMResponseGetByID.
@@ -85,7 +85,7 @@
  @param result - The result as XMMResponeGetById.
  @return void
  */
-- (void)finishedLoadDataById:(XMMResponseGetById*)result;
+- (void)didLoadDataById:(XMMResponseGetById*)result;
 
 /**
  Delegate to return the result from getContentByLocationIdentifier as XMMResponseGetByLocationIdentifier.
@@ -93,7 +93,7 @@
  @param result - The result as XMMResponseGetByLocationIdentifier.
  @return void
  */
-- (void)finishedLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier*)result;
+- (void)didLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier*)result;
 
 /**
  Delegate to return the result from getContentByLocation as XMMResponseGetByLocation.
@@ -101,7 +101,7 @@
  @param result - The result as XMMResponseGetByLocation.
  @return void
  */
-- (void)finishedLoadDataByLocation:(XMMResponseGetByLocation*)result;
+- (void)didLoadDataByLocation:(XMMResponseGetByLocation*)result;
 
 /**
  Delegate to return the result from getSpotMap as XMMResponseGetSpotMap.
@@ -109,7 +109,7 @@
  @param result - The result as XMMResponseGetSpotMap.
  @return void
  */
-- (void)finishedLoadDataBySpotMap:(XMMResponseGetSpotMap*)result;
+- (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap*)result;
 
 /**
  Delegate to notify that getContentByIdFromCoreData, getContentByLocationFromCoreData, getContentByLocationIdentifierFromCoreData
@@ -117,7 +117,7 @@
  
  @return void
  */
-- (void)finishedLoadCoreData;
+- (void)didLoadCoreData;
 
 /**
  Delegate to notifiy that getContentFromRSSFeed are finished with loading and parsing the rss feed from url.
@@ -125,7 +125,7 @@
  @param result - The result as NSMuteableArray.
  @return void
  */
-- (void)finishedLoadRSS:(NSMutableArray*)result;
+- (void)didLoadRSS:(NSMutableArray*)result;
 
 @end
 

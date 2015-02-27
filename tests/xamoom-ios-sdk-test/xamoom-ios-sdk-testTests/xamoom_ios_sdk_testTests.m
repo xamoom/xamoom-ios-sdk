@@ -119,32 +119,32 @@
 
 #pragma mark - XMMEnduserApi Delegates
 
-- (void)finishedLoadCoreData {
+- (void)didLoadCoreData {
     NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
     done = YES;
 }
 
-- (void)finishedLoadDataById:(XMMResponseGetById *)result {
+- (void)didLoadDataById:(XMMResponseGetById *)result {
     self.apiResultGetContentById = result;
     done = YES;
 }
 
-- (void)finishedLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result {
+- (void)didLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result {
     self.apiResultGetByLocationIdentifier = result;
     done = YES;
 }
 
-- (void)finishedLoadDataByLocation:(XMMResponseGetByLocation *)result {
+- (void)didLoadDataByLocation:(XMMResponseGetByLocation *)result {
     self.apiResultGetByLocation = result;
     done = YES;
 }
 
-- (void)finishedLoadDataBySpotMap:(XMMResponseGetSpotMap *)result {
+- (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap *)result {
     self.apiResultGetSpotMap = result;
     done = YES;
 }
 
-- (void)finishedLoadRSS:(NSMutableArray *)result {
+- (void)didLoadRSS:(NSMutableArray *)result {
     self.apiResultRSS = result;
     done = YES;
 }
