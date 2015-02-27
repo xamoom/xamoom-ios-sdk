@@ -27,9 +27,6 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 
 @implementation XMMEnduserApi : NSObject
 
-XMMRSSEntry *rssItem;
-NSMutableString *element;
-
 @synthesize delegate, apiBaseURL, rssEntries;
 
 -(id)init {
@@ -37,6 +34,7 @@ NSMutableString *element;
     self.apiBaseURL = [NSURL URLWithString:apiBaseURLString];
     self.rssBaseUrl = rssBaseURLString;
     self.systemLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
+    isCoreDataInitialized = NO;
     return self;
 }
 
@@ -188,15 +186,15 @@ NSMutableString *element;
     
     [manager addResponseDescriptor:contentDescriptor];
     [manager getObject:nil path:path parameters:nil
-                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                    NSLog(@"Output: %@", mappingResult.firstObject);
-                    XMMResponseGetSpotMap *result = [XMMResponseGetSpotMap new];
-                    result = mappingResult.firstObject;
-                    [delegate performSelector:@selector(finishedLoadDataBySpotMap:) withObject:result];
-                }
-                failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                    NSLog(@"Error: %@", error);
-                }
+               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                   NSLog(@"Output: %@", mappingResult.firstObject);
+                   XMMResponseGetSpotMap *result = [XMMResponseGetSpotMap new];
+                   result = mappingResult.firstObject;
+                   [delegate performSelector:@selector(finishedLoadDataBySpotMap:) withObject:result];
+               }
+               failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                   NSLog(@"Error: %@", error);
+               }
      ];
 }
 
@@ -275,6 +273,7 @@ NSMutableString *element;
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     [self getByIdMapping];
+    isCoreDataInitialized = YES;
 }
 
 - (void)getByIdMapping {
@@ -387,16 +386,21 @@ NSMutableString *element;
 
 - (void)talkToApiCoreDataWithParameters:(NSDictionary*)parameters withpath:(NSString*)path
 {
-    [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
-    [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
-                                        success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                            NSLog(@"Output: %@", mappingResult.firstObject);
-                                            [delegate performSelector:@selector(finishedLoadCoreData)];
-                                        }
-                                        failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                            NSLog(@"Error: %@", error);
-                                        }
-     ];
+    if(isCoreDataInitialized) {
+        [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
+        [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
+                                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                NSLog(@"Output: %@", mappingResult.firstObject);
+                                                [delegate performSelector:@selector(finishedLoadCoreData)];
+                                            }
+                                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                NSLog(@"Error: %@", error);
+                                            }
+         ];
+    }
+    else {
+        NSLog(@"CoreData is not initialized.");
+    }
 }
 
 - (NSArray*)fetchCoreDataContentBy:(NSString *)type {
@@ -416,31 +420,42 @@ NSMutableString *element;
 }
 
 - (NSArray *)executeFetch:(NSFetchRequest *)fetchRequest {
-    NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    NSError *error = nil;
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    return fetchedObjects;
+    if(isCoreDataInitialized) {
+        NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+        NSError *error = nil;
+        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+        return fetchedObjects;
+    }
+    else {
+        NSLog(@"CoreData is not initialized.");
+    }
+    return nil;
 }
 
 - (BOOL)deleteCoreDataEntityBy:(NSString *)contentId {
-    NSFetchRequest *fetchRequest;
-    fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"contentId == %@", contentId];
-    [fetchRequest setPredicate:predicate];
-    
-    NSArray *results = [self executeFetch:fetchRequest];
-    
-    if ([results count] == 1) {
-        [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext deleteObject:[results firstObject]];
-        [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext saveToPersistentStore:nil];
-        NSLog(@"Entitiy with contentId %@ deleted", contentId);
-        return YES;
-    }
-    else if ([results count] > 1) {
-        NSLog(@"Error deleting object. There are objects with the same contentId");
+    if(isCoreDataInitialized) {
+        NSFetchRequest *fetchRequest;
+        fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"contentId == %@", contentId];
+        [fetchRequest setPredicate:predicate];
+        
+        NSArray *results = [self executeFetch:fetchRequest];
+        
+        if ([results count] == 1) {
+            [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext deleteObject:[results firstObject]];
+            [[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext saveToPersistentStore:nil];
+            NSLog(@"Entitiy with contentId %@ deleted", contentId);
+            return YES;
+        }
+        else if ([results count] > 1) {
+            NSLog(@"Error deleting object. There are objects with the same contentId");
+        }
+        else {
+            NSLog(@"Error deleting object. There is no object with the contentId %@", contentId);
+        }
     }
     else {
-        NSLog(@"Error deleting object. There is no object with the contentId %@", contentId);
+        NSLog(@"CoreData is not initialized.");
     }
     
     return NO;

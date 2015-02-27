@@ -133,6 +133,11 @@
 #pragma mark - XMMEnduserApi
 
 @interface XMMEnduserApi : NSObject <NSXMLParserDelegate>
+{
+    XMMRSSEntry *rssItem;
+    NSMutableString *element;
+    BOOL isCoreDataInitialized;
+}
 
 @property (nonatomic, assign) id<XMMEnderuserApiDelegate> delegate;
 @property NSURL *apiBaseURL;
