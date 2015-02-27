@@ -67,7 +67,7 @@
 
 #pragma mark - Protocol / Delegate
 
-@protocol XMEnderuserApiDelegate <NSObject>
+@protocol XMMEnderuserApiDelegate <NSObject>
 
 @optional
 
@@ -134,7 +134,7 @@
 
 @interface XMMEnduserApi : NSObject <NSXMLParserDelegate>
 
-@property (nonatomic, assign) id<XMEnderuserApiDelegate> delegate;
+@property (nonatomic, assign) id<XMMEnderuserApiDelegate> delegate;
 @property NSURL *apiBaseURL;
 @property NSString *rssBaseUrl;
 @property NSMutableArray *rssEntries;
