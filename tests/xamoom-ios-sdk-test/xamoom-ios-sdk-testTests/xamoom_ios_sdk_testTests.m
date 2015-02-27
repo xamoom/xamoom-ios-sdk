@@ -46,6 +46,12 @@
 
 #pragma mark - Tests
 
+- (void)testApiDelegate {
+    NSLog(@"Test Suite - testApiDelegate");
+    
+    XCTAssertNotNil(api.delegate, @"api.delegate should not be nil");
+}
+
 - (void)testGetContentById {
     NSLog(@"Test Suite - testGetContentById");
     [api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
@@ -98,6 +104,7 @@
     XCTAssertNotNil([api fetchCoreDataContentBy:@"id"], @"fetchCoreDataContent should return something");
 }
 
+#pragma mark - Helping methods
 - (BOOL)waitForCompletion:(NSTimeInterval)timeoutSecs {
     NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeoutSecs];
     
