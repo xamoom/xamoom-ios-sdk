@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		566E91503BB1B0F48D247BB1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 728C3857EE6764B458DAD8A6 /* libPods.a */; };
 		88301E1C1A9DC21400F24F84 /* XMMRSSEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E1B1A9DC21400F24F84 /* XMMRSSEntry.m */; };
 		88301E5B1A9DF24500F24F84 /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E341A9DF24500F24F84 /* DetailTableViewController.m */; };
 		88301E5C1A9DF24500F24F84 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E361A9DF24500F24F84 /* GTMNSString+HTML.m */; };
@@ -85,7 +84,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		728C3857EE6764B458DAD8A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		88301DA71A9DBB8800F24F84 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		88301DA91A9DBB9300F24F84 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		88301DAB1A9DBB9C00F24F84 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -217,8 +215,6 @@
 		88B73CAB1A91DDDE009D16F7 /* XMMCoreDataContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCoreDataContent.m; path = ../../src/coredata/XMMCoreDataContent.m; sourceTree = "<group>"; };
 		88B73CAC1A91DDDE009D16F7 /* XMMCoreDataContentBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataContentBlocks.h; path = ../../src/coredata/XMMCoreDataContentBlocks.h; sourceTree = "<group>"; };
 		88B73CAD1A91DDDE009D16F7 /* XMMCoreDataContentBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCoreDataContentBlocks.m; path = ../../src/coredata/XMMCoreDataContentBlocks.m; sourceTree = "<group>"; };
-		954975F2808E50A1D816B29B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		BCE3267516CC34A8D4B03A5B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +222,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				566E91503BB1B0F48D247BB1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,15 +235,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		65DFF85B9AA3E7E29586DC24 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				954975F2808E50A1D816B29B /* Pods.debug.xcconfig */,
-				BCE3267516CC34A8D4B03A5B /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		88301E191A9DC21400F24F84 /* RSS */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,7 +289,6 @@
 				8858D2421A822513001B45D5 /* xamoom-ios-sdk-test */,
 				8858D25C1A822513001B45D5 /* xamoom-ios-sdk-testTests */,
 				8858D2411A822513001B45D5 /* Products */,
-				65DFF85B9AA3E7E29586DC24 /* Pods */,
 				FBBA45687E405BB9EDD1EEEA /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -497,7 +482,6 @@
 				88301DAB1A9DBB9C00F24F84 /* MobileCoreServices.framework */,
 				88301DA91A9DBB9300F24F84 /* SystemConfiguration.framework */,
 				88301DA71A9DBB8800F24F84 /* CFNetwork.framework */,
-				728C3857EE6764B458DAD8A6 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -509,11 +493,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8858D2631A822513001B45D5 /* Build configuration list for PBXNativeTarget "xamoom-ios-sdk-test" */;
 			buildPhases = (
-				5D3D4210B243EB10858D2F1B /* Check Pods Manifest.lock */,
 				8858D23C1A822513001B45D5 /* Sources */,
 				8858D23D1A822513001B45D5 /* Frameworks */,
 				8858D23E1A822513001B45D5 /* Resources */,
-				A42044F06D56F7AA7AD10B71 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -599,39 +581,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5D3D4210B243EB10858D2F1B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A42044F06D56F7AA7AD10B71 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8858D23C1A822513001B45D5 /* Sources */ = {
@@ -819,7 +768,6 @@
 		};
 		8858D2641A822513001B45D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 954975F2808E50A1D816B29B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
@@ -832,7 +780,6 @@
 		};
 		8858D2651A822513001B45D5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCE3267516CC34A8D4B03A5B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
