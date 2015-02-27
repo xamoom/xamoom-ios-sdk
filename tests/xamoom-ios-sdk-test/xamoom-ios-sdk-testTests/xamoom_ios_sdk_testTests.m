@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "XMMEnduserApi.h"
 
 @interface xamoom_ios_sdk_testTests : XCTestCase
 
