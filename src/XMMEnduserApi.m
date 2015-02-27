@@ -567,7 +567,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
     reader.delegate = viewController;
     
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
-        if (automaticAPIRequest) {
+        if (automaticAPIRequest && [self getLocationIdentifierFromURL:resultAsString] != nil) {
             [self getContentByLocationIdentifier:[self getLocationIdentifierFromURL:resultAsString]
                                     includeStyle:@"True"
                                      includeMenu:@"True"

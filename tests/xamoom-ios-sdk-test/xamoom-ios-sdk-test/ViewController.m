@@ -78,6 +78,7 @@ XMMEnduserApi *api;
 
 - (void)readerDidCancel:(QRCodeReaderViewController *)reader
 {
+    NSLog(@"readerDidCancel");
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
