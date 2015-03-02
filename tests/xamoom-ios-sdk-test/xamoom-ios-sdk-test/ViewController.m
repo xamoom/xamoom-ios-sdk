@@ -126,6 +126,10 @@ XMMEnduserApi *api;
     [api getContentForCoreDataByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }
 
+- (IBAction)getContentByLocationFromCoreData:(id)sender {
+    [api getContentForCoreDataByLocationWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
+}
+
 - (IBAction)getContentFromRSSFeedAction:(id)sender {
     [api getContentFromRSSFeed];
 }

@@ -51,6 +51,9 @@
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lat" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="systemId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="systemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="systemUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="coreDataGetByLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataGetByLocation" inverseName="items" inverseEntity="XMMCoreDataGetByLocation" syncable="YES"/>
     </entity>
@@ -73,9 +76,9 @@
         <element name="XMMCoreDataContent" positionX="-1458" positionY="-12780" width="128" height="133"/>
         <element name="XMMCoreDataContentBlocks" positionX="-1629" positionY="-13129" width="189" height="268"/>
         <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12877" width="128" height="180"/>
+        <element name="XMMCoreDataGetByLocation" positionX="-1422" positionY="-12987" width="128" height="75"/>
+        <element name="XMMCoreDataGetByLocationItem" positionX="-1413" positionY="-13050" width="128" height="268"/>
         <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="103"/>
         <element name="XMMCoreDataStyle" positionX="-1089" positionY="-12600" width="128" height="148"/>
-        <element name="XMMCoreDataGetByLocation" positionX="-1422" positionY="-12987" width="128" height="75"/>
-        <element name="XMMCoreDataGetByLocationItem" positionX="-1413" positionY="-13050" width="128" height="225"/>
     </elements>
 </model>

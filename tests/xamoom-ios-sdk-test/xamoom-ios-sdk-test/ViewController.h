@@ -22,6 +22,7 @@
 
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender;
 - (IBAction)getContentByLocationIdentifierFromCoreDataAction:(id)sender;
+- (IBAction)getContentByLocationFromCoreData:(id)sender;
 
 - (IBAction)getContentFromRSSFeedAction:(id)sender;
 

@@ -14,6 +14,9 @@ const struct XMMCoreDataGetByLocationItemAttributes XMMCoreDataGetByLocationItem
 	.language = @"language",
 	.lat = @"lat",
 	.lon = @"lon",
+	.systemId = @"systemId",
+	.systemName = @"systemName",
+	.systemUrl = @"systemUrl",
 	.title = @"title",
 };
 
@@ -69,6 +72,12 @@ const struct XMMCoreDataGetByLocationItemRelationships XMMCoreDataGetByLocationI
 @dynamic lat;
 
 @dynamic lon;
+
+@dynamic systemId;
+
+@dynamic systemName;
+
+@dynamic systemUrl;
 
 @dynamic title;
 

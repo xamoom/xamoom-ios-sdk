@@ -394,14 +394,13 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
         [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                 NSLog(@"Output: %@", mappingResult.firstObject);
-                                                [delegate performSelector:@selector(savedContentToCoreData)];
                                                 
-                                                // Perform finishedLoadData delegate
+                                                // Perform savedContentToCoreData delegate
                                                 if ( [delegate respondsToSelector:@selector(savedContentToCoreData)] ) {
                                                     [delegate performSelector:@selector(savedContentToCoreData)];
                                                 }
                                                 
-                                                // Perform specific finishLoadData delegates
+                                                // Perform specific savedContentToCoreData delegates
                                                 if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(savedContentToCoreDataById)] ) {
                                                     [delegate performSelector:@selector(savedContentToCoreDataById)];
                                                 }

@@ -14,6 +14,9 @@ extern const struct XMMCoreDataGetByLocationItemAttributes {
 	__unsafe_unretained NSString *language;
 	__unsafe_unretained NSString *lat;
 	__unsafe_unretained NSString *lon;
+	__unsafe_unretained NSString *systemId;
+	__unsafe_unretained NSString *systemName;
+	__unsafe_unretained NSString *systemUrl;
 	__unsafe_unretained NSString *title;
 } XMMCoreDataGetByLocationItemAttributes;
 
@@ -72,6 +75,18 @@ extern const struct XMMCoreDataGetByLocationItemRelationships {
 
 //- (BOOL)validateLon:(id*)value_ error:(NSError**)error_;
 
+@property (nonatomic, strong) NSString* systemId;
+
+//- (BOOL)validateSystemId:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* systemName;
+
+//- (BOOL)validateSystemName:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) NSString* systemUrl;
+
+//- (BOOL)validateSystemUrl:(id*)value_ error:(NSError**)error_;
+
 @property (nonatomic, strong) NSString* title;
 
 //- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
@@ -113,6 +128,15 @@ extern const struct XMMCoreDataGetByLocationItemRelationships {
 
 - (NSString*)primitiveLon;
 - (void)setPrimitiveLon:(NSString*)value;
+
+- (NSString*)primitiveSystemId;
+- (void)setPrimitiveSystemId:(NSString*)value;
+
+- (NSString*)primitiveSystemName;
+- (void)setPrimitiveSystemName:(NSString*)value;
+
+- (NSString*)primitiveSystemUrl;
+- (void)setPrimitiveSystemUrl:(NSString*)value;
 
 - (NSString*)primitiveTitle;
 - (void)setPrimitiveTitle:(NSString*)value;
