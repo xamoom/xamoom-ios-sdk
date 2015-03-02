@@ -41,14 +41,20 @@ XMMEnduserApi *api;
 
 - (void)savedContentToCoreDataById {
     NSLog(@"savedContentToCoreDataById");
+    NSArray* fetchResult = [api fetchCoreDataContentByType:@"id"];
+    self.outputTextView.text = fetchResult.description;
 }
 
 - (void)savedContentToCoreDataByLocation {
     NSLog(@"savedContentToCoreDataByLocation");
+    NSArray* fetchResult = [api fetchCoreDataContentByType:@"location"];
+    self.outputTextView.text = fetchResult.description;
 }
 
 - (void)savedContentToCoreDataByLocationIdentifier {
     NSLog(@"savedContentToCoreDataByLocationIdentifier");
+    NSArray* fetchResult = [api fetchCoreDataContentByType:@"id"];
+    self.outputTextView.text = fetchResult.description;
 }
 
 - (void)didLoadDataById:(XMMResponseGetById *)result {

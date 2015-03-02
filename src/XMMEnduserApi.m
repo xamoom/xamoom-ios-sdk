@@ -585,9 +585,9 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
         if (automaticAPIRequest && [self getLocationIdentifierFromURL:resultAsString] != nil) {
             [self getContentFromApiByLocationIdentifier:[self getLocationIdentifierFromURL:resultAsString]
-                                    includeStyle:@"True"
-                                     includeMenu:@"True"
-                                        withLanguage:@"de"
+                                           includeStyle:@"True"
+                                            includeMenu:@"True"
+                                           withLanguage:@"de"
              ];
         }
     }];
@@ -596,11 +596,24 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 }
 
 - (NSString*)getLocationIdentifierFromURL:(NSString*)URL {
-    NSURL* realUrl = [NSURL URLWithString:URL];
+    
+    NSURL* realUrl = [NSURL URLWithString:[self checkUrlPrefix:URL]];
     NSString *path = [realUrl path];
     path = [path stringByReplacingOccurrencesOfString:@"/" withString:@""];
     NSLog(@"Path: %@", path);
     return path;
+}
+
+- (NSString*)checkUrlPrefix:(NSString*)URL {
+    if ([[URL lowercaseString] hasPrefix:@"http://"]) {
+        return URL;
+    }
+    else if ([[URL lowercaseString] hasPrefix:@"https://"]) {
+        return URL;
+    }
+    else {
+        return [NSString stringWithFormat:@"http://%@", URL];
+    }
 }
 
 @end
