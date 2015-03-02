@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
+    <id>http://xamoom.com/xamoom/xamoom.atom/20150302154858</id>
+    <title type="text">xamoom-ios-sdk-test Documentation</title>
+    <rights>Copyright © 2015 xamoom. All rights reserved.</rights>
+    <link rel="self" href="http://xamoom.com/xamoom/xamoom.atom"></link>
+    <docset:publisherName>xamoom</docset:publisherName>
+    <docset:publisherID>com.xamoom.documentation</docset:publisherID>
+    <updated>2015-03-02T15:48:58+01:00</updated>
+    <entry>
+        <id>tag:xamoom.com,2015-03-02:com.xamoom.xamoom-ios-sdk-test/1.0.0</id>
+        <title type="text">xamoom-ios-sdk-test Documentation</title>
+        <updated>2015-03-02T15:48:58+01:00</updated>
+        <content type="text">xamoom-ios-sdk-test Documentation (v1.0.0)</content>
+        <link rel="enclosure" type="application/octet-stream" href="http:/xamoom.com/xamoom/com.xamoom.xamoom-ios-sdk-test-1.0.xar" length="61578"></link>
+        <docset:identifier>com.xamoom.xamoom-ios-sdk-test</docset:identifier>
+        <docset:version>1.0.0</docset:version>
+        <docset:minimumXcodeVersion>3.0.0</docset:minimumXcodeVersion>
+    </entry>
+</feed>
