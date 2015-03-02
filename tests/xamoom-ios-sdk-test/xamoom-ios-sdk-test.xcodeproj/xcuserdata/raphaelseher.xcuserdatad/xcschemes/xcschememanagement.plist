@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Documentation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>documentation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>xamoom-ios-sdk-test.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +22,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>8801B4C41AA4958F00A9F99F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8801B4C91AA4AA9700A9F99F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8858D23F1A822513001B45D5</key>
 		<dict>
 			<key>primary</key>
