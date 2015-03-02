@@ -33,10 +33,22 @@ XMMEnduserApi *api;
 
 #pragma mark - XMMEnduserApi Delegates
 
-- (void)didLoadCoreData {
+- (void)savedContentToCoreData {
     NSArray* fetchResult = [api fetchCoreDataContentByType:@"id"];
     NSLog(@"finishedLoadCoreData: %@", fetchResult);
     self.outputTextView.text = fetchResult.description;
+}
+
+- (void)savedContentToCoreDataById {
+    NSLog(@"savedContentToCoreDataById");
+}
+
+- (void)savedContentToCoreDataByLocation {
+    NSLog(@"savedContentToCoreDataByLocation");
+}
+
+- (void)savedContentToCoreDataByLocationIdentifier {
+    NSLog(@"savedContentToCoreDataByLocationIdentifier");
 }
 
 - (void)didLoadDataById:(XMMResponseGetById *)result {
@@ -116,6 +128,23 @@ XMMEnduserApi *api;
 
 - (IBAction)getContentFromRSSFeedAction:(id)sender {
     [api getContentFromRSSFeed];
+}
+
+- (void)fetchCoreDataContentByYourOwn {
+    //check if coreData is initialized
+    if(api.isCoreDataInitialized) {
+        //get the context
+        NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
+        
+        //make your own fetchRequest
+        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
+        NSError *error = nil;
+        NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+        NSLog(@"HERE: %@", fetchedObjects);
+    }
+    else {
+        NSLog(@"CoreData is not initialized.");
+    }
 }
 
 @end

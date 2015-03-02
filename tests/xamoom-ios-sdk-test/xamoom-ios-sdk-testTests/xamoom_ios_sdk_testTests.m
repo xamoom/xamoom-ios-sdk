@@ -119,7 +119,7 @@
 
 #pragma mark - XMMEnduserApi Delegates
 
-- (void)didLoadCoreData {
+- (void)savedContentToCoreData {
     NSArray* fetchResult = [api fetchCoreDataContentByType:@"id"];
     done = YES;
 }

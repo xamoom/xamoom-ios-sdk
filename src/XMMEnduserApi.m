@@ -29,7 +29,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 
 @implementation XMMEnduserApi : NSObject
 
-@synthesize delegate, apiBaseURL, rssEntries;
+@synthesize delegate, apiBaseURL, rssEntries, isCoreDataInitialized;
 
 -(id)init {
     self = [super init];
@@ -394,7 +394,24 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
         [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                 NSLog(@"Output: %@", mappingResult.firstObject);
-                                                [delegate performSelector:@selector(didLoadCoreData)];
+                                                [delegate performSelector:@selector(savedContentToCoreData)];
+                                                
+                                                // Perform finishedLoadData delegate
+                                                if ( [delegate respondsToSelector:@selector(savedContentToCoreData)] ) {
+                                                    [delegate performSelector:@selector(savedContentToCoreData)];
+                                                }
+                                                
+                                                // Perform specific finishLoadData delegates
+                                                if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(savedContentToCoreDataById)] ) {
+                                                    [delegate performSelector:@selector(savedContentToCoreDataById)];
+                                                }
+                                                else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(savedContentToCoreDataByLocationIdentifier)] ) {
+                                                    [delegate performSelector:@selector(savedContentToCoreDataByLocationIdentifier)];
+                                                }
+                                                else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(savedContentToCoreDataByLocation)] ) {
+                                                    [delegate performSelector:@selector(savedContentToCoreDataByLocation)];
+                                                }
+                                                
                                             }
                                             failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                 NSLog(@"Error: %@", error);
@@ -412,8 +429,8 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
     if ([type.lowercaseString isEqualToString:@"id"]){
         fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
     }
-    else if ([type.lowercaseString isEqualToString:@"locationidentifier"]){
-        fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetByLocationIdentifier"];
+    else if ([type.lowercaseString isEqualToString:@"location"]){
+        fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetByLocation"];
     }
     else {
         NSLog(@"Type not found.");

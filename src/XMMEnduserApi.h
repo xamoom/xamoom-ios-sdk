@@ -112,12 +112,33 @@
 - (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap*)result;
 
 /**
- Delegate to notify that getContentByIdFromCoreData, getContentByLocationFromCoreData, getContentByLocationIdentifierFromCoreData
+ Delegate to notify that getContentForCoreDataById, getContentForCoreDataByLocationWithLat and getContentForCoreDataByLocationIdentifier
  are finished with core data. Now you can fetch the Core Data.
  
  @return void
  */
-- (void)didLoadCoreData;
+- (void)savedContentToCoreData;
+
+/**
+ Delegate to notify that getContentForCoreDataById is finished with core data. Now you can fetch the Core Data.
+ 
+ @return void
+ */
+- (void)savedContentToCoreDataById;
+
+/**
+ Delegate to notify that getContentForCoreDataByLocationIdentifier is finished with core data. Now you can fetch the Core Data.
+ 
+ @return void
+ */
+- (void)savedContentToCoreDataByLocationIdentifier;
+
+/**
+ Delegate to notify that getContentForCoreDataByLocation is finished with core data. Now you can fetch the Core Data.
+ 
+ @return void
+ */
+- (void)savedContentToCoreDataByLocation;
 
 /**
  Delegate to notifiy that getContentFromRSSFeed are finished with loading and parsing the rss feed from url.
@@ -135,7 +156,6 @@
 {
     XMMRSSEntry *rssItem;
     NSMutableString *element;
-    BOOL isCoreDataInitialized;
 }
 
 @property (nonatomic, assign) id<XMMEnderuserApiDelegate> delegate;
@@ -143,6 +163,7 @@
 @property NSString *rssBaseUrl;
 @property NSMutableArray *rssEntries;
 @property NSString *systemLanguage;
+@property BOOL isCoreDataInitialized;
 
 /**
  Inits the XMMEnduserApi: generates the apiBaseUrl and the rssBaseUrl and gets the preferred systemLanguage.
