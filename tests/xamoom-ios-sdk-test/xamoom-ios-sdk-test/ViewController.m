@@ -23,7 +23,7 @@ XMMEnduserApi *api;
     
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
-    [api initRestkitCoreData];
+    [api initCoreData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,7 +34,7 @@ XMMEnduserApi *api;
 #pragma mark - XMMEnduserApi Delegates
 
 - (void)didLoadCoreData {
-    NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
+    NSArray* fetchResult = [api fetchCoreDataContentByType:@"id"];
     NSLog(@"finishedLoadCoreData: %@", fetchResult);
     self.outputTextView.text = fetchResult.description;
 }
@@ -91,27 +91,27 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)getContentByIdAction:(id)sender {
-    [api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentFromApiById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }
 
 - (IBAction)getContentByLocationIdentifierAction:(id)sender {
-    [api getContentByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentFromApiByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }
 
 - (IBAction)getContentByLocationAction:(id)sender {
-    [api getContentByLocation:@"46.615" lon:@"14.263" language:@"de"];
+    [api getContentFromApiWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
 }
 
 - (IBAction)getSpotMapAction:(id)sender {
-    [api getSpotMap:@"6588702901927936" mapTag:@"stw" language:@"de"];
+    [api getSpotMapWithSystemId:@"6588702901927936" withMapTag:@"stw" withLanguage:@"de"];
 }
 
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender {
-    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentForCoreDataById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }
 
 - (IBAction)getContentByLocationIdentifierFromCoreDataAction:(id)sender {
-    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentForCoreDataByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }
 
 - (IBAction)getContentFromRSSFeedAction:(id)sender {

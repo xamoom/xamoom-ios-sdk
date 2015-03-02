@@ -33,7 +33,7 @@
     [super setUp];
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
-    [api initRestkitCoreData];
+    [api initCoreData];
     done = NO;
 }
 
@@ -54,7 +54,7 @@
 
 - (void)testGetContentById {
     NSLog(@"Test Suite - testGetContentById");
-    [api getContentById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentFromApiById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 
     XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
     XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
@@ -62,7 +62,7 @@
 
 - (void)testGetContentByLocationIdentifierAction {
     NSLog(@"Test Suite - testGetContentByLocationIdentifierAction");
-    [api getContentByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentFromApiByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
     
     XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
     XCTAssertNotNil(self.apiResultGetByLocationIdentifier, @"getContentByLocationIdentifier should return something");
@@ -70,7 +70,7 @@
 
 - (void)testGetContentByLocation {
     NSLog(@"Test Suite - testGetContentByLocation");
-    [api getContentByLocation:@"46.615" lon:@"14.263" language:@"de"];
+    [api getContentFromApiWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
     
     XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
     XCTAssertNotNil(self.apiResultGetByLocation, @"getContentByLocation should return something");
@@ -78,7 +78,7 @@
 
 - (void)testGetSpotMap {
     NSLog(@"Test Suite - testGetSpotMap");
-    [api getSpotMap:@"6588702901927936" mapTag:@"stw" language:@"de"];
+    [api getSpotMapWithSystemId:@"6588702901927936" withMapTag:@"stw" withLanguage:@"de"];
     
     XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
     XCTAssertNotNil(self.apiResultGetSpotMap, @"getSpotMap should return something");
@@ -86,14 +86,14 @@
 
 - (void)testGetContentByIdFromCoreData {
     NSLog(@"Test Suite - testGetContentByIdFromCoreData");
-    [api getContentByIdFromCoreData:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentForCoreDataById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
     
     XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
 }
 
 - (void)testGetContentByLocationIdentifierFromCoreData {
     NSLog(@"Test Suite - testGetContentByLocationIdentifierFromCoreData");
-    [api getContentByLocationIdentifierFromCoreData:@"0ana0" includeStyle:@"True" includeMenu:@"True" language:@"de"];
+    [api getContentForCoreDataByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
     
     XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
 }
@@ -101,7 +101,7 @@
 - (void)testFinishedLoadCoreData {
     NSLog(@"Test Suite - testFinishedLoadCoreData");
     
-    XCTAssertNotNil([api fetchCoreDataContentBy:@"id"], @"fetchCoreDataContent should return something");
+    XCTAssertNotNil([api fetchCoreDataContentByType:@"id"], @"fetchCoreDataContent should return something");
 }
 
 #pragma mark - Helping methods
@@ -120,7 +120,7 @@
 #pragma mark - XMMEnduserApi Delegates
 
 - (void)didLoadCoreData {
-    NSArray* fetchResult = [api fetchCoreDataContentBy:@"id"];
+    NSArray* fetchResult = [api fetchCoreDataContentByType:@"id"];
     done = YES;
 }
 

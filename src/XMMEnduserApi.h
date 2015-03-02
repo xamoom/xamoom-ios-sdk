@@ -144,6 +144,11 @@
 @property NSMutableArray *rssEntries;
 @property NSString *systemLanguage;
 
+/**
+ Inits the XMMEnduserApi: generates the apiBaseUrl and the rssBaseUrl and gets the preferred systemLanguage.
+ 
+ @return id
+ */
 -(id)init;
 
 #pragma mark public methods
@@ -158,7 +163,7 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
+- (void)getContentFromApiById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)Menu withLanguage:(NSString*)language;
 
 /**
  Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not available the
@@ -170,7 +175,7 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)Menu language:(NSString*)language;
+- (void)getContentFromApiByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)Menu withLanguage:(NSString*)language;
 
 /**
  Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
@@ -181,7 +186,7 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentByLocation:(NSString*)lat lon:(NSString*)lon language:(NSString*)language;
+- (void)getContentFromApiWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language;
 
 /**
  Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.
@@ -191,7 +196,7 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getSpotMap:(NSString*)systemId mapTag:(NSString*)mapTag language:(NSString*)language;
+- (void)getSpotMapWithSystemId:(NSString*)systemId withMapTag:(NSString*)mapTag withLanguage:(NSString*)language;
 
 #pragma mark Core Data
 
@@ -200,7 +205,7 @@
  
  @return void
  */
-- (void)initRestkitCoreData;
+- (void)initCoreData;
 
 /**
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
@@ -212,7 +217,7 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentByIdFromCoreData:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language;
+- (void)getContentForCoreDataById:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language;
 
 /**
  Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not 
@@ -225,7 +230,7 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentByLocationIdentifierFromCoreData:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu language:(NSString *)language;
+- (void)getContentForCoreDataByLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language;
 
 /**
  Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
@@ -237,15 +242,15 @@
  @param language - The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentByLocationFromCoreData:(NSString *)lat lon:(NSString *)lon language:(NSString *)language;
+- (void)getContentForCoreDataByLocationWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language;
 
 /**
- Returns an array of all objects with the specific type from Core Data. Type can be "id", "locationidentifier" or "location".
+ Returns an array of all objects with the specific type from Core Data. Type can be "id" or "location".
  
  @param type - The type of the saved data. Can be "id" or "location".
  @return NSArray*
  */
-- (NSArray*)fetchCoreDataContentBy:(NSString *)type;
+- (NSArray*)fetchCoreDataContentByType:(NSString *)type;
 
 /**
  Description
@@ -253,7 +258,7 @@
  @param contentId - The content id from the entity you want to delete in core data
  @return BOOL - Yes if it got deleted, no if not.
  */
-- (BOOL)deleteCoreDataEntityBy:(NSString *)contentId;
+- (BOOL)deleteCoreDataEntityById:(NSString *)contentId;
 
 #pragma mark RSS
 
