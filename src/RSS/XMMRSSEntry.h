@@ -19,6 +19,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ `XMMRSSEntry` is used for mapping the XML sended by the rss feed.
+ */
 @interface XMMRSSEntry : NSObject
 
 @property (copy) NSString *title;
@@ -32,6 +35,11 @@
 @property (copy) NSString *wfw;
 @property (copy) NSString *slash;
 
+/**
+ Returns a description of the `XMMRSSEntry` object.
+ 
+ @return NSString*
+ */
 - (NSString*)description;
 
 @end

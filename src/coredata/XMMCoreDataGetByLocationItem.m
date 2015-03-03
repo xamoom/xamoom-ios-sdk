@@ -27,7 +27,7 @@
 
 @implementation XMMCoreDataGetByLocationItem
 
-+ (NSDictionary *)getMapping
++ (NSDictionary *)mapping
 {
     return @{@"system_name":@"systemName",
              @"system_url":@"systemUrl",

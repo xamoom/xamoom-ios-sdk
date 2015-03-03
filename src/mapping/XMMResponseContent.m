@@ -22,7 +22,7 @@
 
 @implementation XMMResponseContent
 
-+(RKObjectMapping *)getMapping
++(RKObjectMapping *)mapping
 {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContent class] ];
     [mapping addAttributeMappingsFromDictionary:@{@"description":@"descriptionOfContent",

@@ -21,7 +21,7 @@
 
 @implementation XMMResponseGetSpotMapItem
 
-+ (RKObjectMapping*)getMapping {
++ (RKObjectMapping*)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseGetSpotMapItem class]];
     [mapping addAttributeMappingsFromDictionary:@{@"display_name":@"displayName",
                                                   @"description":@"descriptionOfContent",

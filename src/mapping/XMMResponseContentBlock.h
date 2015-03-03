@@ -36,6 +36,6 @@
  
  @return RKObjectMapping*
  */
-+ (RKObjectMapping*) getMapping;
++ (RKObjectMapping*)mapping;
 
 @end

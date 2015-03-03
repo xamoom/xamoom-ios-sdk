@@ -39,6 +39,6 @@
  
  @return NSDictionary*
  */
-+ (NSDictionary *)getMapping;
++ (NSDictionary *)mapping;
 
 @end

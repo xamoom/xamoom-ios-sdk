@@ -21,7 +21,7 @@
 
 @implementation XMMResponseContentBlock
 
-+ (RKObjectMapping *)getMapping
++ (RKObjectMapping *)mapping
 {
     return nil;
 }

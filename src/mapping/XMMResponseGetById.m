@@ -22,7 +22,7 @@
 
 @implementation XMMResponseGetById
 
-+ (RKObjectMapping*) getMapping
++ (RKObjectMapping*)mapping
 {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseGetById class]];
     [mapping addAttributeMappingsFromDictionary:@{@"system_name":@"systemName",

@@ -37,13 +37,13 @@
  
  @return RKObjectMapping*
  */
-+ (RKObjectMapping*) getMapping;
++ (RKObjectMapping*)mapping;
 
 /**
  Returns a RKObjectMappingMatcher for `XMMResponseContentBlockType5` class.
  
  @return RKObjectMappingMatcher*
  */
-+ (RKObjectMappingMatcher*) getDynamicMappingMatcher;
++ (RKObjectMappingMatcher*)dynamicMappingMatcher;
 
 @end

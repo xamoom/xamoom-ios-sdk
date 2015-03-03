@@ -22,7 +22,7 @@
 
 @implementation XMMResponseGetByLocationIdentifier
 
-+(RKObjectMapping *)getMapping
++(RKObjectMapping *)mapping
 {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseGetByLocationIdentifier class]];
     [mapping addAttributeMappingsFromDictionary:@{@"system_name":@"systemName",

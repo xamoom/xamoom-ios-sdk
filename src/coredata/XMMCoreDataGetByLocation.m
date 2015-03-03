@@ -27,7 +27,7 @@
 
 @implementation XMMCoreDataGetByLocation
 
-+ (NSDictionary *)getMapping
++ (NSDictionary *)mapping
 {
     return @{@"kind":@"kind",
              };

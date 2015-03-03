@@ -28,7 +28,7 @@
 
 @implementation XMMCoreDataStyle
 
-+ (NSDictionary *)getMapping {
++ (NSDictionary *)mapping {
     return @{@"fg_color":@"foregroundFontColor",
              @"bg_color":@"backgroundColor",
              @"hl_color":@"highlightFontColor",

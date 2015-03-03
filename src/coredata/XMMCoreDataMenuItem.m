@@ -27,7 +27,7 @@
 
 @implementation XMMCoreDataMenuItem
 
-+ (NSDictionary *)getMapping {
++ (NSDictionary *)mapping {
     return @{@"item_label":@"itemLabel",
              @"content_id":@"contentId",
              @"@metadata.mapping.collectionIndex" : @"order",

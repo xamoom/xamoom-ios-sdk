@@ -27,7 +27,7 @@
 
 @implementation XMMCoreDataContentBlocks
 
-+ (NSDictionary *) getMapping {
++ (NSDictionary *) mapping {
     return @{ @"public_status":@"publicStatus",
               @"content_block_type":@"contentBlockType",
               @"@metadata.mapping.collectionIndex":@"order",

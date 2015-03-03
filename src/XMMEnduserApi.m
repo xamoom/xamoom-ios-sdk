@@ -54,22 +54,22 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
     // Create mappings
     RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
     
-    RKObjectMapping* responseMapping = [XMMResponseGetById getMapping];
-    RKObjectMapping* responseContentMapping = [XMMResponseContent getMapping];
-    RKObjectMapping* responseStyleMapping = [XMMResponseStyle getMapping];
-    RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem getMapping];
+    RKObjectMapping* responseMapping = [XMMResponseGetById mapping];
+    RKObjectMapping* responseContentMapping = [XMMResponseContent mapping];
+    RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
+    RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem mapping];
     
     // Add dynamic matchers
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType0 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType1 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType2 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType3 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType4 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType5 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType6 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType7 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType8 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType9 getDynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType0 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType1 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType2 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType3 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType4 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType5 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType6 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType7 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType8 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType9 dynamicMappingMatcher]];
     
     
     // Create relationships
@@ -105,22 +105,22 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
     // Create mappings
     RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
     
-    RKObjectMapping* responseMapping = [XMMResponseGetByLocationIdentifier getMapping];
-    RKObjectMapping* responseContentMapping = [XMMResponseContent getMapping];
-    RKObjectMapping* responseStyleMapping = [XMMResponseStyle getMapping];
-    RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem getMapping];
+    RKObjectMapping* responseMapping = [XMMResponseGetByLocationIdentifier mapping];
+    RKObjectMapping* responseContentMapping = [XMMResponseContent mapping];
+    RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
+    RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem mapping];
     
     // Add dynamic matchers
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType0 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType1 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType2 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType3 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType4 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType5 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType6 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType7 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType8 getDynamicMappingMatcher]];
-    [dynamicMapping addMatcher:[XMMResponseContentBlockType9 getDynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType0 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType1 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType2 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType3 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType4 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType5 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType6 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType7 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType8 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType9 dynamicMappingMatcher]];
     
     // Create relationships
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
@@ -155,8 +155,8 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
                                   };
     
     // Create mappings
-    RKObjectMapping* responseMapping = [XMMResponseGetByLocation getMapping];
-    RKObjectMapping* responseItemMapping = [XMMResponseGetByLocationItem getMapping];
+    RKObjectMapping* responseMapping = [XMMResponseGetByLocation mapping];
+    RKObjectMapping* responseItemMapping = [XMMResponseGetByLocationItem mapping];
     
     // Create relationship
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
@@ -171,8 +171,8 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 
 - (void)getSpotMapWithSystemId:(NSString *)systemId withMapTag:(NSString *)mapTag withLanguage:(NSString *)language
 {
-    RKObjectMapping* responseMapping = [XMMResponseGetSpotMap getMapping];
-    RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem getMapping];
+    RKObjectMapping* responseMapping = [XMMResponseGetSpotMap mapping];
+    RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
     
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
                                                                                     toKeyPath:@"items"
@@ -283,21 +283,21 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 - (void)getByIdMapping {
     // Create mapping
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetById" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
-    [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetById getMapping]];
+    [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetById mapping]];
     
     [coreDataMapping setIdentificationAttributes:@[ @"contentId" ]];
     
     RKEntityMapping *coreDataStyleMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataStyle" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
-    [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle getMapping]];
+    [coreDataStyleMapping addAttributeMappingsFromDictionary:[XMMCoreDataStyle mapping]];
     
     RKEntityMapping *coreDataMenuMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataMenuItem" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
-    [coreDataMenuMapping addAttributeMappingsFromDictionary:[XMMCoreDataMenuItem getMapping]];
+    [coreDataMenuMapping addAttributeMappingsFromDictionary:[XMMCoreDataMenuItem mapping]];
     
     RKEntityMapping *coreDataContentMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContent" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
-    [coreDataContentMapping addAttributeMappingsFromDictionary:[XMMCoreDataContent getMapping]];
+    [coreDataContentMapping addAttributeMappingsFromDictionary:[XMMCoreDataContent mapping]];
     
     RKEntityMapping *coreDataContentBlocksMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataContentBlocks" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
-    [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks getMapping]];
+    [coreDataContentBlocksMapping addAttributeMappingsFromDictionary:[XMMCoreDataContentBlocks mapping]];
     
     // Create relationship
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
@@ -356,10 +356,10 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 {
     // Create mapping
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocation" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
-    [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocation getMapping]];
+    [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocation mapping]];
     
     RKEntityMapping *coreDataItemMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocationItem" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
-    [coreDataItemMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocationItem getMapping]];
+    [coreDataItemMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocationItem mapping]];
     
     // Create relationships
     [coreDataMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"

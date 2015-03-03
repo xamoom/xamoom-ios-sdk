@@ -33,7 +33,7 @@
 
 @implementation XMMCoreDataGetById
 
-+ (NSDictionary *)getMapping {
++ (NSDictionary *)mapping {
     return @{@"system_name":@"systemName",
              @"system_url":@"systemUrl",
              @"system_id":@"systemId",

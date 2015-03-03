@@ -21,7 +21,7 @@
 
 @implementation XMMResponseGetSpotMap
 
-+(RKObjectMapping *)getMapping {
++(RKObjectMapping *)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseGetSpotMap class]];
     return mapping;
 }

@@ -21,7 +21,7 @@
 
 @implementation XMMResponseContentBlockType2
 
-+ (RKObjectMapping*) getMapping
++ (RKObjectMapping*)mapping
 {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType2 class] ];
     [mapping addAttributeMappingsFromDictionary:@{@"youtube_url":@"youtubeUrl",
@@ -32,11 +32,11 @@
     return mapping;
 }
 
-+ (RKObjectMappingMatcher*) getDynamicMappingMatcher
++ (RKObjectMappingMatcher*)dynamicMappingMatcher
 {
     RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                                    expectedValue:@"2"
-                                                                   objectMapping:[self getMapping]];
+                                                                   objectMapping:[self mapping]];
     return matcher;
 }
 

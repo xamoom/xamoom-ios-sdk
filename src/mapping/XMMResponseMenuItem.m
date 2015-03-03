@@ -21,7 +21,7 @@
 
 @implementation XMMResponseMenuItem
 
-+ (RKObjectMapping*) getMapping
++ (RKObjectMapping*)mapping
 {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseMenuItem class]];
     [mapping addAttributeMappingsFromDictionary:@{@"item_label":@"itemLabel",

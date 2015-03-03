@@ -27,7 +27,7 @@
 
 @implementation XMMCoreDataContent
 
-+ (NSDictionary *)getMapping{
++ (NSDictionary *)mapping{
     return @{@"description":@"descriptionOfContent",
              @"language":@"language",
              @"title":@"title",
