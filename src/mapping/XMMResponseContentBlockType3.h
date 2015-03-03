@@ -1,20 +1,48 @@
 //
-//  XMResponseContentBlockType3.h
-//  xamoom-ios-sdk-test
+// Copyright 2015 by Raphael Seher <raphael@xamoom.com>
 //
-//  Created by Raphael Seher on 05.02.15.
-//  Copyright (c) 2015 Raphael Seher. All rights reserved.
+// This file is part of some open source application.
+//
+// Some open source application is free software: you can redistribute
+// it and/or modify it under the terms of the GNU General Public
+// License as published by the Free Software Foundation, either
+// version 2 of the License, or (at your option) any later version.
+//
+// Some open source application is distributed in the hope that it will
+// be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <Foundation/Foundation.h>
 #import "XMMResponseContentBlock.h"
 
+/**
+ `XMMResponseContentBlockType3` is used for mapping the JSON sended by the api.
+ 
+ This class represents the contentBlockType 'IMAGE'.
+ */
 @interface XMMResponseContentBlockType3 : XMMResponseContentBlock
 
 @property (nonatomic, copy) NSString *fileId;
 
-+ (RKObjectMapping*) getMapping;
-+ (RKObjectMappingMatcher*) getDynamicMappingMatcher;
+/// @name Mapping
 
+/**
+ Returns a RKObjectMapping for `XMMResponseContentBlockType3` class.
+ 
+ @return RKObjectMapping*
+ */
++ (RKObjectMapping*) getMapping;
+
+/**
+ Returns a RKObjectMappingMatcher for `XMMResponseContentBlockType3` class.
+ 
+ @return RKObjectMappingMatcher*
+ */
++ (RKObjectMappingMatcher*) getDynamicMappingMatcher;
 
 @end
