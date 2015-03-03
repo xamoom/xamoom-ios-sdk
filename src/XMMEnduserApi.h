@@ -17,6 +17,12 @@
 // along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
+/**
+ * Description of XMMEnduserApi.h
+ *
+ *
+ */
+
 #pragma mark imports
 
 #import <Foundation/Foundation.h>
