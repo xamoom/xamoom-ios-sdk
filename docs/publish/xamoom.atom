@@ -1,18 +1,18 @@
 <?xml version="1.0" standalone="no"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
-    <id>http://xamoom.com/xamoom/xamoom.atom/20150303125101</id>
+    <id>http://xamoom.com/xamoom/xamoom.atom/20150303125353</id>
     <title type="text">xamoom-ios-sdk-test Documentation</title>
     <rights>Copyright © 2015 xamoom. All rights reserved.</rights>
     <link rel="self" href="http://xamoom.com/xamoom/xamoom.atom"></link>
     <docset:publisherName>xamoom</docset:publisherName>
     <docset:publisherID>com.xamoom.documentation</docset:publisherID>
-    <updated>2015-03-03T12:51:01+01:00</updated>
+    <updated>2015-03-03T12:53:53+01:00</updated>
     <entry>
         <id>tag:xamoom.com,2015-03-03:com.xamoom.xamoom-ios-sdk-test/1.0.0</id>
         <title type="text">xamoom-ios-sdk-test Documentation</title>
-        <updated>2015-03-03T12:51:01+01:00</updated>
+        <updated>2015-03-03T12:53:53+01:00</updated>
         <content type="text">xamoom-ios-sdk-test Documentation (v1.0.0)</content>
-        <link rel="enclosure" type="application/octet-stream" href="http:/xamoom.com/xamoom/com.xamoom.xamoom-ios-sdk-test-1.0.xar" length="57483"></link>
+        <link rel="enclosure" type="application/octet-stream" href="http:/xamoom.com/xamoom/com.xamoom.xamoom-ios-sdk-test-1.0.xar" length="57484"></link>
         <docset:identifier>com.xamoom.xamoom-ios-sdk-test</docset:identifier>
         <docset:version>1.0.0</docset:version>
         <docset:minimumXcodeVersion>3.0.0</docset:minimumXcodeVersion>
