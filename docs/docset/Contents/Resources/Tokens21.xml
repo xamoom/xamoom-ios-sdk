@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMResponseGetById.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseGetById</TokenIdentifier>
+			<Abstract type="html">XMMResponseGetById is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
+            
+			
+			<NodeRef refid="21"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseGetById/getMapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseGetById class.</Abstract>
+			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMapping *)getMapping</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
+			<Anchor>//api/name/getMapping</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

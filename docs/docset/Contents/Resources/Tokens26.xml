@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMResponseGetSpotMapItem.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseGetSpotMapItem</TokenIdentifier>
+			<Abstract type="html">XMMResponseGetSpotMapItem is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+            
+			
+			<NodeRef refid="26"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseGetSpotMapItem/getMapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseGetSpotMapItem class.</Abstract>
+			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMapping *)getMapping</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
+			<Anchor>//api/name/getMapping</Anchor>
+            <NodeRef refid="26"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

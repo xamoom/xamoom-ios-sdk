@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMCoreDataGetByLocationItem.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMCoreDataGetByLocationItem</TokenIdentifier>
+			<Abstract type="html">XMMCoreDataGetByLocationItem is used for extending the _XMMCoreDataGetByLocationItem.h with own methods.
+_XMMCoreDataGetByLocationItem.h contains everything used for Core Data (generated with mogenerator).</Abstract>
+			<DeclaredIn>XMMCoreDataGetByLocationItem.h</DeclaredIn>
+            
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataGetByLocationItem/getMapping</TokenIdentifier>
+			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataGetByLocationItem class.</Abstract>
+			<DeclaredIn>XMMCoreDataGetByLocationItem.h</DeclaredIn>
+			
+			<Declaration>+ (NSDictionary *)getMapping</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
+			<Anchor>//api/name/getMapping</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

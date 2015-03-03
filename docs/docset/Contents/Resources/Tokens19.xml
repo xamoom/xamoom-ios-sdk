@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMResponseContentBlockType8.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType8</TokenIdentifier>
+			<Abstract type="html">XMMResponseContentBlockType8 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
+            
+			
+			<NodeRef refid="19"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType8/getMapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType8 class.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMapping *)getMapping</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
+			<Anchor>//api/name/getMapping</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType8/getDynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType8 class.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMappingMatcher *)getDynamicMappingMatcher</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
+			<Anchor>//api/name/getDynamicMappingMatcher</Anchor>
+            <NodeRef refid="19"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

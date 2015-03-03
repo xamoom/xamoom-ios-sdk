@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMCoreDataStyle.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMCoreDataStyle</TokenIdentifier>
+			<Abstract type="html">XMMCoreDataStyle is used for extending the _XMMCoreDataStyle with own methods.
+_XMMCoreDataStyle contains everything used for Core Data (generated with mogenerator).</Abstract>
+			<DeclaredIn>XMMCoreDataStyle.h</DeclaredIn>
+            
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataStyle/getMapping</TokenIdentifier>
+			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataStyle class.</Abstract>
+			<DeclaredIn>XMMCoreDataStyle.h</DeclaredIn>
+			
+			<Declaration>+ (NSDictionary *)getMapping</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
+			<Anchor>//api/name/getMapping</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
