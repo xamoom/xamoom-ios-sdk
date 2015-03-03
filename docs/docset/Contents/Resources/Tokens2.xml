@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Protocols/XMMEnderuserApiDelegate.html">
+	<File path="Classes/XMMCoreDataContentBlocks.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/intf/XMMEnderuserApiDelegate</TokenIdentifier>
-			<Abstract type="html">Protocol description</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMCoreDataContentBlocks</TokenIdentifier>
+			<Abstract type="html">XMMCoreDataContentBlocks is used for extending the _XMMCoreDataContentBlocks with own methods.
+_XMMCoreDataContentBlocks contains everything used for Core Data (generated with mogenerator).</Abstract>
+			<DeclaredIn>XMMCoreDataContentBlocks.h</DeclaredIn>
             
 			
 			<NodeRef refid="2"/>
@@ -13,153 +14,14 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/didLoadData:</TokenIdentifier>
-			<Abstract type="html">Delegate to return the results from getContentById, getContentByLocation and getContentByLocationIdentifier as RKMappingResult.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataContentBlocks/getMapping</TokenIdentifier>
+			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataContentBlocks class.</Abstract>
+			<DeclaredIn>XMMCoreDataContentBlocks.h</DeclaredIn>
 			
-			<Declaration>- (void)didLoadData:(RKMappingResult *)result</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>result</Name>
-					<Abstract type="html">- The result as RKMappingResult.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/didLoadData:</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/didLoadDataById:</TokenIdentifier>
-			<Abstract type="html">Delegate to return the result from getContentById as XMMResponseGetById as XMMResponseGetByID.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			<Declaration>+ (NSDictionary *)getMapping</Declaration>
 			
-			<Declaration>- (void)didLoadDataById:(XMMResponseGetById *)result</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>result</Name>
-					<Abstract type="html">- The result as XMMResponeGetById.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/didLoadDataById:</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/didLoadDataByLocationIdentifier:</TokenIdentifier>
-			<Abstract type="html">Delegate to return the result from getContentByLocationIdentifier as XMMResponseGetByLocationIdentifier.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>- (void)didLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>result</Name>
-					<Abstract type="html">- The result as XMMResponseGetByLocationIdentifier.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/didLoadDataByLocationIdentifier:</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/didLoadDataByLocation:</TokenIdentifier>
-			<Abstract type="html">Delegate to return the result from getContentByLocation as XMMResponseGetByLocation.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>- (void)didLoadDataByLocation:(XMMResponseGetByLocation *)result</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>result</Name>
-					<Abstract type="html">- The result as XMMResponseGetByLocation.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/didLoadDataByLocation:</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/didLoadDataBySpotMap:</TokenIdentifier>
-			<Abstract type="html">Delegate to return the result from getSpotMap as XMMResponseGetSpotMap.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>- (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap *)result</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>result</Name>
-					<Abstract type="html">- The result as XMMResponseGetSpotMap.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/didLoadDataBySpotMap:</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/savedContentToCoreData</TokenIdentifier>
-			<Abstract type="html">Delegate to notify that getContentForCoreDataById, getContentForCoreDataByLocationWithLat and getContentForCoreDataByLocationIdentifier
-are finished with core data. Now you can fetch the Core Data.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>- (void)savedContentToCoreData</Declaration>
-			
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/savedContentToCoreData</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/savedContentToCoreDataById</TokenIdentifier>
-			<Abstract type="html">Delegate to notify that getContentForCoreDataById is finished with core data. Now you can fetch the Core Data.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>- (void)savedContentToCoreDataById</Declaration>
-			
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/savedContentToCoreDataById</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/savedContentToCoreDataByLocationIdentifier</TokenIdentifier>
-			<Abstract type="html">Delegate to notify that getContentForCoreDataByLocationIdentifier is finished with core data. Now you can fetch the Core Data.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>- (void)savedContentToCoreDataByLocationIdentifier</Declaration>
-			
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/savedContentToCoreDataByLocationIdentifier</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/savedContentToCoreDataByLocation</TokenIdentifier>
-			<Abstract type="html">Delegate to notify that getContentForCoreDataByLocation is finished with core data. Now you can fetch the Core Data.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>- (void)savedContentToCoreDataByLocation</Declaration>
-			
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/savedContentToCoreDataByLocation</Anchor>
-            <NodeRef refid="2"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/intfm/XMMEnderuserApiDelegate/didLoadRSS:</TokenIdentifier>
-			<Abstract type="html">Delegate to notifiy that getContentFromRSSFeed are finished with loading and parsing the rss feed from url.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>- (void)didLoadRSS:(NSMutableArray *)result</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>result</Name>
-					<Abstract type="html">- The result as NSMuteableArray.</Abstract>
-				</Parameter>
-			</Parameters>
-			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/didLoadRSS:</Anchor>
+			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
+			<Anchor>//api/name/getMapping</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		
