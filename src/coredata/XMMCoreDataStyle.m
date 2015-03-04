@@ -18,11 +18,8 @@
 //
 
 #import "XMMCoreDataStyle.h"
-#import <CommonCrypto/CommonDigest.h>
 
 @interface XMMCoreDataStyle ()
-
-// Private interface goes here.
 
 @end
 

@@ -21,8 +21,7 @@
 
 @implementation XMMResponseContentBlockType5
 
-+ (RKObjectMapping*)mapping
-{
++ (RKObjectMapping*)mapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType5 class] ];
     [mapping addAttributeMappingsFromDictionary:@{@"file_id":@"fileId",
                                                   @"artists":@"artist",
@@ -33,8 +32,7 @@
     return mapping;
 }
 
-+ (RKObjectMappingMatcher*)dynamicMappingMatcher
-{
++ (RKObjectMappingMatcher*)dynamicMappingMatcher {
     RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                                    expectedValue:@"5"
                                                                    objectMapping:[self mapping]];

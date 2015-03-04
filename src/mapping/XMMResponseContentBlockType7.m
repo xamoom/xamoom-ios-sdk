@@ -21,8 +21,7 @@
 
 @implementation XMMResponseContentBlockType7
 
-+ (RKObjectMapping*)mapping
-{
++ (RKObjectMapping*)mapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType7 class] ];
     [mapping addAttributeMappingsFromDictionary:@{@"soundcloud_url":@"soundcloudUrl",
                                                   @"public":@"publicStatus",
@@ -32,8 +31,7 @@
     return mapping;
 }
 
-+ (RKObjectMappingMatcher*)dynamicMappingMatcher
-{
++ (RKObjectMappingMatcher*)dynamicMappingMatcher {
     RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                                    expectedValue:@"7"
                                                                    objectMapping:[self mapping]];

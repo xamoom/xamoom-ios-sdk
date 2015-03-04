@@ -22,8 +22,7 @@
 
 @implementation XMMResponseContentBlockType8
 
-+ (RKObjectMapping*)mapping
-{
++ (RKObjectMapping*)mapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType8 class] ];
     [mapping addAttributeMappingsFromDictionary:@{@"download_type":@"downloadType",
                                                   @"file_id":@"fileId",
@@ -35,8 +34,7 @@
     return mapping;
 }
 
-+ (RKObjectMappingMatcher*)dynamicMappingMatcher
-{
++ (RKObjectMappingMatcher*)dynamicMappingMatcher {
     RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                                    expectedValue:@"8"
                                                                    objectMapping:[self mapping]];

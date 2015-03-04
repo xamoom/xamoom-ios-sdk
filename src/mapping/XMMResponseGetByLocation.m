@@ -21,8 +21,7 @@
 
 @implementation XMMResponseGetByLocation
 
-+ (RKObjectMapping*)mapping
-{
++ (RKObjectMapping*)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseGetByLocation class]];
     [mapping addAttributeMappingsFromDictionary:@{@"kind":@"kind",
                                                   }];

@@ -21,8 +21,6 @@
 
 @interface XMMCoreDataMenuItem ()
 
-// Private interface goes here.
-
 @end
 
 @implementation XMMCoreDataMenuItem

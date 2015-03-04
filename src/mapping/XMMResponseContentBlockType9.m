@@ -21,8 +21,7 @@
 
 @implementation XMMResponseContentBlockType9
 
-+ (RKObjectMapping*)mapping
-{
++ (RKObjectMapping*)mapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType9 class] ];
     [mapping addAttributeMappingsFromDictionary:@{@"spot_map_tag":@"spotMapTag",
                                                   @"public":@"publicStatus",
@@ -32,8 +31,7 @@
     return mapping;
 }
 
-+ (RKObjectMappingMatcher*)dynamicMappingMatcher
-{
++ (RKObjectMappingMatcher*)dynamicMappingMatcher {
     RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                                    expectedValue:@"9"
                                                                    objectMapping:[self mapping]];

@@ -21,14 +21,11 @@
 
 @interface XMMCoreDataGetByLocation ()
 
-// Private interface goes here.
-
 @end
 
 @implementation XMMCoreDataGetByLocation
 
-+ (NSDictionary *)mapping
-{
++ (NSDictionary *)mapping {
     return @{@"kind":@"kind",
              };
 }

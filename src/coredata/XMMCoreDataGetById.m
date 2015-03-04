@@ -17,17 +17,9 @@
 // along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import <CommonCrypto/CommonDigest.h>
-#import "XMMEnduserApi.h"
 #import "XMMCoreDataGetById.h"
-#import "XMMCoreDataMenuItem.h"
-#import "XMMCoreDataStyle.h"
-#import "XMMCoreDataContent.h"
-#import "XMMCoreDataContentBlocks.h"
 
 @interface XMMCoreDataGetById ()
-
-// Private interface goes here.
 
 @end
 

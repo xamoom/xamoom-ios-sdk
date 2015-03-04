@@ -21,8 +21,7 @@
 
 @implementation XMMResponseStyle
 
-+ (RKObjectMapping*)mapping
-{
++ (RKObjectMapping*)mapping {
     RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseStyle class]];
     [mapping addAttributeMappingsFromDictionary:@{@"fg_color":@"foregroundFontColor",
                                                   @"bg_color":@"backgroundColor",

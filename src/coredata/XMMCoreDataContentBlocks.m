@@ -21,8 +21,6 @@
 
 @interface XMMCoreDataContentBlocks ()
 
-// Private interface goes here.
-
 @end
 
 @implementation XMMCoreDataContentBlocks

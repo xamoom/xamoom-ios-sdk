@@ -21,14 +21,11 @@
 
 @interface XMMCoreDataGetByLocationItem ()
 
-// Private interface goes here.
-
 @end
 
 @implementation XMMCoreDataGetByLocationItem
 
-+ (NSDictionary *)mapping
-{
++ (NSDictionary *)mapping {
     return @{@"system_name":@"systemName",
              @"system_url":@"systemUrl",
              @"system_id":@"systemId",

@@ -94,8 +94,8 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
            withpath:@"xamoomEndUserApi/v1/get_content_by_content_id"];
 }
 
-- (void)getContentFromApiByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language
-{
+- (void)getContentFromApiByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language {
+    
     NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
                                   @"include_style":style,
                                   @"include_menu":menu,
@@ -145,8 +145,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
            withpath:@"xamoomEndUserApi/v1/get_content_by_location_identifier"];
 }
 
-- (void)getContentFromApiWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language
-{
+- (void)getContentFromApiWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language {
     NSDictionary *queryParams = @{@"location":
                                       @{@"lat":lat,
                                         @"lon":lon,
@@ -169,8 +168,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
     
 }
 
-- (void)getSpotMapWithSystemId:(NSString *)systemId withMapTag:(NSString *)mapTag withLanguage:(NSString *)language
-{
+- (void)getSpotMapWithSystemId:(NSString *)systemId withMapTag:(NSString *)mapTag withLanguage:(NSString *)language {
     RKObjectMapping* responseMapping = [XMMResponseGetSpotMap mapping];
     RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
     
@@ -202,8 +200,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
      ];
 }
 
-- (void)talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path
-{
+- (void)talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path {
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
     // Create ResponseDescriptor with objectMapping
     RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:objectMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
@@ -247,8 +244,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 
 # pragma mark - Core Data
 
-- (void)initCoreData
-{
+- (void)initCoreData {
     // Initialize RestKit
     RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
     [RKObjectManager setSharedManager:objectManager];
@@ -326,8 +322,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
     [[RKObjectManager sharedManager] addResponseDescriptor:coreDataGetByIdResponseDescriptor];
 }
 
-- (void)getContentForCoreDataById:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language
-{
+- (void)getContentForCoreDataById:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language {
     NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id";
     NSDictionary *queryParams = @{@"content_id":contentId,
                                   @"include_style":style,
@@ -339,8 +334,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
                                  withpath:path];
 }
 
-- (void)getContentForCoreDataByLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language
-{
+- (void)getContentForCoreDataByLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language {
     NSString *path = @"xamoomEndUserApi/v1/get_content_by_location_identifier";
     NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
                                   @"include_style":style,
@@ -352,8 +346,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
                                  withpath:path];
 }
 
-- (void)getContentForCoreDataByLocationWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language
-{
+- (void)getContentForCoreDataByLocationWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language {
     // Create mapping
     RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocation" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
     [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocation mapping]];
@@ -388,8 +381,7 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
                                  withpath:path];
 }
 
-- (void)talkToApiCoreDataWithParameters:(NSDictionary*)parameters withpath:(NSString*)path
-{
+- (void)talkToApiCoreDataWithParameters:(NSDictionary*)parameters withpath:(NSString*)path {
     if(isCoreDataInitialized) {
         [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
         [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters

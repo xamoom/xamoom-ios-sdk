@@ -21,8 +21,7 @@
 
 @implementation XMMResponseContentBlockType6
 
-+ (RKObjectMapping*)mapping
-{
++ (RKObjectMapping*)mapping {
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType6 class] ];
     [mapping addAttributeMappingsFromDictionary:@{@"content_id":@"contentId",
                                                   @"public":@"publicStatus",
@@ -31,8 +30,7 @@
     return mapping;
 }
 
-+ (RKObjectMappingMatcher*)dynamicMappingMatcher
-{
++ (RKObjectMappingMatcher*)dynamicMappingMatcher {
     RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
                                                                    expectedValue:@"6"
                                                                    objectMapping:[self mapping]];
