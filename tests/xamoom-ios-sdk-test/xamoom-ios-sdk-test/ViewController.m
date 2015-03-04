@@ -21,6 +21,7 @@ XMMEnduserApi *api;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //init xamoom-ios-sdk
     api = [[XMMEnduserApi alloc] init];
     api.delegate = self;
     [api initCoreData];
