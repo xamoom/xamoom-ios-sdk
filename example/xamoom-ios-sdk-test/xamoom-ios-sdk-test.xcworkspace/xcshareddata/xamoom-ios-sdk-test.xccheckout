@@ -14,7 +14,7 @@
 		<string>https://github.com/xamoom/xamoom-ios-sdk.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>tests/xamoom-ios-sdk-test/xamoom-ios-sdk-test.xcworkspace</string>
+	<string>example/xamoom-ios-sdk-test/xamoom-ios-sdk-test.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B68B86FC1F426C9A73E48C104854B4C23F9B8838</key>
