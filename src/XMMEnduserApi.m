@@ -192,7 +192,9 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
                    NSLog(@"Output: %@", mappingResult.firstObject);
                    XMMResponseGetSpotMap *result = [XMMResponseGetSpotMap new];
                    result = mappingResult.firstObject;
-                   [delegate performSelector:@selector(didLoadDataBySpotMap:) withObject:result];
+                   if ( [delegate respondsToSelector:@selector(didLoadDataBySpotMap:)] ) {
+                       [delegate performSelector:@selector(didLoadDataBySpotMap:) withObject:result];
+                   }
                }
                failure:^(RKObjectRequestOperation *operation, NSError *error) {
                    NSLog(@"Error: %@", error);
@@ -559,7 +561,9 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    [delegate performSelector:@selector(didLoadRSS:) withObject:rssEntries];
+    if([delegate respondsToSelector:@selector(didLoadRSS:)]) {
+        [delegate performSelector:@selector(didLoadRSS:) withObject:rssEntries];
+    }
 }
 
 #pragma mark - QRCodeReaderViewController
