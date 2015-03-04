@@ -20,7 +20,7 @@
 #import "XMMEnduserApi.h"
 #import <RestKit/RestKit.h>
 
-static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
+static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
 static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 
 #pragma mark - XMMEnduserApi
