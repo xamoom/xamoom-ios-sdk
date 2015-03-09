@@ -593,7 +593,7 @@ static XMMEnduserApi *_sharedInstance;
     reader.delegate = viewController;
     
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
-        if (automaticAPIRequest && [self getLocationIdentifierFromURL:resultAsString] != nil) {
+        if (automaticAPIRequest && [self getLocationIdentifierFromURL:resultAsString] != nil && resultAsString != nil) {
             [self getContentFromApiByLocationIdentifier:[self getLocationIdentifierFromURL:resultAsString]
                                            includeStyle:@"True"
                                             includeMenu:@"True"
@@ -606,7 +606,6 @@ static XMMEnduserApi *_sharedInstance;
 }
 
 - (NSString*)getLocationIdentifierFromURL:(NSString*)URL {
-    
     NSURL* realUrl = [NSURL URLWithString:[self checkUrlPrefix:URL]];
     NSString *path = [realUrl path];
     path = [path stringByReplacingOccurrencesOfString:@"/" withString:@""];
