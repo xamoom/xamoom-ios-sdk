@@ -20,8 +20,10 @@
 #import "XMMEnduserApi.h"
 #import <RestKit/RestKit.h>
 
-static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
+static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
+static XMMEnduserApi *_sharedInstance;
+
 
 #pragma mark - XMMEnduserApi
 
@@ -31,6 +33,16 @@ static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 @synthesize rssEntries;
 @synthesize isCoreDataInitialized;
 @synthesize apiBaseURL;
+
+
++ (XMMEnduserApi *)sharedInstance {
+    if (!_sharedInstance)
+    {
+        _sharedInstance = [[XMMEnduserApi alloc] init];
+    }
+    
+    return _sharedInstance;
+}
 
 -(id)init {
     self = [super init];

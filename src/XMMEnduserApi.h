@@ -208,6 +208,8 @@
  */
 @property BOOL isCoreDataInitialized;
 
++ (XMMEnduserApi *) sharedInstance;
+
 /// @name Inits
 
 /**
