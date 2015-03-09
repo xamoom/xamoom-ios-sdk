@@ -372,8 +372,9 @@
  
  @param viewController          The ViewController from where you want to call the QRCodeReader (usually self)
  @param automaticAPIRequest     Yes to start after scan automatically a getContentByLocationIdentifier request
+ @param language                The returned language of the automaticApiRequest
  @return void
  */
-- (void)startQRCodeReader:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest;
+- (void)startQRCodeReader:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest withLanguage:(NSString*)language;
 
 @end

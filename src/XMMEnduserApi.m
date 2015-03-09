@@ -37,6 +37,7 @@ static XMMEnduserApi *_sharedInstance;
 
 + (XMMEnduserApi *)sharedInstance {
     if (!_sharedInstance)
+        
     {
         _sharedInstance = [[XMMEnduserApi alloc] init];
     }
@@ -580,7 +581,7 @@ static XMMEnduserApi *_sharedInstance;
 
 #pragma mark - QRCodeReaderViewController
 
-- (void)startQRCodeReader:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest {
+- (void)startQRCodeReader:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest withLanguage:(NSString *)language{
     static QRCodeReaderViewController *reader = nil;
     static dispatch_once_t onceToken;
     
@@ -596,7 +597,7 @@ static XMMEnduserApi *_sharedInstance;
             [self getContentFromApiByLocationIdentifier:[self getLocationIdentifierFromURL:resultAsString]
                                            includeStyle:@"True"
                                             includeMenu:@"True"
-                                           withLanguage:@"de"
+                                           withLanguage:language
              ];
         }
     }];
