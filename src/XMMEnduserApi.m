@@ -557,6 +557,7 @@ static XMMEnduserApi *_sharedInstance;
         if([elementName isEqualToString:@"content:encoded"]) {
             rssItem.content = [element stringByDecodingHTMLEntities];
             rssItem.titleImageUrl = [self extractTitleImage:rssItem.content];
+            rssItem.content = [self removeTitleImageFromHtml:rssItem.content];
         }
         
         if([elementName isEqualToString:@"wfw:commentRss"]) {
@@ -580,7 +581,6 @@ static XMMEnduserApi *_sharedInstance;
     }
 }
 
-//TODO: Look
 - (NSString*)extractTitleImage:(NSString*)html {
     NSString *url = nil;
     NSString *htmlString = html;
@@ -595,6 +595,14 @@ static XMMEnduserApi *_sharedInstance;
         [theScanner scanUpToCharactersFromSet:charset intoString:&url];
     }
     return url;
+}
+
+- (NSString*)removeTitleImageFromHtml:(NSString*)html {
+    NSRange r;
+    NSString *s = rssItem.content;
+    r = [s rangeOfString:@"<img[^>]+>" options:NSRegularExpressionSearch];
+    s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s;
 }
 
 #pragma mark - QRCodeReaderViewController

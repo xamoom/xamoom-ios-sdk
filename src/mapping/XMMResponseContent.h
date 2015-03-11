@@ -41,4 +41,11 @@
  */
 + (RKObjectMapping*)mapping;
 
+/**
+ Returns the `XMMCoreDataContentBlocks` in the right order.
+ 
+ @return NSArray*
+ */
+- (NSArray *)sortedContentBlocks;
+
 @end

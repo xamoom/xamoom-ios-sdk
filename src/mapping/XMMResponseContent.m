@@ -32,4 +32,11 @@
     return mapping;
 }
 
+-(NSArray *)sortedContentBlocks {
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+    NSArray *sorting = [NSArray arrayWithObject:descriptor];
+    
+    return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
+}
+
 @end
