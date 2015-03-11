@@ -32,6 +32,7 @@
     [output appendString:[NSString stringWithFormat: @"content: %@ \n", self.content]];
     [output appendString:[NSString stringWithFormat: @"wfw: %@ \n", self.wfw]];
     [output appendString:[NSString stringWithFormat: @"slash: %@ \n", self.slash]];
+    [output appendString:[NSString stringWithFormat: @"titleImageUrl: %@ \n", self.titleImageUrl]];
     return output;
 }
 
