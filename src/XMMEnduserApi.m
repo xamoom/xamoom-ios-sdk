@@ -19,15 +19,17 @@
 
 #import "XMMEnduserApi.h"
 #import <RestKit/RestKit.h>
+#import <dispatch/dispatch.h>
 
 static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 static XMMEnduserApi *_sharedInstance;
 
-
 #pragma mark - XMMEnduserApi
 
 @implementation XMMEnduserApi : NSObject
+
+dispatch_queue_t backgroundQueue;
 
 @synthesize delegate;
 @synthesize rssEntries;
@@ -493,6 +495,8 @@ static XMMEnduserApi *_sharedInstance;
 - (void)getContentFromRSSFeed {
     NSLog(@"Starting with RSS");
     
+    backgroundQueue = dispatch_queue_create("com.razeware.imagegrabber.bgqueue", NULL);
+
     rssEntries = [NSMutableArray new];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.rssBaseUrl]];
@@ -502,7 +506,9 @@ static XMMEnduserApi *_sharedInstance;
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                                NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
                                [parser setDelegate:self];
-                               [parser parse];
+                               dispatch_async(backgroundQueue, ^(void) {
+                                   [parser parse];
+                               });
                            }];
 }
 
@@ -577,7 +583,9 @@ static XMMEnduserApi *_sharedInstance;
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     if([delegate respondsToSelector:@selector(didLoadRSS:)]) {
-        [delegate performSelector:@selector(didLoadRSS:) withObject:rssEntries];
+        dispatch_async(backgroundQueue, ^(void) {
+            [delegate performSelector:@selector(didLoadRSS:) withObject:rssEntries];
+        });
     }
 }
 
