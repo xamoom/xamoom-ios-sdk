@@ -544,6 +544,7 @@ dispatch_queue_t backgroundQueue;
         if([elementName isEqualToString:@"pubDate"]) {
             NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
             [dateFormat setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
+            [dateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]]; //This is the Stuff
             NSDate *date = [dateFormat dateFromString:element];
             rssItem.pubDate = date;
         }
