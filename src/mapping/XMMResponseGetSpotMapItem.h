@@ -21,6 +21,7 @@
 #import "XMMEnduserApi.h"
 
 /**
+ 
  `XMMResponseGetSpotMapItem` is used for mapping the JSON sended by the api.
  */
 @interface XMMResponseGetSpotMapItem : NSObject
