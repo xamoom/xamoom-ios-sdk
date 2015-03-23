@@ -207,7 +207,13 @@
  Bool to check if the CoreData is initialized.
  */
 @property BOOL isCoreDataInitialized;
-
+/**
+ String with the title of the qr code view cancel button.
+ */
+@property NSString* qrCodeViewControllerCancelButtonTitle;
+/**
+ A shared instance from XMMEnduserApi.
+ */
 + (XMMEnduserApi *) sharedInstance;
 
 /// @name Inits

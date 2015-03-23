@@ -35,7 +35,7 @@ dispatch_queue_t backgroundQueue;
 @synthesize rssEntries;
 @synthesize isCoreDataInitialized;
 @synthesize apiBaseURL;
-
+@synthesize qrCodeViewControllerCancelButtonTitle;
 
 + (XMMEnduserApi *)sharedInstance {
     if (!_sharedInstance)
@@ -53,6 +53,7 @@ dispatch_queue_t backgroundQueue;
     self.rssBaseUrl = rssBaseURLString;
     self.systemLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
     isCoreDataInitialized = NO;
+    qrCodeViewControllerCancelButtonTitle = @"Cancel";
     return self;
 }
 
@@ -621,7 +622,7 @@ dispatch_queue_t backgroundQueue;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        reader                        = [QRCodeReaderViewController new];
+        reader                        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:@"Abbrechen"];
         reader.modalPresentationStyle = UIModalPresentationFormSheet;
     });
     
