@@ -622,7 +622,7 @@ dispatch_queue_t backgroundQueue;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        reader                        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:@"Abbrechen"];
+        reader                        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:qrCodeViewControllerCancelButtonTitle];
         reader.modalPresentationStyle = UIModalPresentationFormSheet;
     });
     
@@ -645,7 +645,6 @@ dispatch_queue_t backgroundQueue;
     NSURL* realUrl = [NSURL URLWithString:[self checkUrlPrefix:URL]];
     NSString *path = [realUrl path];
     path = [path stringByReplacingOccurrencesOfString:@"/" withString:@""];
-    NSLog(@"Path: %@", path);
     return path;
 }
 
