@@ -27,7 +27,7 @@
 @interface XMMResponseGetSpotMapItem : NSObject
 
 @property (nonatomic, copy) NSString* displayName;
-@property (nonatomic, copy) NSString* descriptionOfContent;
+@property (nonatomic, copy) NSString* descriptionOfSpot;
 @property (nonatomic, copy) NSString* lat;
 @property (nonatomic, copy) NSString* lon;
 @property (nonatomic, copy) NSString* image;
