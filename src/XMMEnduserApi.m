@@ -21,6 +21,8 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
+static NSString * const XAMOOM_API_TOKEN = @"f01f9db7-c54d-4117-9161-6f0023b7057e";
+
 static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
 static XMMEnduserApi *_sharedInstance;
@@ -54,6 +56,15 @@ dispatch_queue_t backgroundQueue;
     self.systemLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
     isCoreDataInitialized = NO;
     qrCodeViewControllerCancelButtonTitle = @"Cancel";
+    
+    //create RKObjectManager
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
+    [RKObjectManager setSharedManager:objectManager];
+    
+    //set JSON-Type and Authorization Header
+    [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
+    [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization" value:XAMOOM_API_TOKEN];
+    
     return self;
 }
 
@@ -196,14 +207,10 @@ dispatch_queue_t backgroundQueue;
     // Create ResponseDescriptor with objectMapping
     RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
     
-    // Create ObjectManager
-    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:apiBaseURL];
-    manager.requestSerializationMIMEType = RKMIMETypeJSON; // JSON
-    
     NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%@/%@/%@", systemId, mapTag, language];
     
-    [manager addResponseDescriptor:contentDescriptor];
-    [manager getObject:nil path:path parameters:nil
+    [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
+    [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
                success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                    NSLog(@"Output: %@", mappingResult.firstObject);
                    XMMResponseGetSpotMap *result = [XMMResponseGetSpotMap new];
@@ -223,12 +230,8 @@ dispatch_queue_t backgroundQueue;
     // Create ResponseDescriptor with objectMapping
     RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:objectMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
     
-    // Create ObjectManager
-    RKObjectManager *manager = [RKObjectManager managerWithBaseURL:apiBaseURL];
-    manager.requestSerializationMIMEType = RKMIMETypeJSON; // JSON
-    
-    [manager addResponseDescriptor:contentDescriptor];
-    [manager postObject:nil path:path parameters:parameters
+    [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
+    [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                     NSLog(@"Output: %@", mappingResult.firstObject);
                     
@@ -263,15 +266,12 @@ dispatch_queue_t backgroundQueue;
 # pragma mark - Core Data
 
 - (void)initCoreData {
-    // Initialize RestKit
-    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
-    [RKObjectManager setSharedManager:objectManager];
     
     // Initialize managed object model from bundle
     NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     // Initialize managed object store
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
-    objectManager.managedObjectStore = managedObjectStore;
+    [RKObjectManager sharedManager].managedObjectStore = managedObjectStore;
     
     // Complete Core Data stack initialization
     [managedObjectStore createPersistentStoreCoordinator];

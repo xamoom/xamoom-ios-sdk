@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C109" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1514" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="XMMCoreDataContent" representedClassName="XMMCoreDataContent" syncable="YES">
         <attribute name="descriptionOfContent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imagePublicUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -73,12 +73,12 @@
         <relationship name="coreDataGetById" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCoreDataGetById" inverseName="style" inverseEntity="XMMCoreDataGetById" syncable="YES"/>
     </entity>
     <elements>
-        <element name="XMMCoreDataContent" positionX="-1458" positionY="-12780" width="128" height="133"/>
-        <element name="XMMCoreDataContentBlocks" positionX="-1629" positionY="-13129" width="189" height="268"/>
-        <element name="XMMCoreDataGetById" positionX="-1287" positionY="-12877" width="128" height="180"/>
-        <element name="XMMCoreDataGetByLocation" positionX="-1422" positionY="-12987" width="128" height="75"/>
-        <element name="XMMCoreDataGetByLocationItem" positionX="-1413" positionY="-13050" width="128" height="268"/>
-        <element name="XMMCoreDataMenuItem" positionX="-1406" positionY="-12580" width="200" height="103"/>
-        <element name="XMMCoreDataStyle" positionX="-1089" positionY="-12600" width="128" height="148"/>
+        <element name="XMMCoreDataContent" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="XMMCoreDataContentBlocks" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="XMMCoreDataGetById" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="XMMCoreDataGetByLocation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="XMMCoreDataGetByLocationItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="XMMCoreDataMenuItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="XMMCoreDataStyle" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

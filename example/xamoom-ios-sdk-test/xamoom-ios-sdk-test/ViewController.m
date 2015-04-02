@@ -106,7 +106,8 @@ XMMEnduserApi *api;
 - (IBAction)scanAction:(id)sender
 {
     [api startQRCodeReader:self
-            withAPIRequest:YES];
+            withAPIRequest:YES
+              withLanguage:@"de"];
 }
 
 - (IBAction)getContentByIdAction:(id)sender {
