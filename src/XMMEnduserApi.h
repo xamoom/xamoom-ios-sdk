@@ -48,6 +48,7 @@
 #import "XMMResponseContentBlockType7.h"
 #import "XMMResponseContentBlockType8.h"
 #import "XMMResponseContentBlockType9.h"
+#import "XMMResponseContentList.h"
 
 //Core Data
 #import "XMMCoreDataGetById.h"
@@ -115,6 +116,10 @@
  @return void
  */
 - (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap*)result;
+
+
+//TODO didLoadContentList
+
 
 /// @name Core Data Delegates
 
@@ -271,6 +276,18 @@
  @return void
  */
 - (void)getSpotMapWithSystemId:(NSString*)systemId withMapTag:(NSString*)mapTag withLanguage:(NSString*)language;
+
+/**
+ Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
+ 
+ @param systemId   The id of the system from xamoom.
+ @param language   The requested language of the content from xamoom backend.
+ @param pageSize   Number of items you will get returned
+ @param cursor     Cursor for paging
+ @return void
+ */
+- (void)getContentListFromApi:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor;
+
 
 #pragma mark Core Data
 /// @name Core Data

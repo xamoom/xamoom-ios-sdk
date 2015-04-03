@@ -225,6 +225,40 @@ dispatch_queue_t backgroundQueue;
      ];
 }
 
+- (void)getContentListFromApi:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor {
+    RKObjectMapping* responseMapping = [XMMResponseContentList mapping];
+    RKObjectMapping* responseItemMapping = [XMMResponseContent mapping];
+    
+    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
+                                                                                    toKeyPath:@"items"
+                                                                                  withMapping:responseItemMapping]];
+    
+    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+    // Create ResponseDescriptor with objectMapping
+    RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
+    
+    NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/content_list/%@/%@/%i/%@", systemId, language, pageSize, cursor];
+    
+    [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
+    [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
+                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                           NSLog(@"Output: %@", mappingResult.firstObject);
+                                           XMMResponseContentList *result = [XMMResponseContentList new];
+                                           result = mappingResult.firstObject;
+                                           /*
+                                           if ( [delegate respondsToSelector:@selector(didLoadDataBySpotMap:)] ) {
+                                               [delegate performSelector:@selector(didLoadDataBySpotMap:) withObject:result];
+                                           }
+                                            */
+                                           
+                                       }
+                                       failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                           NSLog(@"Error: %@", error);
+                                       }
+     ];
+}
+
+
 - (void)talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path {
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
     // Create ResponseDescriptor with objectMapping

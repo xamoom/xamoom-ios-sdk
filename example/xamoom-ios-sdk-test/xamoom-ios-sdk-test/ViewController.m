@@ -126,6 +126,10 @@ XMMEnduserApi *api;
     [api getSpotMapWithSystemId:@"6588702901927936" withMapTag:@"stw" withLanguage:@"de"];
 }
 
+- (IBAction)getContentListAction:(id)sender {
+    [api getContentListFromApi:@"6588702901927936" withLanguage:@"de" withPageSize:4 withCursor:@"null"];
+}
+
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender {
     [api getContentForCoreDataById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }

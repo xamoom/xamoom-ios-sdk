@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		193BE2A7A90697F6E9D018AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CF7D8E893047483C215A55 /* libPods.a */; };
+		8806A7691ACD802D000E8552 /* XMMResponseContentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8806A7681ACD802D000E8552 /* XMMResponseContentList.m */; };
 		88301E1C1A9DC21400F24F84 /* XMMRSSEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E1B1A9DC21400F24F84 /* XMMRSSEntry.m */; };
 		884A5ED91A8E02B20009B97F /* XMMCoreDataGetById.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ECF1A8E02B20009B97F /* XMMCoreDataGetById.m */; };
 		884A5EDA1A8E02B20009B97F /* XMMCoreDataMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A5ED11A8E02B20009B97F /* XMMCoreDataMenuItem.m */; };
@@ -90,6 +91,8 @@
 
 /* Begin PBXFileReference section */
 		86CF7D8E893047483C215A55 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8806A7671ACD802D000E8552 /* XMMResponseContentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseContentList.h; path = ../../src/mapping/XMMResponseContentList.h; sourceTree = "<group>"; };
+		8806A7681ACD802D000E8552 /* XMMResponseContentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseContentList.m; path = ../../src/mapping/XMMResponseContentList.m; sourceTree = "<group>"; };
 		88301DA71A9DBB8800F24F84 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		88301DA91A9DBB9300F24F84 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		88301DAB1A9DBB9C00F24F84 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -449,6 +452,8 @@
 				8885FD001A8DEC9B006F6B4C /* XMMResponseMenuItem.m */,
 				8885FD011A8DEC9B006F6B4C /* XMMResponseStyle.h */,
 				8885FD021A8DEC9B006F6B4C /* XMMResponseStyle.m */,
+				8806A7671ACD802D000E8552 /* XMMResponseContentList.h */,
+				8806A7681ACD802D000E8552 /* XMMResponseContentList.m */,
 				88CE66C11A88C54300C31DE9 /* XMMResponseContentBlocks */,
 			);
 			name = mapping;
@@ -645,6 +650,7 @@
 				8885FCF21A8DEC8C006F6B4C /* XMMResponseContentBlockType7.m in Sources */,
 				8885FD051A8DEC9B006F6B4C /* XMMResponseGetByLocation.m in Sources */,
 				8885FCEA1A8DEC8C006F6B4C /* XMMResponseContentBlock.m in Sources */,
+				8806A7691ACD802D000E8552 /* XMMResponseContentList.m in Sources */,
 				8885FCEC1A8DEC8C006F6B4C /* XMMResponseContentBlockType1.m in Sources */,
 				88B73CB11A91DDDE009D16F7 /* XMMCoreDataContentBlocks.m in Sources */,
 				88301E1C1A9DC21400F24F84 /* XMMRSSEntry.m in Sources */,

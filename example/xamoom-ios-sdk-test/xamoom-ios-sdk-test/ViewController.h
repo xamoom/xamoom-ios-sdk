@@ -19,6 +19,7 @@
 - (IBAction)getContentByLocationIdentifierAction:(id)sender;
 - (IBAction)getContentByLocationAction:(id)sender;
 - (IBAction)getSpotMapAction:(id)sender;
+- (IBAction)getContentListAction:(id)sender;
 
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender;
 - (IBAction)getContentByLocationIdentifierFromCoreDataAction:(id)sender;
