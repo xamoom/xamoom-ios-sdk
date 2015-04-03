@@ -29,5 +29,4 @@
  */
 + (RKObjectMapping*)mapping;
 
-
 @end

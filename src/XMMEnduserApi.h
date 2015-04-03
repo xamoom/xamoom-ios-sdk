@@ -63,6 +63,7 @@
 @class XMMResponseGetByLocation;
 @class XMMResponseGetByLocationIdentifier;
 @class XMMResponseGetSpotMap;
+@class XMMResponseContentList;
 
 #pragma mark - XMMEnderuserApiDelegate
 
@@ -117,9 +118,13 @@
  */
 - (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap*)result;
 
-
-//TODO didLoadContentList
-
+/**
+ Delegate to return the result from getContentList as XMMResponseContentList.
+ 
+ @param result - The result as XMMResponseContentList.
+ @return void
+ */
+- (void)didLoadContentList:(XMMResponseContentList*)result;
 
 /// @name Core Data Delegates
 

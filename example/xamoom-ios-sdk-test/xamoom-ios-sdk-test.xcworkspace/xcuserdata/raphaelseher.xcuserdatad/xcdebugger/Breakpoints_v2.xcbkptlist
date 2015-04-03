@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "xamoom-ios-sdk-testTests/xamoom_ios_sdk_testTests.m"
-            timestampString = "449655738.809919"
+            timestampString = "449737534.150432"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "-didLoadDataByLocation:"
             landmarkType = "5">
          </BreakpointContent>

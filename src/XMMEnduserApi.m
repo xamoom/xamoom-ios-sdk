@@ -245,12 +245,10 @@ dispatch_queue_t backgroundQueue;
                                            NSLog(@"Output: %@", mappingResult.firstObject);
                                            XMMResponseContentList *result = [XMMResponseContentList new];
                                            result = mappingResult.firstObject;
-                                           /*
-                                           if ( [delegate respondsToSelector:@selector(didLoadDataBySpotMap:)] ) {
-                                               [delegate performSelector:@selector(didLoadDataBySpotMap:) withObject:result];
-                                           }
-                                            */
                                            
+                                           if ( [delegate respondsToSelector:@selector(didLoadContentList:)] ) {
+                                               [delegate performSelector:@selector(didLoadContentList:) withObject:result];
+                                           }
                                        }
                                        failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                            NSLog(@"Error: %@", error);

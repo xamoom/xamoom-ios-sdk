@@ -78,6 +78,11 @@ XMMEnduserApi *api;
     self.outputTextView.text = result.description;
 }
 
+- (void)didLoadContentList:(XMMResponseContentList *)result {
+    NSLog(@"XMMResponseContentList: %@", result);
+    self.outputTextView.text = result.description;
+}
+
 - (void)didLoadRSS:(NSMutableArray *)result {
     for (XMMRSSEntry *item in result) {
         NSLog(@"finishedLoadRSS: %@", item);

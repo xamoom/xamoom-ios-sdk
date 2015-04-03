@@ -21,6 +21,7 @@
 @property XMMResponseGetByLocationIdentifier *apiResultGetByLocationIdentifier;
 @property XMMResponseGetByLocation *apiResultGetByLocation;
 @property XMMResponseGetSpotMap *apiResultGetSpotMap;
+@property XMMResponseContentList *apiResultGetContentList;
 @property NSArray* fetchResult;
 
 
@@ -47,6 +48,7 @@
     self.apiResultGetByLocationIdentifier = nil;
     self.apiResultGetByLocation = nil;
     self.apiResultGetSpotMap = nil;
+    self.apiResultGetContentList = nil;
     self.fetchResult = nil;
 }
 
@@ -182,7 +184,7 @@
     NSLog(@"Test Suite - testGetContentByLocationFull");
     [api getContentFromApiWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
     
-    XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
+    XCTAssertTrue([self waitForCompletion:10.0], @"Failed to get any results in time");
     XCTAssertNotNil(self.apiResultGetByLocation, @"getContentByLocation should return something");
 }
 
@@ -210,6 +212,16 @@
     
     XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
     XCTAssertNotNil(self.apiResultGetSpotMap, @"getSpotMap should return something");
+}
+
+//contentList
+
+- (void)testGetContentListFromApi {
+    NSLog(@"Test Suite - testGetContentListFromApi");
+    [api getContentListFromApi:@"6588702901927936" withLanguage:@"de" withPageSize:4 withCursor:@"null"];
+    
+    XCTAssertTrue([self waitForCompletion:10.0], @"Failed to get any results in time");
+    XCTAssertNotNil(self.apiResultGetContentList, @"getContentList should return something");
 }
 
 #pragma mark API Core Data tests
@@ -293,6 +305,11 @@
 
 - (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap *)result {
     self.apiResultGetSpotMap = result;
+    done = YES;
+}
+
+- (void)didLoadContentList:(XMMResponseContentList *)result {
+    self.apiResultGetContentList = result;
     done = YES;
 }
 
