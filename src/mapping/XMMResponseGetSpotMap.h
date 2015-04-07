@@ -26,6 +26,7 @@
 @interface XMMResponseGetSpotMap : NSObject
 
 @property (nonatomic) NSArray* items;
+@property (nonatomic) XMMResponseStyle* style;
 
 /// @name Mapping
 

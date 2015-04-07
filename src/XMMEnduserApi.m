@@ -198,10 +198,15 @@ dispatch_queue_t backgroundQueue;
 - (void)getSpotMapWithSystemId:(NSString *)systemId withMapTag:(NSString *)mapTag withLanguage:(NSString *)language {
     RKObjectMapping* responseMapping = [XMMResponseGetSpotMap mapping];
     RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
+    RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
     
     [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
                                                                                     toKeyPath:@"items"
                                                                                   withMapping:responseItemMapping]];
+    
+    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
+                                                                                    toKeyPath:@"style"
+                                                                                  withMapping:responseStyleMapping]];
     
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
     // Create ResponseDescriptor with objectMapping
