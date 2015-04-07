@@ -26,6 +26,7 @@
  */
 @interface XMMResponseContent : NSObject
 
+@property (nonatomic, copy) NSString *contentId;
 @property (nonatomic, copy) NSString *imagePublicUrl;
 @property (nonatomic, copy) NSString *descriptionOfContent;
 @property (nonatomic, copy) NSString *language;

@@ -28,6 +28,7 @@
                                                   @"language":@"language",
                                                   @"title":@"title",
                                                   @"image_public_url":@"imagePublicUrl",
+                                                  @"content_id":@"contentId",
                                                   }];
     return mapping;
 }
