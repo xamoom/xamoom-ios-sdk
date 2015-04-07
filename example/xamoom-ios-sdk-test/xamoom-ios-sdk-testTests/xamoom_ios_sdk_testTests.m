@@ -104,6 +104,14 @@
     XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
 }
 
+- (void)testGetContentByIdFullFull {
+    NSLog(@"Test Suite - testGetContentByIdFull");
+    [api getContentByIdFull:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de" full:@"True"];
+    
+    XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
+    XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
+}
+
 - (void)testGetContentByIdWithoutStyle {
     NSLog(@"Test Suite - testGetContentByIdWithoutStyle");
     [api getContentFromApiById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"False" includeMenu:@"True" withLanguage:@"de"];

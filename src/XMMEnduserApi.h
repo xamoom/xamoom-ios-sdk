@@ -293,6 +293,17 @@
  */
 - (void)getContentListFromApi:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor;
 
+/**
+ Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
+ 
+ @param contentId   The id of the content from xamoom backend.
+ @param style       True or False for returning the style from xamoom backend.
+ @param menu        True or False for returning the menu from xamoom backend.
+ @param language    The requested language of the content from xamoom backend.
+ @param full        True or false for returning "unsynced" data or not
+ @return void
+ */
+- (void)getContentByIdFull:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language full:(NSString*)full;
 
 #pragma mark Core Data
 /// @name Core Data

@@ -135,6 +135,10 @@ XMMEnduserApi *api;
     [api getContentListFromApi:@"6588702901927936" withLanguage:@"de" withPageSize:4 withCursor:@"null"];
 }
 
+- (IBAction)getContentByIdFull:(id)sender {
+    [api getContentByIdFull:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"False" includeMenu:@"False" withLanguage:@"de" full:@"True"];
+}
+
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender {
     [api getContentForCoreDataById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }

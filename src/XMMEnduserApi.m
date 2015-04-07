@@ -238,6 +238,7 @@ dispatch_queue_t backgroundQueue;
                                                                                     toKeyPath:@"items"
                                                                                   withMapping:responseItemMapping]];
     
+    
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
     // Create ResponseDescriptor with objectMapping
     RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
@@ -261,6 +262,56 @@ dispatch_queue_t backgroundQueue;
      ];
 }
 
+- (void)getContentByIdFull:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language full:(NSString*)full {
+    NSDictionary *queryParams = @{@"content_id":contentId,
+                                  @"include_style":style,
+                                  @"include_menu":menu,
+                                  @"language":language,
+                                  @"full":full,
+                                  };
+    
+    // Create mappings
+    RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
+    
+    RKObjectMapping* responseMapping = [XMMResponseGetById mapping];
+    RKObjectMapping* responseContentMapping = [XMMResponseContent mapping];
+    RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
+    RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem mapping];
+    
+    // Add dynamic matchers
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType0 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType1 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType2 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType3 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType4 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType5 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType6 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType7 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType8 dynamicMappingMatcher]];
+    [dynamicMapping addMatcher:[XMMResponseContentBlockType9 dynamicMappingMatcher]];
+    
+    
+    // Create relationships
+    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
+                                                                                    toKeyPath:@"content"
+                                                                                  withMapping:responseContentMapping]];
+    
+    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
+                                                                                    toKeyPath:@"content.contentBlocks"
+                                                                                  withMapping:dynamicMapping]];
+    
+    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
+                                                                                    toKeyPath:@"style"
+                                                                                  withMapping:responseStyleMapping]];
+    
+    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
+                                                                                    toKeyPath:@"menu"
+                                                                                  withMapping:responseMenuMapping]];
+    
+    [self talkToApi:responseMapping
+     withParameters:queryParams
+           withpath:@"xamoomEndUserApi/v1/get_content_by_content_id_full"];
+}
 
 - (void)talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path {
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
@@ -278,7 +329,7 @@ dispatch_queue_t backgroundQueue;
                     }
                     
                     // Perform specific finishLoadData delegates
-                    if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(didLoadDataById:)] ) {
+                    if (([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] || [path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id_full"]) && [delegate respondsToSelector:@selector(didLoadDataById:)]) {
                         XMMResponseGetById *result = [XMMResponseGetById new];
                         result = mappingResult.firstObject;
                         [delegate performSelector:@selector(didLoadDataById:) withObject:result];
