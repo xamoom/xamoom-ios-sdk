@@ -27,7 +27,7 @@
 #import "NSString+HTML.h"
 
 #import "QRCodeReaderViewController.h"
- 
+
 #import "XMMResponseGetById.h"
 #import "XMMResponseGetByLocationIdentifier.h"
 #import "XMMResponseGetByLocation.h"
