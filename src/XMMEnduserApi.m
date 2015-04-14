@@ -324,15 +324,26 @@ dispatch_queue_t backgroundQueue;
                     NSLog(@"Output: %@", mappingResult.firstObject);
                     
                     // Perform finishedLoadData delegate
+                    /*
                     if ( [delegate respondsToSelector:@selector(didLoadData:)] ) {
                         [delegate performSelector:@selector(didLoadData:) withObject: mappingResult];
                     }
+                    */
                     
                     // Perform specific finishLoadData delegates
-                    if (([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] || [path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id_full"]) && [delegate respondsToSelector:@selector(didLoadDataById:)]) {
+                    if (([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] || [path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id_full"])) {
                         XMMResponseGetById *result = [XMMResponseGetById new];
                         result = mappingResult.firstObject;
-                        [delegate performSelector:@selector(didLoadDataById:) withObject:result];
+
+                        if ([delegate respondsToSelector:@selector(didLoadDataById:)]) {
+                            
+                            [delegate performSelector:@selector(didLoadDataById:) withObject:result];
+                        }
+                        else {
+                            NSString *notificationName = [NSString stringWithFormat:@"%@%@", @"getByIdFull", result.content.contentId];
+                            [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:result ];
+                        }
+
                     }
                     else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(didLoadDataByLocationIdentifier:)] ) {
                         XMMResponseGetByLocationIdentifier *result = [XMMResponseGetByLocationIdentifier new];
