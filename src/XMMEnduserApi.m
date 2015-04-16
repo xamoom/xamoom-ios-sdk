@@ -195,7 +195,7 @@ dispatch_queue_t backgroundQueue;
     
 }
 
-- (void)getSpotMapWithSystemId:(NSString *)systemId withMapTag:(NSString *)mapTag withLanguage:(NSString *)language {
+- (void)getSpotMapWithSystemId:(NSString *)systemId withMapTags:(NSString *)mapTags withLanguage:(NSString *)language {
     RKObjectMapping* responseMapping = [XMMResponseGetSpotMap mapping];
     RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
     RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
@@ -212,7 +212,7 @@ dispatch_queue_t backgroundQueue;
     // Create ResponseDescriptor with objectMapping
     RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
     
-    NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%@/%@/%@", systemId, mapTag, language];
+    NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%@/%@/%@", systemId, mapTags, language];
     
     [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
     [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil

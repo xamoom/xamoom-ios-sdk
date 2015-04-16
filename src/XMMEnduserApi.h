@@ -276,11 +276,11 @@
  Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.
  
  @param systemId    The id of the wanted system.
- @param mapTag      The Tag of the wanted spots.
+ @param mapTags     The Tags of the wanted spots.
  @param language    The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getSpotMapWithSystemId:(NSString*)systemId withMapTag:(NSString*)mapTag withLanguage:(NSString*)language;
+- (void)getSpotMapWithSystemId:(NSString*)systemId withMapTags:(NSString*)mapTags withLanguage:(NSString*)language;
 
 /**
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
