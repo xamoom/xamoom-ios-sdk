@@ -195,7 +195,7 @@
 /**
  Some description
  */
-@property (nonatomic, assign) id<XMMEnderuserApiDelegate> delegate;
+@property (nonatomic, weak) id<XMMEnderuserApiDelegate> delegate;
 /**
  The base url of xamoom api.
  (readonly)

@@ -208,7 +208,7 @@
 
 - (void)testGetSpotMapFull {
     NSLog(@"Test Suite - testGetSpotMapFull");
-    [api getSpotMapWithSystemId:@"6588702901927936" withMapTag:@"stw" withLanguage:@"de"];
+    [api getSpotMapWithSystemId:@"6588702901927936" withMapTags:@"stw" withLanguage:@"de"];
     
     XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
     XCTAssertNotNil(self.apiResultGetSpotMap, @"getSpotMap should return something");
@@ -216,7 +216,7 @@
 
 - (void)testGetSpotMapWithEnglishLanguage {
     NSLog(@"Test Suite - testGetSpotMapWithEnglishLanguage");
-    [api getSpotMapWithSystemId:@"6588702901927936" withMapTag:@"stw" withLanguage:@"en"];
+    [api getSpotMapWithSystemId:@"6588702901927936" withMapTags:@"stw" withLanguage:@"en"];
     
     XCTAssertTrue([self waitForCompletion:5.0], @"Failed to get any results in time");
     XCTAssertNotNil(self.apiResultGetSpotMap, @"getSpotMap should return something");

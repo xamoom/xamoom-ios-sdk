@@ -128,7 +128,7 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)getSpotMapAction:(id)sender {
-    [api getSpotMapWithSystemId:@"6588702901927936" withMapTag:@"stw" withLanguage:@"de"];
+    [api getSpotMapWithSystemId:@"6588702901927936" withMapTags:@"stw" withLanguage:@"de"];
 }
 
 - (IBAction)getContentListAction:(id)sender {
