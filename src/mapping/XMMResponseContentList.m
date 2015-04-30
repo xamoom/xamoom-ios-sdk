@@ -11,11 +11,11 @@
 @implementation XMMResponseContentList
 
 + (RKObjectMapping*)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseContentList class]];
-    [mapping addAttributeMappingsFromDictionary:@{@"cursor":@"cursor",
-                                                  @"more":@"hasMore",
-                                                  }];
-    return mapping;
+  RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseContentList class]];
+  [mapping addAttributeMappingsFromDictionary:@{@"cursor":@"cursor",
+                                                @"more":@"hasMore",
+                                                }];
+  return mapping;
 }
 
 @end

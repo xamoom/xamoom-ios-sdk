@@ -23,22 +23,22 @@
 @implementation XMMResponseContentBlockType8
 
 + (RKObjectMapping*)mapping {
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType8 class] ];
-    [mapping addAttributeMappingsFromDictionary:@{@"download_type":@"downloadType",
-                                                  @"file_id":@"fileId",
-                                                  @"public":@"publicStatus",
-                                                  @"content_block_type":@"contentBlockType",
-                                                  @"text":@"text",
-                                                  @"title":@"title",
-                                                  }];
-    return mapping;
+  RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType8 class] ];
+  [mapping addAttributeMappingsFromDictionary:@{@"download_type":@"downloadType",
+                                                @"file_id":@"fileId",
+                                                @"public":@"publicStatus",
+                                                @"content_block_type":@"contentBlockType",
+                                                @"text":@"text",
+                                                @"title":@"title",
+                                                }];
+  return mapping;
 }
 
 + (RKObjectMappingMatcher*)dynamicMappingMatcher {
-    RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                                   expectedValue:@"8"
-                                                                   objectMapping:[self mapping]];
-    return matcher;
+  RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                                 expectedValue:@"8"
+                                                                 objectMapping:[self mapping]];
+  return matcher;
 }
 
 @end

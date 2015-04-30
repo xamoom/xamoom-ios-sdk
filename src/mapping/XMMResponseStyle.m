@@ -22,15 +22,15 @@
 @implementation XMMResponseStyle
 
 + (RKObjectMapping*)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseStyle class]];
-    [mapping addAttributeMappingsFromDictionary:@{@"fg_color":@"foregroundFontColor",
-                                                  @"bg_color":@"backgroundColor",
-                                                  @"hl_color":@"highlightFontColor",
-                                                  @"ch_color":@"chromeHeaderColor",
-                                                  @"custom_marker":@"customMarker",
-                                                  @"icon":@"icon",
-                                                  }];
-    return mapping;
+  RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseStyle class]];
+  [mapping addAttributeMappingsFromDictionary:@{@"fg_color":@"foregroundFontColor",
+                                                @"bg_color":@"backgroundColor",
+                                                @"hl_color":@"highlightFontColor",
+                                                @"ch_color":@"chromeHeaderColor",
+                                                @"custom_marker":@"customMarker",
+                                                @"icon":@"icon",
+                                                }];
+  return mapping;
 }
 
 @end

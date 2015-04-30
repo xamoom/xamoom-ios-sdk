@@ -25,8 +25,8 @@
 @class XMMResponseContent;
 
 /**
-`XMMResponseGetById` is used for mapping the JSON sended by the api.
-*/
+ `XMMResponseGetById` is used for mapping the JSON sended by the api.
+ */
 @interface XMMResponseGetById : NSObject
 
 @property (nonatomic, copy) NSString *systemName;

@@ -26,13 +26,13 @@
 @implementation XMMCoreDataStyle
 
 + (NSDictionary *)mapping {
-    return @{@"fg_color":@"foregroundFontColor",
-             @"bg_color":@"backgroundColor",
-             @"hl_color":@"highlightFontColor",
-             @"ch_color":@"chromeHeaderColor",
-             @"custom_marker":@"customMarker",
-             @"icon":@"icon",
-             };
+  return @{@"fg_color":@"foregroundFontColor",
+           @"bg_color":@"backgroundColor",
+           @"hl_color":@"highlightFontColor",
+           @"ch_color":@"chromeHeaderColor",
+           @"custom_marker":@"customMarker",
+           @"icon":@"icon",
+           };
 }
 
 @end

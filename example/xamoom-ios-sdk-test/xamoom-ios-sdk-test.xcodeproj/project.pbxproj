@@ -77,6 +77,7 @@
 		88BA02D51AA8AA940091A43C /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02C91AA8AA940091A43C /* NSString+HTML.m */; };
 		88BA02D61AA8AA940091A43C /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02CB1AA8AA940091A43C /* NSString+XMLEntities.m */; };
 		88BA02D71AA8AA940091A43C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02CD1AA8AA940091A43C /* RootViewController.m */; };
+		88DE5D5E1AF225B8008D37B8 /* XMMResponseClosestSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DE5D5D1AF225B8008D37B8 /* XMMResponseClosestSpot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +205,8 @@
 		88BA02CB1AA8AA940091A43C /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XMLEntities.m"; path = "../../src/lib/MWFeedParser/NSString+XMLEntities.m"; sourceTree = "<group>"; };
 		88BA02CC1AA8AA940091A43C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../../src/lib/MWFeedParser/RootViewController.h; sourceTree = "<group>"; };
 		88BA02CD1AA8AA940091A43C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../../src/lib/MWFeedParser/RootViewController.m; sourceTree = "<group>"; };
+		88DE5D5C1AF225B8008D37B8 /* XMMResponseClosestSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseClosestSpot.h; path = ../../src/mapping/XMMResponseClosestSpot.h; sourceTree = "<group>"; };
+		88DE5D5D1AF225B8008D37B8 /* XMMResponseClosestSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseClosestSpot.m; path = ../../src/mapping/XMMResponseClosestSpot.m; sourceTree = "<group>"; };
 		8DCF04393C17E7BE8DD318AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FE3AA1979685A8B62EFC9F15 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -454,6 +457,8 @@
 				8885FD021A8DEC9B006F6B4C /* XMMResponseStyle.m */,
 				8806A7671ACD802D000E8552 /* XMMResponseContentList.h */,
 				8806A7681ACD802D000E8552 /* XMMResponseContentList.m */,
+				88DE5D5C1AF225B8008D37B8 /* XMMResponseClosestSpot.h */,
+				88DE5D5D1AF225B8008D37B8 /* XMMResponseClosestSpot.m */,
 				88CE66C11A88C54300C31DE9 /* XMMResponseContentBlocks */,
 			);
 			name = mapping;
@@ -655,6 +660,7 @@
 				88B73CB11A91DDDE009D16F7 /* XMMCoreDataContentBlocks.m in Sources */,
 				88301E1C1A9DC21400F24F84 /* XMMRSSEntry.m in Sources */,
 				8885FCEE1A8DEC8C006F6B4C /* XMMResponseContentBlockType3.m in Sources */,
+				88DE5D5E1AF225B8008D37B8 /* XMMResponseClosestSpot.m in Sources */,
 				884A5EDA1A8E02B20009B97F /* XMMCoreDataMenuItem.m in Sources */,
 				8885FD081A8DEC9B006F6B4C /* XMMResponseMenuItem.m in Sources */,
 				8874BE721A92382800730B7E /* _XMMCoreDataContent.m in Sources */,

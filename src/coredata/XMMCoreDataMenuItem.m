@@ -26,10 +26,10 @@
 @implementation XMMCoreDataMenuItem
 
 + (NSDictionary *)mapping {
-    return @{@"item_label":@"itemLabel",
-             @"content_id":@"contentId",
-             @"@metadata.mapping.collectionIndex" : @"order",
-             };
+  return @{@"item_label":@"itemLabel",
+           @"content_id":@"contentId",
+           @"@metadata.mapping.collectionIndex" : @"order",
+           };
 }
 
 @end

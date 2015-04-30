@@ -26,19 +26,19 @@
 @implementation XMMCoreDataContent
 
 + (NSDictionary *)mapping{
-    return @{@"description":@"descriptionOfContent",
-             @"language":@"language",
-             @"title":@"title",
-             @"image_public_url":@"imagePublicUrl",
-             };
+  return @{@"description":@"descriptionOfContent",
+           @"language":@"language",
+           @"title":@"title",
+           @"image_public_url":@"imagePublicUrl",
+           };
 }
 
 
 -(NSArray *)sortedContentBlocks {
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
-    NSArray *sorting = [NSArray arrayWithObject:descriptor];
-    
-    return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
+  NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+  NSArray *sorting = [NSArray arrayWithObject:descriptor];
+  
+  return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
 }
 
 @end

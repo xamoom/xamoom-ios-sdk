@@ -22,20 +22,20 @@
 @implementation XMMResponseContentBlockType7
 
 + (RKObjectMapping*)mapping {
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType7 class] ];
-    [mapping addAttributeMappingsFromDictionary:@{@"soundcloud_url":@"soundcloudUrl",
-                                                  @"public":@"publicStatus",
-                                                  @"content_block_type":@"contentBlockType",
-                                                  @"title":@"title",
-                                                  }];
-    return mapping;
+  RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType7 class] ];
+  [mapping addAttributeMappingsFromDictionary:@{@"soundcloud_url":@"soundcloudUrl",
+                                                @"public":@"publicStatus",
+                                                @"content_block_type":@"contentBlockType",
+                                                @"title":@"title",
+                                                }];
+  return mapping;
 }
 
 + (RKObjectMappingMatcher*)dynamicMappingMatcher {
-    RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                                   expectedValue:@"7"
-                                                                   objectMapping:[self mapping]];
-    return matcher;
+  RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                                 expectedValue:@"7"
+                                                                 objectMapping:[self mapping]];
+  return matcher;
 }
 
 @end

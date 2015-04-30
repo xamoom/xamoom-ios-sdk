@@ -49,6 +49,7 @@
 #import "XMMResponseContentBlockType8.h"
 #import "XMMResponseContentBlockType9.h"
 #import "XMMResponseContentList.h"
+#import "XMMResponseClosestSpot.h"
 
 //Core Data
 #import "XMMCoreDataGetById.h"
@@ -64,6 +65,7 @@
 @class XMMResponseGetByLocationIdentifier;
 @class XMMResponseGetSpotMap;
 @class XMMResponseContentList;
+@class XMMResponseClosestSpot;
 
 #pragma mark - XMMEnderuserApiDelegate
 
@@ -126,7 +128,15 @@
  */
 - (void)didLoadContentList:(XMMResponseContentList*)result;
 
-/// @name Core Data Delegates
+/**
+ Delegate to return the result from closestSpots as XMMResponseClosestSpot.
+ 
+ @param result - The result as XMMResponseClosestSpot.
+ @return void
+ */
+- (void)didLoadClosestSpots:(XMMResponseClosestSpot*)result;
+
+/// @name Core Data DelegatesXMMResponseClosestSpot
 
 /**
  Delegate to notify that getContentForCoreDataById, getContentForCoreDataByLocationWithLat and getContentForCoreDataByLocationIdentifier
@@ -178,15 +188,15 @@
  
  _Set up xamoom-ios-sdk like this:_
  
-    api = [[XMMEnduserApi alloc] init];
-    api.delegate = self;
-    [api initCoreData];
+ api = [[XMMEnduserApi alloc] init];
+ api.delegate = self;
+ [api initCoreData];
  
  */
 @interface XMMEnduserApi : NSObject <NSXMLParserDelegate>
 {
-    XMMRSSEntry *rssItem;
-    NSMutableString *element;
+  XMMRSSEntry *rssItem;
+  NSMutableString *element;
 }
 
 #pragma mark Properties
@@ -305,6 +315,18 @@
  */
 - (void)getContentByIdFull:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language full:(NSString*)full;
 
+/**
+ Makes an api call to xamoom with a location and returns the closest spots.
+ If the selected language is not available the default language will be returned.
+ 
+ @param lat     Latitude
+ @param lon     Longitude
+ @param radius  Radius in decimenter
+ @param limit   Limit of the results
+ @return void
+ */
+- (void)closestSpotsWith:(float)lat andLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language;
+
 #pragma mark Core Data
 /// @name Core Data
 
@@ -334,7 +356,7 @@
 - (void)getContentForCoreDataById:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language;
 
 /**
- Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not 
+ Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not
  available the default language will be returned.
  Data will be saved in Core Data as `XMMCoreDataGetById`. Use `fetchCoreDataContentByType:` to get saved data.
  
@@ -388,7 +410,7 @@
 
 /**
  Starts the QRCodeReaderViewController to scan qr codes.
-  
+ 
  There are 2 delegates you can use:
  
  + reader:didScanResult:
@@ -396,18 +418,18 @@
  
  In code it would be look like this:
  
-    - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
-    {
-        [self dismissViewControllerAnimated:YES completion:^{
-            NSLog(@"Completion with result: %@", result);
-        }];
-    }
-
-    - (void)readerDidCancel:(QRCodeReaderViewController *)reader
-    {
-        NSLog(@"readerDidCancel");
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
+ - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+ {
+ [self dismissViewControllerAnimated:YES completion:^{
+ NSLog(@"Completion with result: %@", result);
+ }];
+ }
+ 
+ - (void)readerDidCancel:(QRCodeReaderViewController *)reader
+ {
+ NSLog(@"readerDidCancel");
+ [self dismissViewControllerAnimated:YES completion:NULL];
+ }
  
  @param viewController          The ViewController from where you want to call the QRCodeReader (usually self)
  @param automaticAPIRequest     Yes to start after scan automatically a getContentByLocationIdentifier request

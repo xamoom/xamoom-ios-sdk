@@ -23,21 +23,21 @@
 
 
 + (RKObjectMapping *)mapping {
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType1 class] ];
-    [mapping addAttributeMappingsFromDictionary:@{@"file_id":@"fileId",
-                                                  @"public":@"publicStatus",
-                                                  @"content_block_type":@"contentBlockType",
-                                                  @"title":@"title",
-                                                  @"artists":@"artist",
-                                                  }];
-    return mapping;
+  RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType1 class] ];
+  [mapping addAttributeMappingsFromDictionary:@{@"file_id":@"fileId",
+                                                @"public":@"publicStatus",
+                                                @"content_block_type":@"contentBlockType",
+                                                @"title":@"title",
+                                                @"artists":@"artist",
+                                                }];
+  return mapping;
 }
 
 + (RKObjectMappingMatcher*)dynamicMappingMatcher {
-    RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                                   expectedValue:@"1"
-                                                                   objectMapping:[self mapping]];
-    return matcher;
+  RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                                 expectedValue:@"1"
+                                                                 objectMapping:[self mapping]];
+  return matcher;
 }
 
 @end

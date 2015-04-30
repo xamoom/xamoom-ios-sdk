@@ -21,8 +21,8 @@
 #import "XMMEnduserApi.h"
 
 /**
-`XMMResponseGetByLocation` is used for mapping the JSON sended by the api.
-*/
+ `XMMResponseGetByLocation` is used for mapping the JSON sended by the api.
+ */
 @interface XMMResponseGetByLocation : NSObject
 
 @property (nonatomic) NSArray *items;

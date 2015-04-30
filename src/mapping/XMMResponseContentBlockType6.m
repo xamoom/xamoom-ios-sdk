@@ -22,19 +22,19 @@
 @implementation XMMResponseContentBlockType6
 
 + (RKObjectMapping*)mapping {
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType6 class] ];
-    [mapping addAttributeMappingsFromDictionary:@{@"content_id":@"contentId",
-                                                  @"public":@"publicStatus",
-                                                  @"content_block_type":@"contentBlockType",
-                                                  }];
-    return mapping;
+  RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType6 class] ];
+  [mapping addAttributeMappingsFromDictionary:@{@"content_id":@"contentId",
+                                                @"public":@"publicStatus",
+                                                @"content_block_type":@"contentBlockType",
+                                                }];
+  return mapping;
 }
 
 + (RKObjectMappingMatcher*)dynamicMappingMatcher {
-    RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                                   expectedValue:@"6"
-                                                                   objectMapping:[self mapping]];
-    return matcher;
+  RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                                 expectedValue:@"6"
+                                                                 objectMapping:[self mapping]];
+  return matcher;
 }
 
 @end

@@ -22,20 +22,20 @@
 @implementation XMMResponseContentBlockType0
 
 + (RKObjectMapping*)mapping {
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType0 class] ];
-    [mapping addAttributeMappingsFromDictionary:@{@"text":@"text",
-                                                  @"public":@"publicStatus",
-                                                  @"content_block_type":@"contentBlockType",
-                                                  @"title":@"title",
-                                                  }];
-    return mapping;
+  RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType0 class] ];
+  [mapping addAttributeMappingsFromDictionary:@{@"text":@"text",
+                                                @"public":@"publicStatus",
+                                                @"content_block_type":@"contentBlockType",
+                                                @"title":@"title",
+                                                }];
+  return mapping;
 }
 
 + (RKObjectMappingMatcher*)dynamicMappingMatcher {
-    RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
-                                                                   expectedValue:@"0"
-                                                                   objectMapping:[self mapping]];
-    return matcher;
+  RKObjectMappingMatcher* matcher = [RKObjectMappingMatcher matcherWithKeyPath:@"content_block_type"
+                                                                 expectedValue:@"0"
+                                                                 objectMapping:[self mapping]];
+  return matcher;
 }
 
 @end

@@ -26,20 +26,20 @@
 @implementation XMMCoreDataGetById
 
 + (NSDictionary *)mapping {
-    return @{@"system_name":@"systemName",
-             @"system_url":@"systemUrl",
-             @"system_id":@"systemId",
-             @"has_content":@"hasContent",
-             @"has_spot":@"hasSpot",
-             @"content.content_id":@"contentId",
-             };
+  return @{@"system_name":@"systemName",
+           @"system_url":@"systemUrl",
+           @"system_id":@"systemId",
+           @"has_content":@"hasContent",
+           @"has_spot":@"hasSpot",
+           @"content.content_id":@"contentId",
+           };
 }
 
 -(NSArray *)sortedMenuItem {
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
-    NSArray *sorting = [NSArray arrayWithObject:descriptor];
-    
-    return [self.menu sortedArrayUsingDescriptors:sorting];
+  NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+  NSArray *sorting = [NSArray arrayWithObject:descriptor];
+  
+  return [self.menu sortedArrayUsingDescriptors:sorting];
 }
 
 

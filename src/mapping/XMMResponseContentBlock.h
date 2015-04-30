@@ -22,7 +22,7 @@
 
 /**
  `XMMResponseContentBlock` is used for mapping the JSON sended by the api.
-*/
+ */
 @interface XMMResponseContentBlock : NSObject
 
 @property (nonatomic, copy) NSString *title;

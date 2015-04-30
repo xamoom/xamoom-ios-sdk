@@ -23,21 +23,21 @@
 @implementation XMMResponseContent
 
 +(RKObjectMapping *)mapping {
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContent class] ];
-    [mapping addAttributeMappingsFromDictionary:@{@"description":@"descriptionOfContent",
-                                                  @"language":@"language",
-                                                  @"title":@"title",
-                                                  @"image_public_url":@"imagePublicUrl",
-                                                  @"content_id":@"contentId",
-                                                  }];
-    return mapping;
+  RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContent class] ];
+  [mapping addAttributeMappingsFromDictionary:@{@"description":@"descriptionOfContent",
+                                                @"language":@"language",
+                                                @"title":@"title",
+                                                @"image_public_url":@"imagePublicUrl",
+                                                @"content_id":@"contentId",
+                                                }];
+  return mapping;
 }
 
 -(NSArray *)sortedContentBlocks {
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
-    NSArray *sorting = [NSArray arrayWithObject:descriptor];
-    
-    return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
+  NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+  NSArray *sorting = [NSArray arrayWithObject:descriptor];
+  
+  return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
 }
 
 @end

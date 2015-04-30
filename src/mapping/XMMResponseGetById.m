@@ -23,12 +23,12 @@
 @implementation XMMResponseGetById
 
 + (RKObjectMapping*)mapping {
-    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseGetById class]];
-    [mapping addAttributeMappingsFromDictionary:@{@"system_name":@"systemName",
-                                                  @"system_url":@"systemUrl",
-                                                  @"system_id":@"systemId",
-                                                  }];
-    return mapping;
+  RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseGetById class]];
+  [mapping addAttributeMappingsFromDictionary:@{@"system_name":@"systemName",
+                                                @"system_url":@"systemUrl",
+                                                @"system_id":@"systemId",
+                                                }];
+  return mapping;
 }
 
 @end

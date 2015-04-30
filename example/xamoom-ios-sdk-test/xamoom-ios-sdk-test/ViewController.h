@@ -21,6 +21,7 @@
 - (IBAction)getSpotMapAction:(id)sender;
 - (IBAction)getContentListAction:(id)sender;
 - (IBAction)getContentByIdFull:(id)sender;
+- (IBAction)closestSpots:(id)sender;
 
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender;
 - (IBAction)getContentByLocationIdentifierFromCoreDataAction:(id)sender;
