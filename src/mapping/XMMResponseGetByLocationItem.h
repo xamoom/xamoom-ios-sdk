@@ -33,8 +33,8 @@
 @property (nonatomic, copy) NSString *language;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *backgroundColor;
-@property (nonatomic, copy) NSString *lat;
-@property (nonatomic, copy) NSString *lon;
+@property (nonatomic) float lat;
+@property (nonatomic) float lon;
 @property (nonatomic, copy) NSString *foregroundFontColor;
 @property (nonatomic, copy) NSString *icon;
 @property (nonatomic, copy) NSString *highlightFontColor;

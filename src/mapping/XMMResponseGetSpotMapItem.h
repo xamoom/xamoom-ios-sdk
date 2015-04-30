@@ -28,8 +28,8 @@
 
 @property (nonatomic, copy) NSString* displayName;
 @property (nonatomic, copy) NSString* descriptionOfSpot;
-@property (nonatomic, copy) NSString* lat;
-@property (nonatomic, copy) NSString* lon;
+@property (nonatomic) float lat;
+@property (nonatomic) float lon;
 @property (nonatomic, copy) NSString* image;
 
 /// @name Mapping
