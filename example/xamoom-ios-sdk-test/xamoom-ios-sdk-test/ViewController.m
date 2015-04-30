@@ -92,7 +92,7 @@ XMMEnduserApi *api;
 
 -(void)didLoadClosestSpots:(XMMResponseClosestSpot *)result {
   NSLog(@"XMMResponseClosestSpot: %@", result);
-  self.outputTextView.text = result.style.description;
+  self.outputTextView.text = result.description;
 }
 
 #pragma mark - QRCodeReader Delegate Methods

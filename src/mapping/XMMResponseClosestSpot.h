@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMMEnduserApi.h"
+#import "XMMResponseStyle.h"
 
 /**
  
