@@ -34,46 +34,40 @@ XMMEnduserApi *api;
 
 #pragma mark - XMMEnduserApi Delegates
 
-- (void)savedContentToCoreData {
-  NSArray* fetchResult = [api fetchCoreDataContentByType:@"id"];
-  NSLog(@"finishedLoadCoreData: %@", fetchResult);
-  self.outputTextView.text = fetchResult.description;
-}
-
-- (void)savedContentToCoreDataById {
+- (void)savedContentToCoreDataWithContentId {
   NSLog(@"savedContentToCoreDataById");
-  NSArray* fetchResult = [api fetchCoreDataContentByType:@"id"];
+  NSArray* fetchResult = [api fetchCoreDataContentWithType:@"id"];
   self.outputTextView.text = fetchResult.description;
 }
 
-- (void)savedContentToCoreDataByLocation {
+- (void)savedContentToCoreDataWithLocation {
   NSLog(@"savedContentToCoreDataByLocation");
-  NSArray* fetchResult = [api fetchCoreDataContentByType:@"location"];
+  NSArray* fetchResult = [api fetchCoreDataContentWithType:@"location"];
   self.outputTextView.text = fetchResult.description;
 }
 
-- (void)savedContentToCoreDataByLocationIdentifier {
+- (void)savedContentToCoreDataWithLocationIdentifier {
   NSLog(@"savedContentToCoreDataByLocationIdentifier");
-  NSArray* fetchResult = [api fetchCoreDataContentByType:@"id"];
+  NSArray* fetchResult = [api fetchCoreDataContentWithType:@"id"];
   self.outputTextView.text = fetchResult.description;
 }
 
-- (void)didLoadDataById:(XMMResponseGetById *)result {
+- (void)didLoadDataWithContentId:(XMMResponseGetById *)result {
   NSLog(@"finishedLoadDataById: %@", result.description);
   self.outputTextView.text = result.description;
 }
 
-- (void)didLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result {
+- (void)didLoadDataWithLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result {
   NSLog(@"finishedLoadDataByLocationIdentifier: %@", result);
   self.outputTextView.text = result.description;
 }
 
-- (void)didLoadDataByLocation:(XMMResponseGetByLocation *)result {
+- (void)didLoadDataWithLocation:(XMMResponseGetByLocation *)result {
   NSLog(@"finishedLoadDataByLocation: %@", result);
   self.outputTextView.text = result.description;
 }
 
-- (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap *)result {
+- (void)didLoadSpotMap:(XMMResponseGetSpotMap *)result {
   NSLog(@"finishedLoadDataBySpotMap: %@", result);
   self.outputTextView.text = result.description;
 }
@@ -84,10 +78,8 @@ XMMEnduserApi *api;
 }
 
 - (void)didLoadRSS:(NSMutableArray *)result {
-  for (XMMRSSEntry *item in result) {
-    NSLog(@"finishedLoadRSS: %@", item);
-    self.outputTextView.text = item.description;
-  }
+  NSLog(@"finishedLoadRSS: %@", result);
+  self.outputTextView.text = [NSString stringWithFormat:@"Loader RSS: %@", result];
 }
 
 -(void)didLoadClosestSpots:(XMMResponseClosestSpot *)result {
@@ -115,33 +107,33 @@ XMMEnduserApi *api;
 
 - (IBAction)scanAction:(id)sender
 {
-  [api startQRCodeReader:self
-          withAPIRequest:YES
-            withLanguage:@"de"];
+  [api startQRCodeReaderFromViewController:self
+                            withAPIRequest:YES
+                              withLanguage:@"DE"];
 }
 
 - (IBAction)getContentByIdAction:(id)sender {
-  [api getContentFromApiById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
+  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }
 
 - (IBAction)getContentByLocationIdentifierAction:(id)sender {
-  [api getContentFromApiByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
+  [api contentWithLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }
 
 - (IBAction)getContentByLocationAction:(id)sender {
-  [api getContentFromApiWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
+  [api contentWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
 }
 
 - (IBAction)getSpotMapAction:(id)sender {
-  [api getSpotMapWithSystemId:@"6588702901927936" withMapTags:@"stw" withLanguage:@"de"];
+  [api spotMapWithSystemId:@"6588702901927936" withMapTags:@"stw" withLanguage:@"de"];
 }
 
 - (IBAction)getContentListAction:(id)sender {
-  [api getContentListFromApi:@"6588702901927936" withLanguage:@"de" withPageSize:4 withCursor:@"null"];
+  [api contentListWithSystemId:@"6588702901927936" withLanguage:@"de" withPageSize:4 withCursor:@"null"];
 }
 
 - (IBAction)getContentByIdFull:(id)sender {
-  [api getContentByIdFull:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"False" includeMenu:@"False" withLanguage:@"de" full:@"True"];
+  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"False" includeMenu:@"False" withLanguage:@"de" full:@"True"];
 }
 
 - (IBAction)closestSpots:(id)sender {
@@ -149,19 +141,19 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender {
-  [api getContentForCoreDataById:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
+  [api saveContentToCoreDataWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }
 
 - (IBAction)getContentByLocationIdentifierFromCoreDataAction:(id)sender {
-  [api getContentForCoreDataByLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
+  [api saveContentToCoreDataWithLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
 }
 
 - (IBAction)getContentByLocationFromCoreData:(id)sender {
-  [api getContentForCoreDataByLocationWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
+  [api saveContentToCoreDataWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
 }
 
 - (IBAction)getContentFromRSSFeedAction:(id)sender {
-  [api getContentFromRSSFeed];
+  [api rssContentFeed];
 }
 
 - (void)fetchCoreDataContentByYourOwn {

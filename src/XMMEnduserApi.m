@@ -73,7 +73,7 @@ dispatch_queue_t backgroundQueue;
 #pragma mark public methods
 #pragma mark API calls
 
-- (void)getContentFromApiById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language {
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language {
   NSDictionary *queryParams = @{@"content_id":contentId,
                                 @"include_style":style,
                                 @"include_menu":menu,
@@ -123,7 +123,7 @@ dispatch_queue_t backgroundQueue;
          withpath:@"xamoomEndUserApi/v1/get_content_by_content_id"];
 }
 
-- (void)getContentFromApiByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language {
+- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language {
   
   NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
                                 @"include_style":style,
@@ -174,7 +174,7 @@ dispatch_queue_t backgroundQueue;
          withpath:@"xamoomEndUserApi/v1/get_content_by_location_identifier"];
 }
 
-- (void)getContentFromApiWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language {
+- (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language {
   NSDictionary *queryParams = @{@"location":
                                   @{@"lat":lat,
                                     @"lon":lon,
@@ -197,7 +197,7 @@ dispatch_queue_t backgroundQueue;
   
 }
 
-- (void)getSpotMapWithSystemId:(NSString *)systemId withMapTags:(NSString *)mapTags withLanguage:(NSString *)language {
+- (void)spotMapWithSystemId:(NSString *)systemId withMapTags:(NSString *)mapTags withLanguage:(NSString *)language {
   RKObjectMapping* responseMapping = [XMMResponseGetSpotMap mapping];
   RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
   RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
@@ -222,8 +222,8 @@ dispatch_queue_t backgroundQueue;
                                        NSLog(@"Output: %@", mappingResult.firstObject);
                                        XMMResponseGetSpotMap *result = [XMMResponseGetSpotMap new];
                                        result = mappingResult.firstObject;
-                                       if ( [delegate respondsToSelector:@selector(didLoadDataBySpotMap:)] ) {
-                                         [delegate performSelector:@selector(didLoadDataBySpotMap:) withObject:result];
+                                       if ( [delegate respondsToSelector:@selector(didLoadSpotMap:)] ) {
+                                         [delegate performSelector:@selector(didLoadSpotMap:) withObject:result];
                                        }
                                      }
                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -232,7 +232,7 @@ dispatch_queue_t backgroundQueue;
    ];
 }
 
-- (void)getContentListFromApi:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor {
+- (void)contentListWithSystemId:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor {
   RKObjectMapping* responseMapping = [XMMResponseContentList mapping];
   RKObjectMapping* responseItemMapping = [XMMResponseContent mapping];
   
@@ -264,7 +264,7 @@ dispatch_queue_t backgroundQueue;
    ];
 }
 
-- (void)getContentByIdFull:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language full:(NSString*)full {
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language full:(NSString*)full {
   NSDictionary *queryParams = @{@"content_id":contentId,
                                 @"include_style":style,
                                 @"include_menu":menu,
@@ -359,9 +359,9 @@ dispatch_queue_t backgroundQueue;
                                           XMMResponseGetById *result = [XMMResponseGetById new];
                                           result = mappingResult.firstObject;
                                           
-                                          if ([delegate respondsToSelector:@selector(didLoadDataById:)]) {
+                                          if ([delegate respondsToSelector:@selector(didLoadDataWithContentId:)]) {
                                             
-                                            [delegate performSelector:@selector(didLoadDataById:) withObject:result];
+                                            [delegate performSelector:@selector(didLoadDataWithContentId:) withObject:result];
                                           }
                                           else {
                                             NSString *notificationName = [NSString stringWithFormat:@"%@%@", @"getByIdFull", result.content.contentId];
@@ -369,15 +369,15 @@ dispatch_queue_t backgroundQueue;
                                           }
                                           
                                         }
-                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(didLoadDataByLocationIdentifier:)] ) {
+                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(didLoadDataWithLocationIdentifier:)] ) {
                                           XMMResponseGetByLocationIdentifier *result = [XMMResponseGetByLocationIdentifier new];
                                           result = mappingResult.firstObject;
-                                          [delegate performSelector:@selector(didLoadDataByLocationIdentifier:) withObject:result];
+                                          [delegate performSelector:@selector(didLoadDataWithLocationIdentifier:) withObject:result];
                                         }
-                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(didLoadDataByLocation:)] ) {
+                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(didLoadDataWithLocation:)] ) {
                                           XMMResponseGetByLocation *result;
                                           result = mappingResult.firstObject;
-                                          [delegate performSelector:@selector(didLoadDataByLocation:) withObject:result];
+                                          [delegate performSelector:@selector(didLoadDataWithLocation:) withObject:result];
                                         } else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_closest_spots"] && [delegate respondsToSelector:@selector(didLoadClosestSpots:)] ) {
                                           XMMResponseClosestSpot *result;
                                           result = mappingResult.firstObject;
@@ -467,7 +467,7 @@ dispatch_queue_t backgroundQueue;
   [[RKObjectManager sharedManager] addResponseDescriptor:coreDataGetByIdResponseDescriptor];
 }
 
-- (void)getContentForCoreDataById:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language {
+- (void)saveContentToCoreDataWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language {
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id";
   NSDictionary *queryParams = @{@"content_id":contentId,
                                 @"include_style":style,
@@ -479,7 +479,7 @@ dispatch_queue_t backgroundQueue;
                                withpath:path];
 }
 
-- (void)getContentForCoreDataByLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language {
+- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language {
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_location_identifier";
   NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
                                 @"include_style":style,
@@ -491,7 +491,7 @@ dispatch_queue_t backgroundQueue;
                                withpath:path];
 }
 
-- (void)getContentForCoreDataByLocationWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language {
+- (void)saveContentToCoreDataWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language {
   // Create mapping
   RKEntityMapping *coreDataMapping = [RKEntityMapping mappingForEntityForName:@"XMMCoreDataGetByLocation" inManagedObjectStore:[RKObjectManager sharedManager].managedObjectStore];
   [coreDataMapping addAttributeMappingsFromDictionary:[XMMCoreDataGetByLocation mapping]];
@@ -533,20 +533,15 @@ dispatch_queue_t backgroundQueue;
                                         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                           NSLog(@"Output: %@", mappingResult.firstObject);
                                           
-                                          // Perform savedContentToCoreData delegate
-                                          if ( [delegate respondsToSelector:@selector(savedContentToCoreData)] ) {
-                                            [delegate performSelector:@selector(savedContentToCoreData)];
-                                          }
-                                          
                                           // Perform specific savedContentToCoreData delegates
-                                          if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(savedContentToCoreDataById)] ) {
-                                            [delegate performSelector:@selector(savedContentToCoreDataById)];
+                                          if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(savedContentToCoreDataWithContentId)] ) {
+                                            [delegate performSelector:@selector(savedContentToCoreDataWithContentId)];
                                           }
-                                          else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(savedContentToCoreDataByLocationIdentifier)] ) {
-                                            [delegate performSelector:@selector(savedContentToCoreDataByLocationIdentifier)];
+                                          else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(savedContentToCoreDataWithLocationIdentifier)] ) {
+                                            [delegate performSelector:@selector(savedContentToCoreDataWithLocationIdentifier)];
                                           }
-                                          else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(savedContentToCoreDataByLocation)] ) {
-                                            [delegate performSelector:@selector(savedContentToCoreDataByLocation)];
+                                          else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(savedContentToCoreDataWithLocation)] ) {
+                                            [delegate performSelector:@selector(savedContentToCoreDataWithLocation)];
                                           }
                                           
                                         }
@@ -560,7 +555,7 @@ dispatch_queue_t backgroundQueue;
   }
 }
 
-- (NSArray*)fetchCoreDataContentByType:(NSString *)type {
+- (NSArray*)fetchCoreDataContentWithType:(NSString *)type {
   NSFetchRequest *fetchRequest;
   
   if ([type.lowercaseString isEqualToString:@"id"]){
@@ -589,7 +584,7 @@ dispatch_queue_t backgroundQueue;
   return nil;
 }
 
-- (BOOL)deleteCoreDataEntityById:(NSString *)contentId {
+- (BOOL)deleteCoreDataEntityWithContentId:(NSString *)contentId {
   if(isCoreDataInitialized) {
     NSFetchRequest *fetchRequest;
     fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
@@ -620,10 +615,10 @@ dispatch_queue_t backgroundQueue;
 
 #pragma mark - RSS
 
-- (void)getContentFromRSSFeed {
+- (void)rssContentFeed {
   NSLog(@"Starting with RSS");
   
-  backgroundQueue = dispatch_queue_create("com.razeware.imagegrabber.bgqueue", NULL);
+  backgroundQueue = dispatch_queue_create("com.xamoom.xamoom-ios-sdk", NULL);
   
   rssEntries = [NSMutableArray new];
   
@@ -633,6 +628,7 @@ dispatch_queue_t backgroundQueue;
                                      queue:[NSOperationQueue mainQueue]
                          completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
                            NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+                           NSLog(@"Data: %@", data);
                            [parser setDelegate:self];
                            dispatch_async(backgroundQueue, ^(void) {
                              [parser parse];
@@ -691,8 +687,6 @@ dispatch_queue_t backgroundQueue;
     
     if([elementName isEqualToString:@"content:encoded"]) {
       rssItem.content = [element stringByDecodingHTMLEntities];
-      rssItem.titleImageUrl = [self extractTitleImage:rssItem.content];
-      rssItem.content = [self removeTitleImageFromHtml:rssItem.content];
     }
     
     if([elementName isEqualToString:@"wfw:commentRss"]) {
@@ -712,39 +706,15 @@ dispatch_queue_t backgroundQueue;
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
   if([delegate respondsToSelector:@selector(didLoadRSS:)]) {
-    dispatch_async(backgroundQueue, ^(void) {
+    dispatch_async(dispatch_get_main_queue(), ^(){
       [delegate performSelector:@selector(didLoadRSS:) withObject:rssEntries];
     });
   }
 }
 
-- (NSString*)extractTitleImage:(NSString*)html {
-  NSString *url = nil;
-  NSString *htmlString = html;
-  NSScanner *theScanner = [NSScanner scannerWithString:htmlString];
-  // find start of IMG tag
-  [theScanner scanUpToString:@"<img" intoString:nil];
-  if (![theScanner isAtEnd]) {
-    [theScanner scanUpToString:@"src" intoString:nil];
-    NSCharacterSet *charset = [NSCharacterSet characterSetWithCharactersInString:@"\"'"];
-    [theScanner scanUpToCharactersFromSet:charset intoString:nil];
-    [theScanner scanCharactersFromSet:charset intoString:nil];
-    [theScanner scanUpToCharactersFromSet:charset intoString:&url];
-  }
-  return url;
-}
-
-- (NSString*)removeTitleImageFromHtml:(NSString*)html {
-  NSRange r;
-  NSString *s = rssItem.content;
-  r = [s rangeOfString:@"<img[^>]+>" options:NSRegularExpressionSearch];
-  s = [s stringByReplacingCharactersInRange:r withString:@""];
-  return s;
-}
-
 #pragma mark - QRCodeReaderViewController
 
-- (void)startQRCodeReader:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest withLanguage:(NSString *)language{
+- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest withLanguage:(NSString *)language{
   static QRCodeReaderViewController *reader = nil;
   static dispatch_once_t onceToken;
   
@@ -757,7 +727,7 @@ dispatch_queue_t backgroundQueue;
   
   [reader setCompletionWithBlock:^(NSString *resultAsString) {
     if (automaticAPIRequest && [self getLocationIdentifierFromURL:resultAsString] != nil && resultAsString != nil) {
-      [self getContentFromApiByLocationIdentifier:[self getLocationIdentifierFromURL:resultAsString]
+      [self contentWithLocationIdentifier:[self getLocationIdentifierFromURL:resultAsString]
                                      includeStyle:@"True"
                                       includeMenu:@"True"
                                      withLanguage:language

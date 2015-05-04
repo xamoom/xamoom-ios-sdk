@@ -81,20 +81,12 @@
 /// @name API Call Delegates
 
 /**
- Delegate to return the results from getContentById, getContentByLocation and getContentByLocationIdentifier as RKMappingResult.
- 
- @param result - The result as RKMappingResult.
- @return void
- */
-- (void)didLoadData:(RKMappingResult*)result;
-
-/**
  Delegate to return the result from getContentById as XMMResponseGetById as XMMResponseGetByID.
  
  @param result - The result as XMMResponeGetById.
  @return void
  */
-- (void)didLoadDataById:(XMMResponseGetById*)result;
+- (void)didLoadDataWithContentId:(XMMResponseGetById*)result;
 
 /**
  Delegate to return the result from getContentByLocationIdentifier as XMMResponseGetByLocationIdentifier.
@@ -102,7 +94,7 @@
  @param result - The result as XMMResponseGetByLocationIdentifier.
  @return void
  */
-- (void)didLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier*)result;
+- (void)didLoadDataWithLocationIdentifier:(XMMResponseGetByLocationIdentifier*)result;
 
 /**
  Delegate to return the result from getContentByLocation as XMMResponseGetByLocation.
@@ -110,7 +102,7 @@
  @param result - The result as XMMResponseGetByLocation.
  @return void
  */
-- (void)didLoadDataByLocation:(XMMResponseGetByLocation*)result;
+- (void)didLoadDataWithLocation:(XMMResponseGetByLocation*)result;
 
 /**
  Delegate to return the result from getSpotMap as XMMResponseGetSpotMap.
@@ -118,7 +110,7 @@
  @param result - The result as XMMResponseGetSpotMap.
  @return void
  */
-- (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap*)result;
+- (void)didLoadSpotMap:(XMMResponseGetSpotMap*)result;
 
 /**
  Delegate to return the result from getContentList as XMMResponseContentList.
@@ -139,33 +131,25 @@
 /// @name Core Data DelegatesXMMResponseClosestSpot
 
 /**
- Delegate to notify that getContentForCoreDataById, getContentForCoreDataByLocationWithLat and getContentForCoreDataByLocationIdentifier
- are finished with core data. Now you can fetch the Core Data.
- 
- @return void
- */
-- (void)savedContentToCoreData;
-
-/**
  Delegate to notify that getContentForCoreDataById is finished with core data. Now you can fetch the Core Data.
  
  @return void
  */
-- (void)savedContentToCoreDataById;
+- (void)savedContentToCoreDataWithContentId;
 
 /**
  Delegate to notify that getContentForCoreDataByLocationIdentifier is finished with core data. Now you can fetch the Core Data.
  
  @return void
  */
-- (void)savedContentToCoreDataByLocationIdentifier;
+- (void)savedContentToCoreDataWithLocationIdentifier;
 
 /**
  Delegate to notify that getContentForCoreDataByLocation is finished with core data. Now you can fetch the Core Data.
  
  @return void
  */
-- (void)savedContentToCoreDataByLocation;
+- (void)savedContentToCoreDataWithLocation;
 
 /// @name RSS Delegate
 
@@ -247,6 +231,7 @@
 
 #pragma mark public methods
 #pragma mark API calls
+
 /// @name API Calls
 
 /**
@@ -258,50 +243,7 @@
  @param language    The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentFromApiById:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language;
-
-/**
- Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not available the
- default language will be returned.
- 
- @param locationIdentifier  The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend.
- @param style               True or False for returning the style from xamoom backend.
- @param menu                True of False for returning the menu from xamoom backend.
- @param language            The requested language of the content from xamoom backend.
- @return void
- */
-- (void)getContentFromApiByLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language;
-/**
- Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
- default language will be returned.
- 
- @param lat         The latitude of a location.
- @param lon         The longitude of a location.
- @param language    The requested language of the content from xamoom backend.
- @return void
- */
-- (void)getContentFromApiWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language;
-
-/**
- Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.
- 
- @param systemId    The id of the wanted system.
- @param mapTags     The Tags of the wanted spots.
- @param language    The requested language of the content from xamoom backend.
- @return void
- */
-- (void)getSpotMapWithSystemId:(NSString*)systemId withMapTags:(NSString*)mapTags withLanguage:(NSString*)language;
-
-/**
- Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
- 
- @param systemId   The id of the system from xamoom.
- @param language   The requested language of the content from xamoom backend.
- @param pageSize   Number of items you will get returned
- @param cursor     Cursor for paging
- @return void
- */
-- (void)getContentListFromApi:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor;
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language;
 
 /**
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
@@ -313,7 +255,51 @@
  @param full        True or false for returning "unsynced" data or not
  @return void
  */
-- (void)getContentByIdFull:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language full:(NSString*)full;
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language full:(NSString*)full;
+
+
+/**
+ Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not available the
+ default language will be returned.
+ 
+ @param locationIdentifier  The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend.
+ @param style               True or False for returning the style from xamoom backend.
+ @param menu                True of False for returning the menu from xamoom backend.
+ @param language            The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language;
+/**
+ Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
+ default language will be returned.
+ 
+ @param lat         The latitude of a location.
+ @param lon         The longitude of a location.
+ @param language    The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language;
+
+/**
+ Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.
+ 
+ @param systemId    The id of the wanted system.
+ @param mapTags     The Tags of the wanted spots.
+ @param language    The requested language of the content from xamoom backend.
+ @return void
+ */
+- (void)spotMapWithSystemId:(NSString*)systemId withMapTags:(NSString*)mapTags withLanguage:(NSString*)language;
+
+/**
+ Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
+ 
+ @param systemId   The id of the system from xamoom.
+ @param language   The requested language of the content from xamoom backend.
+ @param pageSize   Number of items you will get returned
+ @param cursor     Cursor for paging
+ @return void
+ */
+- (void)contentListWithSystemId:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor;
 
 /**
  Makes an api call to xamoom with a location and returns the closest spots.
@@ -328,6 +314,7 @@
 - (void)closestSpotsWith:(float)lat andLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language;
 
 #pragma mark Core Data
+
 /// @name Core Data
 
 /**
@@ -353,7 +340,7 @@
  @param language    The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentForCoreDataById:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language;
+- (void)saveContentToCoreDataWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language;
 
 /**
  Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not
@@ -366,7 +353,7 @@
  @param language            The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentForCoreDataByLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language;
+- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language;
 
 /**
  Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
@@ -377,7 +364,7 @@
  @param language    The requested language of the content from xamoom backend.
  @return void
  */
-- (void)getContentForCoreDataByLocationWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language;
+- (void)saveContentToCoreDataWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language;
 
 /**
  Returns an array of all objects with the specific type from Core Data. Type can be "id" or "location".
@@ -385,7 +372,7 @@
  @param type    The type of the saved data. Can be "id" or "location".
  @return NSArray*
  */
-- (NSArray*)fetchCoreDataContentByType:(NSString *)type;
+- (NSArray*)fetchCoreDataContentWithType:(NSString *)type;
 
 /**
  Deletes a entity in Core Data with the given contentId.
@@ -393,9 +380,10 @@
  @param contentId   The content id from the entity you want to delete in core data
  @return BOOL       Yes if it got deleted, no if not.
  */
-- (BOOL)deleteCoreDataEntityById:(NSString *)contentId;
+- (BOOL)deleteCoreDataEntityWithContentId:(NSString *)contentId;
 
 #pragma mark RSS
+
 /// @name RSS
 
 /**
@@ -403,9 +391,10 @@
  
  @return void
  */
-- (void)getContentFromRSSFeed;
+- (void)rssContentFeed;
 
 #pragma mark QRCodeReaderViewController
+
 /// @name QRCodeReaderViewController
 
 /**
@@ -436,6 +425,6 @@
  @param language                The returned language of the automaticApiRequest
  @return void
  */
-- (void)startQRCodeReader:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest withLanguage:(NSString*)language;
+- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest withLanguage:(NSString*)language;
 
 @end

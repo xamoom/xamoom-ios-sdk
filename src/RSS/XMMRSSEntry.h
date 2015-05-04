@@ -34,7 +34,6 @@
 @property (copy) NSString *content;
 @property (copy) NSString *wfw;
 @property (copy) NSString *slash;
-@property (copy) NSString *titleImageUrl;
 
 /**
  Returns a description of the `XMMRSSEntry` object.
