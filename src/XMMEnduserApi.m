@@ -21,24 +21,22 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
-static NSString * const XAMOOM_API_TOKEN = @"f01f9db7-c54d-4117-9161-6f0023b7057e";
+NSString * const kXamoomAPIToken = @"f01f9db7-c54d-4117-9161-6f0023b7057e";
+NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
+NSString * const kRSSBaseURLString = @"http://xamoom.com/feed/";
 
-static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
-static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
-
-static XMMEnduserApi *_sharedInstance;
+static XMMEnduserApi *sharedInstance;
 
 @interface XMMEnduserApi ()
 
 @property BOOL isQRCodeScanFinished;
+@property dispatch_queue_t backgroundQueue;
 
 @end
 
 #pragma mark - XMMEnduserApi
 
 @implementation XMMEnduserApi : NSObject
-
-dispatch_queue_t backgroundQueue;
 
 @synthesize delegate;
 @synthesize rssEntries;
@@ -47,17 +45,17 @@ dispatch_queue_t backgroundQueue;
 @synthesize qrCodeViewControllerCancelButtonTitle;
 
 + (XMMEnduserApi *)sharedInstance {
-  if (!_sharedInstance) {
-    _sharedInstance = [[XMMEnduserApi alloc] init];
+  if (!sharedInstance) {
+    sharedInstance = [[XMMEnduserApi alloc] init];
   }
   
-  return _sharedInstance;
+  return sharedInstance;
 }
 
 -(id)init {
   self = [super init];
-  apiBaseURL = [NSURL URLWithString:apiBaseURLString];
-  self.rssBaseUrl = rssBaseURLString;
+  apiBaseURL = [NSURL URLWithString:kApiBaseURLString];
+  self.rssBaseUrlString = kRSSBaseURLString;
   self.systemLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
   isCoreDataInitialized = NO;
   qrCodeViewControllerCancelButtonTitle = @"Cancel";
@@ -68,7 +66,7 @@ dispatch_queue_t backgroundQueue;
   
   //set JSON-Type and Authorization Header
   [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
-  [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization" value:XAMOOM_API_TOKEN];
+  [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization" value:kXamoomAPIToken];
   
   //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
     
@@ -623,11 +621,11 @@ dispatch_queue_t backgroundQueue;
 - (void)rssContentFeed {
   NSLog(@"Starting with RSS");
   
-  backgroundQueue = dispatch_queue_create("com.xamoom.xamoom-ios-sdk", NULL);
+  self.backgroundQueue = dispatch_queue_create("com.xamoom.xamoom-ios-sdk", NULL);
   
   rssEntries = [NSMutableArray new];
   
-  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.rssBaseUrl]];
+  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.rssBaseUrlString]];
   
   [NSURLConnection sendAsynchronousRequest:request
                                      queue:[NSOperationQueue mainQueue]
@@ -635,7 +633,7 @@ dispatch_queue_t backgroundQueue;
                            NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
                            NSLog(@"Data: %@", data);
                            [parser setDelegate:self];
-                           dispatch_async(backgroundQueue, ^(void) {
+                           dispatch_async(self.backgroundQueue, ^(void) {
                              [parser parse];
                            });
                          }];

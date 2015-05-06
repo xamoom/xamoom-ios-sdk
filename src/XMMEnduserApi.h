@@ -173,6 +173,8 @@
 
 #pragma mark - XMMEnduserApi
 
+extern NSString const *kXamoomAPIBaseUrl;
+
 /**
  `XMMEnduserApi` is the main part of the xamoom-ios-sdk. You will need to create a instance of this to communicate with our api and set the delegate.
  If you want to use the build in core data, you must call `initCoreData`.
@@ -206,7 +208,7 @@
 /**
  The base url of xamoom rss feed. You can change this one another url.
  */
-@property NSString *rssBaseUrl;
+@property NSString *rssBaseUrlString;
 /**
  NSMutableArray for saving the rssItems.
  */
