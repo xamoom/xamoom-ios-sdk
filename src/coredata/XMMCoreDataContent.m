@@ -36,7 +36,7 @@
 
 -(NSArray *)sortedContentBlocks {
   NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
-  NSArray *sorting = [NSArray arrayWithObject:descriptor];
+  NSArray *sorting = @[descriptor];
   
   return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
 }

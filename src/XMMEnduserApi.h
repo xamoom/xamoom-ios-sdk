@@ -224,7 +224,7 @@ extern NSString * const kApiBaseURLString;
  
  @return id
  */
--(id)init;
+-(instancetype)init NS_DESIGNATED_INITIALIZER;
 
 #pragma mark - public methods
 

@@ -40,6 +40,6 @@
  
  @return NSString*
  */
-- (NSString*)description;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *description;
 
 @end

@@ -53,11 +53,11 @@ static XMMEnduserApi *sharedInstance;
   return sharedInstance;
 }
 
--(id)init {
+-(instancetype)init {
   self = [super init];
   apiBaseURL = [NSURL URLWithString:kApiBaseURLString];
   self.rssBaseUrlString = kRSSBaseURLString;
-  self.systemLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
+  self.systemLanguage = [NSLocale preferredLanguages][0];
   isCoreDataInitialized = NO;
   self.qrCodeViewControllerCancelButtonTitle = @"Cancel";
   
@@ -728,7 +728,7 @@ static XMMEnduserApi *sharedInstance;
 
   reader.delegate = self;
   
-  //completion
+  //completionblock
   [reader setCompletionWithBlock:^(NSString *resultAsString) {
     if (!self.isQRCodeScanFinished && resultAsString != nil) {
       self.isQRCodeScanFinished = YES;

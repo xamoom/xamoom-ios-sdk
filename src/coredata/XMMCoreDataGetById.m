@@ -37,7 +37,7 @@
 
 -(NSArray *)sortedMenuItem {
   NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
-  NSArray *sorting = [NSArray arrayWithObject:descriptor];
+  NSArray *sorting = @[descriptor];
   
   return [self.menu sortedArrayUsingDescriptors:sorting];
 }

@@ -30,7 +30,7 @@
  
  @return NSArray*
  */
-- (NSArray *)sortedContentBlocks;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks;
 
 /// @name Mapping
 

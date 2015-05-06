@@ -30,7 +30,7 @@
  
  @return NSArray*
  */
-- (NSArray *)sortedMenuItem;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedMenuItem;
 
 /// @name Mapping
 

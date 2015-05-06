@@ -50,7 +50,7 @@
 	[formatter setDateStyle:NSDateFormatterShortStyle];
 	[formatter setTimeStyle:NSDateFormatterShortStyle];
 	parsedItems = [[NSMutableArray alloc] init];
-	self.itemsToDisplay = [NSArray array];
+	self.itemsToDisplay = @[];
 	
 	// Refresh button
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh 
@@ -83,7 +83,7 @@
 
 - (void)updateTableWithParsedItems {
 	self.itemsToDisplay = [parsedItems sortedArrayUsingDescriptors:
-						   [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"date" 
+						   @[[[NSSortDescriptor alloc] initWithKey:@"date" 
 																				 ascending:NO]]];
 	self.tableView.userInteractionEnabled = YES;
 	self.tableView.alpha = 1;
@@ -153,7 +153,7 @@
     }
     
 	// Configure the cell.
-	MWFeedItem *item = [itemsToDisplay objectAtIndex:indexPath.row];
+	MWFeedItem *item = itemsToDisplay[indexPath.row];
 	if (item) {
 		
 		// Process
@@ -179,7 +179,7 @@
 
 	// Show detail
 	DetailTableViewController *detail = [[DetailTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-	detail.item = (MWFeedItem *)[itemsToDisplay objectAtIndex:indexPath.row];
+	detail.item = (MWFeedItem *)itemsToDisplay[indexPath.row];
 	[self.navigationController pushViewController:detail animated:YES];
 	
 	// Deselect
