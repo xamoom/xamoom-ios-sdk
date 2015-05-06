@@ -27,13 +27,14 @@ NSString * const kRSSBaseURLString = @"http://xamoom.com/feed/";
 
 static XMMEnduserApi *sharedInstance;
 
-@interface XMMEnduserApi ()
+@interface XMMEnduserApi () <QRCodeReaderDelegate>
 
 @property NSMutableArray *rssEntries;
 @property NSMutableString *element;
 @property XMMRSSEntry *rssItem;
 @property BOOL isQRCodeScanFinished;
 @property dispatch_queue_t backgroundQueue;
+@property UIViewController *qrCodeParentViewController;
 
 @end
 
@@ -718,16 +719,20 @@ static XMMEnduserApi *sharedInstance;
   static QRCodeReaderViewController *reader = nil;
   static dispatch_once_t onceToken;
   
+  self.qrCodeParentViewController = viewController;
+  
   dispatch_once(&onceToken, ^{
     reader                        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:self.qrCodeViewControllerCancelButtonTitle];
     reader.modalPresentationStyle = UIModalPresentationFormSheet;
   });
 
+  reader.delegate = self;
+  
   //completion
   [reader setCompletionWithBlock:^(NSString *resultAsString) {
-    if (!self.isQRCodeScanFinished) {
+    if (!self.isQRCodeScanFinished && resultAsString != nil) {
       self.isQRCodeScanFinished = YES;
-      [viewController dismissViewControllerAnimated:YES completion:nil];
+      [self.qrCodeParentViewController dismissViewControllerAnimated:YES completion:nil];
       if ([self.delegate respondsToSelector:@selector(didScanQR:)] ) {
         [self.delegate performSelector:@selector(didScanQR:) withObject:[self getLocationIdentifierFromURL:resultAsString]];
       }
@@ -736,6 +741,12 @@ static XMMEnduserApi *sharedInstance;
   
   self.isQRCodeScanFinished = NO;
   [viewController presentViewController:reader animated:YES completion:NULL];
+}
+
+-(void)readerDidCancel:(QRCodeReaderViewController *)reader {
+  [self.qrCodeParentViewController dismissViewControllerAnimated:YES completion:nil];
+  self.isQRCodeScanFinished = YES;
+  self.qrCodeParentViewController = nil;
 }
 
 - (NSString*)getLocationIdentifierFromURL:(NSString*)URL {
