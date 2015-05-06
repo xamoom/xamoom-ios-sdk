@@ -77,7 +77,7 @@
 - (void)testRssBaseUrl {
   NSLog(@"Test Suite - testRssBaseUrl");
   
-  XCTAssertNotNil(api.rssBaseUrl, @"api.rssBaseUrl should not be nil");
+  XCTAssertNotNil(api.rssBaseUrlString, @"api.rssBaseUrl should not be nil");
 }
 
 - (void)testSystemLanguage {
@@ -339,6 +339,11 @@
 
 - (void)didLoadClosestSpots:(XMMResponseClosestSpot *)result {
   self.apiResultClosestSpot = result;
+  done = YES;
+}
+
+- (void)didScanQR:(NSString *)result {
+  self.apiResultGetByLocationIdentifier = result;
   done = YES;
 }
 

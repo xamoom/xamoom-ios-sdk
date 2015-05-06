@@ -108,7 +108,6 @@ XMMEnduserApi *api;
 - (IBAction)scanAction:(id)sender
 {
   [api startQRCodeReaderFromViewController:self
-                            withAPIRequest:YES
                               withLanguage:@"DE"];
 }
 
