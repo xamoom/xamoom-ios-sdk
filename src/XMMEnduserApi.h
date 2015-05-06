@@ -17,17 +17,12 @@
 // along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#pragma mark imports
-
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <RestKit/RestKit.h>
-
 #import "XMMRSSEntry.h"
 #import "NSString+HTML.h"
-
 #import "QRCodeReaderViewController.h"
-
 #import "XMMResponseGetById.h"
 #import "XMMResponseGetByLocationIdentifier.h"
 #import "XMMResponseGetByLocation.h"
@@ -50,8 +45,6 @@
 #import "XMMResponseContentBlockType9.h"
 #import "XMMResponseContentList.h"
 #import "XMMResponseClosestSpot.h"
-
-//Core Data
 #import "XMMCoreDataGetById.h"
 #import "XMMCoreDataStyle.h"
 #import "XMMCoreDataMenuItem.h"
@@ -173,7 +166,9 @@
 
 #pragma mark - XMMEnduserApi
 
-extern NSString const *kXamoomAPIBaseUrl;
+extern NSString * const kXamoomAPIToken;
+extern NSString * const kXamoomAPIBaseUrl;
+extern NSString * const kApiBaseURLString;
 
 /**
  `XMMEnduserApi` is the main part of the xamoom-ios-sdk. You will need to create a instance of this to communicate with our api and set the delegate.
@@ -188,10 +183,6 @@ extern NSString const *kXamoomAPIBaseUrl;
  
  */
 @interface XMMEnduserApi : NSObject <NSXMLParserDelegate>
-{
-  XMMRSSEntry *rssItem;
-  NSMutableString *element;
-}
 
 #pragma mark Properties
 /// @name Properties
@@ -210,17 +201,13 @@ extern NSString const *kXamoomAPIBaseUrl;
  */
 @property NSString *rssBaseUrlString;
 /**
- NSMutableArray for saving the rssItems.
- */
-@property NSMutableArray *rssEntries;
-/**
  The preferred language of the user.
  */
 @property NSString *systemLanguage;
 /**
  Bool to check if the CoreData is initialized.
  */
-@property BOOL isCoreDataInitialized;
+@property (readonly) BOOL isCoreDataInitialized;
 /**
  String with the title of the qr code view cancel button.
  */
@@ -239,8 +226,7 @@ extern NSString const *kXamoomAPIBaseUrl;
  */
 -(id)init;
 
-#pragma mark public methods
-#pragma mark API calls
+#pragma mark - public methods
 
 /// @name API Calls
 
@@ -323,7 +309,7 @@ extern NSString const *kXamoomAPIBaseUrl;
  */
 - (void)closestSpotsWith:(float)lat andLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language;
 
-#pragma mark Core Data
+#pragma mark - Core Data
 
 /// @name Core Data
 
@@ -392,7 +378,7 @@ extern NSString const *kXamoomAPIBaseUrl;
  */
 - (BOOL)deleteCoreDataEntityWithContentId:(NSString *)contentId;
 
-#pragma mark RSS
+#pragma mark - RSS
 
 /// @name RSS
 
@@ -403,7 +389,7 @@ extern NSString const *kXamoomAPIBaseUrl;
  */
 - (void)rssContentFeed;
 
-#pragma mark QRCodeReaderViewController
+#pragma mark - QRCodeReaderViewController
 
 /// @name QRCodeReaderViewController
 

@@ -29,6 +29,9 @@ static XMMEnduserApi *sharedInstance;
 
 @interface XMMEnduserApi ()
 
+@property NSMutableArray *rssEntries;
+@property NSMutableString *element;
+@property XMMRSSEntry *rssItem;
 @property BOOL isQRCodeScanFinished;
 @property dispatch_queue_t backgroundQueue;
 
@@ -38,11 +41,8 @@ static XMMEnduserApi *sharedInstance;
 
 @implementation XMMEnduserApi : NSObject
 
-@synthesize delegate;
-@synthesize rssEntries;
-@synthesize isCoreDataInitialized;
 @synthesize apiBaseURL;
-@synthesize qrCodeViewControllerCancelButtonTitle;
+@synthesize isCoreDataInitialized;
 
 + (XMMEnduserApi *)sharedInstance {
   if (!sharedInstance) {
@@ -58,7 +58,7 @@ static XMMEnduserApi *sharedInstance;
   self.rssBaseUrlString = kRSSBaseURLString;
   self.systemLanguage = [[NSLocale preferredLanguages] objectAtIndex:0];
   isCoreDataInitialized = NO;
-  qrCodeViewControllerCancelButtonTitle = @"Cancel";
+  self.qrCodeViewControllerCancelButtonTitle = @"Cancel";
   
   //create RKObjectManager
   RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
@@ -225,8 +225,8 @@ static XMMEnduserApi *sharedInstance;
                                        NSLog(@"Output: %@", mappingResult.firstObject);
                                        XMMResponseGetSpotMap *result = [XMMResponseGetSpotMap new];
                                        result = mappingResult.firstObject;
-                                       if ( [delegate respondsToSelector:@selector(didLoadSpotMap:)] ) {
-                                         [delegate performSelector:@selector(didLoadSpotMap:) withObject:result];
+                                       if ( [self.delegate respondsToSelector:@selector(didLoadSpotMap:)] ) {
+                                         [self.delegate performSelector:@selector(didLoadSpotMap:) withObject:result];
                                        }
                                      }
                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -257,8 +257,8 @@ static XMMEnduserApi *sharedInstance;
                                        XMMResponseContentList *result = [XMMResponseContentList new];
                                        result = mappingResult.firstObject;
                                        
-                                       if ( [delegate respondsToSelector:@selector(didLoadContentList:)] ) {
-                                         [delegate performSelector:@selector(didLoadContentList:) withObject:result];
+                                       if ( [self.delegate respondsToSelector:@selector(didLoadContentList:)] ) {
+                                         [self.delegate performSelector:@selector(didLoadContentList:) withObject:result];
                                        }
                                      }
                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -362,29 +362,27 @@ static XMMEnduserApi *sharedInstance;
                                           XMMResponseGetById *result = [XMMResponseGetById new];
                                           result = mappingResult.firstObject;
                                           
-                                          if ([delegate respondsToSelector:@selector(didLoadDataWithContentId:)]) {
-                                            
-                                            [delegate performSelector:@selector(didLoadDataWithContentId:) withObject:result];
+                                          if ([self.delegate respondsToSelector:@selector(didLoadDataWithContentId:)]) {
+                                            [self.delegate performSelector:@selector(didLoadDataWithContentId:) withObject:result];
                                           }
                                           else {
                                             NSString *notificationName = [NSString stringWithFormat:@"%@%@", @"getByIdFull", result.content.contentId];
                                             [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:result ];
                                           }
-                                          
                                         }
-                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(didLoadDataWithLocationIdentifier:)] ) {
+                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [self.delegate respondsToSelector:@selector(didLoadDataWithLocationIdentifier:)] ) {
                                           XMMResponseGetByLocationIdentifier *result = [XMMResponseGetByLocationIdentifier new];
                                           result = mappingResult.firstObject;
-                                          [delegate performSelector:@selector(didLoadDataWithLocationIdentifier:) withObject:result];
+                                          [self.delegate performSelector:@selector(didLoadDataWithLocationIdentifier:) withObject:result];
                                         }
-                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(didLoadDataWithLocation:)] ) {
+                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [self.delegate respondsToSelector:@selector(didLoadDataWithLocation:)] ) {
                                           XMMResponseGetByLocation *result;
                                           result = mappingResult.firstObject;
-                                          [delegate performSelector:@selector(didLoadDataWithLocation:) withObject:result];
-                                        } else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_closest_spots"] && [delegate respondsToSelector:@selector(didLoadClosestSpots:)] ) {
+                                          [self.delegate performSelector:@selector(didLoadDataWithLocation:) withObject:result];
+                                        } else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_closest_spots"] && [self.delegate respondsToSelector:@selector(didLoadClosestSpots:)] ) {
                                           XMMResponseClosestSpot *result;
                                           result = mappingResult.firstObject;
-                                          [delegate performSelector:@selector(didLoadClosestSpots:) withObject:result];
+                                          [self.delegate performSelector:@selector(didLoadClosestSpots:) withObject:result];
                                         }
                                       }
                                       failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -507,7 +505,6 @@ static XMMEnduserApi *sharedInstance;
                                                                                   toKeyPath:@"items"
                                                                                 withMapping:coreDataItemMapping]];
   
-  
   RKResponseDescriptor *coreDataGetByIdResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:coreDataMapping
                                                                                                          method:RKRequestMethodPOST
                                                                                                     pathPattern:nil
@@ -530,21 +527,21 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)talkToApiCoreDataWithParameters:(NSDictionary*)parameters withpath:(NSString*)path {
-  if(isCoreDataInitialized) {
+  if(self.isCoreDataInitialized) {
     [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
     [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
                                         success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                           NSLog(@"Output: %@", mappingResult.firstObject);
                                           
                                           // Perform specific savedContentToCoreData delegates
-                                          if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [delegate respondsToSelector:@selector(savedContentToCoreDataWithContentId)] ) {
-                                            [delegate performSelector:@selector(savedContentToCoreDataWithContentId)];
+                                          if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] && [self.delegate respondsToSelector:@selector(savedContentToCoreDataWithContentId)] ) {
+                                            [self.delegate performSelector:@selector(savedContentToCoreDataWithContentId)];
                                           }
-                                          else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [delegate respondsToSelector:@selector(savedContentToCoreDataWithLocationIdentifier)] ) {
-                                            [delegate performSelector:@selector(savedContentToCoreDataWithLocationIdentifier)];
+                                          else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [self.delegate respondsToSelector:@selector(savedContentToCoreDataWithLocationIdentifier)] ) {
+                                            [self.delegate performSelector:@selector(savedContentToCoreDataWithLocationIdentifier)];
                                           }
-                                          else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [delegate respondsToSelector:@selector(savedContentToCoreDataWithLocation)] ) {
-                                            [delegate performSelector:@selector(savedContentToCoreDataWithLocation)];
+                                          else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [self.delegate respondsToSelector:@selector(savedContentToCoreDataWithLocation)] ) {
+                                            [self.delegate performSelector:@selector(savedContentToCoreDataWithLocation)];
                                           }
                                           
                                         }
@@ -575,7 +572,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (NSArray *)executeFetch:(NSFetchRequest *)fetchRequest {
-  if(isCoreDataInitialized) {
+  if(self.isCoreDataInitialized) {
     NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
@@ -588,7 +585,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (BOOL)deleteCoreDataEntityWithContentId:(NSString *)contentId {
-  if(isCoreDataInitialized) {
+  if(self.isCoreDataInitialized) {
     NSFetchRequest *fetchRequest;
     fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"XMMCoreDataGetById"];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"contentId == %@", contentId];
@@ -623,7 +620,7 @@ static XMMEnduserApi *sharedInstance;
   
   self.backgroundQueue = dispatch_queue_create("com.xamoom.xamoom-ios-sdk", NULL);
   
-  rssEntries = [NSMutableArray new];
+  self.rssEntries = [NSMutableArray new];
   
   NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.rssBaseUrlString]];
   
@@ -641,76 +638,76 @@ static XMMEnduserApi *sharedInstance;
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
   
-  element = [NSMutableString string];
+  self.element = [NSMutableString string];
   if ([elementName isEqualToString:@"item"]) {
-    rssItem = [XMMRSSEntry new];
+    self.rssItem = [XMMRSSEntry new];
   }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-  if(element == nil) {
-    element = [[NSMutableString alloc] init];
+  if(self.element == nil) {
+    self.element = [[NSMutableString alloc] init];
   }
-  [element appendString:string];
+  [self.element appendString:string];
 }
 
 - (void)parser:(NSXMLParser*)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-  if (rssItem != nil) {
+  if (self.rssItem != nil) {
     if ([elementName isEqualToString:@"title"]) {
-      rssItem.title = [element stringByDecodingHTMLEntities];
+      self.rssItem.title = [self.element stringByDecodingHTMLEntities];
     }
     
     if([elementName isEqualToString:@"link"]) {
-      rssItem.link = [element stringByDecodingHTMLEntities];
+      self.rssItem.link = [self.element stringByDecodingHTMLEntities];
     }
     
     if([elementName isEqualToString:@"comments"]) {
-      rssItem.comments = [element stringByDecodingHTMLEntities];
+      self.rssItem.comments = [self.element stringByDecodingHTMLEntities];
     }
     
     if([elementName isEqualToString:@"pubDate"]) {
       NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
       [dateFormat setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
       [dateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]]; //This is the Stuff
-      NSDate *date = [dateFormat dateFromString:element];
-      rssItem.pubDate = date;
+      NSDate *date = [dateFormat dateFromString:self.element];
+      self.rssItem.pubDate = date;
     }
     
     if([elementName isEqualToString:@"category"]) {
-      rssItem.category = [element stringByDecodingHTMLEntities];
+      self.rssItem.category = [self.element stringByDecodingHTMLEntities];
     }
     
     if([elementName isEqualToString:@"guid"]) {
-      rssItem.guid = [element stringByDecodingHTMLEntities];
+      self.rssItem.guid = [self.element stringByDecodingHTMLEntities];
     }
     
     if([elementName isEqualToString:@"description"]) {
-      rssItem.descriptionOfContent = [element stringByDecodingHTMLEntities];
+      self.rssItem.descriptionOfContent = [self.element stringByDecodingHTMLEntities];
     }
     
     if([elementName isEqualToString:@"content:encoded"]) {
-      rssItem.content = [element stringByDecodingHTMLEntities];
+      self.rssItem.content = [self.element stringByDecodingHTMLEntities];
     }
     
     if([elementName isEqualToString:@"wfw:commentRss"]) {
-      rssItem.wfw = [element stringByDecodingHTMLEntities];
+      self.rssItem.wfw = [self.element stringByDecodingHTMLEntities];
     }
     
     if([elementName isEqualToString:@"slash:comments"]) {
-      rssItem.slash = [element stringByDecodingHTMLEntities];
+      self.rssItem.slash = [self.element stringByDecodingHTMLEntities];
     }
     
     if ([elementName isEqualToString:@"item"]) {
-      [rssEntries addObject:rssItem];
-      rssItem = nil;
+      [self.rssEntries addObject:self.rssItem];
+      self.rssItem = nil;
     }
   }
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-  if([delegate respondsToSelector:@selector(didLoadRSS:)]) {
+  if([self.delegate respondsToSelector:@selector(didLoadRSS:)]) {
     dispatch_async(dispatch_get_main_queue(), ^(){
-      [delegate performSelector:@selector(didLoadRSS:) withObject:rssEntries];
+      [self.delegate performSelector:@selector(didLoadRSS:) withObject:self.rssEntries];
     });
   }
 }
@@ -722,7 +719,7 @@ static XMMEnduserApi *sharedInstance;
   static dispatch_once_t onceToken;
   
   dispatch_once(&onceToken, ^{
-    reader                        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:qrCodeViewControllerCancelButtonTitle];
+    reader                        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:self.qrCodeViewControllerCancelButtonTitle];
     reader.modalPresentationStyle = UIModalPresentationFormSheet;
   });
 
@@ -731,8 +728,8 @@ static XMMEnduserApi *sharedInstance;
     if (!self.isQRCodeScanFinished) {
       self.isQRCodeScanFinished = YES;
       [viewController dismissViewControllerAnimated:YES completion:nil];
-      if ([delegate respondsToSelector:@selector(didScanQR:)] ) {
-        [delegate performSelector:@selector(didScanQR:) withObject:[self getLocationIdentifierFromURL:resultAsString]];
+      if ([self.delegate respondsToSelector:@selector(didScanQR:)] ) {
+        [self.delegate performSelector:@selector(didScanQR:) withObject:[self getLocationIdentifierFromURL:resultAsString]];
       }
     }
   }];
