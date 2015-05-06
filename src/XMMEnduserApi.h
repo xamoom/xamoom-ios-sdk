@@ -161,6 +161,14 @@
  */
 - (void)didLoadRSS:(NSMutableArray*)result;
 
+/**
+ Delegate to notifiy that the qr code scanner scanned a qr code.
+ 
+ @param result - The loaded locationIdentifier.
+ @return void
+ */
+- (void)didScanQR:(NSString*)result;
+
 @end
 
 #pragma mark - XMMEnduserApi
@@ -421,10 +429,9 @@
  }
  
  @param viewController          The ViewController from where you want to call the QRCodeReader (usually self)
- @param automaticAPIRequest     Yes to start after scan automatically a getContentByLocationIdentifier request
  @param language                The returned language of the automaticApiRequest
  @return void
  */
-- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest withLanguage:(NSString*)language;
+- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController withLanguage:(NSString*)language;
 
 @end

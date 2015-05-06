@@ -25,7 +25,14 @@ static NSString * const XAMOOM_API_TOKEN = @"f01f9db7-c54d-4117-9161-6f0023b7057
 
 static NSString * const apiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 static NSString * const rssBaseURLString = @"http://xamoom.com/feed/";
+
 static XMMEnduserApi *_sharedInstance;
+
+@interface XMMEnduserApi ()
+
+@property BOOL isQRCodeScanFinished;
+
+@end
 
 #pragma mark - XMMEnduserApi
 
@@ -40,9 +47,7 @@ dispatch_queue_t backgroundQueue;
 @synthesize qrCodeViewControllerCancelButtonTitle;
 
 + (XMMEnduserApi *)sharedInstance {
-  if (!_sharedInstance)
-    
-  {
+  if (!_sharedInstance) {
     _sharedInstance = [[XMMEnduserApi alloc] init];
   }
   
@@ -66,7 +71,7 @@ dispatch_queue_t backgroundQueue;
   [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization" value:XAMOOM_API_TOKEN];
   
   //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
-  
+    
   return self;
 }
 
@@ -714,7 +719,7 @@ dispatch_queue_t backgroundQueue;
 
 #pragma mark - QRCodeReaderViewController
 
-- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController withAPIRequest:(BOOL)automaticAPIRequest withLanguage:(NSString *)language{
+- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController withLanguage:(NSString *)language{
   static QRCodeReaderViewController *reader = nil;
   static dispatch_once_t onceToken;
   
@@ -722,19 +727,19 @@ dispatch_queue_t backgroundQueue;
     reader                        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:qrCodeViewControllerCancelButtonTitle];
     reader.modalPresentationStyle = UIModalPresentationFormSheet;
   });
-  
-  reader.delegate = viewController;
-  
+
+  //completion
   [reader setCompletionWithBlock:^(NSString *resultAsString) {
-    if (automaticAPIRequest && [self getLocationIdentifierFromURL:resultAsString] != nil && resultAsString != nil) {
-      [self contentWithLocationIdentifier:[self getLocationIdentifierFromURL:resultAsString]
-                                     includeStyle:@"True"
-                                      includeMenu:@"True"
-                                     withLanguage:language
-       ];
+    if (!self.isQRCodeScanFinished) {
+      self.isQRCodeScanFinished = YES;
+      [viewController dismissViewControllerAnimated:YES completion:nil];
+      if ([delegate respondsToSelector:@selector(didScanQR:)] ) {
+        [delegate performSelector:@selector(didScanQR:) withObject:[self getLocationIdentifierFromURL:resultAsString]];
+      }
     }
   }];
   
+  self.isQRCodeScanFinished = NO;
   [viewController presentViewController:reader animated:YES completion:NULL];
 }
 
