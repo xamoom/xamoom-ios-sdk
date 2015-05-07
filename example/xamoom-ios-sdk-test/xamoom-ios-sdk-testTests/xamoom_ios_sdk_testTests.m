@@ -10,7 +10,7 @@
 #import <XCTest/XCTest.h>
 #import "XMMEnduserApi.h"
 
-@interface xamoom_ios_sdk_testTests : XCTestCase <XMMEnderuserApiDelegate>
+@interface xamoom_ios_sdk_testTests : XCTestCase <XMMEnduserApiDelegate>
 {
   BOOL done;
 }
@@ -24,6 +24,7 @@
 @property XMMResponseContentList *apiResultGetContentList;
 @property XMMResponseClosestSpot *apiResultClosestSpot;
 @property NSArray* fetchResult;
+@property NSString* qrScanResult;
 
 @end
 
@@ -343,7 +344,7 @@
 }
 
 - (void)didScanQR:(NSString *)result {
-  self.apiResultGetByLocationIdentifier = result;
+  self.qrScanResult = result;
   done = YES;
 }
 

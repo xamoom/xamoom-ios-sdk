@@ -67,7 +67,7 @@
  
  It is a collection of delegates for `XMMEnduserApi`.
  */
-@protocol XMMEnderuserApiDelegate <NSObject>
+@protocol XMMEnduserApiDelegate <NSObject>
 
 @optional
 
@@ -190,7 +190,7 @@ extern NSString * const kApiBaseURLString;
 /**
  Some description
  */
-@property (nonatomic, weak) id<XMMEnderuserApiDelegate> delegate;
+@property (nonatomic, weak) id<XMMEnduserApiDelegate> delegate;
 /**
  The base url of xamoom api.
  (readonly)

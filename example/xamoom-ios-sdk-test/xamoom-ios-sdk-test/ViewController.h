@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XMMEnduserApi.h"
 
-@interface ViewController : UIViewController <XMMEnderuserApiDelegate>
+@interface ViewController : UIViewController <XMMEnduserApiDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *outputTextView;
 
