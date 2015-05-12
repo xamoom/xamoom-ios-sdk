@@ -15,8 +15,11 @@ Download the xamoom-ios-sdk and add it to your project. Don't forget to install 
 `platform :ios, '7.0'
 pod 'xamoom-ios-sdk'`
 
-# Dependencies
+# Requirements
 
-* RestKit
-* QRCodeReaderViewController
+* ARC
+* Minumum iOS Target: iOS 8
+
+* RestKit 0.24
+* QRCodeReaderViewController 2.0.0
 
