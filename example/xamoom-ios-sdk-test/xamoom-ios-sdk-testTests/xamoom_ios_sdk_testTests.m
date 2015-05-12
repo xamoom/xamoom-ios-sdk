@@ -99,7 +99,7 @@
 
 - (void)testGetContentByIdFull {
   NSLog(@"Test Suite - testGetContentByIdFull");
-  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
+  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:YES withLanguage:@"de"];
   
   XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
@@ -115,7 +115,7 @@
 
 - (void)testGetContentByIdWithoutStyle {
   NSLog(@"Test Suite - testGetContentByIdWithoutStyle");
-  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"False" includeMenu:@"True" withLanguage:@"de"];
+  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:NO includeMenu:YES withLanguage:@"de"];
   
   XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
@@ -123,7 +123,7 @@
 
 - (void)testGetContentByIdWithoutMenu {
   NSLog(@"Test Suite - testGetContentByIdWithoutMenu");
-  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"False" withLanguage:@"de"];
+  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:NO withLanguage:@"de"];
   
   XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
@@ -131,7 +131,7 @@
 
 - (void)testGetContentByIdWithoutStyleAndMenu {
   NSLog(@"Test Suite - testGetContentByIdWithoutStyleAndMenu");
-  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"False" includeMenu:@"False" withLanguage:@"de"];
+  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:NO includeMenu:YES withLanguage:@"de"];
   
   XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
@@ -139,7 +139,7 @@
 
 - (void)testGetContentByIdWithEnglishLanguage {
   NSLog(@"Test Suite - testGetContentByIdWithEnglishLanguage");
-  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"False" withLanguage:@"en"];
+  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:NO withLanguage:@"en"];
   
   XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
@@ -237,7 +237,7 @@
 
 - (void)testClosestSpotsFromApi {
   NSLog(@"Test Suite - testClosestSpotsFromApi");
-  [api closestSpotsWith:46.615 andLon:14.263 withRadius:1000 withLimit:5 withLanguage:@"de"];
+  [api closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:5 withLanguage:@"de"];
   
   XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultClosestSpot, @"getContentList should return something");

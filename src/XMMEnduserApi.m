@@ -77,10 +77,10 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark public methods
 #pragma mark API calls
 
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language {
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language {
   NSDictionary *queryParams = @{@"content_id":contentId,
-                                @"include_style":style,
-                                @"include_menu":menu,
+                                @"include_style":(style) ? @"True" : @"False",
+                                @"include_menu":(menu) ? @"True" : @"False",
                                 @"language":language,
                                 };
   
@@ -268,12 +268,12 @@ static XMMEnduserApi *sharedInstance;
    ];
 }
 
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language full:(NSString*)full {
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full {
   NSDictionary *queryParams = @{@"content_id":contentId,
-                                @"include_style":style,
-                                @"include_menu":menu,
+                                @"include_style":(style) ? @"True" : @"False",
+                                @"include_menu":(menu) ? @"True" : @"False",
                                 @"language":language,
-                                @"full":full,
+                                @"full":(full) ? @"True" : @"False",
                                 };
   
   // Create mappings

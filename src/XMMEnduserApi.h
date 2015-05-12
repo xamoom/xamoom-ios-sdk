@@ -239,7 +239,7 @@ extern NSString * const kApiBaseURLString;
  @param language    The requested language of the content from xamoom backend.
  @return void
  */
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language;
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language;
 
 /**
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
@@ -251,8 +251,7 @@ extern NSString * const kApiBaseURLString;
  @param full        True or false for returning "unsynced" data or not
  @return void
  */
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language full:(NSString*)full;
-
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full;
 
 /**
  Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not available the
@@ -265,13 +264,14 @@ extern NSString * const kApiBaseURLString;
  @return void
  */
 - (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language;
+
 /**
  Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
  default language will be returned.
  
  @param lat         The latitude of a location.
  @param lon         The longitude of a location.
- @param language    The requested language of the content from xamoom backend.
+ @param language    The requested language of the content from xamoom backend
  @return void
  */
 - (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language;
@@ -281,7 +281,7 @@ extern NSString * const kApiBaseURLString;
  
  @param systemId    The id of the wanted system.
  @param mapTags     The Tags of the wanted spots.
- @param language    The requested language of the content from xamoom backend.
+ @param language    The requested language of the content from xamoom backend
  @return void
  */
 - (void)spotMapWithSystemId:(NSString*)systemId withMapTags:(NSString*)mapTags withLanguage:(NSString*)language;
@@ -290,7 +290,7 @@ extern NSString * const kApiBaseURLString;
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
  
  @param systemId   The id of the system from xamoom.
- @param language   The requested language of the content from xamoom backend.
+ @param language   The requested language of the content from xamoom backend
  @param pageSize   Number of items you will get returned
  @param cursor     Cursor for paging
  @return void
@@ -301,10 +301,11 @@ extern NSString * const kApiBaseURLString;
  Makes an api call to xamoom with a location and returns the closest spots.
  If the selected language is not available the default language will be returned.
  
- @param lat     Latitude
- @param lon     Longitude
- @param radius  Radius in decimenter
- @param limit   Limit of the results
+ @param lat       Latitude
+ @param lon       Longitude
+ @param radius    Radius in decimenter
+ @param limit     Limit of the results
+ @param language  The requested language of the content from xamoom backend
  @return void
  */
 - (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language;
