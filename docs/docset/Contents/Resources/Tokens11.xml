@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlockType0.html">
+	<File path="Classes/XMMResponseContent.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType0</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlockType0 is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContent</TokenIdentifier>
+			<Abstract type="html">XMMResponseContent is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
             
 			
 			<NodeRef refid="11"/>
@@ -13,26 +13,50 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType0/getMapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType0 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContent/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContent class.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
 			
-			<Declaration>+ (RKObjectMapping *)getMapping</Declaration>
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/getMapping</Anchor>
+			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="11"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType0/getDynamicMappingMatcher</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType0 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/setSortedContentBlocks:</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
 			
-			<Declaration>+ (RKObjectMappingMatcher *)getDynamicMappingMatcher</Declaration>
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
 			
-			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
-			<Anchor>//api/name/getDynamicMappingMatcher</Anchor>
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedContentBlocks</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/sortedContentBlocks</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedContentBlocks</Anchor>
+            <NodeRef refid="11"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContent/sortedContentBlocks</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedContentBlocks</Anchor>
             <NodeRef refid="11"/>
 		</Token>
 		

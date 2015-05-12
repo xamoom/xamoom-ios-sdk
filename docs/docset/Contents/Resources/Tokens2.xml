@@ -14,14 +14,14 @@ _XMMCoreDataContentBlocks contains everything used for Core Data (generated with
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataContentBlocks/getMapping</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataContentBlocks/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataContentBlocks class.</Abstract>
 			<DeclaredIn>XMMCoreDataContentBlocks.h</DeclaredIn>
 			
-			<Declaration>+ (NSDictionary *)getMapping</Declaration>
+			<Declaration>+ (NSDictionary *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
-			<Anchor>//api/name/getMapping</Anchor>
+			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		

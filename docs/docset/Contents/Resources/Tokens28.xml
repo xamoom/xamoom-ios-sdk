@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseStyle.html">
+	<File path="Classes/XMMResponseGetSpotMap.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseStyle</TokenIdentifier>
-			<Abstract type="html">XMMResponseStyle is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseGetSpotMap</TokenIdentifier>
+			<Abstract type="html">XMMResponseGetSpotMap is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseGetSpotMap.h</DeclaredIn>
             
 			
 			<NodeRef refid="28"/>
@@ -13,14 +13,14 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseStyle/getMapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseStyle class.</Abstract>
-			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseGetSpotMap/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseGetSpotMap class.</Abstract>
+			<DeclaredIn>XMMResponseGetSpotMap.h</DeclaredIn>
 			
-			<Declaration>+ (RKObjectMapping *)getMapping</Declaration>
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/getMapping</Anchor>
+			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="28"/>
 		</Token>
 		

@@ -14,11 +14,35 @@ _XMMCoreDataGetById.h contains everything used for Core Data (generated with mog
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMCoreDataGetById/setSortedMenuItem:</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataMenuItem in the right order.</Abstract>
+			<DeclaredIn>XMMCoreDataGetById.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedMenuItem</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedMenuItem</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/XMMCoreDataGetById/sortedMenuItem</TokenIdentifier>
 			<Abstract type="html">Returns the XMMCoreDataMenuItem in the right order.</Abstract>
 			<DeclaredIn>XMMCoreDataGetById.h</DeclaredIn>
 			
-			<Declaration>- (NSArray *)sortedMenuItem</Declaration>
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedMenuItem</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedMenuItem</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMCoreDataGetById/sortedMenuItem</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataMenuItem in the right order.</Abstract>
+			<DeclaredIn>XMMCoreDataGetById.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedMenuItem</Declaration>
 			
 			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
 			<Anchor>//api/name/sortedMenuItem</Anchor>

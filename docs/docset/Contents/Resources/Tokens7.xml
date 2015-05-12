@@ -14,14 +14,14 @@ _XMMCoreDataStyle contains everything used for Core Data (generated with mogener
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataStyle/getMapping</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataStyle/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataStyle class.</Abstract>
 			<DeclaredIn>XMMCoreDataStyle.h</DeclaredIn>
 			
-			<Declaration>+ (NSDictionary *)getMapping</Declaration>
+			<Declaration>+ (NSDictionary *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
-			<Anchor>//api/name/getMapping</Anchor>
+			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="7"/>
 		</Token>
 		

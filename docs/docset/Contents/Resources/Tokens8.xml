@@ -18,7 +18,7 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 			<Abstract type="html">Some description</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) id&lt;XMMEnderuserApiDelegate&gt; delegate</Declaration>
+			<Declaration>@property (nonatomic, weak) id&lt;XMMEnduserApiDelegate&gt; delegate</Declaration>
 			
 			
 			<Anchor>//api/name/delegate</Anchor>
@@ -30,7 +30,7 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 			<Abstract type="html">Some description</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) id&lt;XMMEnderuserApiDelegate&gt; delegate</Declaration>
+			<Declaration>@property (nonatomic, weak) id&lt;XMMEnduserApiDelegate&gt; delegate</Declaration>
 			
 			
 			<Anchor>//api/name/delegate</Anchor>
@@ -42,7 +42,7 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 			<Abstract type="html">Some description</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, assign) id&lt;XMMEnderuserApiDelegate&gt; delegate</Declaration>
+			<Declaration>@property (nonatomic, weak) id&lt;XMMEnduserApiDelegate&gt; delegate</Declaration>
 			
 			
 			<Anchor>//api/name/delegate</Anchor>
@@ -89,74 +89,38 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/setRssBaseUrl:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/setRssBaseUrlString:</TokenIdentifier>
 			<Abstract type="html">The base url of xamoom rss feed. You can change this one another url.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>@property NSString *rssBaseUrl</Declaration>
+			<Declaration>@property NSString *rssBaseUrlString</Declaration>
 			
 			
-			<Anchor>//api/name/rssBaseUrl</Anchor>
+			<Anchor>//api/name/rssBaseUrlString</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/rssBaseUrl</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/rssBaseUrlString</TokenIdentifier>
 			<Abstract type="html">The base url of xamoom rss feed. You can change this one another url.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>@property NSString *rssBaseUrl</Declaration>
+			<Declaration>@property NSString *rssBaseUrlString</Declaration>
 			
 			
-			<Anchor>//api/name/rssBaseUrl</Anchor>
+			<Anchor>//api/name/rssBaseUrlString</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMEnduserApi/rssBaseUrl</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMEnduserApi/rssBaseUrlString</TokenIdentifier>
 			<Abstract type="html">The base url of xamoom rss feed. You can change this one another url.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>@property NSString *rssBaseUrl</Declaration>
+			<Declaration>@property NSString *rssBaseUrlString</Declaration>
 			
 			
-			<Anchor>//api/name/rssBaseUrl</Anchor>
-            <NodeRef refid="8"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/setRssEntries:</TokenIdentifier>
-			<Abstract type="html">NSMutableArray for saving the rssItems.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>@property NSMutableArray *rssEntries</Declaration>
-			
-			
-			<Anchor>//api/name/rssEntries</Anchor>
-            <NodeRef refid="8"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/rssEntries</TokenIdentifier>
-			<Abstract type="html">NSMutableArray for saving the rssItems.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>@property NSMutableArray *rssEntries</Declaration>
-			
-			
-			<Anchor>//api/name/rssEntries</Anchor>
-            <NodeRef refid="8"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMEnduserApi/rssEntries</TokenIdentifier>
-			<Abstract type="html">NSMutableArray for saving the rssItems.</Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-			
-			<Declaration>@property NSMutableArray *rssEntries</Declaration>
-			
-			
-			<Anchor>//api/name/rssEntries</Anchor>
+			<Anchor>//api/name/rssBaseUrlString</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
@@ -201,7 +165,7 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 			<Abstract type="html">Bool to check if the CoreData is initialized.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>@property BOOL isCoreDataInitialized</Declaration>
+			<Declaration>@property (readonly) BOOL isCoreDataInitialized</Declaration>
 			
 			
 			<Anchor>//api/name/isCoreDataInitialized</Anchor>
@@ -213,7 +177,7 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 			<Abstract type="html">Bool to check if the CoreData is initialized.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>@property BOOL isCoreDataInitialized</Declaration>
+			<Declaration>@property (readonly) BOOL isCoreDataInitialized</Declaration>
 			
 			
 			<Anchor>//api/name/isCoreDataInitialized</Anchor>
@@ -225,10 +189,58 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 			<Abstract type="html">Bool to check if the CoreData is initialized.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>@property BOOL isCoreDataInitialized</Declaration>
+			<Declaration>@property (readonly) BOOL isCoreDataInitialized</Declaration>
 			
 			
 			<Anchor>//api/name/isCoreDataInitialized</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/setQrCodeViewControllerCancelButtonTitle:</TokenIdentifier>
+			<Abstract type="html">String with the title of the qr code view cancel button.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property NSString *qrCodeViewControllerCancelButtonTitle</Declaration>
+			
+			
+			<Anchor>//api/name/qrCodeViewControllerCancelButtonTitle</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/qrCodeViewControllerCancelButtonTitle</TokenIdentifier>
+			<Abstract type="html">String with the title of the qr code view cancel button.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property NSString *qrCodeViewControllerCancelButtonTitle</Declaration>
+			
+			
+			<Anchor>//api/name/qrCodeViewControllerCancelButtonTitle</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMEnduserApi/qrCodeViewControllerCancelButtonTitle</TokenIdentifier>
+			<Abstract type="html">String with the title of the qr code view cancel button.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property NSString *qrCodeViewControllerCancelButtonTitle</Declaration>
+			
+			
+			<Anchor>//api/name/qrCodeViewControllerCancelButtonTitle</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMEnduserApi/sharedInstance</TokenIdentifier>
+			<Abstract type="html">A shared instance from XMMEnduserApi.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>+ (XMMEnduserApi *)sharedInstance</Declaration>
+			
+			
+			<Anchor>//api/name/sharedInstance</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
@@ -237,7 +249,7 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 			<Abstract type="html">Inits the XMMEnduserApi: generates the apiBaseUrl and the rssBaseUrl and gets the preferred systemLanguage.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (id)init</Declaration>
+			<Declaration>- (instancetype)init</Declaration>
 			
 			<ReturnValue><Abstract type="html">id</Abstract></ReturnValue>
 			<Anchor>//api/name/init</Anchor>
@@ -245,11 +257,11 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/getContentFromApiById:includeStyle:includeMenu:withLanguage:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithContentId:includeStyle:includeMenu:withLanguage:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)getContentFromApiById:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)contentWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>contentId</Name>
@@ -266,17 +278,46 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/getContentFromApiById:includeStyle:includeMenu:withLanguage:</Anchor>
+			<Anchor>//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/getContentFromApiByLocationIdentifier:includeStyle:includeMenu:withLanguage:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithContentId:includeStyle:includeMenu:withLanguage:full:</TokenIdentifier>
+			<Abstract type="html">Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)contentWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language full:(NSString *)full</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>contentId</Name>
+					<Abstract type="html">The id of the content from xamoom backend.</Abstract>
+				</Parameter><Parameter>
+					<Name>style</Name>
+					<Abstract type="html">True or False for returning the style from xamoom backend.</Abstract>
+				</Parameter><Parameter>
+					<Name>menu</Name>
+					<Abstract type="html">True or False for returning the menu from xamoom backend.</Abstract>
+				</Parameter><Parameter>
+					<Name>language</Name>
+					<Abstract type="html">The requested language of the content from xamoom backend.</Abstract>
+				</Parameter><Parameter>
+					<Name>full</Name>
+					<Abstract type="html">True or false for returning &quot;unsynced&quot; data or not</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not available the
 default language will be returned.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)getContentFromApiByLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>locationIdentifier</Name>
@@ -293,17 +334,17 @@ default language will be returned.</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/getContentFromApiByLocationIdentifier:includeStyle:includeMenu:withLanguage:</Anchor>
+			<Anchor>//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/getContentFromApiWithLat:withLon:withLanguage:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithLat:withLon:withLanguage:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with a location (lat &amp;amp; lon). If the selected language is not available the
 default language will be returned.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)getContentFromApiWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)contentWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>lat</Name>
@@ -317,30 +358,83 @@ default language will be returned.</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/getContentFromApiWithLat:withLon:withLanguage:</Anchor>
+			<Anchor>//api/name/contentWithLat:withLon:withLanguage:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/getSpotMapWithSystemId:withMapTag:withLanguage:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/spotMapWithSystemId:withMapTags:withLanguage:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)getSpotMapWithSystemId:(NSString *)systemId withMapTag:(NSString *)mapTag withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)spotMapWithSystemId:(NSString *)systemId withMapTags:(NSString *)mapTags withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>systemId</Name>
 					<Abstract type="html">The id of the wanted system.</Abstract>
 				</Parameter><Parameter>
-					<Name>mapTag</Name>
-					<Abstract type="html">The Tag of the wanted spots.</Abstract>
+					<Name>mapTags</Name>
+					<Abstract type="html">The Tags of the wanted spots.</Abstract>
 				</Parameter><Parameter>
 					<Name>language</Name>
 					<Abstract type="html">The requested language of the content from xamoom backend.</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/getSpotMapWithSystemId:withMapTag:withLanguage:</Anchor>
+			<Anchor>//api/name/spotMapWithSystemId:withMapTags:withLanguage:</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentListWithSystemId:withLanguage:withPageSize:withCursor:</TokenIdentifier>
+			<Abstract type="html">Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)contentListWithSystemId:(NSString *)systemId withLanguage:(NSString *)language withPageSize:(int)pageSize withCursor:(NSString *)cursor</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>systemId</Name>
+					<Abstract type="html">The id of the system from xamoom.</Abstract>
+				</Parameter><Parameter>
+					<Name>language</Name>
+					<Abstract type="html">The requested language of the content from xamoom backend.</Abstract>
+				</Parameter><Parameter>
+					<Name>pageSize</Name>
+					<Abstract type="html">Number of items you will get returned</Abstract>
+				</Parameter><Parameter>
+					<Name>cursor</Name>
+					<Abstract type="html">Cursor for paging</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:</TokenIdentifier>
+			<Abstract type="html">Makes an api call to xamoom with a location and returns the closest spots.
+If the selected language is not available the default language will be returned.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString *)language</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>lat</Name>
+					<Abstract type="html">Latitude</Abstract>
+				</Parameter><Parameter>
+					<Name>lon</Name>
+					<Abstract type="html">Longitude</Abstract>
+				</Parameter><Parameter>
+					<Name>radius</Name>
+					<Abstract type="html">Radius in decimenter</Abstract>
+				</Parameter><Parameter>
+					<Name>limit</Name>
+					<Abstract type="html">Limit of the results</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
@@ -357,12 +451,12 @@ default language will be returned.</Abstract>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/getContentForCoreDataById:includeStyle:includeMenu:withLanguage:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
 Data will be saved in Core Data as XMMCoreDataGetById. Use fetchCoreDataContentByType: to get saved data.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)getContentForCoreDataById:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)saveContentToCoreDataWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>contentId</Name>
@@ -379,18 +473,18 @@ Data will be saved in Core Data as XMMCoreDataGetById. Use fetchCoreDataContentB
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/getContentForCoreDataById:includeStyle:includeMenu:withLanguage:</Anchor>
+			<Anchor>//api/name/saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not
 available the default language will be returned.
 Data will be saved in Core Data as XMMCoreDataGetById. Use fetchCoreDataContentByType: to get saved data.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)getContentForCoreDataByLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>locationIdentifier</Name>
@@ -407,17 +501,17 @@ Data will be saved in Core Data as XMMCoreDataGetById. Use fetchCoreDataContentB
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:</Anchor>
+			<Anchor>//api/name/saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/getContentForCoreDataByLocationWithLat:withLon:withLanguage:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/saveContentToCoreDataWithLat:withLon:withLanguage:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with a location (lat &amp;amp; lon). If the selected language is not available the
 default language will be returned as XMMCoreDataGetByLocation. Data will be saved in Core Data. Use fetchCoreDataContentByType: to get saved data.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)getContentForCoreDataByLocationWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)saveContentToCoreDataWithLat:(NSString *)lat withLon:(NSString *)lon withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>lat</Name>
@@ -431,16 +525,16 @@ default language will be returned as XMMCoreDataGetByLocation. Data will be save
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/getContentForCoreDataByLocationWithLat:withLon:withLanguage:</Anchor>
+			<Anchor>//api/name/saveContentToCoreDataWithLat:withLon:withLanguage:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/fetchCoreDataContentByType:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/fetchCoreDataContentWithType:</TokenIdentifier>
 			<Abstract type="html">Returns an array of all objects with the specific type from Core Data. Type can be &quot;id&quot; or &quot;location&quot;.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (NSArray *)fetchCoreDataContentByType:(NSString *)type</Declaration>
+			<Declaration>- (NSArray *)fetchCoreDataContentWithType:(NSString *)type</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>type</Name>
@@ -448,16 +542,16 @@ default language will be returned as XMMCoreDataGetByLocation. Data will be save
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
-			<Anchor>//api/name/fetchCoreDataContentByType:</Anchor>
+			<Anchor>//api/name/fetchCoreDataContentWithType:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/deleteCoreDataEntityById:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/deleteCoreDataEntityWithContentId:</TokenIdentifier>
 			<Abstract type="html">Deletes a entity in Core Data with the given contentId.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (BOOL)deleteCoreDataEntityById:(NSString *)contentId</Declaration>
+			<Declaration>- (BOOL)deleteCoreDataEntityWithContentId:(NSString *)contentId</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>contentId</Name>
@@ -465,41 +559,39 @@ default language will be returned as XMMCoreDataGetByLocation. Data will be save
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">BOOL       Yes if it got deleted, no if not.</Abstract></ReturnValue>
-			<Anchor>//api/name/deleteCoreDataEntityById:</Anchor>
+			<Anchor>//api/name/deleteCoreDataEntityWithContentId:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/getContentFromRSSFeed</TokenIdentifier>
-			<Abstract type="html">Gets the rss feed and parses it from a specific url (rssBaseUrl.</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/rssContentFeed</TokenIdentifier>
+			<Abstract type="html">Gets the rss feed and parses it from a specific url (rssBaseUrl).</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)getContentFromRSSFeed</Declaration>
+			<Declaration>- (void)rssContentFeed</Declaration>
 			
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/getContentFromRSSFeed</Anchor>
+			<Anchor>//api/name/rssContentFeed</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/startQRCodeReader:withAPIRequest:</TokenIdentifier>
-			<Abstract type="html">Starts the QRCodeReaderViewController to scan qr codes.
-  
-There are 2 delegates you can use:</Abstract>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/startQRCodeReaderFromViewController:withLanguage:</TokenIdentifier>
+			<Abstract type="html">Starts the QRCodeReaderViewController to scan qr codes.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)startQRCodeReader:(UIViewController *)viewController withAPIRequest:(BOOL)automaticAPIRequest</Declaration>
+			<Declaration>- (void)startQRCodeReaderFromViewController:(UIViewController *)viewController withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>viewController</Name>
 					<Abstract type="html">The ViewController from where you want to call the QRCodeReader (usually self)</Abstract>
 				</Parameter><Parameter>
-					<Name>automaticAPIRequest</Name>
-					<Abstract type="html">Yes to start after scan automatically a getContentByLocationIdentifier request</Abstract>
+					<Name>language</Name>
+					<Abstract type="html">The returned language of the automaticApiRequest</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/startQRCodeReader:withAPIRequest:</Anchor>
+			<Anchor>//api/name/startQRCodeReaderFromViewController:withLanguage:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		

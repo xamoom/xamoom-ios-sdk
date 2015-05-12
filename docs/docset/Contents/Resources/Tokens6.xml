@@ -14,14 +14,14 @@ _XMMCoreDataMenuItem contains everything used for Core Data (generated with moge
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataMenuItem/getMapping</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataMenuItem/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataMenuItem class.</Abstract>
 			<DeclaredIn>XMMCoreDataMenuItem.h</DeclaredIn>
 			
-			<Declaration>+ (NSDictionary *)getMapping</Declaration>
+			<Declaration>+ (NSDictionary *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
-			<Anchor>//api/name/getMapping</Anchor>
+			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="6"/>
 		</Token>
 		

@@ -62,9 +62,9 @@
 		
 		<option value="//api/name/isCoreDataInitialized">isCoreDataInitialized</option>
 		
-		<option value="//api/name/rssBaseUrl">rssBaseUrl</option>
+		<option value="//api/name/qrCodeViewControllerCancelButtonTitle">qrCodeViewControllerCancelButtonTitle</option>
 		
-		<option value="//api/name/rssEntries">rssEntries</option>
+		<option value="//api/name/rssBaseUrlString">rssBaseUrlString</option>
 		
 		<option value="//api/name/systemLanguage">systemLanguage</option>
 		
@@ -72,35 +72,47 @@
 	
 
 	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/sharedInstance">+ sharedInstance</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/deleteCoreDataEntityById:">- deleteCoreDataEntityById:</option>
+		<option value="//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:">- closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:</option>
 		
-		<option value="//api/name/fetchCoreDataContentByType:">- fetchCoreDataContentByType:</option>
+		<option value="//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:">- contentListWithSystemId:withLanguage:withPageSize:withCursor:</option>
 		
-		<option value="//api/name/getContentForCoreDataById:includeStyle:includeMenu:withLanguage:">- getContentForCoreDataById:includeStyle:includeMenu:withLanguage:</option>
+		<option value="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:">- contentWithContentId:includeStyle:includeMenu:withLanguage:</option>
 		
-		<option value="//api/name/getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:">- getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:</option>
+		<option value="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:">- contentWithContentId:includeStyle:includeMenu:withLanguage:full:</option>
 		
-		<option value="//api/name/getContentForCoreDataByLocationWithLat:withLon:withLanguage:">- getContentForCoreDataByLocationWithLat:withLon:withLanguage:</option>
+		<option value="//api/name/contentWithLat:withLon:withLanguage:">- contentWithLat:withLon:withLanguage:</option>
 		
-		<option value="//api/name/getContentFromApiById:includeStyle:includeMenu:withLanguage:">- getContentFromApiById:includeStyle:includeMenu:withLanguage:</option>
+		<option value="//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:">- contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</option>
 		
-		<option value="//api/name/getContentFromApiByLocationIdentifier:includeStyle:includeMenu:withLanguage:">- getContentFromApiByLocationIdentifier:includeStyle:includeMenu:withLanguage:</option>
+		<option value="//api/name/deleteCoreDataEntityWithContentId:">- deleteCoreDataEntityWithContentId:</option>
 		
-		<option value="//api/name/getContentFromApiWithLat:withLon:withLanguage:">- getContentFromApiWithLat:withLon:withLanguage:</option>
-		
-		<option value="//api/name/getContentFromRSSFeed">- getContentFromRSSFeed</option>
-		
-		<option value="//api/name/getSpotMapWithSystemId:withMapTag:withLanguage:">- getSpotMapWithSystemId:withMapTag:withLanguage:</option>
+		<option value="//api/name/fetchCoreDataContentWithType:">- fetchCoreDataContentWithType:</option>
 		
 		<option value="//api/name/init">- init</option>
 		
 		<option value="//api/name/initCoreData">- initCoreData</option>
 		
-		<option value="//api/name/startQRCodeReader:withAPIRequest:">- startQRCodeReader:withAPIRequest:</option>
+		<option value="//api/name/rssContentFeed">- rssContentFeed</option>
+		
+		<option value="//api/name/saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:">- saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:</option>
+		
+		<option value="//api/name/saveContentToCoreDataWithLat:withLon:withLanguage:">- saveContentToCoreDataWithLat:withLon:withLanguage:</option>
+		
+		<option value="//api/name/saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:">- saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</option>
+		
+		<option value="//api/name/spotMapWithSystemId:withMapTags:withLanguage:">- spotMapWithSystemId:withMapTags:withLanguage:</option>
+		
+		<option value="//api/name/startQRCodeReaderFromViewController:withLanguage:">- startQRCodeReaderFromViewController:withLanguage:</option>
 		
 	</optgroup>
 	
@@ -144,10 +156,9 @@ If you want to use the build in core data, you must call <a href="#//api/name/in
 
 <p><em>Set up xamoom-ios-sdk like this:</em></p>
 
-<pre><code>api = [[XMMEnduserApi alloc] init];
+<p>api = [[XMMEnduserApi alloc] init];
 api.delegate = self;
-[api initCoreData];
-</code></pre>
+[api initCoreData];</p>
 					</div>
 					
 					
@@ -179,7 +190,7 @@ api.delegate = self;
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) id&lt;XMMEnderuserApiDelegate&gt; delegate</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;XMMEnduserApiDelegate&gt; delegate</code></div>
 
 		    
 			
@@ -246,8 +257,8 @@ api.delegate = self;
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/rssBaseUrl" title="rssBaseUrl"></a>
-	<h3 class="method-title"><code><a href="#//api/name/rssBaseUrl">&nbsp;&nbsp;rssBaseUrl</a></code>
+	<a name="//api/name/rssBaseUrlString" title="rssBaseUrlString"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rssBaseUrlString">&nbsp;&nbsp;rssBaseUrlString</a></code>
 </h3>
 
 	<div class="method-info">
@@ -262,48 +273,7 @@ api.delegate = self;
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property NSString *rssBaseUrl</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/rssEntries" title="rssEntries"></a>
-	<h3 class="method-title"><code><a href="#//api/name/rssEntries">&nbsp;&nbsp;rssEntries</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>NSMutableArray for saving the rssItems.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property NSMutableArray *rssEntries</code></div>
+			<div class="method-subsection method-declaration"><code>@property NSString *rssBaseUrlString</code></div>
 
 		    
 			
@@ -385,7 +355,89 @@ api.delegate = self;
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property BOOL isCoreDataInitialized</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) BOOL isCoreDataInitialized</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/qrCodeViewControllerCancelButtonTitle" title="qrCodeViewControllerCancelButtonTitle"></a>
+	<h3 class="method-title"><code><a href="#//api/name/qrCodeViewControllerCancelButtonTitle">&nbsp;&nbsp;qrCodeViewControllerCancelButtonTitle</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>String with the title of the qr code view cancel button.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property NSString *qrCodeViewControllerCancelButtonTitle</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sharedInstance" title="sharedInstance"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sharedInstance">+&nbsp;sharedInstance</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A shared instance from XMMEnduserApi.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (XMMEnduserApi *)sharedInstance</code></div>
 
 		    
 			
@@ -429,12 +481,12 @@ api.delegate = self;
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Inits the XMMEnduserApi: generates the apiBaseUrl and the <a href="#//api/name/rssBaseUrl">rssBaseUrl</a> and gets the preferred <a href="#//api/name/systemLanguage">systemLanguage</a>.</p>
+				<p>Inits the XMMEnduserApi: generates the apiBaseUrl and the rssBaseUrl and gets the preferred <a href="#//api/name/systemLanguage">systemLanguage</a>.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (id)init</code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)init</code></div>
 
 		    
 			
@@ -472,8 +524,8 @@ api.delegate = self;
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/getContentFromApiById:includeStyle:includeMenu:withLanguage:" title="getContentFromApiById:includeStyle:includeMenu:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getContentFromApiById:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;getContentFromApiById:includeStyle:includeMenu:withLanguage:</a></code>
+	<a name="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:" title="contentWithContentId:includeStyle:includeMenu:withLanguage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;contentWithContentId:includeStyle:includeMenu:withLanguage:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -488,7 +540,7 @@ api.delegate = self;
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getContentFromApiById:(NSString *)<em>contentId</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -545,8 +597,86 @@ api.delegate = self;
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/getContentFromApiByLocationIdentifier:includeStyle:includeMenu:withLanguage:" title="getContentFromApiByLocationIdentifier:includeStyle:includeMenu:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getContentFromApiByLocationIdentifier:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;getContentFromApiByLocationIdentifier:includeStyle:includeMenu:withLanguage:</a></code>
+	<a name="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:" title="contentWithContentId:includeStyle:includeMenu:withLanguage:full:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:">&ndash;&nbsp;contentWithContentId:includeStyle:includeMenu:withLanguage:full:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em> full:(NSString *)<em>full</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentId</code></th>
+						<td><p>The id of the content from xamoom backend.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>style</code></th>
+						<td><p>True or False for returning the style from xamoom backend.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>menu</code></th>
+						<td><p>True or False for returning the menu from xamoom backend.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>language</code></th>
+						<td><p>The requested language of the content from xamoom backend.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>full</code></th>
+						<td><p>True or false for returning &ldquo;unsynced&rdquo; data or not</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>void</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:" title="contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -562,7 +692,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getContentFromApiByLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -619,8 +749,8 @@ default language will be returned.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/getContentFromApiWithLat:withLon:withLanguage:" title="getContentFromApiWithLat:withLon:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getContentFromApiWithLat:withLon:withLanguage:">&ndash;&nbsp;getContentFromApiWithLat:withLon:withLanguage:</a></code>
+	<a name="//api/name/contentWithLat:withLon:withLanguage:" title="contentWithLat:withLon:withLanguage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentWithLat:withLon:withLanguage:">&ndash;&nbsp;contentWithLat:withLon:withLanguage:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -636,7 +766,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getContentFromApiWithLat:(NSString *)<em>lat</em> withLon:(NSString *)<em>lon</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithLat:(NSString *)<em>lat</em> withLon:(NSString *)<em>lon</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -688,8 +818,8 @@ default language will be returned.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/getSpotMapWithSystemId:withMapTag:withLanguage:" title="getSpotMapWithSystemId:withMapTag:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getSpotMapWithSystemId:withMapTag:withLanguage:">&ndash;&nbsp;getSpotMapWithSystemId:withMapTag:withLanguage:</a></code>
+	<a name="//api/name/spotMapWithSystemId:withMapTags:withLanguage:" title="spotMapWithSystemId:withMapTags:withLanguage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/spotMapWithSystemId:withMapTags:withLanguage:">&ndash;&nbsp;spotMapWithSystemId:withMapTags:withLanguage:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -704,7 +834,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getSpotMapWithSystemId:(NSString *)<em>systemId</em> withMapTag:(NSString *)<em>mapTag</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)spotMapWithSystemId:(NSString *)<em>systemId</em> withMapTags:(NSString *)<em>mapTags</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -718,13 +848,160 @@ default language will be returned.</p>
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>mapTag</code></th>
-						<td><p>The Tag of the wanted spots.</p></td>
+						<th scope="row" class="argument-name"><code>mapTags</code></th>
+						<td><p>The Tags of the wanted spots.</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>language</code></th>
 						<td><p>The requested language of the content from xamoom backend.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>void</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:" title="contentListWithSystemId:withLanguage:withPageSize:withCursor:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:">&ndash;&nbsp;contentListWithSystemId:withLanguage:withPageSize:withCursor:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)contentListWithSystemId:(NSString *)<em>systemId</em> withLanguage:(NSString *)<em>language</em> withPageSize:(int)<em>pageSize</em> withCursor:(NSString *)<em>cursor</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>systemId</code></th>
+						<td><p>The id of the system from xamoom.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>language</code></th>
+						<td><p>The requested language of the content from xamoom backend.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>pageSize</code></th>
+						<td><p>Number of items you will get returned</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>cursor</code></th>
+						<td><p>Cursor for paging</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>void</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:" title="closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:">&ndash;&nbsp;closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Makes an api call to xamoom with a location and returns the closest spots.
+If the selected language is not available the default language will be returned.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)closestSpotsWithLat:(float)<em>lat</em> withLon:(float)<em>lon</em> withRadius:(int)<em>radius</em> withLimit:(int)<em>limit</em> withLanguage:(NSString *)<em>language</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>lat</code></th>
+						<td><p>Latitude</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>lon</code></th>
+						<td><p>Longitude</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>radius</code></th>
+						<td><p>Radius in decimenter</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>limit</code></th>
+						<td><p>Limit of the results</p></td>
 					</tr>
 				
 				</table>
@@ -798,11 +1075,11 @@ default language will be returned.</p>
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
 				<div class="warning"><p><strong>Warning:</strong> Must be called before using any other core data related method.
-(<a href="#//api/name/getContentForCoreDataById:includeStyle:includeMenu:withLanguage:"><code>getContentForCoreDataById:includeStyle:includeMenu:withLanguage:</code></a>,
-<a href="#//api/name/getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:"><code>getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:</code></a>,
+(<code>getContentForCoreDataById:includeStyle:includeMenu:withLanguage:</code>,
+<code>getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:</code>,
 <code>getContentForCoreDataByLocationWithLat:withLon:withLon:</code>,
-<a href="#//api/name/fetchCoreDataContentByType:"><code>fetchCoreDataContentByType:</code></a>,
-<a href="#//api/name/deleteCoreDataEntityById:"><code>deleteCoreDataEntityById:</code></a>)</p></div>
+<code>fetchCoreDataContentByType:</code>,
+<code>deleteCoreDataEntityById:</code>)</p></div>
 			</div>
 			
 
@@ -820,8 +1097,8 @@ default language will be returned.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/getContentForCoreDataById:includeStyle:includeMenu:withLanguage:" title="getContentForCoreDataById:includeStyle:includeMenu:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getContentForCoreDataById:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;getContentForCoreDataById:includeStyle:includeMenu:withLanguage:</a></code>
+	<a name="//api/name/saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:" title="saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -832,12 +1109,12 @@ default language will be returned.</p>
 			
 			<div class="method-subsection brief-description">
 				<p>Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
-Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html"><code>XMMCoreDataGetById</code></a>. Use <a href="#//api/name/fetchCoreDataContentByType:"><code>fetchCoreDataContentByType:</code></a> to get saved data.</p>
+Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html"><code>XMMCoreDataGetById</code></a>. Use <code>fetchCoreDataContentByType:</code> to get saved data.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getContentForCoreDataById:(NSString *)<em>contentId</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithContentId:(NSString *)<em>contentId</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -894,8 +1171,8 @@ Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html">
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:" title="getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:</a></code>
+	<a name="//api/name/saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:" title="saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -907,12 +1184,12 @@ Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html">
 			<div class="method-subsection brief-description">
 				<p>Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not
 available the default language will be returned.
-Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html"><code>XMMCoreDataGetById</code></a>. Use <a href="#//api/name/fetchCoreDataContentByType:"><code>fetchCoreDataContentByType:</code></a> to get saved data.</p>
+Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html"><code>XMMCoreDataGetById</code></a>. Use <code>fetchCoreDataContentByType:</code> to get saved data.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getContentForCoreDataByLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -969,8 +1246,8 @@ Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html">
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/getContentForCoreDataByLocationWithLat:withLon:withLanguage:" title="getContentForCoreDataByLocationWithLat:withLon:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getContentForCoreDataByLocationWithLat:withLon:withLanguage:">&ndash;&nbsp;getContentForCoreDataByLocationWithLat:withLon:withLanguage:</a></code>
+	<a name="//api/name/saveContentToCoreDataWithLat:withLon:withLanguage:" title="saveContentToCoreDataWithLat:withLon:withLanguage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/saveContentToCoreDataWithLat:withLon:withLanguage:">&ndash;&nbsp;saveContentToCoreDataWithLat:withLon:withLanguage:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -981,12 +1258,12 @@ Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html">
 			
 			<div class="method-subsection brief-description">
 				<p>Makes an api call to xamoom with a location (lat &amp; lon). If the selected language is not available the
-default language will be returned as <a href="../Classes/XMMCoreDataGetByLocation.html"><code>XMMCoreDataGetByLocation</code></a>. Data will be saved in Core Data. Use <a href="#//api/name/fetchCoreDataContentByType:"><code>fetchCoreDataContentByType:</code></a> to get saved data.</p>
+default language will be returned as <a href="../Classes/XMMCoreDataGetByLocation.html"><code>XMMCoreDataGetByLocation</code></a>. Data will be saved in Core Data. Use <code>fetchCoreDataContentByType:</code> to get saved data.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getContentForCoreDataByLocationWithLat:(NSString *)<em>lat</em> withLon:(NSString *)<em>lon</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithLat:(NSString *)<em>lat</em> withLon:(NSString *)<em>lon</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -1038,8 +1315,8 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/fetchCoreDataContentByType:" title="fetchCoreDataContentByType:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/fetchCoreDataContentByType:">&ndash;&nbsp;fetchCoreDataContentByType:</a></code>
+	<a name="//api/name/fetchCoreDataContentWithType:" title="fetchCoreDataContentWithType:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fetchCoreDataContentWithType:">&ndash;&nbsp;fetchCoreDataContentWithType:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1054,7 +1331,7 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray *)fetchCoreDataContentByType:(NSString *)<em>type</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (NSArray *)fetchCoreDataContentWithType:(NSString *)<em>type</em></code></div>
 
 		    
 			
@@ -1096,8 +1373,8 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/deleteCoreDataEntityById:" title="deleteCoreDataEntityById:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/deleteCoreDataEntityById:">&ndash;&nbsp;deleteCoreDataEntityById:</a></code>
+	<a name="//api/name/deleteCoreDataEntityWithContentId:" title="deleteCoreDataEntityWithContentId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteCoreDataEntityWithContentId:">&ndash;&nbsp;deleteCoreDataEntityWithContentId:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1112,7 +1389,7 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (BOOL)deleteCoreDataEntityById:(NSString *)<em>contentId</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (BOOL)deleteCoreDataEntityWithContentId:(NSString *)<em>contentId</em></code></div>
 
 		    
 			
@@ -1162,8 +1439,8 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/getContentFromRSSFeed" title="getContentFromRSSFeed"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getContentFromRSSFeed">&ndash;&nbsp;getContentFromRSSFeed</a></code>
+	<a name="//api/name/rssContentFeed" title="rssContentFeed"></a>
+	<h3 class="method-title"><code><a href="#//api/name/rssContentFeed">&ndash;&nbsp;rssContentFeed</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1173,12 +1450,12 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Gets the rss feed and parses it from a specific url (<a href="#//api/name/rssBaseUrl"><code>rssBaseUrl</code></a>).</p>
+				<p>Gets the rss feed and parses it from a specific url (<code>rssBaseUrl</code>).</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getContentFromRSSFeed</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)rssContentFeed</code></div>
 
 		    
 			
@@ -1216,8 +1493,8 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/startQRCodeReader:withAPIRequest:" title="startQRCodeReader:withAPIRequest:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/startQRCodeReader:withAPIRequest:">&ndash;&nbsp;startQRCodeReader:withAPIRequest:</a></code>
+	<a name="//api/name/startQRCodeReaderFromViewController:withLanguage:" title="startQRCodeReaderFromViewController:withLanguage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startQRCodeReaderFromViewController:withLanguage:">&ndash;&nbsp;startQRCodeReaderFromViewController:withLanguage:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1228,13 +1505,11 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 			
 			<div class="method-subsection brief-description">
 				<p>Starts the QRCodeReaderViewController to scan qr codes.</p>
-
-<p>There are 2 delegates you can use:</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startQRCodeReader:(UIViewController *)<em>viewController</em> withAPIRequest:(BOOL)<em>automaticAPIRequest</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startQRCodeReaderFromViewController:(UIViewController *)<em>viewController</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -1248,8 +1523,8 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>automaticAPIRequest</code></th>
-						<td><p>Yes to start after scan automatically a getContentByLocationIdentifier request</p></td>
+						<th scope="row" class="argument-name"><code>language</code></th>
+						<td><p>The returned language of the automaticApiRequest</p></td>
 					</tr>
 				
 				</table>
@@ -1268,27 +1543,30 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<ul>
+				<p>There are 2 delegates you can use:</p>
+
+<ul>
 <li>reader:didScanResult:</li>
-<li>readerDidCancel:</li>
+<li><a href="#//api/name/readerDidCancel:">readerDidCancel:</a></li>
 </ul>
 
 
 <p>In code it would be look like this:</p>
 
-<pre><code>- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+<ul>
+<li><p>(void)reader:(QRCodeReaderViewController <em>)reader didScanResult:(NSString </em>)result
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"Completion with result: %@", result);
-    }];
-}
+[self dismissViewControllerAnimated:YES completion:^{
+NSLog(@&ldquo;Completion with result: %@&rdquo;, result);
+}];
+}</p></li>
+<li><p>(void)<a href="#//api/name/readerDidCancel:">readerDidCancel:</a>(QRCodeReaderViewController *)reader
+{
+NSLog(@&ldquo;readerDidCancel&rdquo;);
+[self dismissViewControllerAnimated:YES completion:NULL];
+}</p></li>
+</ul>
 
-- (void)readerDidCancel:(QRCodeReaderViewController *)reader
-{
-    NSLog(@"readerDidCancel");
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-</code></pre>
 			</div>
 			
 
@@ -1318,7 +1596,7 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-03-03</p>
+						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-05-12</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

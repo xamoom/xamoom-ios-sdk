@@ -14,14 +14,14 @@ _XMMCoreDataGetByLocationItem.h contains everything used for Core Data (generate
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataGetByLocationItem/getMapping</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataGetByLocationItem/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataGetByLocationItem class.</Abstract>
 			<DeclaredIn>XMMCoreDataGetByLocationItem.h</DeclaredIn>
 			
-			<Declaration>+ (NSDictionary *)getMapping</Declaration>
+			<Declaration>+ (NSDictionary *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
-			<Anchor>//api/name/getMapping</Anchor>
+			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="5"/>
 		</Token>
 		

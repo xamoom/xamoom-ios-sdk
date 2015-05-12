@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>XMMEnderuserApiDelegate Protocol Reference</title>
+	<title>XMMEnduserApiDelegate Protocol Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -60,25 +60,27 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/didLoadData:">- didLoadData:</option>
+		<option value="//api/name/didLoadClosestSpots:">- didLoadClosestSpots:</option>
 		
-		<option value="//api/name/didLoadDataById:">- didLoadDataById:</option>
+		<option value="//api/name/didLoadContentList:">- didLoadContentList:</option>
 		
-		<option value="//api/name/didLoadDataByLocation:">- didLoadDataByLocation:</option>
+		<option value="//api/name/didLoadDataWithContentId:">- didLoadDataWithContentId:</option>
 		
-		<option value="//api/name/didLoadDataByLocationIdentifier:">- didLoadDataByLocationIdentifier:</option>
+		<option value="//api/name/didLoadDataWithLocation:">- didLoadDataWithLocation:</option>
 		
-		<option value="//api/name/didLoadDataBySpotMap:">- didLoadDataBySpotMap:</option>
+		<option value="//api/name/didLoadDataWithLocationIdentifier:">- didLoadDataWithLocationIdentifier:</option>
 		
 		<option value="//api/name/didLoadRSS:">- didLoadRSS:</option>
 		
-		<option value="//api/name/savedContentToCoreData">- savedContentToCoreData</option>
+		<option value="//api/name/didLoadSpotMap:">- didLoadSpotMap:</option>
 		
-		<option value="//api/name/savedContentToCoreDataById">- savedContentToCoreDataById</option>
+		<option value="//api/name/didScanQR:">- didScanQR:</option>
 		
-		<option value="//api/name/savedContentToCoreDataByLocation">- savedContentToCoreDataByLocation</option>
+		<option value="//api/name/savedContentToCoreDataWithContentId">- savedContentToCoreDataWithContentId</option>
 		
-		<option value="//api/name/savedContentToCoreDataByLocationIdentifier">- savedContentToCoreDataByLocationIdentifier</option>
+		<option value="//api/name/savedContentToCoreDataWithLocation">- savedContentToCoreDataWithLocation</option>
+		
+		<option value="//api/name/savedContentToCoreDataWithLocationIdentifier">- savedContentToCoreDataWithLocationIdentifier</option>
 		
 	</optgroup>
 	
@@ -95,7 +97,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">XMMEnderuserApiDelegate Protocol Reference</h1>
+					<h1 class="title">XMMEnduserApiDelegate Protocol Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -132,69 +134,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/didLoadData:" title="didLoadData:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/didLoadData:">&ndash;&nbsp;didLoadData:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Delegate to return the results from getContentById, getContentByLocation and getContentByLocationIdentifier as RKMappingResult.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)didLoadData:(RKMappingResult *)<em>result</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>result</code></th>
-						<td><ul>
-<li>The result as RKMappingResult.</li>
-</ul>
-</td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>void</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/didLoadDataById:" title="didLoadDataById:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/didLoadDataById:">&ndash;&nbsp;didLoadDataById:</a></code>
+	<a name="//api/name/didLoadDataWithContentId:" title="didLoadDataWithContentId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didLoadDataWithContentId:">&ndash;&nbsp;didLoadDataWithContentId:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -209,7 +150,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)didLoadDataById:(XMMResponseGetById *)<em>result</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)didLoadDataWithContentId:(XMMResponseGetById *)<em>result</em></code></div>
 
 		    
 			
@@ -254,8 +195,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/didLoadDataByLocationIdentifier:" title="didLoadDataByLocationIdentifier:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/didLoadDataByLocationIdentifier:">&ndash;&nbsp;didLoadDataByLocationIdentifier:</a></code>
+	<a name="//api/name/didLoadDataWithLocationIdentifier:" title="didLoadDataWithLocationIdentifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didLoadDataWithLocationIdentifier:">&ndash;&nbsp;didLoadDataWithLocationIdentifier:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -270,7 +211,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)didLoadDataByLocationIdentifier:(XMMResponseGetByLocationIdentifier *)<em>result</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)didLoadDataWithLocationIdentifier:(XMMResponseGetByLocationIdentifier *)<em>result</em></code></div>
 
 		    
 			
@@ -315,8 +256,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/didLoadDataByLocation:" title="didLoadDataByLocation:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/didLoadDataByLocation:">&ndash;&nbsp;didLoadDataByLocation:</a></code>
+	<a name="//api/name/didLoadDataWithLocation:" title="didLoadDataWithLocation:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didLoadDataWithLocation:">&ndash;&nbsp;didLoadDataWithLocation:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -331,7 +272,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)didLoadDataByLocation:(XMMResponseGetByLocation *)<em>result</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)didLoadDataWithLocation:(XMMResponseGetByLocation *)<em>result</em></code></div>
 
 		    
 			
@@ -376,8 +317,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/didLoadDataBySpotMap:" title="didLoadDataBySpotMap:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/didLoadDataBySpotMap:">&ndash;&nbsp;didLoadDataBySpotMap:</a></code>
+	<a name="//api/name/didLoadSpotMap:" title="didLoadSpotMap:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didLoadSpotMap:">&ndash;&nbsp;didLoadSpotMap:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -392,7 +333,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)didLoadDataBySpotMap:(XMMResponseGetSpotMap *)<em>result</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)didLoadSpotMap:(XMMResponseGetSpotMap *)<em>result</em></code></div>
 
 		    
 			
@@ -436,17 +377,9 @@
 			
 		</div>
 	</div>
-</div>
-						</div>
-						
-
-						<a title="Core Data Delegates" name="task_Core Data Delegates"></a>
-						<h2 class="task-title">Core Data Delegates</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/savedContentToCoreData" title="savedContentToCoreData"></a>
-	<h3 class="method-title"><code><a href="#//api/name/savedContentToCoreData">&ndash;&nbsp;savedContentToCoreData</a></code>
+</div><div class="section-method">
+	<a name="//api/name/didLoadContentList:" title="didLoadContentList:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didLoadContentList:">&ndash;&nbsp;didLoadContentList:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -456,15 +389,29 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Delegate to notify that getContentForCoreDataById, getContentForCoreDataByLocationWithLat and getContentForCoreDataByLocationIdentifier
-are finished with core data. Now you can fetch the Core Data.</p>
+				<p>Delegate to return the result from getContentList as <a href="../Classes/XMMResponseContentList.html">XMMResponseContentList</a>.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)savedContentToCoreData</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)didLoadContentList:(XMMResponseContentList *)<em>result</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>result</code></th>
+						<td><ul>
+<li>The result as <a href="../Classes/XMMResponseContentList.html">XMMResponseContentList</a>.</li>
+</ul>
+</td>
+					</tr>
+				
+				</table>
+			</div>
 			
 
 			
@@ -492,8 +439,77 @@ are finished with core data. Now you can fetch the Core Data.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/savedContentToCoreDataById" title="savedContentToCoreDataById"></a>
-	<h3 class="method-title"><code><a href="#//api/name/savedContentToCoreDataById">&ndash;&nbsp;savedContentToCoreDataById</a></code>
+	<a name="//api/name/didLoadClosestSpots:" title="didLoadClosestSpots:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didLoadClosestSpots:">&ndash;&nbsp;didLoadClosestSpots:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Delegate to return the result from closestSpots as <a href="../Classes/XMMResponseClosestSpot.html">XMMResponseClosestSpot</a>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didLoadClosestSpots:(XMMResponseClosestSpot *)<em>result</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>result</code></th>
+						<td><ul>
+<li>The result as <a href="../Classes/XMMResponseClosestSpot.html">XMMResponseClosestSpot</a>.</li>
+</ul>
+</td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>void</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Core Data DelegatesXMMResponseClosestSpot" name="task_Core Data DelegatesXMMResponseClosestSpot"></a>
+						<h2 class="task-title">Core Data DelegatesXMMResponseClosestSpot</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/savedContentToCoreDataWithContentId" title="savedContentToCoreDataWithContentId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/savedContentToCoreDataWithContentId">&ndash;&nbsp;savedContentToCoreDataWithContentId</a></code>
 </h3>
 
 	<div class="method-info">
@@ -508,7 +524,7 @@ are finished with core data. Now you can fetch the Core Data.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)savedContentToCoreDataById</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)savedContentToCoreDataWithContentId</code></div>
 
 		    
 			
@@ -538,8 +554,8 @@ are finished with core data. Now you can fetch the Core Data.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/savedContentToCoreDataByLocationIdentifier" title="savedContentToCoreDataByLocationIdentifier"></a>
-	<h3 class="method-title"><code><a href="#//api/name/savedContentToCoreDataByLocationIdentifier">&ndash;&nbsp;savedContentToCoreDataByLocationIdentifier</a></code>
+	<a name="//api/name/savedContentToCoreDataWithLocationIdentifier" title="savedContentToCoreDataWithLocationIdentifier"></a>
+	<h3 class="method-title"><code><a href="#//api/name/savedContentToCoreDataWithLocationIdentifier">&ndash;&nbsp;savedContentToCoreDataWithLocationIdentifier</a></code>
 </h3>
 
 	<div class="method-info">
@@ -554,7 +570,7 @@ are finished with core data. Now you can fetch the Core Data.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)savedContentToCoreDataByLocationIdentifier</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)savedContentToCoreDataWithLocationIdentifier</code></div>
 
 		    
 			
@@ -584,8 +600,8 @@ are finished with core data. Now you can fetch the Core Data.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/savedContentToCoreDataByLocation" title="savedContentToCoreDataByLocation"></a>
-	<h3 class="method-title"><code><a href="#//api/name/savedContentToCoreDataByLocation">&ndash;&nbsp;savedContentToCoreDataByLocation</a></code>
+	<a name="//api/name/savedContentToCoreDataWithLocation" title="savedContentToCoreDataWithLocation"></a>
+	<h3 class="method-title"><code><a href="#//api/name/savedContentToCoreDataWithLocation">&ndash;&nbsp;savedContentToCoreDataWithLocation</a></code>
 </h3>
 
 	<div class="method-info">
@@ -600,7 +616,7 @@ are finished with core data. Now you can fetch the Core Data.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)savedContentToCoreDataByLocation</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)savedContentToCoreDataWithLocation</code></div>
 
 		    
 			
@@ -698,6 +714,67 @@ are finished with core data. Now you can fetch the Core Data.</p>
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/didScanQR:" title="didScanQR:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didScanQR:">&ndash;&nbsp;didScanQR:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Delegate to notifiy that the qr code scanner scanned a qr code.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didScanQR:(NSString *)<em>result</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>result</code></th>
+						<td><ul>
+<li>The loaded locationIdentifier.</li>
+</ul>
+</td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>void</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -711,7 +788,7 @@ are finished with core data. Now you can fetch the Core Data.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-03-03</p>
+						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-05-12</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

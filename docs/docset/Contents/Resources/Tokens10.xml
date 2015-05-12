@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlock.html">
+	<File path="Classes/XMMResponseClosestSpot.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlock</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlock is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseClosestSpot</TokenIdentifier>
+			<Abstract type="html">XMMResponseClosestSpot is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
             
 			
 			<NodeRef refid="10"/>
@@ -13,14 +13,14 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlock/getMapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlock class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseClosestSpot/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseClosestSpot class.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
 			
-			<Declaration>+ (RKObjectMapping *)getMapping</Declaration>
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/getMapping</Anchor>
+			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="10"/>
 		</Token>
 		
