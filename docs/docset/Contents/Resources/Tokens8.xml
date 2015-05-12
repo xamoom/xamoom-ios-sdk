@@ -354,7 +354,7 @@ default language will be returned.</Abstract>
 					<Abstract type="html">The longitude of a location.</Abstract>
 				</Parameter><Parameter>
 					<Name>language</Name>
-					<Abstract type="html">The requested language of the content from xamoom backend.</Abstract>
+					<Abstract type="html">The requested language of the content from xamoom backend</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
@@ -377,7 +377,7 @@ default language will be returned.</Abstract>
 					<Abstract type="html">The Tags of the wanted spots.</Abstract>
 				</Parameter><Parameter>
 					<Name>language</Name>
-					<Abstract type="html">The requested language of the content from xamoom backend.</Abstract>
+					<Abstract type="html">The requested language of the content from xamoom backend</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
@@ -397,7 +397,7 @@ default language will be returned.</Abstract>
 					<Abstract type="html">The id of the system from xamoom.</Abstract>
 				</Parameter><Parameter>
 					<Name>language</Name>
-					<Abstract type="html">The requested language of the content from xamoom backend.</Abstract>
+					<Abstract type="html">The requested language of the content from xamoom backend</Abstract>
 				</Parameter><Parameter>
 					<Name>pageSize</Name>
 					<Abstract type="html">Number of items you will get returned</Abstract>
@@ -431,6 +431,9 @@ If the selected language is not available the default language will be returned.
 				</Parameter><Parameter>
 					<Name>limit</Name>
 					<Abstract type="html">Limit of the results</Abstract>
+				</Parameter><Parameter>
+					<Name>language</Name>
+					<Abstract type="html">The requested language of the content from xamoom backend</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
