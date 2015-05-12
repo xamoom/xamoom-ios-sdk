@@ -127,11 +127,62 @@ static XMMEnduserApi *sharedInstance;
          withpath:@"xamoomEndUserApi/v1/get_content_by_content_id"];
 }
 
-- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language {
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full {
+  NSDictionary *queryParams = @{@"content_id":contentId,
+                                @"include_style":(style) ? @"True" : @"False",
+                                @"include_menu":(menu) ? @"True" : @"False",
+                                @"language":language,
+                                @"full":(full) ? @"True" : @"False",
+                                };
+  
+  // Create mappings
+  RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
+  
+  RKObjectMapping* responseMapping = [XMMResponseGetById mapping];
+  RKObjectMapping* responseContentMapping = [XMMResponseContent mapping];
+  RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
+  RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem mapping];
+  
+  // Add dynamic matchers
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType0 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType1 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType2 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType3 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType4 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType5 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType6 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType7 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType8 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType9 dynamicMappingMatcher]];
+  
+  
+  // Create relationships
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
+                                                                                  toKeyPath:@"content"
+                                                                                withMapping:responseContentMapping]];
+  
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
+                                                                                  toKeyPath:@"content.contentBlocks"
+                                                                                withMapping:dynamicMapping]];
+  
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
+                                                                                  toKeyPath:@"style"
+                                                                                withMapping:responseStyleMapping]];
+  
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
+                                                                                  toKeyPath:@"menu"
+                                                                                withMapping:responseMenuMapping]];
+  
+  [self talkToApi:responseMapping
+   withParameters:queryParams
+         withpath:@"xamoomEndUserApi/v1/get_content_by_content_id_full"];
+}
+
+- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language {
   
   NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
-                                @"include_style":style,
-                                @"include_menu":menu,
+                                @"include_style":(style) ? @"True" : @"False",
+                                @"include_menu":(menu) ? @"True" : @"False",
                                 @"language":language,
                                 };
   
@@ -201,7 +252,7 @@ static XMMEnduserApi *sharedInstance;
   
 }
 
-- (void)spotMapWithSystemId:(NSString *)systemId withMapTags:(NSString *)mapTags withLanguage:(NSString *)language {
+- (void)spotMapWithSystemId:(NSString *)systemId withMapTags:(NSArray *)mapTags withLanguage:(NSString *)language {
   RKObjectMapping* responseMapping = [XMMResponseGetSpotMap mapping];
   RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
   RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
@@ -218,7 +269,7 @@ static XMMEnduserApi *sharedInstance;
   // Create ResponseDescriptor with objectMapping
   RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
   
-  NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%@/%@/%@", systemId, mapTags, language];
+  NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%@/%@/%@", systemId, [mapTags componentsJoinedByString:@","], language];
   
   [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
   [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
@@ -266,57 +317,6 @@ static XMMEnduserApi *sharedInstance;
                                        NSLog(@"Error: %@", error);
                                      }
    ];
-}
-
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full {
-  NSDictionary *queryParams = @{@"content_id":contentId,
-                                @"include_style":(style) ? @"True" : @"False",
-                                @"include_menu":(menu) ? @"True" : @"False",
-                                @"language":language,
-                                @"full":(full) ? @"True" : @"False",
-                                };
-  
-  // Create mappings
-  RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
-  
-  RKObjectMapping* responseMapping = [XMMResponseGetById mapping];
-  RKObjectMapping* responseContentMapping = [XMMResponseContent mapping];
-  RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
-  RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem mapping];
-  
-  // Add dynamic matchers
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType0 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType1 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType2 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType3 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType4 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType5 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType6 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType7 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType8 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType9 dynamicMappingMatcher]];
-  
-  
-  // Create relationships
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
-                                                                                  toKeyPath:@"content"
-                                                                                withMapping:responseContentMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
-                                                                                  toKeyPath:@"content.contentBlocks"
-                                                                                withMapping:dynamicMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
-                                                                                  toKeyPath:@"style"
-                                                                                withMapping:responseStyleMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
-                                                                                  toKeyPath:@"menu"
-                                                                                withMapping:responseMenuMapping]];
-  
-  [self talkToApi:responseMapping
-   withParameters:queryParams
-         withpath:@"xamoomEndUserApi/v1/get_content_by_content_id_full"];
 }
 
 - (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language {
@@ -469,11 +469,11 @@ static XMMEnduserApi *sharedInstance;
   [[RKObjectManager sharedManager] addResponseDescriptor:coreDataGetByIdResponseDescriptor];
 }
 
-- (void)saveContentToCoreDataWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language {
+- (void)saveContentToCoreDataWithContentId:(NSString *)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language {
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id";
   NSDictionary *queryParams = @{@"content_id":contentId,
-                                @"include_style":style,
-                                @"include_menu":menu,
+                                @"include_style":(style) ? @"True" : @"False",
+                                @"include_menu":(menu) ? @"True" : @"False",
                                 @"language":language,
                                 };
   
@@ -481,11 +481,11 @@ static XMMEnduserApi *sharedInstance;
                                withpath:path];
 }
 
-- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language {
+- (void)saveContentToCoreDataWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL) menu withLanguage:(NSString *)language {
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_location_identifier";
   NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
-                                @"include_style":style,
-                                @"include_menu":menu,
+                                @"include_style":(style) ? @"True" : @"False",
+                                @"include_menu":(menu) ? @"True" : @"False",
                                 @"language":language
                                 };
   

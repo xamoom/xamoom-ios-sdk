@@ -116,7 +116,7 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)getContentByLocationIdentifierAction:(id)sender {
-  [api contentWithLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
+  [api contentWithLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:YES withLanguage:@"de"];
 }
 
 - (IBAction)getContentByLocationAction:(id)sender {
@@ -124,7 +124,7 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)getSpotMapAction:(id)sender {
-  [api spotMapWithSystemId:@"6588702901927936" withMapTags:@"stw" withLanguage:@"de"];
+  [api spotMapWithSystemId:@"6588702901927936" withMapTags:@[@"stw",@"raphi"] withLanguage:@"de"];
 }
 
 - (IBAction)getContentListAction:(id)sender {

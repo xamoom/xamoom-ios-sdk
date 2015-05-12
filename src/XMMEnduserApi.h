@@ -263,7 +263,7 @@ extern NSString * const kApiBaseURLString;
  @param language            The requested language of the content from xamoom backend.
  @return void
  */
-- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(NSString*)style includeMenu:(NSString*)menu withLanguage:(NSString*)language;
+- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language;
 
 /**
  Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
@@ -284,7 +284,7 @@ extern NSString * const kApiBaseURLString;
  @param language    The requested language of the content from xamoom backend
  @return void
  */
-- (void)spotMapWithSystemId:(NSString*)systemId withMapTags:(NSString*)mapTags withLanguage:(NSString*)language;
+- (void)spotMapWithSystemId:(NSString*)systemId withMapTags:(NSArray*)mapTags withLanguage:(NSString*)language;
 
 /**
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
@@ -337,7 +337,7 @@ extern NSString * const kApiBaseURLString;
  @param language    The requested language of the content from xamoom backend.
  @return void
  */
-- (void)saveContentToCoreDataWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language;
+- (void)saveContentToCoreDataWithContentId:(NSString *)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language;
 
 /**
  Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not
@@ -350,7 +350,7 @@ extern NSString * const kApiBaseURLString;
  @param language            The requested language of the content from xamoom backend.
  @return void
  */
-- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language;
+- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language;
 
 /**
  Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
