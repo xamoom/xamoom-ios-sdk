@@ -136,7 +136,7 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)closestSpots:(id)sender {
-  [api closestSpotsWith:46.615 andLon:14.263 withRadius:1000 withLimit:5 withLanguage:@"de"];
+  [api closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:5 withLanguage:@"de"];
 }
 
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender {

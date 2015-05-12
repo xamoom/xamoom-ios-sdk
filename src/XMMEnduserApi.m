@@ -319,7 +319,7 @@ static XMMEnduserApi *sharedInstance;
          withpath:@"xamoomEndUserApi/v1/get_content_by_content_id_full"];
 }
 
-- (void)closestSpotsWith:(float)lat andLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language {
+- (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language {
   NSDictionary *queryParams = @{@"location":
                                   @{@"lat":[NSString stringWithFormat:@"%f", lat],
                                     @"lon":[NSString stringWithFormat:@"%f", lon],

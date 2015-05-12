@@ -307,7 +307,7 @@ extern NSString * const kApiBaseURLString;
  @param limit   Limit of the results
  @return void
  */
-- (void)closestSpotsWith:(float)lat andLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language;
+- (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language;
 
 #pragma mark - Core Data
 
