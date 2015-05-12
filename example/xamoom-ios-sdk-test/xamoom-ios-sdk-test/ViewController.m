@@ -21,10 +21,9 @@ XMMEnduserApi *api;
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  //init xamoom-ios-sdk
-  api = [[XMMEnduserApi alloc] init];
-  api.delegate = self;
-  [api initCoreData];
+  //setup xamoom-ios-sdk
+  [XMMEnduserApi sharedInstance].delegate = self;
+  [[XMMEnduserApi sharedInstance] initCoreData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,19 +35,19 @@ XMMEnduserApi *api;
 
 - (void)savedContentToCoreDataWithContentId {
   NSLog(@"savedContentToCoreDataById");
-  NSArray* fetchResult = [api fetchCoreDataContentWithType:@"id"];
+  NSArray* fetchResult = [[XMMEnduserApi sharedInstance] fetchCoreDataContentWithType:@"id"];
   self.outputTextView.text = fetchResult.description;
 }
 
 - (void)savedContentToCoreDataWithLocation {
   NSLog(@"savedContentToCoreDataByLocation");
-  NSArray* fetchResult = [api fetchCoreDataContentWithType:@"location"];
+  NSArray* fetchResult = [[XMMEnduserApi sharedInstance] fetchCoreDataContentWithType:@"location"];
   self.outputTextView.text = fetchResult.description;
 }
 
 - (void)savedContentToCoreDataWithLocationIdentifier {
   NSLog(@"savedContentToCoreDataByLocationIdentifier");
-  NSArray* fetchResult = [api fetchCoreDataContentWithType:@"id"];
+  NSArray* fetchResult = [[XMMEnduserApi sharedInstance] fetchCoreDataContentWithType:@"id"];
   self.outputTextView.text = fetchResult.description;
 }
 
@@ -89,70 +88,61 @@ XMMEnduserApi *api;
 
 #pragma mark - QRCodeReader Delegate Methods
 
-- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
-{
-  [self dismissViewControllerAnimated:YES completion:^{
-    NSLog(@"Completion with result: %@", result);
-    self.outputTextView.text = result;
-  }];
-}
-
-- (void)readerDidCancel:(QRCodeReaderViewController *)reader
-{
-  NSLog(@"readerDidCancel");
-  [self dismissViewControllerAnimated:YES completion:NULL];
+-(void)didScanQR:(NSString *)result {
+  self.outputTextView.text = result;
 }
 
 #pragma mark - Actions
 
 - (IBAction)scanAction:(id)sender
 {
-  [api startQRCodeReaderFromViewController:self
-                              withLanguage:@"DE"];
+  [[XMMEnduserApi sharedInstance] setDelegate:self];
+  [[XMMEnduserApi sharedInstance] setQrCodeViewControllerCancelButtonTitle:@"Abbrechen"];
+  [[XMMEnduserApi sharedInstance] startQRCodeReaderFromViewController:self withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentByIdAction:(id)sender {
-  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentByLocationIdentifierAction:(id)sender {
-  [api contentWithLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:YES withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:@"0ana0" includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentByLocationAction:(id)sender {
-  [api contentWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithLat:@"46.615" withLon:@"14.263" withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getSpotMapAction:(id)sender {
-  [api spotMapWithSystemId:@"6588702901927936" withMapTags:@[@"stw",@"raphi"] withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:@"6588702901927936" withMapTags:@[@"stw",@"raphi"] withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentListAction:(id)sender {
-  [api contentListWithSystemId:@"6588702901927936" withLanguage:@"de" withPageSize:4 withCursor:@"null"];
+  [[XMMEnduserApi sharedInstance] contentListWithSystemId:@"6588702901927936" withLanguage:[XMMEnduserApi sharedInstance].systemLanguage withPageSize:4 withCursor:@"null"];
 }
 
 - (IBAction)getContentByIdFull:(id)sender {
-  [api contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"False" includeMenu:@"False" withLanguage:@"de" full:@"True"];
+  [[XMMEnduserApi sharedInstance] contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:NO includeMenu:NO withLanguage:[XMMEnduserApi sharedInstance].systemLanguage full:YES];
 }
 
 - (IBAction)closestSpots:(id)sender {
-  [api closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:5 withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:5 withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender {
-  [api saveContentToCoreDataWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] saveContentToCoreDataWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentByLocationIdentifierFromCoreDataAction:(id)sender {
-  [api saveContentToCoreDataWithLocationIdentifier:@"0ana0" includeStyle:@"True" includeMenu:@"True" withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] saveContentToCoreDataWithLocationIdentifier:@"0ana0" includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentByLocationFromCoreData:(id)sender {
-  [api saveContentToCoreDataWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] saveContentToCoreDataWithLat:@"46.615" withLon:@"14.263" withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentFromRSSFeedAction:(id)sender {
-  [api rssContentFeed];
+  [[XMMEnduserApi sharedInstance] rssContentFeed];
 }
 
 - (void)fetchCoreDataContentByYourOwn {
