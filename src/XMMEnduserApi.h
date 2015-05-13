@@ -295,7 +295,7 @@ extern NSString * const kApiBaseURLString;
  @param cursor     Cursor for paging
  @return void
  */
-- (void)contentListWithSystemId:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor;
+- (void)contentListWithSystemId:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor withTags:(NSArray*)tags;
 
 /**
  Makes an api call to xamoom with a location and returns the closest spots.

@@ -118,7 +118,7 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)getContentListAction:(id)sender {
-  [[XMMEnduserApi sharedInstance] contentListWithSystemId:@"6588702901927936" withLanguage:[XMMEnduserApi sharedInstance].systemLanguage withPageSize:4 withCursor:@"null"];
+  [[XMMEnduserApi sharedInstance] contentListWithSystemId:@"6588702901927936" withLanguage:[XMMEnduserApi sharedInstance].systemLanguage withPageSize:4 withCursor:@"null" withTags:@[@"artists"]];
 }
 
 - (IBAction)getContentByIdFull:(id)sender {

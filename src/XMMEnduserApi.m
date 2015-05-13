@@ -287,7 +287,7 @@ static XMMEnduserApi *sharedInstance;
    ];
 }
 
-- (void)contentListWithSystemId:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor {
+- (void)contentListWithSystemId:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor withTags:(NSArray*)tags {
   RKObjectMapping* responseMapping = [XMMResponseContentList mapping];
   RKObjectMapping* responseItemMapping = [XMMResponseContent mapping];
   
@@ -300,7 +300,13 @@ static XMMEnduserApi *sharedInstance;
   // Create ResponseDescriptor with objectMapping
   RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
   
-  NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/content_list/%@/%@/%i/%@", systemId, language, pageSize, cursor];
+  NSString* tagsAsString;
+  if (tags != nil)
+    tagsAsString = [tags componentsJoinedByString:@","];
+  else
+    tagsAsString = @"null";
+  
+  NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/content_list/%@/%@/%i/%@/%@", systemId, language, pageSize, cursor, tagsAsString];
   
   [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
   [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil

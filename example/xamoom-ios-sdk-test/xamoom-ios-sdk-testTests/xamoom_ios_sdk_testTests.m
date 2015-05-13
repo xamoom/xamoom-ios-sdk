@@ -226,7 +226,7 @@
 
 - (void)testGetContentListFromApi {
   NSLog(@"Test Suite - testGetContentListFromApi");
-  [[XMMEnduserApi sharedInstance] contentListWithSystemId:@"6588702901927936" withLanguage:@"de" withPageSize:4 withCursor:@"null"];
+  [[XMMEnduserApi sharedInstance] contentListWithSystemId:@"6588702901927936" withLanguage:@"de" withPageSize:4 withCursor:@"null" withTags:@[@"artists"]];
   
   XCTAssertTrue([self waitForCompletion:10.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentList, @"getContentList should return something");
