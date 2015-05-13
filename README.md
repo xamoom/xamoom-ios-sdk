@@ -15,8 +15,8 @@ xamoom-ios-sdk is a framework for the xamoom-cloud api. So you can write your ow
 Download the xamoom-ios-sdk and add it to your project. Don't forget to install the dependencies.
 
 ### Installation with CocoaPods 
-   platform :ios, '7.0'
-   pod 'xamoom-ios-sdk'`
+    platform :ios, '7.0'
+    pod 'xamoom-ios-sdk'`
 
 ## Usage
     //set your delegate
