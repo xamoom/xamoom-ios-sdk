@@ -16,7 +16,7 @@ Download the xamoom-ios-sdk and add it to your project. Don't forget to install 
 
 ### Installation with CocoaPods 
     platform :ios, '7.0'
-    pod 'xamoom-ios-sdk'`
+    pod 'xamoom-ios-sdk'
 
 ## Usage
     //set your delegate
