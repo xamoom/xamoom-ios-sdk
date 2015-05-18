@@ -84,7 +84,7 @@
 		
 		<option value="//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:">- closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:</option>
 		
-		<option value="//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:">- contentListWithSystemId:withLanguage:withPageSize:withCursor:</option>
+		<option value="//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:">- contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:</option>
 		
 		<option value="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:">- contentWithContentId:includeStyle:includeMenu:withLanguage:</option>
 		
@@ -151,14 +151,16 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><code>XMMEnduserApi</code> is the main part of the xamoom-ios-sdk. You will need to create a instance of this to communicate with our api and set the <a href="#//api/name/delegate">delegate</a>.
-If you want to use the build in core data, you must call <a href="#//api/name/initCoreData"><code>initCoreData</code></a>.</p>
+						<p><code>XMMEnduserApi</code> is the main part of the xamoom-ios-sdk. You can use it to send api request to the xamoom-api.</p>
 
-<p><em>Set up xamoom-ios-sdk like this:</em></p>
+<p>For everything just use the shared instance.
+(<a href="#//api/name/sharedInstance">[XMMEnduserApi sharedInstance]</a>)</p>
 
-<p>api = [[XMMEnduserApi alloc] init];
-api.delegate = self;
-[api initCoreData];</p>
+<p>To get the results from the api calls, you have to listen to the delegate methods. Set the delegate like this:
+(<a href="#//api/name/sharedInstance">[XMMEnduserApi sharedInstance]</a>.<a href="#//api/name/delegate">delegate</a> = self;)</p>
+
+<p>If you want to use the build-in CoreData Code, you have to call the initCoreData method.
+[[XMMEnduserApi sharedInstance] initCoreData];)</p>
 					</div>
 					
 					
@@ -540,7 +542,7 @@ api.delegate = self;
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -613,7 +615,7 @@ api.delegate = self;
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em> full:(NSString *)<em>full</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> full:(BOOL)<em>full</em></code></div>
 
 		    
 			
@@ -692,7 +694,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -834,7 +836,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)spotMapWithSystemId:(NSString *)<em>systemId</em> withMapTags:(NSString *)<em>mapTags</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)spotMapWithSystemId:(NSString *)<em>systemId</em> withMapTags:(NSArray *)<em>mapTags</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -886,8 +888,8 @@ default language will be returned.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:" title="contentListWithSystemId:withLanguage:withPageSize:withCursor:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:">&ndash;&nbsp;contentListWithSystemId:withLanguage:withPageSize:withCursor:</a></code>
+	<a name="//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:" title="contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:">&ndash;&nbsp;contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -902,7 +904,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentListWithSystemId:(NSString *)<em>systemId</em> withLanguage:(NSString *)<em>language</em> withPageSize:(int)<em>pageSize</em> withCursor:(NSString *)<em>cursor</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentListWithSystemId:(NSString *)<em>systemId</em> withLanguage:(NSString *)<em>language</em> withPageSize:(int)<em>pageSize</em> withCursor:(NSString *)<em>cursor</em> withTags:(NSArray *)<em>tags</em></code></div>
 
 		    
 			
@@ -928,6 +930,11 @@ default language will be returned.</p>
 					<tr>
 						<th scope="row" class="argument-name"><code>cursor</code></th>
 						<td><p>Cursor for paging</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tags</code></th>
+						<td><p>Tags as an array</p></td>
 					</tr>
 				
 				</table>
@@ -1119,7 +1126,7 @@ Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html">
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithContentId:(NSString *)<em>contentId</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -1194,7 +1201,7 @@ Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html">
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(NSString *)<em>style</em> includeMenu:(NSString *)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
 
 		    
 			
@@ -1601,7 +1608,7 @@ NSLog(@&ldquo;readerDidCancel&rdquo;);
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-05-12</p>
+						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-05-18</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

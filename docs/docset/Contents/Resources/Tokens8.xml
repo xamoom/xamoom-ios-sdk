@@ -4,8 +4,7 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/cl/XMMEnduserApi</TokenIdentifier>
-			<Abstract type="html">XMMEnduserApi is the main part of the xamoom-ios-sdk. You will need to create a instance of this to communicate with our api and set the delegate.
-If you want to use the build in core data, you must call initCoreData.</Abstract>
+			<Abstract type="html">XMMEnduserApi is the main part of the xamoom-ios-sdk. You can use it to send api request to the xamoom-api.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             
 			
@@ -261,7 +260,7 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 			<Abstract type="html">Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)contentWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)contentWithContentId:(NSString *)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>contentId</Name>
@@ -287,7 +286,7 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 			<Abstract type="html">Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)contentWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language full:(NSString *)full</Declaration>
+			<Declaration>- (void)contentWithContentId:(NSString *)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language full:(BOOL)full</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>contentId</Name>
@@ -317,7 +316,7 @@ If you want to use the build in core data, you must call initCoreData.</Abstract
 default language will be returned.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>locationIdentifier</Name>
@@ -367,7 +366,7 @@ default language will be returned.</Abstract>
 			<Abstract type="html">Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)spotMapWithSystemId:(NSString *)systemId withMapTags:(NSString *)mapTags withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)spotMapWithSystemId:(NSString *)systemId withMapTags:(NSArray *)mapTags withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>systemId</Name>
@@ -386,11 +385,11 @@ default language will be returned.</Abstract>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentListWithSystemId:withLanguage:withPageSize:withCursor:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)contentListWithSystemId:(NSString *)systemId withLanguage:(NSString *)language withPageSize:(int)pageSize withCursor:(NSString *)cursor</Declaration>
+			<Declaration>- (void)contentListWithSystemId:(NSString *)systemId withLanguage:(NSString *)language withPageSize:(int)pageSize withCursor:(NSString *)cursor withTags:(NSArray *)tags</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>systemId</Name>
@@ -404,10 +403,13 @@ default language will be returned.</Abstract>
 				</Parameter><Parameter>
 					<Name>cursor</Name>
 					<Abstract type="html">Cursor for paging</Abstract>
+				</Parameter><Parameter>
+					<Name>tags</Name>
+					<Abstract type="html">Tags as an array</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:</Anchor>
+			<Anchor>//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:</Anchor>
             <NodeRef refid="8"/>
 		</Token>
 		
@@ -459,7 +461,7 @@ If the selected language is not available the default language will be returned.
 Data will be saved in Core Data as XMMCoreDataGetById. Use fetchCoreDataContentByType: to get saved data.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)saveContentToCoreDataWithContentId:(NSString *)contentId includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)saveContentToCoreDataWithContentId:(NSString *)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>contentId</Name>
@@ -487,7 +489,7 @@ available the default language will be returned.
 Data will be saved in Core Data as XMMCoreDataGetById. Use fetchCoreDataContentByType: to get saved data.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(NSString *)style includeMenu:(NSString *)menu withLanguage:(NSString *)language</Declaration>
+			<Declaration>- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>locationIdentifier</Name>
