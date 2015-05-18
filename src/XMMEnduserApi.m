@@ -22,7 +22,7 @@
 #import <dispatch/dispatch.h>
 
 NSString * const kXamoomAPIToken = @"f01f9db7-c54d-4117-9161-6f0023b7057e";
-NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
+NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
 NSString * const kRSSBaseURLString = @"http://xamoom.com/feed/";
 
 static XMMEnduserApi *sharedInstance;

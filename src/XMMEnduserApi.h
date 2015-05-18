@@ -293,6 +293,7 @@ extern NSString * const kApiBaseURLString;
  @param language   The requested language of the content from xamoom backend
  @param pageSize   Number of items you will get returned
  @param cursor     Cursor for paging
+ @param tags       Tags as an array
  @return void
  */
 - (void)contentListWithSystemId:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor withTags:(NSArray*)tags;
