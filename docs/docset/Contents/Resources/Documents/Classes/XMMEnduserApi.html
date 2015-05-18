@@ -153,16 +153,14 @@
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p><code>XMMEnduserApi</code> is the main part of the xamoom-ios-sdk. You can use it to send api request to the xamoom-api.</p>
 
-<p>For everything just use the shared instance.</p>
+<p>For everything just use the shared instance: <a href="#//api/name/sharedInstance">[XMMEnduserApi sharedInstance]</a>.</p>
 
-<p>( <a href="#//api/name/sharedInstance">[XMMEnduserApi sharedInstance]</a> )</p>
+<p>To get the results from the api calls, you have to listen to the <a href="#//api/name/delegate">delegate</a> methods. Set the <a href="#//api/name/delegate">delegate</a> like this:</p>
 
-<p>To get the results from the api calls, you have to listen to the delegate methods. Set the delegate like this:</p>
+<p><code>[</code>[XMMEnduserApi sharedInstance]<code>](#//api/name/sharedInstance).</code>delegate<code> = self;</code></p>
 
-<p>( <a href="#//api/name/sharedInstance">[XMMEnduserApi sharedInstance]</a>.<a href="#//api/name/delegate">delegate</a> = self; )</p>
-
-<p>If you want to use the build-in CoreData Code, you have to call the initCoreData method.
-( [[XMMEnduserApi sharedInstance] initCoreData]; )</p>
+<p>If you want to use the build-in CoreData Code, you have to call the <a href="#//api/name/initCoreData">initCoreData</a> method.
+<code>[[XMMEnduserApi sharedInstance] initCoreData];</code></p>
 					</div>
 					
 					
