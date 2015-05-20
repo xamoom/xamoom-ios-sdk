@@ -12,11 +12,22 @@ xamoom-ios-sdk is a framework for the xamoom-cloud api. So you can write your ow
 * Check out our sample app: ["pingeborg App"](https://github.com/xamoom/xamoom-pingeborg-ios)
 
 ## Installation
-Download the xamoom-ios-sdk and add it to your project. Don't forget to install the dependencies.
 
-### Installation with CocoaPods 
+##Manual Installation
+Download the xamoom-ios-sdk and add it to your project. Don't forget to install the [dependencies](https://github.com/xamoom/xamoom-ios-sdk/wiki/Installing#dependencies).
+
+### Installation with [CocoaPods](https://cocoapods.org/)
+
+Add in your podfile
+
     platform :ios, '7.0'
     pod 'xamoom-ios-sdk'
+
+Install pods via terminal
+
+    pod install
+
+Also create a file named **api.txt**, copy your apikey into it and add it to your bundle.
 
 ## Usage
     //set your delegate
