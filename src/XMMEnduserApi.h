@@ -166,21 +166,21 @@
 
 #pragma mark - XMMEnduserApi
 
-extern NSString * const kXamoomAPIToken;
 extern NSString * const kXamoomAPIBaseUrl;
 extern NSString * const kApiBaseURLString;
 
 /**
  `XMMEnduserApi` is the main part of the xamoom-ios-sdk. You can use it to send api request to the xamoom-api.
  
- For everything just use the shared instance.
- ([XMMEnduserApi sharedInstance])
+ For everything just use the shared instance: [XMMEnduserApi sharedInstance].
  
  To get the results from the api calls, you have to listen to the delegate methods. Set the delegate like this:
- ([XMMEnduserApi sharedInstance].delegate = self;)
+ 
+ `[XMMEnduserApi sharedInstance].delegate = self;`
  
  If you want to use the build-in CoreData Code, you have to call the initCoreData method.
- [[XMMEnduserApi sharedInstance] initCoreData];)
+ 
+ `[[XMMEnduserApi sharedInstance] initCoreData];`
  
  */
 @interface XMMEnduserApi : NSObject <NSXMLParserDelegate>

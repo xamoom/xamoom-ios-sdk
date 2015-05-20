@@ -21,7 +21,6 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
-NSString * const kXamoomAPIToken = @"f01f9db7-c54d-4117-9161-6f0023b7057e";
 NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
 NSString * const kRSSBaseURLString = @"http://xamoom.com/feed/";
 
@@ -65,10 +64,18 @@ static XMMEnduserApi *sharedInstance;
   RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
   [RKObjectManager setSharedManager:objectManager];
   
+  //get apikey from file
+  NSString* path = [[NSBundle mainBundle] pathForResource:@"api"
+                                                   ofType:@"txt"];
+  NSString* apiKey = [NSString stringWithContentsOfFile:path
+                                                encoding:NSUTF8StringEncoding
+                                                   error:NULL];
+  
   //set JSON-Type and Authorization Header
   [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
-  [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization" value:kXamoomAPIToken];
+  [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization" value:apiKey];
   
+  apiKey = nil;
   //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
     
   return self;
