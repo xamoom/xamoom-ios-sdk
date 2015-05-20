@@ -8,101 +8,44 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-ISO8601DateFormatterValueTransformer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-QRCodeReaderViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-RKValueTransformers.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Pods-RestKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Pods-SOCKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>Pods-TransitionKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>3EEB34C4A02217F3EB5AB5FC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8F2ADFB2BC2CCDD5DBCC8E17</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>97909E036CEC47A21D07D8F2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AE80E0C16FF901BD10DC9146</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C28423EAC188D6DE5DD64EEF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ED1C1A26F02B9C09C81A5DC4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F7A836DFB4A70DFE7990F161</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FCE0E1FB991851EA5D4F8C51</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
