@@ -78,7 +78,6 @@
 		88BA02D61AA8AA940091A43C /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02CB1AA8AA940091A43C /* NSString+XMLEntities.m */; };
 		88BA02D71AA8AA940091A43C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02CD1AA8AA940091A43C /* RootViewController.m */; };
 		88DE5D5E1AF225B8008D37B8 /* XMMResponseClosestSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DE5D5D1AF225B8008D37B8 /* XMMResponseClosestSpot.m */; };
-		88F0383E1B0CB65700E17573 /* api.key in Resources */ = {isa = PBXBuildFile; fileRef = 88F0383D1B0CB65700E17573 /* api.key */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,7 +207,6 @@
 		88BA02CD1AA8AA940091A43C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../../src/lib/MWFeedParser/RootViewController.m; sourceTree = "<group>"; };
 		88DE5D5C1AF225B8008D37B8 /* XMMResponseClosestSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseClosestSpot.h; path = ../../src/mapping/XMMResponseClosestSpot.h; sourceTree = "<group>"; };
 		88DE5D5D1AF225B8008D37B8 /* XMMResponseClosestSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseClosestSpot.m; path = ../../src/mapping/XMMResponseClosestSpot.m; sourceTree = "<group>"; };
-		88F0383D1B0CB65700E17573 /* api.key */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = api.key; path = ../../src/api.key; sourceTree = "<group>"; };
 		8DCF04393C17E7BE8DD318AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FE3AA1979685A8B62EFC9F15 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -359,7 +357,6 @@
 				88E93FC01A83B3B700955E39 /* mapping */,
 				88301E191A9DC21400F24F84 /* RSS */,
 				88301E1D1A9DF24500F24F84 /* lib */,
-				88F0383D1B0CB65700E17573 /* api.key */,
 			);
 			name = "xamoom-ios-sdk";
 			sourceTree = "<group>";
@@ -567,7 +564,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8858D24F1A822513001B45D5 /* Main.storyboard in Resources */,
-				88F0383E1B0CB65700E17573 /* api.key in Resources */,
 				8858D2541A822513001B45D5 /* LaunchScreen.xib in Resources */,
 				8858D2511A822513001B45D5 /* Images.xcassets in Resources */,
 			);

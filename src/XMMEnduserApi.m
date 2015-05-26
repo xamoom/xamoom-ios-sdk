@@ -21,7 +21,7 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
+NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 NSString * const kRSSBaseURLString = @"http://xamoom.com/feed/";
 
 static XMMEnduserApi *sharedInstance;
@@ -728,7 +728,7 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark - QRCodeReaderViewController
 
-- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController withLanguage:(NSString *)language{
+- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController{
   static QRCodeReaderViewController *reader = nil;
   static dispatch_once_t onceToken;
   

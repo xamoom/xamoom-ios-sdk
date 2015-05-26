@@ -399,30 +399,9 @@ extern NSString * const kApiBaseURLString;
 /**
  Starts the QRCodeReaderViewController to scan qr codes.
  
- There are 2 delegates you can use:
- 
- + reader:didScanResult:
- + readerDidCancel:
- 
- In code it would be look like this:
- 
- - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
- {
- [self dismissViewControllerAnimated:YES completion:^{
- NSLog(@"Completion with result: %@", result);
- }];
- }
- 
- - (void)readerDidCancel:(QRCodeReaderViewController *)reader
- {
- NSLog(@"readerDidCancel");
- [self dismissViewControllerAnimated:YES completion:NULL];
- }
- 
  @param viewController          The ViewController from where you want to call the QRCodeReader (usually self)
- @param language                The returned language of the automaticApiRequest
  @return void
  */
-- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController withLanguage:(NSString*)language;
+- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController;
 
 @end
