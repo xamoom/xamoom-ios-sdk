@@ -160,7 +160,7 @@
  @param result - The loaded locationIdentifier.
  @return void
  */
-- (void)didScanQR:(NSString*)result;
+- (void)didScanQR:(NSString*)result withCompleteUrl:(NSString*)url;
 
 @end
 

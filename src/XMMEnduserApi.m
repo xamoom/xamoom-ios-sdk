@@ -746,8 +746,8 @@ static XMMEnduserApi *sharedInstance;
     if (!self.isQRCodeScanFinished && resultAsString != nil) {
       self.isQRCodeScanFinished = YES;
       [self.qrCodeParentViewController dismissViewControllerAnimated:YES completion:nil];
-      if ([self.delegate respondsToSelector:@selector(didScanQR:)] ) {
-        [self.delegate performSelector:@selector(didScanQR:) withObject:[self getLocationIdentifierFromURL:resultAsString]];
+      if ([self.delegate respondsToSelector:@selector(didScanQR:withCompleteUrl:)] ) {
+        [self.delegate performSelector:@selector(didScanQR:withCompleteUrl:) withObject:[self getLocationIdentifierFromURL:resultAsString] withObject:resultAsString];
       }
     }
   }];
