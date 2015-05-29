@@ -283,9 +283,8 @@ static XMMEnduserApi *sharedInstance;
   [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                       XMMResponseGetSpotMap *result = [XMMResponseGetSpotMap new];
-                                       result = mappingResult.firstObject;
-                                       if ( [self.delegate respondsToSelector:@selector(didLoadSpotMap:)] ) {
+                                       XMMResponseGetSpotMap *result = mappingResult.firstObject;
+                                       if ([self.delegate respondsToSelector:@selector(didLoadSpotMap:)]) {
                                          [self.delegate performSelector:@selector(didLoadSpotMap:) withObject:result];
                                        }
                                      }
@@ -320,8 +319,7 @@ static XMMEnduserApi *sharedInstance;
   [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                       XMMResponseContentList *result = [XMMResponseContentList new];
-                                       result = mappingResult.firstObject;
+                                       XMMResponseContentList *result = mappingResult.firstObject;
                                        
                                        if ( [self.delegate respondsToSelector:@selector(didLoadContentList:)] ) {
                                          [self.delegate performSelector:@selector(didLoadContentList:) withObject:result];
@@ -374,8 +372,7 @@ static XMMEnduserApi *sharedInstance;
                                         
                                         // Perform specific finishLoadData delegates
                                         if (([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] || [path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id_full"])) {
-                                          XMMResponseGetById *result = [XMMResponseGetById new];
-                                          result = mappingResult.firstObject;
+                                          XMMResponseGetById *result = mappingResult.firstObject;
                                           
                                           if ([self.delegate respondsToSelector:@selector(didLoadDataWithContentId:)]) {
                                             [self.delegate performSelector:@selector(didLoadDataWithContentId:) withObject:result];
@@ -386,8 +383,7 @@ static XMMEnduserApi *sharedInstance;
                                           }
                                         }
                                         else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [self.delegate respondsToSelector:@selector(didLoadDataWithLocationIdentifier:)] ) {
-                                          XMMResponseGetByLocationIdentifier *result = [XMMResponseGetByLocationIdentifier new];
-                                          result = mappingResult.firstObject;
+                                          XMMResponseGetByLocationIdentifier *result = mappingResult.firstObject;
                                           [self.delegate performSelector:@selector(didLoadDataWithLocationIdentifier:) withObject:result];
                                         }
                                         else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [self.delegate respondsToSelector:@selector(didLoadDataWithLocation:)] ) {
