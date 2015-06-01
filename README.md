@@ -27,7 +27,7 @@ Install pods via terminal
 
     pod install
 
-### Api Key
+### API Key
 
 Copy your api key in a file named **api.txt** and add it to your bundle.
 
