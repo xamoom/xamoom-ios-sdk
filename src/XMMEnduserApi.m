@@ -360,6 +360,29 @@ static XMMEnduserApi *sharedInstance;
          withpath:@"xamoomEndUserApi/v1/get_closest_spots"];
 }
 
+- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)sytemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName {
+  
+  NSDictionary *queryParams = @{@"requested_language":requestedLanguage,
+                                @"delivered_language":deliveredLanguage,
+                                @"system_id":systemId,
+                                @"system_name":sytemName,
+                                @"content_id":contentId,
+                                @"content_name":contentName,
+                                @"spot_id":spotId,
+                                @"spot_name":spotName,
+                                };
+  
+  NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/queue_geofence_analytics/"];
+  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
+                                     success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                       NSLog(@"queue_geofence_analytics successfull");
+                                     }
+                                     failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                       NSLog(@"queue_geofence_analytics Error: %@", error);
+                                     }
+   ];
+}
+
 - (void)talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path {
   NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
   // Create ResponseDescriptor with objectMapping
