@@ -40,6 +40,9 @@
 @property (nonatomic, copy) NSString *highlightFontColor;
 @property (nonatomic, copy) NSString *imagePublicUrl;
 @property (nonatomic, copy) NSString *kind;
+@property (nonatomic, copy) NSString *spotId;
+@property (nonatomic, copy) NSString *spotName;
+@property (nonatomic, copy) NSString *contentName;
 
 /// @name Mapping
 
