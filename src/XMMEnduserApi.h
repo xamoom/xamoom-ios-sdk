@@ -285,7 +285,7 @@ extern NSString * const kApiBaseURLString;
  @param language    The requested language of the content from xamoom backend
  @return void
  */
-- (void)spotMapWithSystemId:(NSString*)systemId withMapTags:(NSArray*)mapTags withLanguage:(NSString*)language;
+- (void)spotMapWithSystemId:(int)systemId withMapTags:(NSArray*)mapTags withLanguage:(NSString*)language;
 
 /**
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
@@ -297,7 +297,7 @@ extern NSString * const kApiBaseURLString;
  @param tags       Tags as an array
  @return void
  */
-- (void)contentListWithSystemId:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor withTags:(NSArray*)tags;
+- (void)contentListWithPageSize:(int)pageSize withLanguage:(NSString*)language withCursor:(NSString*)cursor withTags:(NSArray*)tags;
 
 /**
  Makes an api call to xamoom with a location and returns the closest spots.

@@ -94,11 +94,10 @@ XMMEnduserApi *api;
 
 #pragma mark - Actions
 
-- (IBAction)scanAction:(id)sender
-{
+- (IBAction)scanAction:(id)sender {
   [[XMMEnduserApi sharedInstance] setDelegate:self];
   [[XMMEnduserApi sharedInstance] setQrCodeViewControllerCancelButtonTitle:@"Abbrechen"];
-  [[XMMEnduserApi sharedInstance] startQRCodeReaderFromViewController:self withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
+  [[XMMEnduserApi sharedInstance] startQRCodeReaderFromViewController:self];
 }
 
 - (IBAction)getContentByIdAction:(id)sender {
@@ -114,11 +113,11 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)getSpotMapAction:(id)sender {
-  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:@"6588702901927936" withMapTags:@[@"stw",@"raphi"] withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
+  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw",@"raphi"] withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentListAction:(id)sender {
-  [[XMMEnduserApi sharedInstance] contentListWithSystemId:@"6588702901927936" withLanguage:[XMMEnduserApi sharedInstance].systemLanguage withPageSize:4 withCursor:@"null" withTags:@[@"artists"]];
+  [[XMMEnduserApi sharedInstance] contentListWithPageSize:5 withLanguage:[XMMEnduserApi sharedInstance].systemLanguage withCursor:@"null" withTags:@[@"artists"]];
 }
 
 - (IBAction)getContentByIdFull:(id)sender {
@@ -126,7 +125,7 @@ XMMEnduserApi *api;
 }
 
 - (IBAction)closestSpots:(id)sender {
-  [[XMMEnduserApi sharedInstance] closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:5 withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
+  [[XMMEnduserApi sharedInstance] closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:100 withLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
 }
 
 - (IBAction)getContentByIdFromCoreDataAction:(id)sender {

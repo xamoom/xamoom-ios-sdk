@@ -21,8 +21,8 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
-//NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
+//NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
+NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 NSString * const kRSSBaseURLString = @"http://xamoom.com/feed/";
 
 static XMMEnduserApi *sharedInstance;
@@ -260,7 +260,7 @@ static XMMEnduserApi *sharedInstance;
   
 }
 
-- (void)spotMapWithSystemId:(NSString *)systemId withMapTags:(NSArray *)mapTags withLanguage:(NSString *)language {
+- (void)spotMapWithSystemId:(int)systemId withMapTags:(NSArray *)mapTags withLanguage:(NSString *)language {
   RKObjectMapping* responseMapping = [XMMResponseGetSpotMap mapping];
   RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
   RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
@@ -277,7 +277,7 @@ static XMMEnduserApi *sharedInstance;
   // Create ResponseDescriptor with objectMapping
   RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
   
-  NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%@/%@/%@", systemId, [mapTags componentsJoinedByString:@","], language];
+  NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%i/%@/%@", systemId, [mapTags componentsJoinedByString:@","], language];
   
   [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
   [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
@@ -294,7 +294,7 @@ static XMMEnduserApi *sharedInstance;
    ];
 }
 
-- (void)contentListWithSystemId:(NSString*)systemId withLanguage:(NSString*)language withPageSize:(int)pageSize withCursor:(NSString*)cursor withTags:(NSArray*)tags {
+- (void)contentListWithPageSize:(int)pageSize withLanguage:(NSString*)language withCursor:(NSString*)cursor withTags:(NSArray*)tags {
   RKObjectMapping* responseMapping = [XMMResponseContentList mapping];
   RKObjectMapping* responseItemMapping = [XMMResponseContent mapping];
   
@@ -313,7 +313,7 @@ static XMMEnduserApi *sharedInstance;
   else
     tagsAsString = @"null";
   
-  NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/content_list/%@/%@/%i/%@/%@", systemId, language, pageSize, cursor, tagsAsString];
+  NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/content_list/%@/%i/%@/%@", language, pageSize, cursor, tagsAsString];
   
   [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
   [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil

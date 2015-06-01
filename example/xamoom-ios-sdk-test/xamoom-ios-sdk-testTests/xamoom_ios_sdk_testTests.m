@@ -208,7 +208,7 @@
 
 - (void)testGetSpotMapFull {
   NSLog(@"Test Suite - testGetSpotMapFull");
-  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:@"6588702901927936" withMapTags:@[@"stw"] withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw"] withLanguage:@"de"];
   
   XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetSpotMap, @"getSpotMap should return something");
@@ -216,7 +216,7 @@
 
 - (void)testGetSpotMapWithEnglishLanguage {
   NSLog(@"Test Suite - testGetSpotMapWithEnglishLanguage");
-  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:@"6588702901927936" withMapTags:@[@"stw"] withLanguage:@"en"];
+  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw"] withLanguage:@"en"];
   
   XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetSpotMap, @"getSpotMap should return something");
@@ -226,7 +226,7 @@
 
 - (void)testGetContentListFromApi {
   NSLog(@"Test Suite - testGetContentListFromApi");
-  [[XMMEnduserApi sharedInstance] contentListWithSystemId:@"6588702901927936" withLanguage:@"de" withPageSize:4 withCursor:@"null" withTags:@[@"artists"]];
+  [[XMMEnduserApi sharedInstance] contentListWithPageSize:5 withLanguage:@"de" withCursor:@"null" withTags:@[@"artists"]];
   
   XCTAssertTrue([self waitForCompletion:10.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentList, @"getContentList should return something");
