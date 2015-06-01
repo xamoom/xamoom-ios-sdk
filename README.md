@@ -30,10 +30,12 @@ Install pods via terminal
 Also create a file named **api.txt**, copy your apikey into it and add it to your bundle.
 
 ## Usage
-    //set your delegate
-    [[XMMEnduserApi sharedInstance] setDelegate:self];
-    //make your call
-    [[XMMEnduserApi sharedInstance] contentListWithSystemId:exampleId withLanguage:@"de" withPageSize:7 withCursor:nil];
+```objective-c
+//set your delegate
+[[XMMEnduserApi sharedInstance] setDelegate:self];
+//make your call
+[[XMMEnduserApi sharedInstance] contentListWithSystemId:exampleId withLanguage:@"de" withPageSize:7 withCursor:nil];
+```
 
 You don't know what to call? Take a look at the [XMMEnduserApi documentation](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMEnduserApi.html)
 
