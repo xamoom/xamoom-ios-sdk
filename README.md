@@ -11,9 +11,9 @@ xamoom-ios-sdk is a framework for the xamoom-cloud api. So you can write your ow
 * Check out the XMMEnduserApi [documentation](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMEnduserApi.html)
 * Check out our sample app: ["pingeborg App"](https://github.com/xamoom/xamoom-pingeborg-ios)
 
-## Installation
+# Installation
 
-##Manual Installation
+### Manual Installation
 Download the xamoom-ios-sdk and add it to your project. Don't forget to install the [dependencies](https://github.com/xamoom/xamoom-ios-sdk/wiki/Installing#dependencies).
 
 ### Installation with [CocoaPods](https://cocoapods.org/)
@@ -29,7 +29,7 @@ Install pods via terminal
 
 Also create a file named **api.txt**, copy your apikey into it and add it to your bundle.
 
-## Usage
+# Usage
 ```objective-c
 //set your delegate
 [[XMMEnduserApi sharedInstance] setDelegate:self];
