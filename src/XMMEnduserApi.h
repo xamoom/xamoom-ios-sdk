@@ -312,7 +312,6 @@ extern NSString * const kApiBaseURLString;
  */
 - (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language;
 
-
 /**
  Makes an api call to xamoom when a user clicks a geofenced content for analytics.
  
