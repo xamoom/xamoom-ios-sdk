@@ -65,6 +65,7 @@
 		8885FD071A8DEC9B006F6B4C /* XMMResponseGetByLocationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885FCFE1A8DEC9B006F6B4C /* XMMResponseGetByLocationItem.m */; };
 		8885FD081A8DEC9B006F6B4C /* XMMResponseMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885FD001A8DEC9B006F6B4C /* XMMResponseMenuItem.m */; };
 		8885FD091A8DEC9B006F6B4C /* XMMResponseStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885FD021A8DEC9B006F6B4C /* XMMResponseStyle.m */; };
+		888E92211B1C5AD1004AA86B /* api.txt in Resources */ = {isa = PBXBuildFile; fileRef = 888E92201B1C5AD1004AA86B /* api.txt */; };
 		88B73CB01A91DDDE009D16F7 /* XMMCoreDataContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B73CAB1A91DDDE009D16F7 /* XMMCoreDataContent.m */; };
 		88B73CB11A91DDDE009D16F7 /* XMMCoreDataContentBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B73CAD1A91DDDE009D16F7 /* XMMCoreDataContentBlocks.m */; };
 		88BA02CE1AA8AA940091A43C /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02BA1AA8AA940091A43C /* DetailTableViewController.m */; };
@@ -180,6 +181,7 @@
 		8885FD001A8DEC9B006F6B4C /* XMMResponseMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseMenuItem.m; path = ../../src/mapping/XMMResponseMenuItem.m; sourceTree = "<group>"; };
 		8885FD011A8DEC9B006F6B4C /* XMMResponseStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseStyle.h; path = ../../src/mapping/XMMResponseStyle.h; sourceTree = "<group>"; };
 		8885FD021A8DEC9B006F6B4C /* XMMResponseStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseStyle.m; path = ../../src/mapping/XMMResponseStyle.m; sourceTree = "<group>"; };
+		888E92201B1C5AD1004AA86B /* api.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = api.txt; sourceTree = "<group>"; };
 		88B73CAA1A91DDDE009D16F7 /* XMMCoreDataContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataContent.h; path = ../../src/coredata/XMMCoreDataContent.h; sourceTree = "<group>"; };
 		88B73CAB1A91DDDE009D16F7 /* XMMCoreDataContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCoreDataContent.m; path = ../../src/coredata/XMMCoreDataContent.m; sourceTree = "<group>"; };
 		88B73CAC1A91DDDE009D16F7 /* XMMCoreDataContentBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCoreDataContentBlocks.h; path = ../../src/coredata/XMMCoreDataContentBlocks.h; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				8858D2501A822513001B45D5 /* Images.xcassets */,
 				8858D2521A822513001B45D5 /* LaunchScreen.xib */,
 				8858D2431A822513001B45D5 /* Supporting Files */,
+				888E92201B1C5AD1004AA86B /* api.txt */,
 			);
 			path = "xamoom-ios-sdk-test";
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				8858D24F1A822513001B45D5 /* Main.storyboard in Resources */,
 				8858D2541A822513001B45D5 /* LaunchScreen.xib in Resources */,
 				8858D2511A822513001B45D5 /* Images.xcassets in Resources */,
+				888E92211B1C5AD1004AA86B /* api.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
