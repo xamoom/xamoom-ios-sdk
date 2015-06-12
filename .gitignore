@@ -6,3 +6,5 @@ xamoom-ios-sdk-pod/
 src/api.txt
 
 example/xamoom-ios-sdk-test/xamoom-ios-sdk-test.xcworkspace/xcuserdata/raphaelseher.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xcuserstate
