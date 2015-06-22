@@ -21,8 +21,8 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
-//NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
-NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
+NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
+//NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 NSString * const kRSSBaseURLString = @"http://xamoom.com/feed/";
 
 static XMMEnduserApi *sharedInstance;
@@ -420,7 +420,12 @@ static XMMEnduserApi *sharedInstance;
                                         }
                                       }
                                       failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                        NSLog(@"Error: %@", error);
+                                        NSLog(@"Hellno: %@", error);
+                                      
+                                        if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"]) {
+                                          NSString *notificationName = @"ContentByLocationIdentifierError";
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:error];
+                                        }
                                       }
    ];
 }
