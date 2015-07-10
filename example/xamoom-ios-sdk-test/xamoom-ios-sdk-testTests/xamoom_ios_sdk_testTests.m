@@ -10,7 +10,11 @@
 #import <XCTest/XCTest.h>
 #import "XMMEnduserApi.h"
 
-@interface xamoom_ios_sdk_testTests : XCTestCase <XMMEnduserApiDelegate>
+NSString * const kContentId = @"f0da3d3d28d3418e9ccc4a6e9b3493c0";
+NSString * const kLocationIdentifier = @"dkriw";
+float const kTimeWaiting = 30.0;
+
+@interface xamoom_ios_sdk_testTests : XCTestCase
 {
   BOOL done;
 }
@@ -36,10 +40,6 @@
   NSLog(@"Test Suite - setUp");
   [super setUp];
   
-  //setup api
-  [XMMEnduserApi sharedInstance].delegate = self;
-  [[XMMEnduserApi sharedInstance] initCoreData];
-  
   //reset variables
   done = NO;
   
@@ -53,7 +53,6 @@
 }
 
 - (void)tearDown {
-  [XMMEnduserApi sharedInstance].delegate = nil;
   api = nil;
   
   [super tearDown];
@@ -61,12 +60,6 @@
 }
 
 #pragma mark - Tests
-
-- (void)testApiDelegate {
-  NSLog(@"Test Suite - testApiDelegate");
-  
-  XCTAssertNotNil([XMMEnduserApi sharedInstance].delegate, @"api.delegate should not be nil");
-}
 
 - (void)testApiBaseUrl {
   NSLog(@"Test Suite - testApiBaseUrl");
@@ -86,61 +79,84 @@
   XCTAssertNotNil([XMMEnduserApi sharedInstance].systemLanguage, @"api.systemLanguage should not be nil");
 }
 
-- (void)testIsCoreDataInitialized {
-  NSLog(@"Test Suite - testIsCoreDataInitialized");
-  
-  XCTAssertTrue([XMMEnduserApi sharedInstance].isCoreDataInitialized, @"api.isCoreDataInitialized should not be nil");
-}
-
 #pragma mark API request tests
 
 //Id
-
 - (void)testGetContentByIdFull {
   NSLog(@"Test Suite - testGetContentByIdFull");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:YES withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"de" completion:^(XMMResponseGetById *result){
+    self.apiResultGetContentById = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
 }
 
 - (void)testGetContentByIdFullFull {
   NSLog(@"Test Suite - testGetContentByIdFull");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:YES withLanguage:@"de" full:YES];
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"de" full:YES completion:^(XMMResponseGetById *result) {
+    self.apiResultGetContentById = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
 }
 
 - (void)testGetContentByIdWithoutStyle {
   NSLog(@"Test Suite - testGetContentByIdWithoutStyle");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:NO includeMenu:YES withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:NO includeMenu:YES withLanguage:@"de" completion:^(XMMResponseGetById *result){
+    self.apiResultGetContentById = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
 }
 
 - (void)testGetContentByIdWithoutMenu {
   NSLog(@"Test Suite - testGetContentByIdWithoutMenu");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:NO withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:NO withLanguage:@"de" completion:^(XMMResponseGetById *result){
+    self.apiResultGetContentById = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
 }
 
 - (void)testGetContentByIdWithoutStyleAndMenu {
   NSLog(@"Test Suite - testGetContentByIdWithoutStyleAndMenu");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:NO includeMenu:YES withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:NO includeMenu:YES withLanguage:@"de" completion:^(XMMResponseGetById *result){
+    self.apiResultGetContentById = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
 }
 
 - (void)testGetContentByIdWithEnglishLanguage {
   NSLog(@"Test Suite - testGetContentByIdWithEnglishLanguage");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:NO withLanguage:@"en"];
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:NO withLanguage:@"en" completion:^(XMMResponseGetById *result){
+    self.apiResultGetContentById = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
 }
 
@@ -148,41 +164,70 @@
 
 - (void)testGetContentByLocationIdentifierFull {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierFull");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:@"0ana0" includeStyle:YES includeMenu:YES withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:@"de" completion:^(XMMResponseGetByLocationIdentifier *result) {
+    self.apiResultGetByLocationIdentifier = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetByLocationIdentifier, @"getContentByLocationIdentifier should return something");
 }
 
 - (void)testGetContentByLocationIdentifierWithoutStyle {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithoutStyle");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:@"0ana0" includeStyle:NO includeMenu:YES withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:NO includeMenu:YES withLanguage:@"de"
+                                                     completion:^(XMMResponseGetByLocationIdentifier *result) {
+                                                       self.apiResultGetByLocationIdentifier = result;
+                                                       done = YES;
+                                                     } error:^(XMMError *error) {
+                                                       
+                                                     }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetByLocationIdentifier, @"getContentByLocationIdentifier should return something");
 }
 
 - (void)testGetContentByLocationIdentifierWithoutMenu {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithoutMenu");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:@"0ana0" includeStyle:YES includeMenu:NO withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:NO withLanguage:@"de"
+                                                     completion:^(XMMResponseGetByLocationIdentifier *result) {
+                                                       self.apiResultGetByLocationIdentifier = result;
+                                                       done = YES;
+                                                     } error:^(XMMError *error) {
+                                                       
+                                                     }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetByLocationIdentifier, @"getContentByLocationIdentifier should return something");
 }
 
 - (void)testGetContentByLocationIdentifierWithoutStyleAndMenu {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithoutStyleAndMenu");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:@"0ana0" includeStyle:NO includeMenu:NO withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:NO includeMenu:NO withLanguage:@"de"
+                                                     completion:^(XMMResponseGetByLocationIdentifier *result) {
+                                                       self.apiResultGetByLocationIdentifier = result;
+                                                       done = YES;
+                                                     } error:^(XMMError *error) {
+                                                       
+                                                     }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetByLocationIdentifier, @"getContentByLocationIdentifier should return something");
 }
 
 - (void)testGetContentByLocationIdentifierWithEnglishLanguage {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithEnglishLanguage");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:@"0ana0" includeStyle:YES includeMenu:YES withLanguage:@"en"];
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:@"en"
+                                                     completion:^(XMMResponseGetByLocationIdentifier *result) {
+                                                       self.apiResultGetByLocationIdentifier = result;
+                                                       done = YES;
+                                                     } error:^(XMMError *error) {
+                                                       
+                                                     }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetByLocationIdentifier, @"getContentByLocationIdentifier should return something");
 }
 
@@ -190,17 +235,29 @@
 
 - (void)testGetContentByLocationFull {
   NSLog(@"Test Suite - testGetContentByLocationFull");
-  [[XMMEnduserApi sharedInstance] contentWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] contentWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"
+                                      completion:^(XMMResponseGetByLocation *result) {
+                                        self.apiResultGetByLocation = result;
+                                        done = YES;
+                                      } error:^(XMMError *error) {
+                                        
+                                      }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetByLocation, @"getContentByLocation should return something");
 }
 
 - (void)testGetContentByLocationWithEnglishLanguage {
   NSLog(@"Test Suite - testGetContentByLocationWithEnglishLanguage");
-  [[XMMEnduserApi sharedInstance] contentWithLat:@"46.615" withLon:@"14.263" withLanguage:@"en"];
+  [[XMMEnduserApi sharedInstance] contentWithLat:@"46.615" withLon:@"14.263" withLanguage:@"en"
+                                      completion:^(XMMResponseGetByLocation *result) {
+                                        self.apiResultGetByLocation = result;
+                                        done = YES;
+                                      } error:^(XMMError *error) {
+                                        
+                                      }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetByLocation, @"getContentByLocation should return something");
 }
 
@@ -208,17 +265,29 @@
 
 - (void)testGetSpotMapFull {
   NSLog(@"Test Suite - testGetSpotMapFull");
-  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw"] withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw"] withLanguage:@"de"
+                                           completion:^(XMMResponseGetSpotMap *result) {
+                                             self.apiResultGetSpotMap = result;
+                                             done = YES;
+                                           } error:^(XMMError *error) {
+                                             
+                                           }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetSpotMap, @"getSpotMap should return something");
 }
 
 - (void)testGetSpotMapWithEnglishLanguage {
   NSLog(@"Test Suite - testGetSpotMapWithEnglishLanguage");
-  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw"] withLanguage:@"en"];
+  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw"] withLanguage:@"en"
+                                           completion:^(XMMResponseGetSpotMap *result) {
+                                             self.apiResultGetSpotMap = result;
+                                             done = YES;
+                                           } error:^(XMMError *error) {
+                                             
+                                           }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetSpotMap, @"getSpotMap should return something");
 }
 
@@ -226,7 +295,13 @@
 
 - (void)testGetContentListFromApi {
   NSLog(@"Test Suite - testGetContentListFromApi");
-  [[XMMEnduserApi sharedInstance] contentListWithPageSize:5 withLanguage:@"de" withCursor:@"null" withTags:@[@"artists"]];
+  [[XMMEnduserApi sharedInstance] contentListWithPageSize:5 withLanguage:@"de" withCursor:@"null" withTags:@[@"artists"]
+   completion:^(XMMResponseContentList *result) {
+     self.apiResultGetContentList = result;
+     done = YES;
+   } error:^(XMMError *error) {
+     
+   }];
   
   XCTAssertTrue([self waitForCompletion:10.0], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentList, @"getContentList should return something");
@@ -236,41 +311,16 @@
 
 - (void)testClosestSpotsFromApi {
   NSLog(@"Test Suite - testClosestSpotsFromApi");
-  [[XMMEnduserApi sharedInstance] closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:5 withLanguage:@"de"];
+  [[XMMEnduserApi sharedInstance] closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:5 withLanguage:@"de"
+   completion:^(XMMResponseClosestSpot *result) {
+     self.apiResultClosestSpot = result;
+     done = YES;
+   } error:^(XMMError *error) {
+     
+   }];
   
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultClosestSpot, @"getContentList should return something");
-  
-}
-
-#pragma mark API Core Data tests
-
-- (void)testGetContentByIdFromCoreData {
-  NSLog(@"Test Suite - testGetContentByIdFromCoreData");
-  [[XMMEnduserApi sharedInstance] saveContentToCoreDataWithContentId:@"a3911e54085c427d95e1243844bd6aa3" includeStyle:YES includeMenu:YES withLanguage:@"de"];
-  
-  XCTAssertTrue([self waitForCompletion:15.0], @"Failed to get any results in time");
-  XCTAssertNotNil(self.fetchResult, @"fetchResult should not be nil");
-}
-
-- (void)testGetContentByLocationIdentifierFromCoreData {
-  NSLog(@"Test Suite - testGetContentByLocationIdentifierFromCoreData");
-  [[XMMEnduserApi sharedInstance] saveContentToCoreDataWithLocationIdentifier:@"0ana0" includeStyle:YES includeMenu:YES withLanguage:@"de"];
-  
-  XCTAssertTrue([self waitForCompletion:25.0], @"Failed to get any results in time");
-  XCTAssertNotNil(self.fetchResult, @"fetchResult should not be nil");
-}
-
-- (void)testFinishedLoadCoreDataById {
-  NSLog(@"Test Suite - testFinishedLoadCoreDataById");
-  
-  XCTAssertNotNil([[XMMEnduserApi sharedInstance] fetchCoreDataContentWithType:@"id"], @"fetchCoreDataContent should return something");
-}
-
-- (void)testFinishedLoadCoreDataByLocation {
-  NSLog(@"Test Suite - testFinishedLoadCoreDataByLocation");
-  
-  XCTAssertNotNil([[XMMEnduserApi sharedInstance] fetchCoreDataContentWithType:@"location"], @"fetchCoreDataContent should return something");
 }
 
 #pragma mark - Helping methods
@@ -284,67 +334,6 @@
   } while (!done);
   
   return done;
-}
-
-#pragma mark - XMMEnduserApi Delegates
-
-- (void)savedContentToCoreData {
-  done = YES;
-}
-
-- (void)savedContentToCoreDataWithContentId {
-  self.fetchResult = [[XMMEnduserApi sharedInstance] fetchCoreDataContentWithType:@"id"];
-  done = YES;
-}
-
-- (void)savedContentToCoreDataWithLocation {
-  self.fetchResult = [[XMMEnduserApi sharedInstance] fetchCoreDataContentWithType:@"location"];
-  done = YES;
-}
-
--(void)savedContentToCoreDataWithLocationIdentifier {
-  self.fetchResult = [[XMMEnduserApi sharedInstance] fetchCoreDataContentWithType:@"id"];
-  done = YES;
-}
-
-- (void)didLoadDataWithContentId:(XMMResponseGetById *)result {
-  self.apiResultGetContentById = result;
-  done = YES;
-}
-
-- (void)didLoadDataWithLocationIdentifier:(XMMResponseGetByLocationIdentifier *)result {
-  self.apiResultGetByLocationIdentifier = result;
-  done = YES;
-}
-
-- (void)didLoadDataWithLocation:(XMMResponseGetByLocation *)result {
-  self.apiResultGetByLocation = result;
-  done = YES;
-}
-
-- (void)didLoadSpotMap:(XMMResponseGetSpotMap *)result {
-  self.apiResultGetSpotMap = result;
-  done = YES;
-}
-
-- (void)didLoadContentList:(XMMResponseContentList *)result {
-  self.apiResultGetContentList = result;
-  done = YES;
-}
-
-- (void)didLoadRSS:(NSMutableArray *)result {
-  self.apiResultRSS = result;
-  done = YES;
-}
-
-- (void)didLoadClosestSpots:(XMMResponseClosestSpot *)result {
-  self.apiResultClosestSpot = result;
-  done = YES;
-}
-
-- (void)didScanQR:(NSString *)result {
-  self.qrScanResult = result;
-  done = YES;
 }
 
 #pragma mark - Perfomance Test
