@@ -23,6 +23,7 @@
 #import "XMMRSSEntry.h"
 #import "NSString+HTML.h"
 #import "QRCodeReaderViewController.h"
+#import "XMMError.h"
 #import "XMMResponseGetById.h"
 #import "XMMResponseGetByLocationIdentifier.h"
 #import "XMMResponseGetByLocation.h"
@@ -238,9 +239,15 @@ extern NSString * const kApiBaseURLString;
  @param style       True or False for returning the style from xamoom backend.
  @param menu        True of False for returning the menu from xamoom backend.
  @param language    The requested language of the content from xamoom backend.
+ @param completionHandler CompletionHandler returns the result
+ 
+  - *param1* result The result from xamoom backend as XMMResponseGetById
+ @param errorHandler ErrorHandler returns an error if one occures
+  
+  - *param1* error A XMMError with error informations
  @return void
  */
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language;
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetById *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
@@ -250,9 +257,15 @@ extern NSString * const kApiBaseURLString;
  @param menu        True or False for returning the menu from xamoom backend.
  @param language    The requested language of the content from xamoom backend.
  @param full        True or false for returning "unsynced" data or not
+ @param completionHandler CompletionHandler returns the result
+ 
+ - *param1* result The result from xamoom backend as XMMResponseGetById
+ @param errorHandler ErrorHandler returns an error if one occures
+ 
+ - *param1* error A XMMError with error informations
  @return void
  */
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full;
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full completion:(void(^)(XMMResponseGetById *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not available the
@@ -262,9 +275,15 @@ extern NSString * const kApiBaseURLString;
  @param style               True or False for returning the style from xamoom backend.
  @param menu                True of False for returning the menu from xamoom backend.
  @param language            The requested language of the content from xamoom backend.
+ @param completionHandler CompletionHandler returns the result
+ 
+ - *param1* result The result from xamoom backend as XMMResponseGetByLocationIdentifier
+ @param errorHandler ErrorHandler returns an error if one occures
+ 
+ - *param1* error A XMMError with error informations
  @return void
  */
-- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language;
+- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
@@ -273,9 +292,15 @@ extern NSString * const kApiBaseURLString;
  @param lat         The latitude of a location.
  @param lon         The longitude of a location.
  @param language    The requested language of the content from xamoom backend
+ @param completionHandler CompletionHandler returns the result
+ 
+ - *param1* result The result from xamoom backend as XMMResponseGetByLocation
+ @param errorHandler ErrorHandler returns an error if one occures
+ 
+ - *param1* error A XMMError with error informations
  @return void
  */
-- (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language;
+- (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetByLocation *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.
@@ -283,9 +308,15 @@ extern NSString * const kApiBaseURLString;
  @param systemId    The id of the wanted system.
  @param mapTags     The Tags of the wanted spots.
  @param language    The requested language of the content from xamoom backend
+ @param completionHandler CompletionHandler returns the result
+ 
+ - *param1* result The result from xamoom backend as XMMResponseGetSpotMap
+ @param errorHandler ErrorHandler returns an error if one occures
+ 
+ - *param1* error A XMMError with error informations
  @return void
  */
-- (void)spotMapWithSystemId:(int)systemId withMapTags:(NSArray*)mapTags withLanguage:(NSString*)language;
+- (void)spotMapWithSystemId:(int)systemId withMapTags:(NSArray*)mapTags withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
@@ -295,9 +326,15 @@ extern NSString * const kApiBaseURLString;
  @param pageSize   Number of items you will get returned
  @param cursor     Cursor for paging
  @param tags       Tags as an array
+ @param completionHandler CompletionHandler returns the result
+ 
+ - *param1* result The result from xamoom backend as XMMResponseContentList
+ @param errorHandler ErrorHandler returns an error if one occures
+ 
+ - *param1* error A XMMError with error informations
  @return void
  */
-- (void)contentListWithPageSize:(int)pageSize withLanguage:(NSString*)language withCursor:(NSString*)cursor withTags:(NSArray*)tags;
+- (void)contentListWithPageSize:(int)pageSize withLanguage:(NSString*)language withCursor:(NSString*)cursor withTags:(NSArray*)tags completion:(void(^)(XMMResponseContentList *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  Makes an api call to xamoom with a location and returns the closest spots.
@@ -308,9 +345,15 @@ extern NSString * const kApiBaseURLString;
  @param radius    Radius in decimenter
  @param limit     Limit of the results
  @param language  The requested language of the content from xamoom backend
+ @param completionHandler CompletionHandler returns the result
+ 
+ - *param1* result The result from xamoom backend as XMMResponseClosestSpot
+ @param errorHandler ErrorHandler returns an error if one occures
+ 
+ - *param1* error A XMMError with error informations
  @return void
  */
-- (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language;
+- (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language completion:(void(^)(XMMResponseClosestSpot *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  Makes an api call to xamoom when a user clicks a geofenced content for analytics.
@@ -395,17 +438,6 @@ extern NSString * const kApiBaseURLString;
  */
 - (BOOL)deleteCoreDataEntityWithContentId:(NSString *)contentId;
 
-#pragma mark - RSS
-
-/// @name RSS
-
-/**
- Gets the rss feed and parses it from a specific url (`rssBaseUrl`).
- 
- @return void
- */
-- (void)rssContentFeed;
-
 #pragma mark - QRCodeReaderViewController
 
 /// @name QRCodeReaderViewController
@@ -414,8 +446,11 @@ extern NSString * const kApiBaseURLString;
  Starts the QRCodeReaderViewController to scan qr codes.
  
  @param viewController          The ViewController from where you want to call the QRCodeReader (usually self)
+ @param completionHandler CompletionHandler returns the result
+  - *param1* locationIdentifier NSString with only the locaitionIdentifier of the scanned QR
+  - *param2* url NSString wiht the complete scanned url
  @return void
  */
-- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController;
+- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController didLoad:(void(^)(NSString *locationIdentifier, NSString *url))completionHandler;
 
 @end

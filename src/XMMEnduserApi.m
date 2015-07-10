@@ -21,8 +21,8 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
-//NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
+//NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
+NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
 NSString * const kRSSBaseURLString = @"http://xamoom.com/feed/";
 
 static XMMEnduserApi *sharedInstance;
@@ -85,7 +85,8 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark public methods
 #pragma mark API calls
 
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language {
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
+  
   NSDictionary *queryParams = @{@"content_id":contentId,
                                 @"include_style":(style) ? @"True" : @"False",
                                 @"include_menu":(menu) ? @"True" : @"False",
@@ -130,12 +131,28 @@ static XMMEnduserApi *sharedInstance;
                                                                                   toKeyPath:@"menu"
                                                                                 withMapping:responseMenuMapping]];
   
-  [self talkToApi:responseMapping
-   withParameters:queryParams
-         withpath:@"xamoomEndUserApi/v1/get_content_by_content_id"];
+  NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id";
+
+  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+  // Create ResponseDescriptor with objectMapping
+  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
+  
+  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
+  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
+                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                        NSLog(@"Output: %@", mappingResult.firstObject);
+                                        
+                                        XMMResponseGetById *result = mappingResult.firstObject;
+                                        completionHandler(result);
+                                      }
+                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                        NSLog(@"Hellno: %@", error);
+                                        errorHandler([XMMError new]);
+                                      }
+   ];
 }
 
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full {
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full completion:(void(^)(XMMResponseGetById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   NSDictionary *queryParams = @{@"content_id":contentId,
                                 @"include_style":(style) ? @"True" : @"False",
                                 @"include_menu":(menu) ? @"True" : @"False",
@@ -181,12 +198,28 @@ static XMMEnduserApi *sharedInstance;
                                                                                   toKeyPath:@"menu"
                                                                                 withMapping:responseMenuMapping]];
   
-  [self talkToApi:responseMapping
-   withParameters:queryParams
-         withpath:@"xamoomEndUserApi/v1/get_content_by_content_id_full"];
+  NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id_full";
+
+  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+  // Create ResponseDescriptor with objectMapping
+  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
+  
+  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
+  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
+                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                        NSLog(@"Output: %@", mappingResult.firstObject);
+                                        
+                                        XMMResponseGetById *result = mappingResult.firstObject;
+                                        completionHandler(result);
+                                      }
+                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                        NSLog(@"Hellno: %@", error);
+                                        errorHandler([XMMError new]);
+                                      }
+   ];
 }
 
-- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language {
+- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler{
   
   NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
                                 @"include_style":(style) ? @"True" : @"False",
@@ -232,12 +265,28 @@ static XMMEnduserApi *sharedInstance;
                                                                                 withMapping:responseMenuMapping]];
   
   
-  [self talkToApi:responseMapping
-   withParameters:queryParams
-         withpath:@"xamoomEndUserApi/v1/get_content_by_location_identifier"];
+  NSString *path = @"xamoomEndUserApi/v1/get_content_by_location_identifier";
+  
+  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+  // Create ResponseDescriptor with objectMapping
+  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
+  
+  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
+  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
+                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                        NSLog(@"Output: %@", mappingResult.firstObject);
+                                        
+                                        XMMResponseGetByLocationIdentifier *result = mappingResult.firstObject;
+                                        completionHandler(result);
+                                      }
+                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                        NSLog(@"Hellno: %@", error);
+                                        errorHandler([XMMError new]);
+                                      }
+   ];
 }
 
-- (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language {
+- (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetByLocation *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   NSDictionary *queryParams = @{@"location":
                                   @{@"lat":lat,
                                     @"lon":lon,
@@ -254,13 +303,28 @@ static XMMEnduserApi *sharedInstance;
                                                                                   toKeyPath:@"items"
                                                                                 withMapping:responseItemMapping]];
   
-  [self talkToApi:responseMapping
-   withParameters:queryParams
-         withpath:@"xamoomEndUserApi/v1/get_content_by_location"];
+  NSString *path = @"xamoomEndUserApi/v1/get_content_by_location";
   
+  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+  // Create ResponseDescriptor with objectMapping
+  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
+  
+  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
+  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
+                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                        NSLog(@"Output: %@", mappingResult.firstObject);
+                                        
+                                        XMMResponseGetByLocation *result = mappingResult.firstObject;
+                                        completionHandler(result);
+                                      }
+                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                        NSLog(@"Hellno: %@", error);
+                                        errorHandler([XMMError new]);
+                                      }
+   ];
 }
 
-- (void)spotMapWithSystemId:(int)systemId withMapTags:(NSArray *)mapTags withLanguage:(NSString *)language {
+- (void)spotMapWithSystemId:(int)systemId withMapTags:(NSArray *)mapTags withLanguage:(NSString *)language completion:(void(^)(XMMResponseGetSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   RKObjectMapping* responseMapping = [XMMResponseGetSpotMap mapping];
   RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
   RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
@@ -284,17 +348,16 @@ static XMMEnduserApi *sharedInstance;
                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                        NSLog(@"Output: %@", mappingResult.firstObject);
                                        XMMResponseGetSpotMap *result = mappingResult.firstObject;
-                                       if ([self.delegate respondsToSelector:@selector(didLoadSpotMap:)]) {
-                                         [self.delegate performSelector:@selector(didLoadSpotMap:) withObject:result];
-                                       }
+                                       completionHandler(result);
                                      }
                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                        NSLog(@"Error: %@", error);
+                                       errorHandler([XMMError new]);
                                      }
    ];
 }
 
-- (void)contentListWithPageSize:(int)pageSize withLanguage:(NSString*)language withCursor:(NSString*)cursor withTags:(NSArray*)tags {
+- (void)contentListWithPageSize:(int)pageSize withLanguage:(NSString*)language withCursor:(NSString*)cursor withTags:(NSArray*)tags completion:(void(^)(XMMResponseContentList *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   RKObjectMapping* responseMapping = [XMMResponseContentList mapping];
   RKObjectMapping* responseItemMapping = [XMMResponseContent mapping];
   
@@ -320,18 +383,16 @@ static XMMEnduserApi *sharedInstance;
                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                        NSLog(@"Output: %@", mappingResult.firstObject);
                                        XMMResponseContentList *result = mappingResult.firstObject;
-                                       
-                                       if ( [self.delegate respondsToSelector:@selector(didLoadContentList:)] ) {
-                                         [self.delegate performSelector:@selector(didLoadContentList:) withObject:result];
-                                       }
+                                       completionHandler(result);
                                      }
                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                        NSLog(@"Error: %@", error);
+                                       errorHandler([XMMError new]);
                                      }
    ];
 }
 
-- (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language {
+- (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language completion:(void(^)(XMMResponseClosestSpot *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   NSDictionary *queryParams = @{@"location":
                                   @{@"lat":[NSString stringWithFormat:@"%f", lat],
                                     @"lon":[NSString stringWithFormat:@"%f", lon],
@@ -355,9 +416,25 @@ static XMMEnduserApi *sharedInstance;
                                                                                   toKeyPath:@"items"
                                                                                 withMapping:responseItemMapping]];
   
-  [self talkToApi:responseMapping
-   withParameters:queryParams
-         withpath:@"xamoomEndUserApi/v1/get_closest_spots"];
+  NSString *path = @"xamoomEndUserApi/v1/get_closest_spots";
+  
+  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+  // Create ResponseDescriptor with objectMapping
+  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
+  
+  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
+  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
+                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                        NSLog(@"Output: %@", mappingResult.firstObject);
+                                        
+                                        XMMResponseClosestSpot *result = mappingResult.firstObject;
+                                        completionHandler(result);
+                                      }
+                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                        NSLog(@"Hellno: %@", error);
+                                        errorHandler([XMMError new]);
+                                      }
+   ];
 }
 
 - (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)sytemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName {
@@ -380,53 +457,6 @@ static XMMEnduserApi *sharedInstance;
                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                        NSLog(@"queue_geofence_analytics Error: %@", error);
                                      }
-   ];
-}
-
-- (void)talkToApi:(RKObjectMapping*)objectMapping withParameters:(NSDictionary*)parameters withpath:(NSString*)path {
-  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-  // Create ResponseDescriptor with objectMapping
-  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:objectMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
-  
-  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
-  [[RKObjectManager sharedManager] postObject:nil path:path parameters:parameters
-                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                        
-                                        // Perform specific finishLoadData delegates
-                                        if (([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id"] || [path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_content_id_full"])) {
-                                          XMMResponseGetById *result = mappingResult.firstObject;
-                                          
-                                          if ([self.delegate respondsToSelector:@selector(didLoadDataWithContentId:)]) {
-                                            [self.delegate performSelector:@selector(didLoadDataWithContentId:) withObject:result];
-                                          }
-                                          else {
-                                            NSString *notificationName = [NSString stringWithFormat:@"%@%@", @"getByIdFull", result.content.contentId];
-                                            [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:result ];
-                                          }
-                                        }
-                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"] &&  [self.delegate respondsToSelector:@selector(didLoadDataWithLocationIdentifier:)] ) {
-                                          XMMResponseGetByLocationIdentifier *result = mappingResult.firstObject;
-                                          [self.delegate performSelector:@selector(didLoadDataWithLocationIdentifier:) withObject:result];
-                                        }
-                                        else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location"] && [self.delegate respondsToSelector:@selector(didLoadDataWithLocation:)] ) {
-                                          XMMResponseGetByLocation *result;
-                                          result = mappingResult.firstObject;
-                                          [self.delegate performSelector:@selector(didLoadDataWithLocation:) withObject:result];
-                                        } else if ([path isEqualToString:@"xamoomEndUserApi/v1/get_closest_spots"] && [self.delegate respondsToSelector:@selector(didLoadClosestSpots:)] ) {
-                                          XMMResponseClosestSpot *result;
-                                          result = mappingResult.firstObject;
-                                          [self.delegate performSelector:@selector(didLoadClosestSpots:) withObject:result];
-                                        }
-                                      }
-                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                        NSLog(@"Hellno: %@", error);
-                                      
-                                        if ([path isEqualToString:@"xamoomEndUserApi/v1/get_content_by_location_identifier"]) {
-                                          NSString *notificationName = @"ContentByLocationIdentifierError";
-                                          [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:error];
-                                        }
-                                      }
    ];
 }
 
@@ -652,108 +682,9 @@ static XMMEnduserApi *sharedInstance;
   return NO;
 }
 
-#pragma mark - RSS
-
-- (void)rssContentFeed {
-  NSLog(@"Starting with RSS");
-  
-  self.backgroundQueue = dispatch_queue_create("com.xamoom.xamoom-ios-sdk", NULL);
-  
-  self.rssEntries = [NSMutableArray new];
-  
-  NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.rssBaseUrlString]];
-  
-  [NSURLConnection sendAsynchronousRequest:request
-                                     queue:[NSOperationQueue mainQueue]
-                         completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                           NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-                           NSLog(@"Data: %@", data);
-                           [parser setDelegate:self];
-                           dispatch_async(self.backgroundQueue, ^(void) {
-                             [parser parse];
-                           });
-                         }];
-}
-
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName attributes:(NSDictionary *)attributeDict {
-  
-  self.element = [NSMutableString string];
-  if ([elementName isEqualToString:@"item"]) {
-    self.rssItem = [XMMRSSEntry new];
-  }
-}
-
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-  if(self.element == nil) {
-    self.element = [[NSMutableString alloc] init];
-  }
-  [self.element appendString:string];
-}
-
-- (void)parser:(NSXMLParser*)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-  if (self.rssItem != nil) {
-    if ([elementName isEqualToString:@"title"]) {
-      self.rssItem.title = [self.element stringByDecodingHTMLEntities];
-    }
-    
-    if([elementName isEqualToString:@"link"]) {
-      self.rssItem.link = [self.element stringByDecodingHTMLEntities];
-    }
-    
-    if([elementName isEqualToString:@"comments"]) {
-      self.rssItem.comments = [self.element stringByDecodingHTMLEntities];
-    }
-    
-    if([elementName isEqualToString:@"pubDate"]) {
-      NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-      [dateFormat setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z"];
-      [dateFormat setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]]; //This is the Stuff
-      NSDate *date = [dateFormat dateFromString:self.element];
-      self.rssItem.pubDate = date;
-    }
-    
-    if([elementName isEqualToString:@"category"]) {
-      self.rssItem.category = [self.element stringByDecodingHTMLEntities];
-    }
-    
-    if([elementName isEqualToString:@"guid"]) {
-      self.rssItem.guid = [self.element stringByDecodingHTMLEntities];
-    }
-    
-    if([elementName isEqualToString:@"description"]) {
-      self.rssItem.descriptionOfContent = [self.element stringByDecodingHTMLEntities];
-    }
-    
-    if([elementName isEqualToString:@"content:encoded"]) {
-      self.rssItem.content = [self.element stringByDecodingHTMLEntities];
-    }
-    
-    if([elementName isEqualToString:@"wfw:commentRss"]) {
-      self.rssItem.wfw = [self.element stringByDecodingHTMLEntities];
-    }
-    
-    if([elementName isEqualToString:@"slash:comments"]) {
-      self.rssItem.slash = [self.element stringByDecodingHTMLEntities];
-    }
-    
-    if ([elementName isEqualToString:@"item"]) {
-      [self.rssEntries addObject:self.rssItem];
-      self.rssItem = nil;
-    }
-  }
-}
-
-- (void)parserDidEndDocument:(NSXMLParser *)parser {
-  if([self.delegate respondsToSelector:@selector(didLoadRSS:)]) {
-    dispatch_async(dispatch_get_main_queue(), ^(){
-      [self.delegate performSelector:@selector(didLoadRSS:) withObject:self.rssEntries];
-    });
-  }
-}
-
 #pragma mark - QRCodeReaderViewController
 
-- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController{
+- (void)startQRCodeReaderFromViewController:(UIViewController*)viewController didLoad:(void(^)(NSString *locationIdentifier, NSString *url))completionHandler {
   static QRCodeReaderViewController *reader = nil;
   static dispatch_once_t onceToken;
   
@@ -771,9 +702,7 @@ static XMMEnduserApi *sharedInstance;
     if (!self.isQRCodeScanFinished && resultAsString != nil) {
       self.isQRCodeScanFinished = YES;
       [self.qrCodeParentViewController dismissViewControllerAnimated:YES completion:nil];
-      if ([self.delegate respondsToSelector:@selector(didScanQR:withCompleteUrl:)] ) {
-        [self.delegate performSelector:@selector(didScanQR:withCompleteUrl:) withObject:[self getLocationIdentifierFromURL:resultAsString] withObject:resultAsString];
-      }
+      completionHandler([self getLocationIdentifierFromURL:resultAsString], resultAsString);
     }
   }];
   
