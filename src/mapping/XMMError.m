@@ -10,4 +10,15 @@
 
 @implementation XMMError
 
++ (RKResponseDescriptor*)contentDescriptor {
+  RKObjectMapping *errorMapping = [[RKObjectMapping alloc] initWithClass:[XMMError class]];
+  [errorMapping addAttributeMappingsFromArray:@[@"code", @"message"]];
+  
+  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError);
+  
+  RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:errorMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"error" statusCodes:statusCodes];
+  
+  return errorDescriptor;
+}
+
 @end

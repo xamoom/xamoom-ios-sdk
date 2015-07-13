@@ -23,7 +23,6 @@
 
 #ifdef DEBUG
 NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
-RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
 #else
 NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
 #endif
@@ -64,6 +63,9 @@ static XMMEnduserApi *sharedInstance;
   //create RKObjectManager
   RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
   [RKObjectManager setSharedManager:objectManager];
+  
+  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+
   
   return self;
 }
@@ -191,32 +193,32 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)apiPostWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler{
+  [[RKObjectManager sharedManager] addResponseDescriptor:[XMMError contentDescriptor]];
   [[RKObjectManager sharedManager] addResponseDescriptor:descriptor];
   [[RKObjectManager sharedManager] postObject:nil path:path parameters:params
                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                         NSLog(@"Output: %@", mappingResult.firstObject);
-                                        
                                         XMMResponseGetById *result = mappingResult.firstObject;
                                         completionHandler(result);
                                       }
                                       failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                        NSLog(@"Hellno: %@", error);
-                                        errorHandler([XMMError new]);
+                                        NSArray *errors = [[error userInfo] objectForKey:RKObjectMapperErrorObjectsKey];
+                                        errorHandler(errors.firstObject);
                                       }
    ];
 }
 
 - (void)apiGetWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler{
+  [[RKObjectManager sharedManager] addResponseDescriptor:[XMMError contentDescriptor]];
   [[RKObjectManager sharedManager] addResponseDescriptor:descriptor];
   [[RKObjectManager sharedManager] getObject:nil path:path parameters:params
                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                       
                                        XMMResponseGetById *result = mappingResult.firstObject;
                                        completionHandler(result);
                                      } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                       NSLog(@"Hellno: %@", error);
-                                       errorHandler([XMMError new]);
+                                       NSArray *errors = [[error userInfo] objectForKey:RKObjectMapperErrorObjectsKey];
+                                       errorHandler(errors.firstObject);
                                      }
    ];
 }

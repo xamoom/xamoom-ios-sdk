@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RestKit/RestKit.h>
 
 @interface XMMError : NSObject
+
+@property NSString* code;
+@property NSString* message;
+
++ (RKResponseDescriptor*)contentDescriptor;
 
 @end
