@@ -19,10 +19,17 @@ NSString * const kLocationIdentifier = @"dkriw";
 
 @implementation ViewController
 
-XMMEnduserApi *api;
-
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  //get apikey from file
+  NSString* path = [[NSBundle mainBundle] pathForResource:@"api"
+                                                   ofType:@"txt"];
+  NSString* apiKey = [NSString stringWithContentsOfFile:path
+                                               encoding:NSUTF8StringEncoding
+                                                  error:NULL];
+  
+  [[XMMEnduserApi sharedInstance] setApiKey:apiKey];
 }
 
 - (void)didReceiveMemoryWarning {

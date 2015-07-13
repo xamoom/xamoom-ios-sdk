@@ -67,12 +67,6 @@ float const kTimeWaiting = 30.0;
   XCTAssertNotNil([XMMEnduserApi sharedInstance].apiBaseURL, @"api.apiBaseURL should not be nil");
 }
 
-- (void)testRssBaseUrl {
-  NSLog(@"Test Suite - testRssBaseUrl");
-  
-  XCTAssertNotNil([XMMEnduserApi sharedInstance].rssBaseUrlString, @"api.rssBaseUrl should not be nil");
-}
-
 - (void)testSystemLanguage {
   NSLog(@"Test Suite - testSystemLanguage");
   

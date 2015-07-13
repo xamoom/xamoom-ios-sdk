@@ -84,17 +84,9 @@ extern NSString * const kApiBaseURLString;
  */
 @property (readonly) NSURL *apiBaseURL;
 /**
- The base url of xamoom rss feed. You can change this one another url.
- */
-@property NSString *rssBaseUrlString;
-/**
  The preferred language of the user.
  */
 @property NSString *systemLanguage;
-/**
- Bool to check if the CoreData is initialized.
- */
-@property (readonly) BOOL isCoreDataInitialized;
 /**
  String with the title of the qr code view cancel button.
  */
@@ -114,6 +106,11 @@ extern NSString * const kApiBaseURLString;
 -(instancetype)init NS_DESIGNATED_INITIALIZER;
 
 #pragma mark - public methods
+
+/**
+ * Set your API Key from the xamoom-system.
+ */
+- (void)setApiKey:(NSString*)apiKey;
 
 /// @name API Calls
 
