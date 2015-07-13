@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -52,45 +52,9 @@
                                     <action selector="getContentByLocationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhT-aE-w3v"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ds-lg-Anh">
-                                <rect key="frame" x="16" y="307" width="208" height="30"/>
-                                <state key="normal" title="getContentByIdFromCoreData">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getContentByIdFromCoreDataAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3eM-VY-aci"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67Z-An-8JI">
-                                <rect key="frame" x="16" y="345" width="255" height="30"/>
-                                <state key="normal" title="getContentByLocationFromCoreData">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getContentByLocationFromCoreData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bMl-aJ-TFU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YU-Fy-fTS">
-                                <rect key="frame" x="16" y="383" width="310" height="30"/>
-                                <state key="normal" title="getContentByLocationIdentfierFromCoreData">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getContentByLocationIdentifierFromCoreDataAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gZJ-AZ-pmB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWu-gq-GWe">
-                                <rect key="frame" x="16" y="421" width="177" height="30"/>
-                                <state key="normal" title="getContentFromRSSFeed">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getContentFromRSSFeedAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a7g-v8-qcS"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHv-JX-gFz">
-                                <rect key="frame" x="16" y="134" width="156" height="30"/>
-                                <state key="normal" title="spotMapWithSystemId">
+                                <rect key="frame" x="16" y="134" width="61" height="30"/>
+                                <state key="normal" title="spotMap">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -104,8 +68,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVe-A6-Bd2">
-                                <rect key="frame" x="16" y="172" width="172" height="30"/>
-                                <state key="normal" title="contentListWithSystemId">
+                                <rect key="frame" x="16" y="172" width="77" height="30"/>
+                                <state key="normal" title="contentList">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

@@ -34,6 +34,34 @@
                ReferencedContainer = "container:xamoom-ios-sdk-test.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "88F212D21B539F7600FFB6D1"
+               BuildableName = "xamoom-ios-sdkTests.xctest"
+               BlueprintName = "xamoom-ios-sdkTests"
+               ReferencedContainer = "container:xamoom-ios-sdk-test.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "88F212F71B53A44F00FFB6D1"
+               BuildableName = "XMMEnduserApiTests.xctest"
+               BlueprintName = "XMMEnduserApiTests"
+               ReferencedContainer = "container:xamoom-ios-sdk-test.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -49,6 +77,26 @@
                BlueprintIdentifier = "8858D2581A822513001B45D5"
                BuildableName = "xamoom-ios-sdk-testTests.xctest"
                BlueprintName = "xamoom-ios-sdk-testTests"
+               ReferencedContainer = "container:xamoom-ios-sdk-test.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "88F212D21B539F7600FFB6D1"
+               BuildableName = "xamoom-ios-sdkTests.xctest"
+               BlueprintName = "xamoom-ios-sdkTests"
+               ReferencedContainer = "container:xamoom-ios-sdk-test.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "88F212F71B53A44F00FFB6D1"
+               BuildableName = "XMMEnduserApiTests.xctest"
+               BlueprintName = "XMMEnduserApiTests"
                ReferencedContainer = "container:xamoom-ios-sdk-test.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -72,7 +120,8 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8858D23F1A822513001B45D5"
@@ -90,7 +139,8 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8858D23F1A822513001B45D5"

@@ -24,10 +24,10 @@
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMResponseClosestSpot` class.
+ Returns a RKResponseDescriptor for `XMMResponseClosestSpot` class.
  
- @return RKObjectMapping*
+ @return RKResponseDescriptor*
  */
-+ (RKObjectMapping*)mapping;
++ (RKResponseDescriptor*)contentDescriptor;
 
 @end

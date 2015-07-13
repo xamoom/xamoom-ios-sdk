@@ -64,7 +64,7 @@
 		88BA02D51AA8AA940091A43C /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02C91AA8AA940091A43C /* NSString+HTML.m */; };
 		88BA02D61AA8AA940091A43C /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02CB1AA8AA940091A43C /* NSString+XMLEntities.m */; };
 		88BA02D71AA8AA940091A43C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02CD1AA8AA940091A43C /* RootViewController.m */; };
-		88DE5D5E1AF225B8008D37B8 /* XMMResponseClosestSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DE5D5D1AF225B8008D37B8 /* XMMResponseClosestSpot.m */; };
+		88F212C31B539D3B00FFB6D1 /* XMMResponseClosestSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F212C21B539D3B00FFB6D1 /* XMMResponseClosestSpot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +76,19 @@
 			remoteInfo = "xamoom-ios-sdk-test";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88F212E51B539F7600FFB6D1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		86CF7D8E893047483C215A55 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,8 +113,8 @@
 		8858D2591A822513001B45D5 /* xamoom-ios-sdk-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xamoom-ios-sdk-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8858D25E1A822513001B45D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8858D25F1A822513001B45D5 /* xamoom_ios_sdk_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xamoom_ios_sdk_testTests.m; sourceTree = "<group>"; };
-		8858D26A1A8225B1001B45D5 /* XMMEnduserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMEnduserApi.h; path = ../../src/XMMEnduserApi.h; sourceTree = "<group>"; };
-		8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMEnduserApi.m; path = ../../src/XMMEnduserApi.m; sourceTree = "<group>"; };
+		8858D26A1A8225B1001B45D5 /* XMMEnduserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMEnduserApi.h; path = ../../../src/XMMEnduserApi.h; sourceTree = "<group>"; };
+		8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMEnduserApi.m; path = ../../../src/XMMEnduserApi.m; sourceTree = "<group>"; };
 		8885E5E01A9F227400989B52 /* XMMResponseGetSpotMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseGetSpotMap.h; path = ../../src/mapping/XMMResponseGetSpotMap.h; sourceTree = "<group>"; };
 		8885E5E11A9F227400989B52 /* XMMResponseGetSpotMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseGetSpotMap.m; path = ../../src/mapping/XMMResponseGetSpotMap.m; sourceTree = "<group>"; };
 		8885E5E31A9F250600989B52 /* XMMResponseGetSpotMapItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseGetSpotMapItem.h; path = ../../src/mapping/XMMResponseGetSpotMapItem.h; sourceTree = "<group>"; };
@@ -166,8 +179,8 @@
 		88BA02CB1AA8AA940091A43C /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XMLEntities.m"; path = "../../src/lib/MWFeedParser/NSString+XMLEntities.m"; sourceTree = "<group>"; };
 		88BA02CC1AA8AA940091A43C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../../src/lib/MWFeedParser/RootViewController.h; sourceTree = "<group>"; };
 		88BA02CD1AA8AA940091A43C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../../src/lib/MWFeedParser/RootViewController.m; sourceTree = "<group>"; };
-		88DE5D5C1AF225B8008D37B8 /* XMMResponseClosestSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseClosestSpot.h; path = ../../src/mapping/XMMResponseClosestSpot.h; sourceTree = "<group>"; };
-		88DE5D5D1AF225B8008D37B8 /* XMMResponseClosestSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseClosestSpot.m; path = ../../src/mapping/XMMResponseClosestSpot.m; sourceTree = "<group>"; };
+		88F212C11B539D3B00FFB6D1 /* XMMResponseClosestSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseClosestSpot.h; path = ../../src/mapping/XMMResponseClosestSpot.h; sourceTree = "<group>"; };
+		88F212C21B539D3B00FFB6D1 /* XMMResponseClosestSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseClosestSpot.m; path = ../../src/mapping/XMMResponseClosestSpot.m; sourceTree = "<group>"; };
 		8DCF04393C17E7BE8DD318AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FE3AA1979685A8B62EFC9F15 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,7 +220,7 @@
 				88301E1B1A9DC21400F24F84 /* XMMRSSEntry.m */,
 			);
 			name = RSS;
-			path = ../../src/RSS;
+			path = ../../../src/RSS;
 			sourceTree = "<group>";
 		};
 		88301E1D1A9DF24500F24F84 /* lib */ = {
@@ -216,7 +229,7 @@
 				88301E321A9DF24500F24F84 /* MWFeedParser */,
 			);
 			name = lib;
-			path = ../../lib;
+			path = ../../../lib;
 			sourceTree = "<group>";
 		};
 		88301E321A9DF24500F24F84 /* MWFeedParser */ = {
@@ -250,7 +263,7 @@
 		8858D2371A822513001B45D5 = {
 			isa = PBXGroup;
 			children = (
-				8858D2691A82258A001B45D5 /* xamoom-ios-sdk */,
+				88F2130D1B53A4C600FFB6D1 /* xamoom ios sdk */,
 				8858D2421A822513001B45D5 /* xamoom-ios-sdk-test */,
 				8858D25C1A822513001B45D5 /* xamoom-ios-sdk-testTests */,
 				8858D2411A822513001B45D5 /* Products */,
@@ -310,18 +323,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8858D2691A82258A001B45D5 /* xamoom-ios-sdk */ = {
-			isa = PBXGroup;
-			children = (
-				8858D26A1A8225B1001B45D5 /* XMMEnduserApi.h */,
-				8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */,
-				88E93FC01A83B3B700955E39 /* mapping */,
-				88301E191A9DC21400F24F84 /* RSS */,
-				88301E1D1A9DF24500F24F84 /* lib */,
-			);
-			name = "xamoom-ios-sdk";
-			sourceTree = "<group>";
-		};
 		88CE66C11A88C54300C31DE9 /* XMMResponseContentBlocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,13 +375,27 @@
 				8885FD021A8DEC9B006F6B4C /* XMMResponseStyle.m */,
 				8806A7671ACD802D000E8552 /* XMMResponseContentList.h */,
 				8806A7681ACD802D000E8552 /* XMMResponseContentList.m */,
-				88DE5D5C1AF225B8008D37B8 /* XMMResponseClosestSpot.h */,
-				88DE5D5D1AF225B8008D37B8 /* XMMResponseClosestSpot.m */,
+				88F212C11B539D3B00FFB6D1 /* XMMResponseClosestSpot.h */,
+				88F212C21B539D3B00FFB6D1 /* XMMResponseClosestSpot.m */,
 				88CE66C11A88C54300C31DE9 /* XMMResponseContentBlocks */,
 				88AA55891B4FC41400D167D3 /* XMMError.h */,
 				88AA558A1B4FC41400D167D3 /* XMMError.m */,
 			);
 			name = mapping;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		88F2130D1B53A4C600FFB6D1 /* xamoom ios sdk */ = {
+			isa = PBXGroup;
+			children = (
+				8858D26A1A8225B1001B45D5 /* XMMEnduserApi.h */,
+				8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */,
+				88E93FC01A83B3B700955E39 /* mapping */,
+				88301E191A9DC21400F24F84 /* RSS */,
+				88301E1D1A9DF24500F24F84 /* lib */,
+			);
+			name = "xamoom ios sdk";
+			path = "xamoom-ios-sdk-test";
 			sourceTree = "<group>";
 		};
 		FBBA45687E405BB9EDD1EEEA /* Frameworks */ = {
@@ -407,6 +422,7 @@
 				8858D23D1A822513001B45D5 /* Frameworks */,
 				8858D23E1A822513001B45D5 /* Resources */,
 				8DF25549D4BEB804D6A14F11 /* Copy Pods Resources */,
+				88F212E51B539F7600FFB6D1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -574,11 +590,11 @@
 				8885FCEC1A8DEC8C006F6B4C /* XMMResponseContentBlockType1.m in Sources */,
 				88301E1C1A9DC21400F24F84 /* XMMRSSEntry.m in Sources */,
 				8885FCEE1A8DEC8C006F6B4C /* XMMResponseContentBlockType3.m in Sources */,
-				88DE5D5E1AF225B8008D37B8 /* XMMResponseClosestSpot.m in Sources */,
 				8885FD081A8DEC9B006F6B4C /* XMMResponseMenuItem.m in Sources */,
 				8885E5E51A9F250600989B52 /* XMMResponseGetSpotMapItem.m in Sources */,
 				8858D26C1A8225B1001B45D5 /* XMMEnduserApi.m in Sources */,
 				88BA02D51AA8AA940091A43C /* NSString+HTML.m in Sources */,
+				88F212C31B539D3B00FFB6D1 /* XMMResponseClosestSpot.m in Sources */,
 				8885FCF41A8DEC8C006F6B4C /* XMMResponseContentBlockType9.m in Sources */,
 				88BA02D01AA8AA940091A43C /* MWFeedInfo.m in Sources */,
 				8858D2461A822513001B45D5 /* main.m in Sources */,

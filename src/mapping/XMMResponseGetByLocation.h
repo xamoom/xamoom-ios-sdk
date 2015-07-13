@@ -31,10 +31,10 @@
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMResponseGetByLocation` class.
+ Returns a RKResponseDescriptor for `XMMResponseGetByLocation` class.
  
- @return RKObjectMapping*
+ @return RKResponseDescriptor*
  */
-+ (RKObjectMapping*)mapping;
++ (RKResponseDescriptor*)contentDescriptor;
 
 @end

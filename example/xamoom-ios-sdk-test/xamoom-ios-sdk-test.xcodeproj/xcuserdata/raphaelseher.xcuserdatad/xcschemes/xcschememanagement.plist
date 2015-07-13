@@ -9,15 +9,25 @@
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
+		<key>XMMEnduserApi.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>documentation.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>1</integer>
 		</dict>
 		<key>xamoom-ios-sdk-test.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>xamoom-ios-sdk.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -38,6 +48,26 @@
 			<true/>
 		</dict>
 		<key>8858D2581A822513001B45D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88F212C81B539F7600FFB6D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88F212D21B539F7600FFB6D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88F212ED1B53A44F00FFB6D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88F212F71B53A44F00FFB6D1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

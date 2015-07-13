@@ -41,10 +41,10 @@
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMResponseGetByLocationIdentifier` class.
+ Returns a RKResponseDescriptor for `XMMResponseGetByLocationIdentifier` class.
  
- @return RKObjectMapping*
+ @return RKResponseDescriptor*
  */
-+ (RKObjectMapping*)mapping;
++ (RKResponseDescriptor*)contentDescriptor;
 
 @end

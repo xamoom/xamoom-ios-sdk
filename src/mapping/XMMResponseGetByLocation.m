@@ -21,11 +21,27 @@
 
 @implementation XMMResponseGetByLocation
 
-+ (RKObjectMapping*)mapping {
++ (RKResponseDescriptor*)contentDescriptor {
   RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseGetByLocation class]];
   [mapping addAttributeMappingsFromDictionary:@{@"kind":@"kind",
                                                 }];
-  return mapping;
+  
+  // Create mappings
+  RKObjectMapping* responseMapping = [RKObjectMapping mappingForClass:[XMMResponseGetByLocation class]];
+  [responseMapping addAttributeMappingsFromDictionary:@{@"kind":@"kind",
+                                                }];
+  RKObjectMapping* responseItemMapping = [XMMResponseGetByLocationItem mapping];
+  
+  // Create relationship
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
+                                                                                  toKeyPath:@"items"
+                                                                                withMapping:responseItemMapping]];
+
+  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+  // Create ResponseDescriptor with objectMapping
+  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
+  
+  return contentDescriptor;
 }
 
 @end

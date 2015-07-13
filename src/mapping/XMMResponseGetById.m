@@ -22,13 +22,55 @@
 
 @implementation XMMResponseGetById
 
-+ (RKObjectMapping*)mapping {
-  RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseGetById class]];
-  [mapping addAttributeMappingsFromDictionary:@{@"system_name":@"systemName",
-                                                @"system_url":@"systemUrl",
-                                                @"system_id":@"systemId",
-                                                }];
-  return mapping;
++ (RKResponseDescriptor*)contentDescriptor {
+  
+  // Create mappings
+  RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
+  
+  RKObjectMapping* responseMapping = [RKObjectMapping mappingForClass:[XMMResponseGetById class]];
+  [responseMapping addAttributeMappingsFromDictionary:@{@"system_name":@"systemName",
+                                                        @"system_url":@"systemUrl",
+                                                        @"system_id":@"systemId",
+                                                        }];
+  RKObjectMapping* responseContentMapping = [XMMResponseContent mapping];
+  RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
+  RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem mapping];
+  
+  // Add dynamic matchers
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType0 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType1 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType2 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType3 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType4 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType5 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType6 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType7 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType8 dynamicMappingMatcher]];
+  [dynamicMapping addMatcher:[XMMResponseContentBlockType9 dynamicMappingMatcher]];
+  
+  
+  // Create relationships
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
+                                                                                  toKeyPath:@"content"
+                                                                                withMapping:responseContentMapping]];
+  
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
+                                                                                  toKeyPath:@"content.contentBlocks"
+                                                                                withMapping:dynamicMapping]];
+  
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
+                                                                                  toKeyPath:@"style"
+                                                                                withMapping:responseStyleMapping]];
+  
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
+                                                                                  toKeyPath:@"menu"
+                                                                                withMapping:responseMenuMapping]];
+  
+  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+  
+  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
+  
+  return contentDescriptor;
 }
 
 @end

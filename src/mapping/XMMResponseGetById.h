@@ -39,11 +39,11 @@
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMResponseGetById` class.
+ Returns a RKResponseDescriptor for `XMMResponseGetById` class.
  
- @return RKObjectMapping*
+ @return RKResponseDescriptor*
  */
-+ (RKObjectMapping*)mapping;
++ (RKResponseDescriptor*)contentDescriptor;
 
 @end
 

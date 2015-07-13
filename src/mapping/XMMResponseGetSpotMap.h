@@ -28,13 +28,17 @@
 @property (nonatomic) NSArray* items;
 @property (nonatomic) XMMResponseStyle* style;
 
+//only when calling closestSpots
+@property (nonatomic) int radius;
+@property (nonatomic) int limit;
+
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMResponseGetSpotMap` class.
+ Returns a RKResponseDescriptor for `XMMResponseGetSpotMap` class.
  
- @return RKObjectMapping*
+ @return RKResponseDescriptor*
  */
-+ (RKObjectMapping*)mapping;
++ (RKResponseDescriptor*)contentDescriptor;
 
 @end
