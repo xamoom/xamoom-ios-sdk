@@ -23,10 +23,4 @@
 - (IBAction)getContentByIdFull:(id)sender;
 - (IBAction)closestSpots:(id)sender;
 
-- (IBAction)getContentByIdFromCoreDataAction:(id)sender;
-- (IBAction)getContentByLocationIdentifierFromCoreDataAction:(id)sender;
-- (IBAction)getContentByLocationFromCoreData:(id)sender;
-
-- (IBAction)getContentFromRSSFeedAction:(id)sender;
-
 @end

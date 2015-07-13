@@ -21,9 +21,12 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
-//NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
+#ifdef DEBUG
 NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_ah/api/";
-NSString * const kRSSBaseURLString = @"http://xamoom.com/feed/";
+RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
+#else
+NSString * const kApiBaseURLString = @"https://xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
+#endif
 
 static XMMEnduserApi *sharedInstance;
 
@@ -43,7 +46,6 @@ static XMMEnduserApi *sharedInstance;
 @implementation XMMEnduserApi : NSObject
 
 @synthesize apiBaseURL;
-@synthesize isCoreDataInitialized;
 
 + (XMMEnduserApi *)sharedInstance {
   if (!sharedInstance) {
@@ -56,31 +58,22 @@ static XMMEnduserApi *sharedInstance;
 -(instancetype)init {
   self = [super init];
   apiBaseURL = [NSURL URLWithString:kApiBaseURLString];
-  self.rssBaseUrlString = kRSSBaseURLString;
   self.systemLanguage = [NSLocale preferredLanguages][0];
-  isCoreDataInitialized = NO;
   self.qrCodeViewControllerCancelButtonTitle = @"Cancel";
   
   //create RKObjectManager
   RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
   [RKObjectManager setSharedManager:objectManager];
   
-  //get apikey from file
-  NSString* path = [[NSBundle mainBundle] pathForResource:@"api"
-                                                   ofType:@"txt"];
-  NSString* apiKey = [NSString stringWithContentsOfFile:path
-                                               encoding:NSUTF8StringEncoding
-                                                  error:NULL];
-  
+  return self;
+}
+
+- (void)setApiKey:(NSString*)apiKey {
   //set JSON-Type and Authorization Header
   [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
   [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization" value:apiKey];
-  
-  apiKey = nil;
-  //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
-  
-  return self;
 }
+
 
 #pragma mark public methods
 #pragma mark API calls
