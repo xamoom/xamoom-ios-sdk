@@ -23,10 +23,10 @@
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMResponseContentList` class.
+ Returns a RKResponseDescriptor for `XMMResponseContentList` class.
  
- @return RKObjectMapping*
+ @return RKResponseDescriptor*
  */
-+ (RKObjectMapping*)mapping;
++ (RKResponseDescriptor*)contentDescriptor;
 
 @end

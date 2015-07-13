@@ -69,8 +69,8 @@ static XMMEnduserApi *sharedInstance;
   NSString* path = [[NSBundle mainBundle] pathForResource:@"api"
                                                    ofType:@"txt"];
   NSString* apiKey = [NSString stringWithContentsOfFile:path
-                                                encoding:NSUTF8StringEncoding
-                                                   error:NULL];
+                                               encoding:NSUTF8StringEncoding
+                                                  error:NULL];
   
   //set JSON-Type and Authorization Header
   [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
@@ -78,7 +78,7 @@ static XMMEnduserApi *sharedInstance;
   
   apiKey = nil;
   //RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelDebug);
-    
+  
   return self;
 }
 
@@ -93,63 +93,11 @@ static XMMEnduserApi *sharedInstance;
                                 @"language":language,
                                 };
   
-  // Create mappings
-  RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
   
-  RKObjectMapping* responseMapping = [XMMResponseGetById mapping];
-  RKObjectMapping* responseContentMapping = [XMMResponseContent mapping];
-  RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
-  RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem mapping];
-  
-  // Add dynamic matchers
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType0 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType1 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType2 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType3 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType4 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType5 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType6 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType7 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType8 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType9 dynamicMappingMatcher]];
-  
-  
-  // Create relationships
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
-                                                                                  toKeyPath:@"content"
-                                                                                withMapping:responseContentMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
-                                                                                  toKeyPath:@"content.contentBlocks"
-                                                                                withMapping:dynamicMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
-                                                                                  toKeyPath:@"style"
-                                                                                withMapping:responseStyleMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
-                                                                                  toKeyPath:@"menu"
-                                                                                withMapping:responseMenuMapping]];
   
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id";
-
-  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-  // Create ResponseDescriptor with objectMapping
-  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
   
-  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
-  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
-                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                        
-                                        XMMResponseGetById *result = mappingResult.firstObject;
-                                        completionHandler(result);
-                                      }
-                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                        NSLog(@"Hellno: %@", error);
-                                        errorHandler([XMMError new]);
-                                      }
-   ];
+  [self apiPostWithPath:path andDescriptor:[XMMResponseGetById contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
 }
 
 - (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full completion:(void(^)(XMMResponseGetById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
@@ -160,63 +108,9 @@ static XMMEnduserApi *sharedInstance;
                                 @"full":(full) ? @"True" : @"False",
                                 };
   
-  // Create mappings
-  RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
-  
-  RKObjectMapping* responseMapping = [XMMResponseGetById mapping];
-  RKObjectMapping* responseContentMapping = [XMMResponseContent mapping];
-  RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
-  RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem mapping];
-  
-  // Add dynamic matchers
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType0 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType1 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType2 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType3 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType4 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType5 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType6 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType7 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType8 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType9 dynamicMappingMatcher]];
-  
-  
-  // Create relationships
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
-                                                                                  toKeyPath:@"content"
-                                                                                withMapping:responseContentMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
-                                                                                  toKeyPath:@"content.contentBlocks"
-                                                                                withMapping:dynamicMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
-                                                                                  toKeyPath:@"style"
-                                                                                withMapping:responseStyleMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
-                                                                                  toKeyPath:@"menu"
-                                                                                withMapping:responseMenuMapping]];
-  
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id_full";
-
-  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-  // Create ResponseDescriptor with objectMapping
-  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
   
-  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
-  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
-                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                        
-                                        XMMResponseGetById *result = mappingResult.firstObject;
-                                        completionHandler(result);
-                                      }
-                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                        NSLog(@"Hellno: %@", error);
-                                        errorHandler([XMMError new]);
-                                      }
-   ];
+  [self apiPostWithPath:path andDescriptor:[XMMResponseGetById contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
 }
 
 - (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler{
@@ -227,63 +121,9 @@ static XMMEnduserApi *sharedInstance;
                                 @"language":language,
                                 };
   
-  // Create mappings
-  RKDynamicMapping* dynamicMapping = [RKDynamicMapping new];
-  
-  RKObjectMapping* responseMapping = [XMMResponseGetByLocationIdentifier mapping];
-  RKObjectMapping* responseContentMapping = [XMMResponseContent mapping];
-  RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
-  RKObjectMapping* responseMenuMapping = [XMMResponseMenuItem mapping];
-  
-  // Add dynamic matchers
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType0 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType1 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType2 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType3 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType4 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType5 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType6 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType7 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType8 dynamicMappingMatcher]];
-  [dynamicMapping addMatcher:[XMMResponseContentBlockType9 dynamicMappingMatcher]];
-  
-  // Create relationships
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content"
-                                                                                  toKeyPath:@"content"
-                                                                                withMapping:responseContentMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"content.content_blocks"
-                                                                                  toKeyPath:@"content.contentBlocks"
-                                                                                withMapping:dynamicMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
-                                                                                  toKeyPath:@"style"
-                                                                                withMapping:responseStyleMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menu.items"
-                                                                                  toKeyPath:@"menu"
-                                                                                withMapping:responseMenuMapping]];
-  
-  
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_location_identifier";
   
-  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-  // Create ResponseDescriptor with objectMapping
-  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
-  
-  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
-  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
-                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                        
-                                        XMMResponseGetByLocationIdentifier *result = mappingResult.firstObject;
-                                        completionHandler(result);
-                                      }
-                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                        NSLog(@"Hellno: %@", error);
-                                        errorHandler([XMMError new]);
-                                      }
-   ];
+  [self apiPostWithPath:path andDescriptor:[XMMResponseGetByLocationIdentifier contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
 }
 
 - (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetByLocation *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
@@ -294,82 +134,21 @@ static XMMEnduserApi *sharedInstance;
                                 @"language":language,
                                 };
   
-  // Create mappings
-  RKObjectMapping* responseMapping = [XMMResponseGetByLocation mapping];
-  RKObjectMapping* responseItemMapping = [XMMResponseGetByLocationItem mapping];
-  
-  // Create relationship
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
-                                                                                  toKeyPath:@"items"
-                                                                                withMapping:responseItemMapping]];
   
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_location";
   
-  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-  // Create ResponseDescriptor with objectMapping
-  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
-  
-  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
-  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
-                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                        
-                                        XMMResponseGetByLocation *result = mappingResult.firstObject;
-                                        completionHandler(result);
-                                      }
-                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                        NSLog(@"Hellno: %@", error);
-                                        errorHandler([XMMError new]);
-                                      }
-   ];
+  [self apiPostWithPath:path andDescriptor:[XMMResponseGetByLocation contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
 }
 
 - (void)spotMapWithSystemId:(int)systemId withMapTags:(NSArray *)mapTags withLanguage:(NSString *)language completion:(void(^)(XMMResponseGetSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
-  RKObjectMapping* responseMapping = [XMMResponseGetSpotMap mapping];
-  RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
-  RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
-                                                                                  toKeyPath:@"items"
-                                                                                withMapping:responseItemMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
-                                                                                  toKeyPath:@"style"
-                                                                                withMapping:responseStyleMapping]];
-  
-  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-  // Create ResponseDescriptor with objectMapping
-  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
   
   NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%i/%@/%@", systemId, [mapTags componentsJoinedByString:@","], language];
   
-  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
-  [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
-                                     success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                       NSLog(@"Output: %@", mappingResult.firstObject);
-                                       XMMResponseGetSpotMap *result = mappingResult.firstObject;
-                                       completionHandler(result);
-                                     }
-                                     failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                       NSLog(@"Error: %@", error);
-                                       errorHandler([XMMError new]);
-                                     }
-   ];
+  [self apiGetWithPath:path andDescriptor:[XMMResponseGetSpotMap contentDescriptor] andParams:nil completion:completionHandler error:errorHandler];
 }
 
 - (void)contentListWithPageSize:(int)pageSize withLanguage:(NSString*)language withCursor:(NSString*)cursor withTags:(NSArray*)tags completion:(void(^)(XMMResponseContentList *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
-  RKObjectMapping* responseMapping = [XMMResponseContentList mapping];
-  RKObjectMapping* responseItemMapping = [XMMResponseContent mapping];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
-                                                                                  toKeyPath:@"items"
-                                                                                withMapping:responseItemMapping]];
-  
-  
-  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-  // Create ResponseDescriptor with objectMapping
-  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
-  
+
   NSString* tagsAsString;
   if (tags != nil)
     tagsAsString = [tags componentsJoinedByString:@","];
@@ -378,18 +157,7 @@ static XMMEnduserApi *sharedInstance;
   
   NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/content_list/%@/%i/%@/%@", language, pageSize, cursor, tagsAsString];
   
-  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
-  [[RKObjectManager sharedManager] getObject:nil path:path parameters:nil
-                                     success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                       NSLog(@"Output: %@", mappingResult.firstObject);
-                                       XMMResponseContentList *result = mappingResult.firstObject;
-                                       completionHandler(result);
-                                     }
-                                     failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                       NSLog(@"Error: %@", error);
-                                       errorHandler([XMMError new]);
-                                     }
-   ];
+  [self apiGetWithPath:path andDescriptor:[XMMResponseContentList contentDescriptor] andParams:nil completion:completionHandler error:errorHandler];
 }
 
 - (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language completion:(void(^)(XMMResponseClosestSpot *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
@@ -402,39 +170,9 @@ static XMMEnduserApi *sharedInstance;
                                 @"language":language,
                                 };
   
-  // Create mappings
-  RKObjectMapping* responseMapping = [XMMResponseClosestSpot mapping];
-  RKObjectMapping* responseItemMapping = [XMMResponseGetSpotMapItem mapping];
-  RKObjectMapping* responseStyleMapping = [XMMResponseStyle mapping];
-  
-  // Create relationships
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
-                                                                                  toKeyPath:@"style"
-                                                                                withMapping:responseStyleMapping]];
-  
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
-                                                                                  toKeyPath:@"items"
-                                                                                withMapping:responseItemMapping]];
-  
   NSString *path = @"xamoomEndUserApi/v1/get_closest_spots";
   
-  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
-  // Create ResponseDescriptor with objectMapping
-  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];
-  
-  [[RKObjectManager sharedManager] addResponseDescriptor:contentDescriptor];
-  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
-                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                        
-                                        XMMResponseClosestSpot *result = mappingResult.firstObject;
-                                        completionHandler(result);
-                                      }
-                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                        NSLog(@"Hellno: %@", error);
-                                        errorHandler([XMMError new]);
-                                      }
-   ];
+  [self apiPostWithPath:path andDescriptor:[XMMResponseClosestSpot contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
 }
 
 - (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)sytemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName {
@@ -451,10 +189,41 @@ static XMMEnduserApi *sharedInstance;
   
   NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/queue_geofence_analytics/"];
   [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
+                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                        NSLog(@"queue_geofence_analytics successfull");
+                                      } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                        NSLog(@"queue_geofence_analytics Error: %@", error);
+                                      }
+   ];
+}
+
+- (void)apiPostWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler{
+  [[RKObjectManager sharedManager] addResponseDescriptor:descriptor];
+  [[RKObjectManager sharedManager] postObject:nil path:path parameters:params
+                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                        NSLog(@"Output: %@", mappingResult.firstObject);
+                                        
+                                        XMMResponseGetById *result = mappingResult.firstObject;
+                                        completionHandler(result);
+                                      }
+                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                        NSLog(@"Hellno: %@", error);
+                                        errorHandler([XMMError new]);
+                                      }
+   ];
+}
+
+- (void)apiGetWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler{
+  [[RKObjectManager sharedManager] addResponseDescriptor:descriptor];
+  [[RKObjectManager sharedManager] getObject:nil path:path parameters:params
                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                       NSLog(@"queue_geofence_analytics successfull");
+                                       NSLog(@"Output: %@", mappingResult.firstObject);
+                                       
+                                       XMMResponseGetById *result = mappingResult.firstObject;
+                                       completionHandler(result);
                                      } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                       NSLog(@"queue_geofence_analytics Error: %@", error);
+                                       NSLog(@"Hellno: %@", error);
+                                       errorHandler([XMMError new]);
                                      }
    ];
 }
@@ -471,7 +240,7 @@ static XMMEnduserApi *sharedInstance;
     reader                        = [[QRCodeReaderViewController alloc] initWithCancelButtonTitle:self.qrCodeViewControllerCancelButtonTitle];
     reader.modalPresentationStyle = UIModalPresentationFormSheet;
   });
-
+  
   reader.delegate = self;
   
   //completionblock

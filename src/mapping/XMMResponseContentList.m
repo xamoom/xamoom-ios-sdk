@@ -10,12 +10,24 @@
 
 @implementation XMMResponseContentList
 
-+ (RKObjectMapping*)mapping {
-  RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMResponseContentList class]];
-  [mapping addAttributeMappingsFromDictionary:@{@"cursor":@"cursor",
-                                                @"more":@"hasMore",
-                                                }];
-  return mapping;
++ (RKResponseDescriptor*)contentDescriptor {
+  RKObjectMapping* responseMapping = [RKObjectMapping mappingForClass:[XMMResponseContentList class]];
+  [responseMapping addAttributeMappingsFromDictionary:@{@"cursor":@"cursor",
+                                                        @"more":@"hasMore",
+                                                        }];
+  RKObjectMapping* responseItemMapping = [XMMResponseContent mapping];
+  
+  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
+                                                                                  toKeyPath:@"items"
+                                                                                withMapping:responseItemMapping]];
+  
+  
+  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+  // Create ResponseDescriptor with objectMapping
+  RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodGET pathPattern:nil keyPath:nil statusCodes:statusCodes];
+
+  
+  return contentDescriptor;
 }
 
 @end
