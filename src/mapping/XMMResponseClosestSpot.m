@@ -29,8 +29,6 @@
                                                                                   toKeyPath:@"items"
                                                                                 withMapping:responseItemMapping]];
   
-  NSString *path = @"xamoomEndUserApi/v1/get_closest_spots";
-  
   NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
   // Create ResponseDescriptor with objectMapping
   RKResponseDescriptor *contentDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:statusCodes];

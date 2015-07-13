@@ -64,9 +64,6 @@ static XMMEnduserApi *sharedInstance;
   RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
   [RKObjectManager setSharedManager:objectManager];
   
-  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
-
-  
   return self;
 }
 
