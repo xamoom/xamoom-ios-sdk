@@ -60,7 +60,7 @@ NSString * const kLocationIdentifier = @"dkriw";
                                               NSLog(@"finishedLoadDataById: %@", result.description);
                                               self.outputTextView.text = result.description;
                                             } error:^(XMMError *error) {
-                                              NSLog(@"LoadDataById Error: %@", error);
+                                              NSLog(@"LoadDataById Error: %@", error.message);
                                             }
    ];
 }
@@ -71,7 +71,7 @@ NSString * const kLocationIdentifier = @"dkriw";
                                                        NSLog(@"finishedLoadDataByLocationIdentifier: %@", result.description);
                                                        self.outputTextView.text = result.description;
                                                      } error:^(XMMError *error) {
-                                                       NSLog(@"LoadDataByLocationIdentifier Error: %@", error);
+                                                       NSLog(@"LoadDataByLocationIdentifier Error: %@", error.message);
                                                      }];
 }
 
@@ -82,7 +82,7 @@ NSString * const kLocationIdentifier = @"dkriw";
                                         NSLog(@"finishedLoadDataByLocation: %@", result.description);
                                         self.outputTextView.text = result.description;
                                       } error:^(XMMError *error) {
-                                        NSLog(@"LoadDataByLocation Error: %@", error);
+                                        NSLog(@"LoadDataByLocation Error: %@", error.message);
                                       }
    ];
 }
@@ -93,7 +93,7 @@ NSString * const kLocationIdentifier = @"dkriw";
                                              NSLog(@"finishedGetSpotMap: %@", result.description);
                                              self.outputTextView.text = result.description;
                                            } error:^(XMMError *error) {
-                                             NSLog(@"GetSpotMap Error: %@", error);
+                                             NSLog(@"GetSpotMap Error: %@", error.message);
                                            }
    ];
 }
@@ -104,7 +104,7 @@ NSString * const kLocationIdentifier = @"dkriw";
                                                  NSLog(@"finishedGetContentList full: %@", result.description);
                                                  self.outputTextView.text = result.description;
                                                } error:^(XMMError *error) {
-                                                 NSLog(@"GetContentList Error: %@", error);
+                                                 NSLog(@"GetContentList Error: %@", error.message);
                                                }
    ];
 }
@@ -115,7 +115,7 @@ NSString * const kLocationIdentifier = @"dkriw";
                                               NSLog(@"finishedLoadDataById full: %@", result.description);
                                               self.outputTextView.text = result.description;
                                             } error:^(XMMError *error) {
-                                              NSLog(@"LoadDataById full Error: %@", error);
+                                              NSLog(@"LoadDataById full Error: %@", error.message);
                                             }
    ];
 }
@@ -126,7 +126,7 @@ NSString * const kLocationIdentifier = @"dkriw";
                                              NSLog(@"finishedLoadClosestSpots: %@", result.description);
                                              self.outputTextView.text = result.description;
                                            } error:^(XMMError *error) {
-                                             NSLog(@"LoadClosestSpots Error: %@", error);
+                                             NSLog(@"LoadClosestSpots Error: %@", error.message);
                                            }
    ];
 }
