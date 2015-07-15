@@ -54,17 +54,6 @@ NSString * const kLocationIdentifier = @"dkriw";
 }
 
 
-- (IBAction)getContentByIdAction:(id)sender {
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
-                                            completion:^(XMMResponseGetById *result){
-                                              NSLog(@"finishedLoadDataById: %@", result.description);
-                                              self.outputTextView.text = result.description;
-                                            } error:^(XMMError *error) {
-                                              NSLog(@"LoadDataById Error: %@", error.message);
-                                            }
-   ];
-}
-
 - (IBAction)getContentByLocationIdentifierAction:(id)sender {
   [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
                                                      completion:^(XMMResponseGetByLocationIdentifier *result){
@@ -88,7 +77,7 @@ NSString * const kLocationIdentifier = @"dkriw";
 }
 
 - (IBAction)getSpotMapAction:(id)sender {
-  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw",@"raphi"] withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
+  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"stw",@"raphi"] withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
                                            completion:^(XMMResponseGetSpotMap *result) {
                                              NSLog(@"finishedGetSpotMap: %@", result.description);
                                              self.outputTextView.text = result.description;

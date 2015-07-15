@@ -75,75 +75,9 @@ float const kTimeWaiting = 30.0;
 
 #pragma mark API request tests
 
-//Id
-- (void)testGetContentByIdFull {
-  NSLog(@"Test Suite - testGetContentByIdFull");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"de" completion:^(XMMResponseGetById *result){
-    self.apiResultGetContentById = result;
-    done = YES;
-  } error:^(XMMError *error) {
-    
-  }];
-  
-  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
-  XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
-}
-
 - (void)testGetContentByIdFullFull {
   NSLog(@"Test Suite - testGetContentByIdFull");
   [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"de" full:YES completion:^(XMMResponseGetById *result) {
-    self.apiResultGetContentById = result;
-    done = YES;
-  } error:^(XMMError *error) {
-    
-  }];
-  
-  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
-  XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
-}
-
-- (void)testGetContentByIdWithoutStyle {
-  NSLog(@"Test Suite - testGetContentByIdWithoutStyle");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:NO includeMenu:YES withLanguage:@"de" completion:^(XMMResponseGetById *result){
-    self.apiResultGetContentById = result;
-    done = YES;
-  } error:^(XMMError *error) {
-    
-  }];
-  
-  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
-  XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
-}
-
-- (void)testGetContentByIdWithoutMenu {
-  NSLog(@"Test Suite - testGetContentByIdWithoutMenu");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:NO withLanguage:@"de" completion:^(XMMResponseGetById *result){
-    self.apiResultGetContentById = result;
-    done = YES;
-  } error:^(XMMError *error) {
-    
-  }];
-  
-  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
-  XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
-}
-
-- (void)testGetContentByIdWithoutStyleAndMenu {
-  NSLog(@"Test Suite - testGetContentByIdWithoutStyleAndMenu");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:NO includeMenu:YES withLanguage:@"de" completion:^(XMMResponseGetById *result){
-    self.apiResultGetContentById = result;
-    done = YES;
-  } error:^(XMMError *error) {
-    
-  }];
-  
-  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
-  XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
-}
-
-- (void)testGetContentByIdWithEnglishLanguage {
-  NSLog(@"Test Suite - testGetContentByIdWithEnglishLanguage");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:NO withLanguage:@"en" completion:^(XMMResponseGetById *result){
     self.apiResultGetContentById = result;
     done = YES;
   } error:^(XMMError *error) {
@@ -259,7 +193,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetSpotMapFull {
   NSLog(@"Test Suite - testGetSpotMapFull");
-  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw"] withLanguage:@"de"
+  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"stw"] withLanguage:@"de"
                                            completion:^(XMMResponseGetSpotMap *result) {
                                              self.apiResultGetSpotMap = result;
                                              done = YES;
@@ -273,7 +207,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetSpotMapWithEnglishLanguage {
   NSLog(@"Test Suite - testGetSpotMapWithEnglishLanguage");
-  [[XMMEnduserApi sharedInstance] spotMapWithSystemId:0 withMapTags:@[@"stw"] withLanguage:@"en"
+  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"stw"] withLanguage:@"en"
                                            completion:^(XMMResponseGetSpotMap *result) {
                                              self.apiResultGetSpotMap = result;
                                              done = YES;
