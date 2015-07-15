@@ -15,7 +15,6 @@
 
 - (IBAction)scanAction:(id)sender;
 
-- (IBAction)getContentByIdAction:(id)sender;
 - (IBAction)getContentByLocationIdentifierAction:(id)sender;
 - (IBAction)getContentByLocationAction:(id)sender;
 - (IBAction)getSpotMapAction:(id)sender;
