@@ -88,6 +88,19 @@ float const kTimeWaiting = 30.0;
   XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
 }
 
+- (void)testGetContentByIdFullFullWithoutLanguage {
+  NSLog(@"Test Suite - testGetContentByIdFull");
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"" full:YES completion:^(XMMResponseGetById *result) {
+    self.apiResultGetContentById = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
+  
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
+  XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
+}
+
 //LocationIdentifier
 
 - (void)testGetContentByLocationIdentifierFull {
@@ -231,7 +244,7 @@ float const kTimeWaiting = 30.0;
      
    }];
   
-  XCTAssertTrue([self waitForCompletion:10.0], @"Failed to get any results in time");
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultGetContentList, @"getContentList should return something");
 }
 
