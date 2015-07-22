@@ -10,8 +10,8 @@
 #import <XCTest/XCTest.h>
 #import "XMMEnduserApi.h"
 
-NSString * const kContentId = @"f0da3d3d28d3418e9ccc4a6e9b3493c0";
-NSString * const kLocationIdentifier = @"dkriw";
+NSString * const kContentId = @"d8be762e9b644fc4bb7aedfa8c0e17b7";
+NSString * const kLocationIdentifier = @"0ana0";
 float const kTimeWaiting = 30.0;
 
 @interface xamoom_ios_sdk_testTests : XCTestCase
