@@ -20,7 +20,6 @@ float const kTimeWaiting = 30.0;
 }
 
 @property XMMEnduserApi *api;
-@property NSMutableArray *apiResultRSS;
 @property XMMResponseGetById *apiResultGetContentById;
 @property XMMResponseGetByLocationIdentifier *apiResultGetByLocationIdentifier;
 @property XMMResponseGetByLocation *apiResultGetByLocation;
@@ -43,7 +42,6 @@ float const kTimeWaiting = 30.0;
   //reset variables
   done = NO;
   
-  self.apiResultRSS = nil;
   self.apiResultGetContentById = nil;
   self.apiResultGetByLocationIdentifier = nil;
   self.apiResultGetByLocation = nil;
