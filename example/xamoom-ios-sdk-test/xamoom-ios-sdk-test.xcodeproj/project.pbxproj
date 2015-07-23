@@ -31,6 +31,7 @@
 		8858D2541A822513001B45D5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8858D2521A822513001B45D5 /* LaunchScreen.xib */; };
 		8858D2601A822513001B45D5 /* xamoom_ios_sdk_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D25F1A822513001B45D5 /* xamoom_ios_sdk_testTests.m */; };
 		8858D26C1A8225B1001B45D5 /* XMMEnduserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */; };
+		887A01491B60E41800421DEE /* xamoom-ios-sdk.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 887A01481B60E41800421DEE /* xamoom-ios-sdk.podspec */; };
 		8885E5E21A9F227400989B52 /* XMMResponseGetSpotMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885E5E11A9F227400989B52 /* XMMResponseGetSpotMap.m */; };
 		8885E5E51A9F250600989B52 /* XMMResponseGetSpotMapItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885E5E41A9F250600989B52 /* XMMResponseGetSpotMapItem.m */; };
 		8885FCEA1A8DEC8C006F6B4C /* XMMResponseContentBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885FCD51A8DEC8C006F6B4C /* XMMResponseContentBlock.m */; };
@@ -112,6 +113,7 @@
 		8858D25F1A822513001B45D5 /* xamoom_ios_sdk_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xamoom_ios_sdk_testTests.m; sourceTree = "<group>"; };
 		8858D26A1A8225B1001B45D5 /* XMMEnduserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMEnduserApi.h; path = ../../../src/XMMEnduserApi.h; sourceTree = "<group>"; };
 		8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMEnduserApi.m; path = ../../../src/XMMEnduserApi.m; sourceTree = "<group>"; };
+		887A01481B60E41800421DEE /* xamoom-ios-sdk.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "xamoom-ios-sdk.podspec"; path = "../../../xamoom-ios-sdk.podspec"; sourceTree = "<group>"; };
 		8885E5E01A9F227400989B52 /* XMMResponseGetSpotMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseGetSpotMap.h; path = ../../src/mapping/XMMResponseGetSpotMap.h; sourceTree = "<group>"; };
 		8885E5E11A9F227400989B52 /* XMMResponseGetSpotMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseGetSpotMap.m; path = ../../src/mapping/XMMResponseGetSpotMap.m; sourceTree = "<group>"; };
 		8885E5E31A9F250600989B52 /* XMMResponseGetSpotMapItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseGetSpotMapItem.h; path = ../../src/mapping/XMMResponseGetSpotMapItem.h; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			children = (
 				8858D2441A822513001B45D5 /* Info.plist */,
 				8858D2451A822513001B45D5 /* main.m */,
+				887A01481B60E41800421DEE /* xamoom-ios-sdk.podspec */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				8858D2541A822513001B45D5 /* LaunchScreen.xib in Resources */,
 				8858D2511A822513001B45D5 /* Images.xcassets in Resources */,
 				888E92211B1C5AD1004AA86B /* api.txt in Resources */,
+				887A01491B60E41800421DEE /* xamoom-ios-sdk.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
