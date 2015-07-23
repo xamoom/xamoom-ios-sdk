@@ -231,7 +231,7 @@ The response is a [XMMResponseClosestSpot](http://xamoom.github.io/xamoom-ios-sd
 
 ### [geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName: withSpotId: withSpotName:](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMEnduserApi.html#//api/name/geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:)
 
-Call this after a user interacts with a ["geofence" (contentWithLat: withLon: withLanguage: completion: error:)](#).
+Call this after a user interacts with a geofence (contentWithLat:andLon:...).
 
 #### Parameters
 | parameter | description |
