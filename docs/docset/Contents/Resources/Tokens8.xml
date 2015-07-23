@@ -13,6 +13,42 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType2/setYoutubeUrl:</TokenIdentifier>
+			<Abstract type="html">A youtube url.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType2.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *youtubeUrl</Declaration>
+			
+			
+			<Anchor>//api/name/youtubeUrl</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType2/youtubeUrl</TokenIdentifier>
+			<Abstract type="html">A youtube url.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType2.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *youtubeUrl</Declaration>
+			
+			
+			<Anchor>//api/name/youtubeUrl</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType2/youtubeUrl</TokenIdentifier>
+			<Abstract type="html">A youtube url.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType2.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *youtubeUrl</Declaration>
+			
+			
+			<Anchor>//api/name/youtubeUrl</Anchor>
+            <NodeRef refid="8"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType2/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType2 class.</Abstract>
 			<DeclaredIn>XMMResponseContentBlockType2.h</DeclaredIn>

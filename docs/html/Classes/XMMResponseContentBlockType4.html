@@ -54,6 +54,16 @@
 
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/linkType">linkType</option>
+		
+		<option value="//api/name/linkUrl">linkUrl</option>
+		
+		<option value="//api/name/text">text</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Class Methods">
@@ -101,6 +111,17 @@
 						<p><code>XMMResponseContentBlockType4</code> is used for <a href="#//api/name/mapping">mapping</a> the JSON sended by the api.</p>
 
 <p>This class represents the contentBlockType &lsquo;LINK&rsquo;.</p>
+
+<p><em>Default behavior</em></p>
+
+<ol>
+<li>On the left a icon according to type</li>
+<li>Next to the image title and below text</li>
+<li>Backgroundcolor according to type</li>
+</ol>
+
+
+<p>Example implementation is on our sample app &ldquo;pingeb.org&rdquo; <a href="https://github.com/xamoom/xamoom-pingeborg-ios">https://github.com/xamoom/xamoom-pingeborg-ios</a></p>
 					</div>
 					
 					
@@ -111,9 +132,165 @@
 						<a title="Tasks" name="tasks"></a>
 						
 
-						<a title="Mapping" name="task_Mapping"></a>
 						
-<h2 class="task-title">Mapping</h2>
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/linkUrl" title="linkUrl"></a>
+	<h3 class="method-title"><code><a href="#//api/name/linkUrl">&nbsp;&nbsp;linkUrl</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A url inputed by the user.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *linkUrl</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMResponseContentBlockType4.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/text" title="text"></a>
+	<h3 class="method-title"><code><a href="#//api/name/text">&nbsp;&nbsp;text</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Text as description for the url.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *text</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMResponseContentBlockType4.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/linkType" title="linkType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/linkType">&nbsp;&nbsp;linkType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Link type to determine the type of the link.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) int *linkType</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<ul>
+<li>FACEBOOK = 0</li>
+<li>TWITTER = 1</li>
+<li>WEB = 2</li>
+<li>AMAZON = 3</li>
+<li>WIKIPEDIA = 4</li>
+<li>LINKEDIN = 5</li>
+<li>FLICKR = 6</li>
+<li>SOUNDCLOUD = 7</li>
+<li>ITUNES = 8</li>
+<li>YOUTUBE = 9</li>
+<li>GOOGLEPLUS = 10</li>
+<li>TEL = 11</li>
+<li>EMAIL = 12</li>
+<li>SPOTIFY = 13</li>
+<li>GOOGLE_MAPS = 14</li>
+<li>ITUNES_APP = 15</li>
+<li>GOOGLE_PLAY = 16</li>
+<li>WINDOWS_STORE = 17</li>
+</ul>
+
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMResponseContentBlockType4.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Mapping" name="task_Mapping"></a>
+						<h2 class="task-title">Mapping</h2>
+
 						<div class="task-list">
 							<div class="section-method">
 	<a name="//api/name/mapping" title="mapping"></a>

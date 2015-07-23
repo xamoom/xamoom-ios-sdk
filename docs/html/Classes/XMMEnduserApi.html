@@ -137,13 +137,7 @@
 
 <p>For everything just use the shared instance: <a href="#//api/name/sharedInstance">[XMMEnduserApi sharedInstance]</a>.</p>
 
-<p>To get the results from the api calls, you have to listen to the delegate methods. Set the delegate like this:</p>
-
-<p><code>[</code>[XMMEnduserApi sharedInstance]<code>](#//api/name/sharedInstance).delegate = self;</code></p>
-
-<p>If you want to use the build-in CoreData Code, you have to call the initCoreData method.</p>
-
-<p><code>[[XMMEnduserApi sharedInstance] initCoreData];</code></p>
+<p>Before you can start you have to set a API key: [[XMMEnduserApi sharedInstance] setApiKey:apiKey];</p>
 					</div>
 					
 					
@@ -343,7 +337,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Inits the XMMEnduserApi: generates the apiBaseUrl and the rssBaseUrl and gets the preferred <a href="#//api/name/systemLanguage">systemLanguage</a>.</p>
+				<p>Inits the XMMEnduserApi: sets the apiBaseUrl and gets the preferred <a href="#//api/name/systemLanguage">systemLanguage</a>.</p>
 			</div>
 			
 		    
@@ -397,6 +391,18 @@
 			<div class="method-subsection method-declaration"><code>- (void)setApiKey:(NSString *)<em>apiKey</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>apiKey</code></th>
+						<td><p>The API key from your xamoom system</p></td>
+					</tr>
+				
+				</table>
+			</div>
 			
 
 			
@@ -453,22 +459,22 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>contentId</code></th>
-						<td><p>The id of the content from xamoom backend.</p></td>
+						<td><p>The id of the content from xamoom backend</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>style</code></th>
-						<td><p>True or False for returning the style from xamoom backend.</p></td>
+						<td><p>True or False for returning the style from xamoom backend as <a href="../Classes/XMMResponseStyle.html">XMMResponseStyle</a></p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>menu</code></th>
-						<td><p>True or False for returning the menu from xamoom backend.</p></td>
+						<td><p>True or False for returning the menu from xamoom backend as Array of <a href="../Classes/XMMResponseMenuItem.html">XMMResponseMenuItem</a></p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>language</code></th>
-						<td><p>The requested language of the content from xamoom backend.</p></td>
+						<td><p>The requested language of the content from xamoom backend</p></td>
 					</tr>
 				
 					<tr>
@@ -552,22 +558,22 @@ default language will be returned.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>locationIdentifier</code></th>
-						<td><p>The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend.</p></td>
+						<td><p>The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>style</code></th>
-						<td><p>True or False for returning the style from xamoom backend.</p></td>
+						<td><p>True or False for returning the style from xamoom backend as <a href="../Classes/XMMResponseStyle.html">XMMResponseStyle</a></p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>menu</code></th>
-						<td><p>True of False for returning the menu from xamoom backend.</p></td>
+						<td><p>True of False for returning the menu from xamoom backend as Array of <a href="../Classes/XMMResponseMenuItem.html">XMMResponseMenuItem</a></p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>language</code></th>
-						<td><p>The requested language of the content from xamoom backend.</p></td>
+						<td><p>The requested language of the content from xamoom backend</p></td>
 					</tr>
 				
 					<tr>
@@ -646,12 +652,12 @@ default language will be returned.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>lat</code></th>
-						<td><p>The latitude of a location.</p></td>
+						<td><p>The latitude of a location</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>lon</code></th>
-						<td><p>The longitude of a location.</p></td>
+						<td><p>The longitude of a location</p></td>
 					</tr>
 				
 					<tr>
@@ -693,6 +699,11 @@ default language will be returned.</p>
 			
 
 			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>After the user interacts with a geofence call <a href="#//api/name/geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:">geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:</a></p>
+			</div>
+			
 
 			
 
@@ -719,7 +730,7 @@ default language will be returned.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.</p>
+				<p>Makes an api call to xamoom with params to get a list of all items, so you can show them on a map</p>
 			</div>
 			
 		    
@@ -734,7 +745,7 @@ default language will be returned.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>mapTags</code></th>
-						<td><p>The Tags of the wanted spots.</p></td>
+						<td><p>The Tags of the wanted spots</p></td>
 					</tr>
 				
 					<tr>
@@ -760,11 +771,6 @@ default language will be returned.</p>
 <li><em>param1</em> error A <a href="../Classes/XMMError.html">XMMError</a> with error informations</li>
 </ul>
 </td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>systemId</code></th>
-						<td><p>The id of the wanted system.</p></td>
 					</tr>
 				
 				</table>
@@ -858,11 +864,6 @@ default language will be returned.</p>
 <li><em>param1</em> error A <a href="../Classes/XMMError.html">XMMError</a> with error informations</li>
 </ul>
 </td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>systemId</code></th>
-						<td><p>The id of the system from xamoom.</p></td>
 					</tr>
 				
 				</table>
@@ -1009,27 +1010,62 @@ If the selected language is not available the default language will be returned.
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString *)<em>requestedLanguage</em> withDeliveredLanguage:(NSString *)<em>deliveredLanguage</em> withSystemId:(NSString *)<em>systemId</em> withSystemName:(NSString *)<em>sytemName</em> withContentId:(NSString *)<em>contentId</em> withContentName:(NSString *)<em>contentName</em> withSpotId:(NSString *)<em>spotId</em> withSpotName:(NSString *)<em>spotName</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString *)<em>requestedLanguage</em> withDeliveredLanguage:(NSString *)<em>deliveredLanguage</em> withSystemId:(NSString *)<em>systemId</em> withSystemName:(NSString *)<em>systemName</em> withContentId:(NSString *)<em>contentId</em> withContentName:(NSString *)<em>contentName</em> withSpotId:(NSString *)<em>spotId</em> withSpotName:(NSString *)<em>spotName</em></code></div>
 
 		    
 			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>@param requestedLanguage
-@param deliveredLanguage
-@param systemId
-@param systemName
-@param contentId
-@param contentName
-@param spotId
-@param spotName</p>
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>requestedLanguage</code></th>
+						<td><p>The language you requested from the xamoom system</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deliveredLanguage</code></th>
+						<td><p>The language you got from the xamoom system</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>systemId</code></th>
+						<td><p>The systemId you got from the xamoom system</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>systemName</code></th>
+						<td><p>The systemName you got from the xamoom system</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentId</code></th>
+						<td><p>The contentId you got from the xamoom system</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentName</code></th>
+						<td><p>The contentName you got from the xamoom system</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>spotId</code></th>
+						<td><p>The spotId you got from the system</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>spotName</code></th>
+						<td><p>The spotName you got from the system</p></td>
+					</tr>
+				
+				</table>
 			</div>
+			
+
+			
+
+			
+
 			
 
 			

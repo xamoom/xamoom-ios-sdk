@@ -13,6 +13,114 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentList/setCursor:</TokenIdentifier>
+			<Abstract type="html">Cursor for paging.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *cursor</Declaration>
+			
+			
+			<Anchor>//api/name/cursor</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentList/cursor</TokenIdentifier>
+			<Abstract type="html">Cursor for paging.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *cursor</Declaration>
+			
+			
+			<Anchor>//api/name/cursor</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentList/cursor</TokenIdentifier>
+			<Abstract type="html">Cursor for paging.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *cursor</Declaration>
+			
+			
+			<Anchor>//api/name/cursor</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentList/setHasMore:</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there are more items on our system to fetch.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasMore</Declaration>
+			
+			
+			<Anchor>//api/name/hasMore</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentList/hasMore</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there are more items on our system to fetch.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasMore</Declaration>
+			
+			
+			<Anchor>//api/name/hasMore</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentList/hasMore</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there are more items on our system to fetch.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasMore</Declaration>
+			
+			
+			<Anchor>//api/name/hasMore</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentList/setItems:</TokenIdentifier>
+			<Abstract type="html">Array of XMMResponseContent items.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentList/items</TokenIdentifier>
+			<Abstract type="html">Array of XMMResponseContent items.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentList/items</TokenIdentifier>
+			<Abstract type="html">Array of XMMResponseContent items.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentList/contentDescriptor</TokenIdentifier>
 			<Abstract type="html">Returns a RKResponseDescriptor for XMMResponseContentList class.</Abstract>
 			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>

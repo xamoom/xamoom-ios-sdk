@@ -13,6 +13,225 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/setBackgroundColor:</TokenIdentifier>
+			<Abstract type="html">The background color defined on our system. (E.g. #f5f5f5)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *backgroundColor</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/backgroundColor</TokenIdentifier>
+			<Abstract type="html">The background color defined on our system. (E.g. #f5f5f5)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *backgroundColor</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseStyle/backgroundColor</TokenIdentifier>
+			<Abstract type="html">The background color defined on our system. (E.g. #f5f5f5)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *backgroundColor</Declaration>
+			
+			
+			<Anchor>//api/name/backgroundColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/setHighlightFontColor:</TokenIdentifier>
+			<Abstract type="html">The hightLightFontColor defined on our system. Used for links. (E.g. #ff0000)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *highlightFontColor</Declaration>
+			
+			
+			<Anchor>//api/name/highlightFontColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/highlightFontColor</TokenIdentifier>
+			<Abstract type="html">The hightLightFontColor defined on our system. Used for links. (E.g. #ff0000)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *highlightFontColor</Declaration>
+			
+			
+			<Anchor>//api/name/highlightFontColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseStyle/highlightFontColor</TokenIdentifier>
+			<Abstract type="html">The hightLightFontColor defined on our system. Used for links. (E.g. #ff0000)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *highlightFontColor</Declaration>
+			
+			
+			<Anchor>//api/name/highlightFontColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/setForegroundFontColor:</TokenIdentifier>
+			<Abstract type="html">The foregroundFont color defined on our system. (E.g. #f9f9f9)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *foregroundFontColor</Declaration>
+			
+			
+			<Anchor>//api/name/foregroundFontColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/foregroundFontColor</TokenIdentifier>
+			<Abstract type="html">The foregroundFont color defined on our system. (E.g. #f9f9f9)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *foregroundFontColor</Declaration>
+			
+			
+			<Anchor>//api/name/foregroundFontColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseStyle/foregroundFontColor</TokenIdentifier>
+			<Abstract type="html">The foregroundFont color defined on our system. (E.g. #f9f9f9)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *foregroundFontColor</Declaration>
+			
+			
+			<Anchor>//api/name/foregroundFontColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/setChromeHeaderColor:</TokenIdentifier>
+			<Abstract type="html">The chromeHeaderColor is displayed on mobile chrome browser as the &quot;head&quot;.
+Use it for your e.g. navigation bar. (E.g. #cdcdcd)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *chromeHeaderColor</Declaration>
+			
+			
+			<Anchor>//api/name/chromeHeaderColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/chromeHeaderColor</TokenIdentifier>
+			<Abstract type="html">The chromeHeaderColor is displayed on mobile chrome browser as the &quot;head&quot;.
+Use it for your e.g. navigation bar. (E.g. #cdcdcd)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *chromeHeaderColor</Declaration>
+			
+			
+			<Anchor>//api/name/chromeHeaderColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseStyle/chromeHeaderColor</TokenIdentifier>
+			<Abstract type="html">The chromeHeaderColor is displayed on mobile chrome browser as the &quot;head&quot;.
+Use it for your e.g. navigation bar. (E.g. #cdcdcd)</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *chromeHeaderColor</Declaration>
+			
+			
+			<Anchor>//api/name/chromeHeaderColor</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/setCustomMarker:</TokenIdentifier>
+			<Abstract type="html">The customMarker as DOUBLE base64 encoded string. Use this one on maps.</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *customMarker</Declaration>
+			
+			
+			<Anchor>//api/name/customMarker</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/customMarker</TokenIdentifier>
+			<Abstract type="html">The customMarker as DOUBLE base64 encoded string. Use this one on maps.</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *customMarker</Declaration>
+			
+			
+			<Anchor>//api/name/customMarker</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseStyle/customMarker</TokenIdentifier>
+			<Abstract type="html">The customMarker as DOUBLE base64 encoded string. Use this one on maps.</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *customMarker</Declaration>
+			
+			
+			<Anchor>//api/name/customMarker</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/setIcon:</TokenIdentifier>
+			<Abstract type="html">The icon as DOUBLE base64 encoded string.</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *icon</Declaration>
+			
+			
+			<Anchor>//api/name/icon</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseStyle/icon</TokenIdentifier>
+			<Abstract type="html">The icon as DOUBLE base64 encoded string.</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *icon</Declaration>
+			
+			
+			<Anchor>//api/name/icon</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseStyle/icon</TokenIdentifier>
+			<Abstract type="html">The icon as DOUBLE base64 encoded string.</Abstract>
+			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *icon</Declaration>
+			
+			
+			<Anchor>//api/name/icon</Anchor>
+            <NodeRef refid="24"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseStyle/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMResponseStyle class.</Abstract>
 			<DeclaredIn>XMMResponseStyle.h</DeclaredIn>

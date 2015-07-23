@@ -97,23 +97,23 @@
             
         </Node>
 		<Node id="2" type="file" documentType="reference">
-            <Name>XMMRSSEntry</Name>
-            <Path>Classes/XMMRSSEntry.html</Path>
+            <Name>XMMError</Name>
+            <Path>Classes/XMMError.html</Path>
             
                 <Subnodes>
                 <Node type="section">
-                    <Path>Classes/XMMRSSEntry.html</Path>
+                    <Path>Classes/XMMError.html</Path>
                     <Name>Overview</Name>
                     <Anchor>overview</Anchor>
                 </Node>
                 <Node type="section">
-                    <Path>Classes/XMMRSSEntry.html</Path>
+                    <Path>Classes/XMMError.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
                 </Node>
                 
                 <Node type="section">
-                    <Path>Classes/XMMRSSEntry.html</Path>
+                    <Path>Classes/XMMError.html</Path>
                     <Name>Properties</Name>
                     <Anchor>properties</Anchor>
                 </Node>
@@ -137,6 +137,12 @@
                     <Path>Classes/XMMResponseClosestSpot.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseClosestSpot.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -199,6 +205,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlock.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseContentBlock.html</Path>
@@ -224,6 +236,12 @@
                     <Path>Classes/XMMResponseContentBlockType0.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlockType0.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -253,6 +271,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlockType1.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseContentBlockType1.html</Path>
@@ -278,6 +302,12 @@
                     <Path>Classes/XMMResponseContentBlockType2.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlockType2.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -307,6 +337,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlockType3.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseContentBlockType3.html</Path>
@@ -334,6 +370,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlockType4.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseContentBlockType4.html</Path>
@@ -359,6 +401,12 @@
                     <Path>Classes/XMMResponseContentBlockType5.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlockType5.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -415,6 +463,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlockType7.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseContentBlockType7.html</Path>
@@ -440,6 +494,12 @@
                     <Path>Classes/XMMResponseContentBlockType8.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlockType8.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -469,6 +529,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentBlockType9.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseContentBlockType9.html</Path>
@@ -494,6 +560,12 @@
                     <Path>Classes/XMMResponseContentList.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseContentList.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -523,6 +595,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseGetById.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseGetById.html</Path>
@@ -548,6 +626,12 @@
                     <Path>Classes/XMMResponseGetByLocation.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseGetByLocation.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -577,6 +661,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseGetByLocationIdentifier.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseGetByLocationIdentifier.html</Path>
@@ -602,6 +692,12 @@
                     <Path>Classes/XMMResponseGetByLocationItem.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseGetByLocationItem.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -631,6 +727,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseGetSpotMap.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseGetSpotMap.html</Path>
@@ -656,6 +758,12 @@
                     <Path>Classes/XMMResponseGetSpotMapItem.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseGetSpotMapItem.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 
@@ -685,6 +793,12 @@
                     <Anchor>tasks</Anchor>
                 </Node>
                 
+                <Node type="section">
+                    <Path>Classes/XMMResponseMenuItem.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
                 
                 <Node type="section">
                     <Path>Classes/XMMResponseMenuItem.html</Path>
@@ -710,6 +824,12 @@
                     <Path>Classes/XMMResponseStyle.html</Path>
                     <Name>Tasks</Name>
                     <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMResponseStyle.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
                 </Node>
                 
                 

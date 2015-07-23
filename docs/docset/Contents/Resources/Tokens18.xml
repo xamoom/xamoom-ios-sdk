@@ -13,6 +13,42 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocation/setItems:</TokenIdentifier>
+			<Abstract type="html">Array containing XMMResponseGetByLocation items.</Abstract>
+			<DeclaredIn>XMMResponseGetByLocation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocation/items</TokenIdentifier>
+			<Abstract type="html">Array containing XMMResponseGetByLocation items.</Abstract>
+			<DeclaredIn>XMMResponseGetByLocation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocation/items</TokenIdentifier>
+			<Abstract type="html">Array containing XMMResponseGetByLocation items.</Abstract>
+			<DeclaredIn>XMMResponseGetByLocation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseGetByLocation/contentDescriptor</TokenIdentifier>
 			<Abstract type="html">Returns a RKResponseDescriptor for XMMResponseGetByLocation class.</Abstract>
 			<DeclaredIn>XMMResponseGetByLocation.h</DeclaredIn>

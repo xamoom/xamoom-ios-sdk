@@ -137,7 +137,7 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/init</TokenIdentifier>
-			<Abstract type="html">Inits the XMMEnduserApi: generates the apiBaseUrl and the rssBaseUrl and gets the preferred systemLanguage.</Abstract>
+			<Abstract type="html">Inits the XMMEnduserApi: sets the apiBaseUrl and gets the preferred systemLanguage.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
 			<Declaration>- (instancetype)init</Declaration>
@@ -153,7 +153,12 @@
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
 			<Declaration>- (void)setApiKey:(NSString *)apiKey</Declaration>
-			
+			<Parameters>
+				<Parameter>
+					<Name>apiKey</Name>
+					<Abstract type="html">The API key from your xamoom system</Abstract>
+				</Parameter>
+			</Parameters>
 			
 			<Anchor>//api/name/setApiKey:</Anchor>
             <NodeRef refid="1"/>
@@ -168,16 +173,16 @@
 			<Parameters>
 				<Parameter>
 					<Name>contentId</Name>
-					<Abstract type="html">The id of the content from xamoom backend.</Abstract>
+					<Abstract type="html">The id of the content from xamoom backend</Abstract>
 				</Parameter><Parameter>
 					<Name>style</Name>
-					<Abstract type="html">True or False for returning the style from xamoom backend.</Abstract>
+					<Abstract type="html">True or False for returning the style from xamoom backend as XMMResponseStyle</Abstract>
 				</Parameter><Parameter>
 					<Name>menu</Name>
-					<Abstract type="html">True or False for returning the menu from xamoom backend.</Abstract>
+					<Abstract type="html">True or False for returning the menu from xamoom backend as Array of XMMResponseMenuItem</Abstract>
 				</Parameter><Parameter>
 					<Name>language</Name>
-					<Abstract type="html">The requested language of the content from xamoom backend.</Abstract>
+					<Abstract type="html">The requested language of the content from xamoom backend</Abstract>
 				</Parameter><Parameter>
 					<Name>full</Name>
 					<Abstract type="html">True or false for returning &quot;unsynced&quot; data or not</Abstract>
@@ -208,16 +213,16 @@ default language will be returned.</Abstract>
 			<Parameters>
 				<Parameter>
 					<Name>locationIdentifier</Name>
-					<Abstract type="html">The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend.</Abstract>
+					<Abstract type="html">The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend</Abstract>
 				</Parameter><Parameter>
 					<Name>style</Name>
-					<Abstract type="html">True or False for returning the style from xamoom backend.</Abstract>
+					<Abstract type="html">True or False for returning the style from xamoom backend as XMMResponseStyle</Abstract>
 				</Parameter><Parameter>
 					<Name>menu</Name>
-					<Abstract type="html">True of False for returning the menu from xamoom backend.</Abstract>
+					<Abstract type="html">True of False for returning the menu from xamoom backend as Array of XMMResponseMenuItem</Abstract>
 				</Parameter><Parameter>
 					<Name>language</Name>
-					<Abstract type="html">The requested language of the content from xamoom backend.</Abstract>
+					<Abstract type="html">The requested language of the content from xamoom backend</Abstract>
 				</Parameter><Parameter>
 					<Name>completionHandler</Name>
 					<Abstract type="html">CompletionHandler returns the result
@@ -245,10 +250,10 @@ default language will be returned.</Abstract>
 			<Parameters>
 				<Parameter>
 					<Name>lat</Name>
-					<Abstract type="html">The latitude of a location.</Abstract>
+					<Abstract type="html">The latitude of a location</Abstract>
 				</Parameter><Parameter>
 					<Name>lon</Name>
-					<Abstract type="html">The longitude of a location.</Abstract>
+					<Abstract type="html">The longitude of a location</Abstract>
 				</Parameter><Parameter>
 					<Name>language</Name>
 					<Abstract type="html">The requested language of the content from xamoom backend</Abstract>
@@ -271,14 +276,14 @@ default language will be returned.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/spotMapWithMapTags:withLanguage:completion:error:</TokenIdentifier>
-			<Abstract type="html">Makes an api call to xamoom with params to get a list of all items, so you can show them on a map.</Abstract>
+			<Abstract type="html">Makes an api call to xamoom with params to get a list of all items, so you can show them on a map</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
 			<Declaration>- (void)spotMapWithMapTags:(NSArray *)mapTags withLanguage:(NSString *)language completion:(void ( ^ ) ( XMMResponseGetSpotMap *result ))completionHandler error:(void ( ^ ) ( XMMError *error ))errorHandler</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>mapTags</Name>
-					<Abstract type="html">The Tags of the wanted spots.</Abstract>
+					<Abstract type="html">The Tags of the wanted spots</Abstract>
 				</Parameter><Parameter>
 					<Name>language</Name>
 					<Abstract type="html">The requested language of the content from xamoom backend</Abstract>
@@ -292,9 +297,6 @@ default language will be returned.</Abstract>
 					<Abstract type="html">ErrorHandler returns an error if one occures
 
 - param1 error A XMMError with error informations</Abstract>
-				</Parameter><Parameter>
-					<Name>systemId</Name>
-					<Abstract type="html">The id of the wanted system.</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
@@ -331,9 +333,6 @@ default language will be returned.</Abstract>
 					<Abstract type="html">ErrorHandler returns an error if one occures
 
 - param1 error A XMMError with error informations</Abstract>
-				</Parameter><Parameter>
-					<Name>systemId</Name>
-					<Abstract type="html">The id of the system from xamoom.</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
@@ -386,8 +385,34 @@ If the selected language is not available the default language will be returned.
 			<Abstract type="html">Makes an api call to xamoom when a user clicks a geofenced content for analytics.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString *)requestedLanguage withDeliveredLanguage:(NSString *)deliveredLanguage withSystemId:(NSString *)systemId withSystemName:(NSString *)sytemName withContentId:(NSString *)contentId withContentName:(NSString *)contentName withSpotId:(NSString *)spotId withSpotName:(NSString *)spotName</Declaration>
-			
+			<Declaration>- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString *)requestedLanguage withDeliveredLanguage:(NSString *)deliveredLanguage withSystemId:(NSString *)systemId withSystemName:(NSString *)systemName withContentId:(NSString *)contentId withContentName:(NSString *)contentName withSpotId:(NSString *)spotId withSpotName:(NSString *)spotName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>requestedLanguage</Name>
+					<Abstract type="html">The language you requested from the xamoom system</Abstract>
+				</Parameter><Parameter>
+					<Name>deliveredLanguage</Name>
+					<Abstract type="html">The language you got from the xamoom system</Abstract>
+				</Parameter><Parameter>
+					<Name>systemId</Name>
+					<Abstract type="html">The systemId you got from the xamoom system</Abstract>
+				</Parameter><Parameter>
+					<Name>systemName</Name>
+					<Abstract type="html">The systemName you got from the xamoom system</Abstract>
+				</Parameter><Parameter>
+					<Name>contentId</Name>
+					<Abstract type="html">The contentId you got from the xamoom system</Abstract>
+				</Parameter><Parameter>
+					<Name>contentName</Name>
+					<Abstract type="html">The contentName you got from the xamoom system</Abstract>
+				</Parameter><Parameter>
+					<Name>spotId</Name>
+					<Abstract type="html">The spotId you got from the system</Abstract>
+				</Parameter><Parameter>
+					<Name>spotName</Name>
+					<Abstract type="html">The spotName you got from the system</Abstract>
+				</Parameter>
+			</Parameters>
 			
 			<Anchor>//api/name/geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:</Anchor>
             <NodeRef refid="1"/>

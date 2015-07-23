@@ -54,6 +54,16 @@
 
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/contentBlockType">contentBlockType</option>
+		
+		<option value="//api/name/publicStatus">publicStatus</option>
+		
+		<option value="//api/name/title">title</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Class Methods">
@@ -97,6 +107,8 @@
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
 						<p><code>XMMResponseContentBlock</code> is used for <a href="#//api/name/mapping">mapping</a> the JSON sended by the api.</p>
+
+<p>If you don&rsquo;t know how to handle contentBlocks look at our sample app &ldquo;pingeb.org&rdquo;.</p>
 					</div>
 					
 					
@@ -107,9 +119,141 @@
 						<a title="Tasks" name="tasks"></a>
 						
 
-						<a title="Mapping" name="task_Mapping"></a>
 						
-<h2 class="task-title">Mapping</h2>
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/title" title="title"></a>
+	<h3 class="method-title"><code><a href="#//api/name/title">&nbsp;&nbsp;title</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The title of this contentBlock.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *title</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMResponseContentBlock.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/publicStatus" title="publicStatus"></a>
+	<h3 class="method-title"><code><a href="#//api/name/publicStatus">&nbsp;&nbsp;publicStatus</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The publicStatus of the content. Yes means public.
+Changed on our system when check &ldquo;Syncronisation&rdquo; on the contentBlock.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL publicStatus</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMResponseContentBlock.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/contentBlockType" title="contentBlockType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentBlockType">&nbsp;&nbsp;contentBlockType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The contentBlockType (0-9) determining the type of the contentBlock.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) int contentBlockType</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMResponseContentBlock.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Mapping" name="task_Mapping"></a>
+						<h2 class="task-title">Mapping</h2>
+
 						<div class="task-list">
 							<div class="section-method">
 	<a name="//api/name/mapping" title="mapping"></a>

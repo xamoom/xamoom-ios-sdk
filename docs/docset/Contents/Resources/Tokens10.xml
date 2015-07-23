@@ -13,6 +13,114 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType4/setLinkUrl:</TokenIdentifier>
+			<Abstract type="html">A url inputed by the user.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *linkUrl</Declaration>
+			
+			
+			<Anchor>//api/name/linkUrl</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType4/linkUrl</TokenIdentifier>
+			<Abstract type="html">A url inputed by the user.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *linkUrl</Declaration>
+			
+			
+			<Anchor>//api/name/linkUrl</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType4/linkUrl</TokenIdentifier>
+			<Abstract type="html">A url inputed by the user.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *linkUrl</Declaration>
+			
+			
+			<Anchor>//api/name/linkUrl</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType4/setText:</TokenIdentifier>
+			<Abstract type="html">Text as description for the url.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType4/text</TokenIdentifier>
+			<Abstract type="html">Text as description for the url.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType4/text</TokenIdentifier>
+			<Abstract type="html">Text as description for the url.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType4/setLinkType:</TokenIdentifier>
+			<Abstract type="html">Link type to determine the type of the link.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int *linkType</Declaration>
+			
+			
+			<Anchor>//api/name/linkType</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType4/linkType</TokenIdentifier>
+			<Abstract type="html">Link type to determine the type of the link.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int *linkType</Declaration>
+			
+			
+			<Anchor>//api/name/linkType</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType4/linkType</TokenIdentifier>
+			<Abstract type="html">Link type to determine the type of the link.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int *linkType</Declaration>
+			
+			
+			<Anchor>//api/name/linkType</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType4/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType4 class.</Abstract>
 			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>

@@ -13,6 +13,78 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType1/setFileId:</TokenIdentifier>
+			<Abstract type="html">Url to a audioFile (mp3, m4a, aac).</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
+			
+			
+			<Anchor>//api/name/fileId</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType1/fileId</TokenIdentifier>
+			<Abstract type="html">Url to a audioFile (mp3, m4a, aac).</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
+			
+			
+			<Anchor>//api/name/fileId</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType1/fileId</TokenIdentifier>
+			<Abstract type="html">Url to a audioFile (mp3, m4a, aac).</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
+			
+			
+			<Anchor>//api/name/fileId</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType1/setArtist:</TokenIdentifier>
+			<Abstract type="html">The name of the artist(s).</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
+			
+			
+			<Anchor>//api/name/artist</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType1/artist</TokenIdentifier>
+			<Abstract type="html">The name of the artist(s).</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
+			
+			
+			<Anchor>//api/name/artist</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType1/artist</TokenIdentifier>
+			<Abstract type="html">The name of the artist(s).</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
+			
+			
+			<Anchor>//api/name/artist</Anchor>
+            <NodeRef refid="7"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType1/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType1 class.</Abstract>
 			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>

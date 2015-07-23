@@ -13,6 +13,42 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType7/setSoundcloudUrl:</TokenIdentifier>
+			<Abstract type="html">A soundcloud url.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *soundcloudUrl</Declaration>
+			
+			
+			<Anchor>//api/name/soundcloudUrl</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType7/soundcloudUrl</TokenIdentifier>
+			<Abstract type="html">A soundcloud url.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *soundcloudUrl</Declaration>
+			
+			
+			<Anchor>//api/name/soundcloudUrl</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType7/soundcloudUrl</TokenIdentifier>
+			<Abstract type="html">A soundcloud url.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *soundcloudUrl</Declaration>
+			
+			
+			<Anchor>//api/name/soundcloudUrl</Anchor>
+            <NodeRef refid="13"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType7/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType7 class.</Abstract>
 			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>

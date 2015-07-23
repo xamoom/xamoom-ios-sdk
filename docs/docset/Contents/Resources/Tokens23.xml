@@ -13,6 +13,78 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseMenuItem/setItemLabel:</TokenIdentifier>
+			<Abstract type="html">Name of the menu item.</Abstract>
+			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *itemLabel</Declaration>
+			
+			
+			<Anchor>//api/name/itemLabel</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseMenuItem/itemLabel</TokenIdentifier>
+			<Abstract type="html">Name of the menu item.</Abstract>
+			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *itemLabel</Declaration>
+			
+			
+			<Anchor>//api/name/itemLabel</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseMenuItem/itemLabel</TokenIdentifier>
+			<Abstract type="html">Name of the menu item.</Abstract>
+			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *itemLabel</Declaration>
+			
+			
+			<Anchor>//api/name/itemLabel</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseMenuItem/setContentId:</TokenIdentifier>
+			<Abstract type="html">ContentId of the item.</Abstract>
+			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			
+			
+			<Anchor>//api/name/contentId</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseMenuItem/contentId</TokenIdentifier>
+			<Abstract type="html">ContentId of the item.</Abstract>
+			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			
+			
+			<Anchor>//api/name/contentId</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseMenuItem/contentId</TokenIdentifier>
+			<Abstract type="html">ContentId of the item.</Abstract>
+			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			
+			
+			<Anchor>//api/name/contentId</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseMenuItem/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMResponseMenuItem class.</Abstract>
 			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>

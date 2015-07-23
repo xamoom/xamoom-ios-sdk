@@ -54,6 +54,16 @@
 
 	
 	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/downloadType">downloadType</option>
+		
+		<option value="//api/name/fileId">fileId</option>
+		
+		<option value="//api/name/text">text</option>
+		
+	</optgroup>
+	
 
 	
 	<optgroup label="Class Methods">
@@ -101,6 +111,15 @@
 						<p><code>XMMResponseContentBlockType8</code> is used for <a href="#//api/name/mapping">mapping</a> the JSON sended by the api.</p>
 
 <p>This class represents the contentBlockType &lsquo;DOWNLOAD&rsquo;.</p>
+
+<p><em>Default behavior</em></p>
+
+<ol>
+<li>Display like a link block with another icon</li>
+</ol>
+
+
+<p>Example implementation is on our sample app &ldquo;pingeb.org&rdquo; <a href="https://github.com/xamoom/xamoom-pingeborg-ios">https://github.com/xamoom/xamoom-pingeborg-ios</a></p>
 					</div>
 					
 					
@@ -111,9 +130,149 @@
 						<a title="Tasks" name="tasks"></a>
 						
 
-						<a title="Mapping" name="task_Mapping"></a>
 						
-<h2 class="task-title">Mapping</h2>
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/fileId" title="fileId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/fileId">&nbsp;&nbsp;fileId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Url to a file (vcf, ical)</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *fileId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMResponseContentBlockType8.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/downloadType" title="downloadType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/downloadType">&nbsp;&nbsp;downloadType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Download type to determine the type of the download.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) int *downloadType</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<ul>
+<li>VCF = 0</li>
+<li>ICAL = 1</li>
+</ul>
+
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMResponseContentBlockType8.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/text" title="text"></a>
+	<h3 class="method-title"><code><a href="#//api/name/text">&nbsp;&nbsp;text</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Text as description for the url.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *text</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMResponseContentBlockType8.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Mapping" name="task_Mapping"></a>
+						<h2 class="task-title">Mapping</h2>
+
 						<div class="task-list">
 							<div class="section-method">
 	<a name="//api/name/mapping" title="mapping"></a>

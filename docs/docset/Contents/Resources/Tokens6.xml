@@ -13,6 +13,42 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType0/setText:</TokenIdentifier>
+			<Abstract type="html">The text from our system as HTML.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType0/text</TokenIdentifier>
+			<Abstract type="html">The text from our system as HTML.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType0/text</TokenIdentifier>
+			<Abstract type="html">The text from our system as HTML.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType0/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType0 class.</Abstract>
 			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>

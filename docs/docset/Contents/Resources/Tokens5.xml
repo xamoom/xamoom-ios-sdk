@@ -13,6 +13,117 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/setTitle:</TokenIdentifier>
+			<Abstract type="html">The title of this contentBlock.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/title</TokenIdentifier>
+			<Abstract type="html">The title of this contentBlock.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlock/title</TokenIdentifier>
+			<Abstract type="html">The title of this contentBlock.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/setPublicStatus:</TokenIdentifier>
+			<Abstract type="html">The publicStatus of the content. Yes means public.
+Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL publicStatus</Declaration>
+			
+			
+			<Anchor>//api/name/publicStatus</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/publicStatus</TokenIdentifier>
+			<Abstract type="html">The publicStatus of the content. Yes means public.
+Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL publicStatus</Declaration>
+			
+			
+			<Anchor>//api/name/publicStatus</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlock/publicStatus</TokenIdentifier>
+			<Abstract type="html">The publicStatus of the content. Yes means public.
+Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL publicStatus</Declaration>
+			
+			
+			<Anchor>//api/name/publicStatus</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/setContentBlockType:</TokenIdentifier>
+			<Abstract type="html">The contentBlockType (0-9) determining the type of the contentBlock.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int contentBlockType</Declaration>
+			
+			
+			<Anchor>//api/name/contentBlockType</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/contentBlockType</TokenIdentifier>
+			<Abstract type="html">The contentBlockType (0-9) determining the type of the contentBlock.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int contentBlockType</Declaration>
+			
+			
+			<Anchor>//api/name/contentBlockType</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlock/contentBlockType</TokenIdentifier>
+			<Abstract type="html">The contentBlockType (0-9) determining the type of the contentBlock.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int contentBlockType</Declaration>
+			
+			
+			<Anchor>//api/name/contentBlockType</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlock/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlock class.</Abstract>
 			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>

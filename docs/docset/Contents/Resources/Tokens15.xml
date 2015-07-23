@@ -13,6 +13,42 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType9/setSpotMapTag:</TokenIdentifier>
+			<Abstract type="html">String of comma seperated tags to display spotmap.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType9.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *spotMapTag</Declaration>
+			
+			
+			<Anchor>//api/name/spotMapTag</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType9/spotMapTag</TokenIdentifier>
+			<Abstract type="html">String of comma seperated tags to display spotmap.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType9.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *spotMapTag</Declaration>
+			
+			
+			<Anchor>//api/name/spotMapTag</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType9/spotMapTag</TokenIdentifier>
+			<Abstract type="html">String of comma seperated tags to display spotmap.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType9.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *spotMapTag</Declaration>
+			
+			
+			<Anchor>//api/name/spotMapTag</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType9/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType9 class.</Abstract>
 			<DeclaredIn>XMMResponseContentBlockType9.h</DeclaredIn>

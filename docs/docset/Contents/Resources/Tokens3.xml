@@ -13,6 +13,150 @@
 		
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseClosestSpot/setItems:</TokenIdentifier>
+			<Abstract type="html">Array of XMMResponseGetSpotMapItem items.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseClosestSpot/items</TokenIdentifier>
+			<Abstract type="html">Array of XMMResponseGetSpotMapItem items.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseClosestSpot/items</TokenIdentifier>
+			<Abstract type="html">Array of XMMResponseGetSpotMapItem items.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseClosestSpot/setStyle:</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMResponseStyle.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) XMMResponseStyle *style</Declaration>
+			
+			
+			<Anchor>//api/name/style</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseClosestSpot/style</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMResponseStyle.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) XMMResponseStyle *style</Declaration>
+			
+			
+			<Anchor>//api/name/style</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseClosestSpot/style</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMResponseStyle.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) XMMResponseStyle *style</Declaration>
+			
+			
+			<Anchor>//api/name/style</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseClosestSpot/setRadius:</TokenIdentifier>
+			<Abstract type="html">The requested radius in meter.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int radius</Declaration>
+			
+			
+			<Anchor>//api/name/radius</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseClosestSpot/radius</TokenIdentifier>
+			<Abstract type="html">The requested radius in meter.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int radius</Declaration>
+			
+			
+			<Anchor>//api/name/radius</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseClosestSpot/radius</TokenIdentifier>
+			<Abstract type="html">The requested radius in meter.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int radius</Declaration>
+			
+			
+			<Anchor>//api/name/radius</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseClosestSpot/setLimit:</TokenIdentifier>
+			<Abstract type="html">The requestet limit of items to return.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseClosestSpot/limit</TokenIdentifier>
+			<Abstract type="html">The requestet limit of items to return.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseClosestSpot/limit</TokenIdentifier>
+			<Abstract type="html">The requestet limit of items to return.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseClosestSpot/contentDescriptor</TokenIdentifier>
 			<Abstract type="html">Returns a RKResponseDescriptor for XMMResponseClosestSpot class.</Abstract>
 			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
