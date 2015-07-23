@@ -168,7 +168,7 @@ extern NSString * const kApiBaseURLString;
 /**
  Makes an api call to xamoom with params to get a list of all items, so you can show them on a map
  
- @param mapTags     The Tags of the wanted spots
+ @param mapTags     The tags of the wanted spots
  @param language    The requested language of the content from xamoom backend
  @param completionHandler CompletionHandler returns the result
  

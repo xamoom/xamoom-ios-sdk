@@ -137,6 +137,10 @@ static XMMEnduserApi *sharedInstance;
     language = self.systemLanguage;
   }
   
+  if (cursor == nil) {
+    cursor = @"null"
+  }
+  
   NSString* tagsAsString;
   if (tags != nil)
     tagsAsString = [tags componentsJoinedByString:@","];
