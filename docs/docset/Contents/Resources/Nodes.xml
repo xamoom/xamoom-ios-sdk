@@ -35,13 +35,6 @@
 						<NodeRef refid="22"/>
 						<NodeRef refid="23"/>
 						<NodeRef refid="24"/>
-						<NodeRef refid="25"/>
-						<NodeRef refid="26"/>
-						<NodeRef refid="27"/>
-						<NodeRef refid="28"/>
-						<NodeRef refid="29"/>
-						<NodeRef refid="30"/>
-						<NodeRef refid="31"/>
 						
 					</Subnodes>
 				</Node>
@@ -51,21 +44,12 @@
 					<Name>Categories</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="32"/>
+						<NodeRef refid="25"/>
 						
 					</Subnodes>
 				</Node>
 				
                 
-				<Node>
-					<Name>Protocols</Name>
-					<Path>index.html</Path>
-					<Subnodes>
-						<NodeRef refid="33"/>
-						
-					</Subnodes>
-				</Node>
-				
                 
                 
 			</Subnodes>
@@ -74,207 +58,6 @@
 	<Library>
 		
 		<Node id="1" type="file" documentType="reference">
-            <Name>XMMCoreDataContent</Name>
-            <Path>Classes/XMMCoreDataContent.html</Path>
-            
-                <Subnodes>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataContent.html</Path>
-                    <Name>Overview</Name>
-                    <Anchor>overview</Anchor>
-                </Node>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataContent.html</Path>
-                    <Name>Tasks</Name>
-                    <Anchor>tasks</Anchor>
-                </Node>
-                
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataContent.html</Path>
-                    <Name>Properties</Name>
-                    <Anchor>properties</Anchor>
-                </Node>
-                
-                
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataContent.html</Path>
-                    <Name>Class Methods</Name>
-                    <Anchor>class_methods</Anchor>
-                </Node>
-                
-                
-            </Subnodes>
-            
-        </Node>
-		<Node id="2" type="file" documentType="reference">
-            <Name>XMMCoreDataContentBlocks</Name>
-            <Path>Classes/XMMCoreDataContentBlocks.html</Path>
-            
-                <Subnodes>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataContentBlocks.html</Path>
-                    <Name>Overview</Name>
-                    <Anchor>overview</Anchor>
-                </Node>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataContentBlocks.html</Path>
-                    <Name>Tasks</Name>
-                    <Anchor>tasks</Anchor>
-                </Node>
-                
-                
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataContentBlocks.html</Path>
-                    <Name>Class Methods</Name>
-                    <Anchor>class_methods</Anchor>
-                </Node>
-                
-                
-            </Subnodes>
-            
-        </Node>
-		<Node id="3" type="file" documentType="reference">
-            <Name>XMMCoreDataGetById</Name>
-            <Path>Classes/XMMCoreDataGetById.html</Path>
-            
-                <Subnodes>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetById.html</Path>
-                    <Name>Overview</Name>
-                    <Anchor>overview</Anchor>
-                </Node>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetById.html</Path>
-                    <Name>Tasks</Name>
-                    <Anchor>tasks</Anchor>
-                </Node>
-                
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetById.html</Path>
-                    <Name>Properties</Name>
-                    <Anchor>properties</Anchor>
-                </Node>
-                
-                
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetById.html</Path>
-                    <Name>Class Methods</Name>
-                    <Anchor>class_methods</Anchor>
-                </Node>
-                
-                
-            </Subnodes>
-            
-        </Node>
-		<Node id="4" type="file" documentType="reference">
-            <Name>XMMCoreDataGetByLocation</Name>
-            <Path>Classes/XMMCoreDataGetByLocation.html</Path>
-            
-                <Subnodes>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetByLocation.html</Path>
-                    <Name>Overview</Name>
-                    <Anchor>overview</Anchor>
-                </Node>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetByLocation.html</Path>
-                    <Name>Tasks</Name>
-                    <Anchor>tasks</Anchor>
-                </Node>
-                
-                
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetByLocation.html</Path>
-                    <Name>Class Methods</Name>
-                    <Anchor>class_methods</Anchor>
-                </Node>
-                
-                
-            </Subnodes>
-            
-        </Node>
-		<Node id="5" type="file" documentType="reference">
-            <Name>XMMCoreDataGetByLocationItem</Name>
-            <Path>Classes/XMMCoreDataGetByLocationItem.html</Path>
-            
-                <Subnodes>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetByLocationItem.html</Path>
-                    <Name>Overview</Name>
-                    <Anchor>overview</Anchor>
-                </Node>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetByLocationItem.html</Path>
-                    <Name>Tasks</Name>
-                    <Anchor>tasks</Anchor>
-                </Node>
-                
-                
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataGetByLocationItem.html</Path>
-                    <Name>Class Methods</Name>
-                    <Anchor>class_methods</Anchor>
-                </Node>
-                
-                
-            </Subnodes>
-            
-        </Node>
-		<Node id="6" type="file" documentType="reference">
-            <Name>XMMCoreDataMenuItem</Name>
-            <Path>Classes/XMMCoreDataMenuItem.html</Path>
-            
-                <Subnodes>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataMenuItem.html</Path>
-                    <Name>Overview</Name>
-                    <Anchor>overview</Anchor>
-                </Node>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataMenuItem.html</Path>
-                    <Name>Tasks</Name>
-                    <Anchor>tasks</Anchor>
-                </Node>
-                
-                
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataMenuItem.html</Path>
-                    <Name>Class Methods</Name>
-                    <Anchor>class_methods</Anchor>
-                </Node>
-                
-                
-            </Subnodes>
-            
-        </Node>
-		<Node id="7" type="file" documentType="reference">
-            <Name>XMMCoreDataStyle</Name>
-            <Path>Classes/XMMCoreDataStyle.html</Path>
-            
-                <Subnodes>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataStyle.html</Path>
-                    <Name>Overview</Name>
-                    <Anchor>overview</Anchor>
-                </Node>
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataStyle.html</Path>
-                    <Name>Tasks</Name>
-                    <Anchor>tasks</Anchor>
-                </Node>
-                
-                
-                <Node type="section">
-                    <Path>Classes/XMMCoreDataStyle.html</Path>
-                    <Name>Class Methods</Name>
-                    <Anchor>class_methods</Anchor>
-                </Node>
-                
-                
-            </Subnodes>
-            
-        </Node>
-		<Node id="8" type="file" documentType="reference">
             <Name>XMMEnduserApi</Name>
             <Path>Classes/XMMEnduserApi.html</Path>
             
@@ -313,7 +96,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="9" type="file" documentType="reference">
+		<Node id="2" type="file" documentType="reference">
             <Name>XMMRSSEntry</Name>
             <Path>Classes/XMMRSSEntry.html</Path>
             
@@ -340,7 +123,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="10" type="file" documentType="reference">
+		<Node id="3" type="file" documentType="reference">
             <Name>XMMResponseClosestSpot</Name>
             <Path>Classes/XMMResponseClosestSpot.html</Path>
             
@@ -367,7 +150,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="11" type="file" documentType="reference">
+		<Node id="4" type="file" documentType="reference">
             <Name>XMMResponseContent</Name>
             <Path>Classes/XMMResponseContent.html</Path>
             
@@ -400,7 +183,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="12" type="file" documentType="reference">
+		<Node id="5" type="file" documentType="reference">
             <Name>XMMResponseContentBlock</Name>
             <Path>Classes/XMMResponseContentBlock.html</Path>
             
@@ -427,7 +210,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="13" type="file" documentType="reference">
+		<Node id="6" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType0</Name>
             <Path>Classes/XMMResponseContentBlockType0.html</Path>
             
@@ -454,7 +237,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="14" type="file" documentType="reference">
+		<Node id="7" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType1</Name>
             <Path>Classes/XMMResponseContentBlockType1.html</Path>
             
@@ -481,7 +264,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="15" type="file" documentType="reference">
+		<Node id="8" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType2</Name>
             <Path>Classes/XMMResponseContentBlockType2.html</Path>
             
@@ -508,7 +291,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="16" type="file" documentType="reference">
+		<Node id="9" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType3</Name>
             <Path>Classes/XMMResponseContentBlockType3.html</Path>
             
@@ -535,7 +318,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="17" type="file" documentType="reference">
+		<Node id="10" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType4</Name>
             <Path>Classes/XMMResponseContentBlockType4.html</Path>
             
@@ -562,7 +345,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="18" type="file" documentType="reference">
+		<Node id="11" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType5</Name>
             <Path>Classes/XMMResponseContentBlockType5.html</Path>
             
@@ -589,7 +372,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="19" type="file" documentType="reference">
+		<Node id="12" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType6</Name>
             <Path>Classes/XMMResponseContentBlockType6.html</Path>
             
@@ -616,7 +399,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="20" type="file" documentType="reference">
+		<Node id="13" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType7</Name>
             <Path>Classes/XMMResponseContentBlockType7.html</Path>
             
@@ -643,7 +426,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="21" type="file" documentType="reference">
+		<Node id="14" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType8</Name>
             <Path>Classes/XMMResponseContentBlockType8.html</Path>
             
@@ -670,7 +453,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="22" type="file" documentType="reference">
+		<Node id="15" type="file" documentType="reference">
             <Name>XMMResponseContentBlockType9</Name>
             <Path>Classes/XMMResponseContentBlockType9.html</Path>
             
@@ -697,7 +480,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="23" type="file" documentType="reference">
+		<Node id="16" type="file" documentType="reference">
             <Name>XMMResponseContentList</Name>
             <Path>Classes/XMMResponseContentList.html</Path>
             
@@ -724,7 +507,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="24" type="file" documentType="reference">
+		<Node id="17" type="file" documentType="reference">
             <Name>XMMResponseGetById</Name>
             <Path>Classes/XMMResponseGetById.html</Path>
             
@@ -751,7 +534,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="25" type="file" documentType="reference">
+		<Node id="18" type="file" documentType="reference">
             <Name>XMMResponseGetByLocation</Name>
             <Path>Classes/XMMResponseGetByLocation.html</Path>
             
@@ -778,7 +561,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="26" type="file" documentType="reference">
+		<Node id="19" type="file" documentType="reference">
             <Name>XMMResponseGetByLocationIdentifier</Name>
             <Path>Classes/XMMResponseGetByLocationIdentifier.html</Path>
             
@@ -805,7 +588,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="27" type="file" documentType="reference">
+		<Node id="20" type="file" documentType="reference">
             <Name>XMMResponseGetByLocationItem</Name>
             <Path>Classes/XMMResponseGetByLocationItem.html</Path>
             
@@ -832,7 +615,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="28" type="file" documentType="reference">
+		<Node id="21" type="file" documentType="reference">
             <Name>XMMResponseGetSpotMap</Name>
             <Path>Classes/XMMResponseGetSpotMap.html</Path>
             
@@ -859,7 +642,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="29" type="file" documentType="reference">
+		<Node id="22" type="file" documentType="reference">
             <Name>XMMResponseGetSpotMapItem</Name>
             <Path>Classes/XMMResponseGetSpotMapItem.html</Path>
             
@@ -886,7 +669,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="30" type="file" documentType="reference">
+		<Node id="23" type="file" documentType="reference">
             <Name>XMMResponseMenuItem</Name>
             <Path>Classes/XMMResponseMenuItem.html</Path>
             
@@ -913,7 +696,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="31" type="file" documentType="reference">
+		<Node id="24" type="file" documentType="reference">
             <Name>XMMResponseStyle</Name>
             <Path>Classes/XMMResponseStyle.html</Path>
             
@@ -941,7 +724,7 @@
             
         </Node>
 		
-		<Node id="32" type="file" documentType="reference">
+		<Node id="25" type="file" documentType="reference">
             <Name>NSString(GTMNSStringHTMLAdditions)</Name>
             <Path>Categories/NSString+GTMNSStringHTMLAdditions.html</Path>
             
@@ -969,34 +752,7 @@
             
         </Node>
 		
-        <Node id="33" type="file" documentType="reference">
-            <Name>XMMEnduserApiDelegate</Name>
-            <Path>Protocols/XMMEnduserApiDelegate.html</Path>
-            
-                <Subnodes>
-                <Node type="section">
-                    <Path>Protocols/XMMEnduserApiDelegate.html</Path>
-                    <Name>Overview</Name>
-                    <Anchor>overview</Anchor>
-                </Node>
-                <Node type="section">
-                    <Path>Protocols/XMMEnduserApiDelegate.html</Path>
-                    <Name>Tasks</Name>
-                    <Anchor>tasks</Anchor>
-                </Node>
-                
-                
-                
-                <Node type="section">
-                    <Path>Protocols/XMMEnduserApiDelegate.html</Path>
-                    <Name>Instance Methods</Name>
-                    <Anchor>instance_methods</Anchor>
-                </Node>
-                
-            </Subnodes>
-            
-        </Node>
-		
+        
         
         
 	</Library>

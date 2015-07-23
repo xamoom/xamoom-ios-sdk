@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMCoreDataGetById.html">
+	<File path="Classes/XMMResponseClosestSpot.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMCoreDataGetById</TokenIdentifier>
-			<Abstract type="html">XMMCoreDataGetById is used for extending the _XMMCoreDataGetById.h with own methods.
-_XMMCoreDataGetById.h contains everything used for Core Data (generated with mogenerator).</Abstract>
-			<DeclaredIn>XMMCoreDataGetById.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseClosestSpot</TokenIdentifier>
+			<Abstract type="html">XMMResponseClosestSpot is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
             
 			
 			<NodeRef refid="3"/>
@@ -14,50 +13,14 @@ _XMMCoreDataGetById.h contains everything used for Core Data (generated with mog
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMCoreDataGetById/setSortedMenuItem:</TokenIdentifier>
-			<Abstract type="html">Returns the XMMCoreDataMenuItem in the right order.</Abstract>
-			<DeclaredIn>XMMCoreDataGetById.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseClosestSpot/contentDescriptor</TokenIdentifier>
+			<Abstract type="html">Returns a RKResponseDescriptor for XMMResponseClosestSpot class.</Abstract>
+			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedMenuItem</Declaration>
+			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
 			
-			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
-			<Anchor>//api/name/sortedMenuItem</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMCoreDataGetById/sortedMenuItem</TokenIdentifier>
-			<Abstract type="html">Returns the XMMCoreDataMenuItem in the right order.</Abstract>
-			<DeclaredIn>XMMCoreDataGetById.h</DeclaredIn>
-			
-			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedMenuItem</Declaration>
-			
-			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
-			<Anchor>//api/name/sortedMenuItem</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMCoreDataGetById/sortedMenuItem</TokenIdentifier>
-			<Abstract type="html">Returns the XMMCoreDataMenuItem in the right order.</Abstract>
-			<DeclaredIn>XMMCoreDataGetById.h</DeclaredIn>
-			
-			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedMenuItem</Declaration>
-			
-			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
-			<Anchor>//api/name/sortedMenuItem</Anchor>
-            <NodeRef refid="3"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataGetById/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataGetById class.</Abstract>
-			<DeclaredIn>XMMCoreDataGetById.h</DeclaredIn>
-			
-			<Declaration>+ (NSDictionary *)mapping</Declaration>
-			
-			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
+			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
+			<Anchor>//api/name/contentDescriptor</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		

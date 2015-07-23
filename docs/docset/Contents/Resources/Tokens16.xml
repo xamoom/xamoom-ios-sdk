@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlockType3.html">
+	<File path="Classes/XMMResponseContentList.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType3</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlockType3 is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType3.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentList</TokenIdentifier>
+			<Abstract type="html">XMMResponseContentList is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
             
 			
 			<NodeRef refid="16"/>
@@ -13,26 +13,14 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType3/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType3 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType3.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentList/contentDescriptor</TokenIdentifier>
+			<Abstract type="html">Returns a RKResponseDescriptor for XMMResponseContentList class.</Abstract>
+			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
 			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
+			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
 			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
-            <NodeRef refid="16"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType3/dynamicMappingMatcher</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType3 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType3.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
-			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
+			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
+			<Anchor>//api/name/contentDescriptor</Anchor>
             <NodeRef refid="16"/>
 		</Token>
 		

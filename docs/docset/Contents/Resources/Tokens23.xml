@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentList.html">
+	<File path="Classes/XMMResponseMenuItem.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentList</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentList is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseMenuItem</TokenIdentifier>
+			<Abstract type="html">XMMResponseMenuItem is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
             
 			
 			<NodeRef refid="23"/>
@@ -13,9 +13,9 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentList/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentList class.</Abstract>
-			<DeclaredIn>XMMResponseContentList.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseMenuItem/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseMenuItem class.</Abstract>
+			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
 			
 			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			

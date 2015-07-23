@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMCoreDataMenuItem.html">
+	<File path="Classes/XMMResponseContentBlockType0.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMCoreDataMenuItem</TokenIdentifier>
-			<Abstract type="html">XMMCoreDataMenuItem is used for extending the _XMMCoreDataMenuItem with own methods.
-_XMMCoreDataMenuItem contains everything used for Core Data (generated with mogenerator).</Abstract>
-			<DeclaredIn>XMMCoreDataMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType0</TokenIdentifier>
+			<Abstract type="html">XMMResponseContentBlockType0 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>
             
 			
 			<NodeRef refid="6"/>
@@ -14,14 +13,26 @@ _XMMCoreDataMenuItem contains everything used for Core Data (generated with moge
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataMenuItem/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataMenuItem class.</Abstract>
-			<DeclaredIn>XMMCoreDataMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType0/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType0 class.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>
 			
-			<Declaration>+ (NSDictionary *)mapping</Declaration>
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
-			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
 			<Anchor>//api/name/mapping</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType0/dynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType0 class.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType0.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
+			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
             <NodeRef refid="6"/>
 		</Token>
 		

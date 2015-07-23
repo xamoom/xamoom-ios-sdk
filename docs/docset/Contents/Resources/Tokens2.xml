@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMCoreDataContentBlocks.html">
+	<File path="Classes/XMMRSSEntry.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMCoreDataContentBlocks</TokenIdentifier>
-			<Abstract type="html">XMMCoreDataContentBlocks is used for extending the _XMMCoreDataContentBlocks with own methods.
-_XMMCoreDataContentBlocks contains everything used for Core Data (generated with mogenerator).</Abstract>
-			<DeclaredIn>XMMCoreDataContentBlocks.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMRSSEntry</TokenIdentifier>
+			<Abstract type="html">XMMRSSEntry is used for mapping the XML sended by the rss feed.</Abstract>
+			<DeclaredIn>XMMRSSEntry.h</DeclaredIn>
             
 			
 			<NodeRef refid="2"/>
@@ -14,14 +13,38 @@ _XMMCoreDataContentBlocks contains everything used for Core Data (generated with
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataContentBlocks/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataContentBlocks class.</Abstract>
-			<DeclaredIn>XMMCoreDataContentBlocks.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMRSSEntry/setDescription:</TokenIdentifier>
+			<Abstract type="html">Returns a description of the XMMRSSEntry object.</Abstract>
+			<DeclaredIn>XMMRSSEntry.h</DeclaredIn>
 			
-			<Declaration>+ (NSDictionary *)mapping</Declaration>
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *description</Declaration>
 			
-			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
+			<ReturnValue><Abstract type="html">NSString*</Abstract></ReturnValue>
+			<Anchor>//api/name/description</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMRSSEntry/description</TokenIdentifier>
+			<Abstract type="html">Returns a description of the XMMRSSEntry object.</Abstract>
+			<DeclaredIn>XMMRSSEntry.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *description</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSString*</Abstract></ReturnValue>
+			<Anchor>//api/name/description</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMRSSEntry/description</TokenIdentifier>
+			<Abstract type="html">Returns a description of the XMMRSSEntry object.</Abstract>
+			<DeclaredIn>XMMRSSEntry.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *description</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSString*</Abstract></ReturnValue>
+			<Anchor>//api/name/description</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		

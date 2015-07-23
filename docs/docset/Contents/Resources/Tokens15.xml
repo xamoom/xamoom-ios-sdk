@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlockType2.html">
+	<File path="Classes/XMMResponseContentBlockType9.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType2</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlockType2 is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType2.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType9</TokenIdentifier>
+			<Abstract type="html">XMMResponseContentBlockType9 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType9.h</DeclaredIn>
             
 			
 			<NodeRef refid="15"/>
@@ -13,9 +13,9 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType2/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType2 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType2.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType9/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType9 class.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType9.h</DeclaredIn>
 			
 			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
@@ -25,9 +25,9 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType2/dynamicMappingMatcher</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType2 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType2.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType9/dynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType9 class.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType9.h</DeclaredIn>
 			
 			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
 			

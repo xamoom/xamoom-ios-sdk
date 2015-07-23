@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseClosestSpot.html">
+	<File path="Classes/XMMResponseContentBlockType4.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseClosestSpot</TokenIdentifier>
-			<Abstract type="html">XMMResponseClosestSpot is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType4</TokenIdentifier>
+			<Abstract type="html">XMMResponseContentBlockType4 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
             
 			
 			<NodeRef refid="10"/>
@@ -13,14 +13,26 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseClosestSpot/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseClosestSpot class.</Abstract>
-			<DeclaredIn>XMMResponseClosestSpot.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType4/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType4 class.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
 			
 			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
 			<Anchor>//api/name/mapping</Anchor>
+            <NodeRef refid="10"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType4/dynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType4 class.</Abstract>
+			<DeclaredIn>XMMResponseContentBlockType4.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
+			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
             <NodeRef refid="10"/>
 		</Token>
 		

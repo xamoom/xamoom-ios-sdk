@@ -58,13 +58,7 @@
 		
 		<option value="//api/name/apiBaseURL">apiBaseURL</option>
 		
-		<option value="//api/name/delegate">delegate</option>
-		
-		<option value="//api/name/isCoreDataInitialized">isCoreDataInitialized</option>
-		
 		<option value="//api/name/qrCodeViewControllerCancelButtonTitle">qrCodeViewControllerCancelButtonTitle</option>
-		
-		<option value="//api/name/rssBaseUrlString">rssBaseUrlString</option>
 		
 		<option value="//api/name/systemLanguage">systemLanguage</option>
 		
@@ -82,37 +76,25 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:">- closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:</option>
+		<option value="//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:completion:error:">- closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:completion:error:</option>
 		
-		<option value="//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:">- contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:</option>
+		<option value="//api/name/contentListWithPageSize:withLanguage:withCursor:withTags:completion:error:">- contentListWithPageSize:withLanguage:withCursor:withTags:completion:error:</option>
 		
-		<option value="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:">- contentWithContentId:includeStyle:includeMenu:withLanguage:</option>
+		<option value="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:">- contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:</option>
 		
-		<option value="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:">- contentWithContentId:includeStyle:includeMenu:withLanguage:full:</option>
+		<option value="//api/name/contentWithLat:withLon:withLanguage:completion:error:">- contentWithLat:withLon:withLanguage:completion:error:</option>
 		
-		<option value="//api/name/contentWithLat:withLon:withLanguage:">- contentWithLat:withLon:withLanguage:</option>
+		<option value="//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:">- contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:</option>
 		
-		<option value="//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:">- contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</option>
-		
-		<option value="//api/name/deleteCoreDataEntityWithContentId:">- deleteCoreDataEntityWithContentId:</option>
-		
-		<option value="//api/name/fetchCoreDataContentWithType:">- fetchCoreDataContentWithType:</option>
+		<option value="//api/name/geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:">- geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:</option>
 		
 		<option value="//api/name/init">- init</option>
 		
-		<option value="//api/name/initCoreData">- initCoreData</option>
+		<option value="//api/name/setApiKey:">- setApiKey:</option>
 		
-		<option value="//api/name/rssContentFeed">- rssContentFeed</option>
+		<option value="//api/name/spotMapWithMapTags:withLanguage:completion:error:">- spotMapWithMapTags:withLanguage:completion:error:</option>
 		
-		<option value="//api/name/saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:">- saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:</option>
-		
-		<option value="//api/name/saveContentToCoreDataWithLat:withLon:withLanguage:">- saveContentToCoreDataWithLat:withLon:withLanguage:</option>
-		
-		<option value="//api/name/saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:">- saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</option>
-		
-		<option value="//api/name/spotMapWithSystemId:withMapTags:withLanguage:">- spotMapWithSystemId:withMapTags:withLanguage:</option>
-		
-		<option value="//api/name/startQRCodeReaderFromViewController:withLanguage:">- startQRCodeReaderFromViewController:withLanguage:</option>
+		<option value="//api/name/startQRCodeReaderFromViewController:didLoad:">- startQRCodeReaderFromViewController:didLoad:</option>
 		
 	</optgroup>
 	
@@ -155,11 +137,11 @@
 
 <p>For everything just use the shared instance: <a href="#//api/name/sharedInstance">[XMMEnduserApi sharedInstance]</a>.</p>
 
-<p>To get the results from the api calls, you have to listen to the <a href="#//api/name/delegate">delegate</a> methods. Set the <a href="#//api/name/delegate">delegate</a> like this:</p>
+<p>To get the results from the api calls, you have to listen to the delegate methods. Set the delegate like this:</p>
 
-<p><code>[</code>[XMMEnduserApi sharedInstance]<code>](#//api/name/sharedInstance).</code>delegate<code> = self;</code></p>
+<p><code>[</code>[XMMEnduserApi sharedInstance]<code>](#//api/name/sharedInstance).delegate = self;</code></p>
 
-<p>If you want to use the build-in CoreData Code, you have to call the <a href="#//api/name/initCoreData">initCoreData</a> method.</p>
+<p>If you want to use the build-in CoreData Code, you have to call the initCoreData method.</p>
 
 <p><code>[[XMMEnduserApi sharedInstance] initCoreData];</code></p>
 					</div>
@@ -177,47 +159,6 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/delegate" title="delegate"></a>
-	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Some description</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;XMMEnduserApiDelegate&gt; delegate</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/apiBaseURL" title="apiBaseURL"></a>
 	<h3 class="method-title"><code><a href="#//api/name/apiBaseURL">&nbsp;&nbsp;apiBaseURL</a></code>
 </h3>
@@ -260,47 +201,6 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/rssBaseUrlString" title="rssBaseUrlString"></a>
-	<h3 class="method-title"><code><a href="#//api/name/rssBaseUrlString">&nbsp;&nbsp;rssBaseUrlString</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The base url of xamoom rss feed. You can change this one another url.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property NSString *rssBaseUrlString</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/systemLanguage" title="systemLanguage"></a>
 	<h3 class="method-title"><code><a href="#//api/name/systemLanguage">&nbsp;&nbsp;systemLanguage</a></code>
 </h3>
@@ -318,47 +218,6 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property NSString *systemLanguage</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/isCoreDataInitialized" title="isCoreDataInitialized"></a>
-	<h3 class="method-title"><code><a href="#//api/name/isCoreDataInitialized">&nbsp;&nbsp;isCoreDataInitialized</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Bool to check if the CoreData is initialized.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) BOOL isCoreDataInitialized</code></div>
 
 		    
 			
@@ -518,17 +377,9 @@
 			
 		</div>
 	</div>
-</div>
-						</div>
-						
-
-						<a title="API Calls" name="task_API Calls"></a>
-						<h2 class="task-title">API Calls</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:" title="contentWithContentId:includeStyle:includeMenu:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;contentWithContentId:includeStyle:includeMenu:withLanguage:</a></code>
+</div><div class="section-method">
+	<a name="//api/name/setApiKey:" title="setApiKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setApiKey:">&ndash;&nbsp;setApiKey:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -538,48 +389,16 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</p>
+				<p>Set your API Key from the xamoom-system.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setApiKey:(NSString *)<em>apiKey</em></code></div>
 
 		    
 			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>contentId</code></th>
-						<td><p>The id of the content from xamoom backend.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>style</code></th>
-						<td><p>True or False for returning the style from xamoom backend.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>menu</code></th>
-						<td><p>True of False for returning the menu from xamoom backend.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>language</code></th>
-						<td><p>The requested language of the content from xamoom backend.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>void</p>
-			</div>
 			
 
 			
@@ -599,9 +418,17 @@
 			
 		</div>
 	</div>
-</div><div class="section-method">
-	<a name="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:" title="contentWithContentId:includeStyle:includeMenu:withLanguage:full:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:">&ndash;&nbsp;contentWithContentId:includeStyle:includeMenu:withLanguage:full:</a></code>
+</div>
+						</div>
+						
+
+						<a title="API Calls" name="task_API Calls"></a>
+						<h2 class="task-title">API Calls</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:" title="contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:">&ndash;&nbsp;contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -616,7 +443,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> full:(BOOL)<em>full</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> full:(BOOL)<em>full</em> completion:(void ( ^ ) ( XMMResponseGetById *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -649,6 +476,26 @@
 						<td><p>True or false for returning &ldquo;unsynced&rdquo; data or not</p></td>
 					</tr>
 				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>CompletionHandler returns the result</p>
+
+<ul>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseGetById.html">XMMResponseGetById</a></li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>ErrorHandler returns an error if one occures</p>
+
+<ul>
+<li><em>param1</em> error A <a href="../Classes/XMMError.html">XMMError</a> with error informations</li>
+</ul>
+</td>
+					</tr>
+				
 				</table>
 			</div>
 			
@@ -678,8 +525,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:" title="contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</a></code>
+	<a name="//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:" title="contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:">&ndash;&nbsp;contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -695,7 +542,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMResponseGetByLocationIdentifier *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -723,6 +570,26 @@ default language will be returned.</p>
 						<td><p>The requested language of the content from xamoom backend.</p></td>
 					</tr>
 				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>CompletionHandler returns the result</p>
+
+<ul>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseGetByLocationIdentifier.html">XMMResponseGetByLocationIdentifier</a></li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>ErrorHandler returns an error if one occures</p>
+
+<ul>
+<li><em>param1</em> error A <a href="../Classes/XMMError.html">XMMError</a> with error informations</li>
+</ul>
+</td>
+					</tr>
+				
 				</table>
 			</div>
 			
@@ -752,8 +619,8 @@ default language will be returned.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/contentWithLat:withLon:withLanguage:" title="contentWithLat:withLon:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contentWithLat:withLon:withLanguage:">&ndash;&nbsp;contentWithLat:withLon:withLanguage:</a></code>
+	<a name="//api/name/contentWithLat:withLon:withLanguage:completion:error:" title="contentWithLat:withLon:withLanguage:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentWithLat:withLon:withLanguage:completion:error:">&ndash;&nbsp;contentWithLat:withLon:withLanguage:completion:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -769,7 +636,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithLat:(NSString *)<em>lat</em> withLon:(NSString *)<em>lon</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithLat:(NSString *)<em>lat</em> withLon:(NSString *)<em>lon</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMResponseGetByLocation *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -792,6 +659,26 @@ default language will be returned.</p>
 						<td><p>The requested language of the content from xamoom backend</p></td>
 					</tr>
 				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>CompletionHandler returns the result</p>
+
+<ul>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseGetByLocation.html">XMMResponseGetByLocation</a></li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>ErrorHandler returns an error if one occures</p>
+
+<ul>
+<li><em>param1</em> error A <a href="../Classes/XMMError.html">XMMError</a> with error informations</li>
+</ul>
+</td>
+					</tr>
+				
 				</table>
 			</div>
 			
@@ -821,8 +708,8 @@ default language will be returned.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/spotMapWithSystemId:withMapTags:withLanguage:" title="spotMapWithSystemId:withMapTags:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/spotMapWithSystemId:withMapTags:withLanguage:">&ndash;&nbsp;spotMapWithSystemId:withMapTags:withLanguage:</a></code>
+	<a name="//api/name/spotMapWithMapTags:withLanguage:completion:error:" title="spotMapWithMapTags:withLanguage:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/spotMapWithMapTags:withLanguage:completion:error:">&ndash;&nbsp;spotMapWithMapTags:withLanguage:completion:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -837,18 +724,13 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)spotMapWithSystemId:(NSString *)<em>systemId</em> withMapTags:(NSArray *)<em>mapTags</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)spotMapWithMapTags:(NSArray *)<em>mapTags</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMResponseGetSpotMap *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
 			<div class="method-subsection arguments-section parameters">
 				<h4 class="method-subtitle parameter-title">Parameters</h4>
 				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>systemId</code></th>
-						<td><p>The id of the wanted system.</p></td>
-					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>mapTags</code></th>
@@ -858,6 +740,31 @@ default language will be returned.</p>
 					<tr>
 						<th scope="row" class="argument-name"><code>language</code></th>
 						<td><p>The requested language of the content from xamoom backend</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>CompletionHandler returns the result</p>
+
+<ul>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseGetSpotMap.html">XMMResponseGetSpotMap</a></li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>ErrorHandler returns an error if one occures</p>
+
+<ul>
+<li><em>param1</em> error A <a href="../Classes/XMMError.html">XMMError</a> with error informations</li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>systemId</code></th>
+						<td><p>The id of the wanted system.</p></td>
 					</tr>
 				
 				</table>
@@ -889,8 +796,8 @@ default language will be returned.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:" title="contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:">&ndash;&nbsp;contentListWithSystemId:withLanguage:withPageSize:withCursor:withTags:</a></code>
+	<a name="//api/name/contentListWithPageSize:withLanguage:withCursor:withTags:completion:error:" title="contentListWithPageSize:withLanguage:withCursor:withTags:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentListWithPageSize:withLanguage:withCursor:withTags:completion:error:">&ndash;&nbsp;contentListWithPageSize:withLanguage:withCursor:withTags:completion:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -905,7 +812,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentListWithSystemId:(NSString *)<em>systemId</em> withLanguage:(NSString *)<em>language</em> withPageSize:(int)<em>pageSize</em> withCursor:(NSString *)<em>cursor</em> withTags:(NSArray *)<em>tags</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentListWithPageSize:(int)<em>pageSize</em> withLanguage:(NSString *)<em>language</em> withCursor:(NSString *)<em>cursor</em> withTags:(NSArray *)<em>tags</em> completion:(void ( ^ ) ( XMMResponseContentList *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -914,18 +821,13 @@ default language will be returned.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>systemId</code></th>
-						<td><p>The id of the system from xamoom.</p></td>
+						<th scope="row" class="argument-name"><code>pageSize</code></th>
+						<td><p>Number of items you will get returned</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>language</code></th>
 						<td><p>The requested language of the content from xamoom backend</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>pageSize</code></th>
-						<td><p>Number of items you will get returned</p></td>
 					</tr>
 				
 					<tr>
@@ -936,6 +838,31 @@ default language will be returned.</p>
 					<tr>
 						<th scope="row" class="argument-name"><code>tags</code></th>
 						<td><p>Tags as an array</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>CompletionHandler returns the result</p>
+
+<ul>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseContentList.html">XMMResponseContentList</a></li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>ErrorHandler returns an error if one occures</p>
+
+<ul>
+<li><em>param1</em> error A <a href="../Classes/XMMError.html">XMMError</a> with error informations</li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>systemId</code></th>
+						<td><p>The id of the system from xamoom.</p></td>
 					</tr>
 				
 				</table>
@@ -967,8 +894,8 @@ default language will be returned.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:" title="closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:">&ndash;&nbsp;closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:</a></code>
+	<a name="//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:completion:error:" title="closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:completion:error:">&ndash;&nbsp;closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:completion:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -984,7 +911,7 @@ If the selected language is not available the default language will be returned.
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)closestSpotsWithLat:(float)<em>lat</em> withLon:(float)<em>lon</em> withRadius:(int)<em>radius</em> withLimit:(int)<em>limit</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)closestSpotsWithLat:(float)<em>lat</em> withLon:(float)<em>lon</em> withRadius:(int)<em>radius</em> withLimit:(int)<em>limit</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMResponseClosestSpot *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -1017,6 +944,26 @@ If the selected language is not available the default language will be returned.
 						<td><p>The requested language of the content from xamoom backend</p></td>
 					</tr>
 				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>CompletionHandler returns the result</p>
+
+<ul>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseClosestSpot.html">XMMResponseClosestSpot</a></li>
+</ul>
+</td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>ErrorHandler returns an error if one occures</p>
+
+<ul>
+<li><em>param1</em> error A <a href="../Classes/XMMError.html">XMMError</a> with error informations</li>
+</ul>
+</td>
+					</tr>
+				
 				</table>
 			</div>
 			
@@ -1045,17 +992,9 @@ If the selected language is not available the default language will be returned.
 			
 		</div>
 	</div>
-</div>
-						</div>
-						
-
-						<a title="Core Data" name="task_Core Data"></a>
-						<h2 class="task-title">Core Data</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/initCoreData" title="initCoreData"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initCoreData">&ndash;&nbsp;initCoreData</a></code>
+</div><div class="section-method">
+	<a name="//api/name/geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:" title="geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:">&ndash;&nbsp;geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1065,21 +1004,16 @@ If the selected language is not available the default language will be returned.
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sets up all configurations for RestKit to work with Core Data.</p>
+				<p>Makes an api call to xamoom when a user clicks a geofenced content for analytics.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)initCoreData</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString *)<em>requestedLanguage</em> withDeliveredLanguage:(NSString *)<em>deliveredLanguage</em> withSystemId:(NSString *)<em>systemId</em> withSystemName:(NSString *)<em>sytemName</em> withContentId:(NSString *)<em>contentId</em> withContentName:(NSString *)<em>contentName</em> withSpotId:(NSString *)<em>spotId</em> withSpotName:(NSString *)<em>spotName</em></code></div>
 
 		    
 			
 
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>void</p>
-			</div>
 			
 
 			
@@ -1087,401 +1021,15 @@ If the selected language is not available the default language will be returned.
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Must be called before using any other core data related method.
-(<code>getContentForCoreDataById:includeStyle:includeMenu:withLanguage:</code>,
-<code>getContentForCoreDataByLocationIdentifier:includeStyle:includeMenu:withLanguage:</code>,
-<code>getContentForCoreDataByLocationWithLat:withLon:withLon:</code>,
-<code>fetchCoreDataContentByType:</code>,
-<code>deleteCoreDataEntityById:</code>)</p></div>
+				<p>@param requestedLanguage
+@param deliveredLanguage
+@param systemId
+@param systemName
+@param contentId
+@param contentName
+@param spotId
+@param spotName</p>
 			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:" title="saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;saveContentToCoreDataWithContentId:includeStyle:includeMenu:withLanguage:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
-Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html"><code>XMMCoreDataGetById</code></a>. Use <code>fetchCoreDataContentByType:</code> to get saved data.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>contentId</code></th>
-						<td><p>The id of the content from xamoom backend.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>style</code></th>
-						<td><p>True or False for returning the style from xamoom backend.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>menu</code></th>
-						<td><p>True of False for returning the menu from xamoom backend.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>language</code></th>
-						<td><p>The requested language of the content from xamoom backend.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>void</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:" title="saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:">&ndash;&nbsp;saveContentToCoreDataWithLocationIdentifier:includeStyle:includeMenu:withLanguage:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not
-available the default language will be returned.
-Data will be saved in Core Data as <a href="../Classes/XMMCoreDataGetById.html"><code>XMMCoreDataGetById</code></a>. Use <code>fetchCoreDataContentByType:</code> to get saved data.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>locationIdentifier</code></th>
-						<td><p>The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>style</code></th>
-						<td><p>True or False for returning the style from xamoom backend.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>menu</code></th>
-						<td><p>True of False for returning the menu from xamoom backend.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>language</code></th>
-						<td><p>The requested language of the content from xamoom backend.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>void</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/saveContentToCoreDataWithLat:withLon:withLanguage:" title="saveContentToCoreDataWithLat:withLon:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/saveContentToCoreDataWithLat:withLon:withLanguage:">&ndash;&nbsp;saveContentToCoreDataWithLat:withLon:withLanguage:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Makes an api call to xamoom with a location (lat &amp; lon). If the selected language is not available the
-default language will be returned as <a href="../Classes/XMMCoreDataGetByLocation.html"><code>XMMCoreDataGetByLocation</code></a>. Data will be saved in Core Data. Use <code>fetchCoreDataContentByType:</code> to get saved data.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)saveContentToCoreDataWithLat:(NSString *)<em>lat</em> withLon:(NSString *)<em>lon</em> withLanguage:(NSString *)<em>language</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>lat</code></th>
-						<td><p>The latitude of a location.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>lon</code></th>
-						<td><p>The longitude of a location.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>language</code></th>
-						<td><p>The requested language of the content from xamoom backend.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>void</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/fetchCoreDataContentWithType:" title="fetchCoreDataContentWithType:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/fetchCoreDataContentWithType:">&ndash;&nbsp;fetchCoreDataContentWithType:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns an array of all objects with the specific type from Core Data. Type can be &ldquo;id&rdquo; or &ldquo;location&rdquo;.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (NSArray *)fetchCoreDataContentWithType:(NSString *)<em>type</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>type</code></th>
-						<td><p>The type of the saved data. Can be &ldquo;id&rdquo; or &ldquo;location&rdquo;.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>NSArray*</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/deleteCoreDataEntityWithContentId:" title="deleteCoreDataEntityWithContentId:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/deleteCoreDataEntityWithContentId:">&ndash;&nbsp;deleteCoreDataEntityWithContentId:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Deletes a entity in Core Data with the given contentId.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (BOOL)deleteCoreDataEntityWithContentId:(NSString *)<em>contentId</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>contentId</code></th>
-						<td><p>The content id from the entity you want to delete in core data</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>BOOL       Yes if it got deleted, no if not.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
-
-						<a title="RSS" name="task_RSS"></a>
-						<h2 class="task-title">RSS</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/rssContentFeed" title="rssContentFeed"></a>
-	<h3 class="method-title"><code><a href="#//api/name/rssContentFeed">&ndash;&nbsp;rssContentFeed</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Gets the rss feed and parses it from a specific url (<code>rssBaseUrl</code>).</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)rssContentFeed</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>void</p>
-			</div>
-			
-
-			
-
 			
 
 			
@@ -1506,8 +1054,8 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/startQRCodeReaderFromViewController:withLanguage:" title="startQRCodeReaderFromViewController:withLanguage:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/startQRCodeReaderFromViewController:withLanguage:">&ndash;&nbsp;startQRCodeReaderFromViewController:withLanguage:</a></code>
+	<a name="//api/name/startQRCodeReaderFromViewController:didLoad:" title="startQRCodeReaderFromViewController:didLoad:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startQRCodeReaderFromViewController:didLoad:">&ndash;&nbsp;startQRCodeReaderFromViewController:didLoad:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1522,7 +1070,7 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startQRCodeReaderFromViewController:(UIViewController *)<em>viewController</em> withLanguage:(NSString *)<em>language</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startQRCodeReaderFromViewController:(UIViewController *)<em>viewController</em> didLoad:(void ( ^ ) ( NSString *locationIdentifier , NSString *url ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1536,8 +1084,10 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 					</tr>
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>language</code></th>
-						<td><p>The returned language of the automaticApiRequest</p></td>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>CompletionHandler returns the result
+  - <em>param1</em> locationIdentifier NSString with only the locaitionIdentifier of the scanned QR
+  - <em>param2</em> url NSString wiht the complete scanned url</p></td>
 					</tr>
 				
 				</table>
@@ -1553,34 +1103,6 @@ default language will be returned as <a href="../Classes/XMMCoreDataGetByLocatio
 
 			
 
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>There are 2 delegates you can use:</p>
-
-<ul>
-<li>reader:didScanResult:</li>
-<li><a href="#//api/name/readerDidCancel:">readerDidCancel:</a></li>
-</ul>
-
-
-<p>In code it would be look like this:</p>
-
-<ul>
-<li><p>(void)reader:(QRCodeReaderViewController <em>)reader didScanResult:(NSString </em>)result
-{
-[self dismissViewControllerAnimated:YES completion:^{
-NSLog(@&ldquo;Completion with result: %@&rdquo;, result);
-}];
-}</p></li>
-<li><p>(void)<a href="#//api/name/readerDidCancel:">readerDidCancel:</a>(QRCodeReaderViewController *)reader
-{
-NSLog(@&ldquo;readerDidCancel&rdquo;);
-[self dismissViewControllerAnimated:YES completion:NULL];
-}</p></li>
-</ul>
-
-			</div>
 			
 
 			
@@ -1609,7 +1131,7 @@ NSLog(@&ldquo;readerDidCancel&rdquo;);
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-05-18</p>
+						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-07-23</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

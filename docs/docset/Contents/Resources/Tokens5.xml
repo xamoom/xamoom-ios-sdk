@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMCoreDataGetByLocationItem.html">
+	<File path="Classes/XMMResponseContentBlock.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMCoreDataGetByLocationItem</TokenIdentifier>
-			<Abstract type="html">XMMCoreDataGetByLocationItem is used for extending the _XMMCoreDataGetByLocationItem.h with own methods.
-_XMMCoreDataGetByLocationItem.h contains everything used for Core Data (generated with mogenerator).</Abstract>
-			<DeclaredIn>XMMCoreDataGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlock</TokenIdentifier>
+			<Abstract type="html">XMMResponseContentBlock is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
             
 			
 			<NodeRef refid="5"/>
@@ -14,13 +13,13 @@ _XMMCoreDataGetByLocationItem.h contains everything used for Core Data (generate
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataGetByLocationItem/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataGetByLocationItem class.</Abstract>
-			<DeclaredIn>XMMCoreDataGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlock/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlock class.</Abstract>
+			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
 			
-			<Declaration>+ (NSDictionary *)mapping</Declaration>
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
-			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
 			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="5"/>
 		</Token>

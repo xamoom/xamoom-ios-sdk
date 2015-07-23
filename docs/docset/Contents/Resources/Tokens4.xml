@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMCoreDataGetByLocation.html">
+	<File path="Classes/XMMResponseContent.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMCoreDataGetByLocation</TokenIdentifier>
-			<Abstract type="html">XMMCoreDataGetByLocation is used for extending the _XMMCoreDataGetByLocation.h with own methods.
-_XMMCoreDataGetByLocation.h contains everything used for Core Data (generated with mogenerator).</Abstract>
-			<DeclaredIn>XMMCoreDataGetByLocation.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContent</TokenIdentifier>
+			<Abstract type="html">XMMResponseContent is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
             
 			
 			<NodeRef refid="4"/>
@@ -14,14 +13,50 @@ _XMMCoreDataGetByLocation.h contains everything used for Core Data (generated wi
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMCoreDataGetByLocation/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a dictionary for mapping the XMMCoreDataGetByLocation class.</Abstract>
-			<DeclaredIn>XMMCoreDataGetByLocation.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContent/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContent class.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
 			
-			<Declaration>+ (NSDictionary *)mapping</Declaration>
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
-			<ReturnValue><Abstract type="html">NSDictionary*</Abstract></ReturnValue>
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
 			<Anchor>//api/name/mapping</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/setSortedContentBlocks:</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedContentBlocks</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/sortedContentBlocks</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedContentBlocks</Anchor>
+            <NodeRef refid="4"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContent/sortedContentBlocks</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
+			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedContentBlocks</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
