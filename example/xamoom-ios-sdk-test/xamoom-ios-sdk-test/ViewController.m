@@ -99,7 +99,7 @@ NSString * const kLocationIdentifier = @"0ana0";
 }
 
 - (IBAction)getContentListAction:(id)sender {
-  [[XMMEnduserApi sharedInstance] contentListWithPageSize:5 withLanguage:[XMMEnduserApi sharedInstance].systemLanguage withCursor:@"null" withTags:@[@"artists"]
+  [[XMMEnduserApi sharedInstance] contentListWithPageSize:5 withLanguage:[XMMEnduserApi sharedInstance].systemLanguage withCursor:nil withTags:@[@"artists"]
                                                completion:^(XMMResponseContentList *result){
                                                  NSLog(@"finishedGetContentList full: %@", result.description);
                                                  self.outputTextView.text = result.description;

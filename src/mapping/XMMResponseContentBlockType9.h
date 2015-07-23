@@ -24,6 +24,11 @@
  `XMMResponseContentBlockType9` is used for mapping the JSON sended by the api.
  
  This class represents the contentBlockType 'SPOTMAP'.
+ 
+ *Default behavior*
+ 
+ 1. Display a map with the spot-markers on it.
+ 
  */
 @interface XMMResponseContentBlockType9 : XMMResponseContentBlock
 
