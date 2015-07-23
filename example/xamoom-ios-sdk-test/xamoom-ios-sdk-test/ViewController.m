@@ -1,17 +1,28 @@
 //
-//  ViewController.m
-//  xamoom-ios-sdk-test
+// Copyright 2015 by xamoom GmbH <apps@xamoom.com>
 //
-//  Created by Raphael Seher on 04.02.15.
-//  Copyright (c) 2015 Raphael Seher. All rights reserved.
+// This file is part of some open source application.
+//
+// Some open source application is free software: you can redistribute
+// it and/or modify it under the terms of the GNU General Public
+// License as published by the Free Software Foundation, either
+// version 2 of the License, or (at your option) any later version.
+//
+// Some open source application is distributed in the hope that it will
+// be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import "ViewController.h"
 #import <RestKit/RestKit.h>
 #import "XMMEnduserApi.h"
 
-NSString * const kContentId = @"f0da3d3d28d3418e9ccc4a6e9b3493c0";
-NSString * const kLocationIdentifier = @"dkriw";
+NSString * const kContentId = @"d8be762e9b644fc4bb7aedfa8c0e17b7";
+NSString * const kLocationIdentifier = @"0ana0";
 
 @interface ViewController () <QRCodeReaderDelegate>
 

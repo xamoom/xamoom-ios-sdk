@@ -23,7 +23,6 @@
 /* Begin PBXBuildFile section */
 		193BE2A7A90697F6E9D018AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CF7D8E893047483C215A55 /* libPods.a */; };
 		8806A7691ACD802D000E8552 /* XMMResponseContentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8806A7681ACD802D000E8552 /* XMMResponseContentList.m */; };
-		88301E1C1A9DC21400F24F84 /* XMMRSSEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 88301E1B1A9DC21400F24F84 /* XMMRSSEntry.m */; };
 		8858D2461A822513001B45D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2451A822513001B45D5 /* main.m */; };
 		8858D2491A822513001B45D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2481A822513001B45D5 /* AppDelegate.m */; };
 		8858D24C1A822513001B45D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D24B1A822513001B45D5 /* ViewController.m */; };
@@ -98,8 +97,6 @@
 		88301DA91A9DBB9300F24F84 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		88301DAB1A9DBB9C00F24F84 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		88301DAD1A9DBBB100F24F84 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
-		88301E1A1A9DC21400F24F84 /* XMMRSSEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMRSSEntry.h; sourceTree = "<group>"; };
-		88301E1B1A9DC21400F24F84 /* XMMRSSEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMRSSEntry.m; sourceTree = "<group>"; };
 		8858D2401A822513001B45D5 /* xamoom-ios-sdk-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xamoom-ios-sdk-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8858D2441A822513001B45D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8858D2451A822513001B45D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -211,16 +208,6 @@
 				8DCF04393C17E7BE8DD318AB /* Pods.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		88301E191A9DC21400F24F84 /* RSS */ = {
-			isa = PBXGroup;
-			children = (
-				88301E1A1A9DC21400F24F84 /* XMMRSSEntry.h */,
-				88301E1B1A9DC21400F24F84 /* XMMRSSEntry.m */,
-			);
-			name = RSS;
-			path = ../../../src/RSS;
 			sourceTree = "<group>";
 		};
 		88301E1D1A9DF24500F24F84 /* lib */ = {
@@ -391,7 +378,6 @@
 				8858D26A1A8225B1001B45D5 /* XMMEnduserApi.h */,
 				8858D26B1A8225B1001B45D5 /* XMMEnduserApi.m */,
 				88E93FC01A83B3B700955E39 /* mapping */,
-				88301E191A9DC21400F24F84 /* RSS */,
 				88301E1D1A9DF24500F24F84 /* lib */,
 			);
 			name = "xamoom ios sdk";
@@ -588,7 +574,6 @@
 				8885FCEA1A8DEC8C006F6B4C /* XMMResponseContentBlock.m in Sources */,
 				8806A7691ACD802D000E8552 /* XMMResponseContentList.m in Sources */,
 				8885FCEC1A8DEC8C006F6B4C /* XMMResponseContentBlockType1.m in Sources */,
-				88301E1C1A9DC21400F24F84 /* XMMRSSEntry.m in Sources */,
 				8885FCEE1A8DEC8C006F6B4C /* XMMResponseContentBlockType3.m in Sources */,
 				8885FD081A8DEC9B006F6B4C /* XMMResponseMenuItem.m in Sources */,
 				8885E5E51A9F250600989B52 /* XMMResponseGetSpotMapItem.m in Sources */,
