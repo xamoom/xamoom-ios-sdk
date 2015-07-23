@@ -1,5 +1,5 @@
 //
-// Copyright 2015 by Raphael Seher <raphael@xamoom.com>
+// Copyright 2015 by xamoom GmbH <apps@xamoom.com>
 //
 // This file is part of some open source application.
 //
@@ -27,6 +27,11 @@
  */
 @interface XMMResponseContentBlockType9 : XMMResponseContentBlock
 
+/**
+ String of comma seperated tags to display spotmap.
+ 
+ Call [XMMEnduserApi spotMapWithMapTags:withLanguage:completion:error:] with the spotMapTags.
+ */
 @property (nonatomic, copy) NSString *spotMapTag;
 
 /// @name Mapping
