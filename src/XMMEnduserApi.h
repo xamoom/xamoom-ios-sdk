@@ -20,7 +20,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <RestKit/RestKit.h>
-#import "NSString+HTML.h"
 #import "QRCodeReaderViewController.h"
 #import "XMMError.h"
 #import "XMMResponseGetById.h"
