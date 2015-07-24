@@ -138,7 +138,7 @@ static XMMEnduserApi *sharedInstance;
   }
   
   if (cursor == nil) {
-    cursor = @"null"
+    cursor = @"null";
   }
   
   NSString* tagsAsString;
