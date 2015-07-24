@@ -54,16 +54,6 @@
 		8885FD091A8DEC9B006F6B4C /* XMMResponseStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8885FD021A8DEC9B006F6B4C /* XMMResponseStyle.m */; };
 		888E92211B1C5AD1004AA86B /* api.txt in Resources */ = {isa = PBXBuildFile; fileRef = 888E92201B1C5AD1004AA86B /* api.txt */; };
 		88AA558B1B4FC41400D167D3 /* XMMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AA558A1B4FC41400D167D3 /* XMMError.m */; };
-		88BA02CE1AA8AA940091A43C /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02BA1AA8AA940091A43C /* DetailTableViewController.m */; };
-		88BA02CF1AA8AA940091A43C /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02BC1AA8AA940091A43C /* GTMNSString+HTML.m */; };
-		88BA02D01AA8AA940091A43C /* MWFeedInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02BE1AA8AA940091A43C /* MWFeedInfo.m */; };
-		88BA02D11AA8AA940091A43C /* MWFeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02C01AA8AA940091A43C /* MWFeedItem.m */; };
-		88BA02D21AA8AA940091A43C /* MWFeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02C31AA8AA940091A43C /* MWFeedParser.m */; };
-		88BA02D31AA8AA940091A43C /* MWFeedParserAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02C51AA8AA940091A43C /* MWFeedParserAppDelegate.m */; };
-		88BA02D41AA8AA940091A43C /* NSDate+InternetDateTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02C71AA8AA940091A43C /* NSDate+InternetDateTime.m */; };
-		88BA02D51AA8AA940091A43C /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02C91AA8AA940091A43C /* NSString+HTML.m */; };
-		88BA02D61AA8AA940091A43C /* NSString+XMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02CB1AA8AA940091A43C /* NSString+XMLEntities.m */; };
-		88BA02D71AA8AA940091A43C /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA02CD1AA8AA940091A43C /* RootViewController.m */; };
 		88F212C31B539D3B00FFB6D1 /* XMMResponseClosestSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F212C21B539D3B00FFB6D1 /* XMMResponseClosestSpot.m */; };
 /* End PBXBuildFile section */
 
@@ -157,27 +147,6 @@
 		888E92201B1C5AD1004AA86B /* api.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = api.txt; sourceTree = "<group>"; };
 		88AA55891B4FC41400D167D3 /* XMMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMError.h; path = ../../src/mapping/XMMError.h; sourceTree = "<group>"; };
 		88AA558A1B4FC41400D167D3 /* XMMError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMError.m; path = ../../src/mapping/XMMError.m; sourceTree = "<group>"; };
-		88BA02B91AA8AA940091A43C /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailTableViewController.h; path = ../../src/lib/MWFeedParser/DetailTableViewController.h; sourceTree = "<group>"; };
-		88BA02BA1AA8AA940091A43C /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailTableViewController.m; path = ../../src/lib/MWFeedParser/DetailTableViewController.m; sourceTree = "<group>"; };
-		88BA02BB1AA8AA940091A43C /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "../../src/lib/MWFeedParser/GTMNSString+HTML.h"; sourceTree = "<group>"; };
-		88BA02BC1AA8AA940091A43C /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "../../src/lib/MWFeedParser/GTMNSString+HTML.m"; sourceTree = "<group>"; };
-		88BA02BD1AA8AA940091A43C /* MWFeedInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedInfo.h; path = ../../src/lib/MWFeedParser/MWFeedInfo.h; sourceTree = "<group>"; };
-		88BA02BE1AA8AA940091A43C /* MWFeedInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedInfo.m; path = ../../src/lib/MWFeedParser/MWFeedInfo.m; sourceTree = "<group>"; };
-		88BA02BF1AA8AA940091A43C /* MWFeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedItem.h; path = ../../src/lib/MWFeedParser/MWFeedItem.h; sourceTree = "<group>"; };
-		88BA02C01AA8AA940091A43C /* MWFeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedItem.m; path = ../../src/lib/MWFeedParser/MWFeedItem.m; sourceTree = "<group>"; };
-		88BA02C11AA8AA940091A43C /* MWFeedParser_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedParser_Private.h; path = ../../src/lib/MWFeedParser/MWFeedParser_Private.h; sourceTree = "<group>"; };
-		88BA02C21AA8AA940091A43C /* MWFeedParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedParser.h; path = ../../src/lib/MWFeedParser/MWFeedParser.h; sourceTree = "<group>"; };
-		88BA02C31AA8AA940091A43C /* MWFeedParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedParser.m; path = ../../src/lib/MWFeedParser/MWFeedParser.m; sourceTree = "<group>"; };
-		88BA02C41AA8AA940091A43C /* MWFeedParserAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWFeedParserAppDelegate.h; path = ../../src/lib/MWFeedParser/MWFeedParserAppDelegate.h; sourceTree = "<group>"; };
-		88BA02C51AA8AA940091A43C /* MWFeedParserAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWFeedParserAppDelegate.m; path = ../../src/lib/MWFeedParser/MWFeedParserAppDelegate.m; sourceTree = "<group>"; };
-		88BA02C61AA8AA940091A43C /* NSDate+InternetDateTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+InternetDateTime.h"; path = "../../src/lib/MWFeedParser/NSDate+InternetDateTime.h"; sourceTree = "<group>"; };
-		88BA02C71AA8AA940091A43C /* NSDate+InternetDateTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+InternetDateTime.m"; path = "../../src/lib/MWFeedParser/NSDate+InternetDateTime.m"; sourceTree = "<group>"; };
-		88BA02C81AA8AA940091A43C /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+HTML.h"; path = "../../src/lib/MWFeedParser/NSString+HTML.h"; sourceTree = "<group>"; };
-		88BA02C91AA8AA940091A43C /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTML.m"; path = "../../src/lib/MWFeedParser/NSString+HTML.m"; sourceTree = "<group>"; };
-		88BA02CA1AA8AA940091A43C /* NSString+XMLEntities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+XMLEntities.h"; path = "../../src/lib/MWFeedParser/NSString+XMLEntities.h"; sourceTree = "<group>"; };
-		88BA02CB1AA8AA940091A43C /* NSString+XMLEntities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XMLEntities.m"; path = "../../src/lib/MWFeedParser/NSString+XMLEntities.m"; sourceTree = "<group>"; };
-		88BA02CC1AA8AA940091A43C /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = ../../src/lib/MWFeedParser/RootViewController.h; sourceTree = "<group>"; };
-		88BA02CD1AA8AA940091A43C /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = ../../src/lib/MWFeedParser/RootViewController.m; sourceTree = "<group>"; };
 		88F212C11B539D3B00FFB6D1 /* XMMResponseClosestSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMResponseClosestSpot.h; path = ../../src/mapping/XMMResponseClosestSpot.h; sourceTree = "<group>"; };
 		88F212C21B539D3B00FFB6D1 /* XMMResponseClosestSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMResponseClosestSpot.m; path = ../../src/mapping/XMMResponseClosestSpot.m; sourceTree = "<group>"; };
 		8DCF04393C17E7BE8DD318AB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,38 +184,9 @@
 		88301E1D1A9DF24500F24F84 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				88301E321A9DF24500F24F84 /* MWFeedParser */,
 			);
 			name = lib;
 			path = ../../../lib;
-			sourceTree = "<group>";
-		};
-		88301E321A9DF24500F24F84 /* MWFeedParser */ = {
-			isa = PBXGroup;
-			children = (
-				88BA02B91AA8AA940091A43C /* DetailTableViewController.h */,
-				88BA02BA1AA8AA940091A43C /* DetailTableViewController.m */,
-				88BA02BB1AA8AA940091A43C /* GTMNSString+HTML.h */,
-				88BA02BC1AA8AA940091A43C /* GTMNSString+HTML.m */,
-				88BA02BD1AA8AA940091A43C /* MWFeedInfo.h */,
-				88BA02BE1AA8AA940091A43C /* MWFeedInfo.m */,
-				88BA02BF1AA8AA940091A43C /* MWFeedItem.h */,
-				88BA02C01AA8AA940091A43C /* MWFeedItem.m */,
-				88BA02C11AA8AA940091A43C /* MWFeedParser_Private.h */,
-				88BA02C21AA8AA940091A43C /* MWFeedParser.h */,
-				88BA02C31AA8AA940091A43C /* MWFeedParser.m */,
-				88BA02C41AA8AA940091A43C /* MWFeedParserAppDelegate.h */,
-				88BA02C51AA8AA940091A43C /* MWFeedParserAppDelegate.m */,
-				88BA02C61AA8AA940091A43C /* NSDate+InternetDateTime.h */,
-				88BA02C71AA8AA940091A43C /* NSDate+InternetDateTime.m */,
-				88BA02C81AA8AA940091A43C /* NSString+HTML.h */,
-				88BA02C91AA8AA940091A43C /* NSString+HTML.m */,
-				88BA02CA1AA8AA940091A43C /* NSString+XMLEntities.h */,
-				88BA02CB1AA8AA940091A43C /* NSString+XMLEntities.m */,
-				88BA02CC1AA8AA940091A43C /* RootViewController.h */,
-				88BA02CD1AA8AA940091A43C /* RootViewController.m */,
-			);
-			path = MWFeedParser;
 			sourceTree = "<group>";
 		};
 		8858D2371A822513001B45D5 = {
@@ -557,15 +497,10 @@
 			files = (
 				8885FCEB1A8DEC8C006F6B4C /* XMMResponseContentBlockType0.m in Sources */,
 				88AA558B1B4FC41400D167D3 /* XMMError.m in Sources */,
-				88BA02D21AA8AA940091A43C /* MWFeedParser.m in Sources */,
-				88BA02CE1AA8AA940091A43C /* DetailTableViewController.m in Sources */,
 				8885FCF01A8DEC8C006F6B4C /* XMMResponseContentBlockType5.m in Sources */,
 				8885FD031A8DEC9B006F6B4C /* XMMResponseContent.m in Sources */,
-				88BA02D41AA8AA940091A43C /* NSDate+InternetDateTime.m in Sources */,
-				88BA02D61AA8AA940091A43C /* NSString+XMLEntities.m in Sources */,
 				8885FCEF1A8DEC8C006F6B4C /* XMMResponseContentBlockType4.m in Sources */,
 				8885FCED1A8DEC8C006F6B4C /* XMMResponseContentBlockType2.m in Sources */,
-				88BA02D71AA8AA940091A43C /* RootViewController.m in Sources */,
 				8858D24C1A822513001B45D5 /* ViewController.m in Sources */,
 				8858D2491A822513001B45D5 /* AppDelegate.m in Sources */,
 				8885FD041A8DEC9B006F6B4C /* XMMResponseGetById.m in Sources */,
@@ -582,16 +517,11 @@
 				8885FD081A8DEC9B006F6B4C /* XMMResponseMenuItem.m in Sources */,
 				8885E5E51A9F250600989B52 /* XMMResponseGetSpotMapItem.m in Sources */,
 				8858D26C1A8225B1001B45D5 /* XMMEnduserApi.m in Sources */,
-				88BA02D51AA8AA940091A43C /* NSString+HTML.m in Sources */,
 				88F212C31B539D3B00FFB6D1 /* XMMResponseClosestSpot.m in Sources */,
 				8885FCF41A8DEC8C006F6B4C /* XMMResponseContentBlockType9.m in Sources */,
-				88BA02D01AA8AA940091A43C /* MWFeedInfo.m in Sources */,
 				8858D2461A822513001B45D5 /* main.m in Sources */,
 				8885FD091A8DEC9B006F6B4C /* XMMResponseStyle.m in Sources */,
 				8885FCF11A8DEC8C006F6B4C /* XMMResponseContentBlockType6.m in Sources */,
-				88BA02D31AA8AA940091A43C /* MWFeedParserAppDelegate.m in Sources */,
-				88BA02D11AA8AA940091A43C /* MWFeedItem.m in Sources */,
-				88BA02CF1AA8AA940091A43C /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
