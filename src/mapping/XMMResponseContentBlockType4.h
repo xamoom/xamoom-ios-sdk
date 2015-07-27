@@ -66,7 +66,7 @@
  - GOOGLE_PLAY = 16
  - WINDOWS_STORE = 17
  */
-@property (nonatomic) int *linkType;
+@property (nonatomic) int linkType;
 
 /// @name Mapping
 
