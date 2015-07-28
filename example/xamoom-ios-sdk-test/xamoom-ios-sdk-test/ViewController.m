@@ -64,6 +64,9 @@ NSString * const kLocationIdentifier = @"0ana0";
   }];
 }
 
+- (IBAction)testContentBlocksAction:(id)sender {
+  //[self performSegueWithIdentifier:@"contentBlocksSegue" sender:self];
+}
 
 - (IBAction)getContentByLocationIdentifierAction:(id)sender {
   [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
