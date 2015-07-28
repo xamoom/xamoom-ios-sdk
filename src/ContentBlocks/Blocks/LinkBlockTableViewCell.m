@@ -161,10 +161,43 @@
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
       [self.titleLabel setTextColor:[UIColor whiteColor]];
+      break;
     }
-
+    case 15: {
+      [self.viewForBackgroundColor setBackgroundColor:[UIColor blackColor]];
+      [self.icon setImage:[UIImage imageNamed:@"apple"]];
+      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+      [self.icon setTintColor:[UIColor whiteColor]];
+      [self.linkTextLabel setTextColor:[UIColor whiteColor]];
+      [self.titleLabel setTextColor:[UIColor whiteColor]];
+      break;
+    }
+    case 16: {
+      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:173/255.0f green:205/255.0f blue:65/255.0f alpha:1.0f]];
+      [self.icon setImage:[UIImage imageNamed:@"android"]];
+      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+      [self.icon setTintColor:[UIColor whiteColor]];
+      [self.linkTextLabel setTextColor:[UIColor whiteColor]];
+      [self.titleLabel setTextColor:[UIColor whiteColor]];
+      break;
+    }
+    case 17: {
+      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:52/255.0f green:148/255.0f blue:241/255.0f alpha:1.0f]];
+      [self.icon setImage:[UIImage imageNamed:@"windows"]];
+      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+      [self.icon setTintColor:[UIColor whiteColor]];
+      [self.linkTextLabel setTextColor:[UIColor whiteColor]];
+      [self.titleLabel setTextColor:[UIColor whiteColor]];
+      break;
+    }
     default:
       NSLog(@"Linktype not recognized.");
+      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:209/255.0f green:209/255.0f blue:209/255.0f alpha:1.0f]];
+      [self.icon setImage:[UIImage imageNamed:@"web"]];
+      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+      [self.icon setTintColor:[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0f]];
+      [self.linkTextLabel setTextColor:[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0f]];
+      [self.titleLabel setTextColor:[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0f]];
       break;
   }
 }
