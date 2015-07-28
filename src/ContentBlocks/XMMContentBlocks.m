@@ -80,6 +80,10 @@ int const kHorizontalSpaceToSubview = 32;
   if (idResult == nil) {
     return;
   }
+  
+  [self addContentBlockHeader:idResult.content.title
+                   andExcerpt:idResult.content.descriptionOfContent
+            andImagePublicUrl:idResult.content.imagePublicUrl];
   [self generateTableViewCellsWithContentBlocks:idResult.content.contentBlocks];
 }
 
@@ -87,7 +91,26 @@ int const kHorizontalSpaceToSubview = 32;
   if (locationIdentifierResult == nil) {
     return;
   }
+  
+  [self addContentBlockHeader:locationIdentifierResult.content.title
+                   andExcerpt:locationIdentifierResult.content.descriptionOfContent
+            andImagePublicUrl:locationIdentifierResult.content.imagePublicUrl];
   [self generateTableViewCellsWithContentBlocks:locationIdentifierResult.content.contentBlocks];
+}
+
+- (void)addContentBlockHeader:(NSString*)title andExcerpt:(NSString*)excerpt andImagePublicUrl:(NSString*)imagePublicUrl {
+  
+  XMMResponseContentBlockType0 *contentBlock0 = [[XMMResponseContentBlockType0 alloc] init];
+  contentBlock0.contentBlockType = 0;
+  contentBlock0.title = title;
+  contentBlock0.text = excerpt;
+  [self displayContentBlock0:contentBlock0];
+  
+  if (imagePublicUrl != nil && ![imagePublicUrl isEqualToString:@""]) {
+    XMMResponseContentBlockType3 *contentBlock3 = [[XMMResponseContentBlockType3 alloc] init];
+    contentBlock3.fileId = imagePublicUrl;
+    [self displayContentBlock3:contentBlock3];
+  }
 }
 
 - (void)generateTableViewCellsWithContentBlocks:(NSArray*)contentBlocks {
@@ -281,6 +304,7 @@ int const kHorizontalSpaceToSubview = 32;
                            [cell.image addConstraint:constraint];
                            [cell needsUpdateConstraints];
                            [cell.imageLoadingIndicator stopAnimating];
+                           [self reloadTableView];
                          }];
   }
   
@@ -434,27 +458,6 @@ int const kHorizontalSpaceToSubview = 32;
   }
   
   [self reloadTableView];
-}
-
-- (NSString*)colorToWeb:(UIColor*)color {
-  NSString *webColor = nil;
-  
-  // This method only works for RGB colors
-  if (color && CGColorGetNumberOfComponents(color.CGColor) == 4) {
-    // Get the red, green and blue components
-    const CGFloat *components = CGColorGetComponents(color.CGColor);
-    
-    // These components range from 0.0 till 1.0 and need to be converted to 0 till 255
-    CGFloat red, green, blue;
-    red = roundf(components[0] * 255.0);
-    green = roundf(components[1] * 255.0);
-    blue = roundf(components[2] * 255.0);
-    
-    // Convert with %02x (use 02 to always get two chars)
-    webColor = [[NSString alloc]initWithFormat:@"%02x%02x%02x", (int)red, (int)green, (int)blue];
-  }
-  
-  return webColor;
 }
 
 @end

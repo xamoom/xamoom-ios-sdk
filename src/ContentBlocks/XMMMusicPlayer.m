@@ -80,7 +80,7 @@ IB_DESIGNABLE
   
   CGContextRef context = UIGraphicsGetCurrentContext();
 
-  //draw first line
+  //background of progress
   CGContextSetLineWidth(context, self.lineWidth);
   
   CGColorRef color = self.backgroundLineColor.CGColor;
@@ -92,7 +92,7 @@ IB_DESIGNABLE
   
   CGContextStrokePath(context);
   
-  //draw second line
+  //progress
   CGContextSetLineWidth(context, self.lineWidth);
   
   CGColorRef color2 = self.foregroundLineColor.CGColor;

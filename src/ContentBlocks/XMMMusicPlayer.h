@@ -26,6 +26,9 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 
 #pragma mark - XMMMusicerPlayerDelegate Protocol
 
+/**
+ XMMMusicPlayerDelegate is used for messages between the XMMMusicPlayer and the UI.
+ */
 @protocol XMMMusicerPlayerDelegate <NSObject>
 
 /**
@@ -40,6 +43,9 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 
 #pragma mark - XMMMusicPlayer Interface
 
+/**
+ The XMMMusicPlayer is our audio-player for streaming audio from the xamoom system.
+ */
 IB_DESIGNABLE
 @interface XMMMusicPlayer : UIView
 
