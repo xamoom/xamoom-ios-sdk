@@ -34,25 +34,6 @@ int const kHorizontalSpaceToSubview = 32;
 
 @implementation XMMContentBlocks
 
-- (instancetype)init {
-  self = [super init];
-  
-  if(self) {
-    self.itemsToDisplay = [[NSMutableArray alloc] init];
-    self.fontSize = NormalFontSize;
-    self.linkColor = [UIColor blueColor];
-    self.language = @"en";
-  }
-  
-  //notification to reload delegates tableview from special contentBlockCells
-  NSString *notificationName = @"reloadTableViewForContentBlocks";
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(reloadTableView)
-                                               name:notificationName
-                                             object:nil];
-  return self;
-}
-
 - (instancetype)initWithLanguage:(NSString*)language withWidth:(float)screenWidth {
   self = [super init];
   
