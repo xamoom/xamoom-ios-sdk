@@ -1,9 +1,20 @@
 //
-//  xamoom_ios_sdk_testTests.m
-//  xamoom-ios-sdk-testTests
+// Copyright 2015 by xamoom GmbH <apps@xamoom.com>
 //
-//  Created by Raphael Seher on 04.02.15.
-//  Copyright (c) 2015 Raphael Seher. All rights reserved.
+// This file is part of some open source application.
+//
+// Some open source application is free software: you can redistribute
+// it and/or modify it under the terms of the GNU General Public
+// License as published by the Free Software Foundation, either
+// version 2 of the License, or (at your option) any later version.
+//
+// Some open source application is distributed in the hope that it will
+// be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <UIKit/UIKit.h>
@@ -20,7 +31,6 @@ float const kTimeWaiting = 30.0;
 }
 
 @property XMMEnduserApi *api;
-@property NSMutableArray *apiResultRSS;
 @property XMMResponseGetById *apiResultGetContentById;
 @property XMMResponseGetByLocationIdentifier *apiResultGetByLocationIdentifier;
 @property XMMResponseGetByLocation *apiResultGetByLocation;
@@ -43,7 +53,6 @@ float const kTimeWaiting = 30.0;
   //reset variables
   done = NO;
   
-  self.apiResultRSS = nil;
   self.apiResultGetContentById = nil;
   self.apiResultGetByLocationIdentifier = nil;
   self.apiResultGetByLocation = nil;

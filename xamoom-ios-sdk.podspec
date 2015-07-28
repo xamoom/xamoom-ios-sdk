@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "xamoom-ios-sdk"
-  s.version          = "1.1.7"
+  s.version          = "1.1.8"
   s.summary          = "xamoom-ios-sdk is a framework for the xamoom-cloud api. So you can write your own applications for the xamoom-cloud."
   s.homepage         = "http://xamoom.github.io/xamoom-ios-sdk/"
   s.license          = 'GNU'
@@ -20,14 +20,26 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'src/**/*'
+  s.source_files = 'src/**/*.{h,m}'
+
   s.resource_bundles = {
-    'xamoom-ios-sdk' => ['Pod/Assets/*.png']
+    'xamoom-ios-sdk' => ['Pod/Assets/*.*']
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'RestKit', '~> 0.24'
+  s.resources = 'src/ContentBlocks/Blocks/*.xib', 'Pod/Assets/*.*'
+
+  s.vendored_libraries = 'src/lib/SVGKit/libSVGKit-iOS.1.2.0.a'
+  s.public_header_files = "'src/lib/SVGKit/usr/local/include/*.h"
+
+  s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics', 'MobileCoreServices', 'Security', 'CFNetwork', 'SystemConfiguration'
+  s.libraries = 'xml2'
+  
+  #s.public_header_files = 'Pod/Classes/**/*.h'
+  #s.frameworks = 'UIKit', 'MapKit'
+  s.dependency 'RestKit', '~> 0.24.1'
   s.dependency 'QRCodeReaderViewController', '~> 2.0.0'
+  s.dependency 'SMCalloutView'
+  s.dependency 'youtube-ios-player-helper', '~> 0.1.1'
+  s.dependency 'SDWebImage', '~>3.7'
 
 end
