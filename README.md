@@ -22,7 +22,7 @@ Download the xamoom-ios-sdk and add it to your project. Don't forget to install 
 
 Add in your podfile
 
-    pod 'xamoom-ios-sdk', '~> 1.1.7'
+    pod 'xamoom-ios-sdk', '~> 1.2.0'
 
 Install pods via terminal
 
@@ -282,9 +282,18 @@ Starts a QRCodeReader from a specific view. ([QRCodeReaderViewController](https:
 
 Every call is also on our documentation: [XMMEnduserApi documentation](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMEnduserApi.html)
 
+# XMMContentBlocks
+
+xamoom has a lot of different contentBlocks. With XMMContentBlocks you have a easy way to display them.
+How to use it is in our [Step by Step Guide](https://github.com/xamoom/xamoom-ios-sdk/wiki/Step-by-Step:-New-App-with-xamoom-ios-sdk).
+
 # Requirements
 
 * ARC
 * Minumum iOS Target: iOS 8
-* [RestKit 0.24](https://github.com/RestKit/RestKit)
+* [RestKit 0.24.1](https://github.com/RestKit/RestKit)
 * [QRCodeReaderViewController 2.0.0](https://github.com/dlazaro66/QRCodeReaderView)
+* [SMCalloutView](https://github.com/nfarina/calloutview)
+* [SVGKit](https://github.com/SVGKit/SVGKit)
+* [youtube-ios-player-helper](https://github.com/youtube/youtube-ios-player-helper)
+* [SDWebImage](https://github.com/rs/SDWebImage)
