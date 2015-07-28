@@ -33,23 +33,42 @@
 
 extern int const kHorizontalSpaceToSubview;
 
-typedef NS_OPTIONS(NSInteger, TextFontSize)
-{
+/**
+ Declaring different TextFontSizes.
+ Can be used to provide 3 different fontSizes for
+ the XMMContentBlocks.
+ */
+typedef NS_OPTIONS(NSInteger, TextFontSize) {
+  /**
+   NormalFontSize is the "standard" fontSize.
+   */
   NormalFontSize = 12,
+  /**
+   BigFontSize is the next "bigger" fontSize.
+   */
   BigFontSize = 15,
+  /**
+   BiggerFontSize is the "biggest" fontSize.
+   */
   BiggerFontSize = 18,
 };
 
 #pragma mark - XMMContentBlocksDelegate
 
+/**
+ */
 @protocol XMMContentBlocksDelegate <NSObject>
 
+/**
+ */
 - (void)reloadTableViewForContentBlocks;
 
 @end
 
 #pragma mark - XMMContentBlocks
 
+/**
+ */
 @interface XMMContentBlocks : NSObject <UIWebViewDelegate>
 
 @property (nonatomic, weak) id<XMMContentBlocksDelegate> delegate;
@@ -60,32 +79,100 @@ typedef NS_OPTIONS(NSInteger, TextFontSize)
 
 - (instancetype)init;
 
+/**
+ Initializes the XMMContentBlock.
+ 
+ @param language The preferred language, can be @"" for systemLanguage
+ @param screenWidth The width of the screen
+*/
 - (instancetype)initWithLanguage:(NSString*)language withWidth:(float)screenWidth;
 
+/**
+ Generates tableViewCells to display a XMMResponseGetById object.
+ 
+ @param idResult A XMMResponseGetById object that should be displayed.
+ */
 - (void)displayContentBlocksByIdResult:(XMMResponseGetById *)idResult;
 
+/**
+ Generates tableViewCells to display a XMMResponseGetByLocationIdentifier object.
+ 
+ @param locationIdentifierResult A XMMResponseGetByLocationIdentifier object that should be displayed.
+ */
 - (void)displayContentBlocksByLocationIdentifierResult:(XMMResponseGetByLocationIdentifier *)locationIdentifierResult;
 
+/**
+ Display the text contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType0 object
+ */
 - (void)displayContentBlock0:(XMMResponseContentBlockType0 *)contentBlock;
 
+/**
+ Display the audio contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType1 object
+ */
 - (void)displayContentBlock1:(XMMResponseContentBlockType1 *)contentBlock;
 
+/**
+ Display the youtube contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType2 object
+*/
 - (void)displayContentBlock2:(XMMResponseContentBlockType2 *)contentBlock;
 
+/**
+ Display the image contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType3 object
+*/
 - (void)displayContentBlock3:(XMMResponseContentBlockType3 *)contentBlock;
 
+/**
+ Display the link contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType4 object
+*/
 - (void)displayContentBlock4:(XMMResponseContentBlockType4 *)contentBlock;
 
+/**
+ Display the ebook contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType5 object
+*/
 - (void)displayContentBlock5:(XMMResponseContentBlockType5 *)contentBlock;
 
+/**
+ Display the content contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType6 object
+*/
 - (void)displayContentBlock6:(XMMResponseContentBlockType6 *)contentBlock;
 
+/**
+ Display the soundcloud contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType7 object
+*/
 - (void)displayContentBlock7:(XMMResponseContentBlockType7 *)contentBlock;
 
+/**
+ Display the download contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType8 object
+*/
 - (void)displayContentBlock8:(XMMResponseContentBlockType8 *)contentBlock;
 
+/**
+ Display the spotMap contentBlock.
+ 
+ @param contentBlock A XMMResponseContentBlockType9 object
+*/
 - (void)displayContentBlock9:(XMMResponseContentBlockType9 *)contentBlock;
 
+/**
+ */
 - (void)updateFontSizeTo:(TextFontSize)newFontSize;
 
 @end

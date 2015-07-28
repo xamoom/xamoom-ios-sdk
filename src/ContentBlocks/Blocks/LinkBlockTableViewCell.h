@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ LinkBlockTableViewCell is used to display link contentBlocks from the xamoom system.
+ */
 @interface LinkBlockTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

@@ -11,6 +11,9 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "XMMMusicPlayer.h"
 
+/**
+ AudioBlockTableViewCell is used to display the XMMMusicPlayer for audio contentBlocks form the xamoom system.
+ */
 @interface AudioBlockTableViewCell : UITableViewCell <XMMMusicerPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
