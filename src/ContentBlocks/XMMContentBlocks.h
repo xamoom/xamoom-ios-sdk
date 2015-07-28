@@ -170,6 +170,10 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 - (void)displayContentBlock9:(XMMResponseContentBlockType9 *)contentBlock;
 
 /**
+ Can be used to change the fontSize of the text contentBlock
+ for better readability.
+ 
+ @param newFontSize New fontSize of the text contentBlock
  */
 - (void)updateFontSizeTo:(TextFontSize)newFontSize;
 
