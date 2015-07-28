@@ -44,7 +44,7 @@
  - VCF = 0
  - ICAL = 1
  */
-@property (nonatomic) int *downloadType;
+@property (nonatomic) int downloadType;
 /**
  Text as description for the url.
  */
