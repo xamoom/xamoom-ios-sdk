@@ -77,8 +77,6 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property UIColor *linkColor;
 @property NSString *language;
 
-- (instancetype)init;
-
 /**
  Initializes the XMMContentBlock.
  
