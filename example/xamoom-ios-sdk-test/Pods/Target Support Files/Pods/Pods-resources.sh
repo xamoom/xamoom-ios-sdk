@@ -58,10 +58,34 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "../../../src/ContentBlocks/Blocks/AudioBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/ContentBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/DownloadBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/EbookBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/ImageBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/LinkBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/SoundcloudBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/SpotMapBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/TextBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/YoutubeBlockTableViewCell.xib"
+  install_resource "../../../Pod/Assets/Images.xcassets"
   install_resource "youtube-ios-player-helper/Assets"
+  install_resource "${BUILT_PRODUCTS_DIR}/xamoom-ios-sdk.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "../../../src/ContentBlocks/Blocks/AudioBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/ContentBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/DownloadBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/EbookBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/ImageBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/LinkBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/SoundcloudBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/SpotMapBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/TextBlockTableViewCell.xib"
+  install_resource "../../../src/ContentBlocks/Blocks/YoutubeBlockTableViewCell.xib"
+  install_resource "../../../Pod/Assets/Images.xcassets"
   install_resource "youtube-ios-player-helper/Assets"
+  install_resource "${BUILT_PRODUCTS_DIR}/xamoom-ios-sdk.bundle"
 fi
 
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

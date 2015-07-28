@@ -54,6 +54,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>xamoom-ios-sdk-xamoom-ios-sdk.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>xamoom-ios-sdk.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>youtube-ios-player-helper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,32 +72,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2D6B55CF913777E958CF501FEBA7FC6E</key>
+		<key>32AC8B02552FD86D087CAC7562D1CC7E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E767C26CC6DB41BB0886516CCB27EF1</key>
+		<key>362B02CDDC1DB42492A2F8155BF81B86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42A8DE0C1F302920B19A186DFD05D72D</key>
+		<key>3A3103CD1629BF09824B6CF61D434844</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D9253AFB87ED292F2B1BFB4C08432D2</key>
+		<key>42A12D364CF2E675D0F72895AE842AB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62BB43F08D21C19ADB6532E58D6750F3</key>
+		<key>4A5C86A58EF5B6B2193AA236BC9CA714</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A100F00FC62BD0A219B7CCB1BCD1CA6</key>
+		<key>5A52A7C82318BD16F963265D2364FFE2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>735E55232192A45E25061DFB60D75FF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>79794E9CAFDC67A89944B570035C28FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7DF1BBCEE79CE60AD06E5D36741A8D4A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90E05ED03609F11C17155838C0A61AB5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,22 +127,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B35CE851EAF4764E2F3CF15209AC5EE9</key>
+		<key>BD7746DAC7C545EA4FC4DB306167A831</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C447149525ECAF8AA93558152019A226</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EC92052871CD688C7F882C8727380C2A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F2CAA119CB585FEEF4D59E4755AF2857</key>
+		<key>EFB057C433D15C175A193F8F952AE032</key>
 		<dict>
 			<key>primary</key>
 			<true/>

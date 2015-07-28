@@ -59,6 +59,14 @@ float const kTimeWaiting = 30.0;
   self.apiResultGetSpotMap = nil;
   self.apiResultGetContentList = nil;
   self.fetchResult = nil;
+  
+  NSString* path = [[NSBundle mainBundle] pathForResource:@"api"
+                                                   ofType:@"txt"];
+  NSString* apiKey = [NSString stringWithContentsOfFile:path
+                                               encoding:NSUTF8StringEncoding
+                                                  error:NULL];
+  
+  [[XMMEnduserApi sharedInstance] setApiKey:apiKey];
 }
 
 - (void)tearDown {

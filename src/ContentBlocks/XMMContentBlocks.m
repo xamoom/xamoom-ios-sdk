@@ -168,8 +168,7 @@ int const kHorizontalSpaceToSubview = 32;
   //set title
   if(contentBlock.title != nil && ![contentBlock.title isEqualToString:@""]) {
     cell.titleLabel.text = contentBlock.title;
-    [cell.titleLabel setFont:[UIFont boldSystemFontOfSize:self.fontSize+7]];
-    //[cell.titleLabel setFont:[UIFont fontWithName:[NSString stringWithFormat:@"%@-Bold",cell.titleLabel.font.fontName] size:self.fontSize+10]];
+    [cell.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:self.fontSize+5]];
   }
   
   //set content
@@ -267,6 +266,7 @@ int const kHorizontalSpaceToSubview = 32;
                                      constant:0.0f];
     [cell.image addConstraint:constraint];
     [cell needsUpdateConstraints];
+    [cell.imageLoadingIndicator stopAnimating];
   } else {
     [cell.image sd_setImageWithURL:[NSURL URLWithString:contentBlock.fileId]
                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
