@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.resources = 'src/ContentBlocks/Blocks/*.xib', 'Pod/Assets/*.*'
 
   s.vendored_libraries = 'src/lib/SVGKit/libSVGKit-iOS.1.2.0.a'
-  s.public_header_files = 'src/lib/SVGKit/usr/local/include/*.h', 'src/*.h','src/mapping/*.h', 'src/ContentBlocks/**/*.h'
+  s.public_header_files = 'src/lib/SVGKit/usr/local/include/*.h', 'src/*.h','src/mapping/*.h', 'src/ContentBlocks/ContentBlocks/*.h', 'src/ContentBlocks/ContentBlocks/Blocks/*.h', 'src/ContentBlocks/ContentBlocks/MapViews*.h'
 
   s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics', 'MobileCoreServices', 'Security', 'CFNetwork', 'SystemConfiguration'
   s.libraries = 'xml2'
