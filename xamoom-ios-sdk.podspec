@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "xamoom-ios-sdk"
-  s.version          = "1.2.0"
+  s.version          = "1.2.1"
   s.summary          = "xamoom-ios-sdk is a framework for the xamoom-cloud api. So you can write your own applications for the xamoom-cloud."
   s.homepage         = "http://xamoom.github.io/xamoom-ios-sdk/"
   s.license          = 'GNU'
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   s.resources = 'src/ContentBlocks/Blocks/*.xib', 'Pod/Assets/*.*'
 
   s.vendored_libraries = 'src/lib/SVGKit/libSVGKit-iOS.1.2.0.a'
-  s.public_header_files = 'src/lib/SVGKit/usr/local/include/*.h'
+  s.public_header_files = 'src/lib/SVGKit/usr/local/include/*.h', 'src/*.h','src/mapping/*.h', 'src/ContentBlocks/*.h'
 
   s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics', 'MobileCoreServices', 'Security', 'CFNetwork', 'SystemConfiguration'
   s.libraries = 'xml2'
