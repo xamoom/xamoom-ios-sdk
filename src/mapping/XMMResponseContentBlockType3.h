@@ -37,7 +37,11 @@
  */
 @property (nonatomic, copy) NSString *fileId;
 
-@property (nonatomic, assign) double scaleX;
+/**
+ Value to determine a x-axis (width) scaling from 0 to 100 in percent.
+ Is null when not set.
+ */
+@property (nonatomic, copy) NSDecimalNumber *scaleX;
 
 /// @name Mapping
 
