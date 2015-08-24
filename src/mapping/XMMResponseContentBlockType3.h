@@ -43,6 +43,12 @@
  */
 @property (nonatomic, copy) NSDecimalNumber *scaleX;
 
+/**
+ Url the user inserted in xamoom cloud. Can be nil and "".
+ Should be opened in browser.
+ */
+@property (nonatomic, copy) NSString* linkUrl;
+
 /// @name Mapping
 
 /**
