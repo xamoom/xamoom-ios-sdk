@@ -18,4 +18,6 @@
 @property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageLeftHorizontalSpaceConstraint;
 @property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageRightHorizontalSpaceConstraint;
 
+@property (strong, nonatomic) NSString *linkUrl;
+
 @end

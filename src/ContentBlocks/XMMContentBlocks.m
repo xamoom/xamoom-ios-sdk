@@ -248,6 +248,7 @@ int const kHorizontalSpaceToSubview = 32;
   ImageBlockTableViewCell *cell;
   NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ImageBlockTableViewCell" owner:self options:nil];
   cell = nib[0];
+  cell.linkUrl = contentBlock.linkUrl;
   
   //set title
   if(contentBlock.title != nil && ![contentBlock.title isEqualToString:@""])
@@ -257,7 +258,6 @@ int const kHorizontalSpaceToSubview = 32;
   
   //scale the imageView
   float scalingFactor = 1;
-  NSLog(@"DecimalNumber ScaleX: %@", contentBlock.scaleX);
   if (contentBlock.scaleX != nil) {
     scalingFactor = contentBlock.scaleX.floatValue / 100;
     float newImageWidth = self.screenWidth * scalingFactor;
