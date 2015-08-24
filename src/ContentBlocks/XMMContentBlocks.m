@@ -255,7 +255,18 @@ int const kHorizontalSpaceToSubview = 32;
   
   [cell.imageLoadingIndicator startAnimating];
   
-  if ([contentBlock.fileId containsString:@".svg"]) {    
+  //scale the imageView
+  float scalingFactor = 1;
+  if (contentBlock.scaleX > 0.0) {
+    scalingFactor = contentBlock.scaleX / 100;
+    float newImageWidth = self.screenWidth * scalingFactor;
+    float sizeDiff = self.screenWidth - newImageWidth;
+    
+    cell.imageLeftHorizontalSpaceConstraint.constant = sizeDiff/2;
+    cell.imageRightHorizontalSpaceConstraint.constant = (sizeDiff/2)*(-1);
+  }
+  
+  if ([contentBlock.fileId containsString:@".svg"]) {
     SVGKImage* newImage;
     newImage = [SVGKImage imageWithContentsOfURL:[NSURL URLWithString:contentBlock.fileId]];
     cell.image.image = newImage.UIImage;
@@ -274,6 +285,7 @@ int const kHorizontalSpaceToSubview = 32;
   } else {
     [cell.image sd_setImageWithURL:[NSURL URLWithString:contentBlock.fileId]
                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                           
                            NSLayoutConstraint *constraint =[NSLayoutConstraint
                                                             constraintWithItem:cell.image
                                                             attribute:NSLayoutAttributeWidth
@@ -282,6 +294,7 @@ int const kHorizontalSpaceToSubview = 32;
                                                             attribute:NSLayoutAttributeHeight
                                                             multiplier:(image.size.width/image.size.height)
                                                             constant:0.0f];
+                           
                            [cell.image addConstraint:constraint];
                            [cell needsUpdateConstraints];
                            [cell.imageLoadingIndicator stopAnimating];

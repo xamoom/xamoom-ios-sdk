@@ -47,7 +47,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="image" destination="Fvj-ka-sv0" id="JRJ-wL-cvq"/>
+                <outlet property="imageLeftHorizontalSpaceConstraint" destination="BOn-I8-dqq" id="bKL-Ff-DtT"/>
                 <outlet property="imageLoadingIndicator" destination="3na-Wc-qZL" id="Fle-Na-nx0"/>
+                <outlet property="imageRightHorizontalSpaceConstraint" destination="fYc-hH-4De" id="HVj-D9-jeD"/>
                 <outlet property="titleLabel" destination="NfP-Ht-jrX" id="X1m-MY-cGj"/>
             </connections>
             <point key="canvasLocation" x="280" y="447.5"/>

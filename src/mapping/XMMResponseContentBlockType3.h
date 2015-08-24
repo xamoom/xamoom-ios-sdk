@@ -37,6 +37,8 @@
  */
 @property (nonatomic, copy) NSString *fileId;
 
+@property (nonatomic, assign) double scaleX;
+
 /// @name Mapping
 
 /**
