@@ -15,4 +15,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint* imageHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *imageLoadingIndicator;
 
+@property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageLeftHorizontalSpaceConstraint;
+@property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageRightHorizontalSpaceConstraint;
+
 @end
