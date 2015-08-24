@@ -257,8 +257,9 @@ int const kHorizontalSpaceToSubview = 32;
   
   //scale the imageView
   float scalingFactor = 1;
-  if (contentBlock.scaleX > 0.0) {
-    scalingFactor = contentBlock.scaleX / 100;
+  NSLog(@"DecimalNumber ScaleX: %@", contentBlock.scaleX);
+  if (contentBlock.scaleX != nil) {
+    scalingFactor = contentBlock.scaleX.floatValue / 100;
     float newImageWidth = self.screenWidth * scalingFactor;
     float sizeDiff = self.screenWidth - newImageWidth;
     
