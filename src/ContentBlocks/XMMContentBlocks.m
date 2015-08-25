@@ -225,20 +225,9 @@ int const kHorizontalSpaceToSubview = 32;
   
   //set title and youtubeUrl
   if(contentBlock.title != nil && ![contentBlock.title isEqualToString:@""])
-    cell.titleLabel.text = contentBlock.title;
+    cell.titleLabel.text = contentBlock.title; 
   
-  //get the videoId from the string
-  NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
-  NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
-                                                                          options:NSRegularExpressionCaseInsensitive
-                                                                            error:nil];
-  NSArray *array = [regExp matchesInString:contentBlock.youtubeUrl options:0 range:NSMakeRange(0,contentBlock.youtubeUrl.length)];
-  if (array.count > 0) {
-    NSTextCheckingResult *result = array.firstObject;
-    NSString* youtubeVideoId = [contentBlock.youtubeUrl substringWithRange:result.range];
-    //load video inside playerView
-    [cell.playerView loadWithVideoId:youtubeVideoId];
-  }
+  [cell initVideoWithUrl:contentBlock.videoUrl andWidth:self.screenWidth];
   
   [self.itemsToDisplay addObject:cell];
 }
