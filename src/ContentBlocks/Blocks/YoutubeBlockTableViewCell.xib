@@ -27,12 +27,21 @@
                             <constraint firstAttribute="height" constant="201" id="PG6-Xa-2zl"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videoPlay" translatesAutoresizingMaskIntoConstraints="NO" id="Q9G-2x-vhn">
+                        <rect key="frame" x="135" y="123" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="TvN-oB-UaG"/>
+                            <constraint firstAttribute="width" constant="50" id="pZU-hH-9Nh"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="e6b-DR-Gwh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="7zI-E4-2h0"/>
                     <constraint firstAttribute="bottomMargin" secondItem="UEd-kr-uJh" secondAttribute="bottom" id="89R-yG-pnC"/>
                     <constraint firstItem="UEd-kr-uJh" firstAttribute="top" secondItem="e6b-DR-Gwh" secondAttribute="bottom" constant="7" id="B3u-xC-kBQ"/>
                     <constraint firstItem="UEd-kr-uJh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Hpv-Ux-Jpz"/>
+                    <constraint firstItem="Q9G-2x-vhn" firstAttribute="centerY" secondItem="UEd-kr-uJh" secondAttribute="centerY" constant="0.5" id="OQo-ev-TQb"/>
+                    <constraint firstItem="Q9G-2x-vhn" firstAttribute="centerX" secondItem="UEd-kr-uJh" secondAttribute="centerX" id="RY0-66-WtW"/>
                     <constraint firstItem="UEd-kr-uJh" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Syp-cK-1jk"/>
                     <constraint firstItem="e6b-DR-Gwh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="buH-Uf-ugk"/>
                     <constraint firstItem="e6b-DR-Gwh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="djH-97-diJ"/>
@@ -40,10 +49,14 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="playIconImageView" destination="Q9G-2x-vhn" id="naG-T0-Own"/>
                 <outlet property="playerView" destination="UEd-kr-uJh" id="niO-qa-Qp9"/>
                 <outlet property="titleLabel" destination="e6b-DR-Gwh" id="hsc-c8-a2T"/>
             </connections>
             <point key="canvasLocation" x="411" y="467.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="videoPlay" width="50" height="50"/>
+    </resources>
 </document>

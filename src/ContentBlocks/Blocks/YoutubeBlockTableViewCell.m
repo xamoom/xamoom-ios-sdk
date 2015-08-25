@@ -8,6 +8,13 @@
 
 #import "YoutubeBlockTableViewCell.h"
 
+@interface YoutubeBlockTableViewCell()
+
+@property NSString* videoUrl;
+@property float screenWidth;
+
+@end
+
 @implementation YoutubeBlockTableViewCell
 
 - (void)awakeFromNib {
@@ -16,25 +23,34 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
   [super setSelected:selected animated:animated];
-  
-  // Configure the view for the selected state
 }
 
 - (void)initVideoWithUrl:(NSString*)videoUrl andWidth:(float)width {
+  self.playIconImageView.hidden = YES;
   NSString* youtubeVideoId = [self youtubeVideoIdFromUrl:videoUrl];
+  
   if (youtubeVideoId != nil) {
     
     //load video inside playerView
     [self.playerView loadWithVideoId:youtubeVideoId];
   } else {
-    NSLog(@"HTML Video found!");
+    self.playIconImageView.hidden = NO;
     
-    //testing
-    self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL URLWithString:videoUrl]];
-    self.videoPlayer.shouldAutoplay = NO;
-    [self.videoPlayer prepareToPlay];
-    [self.videoPlayer.view setFrame: CGRectMake(0, 0, width, 201)];
-    [self.playerView addSubview: self.videoPlayer.view];
+    self.videoUrl = videoUrl;
+    self.screenWidth = width;
+    
+    UITapGestureRecognizer *tappedVideoView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
+    [self.playerView addGestureRecognizer:tappedVideoView];
+    self.playerView.backgroundColor = [UIColor redColor];
+    
+    self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL URLWithString:self.videoUrl]];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveImage:)
+                                                 name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
+                                               object:self.videoPlayer];
+    
+    NSArray *timeArray = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:0.0], nil];
+    [self.videoPlayer requestThumbnailImagesAtTimes:timeArray timeOption:MPMovieTimeOptionNearestKeyFrame];
   }
 }
 
@@ -52,6 +68,33 @@
   } else {
     return nil;
   }
+}
+
+- (void)tappedVideoView:(UITapGestureRecognizer*)sender {
+  self.videoPlayer.shouldAutoplay = YES;
+  [self.videoPlayer prepareToPlay];
+  [self.videoPlayer.view setFrame: CGRectMake(0, 0, self.screenWidth, 201)];
+  [self.playerView addSubview: self.videoPlayer.view];
+  [self.videoPlayer setFullscreen:YES animated:YES];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(doneButtonClick:)
+                                               name:MPMoviePlayerWillExitFullscreenNotification
+                                             object:nil];
+}
+
+- (void)doneButtonClick:(NSNotification*)aNotification{
+  [self.videoPlayer.view removeFromSuperview];
+}
+
+- (void)didReceiveImage:(NSNotification*)notification {
+  NSDictionary *userInfo = [notification userInfo];
+  UIImage *image = [userInfo valueForKey:MPMoviePlayerThumbnailImageKey];
+  
+  UIImageView *thumbnailImageView = [[UIImageView alloc]initWithImage: image];
+  [thumbnailImageView setFrame: CGRectMake(0, 0, self.screenWidth, 201)];
+  
+  [self.playerView addSubview: thumbnailImageView];
 }
 
 @end
