@@ -45,11 +45,11 @@
 
 
 /**
- *  <#Description#>
+ *  Returns the videoId from a youtubeUrl.
  *
- *  @param videoUrl <#videoUrl description#>
+ *  @param videoUrl youtube url.
  *
- *  @return <#return value description#>
+ *  @return String videoId
  */
 - (NSString*)youtubeVideoIdFromUrl:(NSString*)videoUrl {
   //get the youtube videoId from the string
@@ -68,13 +68,17 @@
 }
 
 /**
- *  <#Description#>
+ *  Creates and inits the videoplayer.
+ *  Adds a gesture recognizer when tapping on the playerView, adds a notificication, and downloads
+ *  a imagethumbnail for the video.
  */
 - (void)initVideoPlayer {
   UITapGestureRecognizer *tappedVideoView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
   [self.playerView addGestureRecognizer:tappedVideoView];
   
   self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL URLWithString:self.videoUrl]];
+  self.videoPlayer.shouldAutoplay = YES;
+
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(didReceiveImage:)
                                                name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
@@ -85,12 +89,11 @@
 }
 
 /**
- *  <#Description#>
+ *  Prepares the videoPlayer and opens it in full-screen.
  *
- *  @param sender <#sender description#>
+ *  @param sender
  */
 - (void)tappedVideoView:(UITapGestureRecognizer*)sender {
-  self.videoPlayer.shouldAutoplay = YES;
   [self.videoPlayer prepareToPlay];
   [self.videoPlayer.view setFrame: CGRectMake(0, 0, self.screenWidth, 201)];
   [self.playerView addSubview: self.videoPlayer.view];
@@ -103,9 +106,9 @@
 }
 
 /**
- *  <#Description#>
+ *  Handles errors and the "done" click.
  *
- *  @param aNotification <#aNotification description#>
+ *  @param notification
  */
 - (void)handleMoviePlayerFinish:(NSNotification*)notification{
   NSDictionary *notificationUserInfo = [notification userInfo];
@@ -129,9 +132,9 @@
 }
 
 /**
- *  Description
+ *  Displays the thumbnail image from the video.
  *
- *  @param notification <#notification description#>
+ *  @param notification
  */
 - (void)didReceiveImage:(NSNotification*)notification {
   NSDictionary *userInfo = [notification userInfo];
