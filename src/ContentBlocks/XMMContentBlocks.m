@@ -225,7 +225,7 @@ int const kHorizontalSpaceToSubview = 32;
   
   //set title and youtubeUrl
   if(contentBlock.title != nil && ![contentBlock.title isEqualToString:@""])
-    cell.titleLabel.text = contentBlock.title; 
+    cell.titleLabel.text = contentBlock.title;
   
   [cell initVideoWithUrl:contentBlock.videoUrl andWidth:self.screenWidth];
   
@@ -243,8 +243,6 @@ int const kHorizontalSpaceToSubview = 32;
   if(contentBlock.title != nil && ![contentBlock.title isEqualToString:@""])
     cell.titleLabel.text = contentBlock.title;
   
-  [cell.imageLoadingIndicator startAnimating];
-  
   //scale the imageView
   float scalingFactor = 1;
   if (contentBlock.scaleX != nil) {
@@ -256,40 +254,43 @@ int const kHorizontalSpaceToSubview = 32;
     cell.imageRightHorizontalSpaceConstraint.constant = (sizeDiff/2)*(-1);
   }
   
-  if ([contentBlock.fileId containsString:@".svg"]) {
-    SVGKImage* newImage;
-    newImage = [SVGKImage imageWithContentsOfURL:[NSURL URLWithString:contentBlock.fileId]];
-    cell.image.image = newImage.UIImage;
-    
-    NSLayoutConstraint *constraint =[NSLayoutConstraint
-                                     constraintWithItem:cell.image
-                                     attribute:NSLayoutAttributeWidth
-                                     relatedBy:NSLayoutRelationEqual
-                                     toItem:cell.image
-                                     attribute:NSLayoutAttributeHeight
-                                     multiplier:(newImage.size.width/newImage.size.height)
-                                     constant:0.0f];
-    [cell.image addConstraint:constraint];
-    [cell needsUpdateConstraints];
-    [cell.imageLoadingIndicator stopAnimating];
-  } else {
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:contentBlock.fileId]
-                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                           
-                           NSLayoutConstraint *constraint =[NSLayoutConstraint
-                                                            constraintWithItem:cell.image
-                                                            attribute:NSLayoutAttributeWidth
-                                                            relatedBy:NSLayoutRelationEqual
-                                                            toItem:cell.image
-                                                            attribute:NSLayoutAttributeHeight
-                                                            multiplier:(image.size.width/image.size.height)
-                                                            constant:0.0f];
-                           
-                           [cell.image addConstraint:constraint];
-                           [cell needsUpdateConstraints];
-                           [cell.imageLoadingIndicator stopAnimating];
-                           [self reloadTableView];
-                         }];
+  if (contentBlock.fileId != nil) {
+    [cell.imageLoadingIndicator startAnimating];
+
+    if ([contentBlock.fileId containsString:@".svg"]) {
+      SVGKImage* newImage;
+      newImage = [SVGKImage imageWithContentsOfURL:[NSURL URLWithString:contentBlock.fileId]];
+      cell.image.image = newImage.UIImage;
+      
+      NSLayoutConstraint *constraint =[NSLayoutConstraint
+                                       constraintWithItem:cell.image
+                                       attribute:NSLayoutAttributeWidth
+                                       relatedBy:NSLayoutRelationEqual
+                                       toItem:cell.image
+                                       attribute:NSLayoutAttributeHeight
+                                       multiplier:(newImage.size.width/newImage.size.height)
+                                       constant:0.0f];
+      [cell.image addConstraint:constraint];
+      [cell needsUpdateConstraints];
+      [cell.imageLoadingIndicator stopAnimating];
+    } else {
+      [cell.image sd_setImageWithURL:[NSURL URLWithString:contentBlock.fileId]
+                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                             NSLayoutConstraint *constraint =[NSLayoutConstraint
+                                                              constraintWithItem:cell.image
+                                                              attribute:NSLayoutAttributeWidth
+                                                              relatedBy:NSLayoutRelationEqual
+                                                              toItem:cell.image
+                                                              attribute:NSLayoutAttributeHeight
+                                                              multiplier:(image.size.width/image.size.height)
+                                                              constant:0.0f];
+                             
+                             [cell.image addConstraint:constraint];
+                             [cell needsUpdateConstraints];
+                             [cell.imageLoadingIndicator stopAnimating];
+                             [self reloadTableView];
+                           }];
+    }
   }
   
   [self.itemsToDisplay addObject:cell];
