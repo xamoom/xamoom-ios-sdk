@@ -39,21 +39,18 @@
     self.videoUrl = videoUrl;
     self.screenWidth = width;
     
-    UITapGestureRecognizer *tappedVideoView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
-    [self.playerView addGestureRecognizer:tappedVideoView];
-    self.playerView.backgroundColor = [UIColor redColor];
-    
-    self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL URLWithString:self.videoUrl]];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didReceiveImage:)
-                                                 name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
-                                               object:self.videoPlayer];
-    
-    NSArray *timeArray = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:0.0], nil];
-    [self.videoPlayer requestThumbnailImagesAtTimes:timeArray timeOption:MPMovieTimeOptionNearestKeyFrame];
+    [self initVideoPlayer];
   }
 }
 
+
+/**
+ *  <#Description#>
+ *
+ *  @param videoUrl <#videoUrl description#>
+ *
+ *  @return <#return value description#>
+ */
 - (NSString*)youtubeVideoIdFromUrl:(NSString*)videoUrl {
   //get the youtube videoId from the string
   NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
@@ -70,6 +67,28 @@
   }
 }
 
+/**
+ *  <#Description#>
+ */
+- (void)initVideoPlayer {
+  UITapGestureRecognizer *tappedVideoView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
+  [self.playerView addGestureRecognizer:tappedVideoView];
+  
+  self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL URLWithString:self.videoUrl]];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didReceiveImage:)
+                                               name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
+                                             object:self.videoPlayer];
+  
+  NSArray *timeArray = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:0.0], nil];
+  [self.videoPlayer requestThumbnailImagesAtTimes:timeArray timeOption:MPMovieTimeOptionNearestKeyFrame];
+}
+
+/**
+ *  <#Description#>
+ *
+ *  @param sender <#sender description#>
+ */
 - (void)tappedVideoView:(UITapGestureRecognizer*)sender {
   self.videoPlayer.shouldAutoplay = YES;
   [self.videoPlayer prepareToPlay];
@@ -78,15 +97,42 @@
   [self.videoPlayer setFullscreen:YES animated:YES];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(doneButtonClick:)
+                                           selector:@selector(handleMoviePlayerFinish:)
                                                name:MPMoviePlayerWillExitFullscreenNotification
                                              object:nil];
 }
 
-- (void)doneButtonClick:(NSNotification*)aNotification{
+/**
+ *  <#Description#>
+ *
+ *  @param aNotification <#aNotification description#>
+ */
+- (void)handleMoviePlayerFinish:(NSNotification*)notification{
+  NSDictionary *notificationUserInfo = [notification userInfo];
+  NSNumber *resultValue = [notificationUserInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+  MPMovieFinishReason reason = [resultValue intValue];
+  if (reason == MPMovieFinishReasonPlaybackError)
+  {
+    NSError *mediaPlayerError = [notificationUserInfo objectForKey:@"error"];
+    if (mediaPlayerError)
+    {
+      NSLog(@"playback failed with error description: %@", [mediaPlayerError localizedDescription]);
+    }
+    else
+    {
+      NSLog(@"playback failed without any given reason");
+    }
+  }
+  
   [self.videoPlayer.view removeFromSuperview];
+  [[NSNotificationCenter defaultCenter] removeObserver:MPMoviePlayerPlaybackDidFinishNotification];
 }
 
+/**
+ *  Description
+ *
+ *  @param notification <#notification description#>
+ */
 - (void)didReceiveImage:(NSNotification*)notification {
   NSDictionary *userInfo = [notification userInfo];
   UIImage *image = [userInfo valueForKey:MPMoviePlayerThumbnailImageKey];
