@@ -11,4 +11,6 @@
 
 @interface TableViewController : UITableViewController <XMMContentBlocksDelegate>
 
+@property NSString* contentId;
+
 @end
