@@ -27,7 +27,11 @@
   self.contentBlocks = [[XMMContentBlocks alloc] initWithLanguage:[XMMEnduserApi sharedInstance].systemLanguage withWidth:self.tableView.bounds.size.width];
   self.contentBlocks.delegate = self;
   
-  [[XMMEnduserApi sharedInstance] contentWithContentId:@"d8be762e9b644fc4bb7aedfa8c0e17b7" includeStyle:NO includeMenu:NO withLanguage:@"" full:YES
+  if (self.contentId == nil) {
+    self.contentId = @"8f51819db5c6403d8455593322437c07";
+  }
+  
+  [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:@"" full:YES
                                             completion:^(XMMResponseGetById *result) {
                                               [self.contentBlocks displayContentBlocksByIdResult:result];
                                             } error:^(XMMError *error) {
@@ -49,6 +53,17 @@
 
 -(void)reloadTableViewForContentBlocks {
   [self.tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  if ([(self.contentBlocks.itemsToDisplay)[indexPath.row] isKindOfClass:[ContentBlockTableViewCell class]]) {
+    ContentBlockTableViewCell *cell = (self.contentBlocks.itemsToDisplay)[indexPath.row];
+    
+    TableViewController *vc = [[TableViewController alloc] init];
+    [vc setContentId:cell.contentId];
+    [self.navigationController pushViewController:vc animated:YES];
+  }
 }
 
 /*
