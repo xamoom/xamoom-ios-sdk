@@ -38,6 +38,10 @@
                                             }];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"pauseAllSounds" object:self];
+}
+
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
