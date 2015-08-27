@@ -86,7 +86,7 @@ int const kHorizontalSpaceToSubview = 32;
   contentBlock0.contentBlockType = 0;
   contentBlock0.title = title;
   contentBlock0.text = excerpt;
-  [self displayContentBlock0:contentBlock0 addTitleFontOffset:6];
+  [self displayContentBlock0:contentBlock0 addTitleFontOffset:8];
   
   if (imagePublicUrl != nil && ![imagePublicUrl isEqualToString:@""]) {
     XMMResponseContentBlockType3 *contentBlock3 = [[XMMResponseContentBlockType3 alloc] init];
