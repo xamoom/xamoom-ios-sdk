@@ -105,7 +105,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
  
  @param contentBlock A XMMResponseContentBlockType0 object
  */
-- (void)displayContentBlock0:(XMMResponseContentBlockType0 *)contentBlock;
+- (void)displayContentBlock0:(XMMResponseContentBlockType0 *)contentBlock addTitleFontOffset:(int)titleFontOffset;
 
 /**
  Display the audio contentBlock.
@@ -115,7 +115,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 - (void)displayContentBlock1:(XMMResponseContentBlockType1 *)contentBlock;
 
 /**
- Display the youtube contentBlock.
+ Display the video contentBlock.
  
  @param contentBlock A XMMResponseContentBlockType2 object
 */

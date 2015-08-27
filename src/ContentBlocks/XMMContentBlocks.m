@@ -86,7 +86,7 @@ int const kHorizontalSpaceToSubview = 32;
   contentBlock0.contentBlockType = 0;
   contentBlock0.title = title;
   contentBlock0.text = excerpt;
-  [self displayContentBlock0:contentBlock0];
+  [self displayContentBlock0:contentBlock0 addTitleFontOffset:6];
   
   if (imagePublicUrl != nil && ![imagePublicUrl isEqualToString:@""]) {
     XMMResponseContentBlockType3 *contentBlock3 = [[XMMResponseContentBlockType3 alloc] init];
@@ -101,7 +101,7 @@ int const kHorizontalSpaceToSubview = 32;
     switch (contentBlock.contentBlockType) {
       case 0: {
         XMMResponseContentBlockType0 *contentBlock0 = (XMMResponseContentBlockType0*)contentBlock;
-        [self displayContentBlock0:contentBlock0];
+        [self displayContentBlock0:contentBlock0 addTitleFontOffset:0];
         break;
       }
       case 1: {
@@ -160,7 +160,7 @@ int const kHorizontalSpaceToSubview = 32;
 #pragma mark - Display Content Blocks
 
 #pragma mark Text Block
-- (void)displayContentBlock0:(XMMResponseContentBlockType0 *)contentBlock {
+- (void)displayContentBlock0:(XMMResponseContentBlockType0 *)contentBlock addTitleFontOffset:(int)titleFontOffset {
   TextBlockTableViewCell *cell;
   NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextBlockTableViewCell" owner:self options:nil];
   cell = nib[0];
@@ -173,7 +173,7 @@ int const kHorizontalSpaceToSubview = 32;
   //set title
   if(contentBlock.title != nil && ![contentBlock.title isEqualToString:@""]) {
     cell.titleLabel.text = contentBlock.title;
-    [cell.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:self.fontSize+5]];
+    [cell.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:self.fontSize+5+titleFontOffset]];
   }
   
   //set content
