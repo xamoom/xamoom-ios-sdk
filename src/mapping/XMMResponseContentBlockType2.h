@@ -23,19 +23,20 @@
 /**
  `XMMResponseContentBlockType2` is used for mapping the JSON sended by the api.
  
- This class represents the contentBlockType 'YOUTUBE'.
+ This class represents the contentBlockType 'VIDEO'.
  
  *Default behavior*
  
  1. Display title as bold.
- 2. Display youtube-inline-player.
+ 2. Display player for youtube or some html-player-view.
  */
 @interface XMMResponseContentBlockType2 : XMMResponseContentBlock
 
 /**
- A youtube url.
+ A video url.
+ Can be a youtube url or some url pointing to a mp3.
  */
-@property (nonatomic, copy) NSString *youtubeUrl;
+@property (nonatomic, copy) NSString *videoUrl;
 
 /// @name Mapping
 

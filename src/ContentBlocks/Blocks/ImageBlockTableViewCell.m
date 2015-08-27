@@ -16,6 +16,11 @@
   UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImageToPhotoLibary:)];
   longPressGestureRecognizer.delegate = self;
   [self addGestureRecognizer:longPressGestureRecognizer];
+  
+  //tapGesture for opening links
+  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openLink:)];
+  tapGestureRecognizer.delegate = self;
+  [self addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -38,6 +43,13 @@
   if(buttonIndex == 0) {
     //save image to camera roll
     UIImageWriteToSavedPhotosAlbum(self.image.image, nil, nil, nil);
+  }
+}
+
+- (void)openLink:(UITapGestureRecognizer*)sender {
+  if (self.linkUrl != nil && ![self.linkUrl isEqualToString:@""]) {
+    NSURL *url = [NSURL URLWithString:self.linkUrl];
+    [[UIApplication sharedApplication] openURL:url];
   }
 }
 

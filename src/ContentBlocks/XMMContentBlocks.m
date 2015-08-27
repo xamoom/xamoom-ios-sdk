@@ -43,6 +43,7 @@ int const kHorizontalSpaceToSubview = 32;
     self.linkColor = [UIColor blueColor];
     self.language = language;
     self.screenWidth = screenWidth - kHorizontalSpaceToSubview;
+    self.showAllStoreLinks = NO;
   }
   
   //notification to reload delegates tableview from special contentBlockCells
@@ -85,7 +86,7 @@ int const kHorizontalSpaceToSubview = 32;
   contentBlock0.contentBlockType = 0;
   contentBlock0.title = title;
   contentBlock0.text = excerpt;
-  [self displayContentBlock0:contentBlock0];
+  [self displayContentBlock0:contentBlock0 addTitleFontOffset:8];
   
   if (imagePublicUrl != nil && ![imagePublicUrl isEqualToString:@""]) {
     XMMResponseContentBlockType3 *contentBlock3 = [[XMMResponseContentBlockType3 alloc] init];
@@ -100,7 +101,7 @@ int const kHorizontalSpaceToSubview = 32;
     switch (contentBlock.contentBlockType) {
       case 0: {
         XMMResponseContentBlockType0 *contentBlock0 = (XMMResponseContentBlockType0*)contentBlock;
-        [self displayContentBlock0:contentBlock0];
+        [self displayContentBlock0:contentBlock0 addTitleFontOffset:0];
         break;
       }
       case 1: {
@@ -159,7 +160,7 @@ int const kHorizontalSpaceToSubview = 32;
 #pragma mark - Display Content Blocks
 
 #pragma mark Text Block
-- (void)displayContentBlock0:(XMMResponseContentBlockType0 *)contentBlock {
+- (void)displayContentBlock0:(XMMResponseContentBlockType0 *)contentBlock addTitleFontOffset:(int)titleFontOffset {
   TextBlockTableViewCell *cell;
   NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextBlockTableViewCell" owner:self options:nil];
   cell = nib[0];
@@ -172,7 +173,7 @@ int const kHorizontalSpaceToSubview = 32;
   //set title
   if(contentBlock.title != nil && ![contentBlock.title isEqualToString:@""]) {
     cell.titleLabel.text = contentBlock.title;
-    [cell.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:self.fontSize+5]];
+    [cell.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:self.fontSize+5+titleFontOffset]];
   }
   
   //set content
@@ -227,18 +228,7 @@ int const kHorizontalSpaceToSubview = 32;
   if(contentBlock.title != nil && ![contentBlock.title isEqualToString:@""])
     cell.titleLabel.text = contentBlock.title;
   
-  //get the videoId from the string
-  NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
-  NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
-                                                                          options:NSRegularExpressionCaseInsensitive
-                                                                            error:nil];
-  NSArray *array = [regExp matchesInString:contentBlock.youtubeUrl options:0 range:NSMakeRange(0,contentBlock.youtubeUrl.length)];
-  if (array.count > 0) {
-    NSTextCheckingResult *result = array.firstObject;
-    NSString* youtubeVideoId = [contentBlock.youtubeUrl substringWithRange:result.range];
-    //load video inside playerView
-    [cell.playerView loadWithVideoId:youtubeVideoId];
-  }
+  [cell initVideoWithUrl:contentBlock.videoUrl andWidth:self.screenWidth];
   
   [self.itemsToDisplay addObject:cell];
 }
@@ -248,45 +238,60 @@ int const kHorizontalSpaceToSubview = 32;
   ImageBlockTableViewCell *cell;
   NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ImageBlockTableViewCell" owner:self options:nil];
   cell = nib[0];
+  cell.linkUrl = contentBlock.linkUrl;
   
   //set title
   if(contentBlock.title != nil && ![contentBlock.title isEqualToString:@""])
     cell.titleLabel.text = contentBlock.title;
   
-  [cell.imageLoadingIndicator startAnimating];
-  
-  if ([contentBlock.fileId containsString:@".svg"]) {    
-    SVGKImage* newImage;
-    newImage = [SVGKImage imageWithContentsOfURL:[NSURL URLWithString:contentBlock.fileId]];
-    cell.image.image = newImage.UIImage;
+  //scale the imageView
+  float scalingFactor = 1;
+  if (contentBlock.scaleX != nil) {
+    scalingFactor = contentBlock.scaleX.floatValue / 100;
+    float newImageWidth = self.screenWidth * scalingFactor;
+    float sizeDiff = self.screenWidth - newImageWidth;
     
-    NSLayoutConstraint *constraint =[NSLayoutConstraint
-                                     constraintWithItem:cell.image
-                                     attribute:NSLayoutAttributeWidth
-                                     relatedBy:NSLayoutRelationEqual
-                                     toItem:cell.image
-                                     attribute:NSLayoutAttributeHeight
-                                     multiplier:(newImage.size.width/newImage.size.height)
-                                     constant:0.0f];
-    [cell.image addConstraint:constraint];
-    [cell needsUpdateConstraints];
-    [cell.imageLoadingIndicator stopAnimating];
-  } else {
-    [cell.image sd_setImageWithURL:[NSURL URLWithString:contentBlock.fileId]
-                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                           NSLayoutConstraint *constraint =[NSLayoutConstraint
-                                                            constraintWithItem:cell.image
-                                                            attribute:NSLayoutAttributeWidth
-                                                            relatedBy:NSLayoutRelationEqual
-                                                            toItem:cell.image
-                                                            attribute:NSLayoutAttributeHeight
-                                                            multiplier:(image.size.width/image.size.height)
-                                                            constant:0.0f];
-                           [cell.image addConstraint:constraint];
-                           [cell needsUpdateConstraints];
-                           [cell.imageLoadingIndicator stopAnimating];
-                           [self reloadTableView];
-                         }];
+    cell.imageLeftHorizontalSpaceConstraint.constant = sizeDiff/2;
+    cell.imageRightHorizontalSpaceConstraint.constant = (sizeDiff/2)*(-1);
+  }
+  
+  if (contentBlock.fileId != nil) {
+    [cell.imageLoadingIndicator startAnimating];
+
+    if ([contentBlock.fileId containsString:@".svg"]) {
+      SVGKImage* newImage;
+      newImage = [SVGKImage imageWithContentsOfURL:[NSURL URLWithString:contentBlock.fileId]];
+      cell.image.image = newImage.UIImage;
+      
+      NSLayoutConstraint *constraint =[NSLayoutConstraint
+                                       constraintWithItem:cell.image
+                                       attribute:NSLayoutAttributeWidth
+                                       relatedBy:NSLayoutRelationEqual
+                                       toItem:cell.image
+                                       attribute:NSLayoutAttributeHeight
+                                       multiplier:(newImage.size.width/newImage.size.height)
+                                       constant:0.0f];
+      [cell.image addConstraint:constraint];
+      [cell needsUpdateConstraints];
+      [cell.imageLoadingIndicator stopAnimating];
+    } else {
+      [cell.image sd_setImageWithURL:[NSURL URLWithString:contentBlock.fileId]
+                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                             NSLayoutConstraint *constraint =[NSLayoutConstraint
+                                                              constraintWithItem:cell.image
+                                                              attribute:NSLayoutAttributeWidth
+                                                              relatedBy:NSLayoutRelationEqual
+                                                              toItem:cell.image
+                                                              attribute:NSLayoutAttributeHeight
+                                                              multiplier:(image.size.width/image.size.height)
+                                                              constant:0.0f];
+                             
+                             [cell.image addConstraint:constraint];
+                             [cell needsUpdateConstraints];
+                             [cell.imageLoadingIndicator stopAnimating];
+                             [self reloadTableView];
+                           }];
+    }
   }
   
   [self.itemsToDisplay addObject:cell];
@@ -295,6 +300,10 @@ int const kHorizontalSpaceToSubview = 32;
 
 #pragma mark Link Block
 - (void)displayContentBlock4:(XMMResponseContentBlockType4 *)contentBlock {
+  if (!self.showAllStoreLinks && (contentBlock.linkType == 16 || contentBlock.linkType == 17)) {
+    return;
+  }
+  
   LinkBlockTableViewCell *cell;
   NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LinkBlockTableViewCell" owner:self options:nil];
   cell = nib[0];

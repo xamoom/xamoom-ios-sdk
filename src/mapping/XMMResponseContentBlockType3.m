@@ -24,6 +24,8 @@
 + (RKObjectMapping *)mapping {
   RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType3 class] ];
   [mapping addAttributeMappingsFromDictionary:@{@"file_id":@"fileId",
+                                                @"scale_x":@"scaleX",
+                                                @"link_url":@"linkUrl",
                                                 @"public":@"publicStatus",
                                                 @"content_block_type":@"contentBlockType",
                                                 @"title":@"title",

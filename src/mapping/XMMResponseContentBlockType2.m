@@ -23,7 +23,7 @@
 
 + (RKObjectMapping*)mapping {
   RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[XMMResponseContentBlockType2 class] ];
-  [mapping addAttributeMappingsFromDictionary:@{@"youtube_url":@"youtubeUrl",
+  [mapping addAttributeMappingsFromDictionary:@{@"video_url":@"videoUrl",
                                                 @"public":@"publicStatus",
                                                 @"content_block_type":@"contentBlockType",
                                                 @"title":@"title",
