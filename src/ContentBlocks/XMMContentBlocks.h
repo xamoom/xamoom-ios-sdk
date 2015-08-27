@@ -76,6 +76,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property float screenWidth;
 @property UIColor *linkColor;
 @property NSString *language;
+@property BOOL showAllStoreLinks;
 
 /**
  Initializes the XMMContentBlock.
