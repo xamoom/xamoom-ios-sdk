@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "YTPlayerView.h"
 
 @interface YoutubeBlockTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) IBOutlet YTPlayerView *playerView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet YTPlayerView *playerView;
+@property (nonatomic, strong) MPMoviePlayerController *videoPlayer;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playIconImageView;
+
+- (void)initVideoWithUrl:(NSString*)videoUrl andWidth:(float)width;
 
 @end
