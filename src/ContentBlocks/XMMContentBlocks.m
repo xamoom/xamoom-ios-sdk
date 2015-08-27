@@ -43,6 +43,7 @@ int const kHorizontalSpaceToSubview = 32;
     self.linkColor = [UIColor blueColor];
     self.language = language;
     self.screenWidth = screenWidth - kHorizontalSpaceToSubview;
+    self.showAllStoreLinks = NO;
   }
   
   //notification to reload delegates tableview from special contentBlockCells
@@ -299,6 +300,10 @@ int const kHorizontalSpaceToSubview = 32;
 
 #pragma mark Link Block
 - (void)displayContentBlock4:(XMMResponseContentBlockType4 *)contentBlock {
+  if (!self.showAllStoreLinks && (contentBlock.linkType == 16 || contentBlock.linkType == 17)) {
+    return;
+  }
+  
   LinkBlockTableViewCell *cell;
   NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LinkBlockTableViewCell" owner:self options:nil];
   cell = nib[0];

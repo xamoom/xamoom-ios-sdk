@@ -26,6 +26,7 @@
   
   self.contentBlocks = [[XMMContentBlocks alloc] initWithLanguage:[XMMEnduserApi sharedInstance].systemLanguage withWidth:self.tableView.bounds.size.width];
   self.contentBlocks.delegate = self;
+  self.contentBlocks.showAllStoreLinks = YES;
   
   if (self.contentId == nil) {
     self.contentId = @"8f51819db5c6403d8455593322437c07";
