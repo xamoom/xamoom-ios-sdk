@@ -36,15 +36,14 @@
 }
 
 - (void)showBlockData:(XMMResponseGetById *)result {
-  self.result = result;
+  self.content = result.content;
   
   //set title and excerpt
-  self.contentTitleLabel.text = self.result.content.title;
-  self.contentExcerptLabel.text = self.result.content.descriptionOfContent;
+  self.contentTitleLabel.text = self.content.title;
+  self.contentExcerptLabel.text = self.content.descriptionOfContent;
   [self.contentExcerptLabel sizeToFit];
   
-  
-  [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.result.content.imagePublicUrl]];
+  [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.content.imagePublicUrl]];
 }
 
 @end

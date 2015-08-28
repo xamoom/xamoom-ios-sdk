@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @property NSString *contentId;
-@property XMMResponseGetById *result;
+@property XMMResponseContent *content;
 
 - (void)initContentBlockWithLanguage:(NSString*)language;
 

@@ -58,7 +58,7 @@ int const kHorizontalSpaceToSubview = 32;
 
 # pragma mark - ContentBlock Methods
 
-- (void)displayContentBlocksByIdResult:(XMMResponseGetById *)idResult {
+- (void)displayContentBlocksWithIdResult:(XMMResponseGetById *)idResult {
   if (idResult == nil) {
     return;
   }
@@ -69,7 +69,7 @@ int const kHorizontalSpaceToSubview = 32;
   [self generateTableViewCellsWithContentBlocks:idResult.content.contentBlocks];
 }
 
-- (void)displayContentBlocksByLocationIdentifierResult:(XMMResponseGetByLocationIdentifier *)locationIdentifierResult {
+- (void)displayContentBlocksWithLocationIdentifierResult:(XMMResponseGetByLocationIdentifier *)locationIdentifierResult {
   if (locationIdentifierResult == nil) {
     return;
   }
@@ -78,6 +78,17 @@ int const kHorizontalSpaceToSubview = 32;
                    andExcerpt:locationIdentifierResult.content.descriptionOfContent
             andImagePublicUrl:locationIdentifierResult.content.imagePublicUrl];
   [self generateTableViewCellsWithContentBlocks:locationIdentifierResult.content.contentBlocks];
+}
+
+- (void)displayContentBlocksWith:(XMMResponseContent *)content {
+  if (content == nil) {
+    return;
+  }
+  
+  [self addContentBlockHeader:content.title
+                   andExcerpt:content.descriptionOfContent
+            andImagePublicUrl:content.imagePublicUrl];
+  [self generateTableViewCellsWithContentBlocks:content.contentBlocks];
 }
 
 - (void)addContentBlockHeader:(NSString*)title andExcerpt:(NSString*)excerpt andImagePublicUrl:(NSString*)imagePublicUrl {

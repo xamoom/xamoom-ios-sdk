@@ -91,14 +91,21 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
  
  @param idResult A XMMResponseGetById object that should be displayed.
  */
-- (void)displayContentBlocksByIdResult:(XMMResponseGetById *)idResult;
+- (void)displayContentBlocksWithIdResult:(XMMResponseGetById *)idResult;
 
 /**
  Generates tableViewCells to display a XMMResponseGetByLocationIdentifier object.
  
  @param locationIdentifierResult A XMMResponseGetByLocationIdentifier object that should be displayed.
  */
-- (void)displayContentBlocksByLocationIdentifierResult:(XMMResponseGetByLocationIdentifier *)locationIdentifierResult;
+- (void)displayContentBlocksWithLocationIdentifierResult:(XMMResponseGetByLocationIdentifier *)locationIdentifierResult;
+
+/**
+ *  Generates tableViewCells to display a XMMResponseContent.
+ *
+ *  @param content XMMResponseContent to display.
+ */
+- (void)displayContentBlocksWith:(XMMResponseContent *)content;
 
 /**
  Display the text contentBlock.
