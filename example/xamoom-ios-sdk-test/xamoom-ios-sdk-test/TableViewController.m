@@ -34,7 +34,7 @@
   
   [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:@"" full:YES
                                             completion:^(XMMResponseGetById *result) {
-                                              [self.contentBlocks displayContentBlocksByIdResult:result];
+                                              [self.contentBlocks displayContentBlocksWithIdResult:result];
                                             } error:^(XMMError *error) {
                                             }];
 }
