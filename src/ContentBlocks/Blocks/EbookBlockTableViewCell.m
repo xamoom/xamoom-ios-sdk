@@ -14,6 +14,9 @@
   // Initialization code
   self.ebookImageView.image = [[UIImage imageNamed:@"ebook"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   self.ebookImageView.tintColor = [UIColor whiteColor];
+  
+  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
+  [self addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,9 +25,10 @@
   // Configure the view for the selected state
 }
 
-- (IBAction)downloadButtonClicked:(id)sender {
+- (void)openInBrowser:(id)sender {
   //open url in safari
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downloadUrl]];
 }
+
 
 @end

@@ -17,6 +17,4 @@
 @property (nonatomic, assign) int downloadType;
 @property NSString *fileId;
 
-- (IBAction)linkButtonAction:(id)sender;
-
 @end

@@ -59,15 +59,6 @@
                             <constraint firstItem="gTf-w0-lZh" firstAttribute="top" secondItem="xgy-VZ-T9c" secondAttribute="bottom" constant="1" id="t1Q-WE-gyn"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XW-kA-pb1">
-                        <rect key="frame" x="0.0" y="0.0" width="334" height="74"/>
-                        <state key="normal">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="downloadButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zbK-7C-vn5"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="d3v-f8-ekS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="E3F-w7-1PC"/>

@@ -12,6 +12,9 @@
 
 - (void)awakeFromNib {
   // Initialization code
+  
+  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
+  [self addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,7 +23,7 @@
   // Configure the view for the selected state
 }
 
-- (IBAction)linkClicked:(id)sender {
+- (void)openInBrowser:(id)sender {
   //open link in safari
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
 }

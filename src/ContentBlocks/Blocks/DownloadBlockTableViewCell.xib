@@ -51,15 +51,6 @@
                             <constraint firstItem="Yec-h6-DBB" firstAttribute="top" secondItem="grh-BE-wCl" secondAttribute="top" constant="18" id="xa0-Jq-xjp"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LM6-J7-YFJ">
-                        <rect key="frame" x="-1" y="0.0" width="329" height="74"/>
-                        <state key="normal">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="linkButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="342-K1-umv"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="grh-BE-wCl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="9vm-E9-2i4"/>

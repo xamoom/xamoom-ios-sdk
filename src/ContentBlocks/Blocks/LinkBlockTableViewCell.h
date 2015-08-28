@@ -26,7 +26,4 @@
  */
 - (void)changeStyleAccordingToLinkType;
 
-//actions
-- (IBAction)linkClicked:(id)sender;
-
 @end

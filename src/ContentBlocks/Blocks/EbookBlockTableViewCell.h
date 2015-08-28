@@ -16,6 +16,4 @@
 
 @property NSString *downloadUrl;
 
-- (IBAction)downloadButtonClicked:(id)sender;
-
 @end

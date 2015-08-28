@@ -22,6 +22,9 @@
 - (void)setDownloadType:(int)type {
   downloadType = type;
   [self.icon setImage:[self selectRightIcon]];
+  
+  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
+  [self addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (UIImage*)selectRightIcon {
@@ -42,9 +45,10 @@
   return nil;
 }
 
-- (IBAction)linkButtonAction:(id)sender {
+- (void)openInBrowser:(id)sender {
   //open url in safari
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.fileId]];
 }
+
 
 @end
