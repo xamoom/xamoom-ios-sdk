@@ -77,8 +77,7 @@
   [self.playerView addGestureRecognizer:tappedVideoView];
   
   self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL URLWithString:self.videoUrl]];
-  self.videoPlayer.shouldAutoplay = YES;
-
+  
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(didReceiveImage:)
                                                name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
@@ -89,15 +88,13 @@
 }
 
 /**
- *  Prepares the videoPlayer and opens it in full-screen.
+ *  Opens a moviePlayerViewController
  *
  *  @param sender
  */
 - (void)tappedVideoView:(UITapGestureRecognizer*)sender {
-  [self.videoPlayer prepareToPlay];
-  [self.videoPlayer.view setFrame: CGRectMake(0, 0, self.screenWidth, 201)];
-  [self.playerView addSubview: self.videoPlayer.view];
-  [self.videoPlayer setFullscreen:YES animated:YES];
+  MPMoviePlayerViewController *mpvc = [[MPMoviePlayerViewController alloc] initWithContentURL:  self.videoPlayer.contentURL];
+  [self.window.rootViewController presentMoviePlayerViewControllerAnimated:mpvc];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(handleMoviePlayerFinish:)
