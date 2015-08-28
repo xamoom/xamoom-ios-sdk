@@ -23,7 +23,7 @@
 
 @interface XMMAnnotation : NSObject <MKAnnotation>
 
-@property XMMResponseGetSpotMapItem *data;
+@property XMMSpot *data;
 @property NSString *distance;
 
 - (instancetype)initWithLocation:(CLLocationCoordinate2D)coord NS_DESIGNATED_INITIALIZER;

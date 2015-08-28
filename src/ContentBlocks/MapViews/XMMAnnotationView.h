@@ -19,11 +19,11 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-#import "XMMResponseGetSpotMapItem.h"
+#import "XMMSpot.h"
 
 @interface XMMAnnotationView : MKAnnotationView
 
-@property XMMResponseGetSpotMapItem *data;
+@property XMMSpot *data;
 @property NSString *distance;
 @property UIImage *spotImage;
 @property CLLocationCoordinate2D coordinate;

@@ -58,7 +58,7 @@ int const kHorizontalSpaceToSubview = 32;
 
 # pragma mark - ContentBlock Methods
 
-- (void)displayContentBlocksWithIdResult:(XMMResponseGetById *)idResult {
+- (void)displayContentBlocksWithIdResult:(XMMContentById *)idResult {
   if (idResult == nil) {
     return;
   }
@@ -69,7 +69,7 @@ int const kHorizontalSpaceToSubview = 32;
   [self generateTableViewCellsWithContentBlocks:idResult.content.contentBlocks];
 }
 
-- (void)displayContentBlocksWithLocationIdentifierResult:(XMMResponseGetByLocationIdentifier *)locationIdentifierResult {
+- (void)displayContentBlocksWithLocationIdentifierResult:(XMMContentByLocationIdentifier *)locationIdentifierResult {
   if (locationIdentifierResult == nil) {
     return;
   }
@@ -80,7 +80,7 @@ int const kHorizontalSpaceToSubview = 32;
   [self generateTableViewCellsWithContentBlocks:locationIdentifierResult.content.contentBlocks];
 }
 
-- (void)displayContentBlocksWith:(XMMResponseContent *)content {
+- (void)displayContentBlocksWith:(XMMContent *)content {
   if (content == nil) {
     return;
   }
@@ -93,70 +93,70 @@ int const kHorizontalSpaceToSubview = 32;
 
 - (void)addContentBlockHeader:(NSString*)title andExcerpt:(NSString*)excerpt andImagePublicUrl:(NSString*)imagePublicUrl {
   
-  XMMResponseContentBlockType0 *contentBlock0 = [[XMMResponseContentBlockType0 alloc] init];
+  XMMContentBlockType0 *contentBlock0 = [[XMMContentBlockType0 alloc] init];
   contentBlock0.contentBlockType = 0;
   contentBlock0.title = title;
   contentBlock0.text = excerpt;
   [self displayContentBlock0:contentBlock0 addTitleFontOffset:8];
   
   if (imagePublicUrl != nil && ![imagePublicUrl isEqualToString:@""]) {
-    XMMResponseContentBlockType3 *contentBlock3 = [[XMMResponseContentBlockType3 alloc] init];
+    XMMContentBlockType3 *contentBlock3 = [[XMMContentBlockType3 alloc] init];
     contentBlock3.fileId = imagePublicUrl;
     [self displayContentBlock3:contentBlock3];
   }
 }
 
 - (void)generateTableViewCellsWithContentBlocks:(NSArray*)contentBlocks {
-  for (XMMResponseContentBlock *contentBlock in contentBlocks) {
+  for (XMMContentBlock *contentBlock in contentBlocks) {
     
     switch (contentBlock.contentBlockType) {
       case 0: {
-        XMMResponseContentBlockType0 *contentBlock0 = (XMMResponseContentBlockType0*)contentBlock;
+        XMMContentBlockType0 *contentBlock0 = (XMMContentBlockType0*)contentBlock;
         [self displayContentBlock0:contentBlock0 addTitleFontOffset:0];
         break;
       }
       case 1: {
-        XMMResponseContentBlockType1 *contentBlock1 = (XMMResponseContentBlockType1*)contentBlock;
+        XMMContentBlockType1 *contentBlock1 = (XMMContentBlockType1*)contentBlock;
         [self displayContentBlock1:contentBlock1];
         break;
       }
       case 2: {
-        XMMResponseContentBlockType2 *contentBlock2 = (XMMResponseContentBlockType2*)contentBlock;
+        XMMContentBlockType2 *contentBlock2 = (XMMContentBlockType2*)contentBlock;
         [self displayContentBlock2:contentBlock2];
         break;
       }
       case 3: {
-        XMMResponseContentBlockType3 *contentBlock3 = (XMMResponseContentBlockType3*)contentBlock;
+        XMMContentBlockType3 *contentBlock3 = (XMMContentBlockType3*)contentBlock;
         [self displayContentBlock3:contentBlock3];
         break;
       }
       case 4: {
-        XMMResponseContentBlockType4 *contentBlock4 = (XMMResponseContentBlockType4*)contentBlock;
+        XMMContentBlockType4 *contentBlock4 = (XMMContentBlockType4*)contentBlock;
         [self displayContentBlock4:contentBlock4];
         break;
       }
       case 5: {
-        XMMResponseContentBlockType5 *contentBlock5 = (XMMResponseContentBlockType5*)contentBlock;
+        XMMContentBlockType5 *contentBlock5 = (XMMContentBlockType5*)contentBlock;
         [self displayContentBlock5:contentBlock5];
         break;
       }
       case 6: {
-        XMMResponseContentBlockType6 *contentBlock6 = (XMMResponseContentBlockType6*)contentBlock;
+        XMMContentBlockType6 *contentBlock6 = (XMMContentBlockType6*)contentBlock;
         [self displayContentBlock6:contentBlock6];
         break;
       }
       case 7: {
-        XMMResponseContentBlockType7 *contentBlock7 = (XMMResponseContentBlockType7*)contentBlock;
+        XMMContentBlockType7 *contentBlock7 = (XMMContentBlockType7*)contentBlock;
         [self displayContentBlock7:contentBlock7];
         break;
       }
       case 8: {
-        XMMResponseContentBlockType8 *contentBlock8 = (XMMResponseContentBlockType8*)contentBlock;
+        XMMContentBlockType8 *contentBlock8 = (XMMContentBlockType8*)contentBlock;
         [self displayContentBlock8:contentBlock8];
         break;
       }
       case 9: {
-        XMMResponseContentBlockType9 *contentBlock9 = (XMMResponseContentBlockType9*)contentBlock;
+        XMMContentBlockType9 *contentBlock9 = (XMMContentBlockType9*)contentBlock;
         [self displayContentBlock9:contentBlock9];
         break;
       }
@@ -171,9 +171,9 @@ int const kHorizontalSpaceToSubview = 32;
 #pragma mark - Display Content Blocks
 
 #pragma mark Text Block
-- (void)displayContentBlock0:(XMMResponseContentBlockType0 *)contentBlock addTitleFontOffset:(int)titleFontOffset {
-  TextBlockTableViewCell *cell;
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TextBlockTableViewCell" owner:self options:nil];
+- (void)displayContentBlock0:(XMMContentBlockType0 *)contentBlock addTitleFontOffset:(int)titleFontOffset {
+  XMMContentBlock0TableViewCell *cell;
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock0TableViewCell" owner:self options:nil];
   cell = nib[0];
   
   //save data for later use
@@ -206,10 +206,10 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 #pragma mark Audio Block
-- (void)displayContentBlock1:(XMMResponseContentBlockType1 *)contentBlock {
-  AudioBlockTableViewCell *cell;
+- (void)displayContentBlock1:(XMMContentBlockType1 *)contentBlock {
+  XMMContentBlock1TableViewCell *cell;
   
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"AudioBlockTableViewCell" owner:self options:nil];
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock1TableViewCell" owner:self options:nil];
   cell = nib[0];
   
   //set audioPlayerControl delegate and initialize
@@ -230,9 +230,9 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 #pragma mark Youtube Block
-- (void)displayContentBlock2:(XMMResponseContentBlockType2 *)contentBlock {
-  YoutubeBlockTableViewCell *cell;
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"YoutubeBlockTableViewCell" owner:self options:nil];
+- (void)displayContentBlock2:(XMMContentBlockType2 *)contentBlock {
+  XMMContentBlock2TableViewCell *cell;
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock2TableViewCell" owner:self options:nil];
   cell = nib[0];
   
   //set title and youtubeUrl
@@ -245,9 +245,9 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 #pragma mark Image Block
-- (void)displayContentBlock3:(XMMResponseContentBlockType3 *)contentBlock {
-  ImageBlockTableViewCell *cell;
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ImageBlockTableViewCell" owner:self options:nil];
+- (void)displayContentBlock3:(XMMContentBlockType3 *)contentBlock {
+  XMMContentBlock3TableViewCell *cell;
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock3TableViewCell" owner:self options:nil];
   cell = nib[0];
   cell.linkUrl = contentBlock.linkUrl;
   
@@ -310,13 +310,13 @@ int const kHorizontalSpaceToSubview = 32;
 
 
 #pragma mark Link Block
-- (void)displayContentBlock4:(XMMResponseContentBlockType4 *)contentBlock {
+- (void)displayContentBlock4:(XMMContentBlockType4 *)contentBlock {
   if (!self.showAllStoreLinks && (contentBlock.linkType == 16 || contentBlock.linkType == 17)) {
     return;
   }
   
-  LinkBlockTableViewCell *cell;
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LinkBlockTableViewCell" owner:self options:nil];
+  XMMContentBlock4TableViewCell *cell;
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock4TableViewCell" owner:self options:nil];
   cell = nib[0];
   
   //set title, text, linkUrl and linkType
@@ -334,9 +334,9 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 #pragma mark Ebook Block
-- (void)displayContentBlock5:(XMMResponseContentBlockType5 *)contentBlock {
-  EbookBlockTableViewCell *cell;
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EbookBlockTableViewCell" owner:self options:nil];
+- (void)displayContentBlock5:(XMMContentBlockType5 *)contentBlock {
+  XMMContentBlock5TableViewCell *cell;
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock5TableViewCell" owner:self options:nil];
   cell = nib[0];
   
   //set title, artist and downloadUrl
@@ -350,9 +350,9 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 #pragma mark Content Block
-- (void)displayContentBlock6:(XMMResponseContentBlockType6 *)contentBlock {
-  ContentBlockTableViewCell *cell;
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ContentBlockTableViewCell" owner:self options:nil];
+- (void)displayContentBlock6:(XMMContentBlockType6 *)contentBlock {
+  XMMContentBlock6TableViewCell *cell;
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock6TableViewCell" owner:self options:nil];
   cell = nib[0];
   
   //set content
@@ -365,9 +365,9 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 #pragma mark Soundcloud Block
-- (void)displayContentBlock7:(XMMResponseContentBlockType7 *)contentBlock {
-  SoundcloudBlockTableViewCell *cell;
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SoundcloudBlockTableViewCell" owner:self options:nil];
+- (void)displayContentBlock7:(XMMContentBlockType7 *)contentBlock {
+  XMMContentBlock7TableViewCell *cell;
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock7TableViewCell" owner:self options:nil];
   cell = nib[0];
   
   //disable scrolling and bouncing
@@ -386,9 +386,9 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 #pragma mark Download Block
-- (void)displayContentBlock8:(XMMResponseContentBlockType8 *)contentBlock {
-  DownloadBlockTableViewCell *cell;
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"DownloadBlockTableViewCell" owner:self options:nil];
+- (void)displayContentBlock8:(XMMContentBlockType8 *)contentBlock {
+  XMMContentBlock8TableViewCell *cell;
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock8TableViewCell" owner:self options:nil];
   cell = nib[0];
   
   //set title, text, fileId and downloadType
@@ -401,9 +401,9 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 #pragma mark SpotMap Block
-- (void)displayContentBlock9:(XMMResponseContentBlockType9 *)contentBlock {
-  SpotMapBlockTableViewCell *cell;
-  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SpotMapBlockTableViewCell" owner:self options:nil];
+- (void)displayContentBlock9:(XMMContentBlockType9 *)contentBlock {
+  XMMContentBlock9TableViewCell *cell;
+  NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"XMMContentBlock9TableViewCell" owner:self options:nil];
   cell = nib[0];
   
   //set title, spotmapTags
@@ -450,9 +450,9 @@ int const kHorizontalSpaceToSubview = 32;
   self.fontSize = newFontSize;
   
   //Change fontSize in textblocks
-  for (XMMResponseContentBlock *contentItem in self.itemsToDisplay) {
-    if ([contentItem isKindOfClass:[TextBlockTableViewCell class]]) {
-      TextBlockTableViewCell* textBlock = (TextBlockTableViewCell*)contentItem;
+  for (XMMContentBlock *contentItem in self.itemsToDisplay) {
+    if ([contentItem isKindOfClass:[XMMContentBlock0TableViewCell class]]) {
+      XMMContentBlock0TableViewCell* textBlock = (XMMContentBlock0TableViewCell*)contentItem;
       textBlock.contentTextView.attributedText = [self attributedStringFromHTML:textBlock.contentText];
       [textBlock.titleLabel setFont:[UIFont boldSystemFontOfSize:self.fontSize+7]];
     }

@@ -18,16 +18,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TextBlockTableViewCell.h"
-#import "AudioBlockTableViewCell.h"
-#import "YoutubeBlockTableViewCell.h"
-#import "ImageBlockTableViewCell.h"
-#import "LinkBlockTableViewCell.h"
-#import "EbookBlockTableViewCell.h"
-#import "ContentBlockTableViewCell.h"
-#import "SoundcloudBlockTableViewCell.h"
-#import "DownloadBlockTableViewCell.h"
-#import "SpotMapBlockTableViewCell.h"
+#import "XMMContentBlock0TableViewCell.h"
+#import "XMMContentBlock1TableViewCell.h"
+#import "XMMContentBlock2TableViewCell.h"
+#import "XMMContentBlock3TableViewCell.h"
+#import "XMMContentBlock4TableViewCell.h"
+#import "XMMContentBlock5TableViewCell.h"
+#import "XMMContentBlock6TableViewCell.h"
+#import "XMMContentBlock7TableViewCell.h"
+#import "XMMContentBlock8TableViewCell.h"
+#import "XMMContentBlock9TableViewCell.h"
 #import "UIImage+animatedGIF.h"
 #import "SVGKit.h"
 
@@ -87,95 +87,95 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 - (instancetype)initWithLanguage:(NSString*)language withWidth:(float)screenWidth;
 
 /**
- Generates tableViewCells to display a XMMResponseGetById object.
+ Generates tableViewCells to display a XMMContentById object.
  
- @param idResult A XMMResponseGetById object that should be displayed.
+ @param idResult A XMMContentById object that should be displayed.
  */
-- (void)displayContentBlocksWithIdResult:(XMMResponseGetById *)idResult;
+- (void)displayContentBlocksWithIdResult:(XMMContentById *)idResult;
 
 /**
- Generates tableViewCells to display a XMMResponseGetByLocationIdentifier object.
+ Generates tableViewCells to display a XMMContentLocationIdentifier object.
  
- @param locationIdentifierResult A XMMResponseGetByLocationIdentifier object that should be displayed.
+ @param locationIdentifierResult A XMMContentByLocationIdentifier object that should be displayed.
  */
-- (void)displayContentBlocksWithLocationIdentifierResult:(XMMResponseGetByLocationIdentifier *)locationIdentifierResult;
+- (void)displayContentBlocksWithLocationIdentifierResult:(XMMContentByLocationIdentifier *)locationIdentifierResult;
 
 /**
- *  Generates tableViewCells to display a XMMResponseContent.
+ *  Generates tableViewCells to display a XMMContent.
  *
- *  @param content XMMResponseContent to display.
+ *  @param content XMMContent to display.
  */
-- (void)displayContentBlocksWith:(XMMResponseContent *)content;
+- (void)displayContentBlocksWith:(XMMContent *)content;
 
 /**
  Display the text contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType0 object
+ @param contentBlock A XMMContentBlockType0 object
  */
-- (void)displayContentBlock0:(XMMResponseContentBlockType0 *)contentBlock addTitleFontOffset:(int)titleFontOffset;
+- (void)displayContentBlock0:(XMMContentBlockType0 *)contentBlock addTitleFontOffset:(int)titleFontOffset;
 
 /**
  Display the audio contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType1 object
+ @param contentBlock A XMMContentBlockType1 object
  */
-- (void)displayContentBlock1:(XMMResponseContentBlockType1 *)contentBlock;
+- (void)displayContentBlock1:(XMMContentBlockType1 *)contentBlock;
 
 /**
  Display the video contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType2 object
+ @param contentBlock A XMMContentBlockType2 object
 */
-- (void)displayContentBlock2:(XMMResponseContentBlockType2 *)contentBlock;
+- (void)displayContentBlock2:(XMMContentBlockType2 *)contentBlock;
 
 /**
  Display the image contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType3 object
+ @param contentBlock A XMMContentBlockType3 object
 */
-- (void)displayContentBlock3:(XMMResponseContentBlockType3 *)contentBlock;
+- (void)displayContentBlock3:(XMMContentBlockType3 *)contentBlock;
 
 /**
  Display the link contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType4 object
+ @param contentBlock A XMMContentBlockType4 object
 */
-- (void)displayContentBlock4:(XMMResponseContentBlockType4 *)contentBlock;
+- (void)displayContentBlock4:(XMMContentBlockType4 *)contentBlock;
 
 /**
  Display the ebook contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType5 object
+ @param contentBlock A XMMContentBlockType5 object
 */
-- (void)displayContentBlock5:(XMMResponseContentBlockType5 *)contentBlock;
+- (void)displayContentBlock5:(XMMContentBlockType5 *)contentBlock;
 
 /**
  Display the content contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType6 object
+ @param contentBlock A XMMContentBlockType6 object
 */
-- (void)displayContentBlock6:(XMMResponseContentBlockType6 *)contentBlock;
+- (void)displayContentBlock6:(XMMContentBlockType6 *)contentBlock;
 
 /**
  Display the soundcloud contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType7 object
+ @param contentBlock A XMMContentBlockType7 object
 */
-- (void)displayContentBlock7:(XMMResponseContentBlockType7 *)contentBlock;
+- (void)displayContentBlock7:(XMMContentBlockType7 *)contentBlock;
 
 /**
  Display the download contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType8 object
+ @param contentBlock A XMMContentBlockType8 object
 */
-- (void)displayContentBlock8:(XMMResponseContentBlockType8 *)contentBlock;
+- (void)displayContentBlock8:(XMMContentBlockType8 *)contentBlock;
 
 /**
  Display the spotMap contentBlock.
  
- @param contentBlock A XMMResponseContentBlockType9 object
+ @param contentBlock A XMMContentBlockType9 object
 */
-- (void)displayContentBlock9:(XMMResponseContentBlockType9 *)contentBlock;
+- (void)displayContentBlock9:(XMMContentBlockType9 *)contentBlock;
 
 /**
  Can be used to change the fontSize of the text contentBlock

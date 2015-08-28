@@ -33,7 +33,7 @@
   }
   
   [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:@"" full:YES
-                                            completion:^(XMMResponseGetById *result) {
+                                            completion:^(XMMContentById *result) {
                                               [self.contentBlocks displayContentBlocksWithIdResult:result];
                                             } error:^(XMMError *error) {
                                             }];
@@ -62,8 +62,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
-  if ([(self.contentBlocks.itemsToDisplay)[indexPath.row] isKindOfClass:[ContentBlockTableViewCell class]]) {
-    ContentBlockTableViewCell *cell = (self.contentBlocks.itemsToDisplay)[indexPath.row];
+  if ([(self.contentBlocks.itemsToDisplay)[indexPath.row] isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
+    XMMContentBlock6TableViewCell *cell = (self.contentBlocks.itemsToDisplay)[indexPath.row];
     
     TableViewController *vc = [[TableViewController alloc] init];
     [vc setContentId:cell.contentId];

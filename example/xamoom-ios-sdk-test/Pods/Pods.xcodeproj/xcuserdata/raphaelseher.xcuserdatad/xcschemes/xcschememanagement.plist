@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>youtube-ios-player-helper-Assets.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>youtube-ios-player-helper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,67 +77,72 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>32AC8B02552FD86D087CAC7562D1CC7E</key>
+		<key>14B80CBFE724625CE5D91B8DCA7E4B52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>362B02CDDC1DB42492A2F8155BF81B86</key>
+		<key>1714B7C451869BD296F314DD7CC7BECC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3A3103CD1629BF09824B6CF61D434844</key>
+		<key>228042B2F0908BD8F1D91CD6B14A567E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42A12D364CF2E675D0F72895AE842AB6</key>
+		<key>27654F123DF5D97DBCED7A01C0D13382</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A5C86A58EF5B6B2193AA236BC9CA714</key>
+		<key>2DD63BB8DC8CF533E7BC34AFC882C64D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A52A7C82318BD16F963265D2364FFE2</key>
+		<key>2E19F005FB610212B7C1BF7FC0ACDEA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>735E55232192A45E25061DFB60D75FF1</key>
+		<key>36D7DE6002C807364A3B2F3A686236EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79794E9CAFDC67A89944B570035C28FB</key>
+		<key>4091E35864159B7ED5164BD65A74AF14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7DF1BBCEE79CE60AD06E5D36741A8D4A</key>
+		<key>6832655303029CA8A16D58320ADE72A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90E05ED03609F11C17155838C0A61AB5</key>
+		<key>78C5F9283566C002A53096691B4112F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7E81A0525FDF63BAF780644F81BE0AE</key>
+		<key>8A1599E2467E3C0FE576A8C4624C54A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BD7746DAC7C545EA4FC4DB306167A831</key>
+		<key>9F23B12FF732B7E21275AA6B9B9EB9E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EFB057C433D15C175A193F8F952AE032</key>
+		<key>E0383404DFD62335199D7A15EDAD37FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2ECB0B9271EBD3D81A6889FDEF03309</key>
 		<dict>
 			<key>primary</key>
 			<true/>

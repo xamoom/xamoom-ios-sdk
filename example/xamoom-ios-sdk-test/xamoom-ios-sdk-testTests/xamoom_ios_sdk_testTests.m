@@ -31,12 +31,12 @@ float const kTimeWaiting = 30.0;
 }
 
 @property XMMEnduserApi *api;
-@property XMMResponseGetById *apiResultGetContentById;
-@property XMMResponseGetByLocationIdentifier *apiResultGetByLocationIdentifier;
-@property XMMResponseGetByLocation *apiResultGetByLocation;
-@property XMMResponseGetSpotMap *apiResultGetSpotMap;
-@property XMMResponseContentList *apiResultGetContentList;
-@property XMMResponseClosestSpot *apiResultClosestSpot;
+@property XMMContentById *apiResultGetContentById;
+@property XMMContentByLocationIdentifier *apiResultGetByLocationIdentifier;
+@property XMMContentByLocation *apiResultGetByLocation;
+@property XMMSpotMap *apiResultGetSpotMap;
+@property XMMContentList *apiResultGetContentList;
+@property XMMClosestSpot *apiResultClosestSpot;
 @property NSArray* fetchResult;
 @property NSString* qrScanResult;
 
@@ -94,7 +94,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetContentByIdFullFull {
   NSLog(@"Test Suite - testGetContentByIdFull");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"de" full:YES completion:^(XMMResponseGetById *result) {
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"de" full:YES completion:^(XMMContentById *result) {
     self.apiResultGetContentById = result;
     done = YES;
   } error:^(XMMError *error) {
@@ -107,7 +107,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetContentByIdFullFullWithoutLanguage {
   NSLog(@"Test Suite - testGetContentByIdFull");
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"" full:YES completion:^(XMMResponseGetById *result) {
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"" full:YES completion:^(XMMContentById *result) {
     self.apiResultGetContentById = result;
     done = YES;
   } error:^(XMMError *error) {
@@ -122,7 +122,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetContentByLocationIdentifierFull {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierFull");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:@"de" completion:^(XMMResponseGetByLocationIdentifier *result) {
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:@"de" completion:^(XMMContentByLocationIdentifier *result) {
     self.apiResultGetByLocationIdentifier = result;
     done = YES;
   } error:^(XMMError *error) {
@@ -136,7 +136,7 @@ float const kTimeWaiting = 30.0;
 - (void)testGetContentByLocationIdentifierWithoutStyle {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithoutStyle");
   [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:NO includeMenu:YES withLanguage:@"de"
-                                                     completion:^(XMMResponseGetByLocationIdentifier *result) {
+                                                     completion:^(XMMContentByLocationIdentifier *result) {
                                                        self.apiResultGetByLocationIdentifier = result;
                                                        done = YES;
                                                      } error:^(XMMError *error) {
@@ -150,7 +150,7 @@ float const kTimeWaiting = 30.0;
 - (void)testGetContentByLocationIdentifierWithoutMenu {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithoutMenu");
   [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:NO withLanguage:@"de"
-                                                     completion:^(XMMResponseGetByLocationIdentifier *result) {
+                                                     completion:^(XMMContentByLocationIdentifier *result) {
                                                        self.apiResultGetByLocationIdentifier = result;
                                                        done = YES;
                                                      } error:^(XMMError *error) {
@@ -164,7 +164,7 @@ float const kTimeWaiting = 30.0;
 - (void)testGetContentByLocationIdentifierWithoutStyleAndMenu {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithoutStyleAndMenu");
   [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:NO includeMenu:NO withLanguage:@"de"
-                                                     completion:^(XMMResponseGetByLocationIdentifier *result) {
+                                                     completion:^(XMMContentByLocationIdentifier *result) {
                                                        self.apiResultGetByLocationIdentifier = result;
                                                        done = YES;
                                                      } error:^(XMMError *error) {
@@ -178,7 +178,7 @@ float const kTimeWaiting = 30.0;
 - (void)testGetContentByLocationIdentifierWithEnglishLanguage {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithEnglishLanguage");
   [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:@"en"
-                                                     completion:^(XMMResponseGetByLocationIdentifier *result) {
+                                                     completion:^(XMMContentByLocationIdentifier *result) {
                                                        self.apiResultGetByLocationIdentifier = result;
                                                        done = YES;
                                                      } error:^(XMMError *error) {
@@ -194,7 +194,7 @@ float const kTimeWaiting = 30.0;
 - (void)testGetContentByLocationFull {
   NSLog(@"Test Suite - testGetContentByLocationFull");
   [[XMMEnduserApi sharedInstance] contentWithLat:@"46.615" withLon:@"14.263" withLanguage:@"de"
-                                      completion:^(XMMResponseGetByLocation *result) {
+                                      completion:^(XMMContentByLocation *result) {
                                         self.apiResultGetByLocation = result;
                                         done = YES;
                                       } error:^(XMMError *error) {
@@ -208,7 +208,7 @@ float const kTimeWaiting = 30.0;
 - (void)testGetContentByLocationWithEnglishLanguage {
   NSLog(@"Test Suite - testGetContentByLocationWithEnglishLanguage");
   [[XMMEnduserApi sharedInstance] contentWithLat:@"46.615" withLon:@"14.263" withLanguage:@"en"
-                                      completion:^(XMMResponseGetByLocation *result) {
+                                      completion:^(XMMContentByLocation *result) {
                                         self.apiResultGetByLocation = result;
                                         done = YES;
                                       } error:^(XMMError *error) {
@@ -224,7 +224,7 @@ float const kTimeWaiting = 30.0;
 - (void)testGetSpotMapFull {
   NSLog(@"Test Suite - testGetSpotMapFull");
   [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"stw"] withLanguage:@"de"
-                                           completion:^(XMMResponseGetSpotMap *result) {
+                                           completion:^(XMMSpotMap *result) {
                                              self.apiResultGetSpotMap = result;
                                              done = YES;
                                            } error:^(XMMError *error) {
@@ -238,7 +238,7 @@ float const kTimeWaiting = 30.0;
 - (void)testGetSpotMapWithEnglishLanguage {
   NSLog(@"Test Suite - testGetSpotMapWithEnglishLanguage");
   [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"stw"] withLanguage:@"en"
-                                           completion:^(XMMResponseGetSpotMap *result) {
+                                           completion:^(XMMSpotMap *result) {
                                              self.apiResultGetSpotMap = result;
                                              done = YES;
                                            } error:^(XMMError *error) {
@@ -254,7 +254,7 @@ float const kTimeWaiting = 30.0;
 - (void)testGetContentListFromApi {
   NSLog(@"Test Suite - testGetContentListFromApi");
   [[XMMEnduserApi sharedInstance] contentListWithPageSize:5 withLanguage:@"de" withCursor:@"null" withTags:@[@"artists"]
-   completion:^(XMMResponseContentList *result) {
+   completion:^(XMMContentList *result) {
      self.apiResultGetContentList = result;
      done = YES;
    } error:^(XMMError *error) {
@@ -270,7 +270,7 @@ float const kTimeWaiting = 30.0;
 - (void)testClosestSpotsFromApi {
   NSLog(@"Test Suite - testClosestSpotsFromApi");
   [[XMMEnduserApi sharedInstance] closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:5 withLanguage:@"de"
-   completion:^(XMMResponseClosestSpot *result) {
+   completion:^(XMMClosestSpot *result) {
      self.apiResultClosestSpot = result;
      done = YES;
    } error:^(XMMError *error) {

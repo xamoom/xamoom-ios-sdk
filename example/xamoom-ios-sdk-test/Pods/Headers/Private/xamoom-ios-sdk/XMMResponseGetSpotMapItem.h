@@ -1,1 +1,0 @@
-../../../../../../src/mapping/XMMResponseGetSpotMapItem.h
