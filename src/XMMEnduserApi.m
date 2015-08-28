@@ -72,7 +72,7 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark API calls
 
 - (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full completion:(void(^)(XMMResponseGetById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
-  if ([language isEqual:@""]) {
+  if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
   
@@ -89,7 +89,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler{
-  if ([language isEqual:@""]) {
+  if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
   
@@ -105,7 +105,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language completion:(void(^)(XMMResponseGetByLocation *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
-  if ([language isEqual:@""]) {
+  if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
   
@@ -123,7 +123,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)spotMapWithMapTags:(NSArray *)mapTags withLanguage:(NSString *)language completion:(void(^)(XMMResponseGetSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
-  if ([language isEqual:@""]) {
+  if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
   
@@ -133,7 +133,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentListWithPageSize:(int)pageSize withLanguage:(NSString*)language withCursor:(NSString*)cursor withTags:(NSArray*)tags completion:(void(^)(XMMResponseContentList *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
-  if ([language isEqual:@""]) {
+  if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
   
@@ -153,7 +153,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language completion:(void(^)(XMMResponseClosestSpot *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
-  if ([language isEqual:@""]) {
+  if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
   
