@@ -37,7 +37,6 @@
                                                 @"style_icon":@"icon",
                                                 @"style_hl_color":@"highlightFontColor",
                                                 @"image_public_url":@"imagePublicUrl",
-                                                @"kind":@"kind",
                                                 @"spot_id":@"spotId",
                                                 @"spot_name":@"spotName",
                                                 @"content_name":@"contentName",

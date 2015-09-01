@@ -72,11 +72,11 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @interface XMMContentBlocks : NSObject <UIWebViewDelegate>
 
 @property (nonatomic, weak) id<XMMContentBlocksDelegate> delegate;
-@property NSMutableArray *itemsToDisplay;
-@property float screenWidth;
-@property UIColor *linkColor;
-@property NSString *language;
-@property BOOL showAllStoreLinks;
+@property (nonatomic, strong) NSMutableArray *itemsToDisplay;
+@property (nonatomic) float screenWidth;
+@property (nonatomic, strong) UIColor *linkColor;
+@property (nonatomic, strong) NSString *language;
+@property (nonatomic) BOOL showAllStoreLinks;
 
 /**
  * Initializes the XMMContentBlock.

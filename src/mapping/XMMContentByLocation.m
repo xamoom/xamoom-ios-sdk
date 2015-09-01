@@ -22,14 +22,8 @@
 @implementation XMMContentByLocation
 
 + (RKResponseDescriptor*)contentDescriptor {
-  RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[XMMContentByLocation class]];
-  [mapping addAttributeMappingsFromDictionary:@{@"kind":@"kind",
-                                                }];
-  
   // Create mappings
   RKObjectMapping* responseMapping = [RKObjectMapping mappingForClass:[XMMContentByLocation class]];
-  [responseMapping addAttributeMappingsFromDictionary:@{@"kind":@"kind",
-                                                }];
   RKObjectMapping* responseItemMapping = [XMMContentByLocationItem mapping];
   
   // Create relationship

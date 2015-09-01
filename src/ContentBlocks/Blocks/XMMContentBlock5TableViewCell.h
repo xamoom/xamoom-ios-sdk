@@ -28,6 +28,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *ebookImageView;
 
-@property NSString *downloadUrl;
+@property (strong, nonatomic) NSString *downloadUrl;
 
 @end

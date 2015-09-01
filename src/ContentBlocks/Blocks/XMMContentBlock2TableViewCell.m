@@ -21,8 +21,8 @@
 
 @interface XMMContentBlock2TableViewCell()
 
-@property NSString* videoUrl;
-@property float screenWidth;
+@property (strong, nonatomic) NSString* videoUrl;
+@property (nonatomic) float screenWidth;
 
 @end
 

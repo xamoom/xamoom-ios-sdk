@@ -38,11 +38,11 @@
 @property (weak, nonatomic) IBOutlet UIView *viewForMap;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
-@property (nonatomic, strong) XamoomMapView *mapKitWithSMCalloutView;
-@property NSArray *spotMapTags; 
-@property UIImage *customMapMarker;
-@property CLLocationManager *locationManager;
-@property UIColor* linkColor;
+@property (strong, nonatomic) XamoomMapView *mapKitWithSMCalloutView;
+@property (strong, nonatomic) NSArray *spotMapTags;
+@property (strong, nonatomic) UIImage *customMapMarker;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) UIColor* linkColor;
 
 - (void)getSpotMapWithSystemId:(NSString*)systemId withLanguage:(NSString*)language;
 

@@ -70,18 +70,13 @@ extern NSString * const kApiBaseURLString;
 /// @name Properties
 
 /**
- * The base url of xamoom api.
- * (readonly)
- */
-@property (strong, nonatomic, readonly) NSURL *apiBaseURL;
-/**
  * The preferred language of the user.
  */
 @property (strong, nonatomic) NSString *systemLanguage;
 /**
  * String with the title of the qr code view cancel button.
  */
-@property NSString* qrCodeViewControllerCancelButtonTitle;
+@property (strong, nonatomic) NSString *qrCodeViewControllerCancelButtonTitle;
 /**
  * A shared instance from XMMEnduserApi.
  */

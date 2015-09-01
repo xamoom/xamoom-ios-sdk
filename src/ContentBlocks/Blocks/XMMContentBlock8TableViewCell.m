@@ -21,8 +21,6 @@
 
 @implementation XMMContentBlock8TableViewCell
 
-@synthesize downloadType;
-
 - (void)awakeFromNib {
 }
 
@@ -31,7 +29,7 @@
 }
 
 - (void)setDownloadType:(int)type {
-  downloadType = type;
+  self.downloadType = type;
   [self.icon setImage:[self selectRightIcon]];
   
   UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
@@ -40,7 +38,7 @@
 
 - (UIImage*)selectRightIcon {
   //choose the right image according to the downloadType
-  switch (downloadType) {
+  switch (self.downloadType) {
     case 0: {
       return [UIImage imageNamed:@"contact"];
       break;

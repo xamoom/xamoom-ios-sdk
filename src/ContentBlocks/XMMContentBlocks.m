@@ -26,7 +26,7 @@ int const kHorizontalSpaceToSubview = 32;
 
 @interface XMMContentBlocks ()
 
-@property int fontSize;
+@property (nonatomic) int fontSize;
 
 @end
 

@@ -29,7 +29,6 @@
  * Array containing XMMContentByLocation items.
  */
 @property (nonatomic) NSArray *items;
-@property (nonatomic,copy) NSString *kind;
 
 /// @name Mapping
 

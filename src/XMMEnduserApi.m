@@ -27,19 +27,14 @@ static XMMEnduserApi *sharedInstance;
 
 @interface XMMEnduserApi () <QRCodeReaderDelegate>
 
-@property NSMutableArray *rssEntries;
-@property NSMutableString *element;
 @property (nonatomic, getter=isQRCodeScanFinished) BOOL QRCodeScanFinished;
-@property dispatch_queue_t backgroundQueue;
-@property UIViewController *qrCodeParentViewController;
+@property (strong, nonatomic) UIViewController *qrCodeParentViewController;
 
 @end
 
 #pragma mark - XMMEnduserApi
 
 @implementation XMMEnduserApi : NSObject
-
-@synthesize apiBaseURL;
 
 + (XMMEnduserApi *)sharedInstance {
   if (!sharedInstance) {
@@ -51,12 +46,11 @@ static XMMEnduserApi *sharedInstance;
 
 -(instancetype)init {
   self = [super init];
-  apiBaseURL = [NSURL URLWithString:kApiBaseURLString];
   self.systemLanguage = [NSLocale preferredLanguages][0];
   self.qrCodeViewControllerCancelButtonTitle = @"Cancel";
   
   //create RKObjectManager
-  RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:apiBaseURL];
+  RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kApiBaseURLString]];
   [RKObjectManager setSharedManager:objectManager];
   return self;
 }

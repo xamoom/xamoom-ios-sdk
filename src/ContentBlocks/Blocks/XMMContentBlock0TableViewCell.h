@@ -28,8 +28,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 
-@property NSString *titleText;
-@property NSString *contentText;
-@property int contentBlockType;
+@property (strong, nonatomic) NSString *titleText;
+@property (strong, nonatomic) NSString *contentText;
+@property (nonatomic) int contentBlockType;
 
 @end

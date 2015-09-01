@@ -29,8 +29,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *linkTextLabel;
 @property (weak, nonatomic) IBOutlet UIView *viewForBackgroundColor;
 
-@property NSString *linkUrl;
-@property int linkType;
+@property (strong, nonatomic) NSString *linkUrl;
+@property (nonatomic) int linkType;
 
 /**
  * Change the style and image of the tableViewCell to look like on http://xm.gl scanned page

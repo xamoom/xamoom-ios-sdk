@@ -21,7 +21,6 @@
 #import <AVFoundation/AVFoundation.h>
 
 FOUNDATION_EXPORT double XMMMusicPlayerVersionNumber;
-
 FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 
 #pragma mark - XMMMusicerPlayerDelegate Protocol
@@ -49,12 +48,12 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 IB_DESIGNABLE
 @interface XMMMusicPlayer : UIView
 
-@property IBInspectable UIColor *backgroundLineColor;
-@property IBInspectable UIColor *foregroundLineColor;
-@property IBInspectable float lineProgress;
-@property IBInspectable int lineWidth;
-@property AVPlayer *audioPlayer;
-@property NSString *remainingSongTime;
+@property (nonatomic, strong) IBInspectable UIColor *backgroundLineColor;
+@property (nonatomic, strong) IBInspectable UIColor *foregroundLineColor;
+@property (nonatomic) IBInspectable float lineProgress;
+@property (nonatomic) IBInspectable int lineWidth;
+@property (nonatomic, strong) AVPlayer *audioPlayer;
+@property (nonatomic, strong) NSString *remainingSongTime;
 @property (nonatomic, weak) id<XMMMusicerPlayerDelegate> delegate;
 
 /**

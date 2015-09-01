@@ -29,6 +29,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (nonatomic) int downloadType;
-@property NSString *fileId;
+@property (strong, nonatomic) NSString *fileId;
 
 @end
