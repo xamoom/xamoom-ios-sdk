@@ -24,49 +24,49 @@
 @class XMMMenuItem;
 
 /**
- `XMMContentByLocationIdentifier` is used for mapping the JSON sended by the api.
+ * `XMMContentByLocationIdentifier` is used for mapping the JSON sended by the api.
  */
 @interface XMMContentByLocationIdentifier : NSObject
 
 /**
- The systemName on our system.
+ * The systemName on our system.
  */
 @property (nonatomic, copy) NSString *systemName;
 /**
- Url to the homepage.
+ * Url to the homepage.
  */
 @property (nonatomic, copy) NSString *systemUrl;
 /**
- The unique systemId on our system.
+ * The unique systemId on our system.
  */
 @property (nonatomic, copy) NSString *systemId;
 /**
- Bool to determine if there is a XMMContent linked to the locationIdentifier on our system.
+ * Bool to determine if there is a XMMContent linked to the locationIdentifier on our system.
  */
 @property (nonatomic) BOOL hasContent;
 /**
- Bool to determine if there is a Spot linked to the locationIdentifier on our system.
+ * Bool to determine if there is a Spot linked to the locationIdentifier on our system.
  */
 @property (nonatomic) BOOL hasSpot;
 /**
- The content as XMMContent to display.
+ * The content as XMMContent to display.
  */
 @property (nonatomic) XMMContent *content;
 /**
- The style of the system as XMMStyle.
+ * The style of the system as XMMStyle.
  */
 @property (nonatomic) XMMStyle *style;
 /**
- Array containing items of XMMMenuItem.
+ * Array containing items of XMMMenuItem.
  */
 @property (nonatomic) NSArray *menu;
 
 /// @name Mapping
 
 /**
- Returns a RKResponseDescriptor for `XMMContentByLocationIdentifier` class.
- 
- @return RKResponseDescriptor*
+ * Returns a RKResponseDescriptor for `XMMContentByLocationIdentifier` class.
+ *
+ * @return RKResponseDescriptor*
  */
 + (RKResponseDescriptor*)contentDescriptor;
 

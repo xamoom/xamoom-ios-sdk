@@ -14,7 +14,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with xamoom-pingeborg-ios. If not, see <http://www.gnu.org/licenses/>.
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <Foundation/Foundation.h>
@@ -34,32 +34,31 @@
 extern int const kHorizontalSpaceToSubview;
 
 /**
- Declaring different TextFontSizes.
- Can be used to provide 3 different fontSizes for
- the XMMContentBlocks.
+ * Declaring different TextFontSizes.
+ * Can be used to provide 3 different fontSizes for
+ * the XMMContentBlocks.
  */
 typedef NS_OPTIONS(NSInteger, TextFontSize) {
   /**
-   NormalFontSize is the "standard" fontSize.
+   * NormalFontSize is the "standard" fontSize.
    */
   NormalFontSize = 12,
   /**
-   BigFontSize is the next "bigger" fontSize.
+   * BigFontSize is the next "bigger" fontSize.
    */
   BigFontSize = 15,
   /**
-   BiggerFontSize is the "biggest" fontSize.
+   * BiggerFontSize is the "biggest" fontSize.
    */
   BiggerFontSize = 18,
 };
 
 #pragma mark - XMMContentBlocksDelegate
 
-/**
- */
 @protocol XMMContentBlocksDelegate <NSObject>
 
 /**
+ * Needed to reload the tableView from XMMContentBlocks.
  */
 - (void)reloadTableViewForContentBlocks;
 
@@ -68,6 +67,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 #pragma mark - XMMContentBlocks
 
 /**
+ * Use XMMContentBlocks to display all our contentBlocks from xamoom cloud.
  */
 @interface XMMContentBlocks : NSObject <UIWebViewDelegate>
 
@@ -79,109 +79,109 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property BOOL showAllStoreLinks;
 
 /**
- Initializes the XMMContentBlock.
- 
- @param language The preferred language, can be @"" for systemLanguage
- @param screenWidth The width of the screen
-*/
+ * Initializes the XMMContentBlock.
+ *
+ * @param language The preferred language, can be @"" for systemLanguage
+ * @param screenWidth The width of the screen
+ */
 - (instancetype)initWithLanguage:(NSString*)language withWidth:(float)screenWidth;
 
 /**
- Generates tableViewCells to display a XMMContentById object.
- 
- @param idResult A XMMContentById object that should be displayed.
+ * Generates tableViewCells to display a XMMContentById object.
+ *
+ * @param idResult A XMMContentById object that should be displayed.
  */
 - (void)displayContentBlocksWithIdResult:(XMMContentById *)idResult;
 
 /**
- Generates tableViewCells to display a XMMContentLocationIdentifier object.
- 
- @param locationIdentifierResult A XMMContentByLocationIdentifier object that should be displayed.
+ * Generates tableViewCells to display a XMMContentLocationIdentifier object.
+ *
+ * @param locationIdentifierResult A XMMContentByLocationIdentifier object that should be displayed.
  */
 - (void)displayContentBlocksWithLocationIdentifierResult:(XMMContentByLocationIdentifier *)locationIdentifierResult;
 
 /**
- *  Generates tableViewCells to display a XMMContent.
+ * Generates tableViewCells to display a XMMContent.
  *
- *  @param content XMMContent to display.
+ * @param content XMMContent to display.
  */
 - (void)displayContentBlocksWith:(XMMContent *)content;
 
 /**
- Display the text contentBlock.
- 
- @param contentBlock A XMMContentBlockType0 object
+ * Display the text contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType0 object
  */
 - (void)displayContentBlock0:(XMMContentBlockType0 *)contentBlock addTitleFontOffset:(int)titleFontOffset;
 
 /**
- Display the audio contentBlock.
- 
- @param contentBlock A XMMContentBlockType1 object
+ * Display the audio contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType1 object
  */
 - (void)displayContentBlock1:(XMMContentBlockType1 *)contentBlock;
 
 /**
- Display the video contentBlock.
- 
- @param contentBlock A XMMContentBlockType2 object
-*/
+ * Display the video contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType2 object
+ */
 - (void)displayContentBlock2:(XMMContentBlockType2 *)contentBlock;
 
 /**
- Display the image contentBlock.
- 
- @param contentBlock A XMMContentBlockType3 object
-*/
+ * Display the image contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType3 object
+ */
 - (void)displayContentBlock3:(XMMContentBlockType3 *)contentBlock;
 
 /**
- Display the link contentBlock.
- 
- @param contentBlock A XMMContentBlockType4 object
-*/
+ * Display the link contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType4 object
+ */
 - (void)displayContentBlock4:(XMMContentBlockType4 *)contentBlock;
 
 /**
- Display the ebook contentBlock.
- 
- @param contentBlock A XMMContentBlockType5 object
-*/
+ * Display the ebook contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType5 object
+ */
 - (void)displayContentBlock5:(XMMContentBlockType5 *)contentBlock;
 
 /**
- Display the content contentBlock.
- 
- @param contentBlock A XMMContentBlockType6 object
-*/
+ * Display the content contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType6 object
+ */
 - (void)displayContentBlock6:(XMMContentBlockType6 *)contentBlock;
 
 /**
- Display the soundcloud contentBlock.
- 
- @param contentBlock A XMMContentBlockType7 object
-*/
+ * Display the soundcloud contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType7 object
+ */
 - (void)displayContentBlock7:(XMMContentBlockType7 *)contentBlock;
 
 /**
- Display the download contentBlock.
- 
- @param contentBlock A XMMContentBlockType8 object
-*/
+ * Display the download contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType8 object
+ */
 - (void)displayContentBlock8:(XMMContentBlockType8 *)contentBlock;
 
 /**
- Display the spotMap contentBlock.
- 
- @param contentBlock A XMMContentBlockType9 object
-*/
+ * Display the spotMap contentBlock.
+ *
+ * @param contentBlock A XMMContentBlockType9 object
+ */
 - (void)displayContentBlock9:(XMMContentBlockType9 *)contentBlock;
 
 /**
- Can be used to change the fontSize of the text contentBlock
- for better readability.
- 
- @param newFontSize New fontSize of the text contentBlock
+ * Can be used to change the fontSize of the text contentBlock
+ * for better readability.
+ *
+ * @param newFontSize New fontSize of the text contentBlock
  */
 - (void)updateFontSizeTo:(TextFontSize)newFontSize;
 

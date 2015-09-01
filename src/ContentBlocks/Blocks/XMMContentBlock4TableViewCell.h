@@ -14,13 +14,13 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with xamoom-pingeborg-ios. If not, see <http://www.gnu.org/licenses/>.
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <UIKit/UIKit.h>
 
 /**
- LinkBlockTableViewCell is used to display link contentBlocks from the xamoom system.
+ * LinkBlockTableViewCell is used to display link contentBlocks from the xamoom cloud.
  */
 @interface XMMContentBlock4TableViewCell : UITableViewCell
 
@@ -33,7 +33,7 @@
 @property int linkType;
 
 /**
- Change the style and image of the tableViewCell to look like on http://xm.gl scanned page
+ * Change the style and image of the tableViewCell to look like on http://xm.gl scanned page
  */
 - (void)changeStyleAccordingToLinkType;
 

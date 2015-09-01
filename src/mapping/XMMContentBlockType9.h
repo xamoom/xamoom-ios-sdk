@@ -21,37 +21,36 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType9` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'SPOTMAP'.
- 
- *Default behavior*
- 
- 1. Display a map with the spot-markers on it.
- 
+ * `XMMContentBlockType9` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'SPOTMAP'.
+ *
+ * *Default behavior*
+ *
+ * 1. Display a map with the spot-markers on it.
  */
 @interface XMMContentBlockType9 : XMMContentBlock
 
 /**
- String of comma seperated tags to display spotmap.
- 
- Call [XMMEnduserApi spotMapWithMapTags:withLanguage:completion:error:] with the spotMapTags.
+ * String of comma seperated tags to display spotmap.
+ *
+ * Call [XMMEnduserApi spotMapWithMapTags:withLanguage:completion:error:] with the spotMapTags.
  */
 @property (nonatomic, copy) NSString *spotMapTag;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlockType9` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlockType9` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns a RKObjectMappingMatcher for `XMMContentBlockType9` class.
- 
- @return RKObjectMappingMatcher*
+ * Returns a RKObjectMappingMatcher for `XMMContentBlockType9` class.
+ *
+ * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
 

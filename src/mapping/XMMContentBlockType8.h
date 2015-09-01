@@ -21,48 +21,47 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType8` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'DOWNLOAD'.
- 
- *Default behavior*
- 
- 1. Display like a link block with another icon
- 
- Example implementation is on our sample app "pingeb.org" https://github.com/xamoom/xamoom-pingeborg-ios
- 
+ * `XMMContentBlockType8` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'DOWNLOAD'.
+ *
+ * *Default behavior*
+ *
+ * 1. Display like a link block with another icon
+ *
+ * Example implementation is on our sample app "pingeb.org" https://github.com/xamoom/xamoom-pingeborg-ios
  */
 @interface XMMContentBlockType8 : XMMContentBlock
 
 /**
- Url to a file (vcf, ical)
+ * Url to a file (vcf, ical)
  */
 @property (nonatomic, copy) NSString *fileId;
 /**
- Download type to determine the type of the download.
- 
- - VCF = 0
- - ICAL = 1
+ * Download type to determine the type of the download.
+ *
+ * - VCF = 0
+ * - ICAL = 1
  */
 @property (nonatomic) int downloadType;
 /**
- Text as description for the url.
+ * Text as description for the url.
  */
 @property (nonatomic, copy) NSString *text;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlockType8` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlockType8` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns a RKObjectMappingMatcher for `XMMContentBlockType8` class.
- 
- @return RKObjectMappingMatcher*
+ * Returns a RKObjectMappingMatcher for `XMMContentBlockType8` class.
+ *
+ * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
 

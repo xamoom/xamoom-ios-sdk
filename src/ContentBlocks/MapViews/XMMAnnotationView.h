@@ -14,13 +14,16 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with xamoom-pingeborg-ios. If not, see <http://www.gnu.org/licenses/>.
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import "XMMSpot.h"
 
+/**
+ * XMMAnnotationView will be used to display the XMMCalloutView.
+ */
 @interface XMMAnnotationView : MKAnnotationView
 
 @property XMMSpot *data;

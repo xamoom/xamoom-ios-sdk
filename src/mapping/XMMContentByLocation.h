@@ -21,12 +21,12 @@
 #import "XMMEnduserApi.h"
 
 /**
- `XMMContentByLocation` is used for mapping the JSON sended by the api.
+ * `XMMContentByLocation` is used for mapping the JSON sended by the api.
  */
 @interface XMMContentByLocation : NSObject
 
 /**
- Array containing XMMContentByLocation items.
+ * Array containing XMMContentByLocation items.
  */
 @property (nonatomic) NSArray *items;
 @property (nonatomic,copy) NSString *kind;
@@ -34,9 +34,9 @@
 /// @name Mapping
 
 /**
- Returns a RKResponseDescriptor for `XMMContentByLocation` class.
- 
- @return RKResponseDescriptor*
+ * Returns a RKResponseDescriptor for `XMMContentByLocation` class.
+ *
+ * @return RKResponseDescriptor*
  */
 + (RKResponseDescriptor*)contentDescriptor;
 

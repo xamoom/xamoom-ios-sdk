@@ -29,7 +29,7 @@ static XMMEnduserApi *sharedInstance;
 
 @property NSMutableArray *rssEntries;
 @property NSMutableString *element;
-@property BOOL isQRCodeScanFinished;
+@property (nonatomic, getter=isQRCodeScanFinished) BOOL QRCodeScanFinished;
 @property dispatch_queue_t backgroundQueue;
 @property UIViewController *qrCodeParentViewController;
 
@@ -66,7 +66,6 @@ static XMMEnduserApi *sharedInstance;
   [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
   [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization" value:apiKey];
 }
-
 
 #pragma mark public methods
 #pragma mark API calls
@@ -241,19 +240,19 @@ static XMMEnduserApi *sharedInstance;
   //completionblock
   [reader setCompletionWithBlock:^(NSString *resultAsString) {
     if (!self.isQRCodeScanFinished && resultAsString != nil) {
-      self.isQRCodeScanFinished = YES;
+      self.QRCodeScanFinished = YES;
       [self.qrCodeParentViewController dismissViewControllerAnimated:YES completion:nil];
       completionHandler([self getLocationIdentifierFromURL:resultAsString], resultAsString);
     }
   }];
   
-  self.isQRCodeScanFinished = NO;
+  self.QRCodeScanFinished = NO;
   [viewController presentViewController:reader animated:YES completion:NULL];
 }
 
 -(void)readerDidCancel:(QRCodeReaderViewController *)reader {
   [self.qrCodeParentViewController dismissViewControllerAnimated:YES completion:nil];
-  self.isQRCodeScanFinished = YES;
+  self.QRCodeScanFinished = YES;
   self.qrCodeParentViewController = nil;
 }
 

@@ -21,25 +21,25 @@
 #import "XMMEnduserApi.h"
 
 /**
- `XMMMenuItem` is used for mapping the JSON sended by the api.
+ * `XMMMenuItem` is used for mapping the JSON sended by the api.
  */
 @interface XMMMenuItem : NSObject
 
 /**
- Name of the menu item.
+ * Name of the menu item.
  */
 @property (nonatomic, copy) NSString* itemLabel;
 /**
- ContentId of the item.
+ * ContentId of the item.
  */
 @property (nonatomic, copy) NSString* contentId;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMMenuItem` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMMenuItem` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 

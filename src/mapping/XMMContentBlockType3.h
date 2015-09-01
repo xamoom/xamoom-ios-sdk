@@ -21,47 +21,47 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType3` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'IMAGE'.
- 
- *Default behavior*
- 
- 1. Display title as bold.
- 2. Display image scaled to device width.
+ * `XMMContentBlockType3` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'IMAGE'.
+ *
+ * *Default behavior*
+ *
+ * 1. Display title as bold.
+ * 2. Display image scaled to device width.
  */
 @interface XMMContentBlockType3 : XMMContentBlock
 
 /**
- Url to a imageFile (jpg, png, webp, svg)
+ * Url to a imageFile (jpg, png, webp, svg)
  */
 @property (nonatomic, copy) NSString *fileId;
 
 /**
- Value to determine a x-axis (width) scaling from 0 to 100 in percent.
- Is null when not set.
+ * Value to determine a x-axis (width) scaling from 0 to 100 in percent.
+ * Is null when not set.
  */
 @property (nonatomic, copy) NSDecimalNumber *scaleX;
 
 /**
- Url the user inserted in xamoom cloud. Can be nil and "".
- Should be opened in browser.
+ * Url the user inserted in xamoom cloud. Can be nil and "".
+ * Should be opened in browser.
  */
 @property (nonatomic, copy) NSString* linkUrl;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlockType3` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlockType3` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns a RKObjectMappingMatcher for `XMMContentBlockType3` class.
- 
- @return RKObjectMappingMatcher*
+ * Returns a RKObjectMappingMatcher for `XMMContentBlockType3` class.
+ *
+ * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
 

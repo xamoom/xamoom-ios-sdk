@@ -21,42 +21,42 @@
 #import "XMMEnduserApi.h"
 
 /**
- `XMMStyle` is used for mapping the JSON sended by the api.
+ * `XMMStyle` is used for mapping the JSON sended by the api.
  */
 @interface XMMStyle : NSObject
 
 /**
- The background color defined on our system. (E.g. #f5f5f5)
+ * The background color defined on our system. (E.g. #f5f5f5)
  */
 @property (nonatomic, copy) NSString* backgroundColor;
 /**
- The hightLightFontColor defined on our system. Used for links. (E.g. #ff0000)
+ * The hightLightFontColor defined on our system. Used for links. (E.g. #ff0000)
  */
 @property (nonatomic, copy) NSString* highlightFontColor;
 /**
-The foregroundFont color defined on our system. (E.g. #f9f9f9)
-*/
+ * The foregroundFont color defined on our system. (E.g. #f9f9f9)
+ */
 @property (nonatomic, copy) NSString* foregroundFontColor;
 /**
- The chromeHeaderColor is displayed on mobile chrome browser as the "head".
- Use it for your e.g. navigation bar. (E.g. #cdcdcd)
+ * The chromeHeaderColor is displayed on mobile chrome browser as the "head".
+ * Use it for your e.g. navigation bar. (E.g. #cdcdcd)
  */
 @property (nonatomic, copy) NSString* chromeHeaderColor;
 /**
- The customMarker as DOUBLE base64 encoded string. Use this one on maps.
+ * The customMarker as DOUBLE base64 encoded string. Use this one on maps.
  */
 @property (nonatomic, copy) NSString* customMarker;
 /**
- The icon as DOUBLE base64 encoded string.
+ * The icon as DOUBLE base64 encoded string.
  */
 @property (nonatomic, copy) NSString* icon;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMStyle` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMStyle` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 

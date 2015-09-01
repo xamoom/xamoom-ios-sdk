@@ -21,41 +21,40 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType5` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'EBOOK'.
- 
- *Default behavior*
- 
- 1. Display like a link block with another icon
- 
- Example implementation is on our sample app "pingeb.org" https://github.com/xamoom/xamoom-pingeborg-ios
- 
+ * `XMMContentBlockType5` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'EBOOK'.
+ *
+ * *Default behavior*
+ *
+ * 1. Display like a link block with another icon
+ *
+ * Example implementation is on our sample app "pingeb.org" https://github.com/xamoom/xamoom-pingeborg-ios
  */
 @interface XMMContentBlockType5 : XMMContentBlock
 
 /**
- Url to a ebook file (epub, mobi, pdf).
+ * Url to a ebook file (epub, mobi, pdf).
  */
 @property (nonatomic, copy) NSString *fileId;
 /**
- The name of the artist(s).
+ * The name of the artist(s).
  */
 @property (nonatomic, copy) NSString *artist;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlockType5` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlockType5` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns a RKObjectMappingMatcher for `XMMContentBlockType5` class.
- 
- @return RKObjectMappingMatcher*
+ * Returns a RKObjectMappingMatcher for `XMMContentBlockType5` class.
+ *
+ * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
 

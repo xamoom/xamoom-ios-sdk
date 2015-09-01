@@ -21,38 +21,37 @@
 #import "XMMEnduserApi.h"
 
 /**
- 
- `XMMSpot` is used for mapping the JSON sended by the api.
+ * `XMMSpot` is used for mapping the JSON sended by the api.
  */
 @interface XMMSpot : NSObject
 
 /**
- The displayName of the spot.
+ * The displayName of the spot.
  */
 @property (nonatomic, copy) NSString* displayName;
 /**
- The description of the spot. (E.g. "on the front door of the xamoom office")
+ * The description of the spot. (E.g. "on the front door of the xamoom office")
  */
 @property (nonatomic, copy) NSString* descriptionOfSpot;
 /**
- The latitude of the spot.
+ * The latitude of the spot.
  */
 @property (nonatomic) float lat;
 /**
- The longitude of the spot.
+ * The longitude of the spot.
  */
 @property (nonatomic) float lon;
 /**
- Public url pointing to an image on our system.
+ * Public url pointing to an image on our system.
  */
 @property (nonatomic, copy) NSString* image;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMSpot` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMSpot` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 

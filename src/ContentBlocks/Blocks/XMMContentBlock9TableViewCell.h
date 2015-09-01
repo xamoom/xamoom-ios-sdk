@@ -14,7 +14,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with xamoom-pingeborg-ios. If not, see <http://www.gnu.org/licenses/>.
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <UIKit/UIKit.h>
@@ -29,6 +29,9 @@
 
 @class XamoomMapView;
 
+/**
+ * XMMContentBlock0TableViewCell is used to display spotMap contentBlocks from the xamoom cloud.
+ */
 @interface XMMContentBlock9TableViewCell : UITableViewCell <MKMapViewDelegate, SMCalloutViewDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

@@ -14,13 +14,16 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with xamoom-pingeborg-ios. If not, see <http://www.gnu.org/licenses/>.
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "YTPlayerView.h"
 
+/**
+ * XMMContentBlock2TableViewCell is used to display video contentBlocks from the xamoom cloud.
+ */
 @interface XMMContentBlock2TableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

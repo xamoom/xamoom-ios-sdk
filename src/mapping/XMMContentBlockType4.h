@@ -21,66 +21,65 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType4` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'LINK'.
- 
- *Default behavior*
- 
- 1. On the left a icon according to type
- 2. Next to the image title and below text
- 3. Backgroundcolor according to type
- 
- Example implementation is on our sample app "pingeb.org" https://github.com/xamoom/xamoom-pingeborg-ios
- 
+ * `XMMContentBlockType4` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'LINK'.
+ *
+ * *Default behavior*
+ *
+ * 1. On the left a icon according to type
+ * 2. Next to the image title and below text
+ * 3. Backgroundcolor according to type
+ *
+ * Example implementation is on our sample app "pingeb.org" https://github.com/xamoom/xamoom-pingeborg-ios
  */
 @interface XMMContentBlockType4 : XMMContentBlock
 
 /**
- A url inputed by the user.
+ * A url inputed by the user.
  */
 @property (nonatomic, copy) NSString *linkUrl;
 /**
- Text as description for the url.
+ * Text as description for the url.
  */
 @property (nonatomic, copy) NSString *text;
 /**
- Link type to determine the type of the link.
- 
- - FACEBOOK = 0
- - TWITTER = 1
- - WEB = 2
- - AMAZON = 3
- - WIKIPEDIA = 4
- - LINKEDIN = 5
- - FLICKR = 6
- - SOUNDCLOUD = 7
- - ITUNES = 8
- - YOUTUBE = 9
- - GOOGLEPLUS = 10
- - TEL = 11
- - EMAIL = 12
- - SPOTIFY = 13
- - GOOGLE_MAPS = 14
- - ITUNES_APP = 15
- - GOOGLE_PLAY = 16
- - WINDOWS_STORE = 17
+ * Link type to determine the type of the link.
+ *
+ * - FACEBOOK = 0
+ * - TWITTER = 1
+ * - WEB = 2
+ * - AMAZON = 3
+ * - WIKIPEDIA = 4
+ * - LINKEDIN = 5
+ * - FLICKR = 6
+ * - SOUNDCLOUD = 7
+ * - ITUNES = 8
+ * - YOUTUBE = 9
+ * - GOOGLEPLUS = 10
+ * - TEL = 11
+ * - EMAIL = 12
+ * - SPOTIFY = 13
+ * - GOOGLE_MAPS = 14
+ * - ITUNES_APP = 15
+ * - GOOGLE_PLAY = 16
+ * - WINDOWS_STORE = 17
  */
 @property (nonatomic) int linkType;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlockType4` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlockType4` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns a RKObjectMappingMatcher for `XMMContentBlockType4` class.
- 
- @return RKObjectMappingMatcher*
+ * Returns a RKObjectMappingMatcher for `XMMContentBlockType4` class.
+ *
+ * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
 

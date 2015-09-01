@@ -22,51 +22,51 @@
 #import "XMMEnduserApi.h"
 
 /**
- `XMMContent` is used for mapping the JSON sended by the api.
+ * `XMMContent` is used for mapping the JSON sended by the api.
  */
 @interface XMMContent : NSObject
 
 #pragma mark Properties
 /// @name Properties
 /**
- The unique contentId on our system.
+ * The unique contentId on our system.
  */
 @property (nonatomic, copy) NSString *contentId;
 /**
- Public url pointing to an image on our system.
+ * Public url pointing to an image on our system.
  */
 @property (nonatomic, copy) NSString *imagePublicUrl;
 /**
- Description (Excerpt) of the content.
+ * Description (Excerpt) of the content.
  */
 @property (nonatomic, copy) NSString *descriptionOfContent;
 /**
- The language of the content
+ * The language of the content
  */
 @property (nonatomic, copy) NSString *language;
 /**
- The title of the content.
+ * The title of the content.
  */
 @property (nonatomic, copy) NSString *title;
 /**
- Array containing items of XMMContentBlock.
- Display all different contentBlocks.
+ * Array containing items of XMMContentBlock.
+ * Display all different contentBlocks.
  */
 @property (nonatomic) NSArray *contentBlocks;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContent` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContent` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns the `XMMCoreDataContentBlocks` in the right order.
- 
- @return NSArray*
+ * Returns the `XMMCoreDataContentBlocks` in the right order.
+ *
+ * @return NSArray*
  */
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks;
 

@@ -21,35 +21,34 @@
 #import "XMMStyle.h"
 
 /**
- 
- `XMMClosestSpot` is used for mapping the JSON sended by the api.
+ *
+ * `XMMClosestSpot` is used for mapping the JSON sended by the api.
  */
-
 @interface XMMClosestSpot : NSObject
 
 /**
- Array of XMMSpot items.
+ * Array of XMMSpot items.
  */
 @property (nonatomic, copy) NSArray* items;
 /**
- The style of the system as XMMStyle.
+ * The style of the system as XMMStyle.
  */
 @property (nonatomic, copy) XMMStyle* style;
 /**
- The requested radius in meter.
+ * The requested radius in meter.
  */
 @property (nonatomic) int radius;
 /**
- The requestet limit of items to return.
+ * The requestet limit of items to return.
  */
 @property (nonatomic) int limit;
 
 /// @name Mapping
 
 /**
- Returns a RKResponseDescriptor for `XMMClosestSpot` class.
- 
- @return RKResponseDescriptor*
+ * Returns a RKResponseDescriptor for `XMMClosestSpot` class.
+ *
+ * @return RKResponseDescriptor*
  */
 + (RKResponseDescriptor*)contentDescriptor;
 

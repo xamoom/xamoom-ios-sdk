@@ -14,7 +14,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with xamoom-pingeborg-ios. If not, see <http://www.gnu.org/licenses/>.
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <UIKit/UIKit.h>
@@ -27,15 +27,15 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 #pragma mark - XMMMusicerPlayerDelegate Protocol
 
 /**
- XMMMusicPlayerDelegate is used for messages between the XMMMusicPlayer and the UI.
+ * XMMMusicPlayerDelegate is used for messages between the XMMMusicPlayer and the UI.
  */
 @protocol XMMMusicerPlayerDelegate <NSObject>
 
 /**
- Notify delegate with the actual remaining song time.
- 
- @param remainingSongTime - Remaining song time as string with format 0:00
- @return void
+ * Notify delegate with the actual remaining song time.
+ *
+ * @param remainingSongTime - Remaining song time as string with format 0:00
+ * @return void
  */
 - (void)didUpdateRemainingSongTime:(NSString*)remainingSongTime;
 
@@ -44,7 +44,7 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 #pragma mark - XMMMusicPlayer Interface
 
 /**
- The XMMMusicPlayer is our audio-player for streaming audio from the xamoom system.
+ * The XMMMusicPlayer is our audio-player for streaming audio from the xamoom system.
  */
 IB_DESIGNABLE
 @interface XMMMusicPlayer : UIView
@@ -58,20 +58,20 @@ IB_DESIGNABLE
 @property (nonatomic, weak) id<XMMMusicerPlayerDelegate> delegate;
 
 /**
- Initialize the avplayer and also add the periodicTimeObserver.
- After initialization you are able to get the song duration.
- 
- @param mediaUrlString - String of an url to a mediafile like www.xamoom.com/song.mp3
+ * Initialize the avplayer and also add the periodicTimeObserver.
+ * After initialization you are able to get the song duration.
+ *
+ * @param mediaUrlString - String of an url to a mediafile like www.xamoom.com/song.mp3
  */
 - (void)initAudioPlayerWithUrlString:(NSString*)mediaUrlString;
 
 /**
- Audioplayer starts playing.
+ * Audioplayer starts playing.
  */
 - (void)play;
 
 /**
- Audioplayer pauses playing.
+ * Audioplayer pauses playing.
  */
 - (void)pause;
 

@@ -14,13 +14,17 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with xamoom-pingeborg-ios. If not, see <http://www.gnu.org/licenses/>.
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import "XMMEnduserApi.h"
 
+
+/**
+ * XMMAnnotation will be used to by XMMContentBlock9TableViewCell to create the map annotations.
+ */
 @interface XMMAnnotation : NSObject <MKAnnotation>
 
 @property XMMSpot *data;

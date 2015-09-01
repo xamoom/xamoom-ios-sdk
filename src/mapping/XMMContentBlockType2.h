@@ -21,36 +21,36 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType2` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'VIDEO'.
- 
- *Default behavior*
- 
- 1. Display title as bold.
- 2. Display player for youtube or some html-player-view.
+ * `XMMContentBlockType2` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'VIDEO'.
+ *
+ * *Default behavior*
+ *
+ * 1. Display title as bold.
+ * 2. Display player for youtube or some html-player-view.
  */
 @interface XMMContentBlockType2 : XMMContentBlock
 
 /**
- A video url.
- Can be a youtube url or some url pointing to a mp3.
+ * A video url.
+ * Can be a youtube url or some url pointing to a mp3.
  */
 @property (nonatomic, copy) NSString *videoUrl;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlockType2` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlockType2` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns a RKObjectMappingMatcher for `XMMContentBlockType2` class.
- 
- @return RKObjectMappingMatcher*
+ * Returns a RKObjectMappingMatcher for `XMMContentBlockType2` class.
+ *
+ * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
 

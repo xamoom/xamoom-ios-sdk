@@ -21,14 +21,14 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType1` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'AUDIO'.
- 
- *Default behavior*
- 
- 1. Display title as bold
- 2. Display an audioplayer to play (stream) the audio file.
+ * `XMMContentBlockType1` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'AUDIO'.
+ *
+ * *Default behavior*
+ *
+ * 1. Display title as bold
+ * 2. Display an audioplayer to play (stream) the audio file.
  */
 @interface XMMContentBlockType1 : XMMContentBlock
 

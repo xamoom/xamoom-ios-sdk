@@ -21,25 +21,25 @@
 #import "XMMEnduserApi.h"
 
 /**
- `XMMSpotMap` is used for mapping the JSON sended by the api.
+ * `XMMSpotMap` is used for mapping the JSON sended by the api.
  */
 @interface XMMSpotMap : NSObject
 
 /**
- Array containing XMMSpotMapItem items.
+ * Array containing XMMSpotMapItem items.
  */
 @property (nonatomic) NSArray* items;
 /**
- The style of the system as XMMStyle.
+ * The style of the system as XMMStyle.
  */
 @property (nonatomic) XMMStyle* style;
 
 /// @name Mapping
 
 /**
- Returns a RKResponseDescriptor for `XMMSpotMap` class.
- 
- @return RKResponseDescriptor*
+ * Returns a RKResponseDescriptor for `XMMSpotMap` class.
+ *
+ * @return RKResponseDescriptor*
  */
 + (RKResponseDescriptor*)contentDescriptor;
 

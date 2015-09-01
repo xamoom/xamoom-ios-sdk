@@ -21,35 +21,34 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType7` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'SOUNDCLOUD'.
- 
- *Default behavior*
- 
- 1. Use the soundcloud widget to display inside a webView
- 
+ * `XMMContentBlockType7` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'SOUNDCLOUD'.
+ *
+ * *Default behavior*
+ *
+ * 1. Use the soundcloud widget to display inside a webView
  */
 @interface XMMContentBlockType7 : XMMContentBlock
 
 /**
- A soundcloud url.
+ * A soundcloud url.
  */
 @property (nonatomic, copy) NSString *soundcloudUrl;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlockType7` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlockType7` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns a RKObjectMappingMatcher for `XMMContentBlockType7` class.
- 
- @return RKObjectMappingMatcher*
+ * Returns a RKObjectMappingMatcher for `XMMContentBlockType7` class.
+ *
+ * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
 

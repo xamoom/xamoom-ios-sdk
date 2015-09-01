@@ -21,35 +21,35 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType0` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'TEXT'.
- 
- *Default behavior*
- 
- 1. Display title as bold
- 2. Display text as html-formatted text.
+ * `XMMContentBlockType0` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'TEXT'.
+ *
+ * *Default behavior*
+ *
+ * 1. Display title as bold
+ * 2. Display text as html-formatted text.
  */
 @interface XMMContentBlockType0 : XMMContentBlock
 
 /**
- The text from our system as HTML.
+ * The text from our system as HTML.
  */
 @property (nonatomic, copy) NSString *text;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlockType0` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlockType0` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns a RKObjectMappingMatcher for `XMMContentBlockType0` class.
- 
- @return RKObjectMappingMatcher*
+ * Returns a RKObjectMappingMatcher for `XMMContentBlockType0` class.
+ *
+ * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
 

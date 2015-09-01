@@ -21,30 +21,30 @@
 #import "XMMEnduserApi.h"
 
 /**
- `XMMContentList` is used for mapping the JSON sended by the api.
+ * `XMMContentList` is used for mapping the JSON sended by the api.
  */
 
 @interface XMMContentList : NSObject
 
 /**
- Cursor for paging.
+ * Cursor for paging.
  */
 @property (nonatomic, copy) NSString* cursor;
 /**
- Bool to determine if there are more items on our system to fetch.
+ * Bool to determine if there are more items on our system to fetch.
  */
 @property (nonatomic) BOOL hasMore;
 /**
- Array of XMMContent items.
+ * Array of XMMContent items.
  */
 @property (nonatomic, copy) NSArray* items;
 
 /// @name Mapping
 
 /**
- Returns a RKResponseDescriptor for `XMMContentList` class.
- 
- @return RKResponseDescriptor*
+ * Returns a RKResponseDescriptor for `XMMContentList` class.
+ *
+ * @return RKResponseDescriptor*
  */
 + (RKResponseDescriptor*)contentDescriptor;
 

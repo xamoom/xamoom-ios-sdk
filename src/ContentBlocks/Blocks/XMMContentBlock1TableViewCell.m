@@ -21,7 +21,7 @@
 
 @interface XMMContentBlock1TableViewCell ()
 
-@property BOOL isPlaying;
+@property (nonatomic, getter=isPlaying) BOOL playing;
 
 @end
 
@@ -42,11 +42,11 @@
   //play or pause the audioplayer and change the buttonImage
   if (!self.isPlaying) {
     [self.audioPlayerControl play];
-    self.isPlaying = YES;
+    self.playing = YES;
     [self.audioControlButton setImage:[UIImage imageNamed:@"pausebutton"] forState:UIControlStateNormal];
   } else {
     [self.audioPlayerControl pause];
-    self.isPlaying = NO;
+    self.playing = NO;
     [self.audioControlButton setImage:[UIImage imageNamed:@"playbutton"] forState:UIControlStateNormal];
   }
 }

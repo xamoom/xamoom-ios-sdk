@@ -21,37 +21,36 @@
 #import "XMMContentBlock.h"
 
 /**
- `XMMContentBlockType6` is used for mapping the JSON sended by the api.
- 
- This class represents the contentBlockType 'CONTENT'.
- 
- *Default behavior*
- 
- 1. Load via [XMMEnduserApi contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:]
- 2. Display tile, image and descriptionOfContent
- 3. Open new content on user interaction
- 
+ * `XMMContentBlockType6` is used for mapping the JSON sended by the api.
+ *
+ * This class represents the contentBlockType 'CONTENT'.
+ *
+ * *Default behavior*
+ *
+ * 1. Load via [XMMEnduserApi contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:]
+ * 2. Display tile, image and descriptionOfContent
+ * 3. Open new content on user interaction
  */
 @interface XMMContentBlockType6 : XMMContentBlock
 
 /*
- The unique contentId on our system.
+ * The unique contentId on our system.
  **/
 @property (nonatomic, copy) NSString *contentId;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlockType6` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlockType6` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
 /**
- Returns a RKObjectMappingMatcher for `XMMContentBlockType6` class.
- 
- @return RKObjectMappingMatcher*
+ * Returns a RKObjectMappingMatcher for `XMMContentBlockType6` class.
+ *
+ * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
 

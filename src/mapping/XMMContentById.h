@@ -24,41 +24,41 @@
 @class XMMContent;
 
 /**
- `XMMContentById` is used for mapping the JSON sended by the api.
+ * `XMMContentById` is used for mapping the JSON sended by the api.
  */
 @interface XMMContentById : NSObject
 
 /**
- The systemName on our system.
+ * The systemName on our system.
  */
 @property (nonatomic, copy) NSString *systemName;
 /**
- Url to the homepage.
+ * Url to the homepage.
  */
 @property (nonatomic, copy) NSString *systemUrl;
 /**
- The unique systemId on our system.
+ * The unique systemId on our system.
  */
 @property (nonatomic, copy) NSString *systemId;
 /**
- The content as XMMContent to display.
+ * The content as XMMContent to display.
  */
 @property (nonatomic) XMMContent *content;
 /**
- Array containing items of XMMMenuItem.
+ * Array containing items of XMMMenuItem.
  */
 @property (nonatomic) NSArray *menu;
 /**
- The style of the system as XMMStyle.
+ * The style of the system as XMMStyle.
  */
 @property (nonatomic) XMMStyle* style;
 
 /// @name Mapping
 
 /**
- Returns a RKResponseDescriptor for `XMMContentById` class.
- 
- @return RKResponseDescriptor*
+ * Returns a RKResponseDescriptor for `XMMContentById` class.
+ *
+ * @return RKResponseDescriptor*
  */
 + (RKResponseDescriptor*)contentDescriptor;
 

@@ -21,32 +21,32 @@
 #import <RestKit/RestKit.h>
 
 /**
- `XMMContentBlock` is used for mapping the JSON sended by the api.
- 
- If you don't know how to handle contentBlocks look at our sample app "pingeb.org".
+ * `XMMContentBlock` is used for mapping the JSON sended by the api.
+ *
+ * If you don't know how to handle contentBlocks look at our sample app "pingeb.org".
  */
 @interface XMMContentBlock : NSObject
 
 /**
- The title of this contentBlock.
+ * The title of this contentBlock.
  */
 @property (nonatomic, copy) NSString *title;
 /**
- The publicStatus of the content. Yes means public. 
- Changed on our system when check "Syncronisation" on the contentBlock.
+ * The publicStatus of the content. Yes means public.
+ * Changed on our system when check "Syncronisation" on the contentBlock.
  */
 @property (nonatomic) BOOL publicStatus;
 /**
- The contentBlockType (0-9) determining the type of the contentBlock.
+ * The contentBlockType (0-9) determining the type of the contentBlock.
  */
 @property (nonatomic) int contentBlockType;
 
 /// @name Mapping
 
 /**
- Returns a RKObjectMapping for `XMMContentBlock` class.
- 
- @return RKObjectMapping*
+ * Returns a RKObjectMapping for `XMMContentBlock` class.
+ *
+ * @return RKObjectMapping*
  */
 + (RKObjectMapping*)mapping;
 
