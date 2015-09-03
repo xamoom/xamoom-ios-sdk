@@ -19,7 +19,8 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "XMMEnduserApi.h"
+#import <xamoom-ios-sdk/XMMEnduserApi.h>
+#import <xamoom-ios-sdk/XMMContentBlocks.h>
 
 NSString * const kContentId = @"d8be762e9b644fc4bb7aedfa8c0e17b7";
 NSString * const kLocationIdentifier = @"0ana0";
@@ -37,14 +38,13 @@ float const kTimeWaiting = 30.0;
 @property XMMSpotMap *apiResultGetSpotMap;
 @property XMMContentList *apiResultGetContentList;
 @property XMMClosestSpot *apiResultClosestSpot;
+@property XMMContentBlocks *contentBlocks;
 @property NSArray* fetchResult;
 @property NSString* qrScanResult;
 
 @end
 
 @implementation xamoom_ios_sdk_testTests
-
-@synthesize api;
 
 - (void)setUp {
   NSLog(@"Test Suite - setUp");
@@ -53,13 +53,6 @@ float const kTimeWaiting = 30.0;
   //reset variables
   done = NO;
   
-  self.apiResultGetContentById = nil;
-  self.apiResultGetByLocationIdentifier = nil;
-  self.apiResultGetByLocation = nil;
-  self.apiResultGetSpotMap = nil;
-  self.apiResultGetContentList = nil;
-  self.fetchResult = nil;
-  
   NSString* path = [[NSBundle mainBundle] pathForResource:@"api"
                                                    ofType:@"txt"];
   NSString* apiKey = [NSString stringWithContentsOfFile:path
@@ -67,22 +60,25 @@ float const kTimeWaiting = 30.0;
                                                   error:NULL];
   
   [[XMMEnduserApi sharedInstance] setApiKey:apiKey];
+  
+  self.contentBlocks = [[XMMContentBlocks alloc] initWithLanguage:@"de" withWidth:100];
 }
 
 - (void)tearDown {
-  api = nil;
-  
   [super tearDown];
-  NSLog(@"Test Suite - tearDown");
+
+  self.api = nil;
+  self.apiResultGetContentById = nil;
+  self.apiResultGetByLocationIdentifier = nil;
+  self.apiResultGetByLocation = nil;
+  self.apiResultGetSpotMap = nil;
+  self.apiResultGetContentList = nil;
+  self.fetchResult = nil;
+  self.apiResultClosestSpot = nil;
+  self.contentBlocks = nil;
 }
 
 #pragma mark - Tests
-
-- (void)testApiBaseUrl {
-  NSLog(@"Test Suite - testApiBaseUrl");
-  
-  XCTAssertNotNil([XMMEnduserApi sharedInstance].apiBaseURL, @"api.apiBaseURL should not be nil");
-}
 
 - (void)testSystemLanguage {
   NSLog(@"Test Suite - testSystemLanguage");
@@ -108,6 +104,19 @@ float const kTimeWaiting = 30.0;
 - (void)testGetContentByIdFullFullWithoutLanguage {
   NSLog(@"Test Suite - testGetContentByIdFull");
   [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:@"" full:YES completion:^(XMMContentById *result) {
+    self.apiResultGetContentById = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
+  
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
+  XCTAssertNotNil(self.apiResultGetContentById, @"getContentById should return something");
+}
+
+- (void)testGetContentByIdFullFullWitLanguageNil {
+  NSLog(@"Test Suite - testGetContentByIdFull");
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:nil full:YES completion:^(XMMContentById *result) {
     self.apiResultGetContentById = result;
     done = YES;
   } error:^(XMMError *error) {
@@ -279,6 +288,50 @@ float const kTimeWaiting = 30.0;
   
   XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
   XCTAssertNotNil(self.apiResultClosestSpot, @"getContentList should return something");
+}
+
+#pragma mark - XMMContentBlocks Tests
+//write some tests
+
+- (void)testContentBlockInit {
+  XCTAssertNotNil(self.contentBlocks);
+}
+
+- (void)testContentBlocksWidth {
+  XCTAssertEqual(self.contentBlocks.screenWidth, (100-32));
+}
+
+- (void)testContentBlocksLanguage {
+  XCTAssertEqual(self.contentBlocks.language, @"de");
+}
+
+- (void)testContentBlocksLinkColor {
+  XCTAssertEqual(self.contentBlocks.linkColor, [UIColor blueColor]);
+}
+
+- (void)testContentBlocksById {
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:nil full:YES completion:^(XMMContentById *result) {
+    self.apiResultGetContentById = result;
+    [self.contentBlocks displayContentBlocksWithIdResult:result];
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
+  
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
+  XCTAssertNotNil(self.contentBlocks.itemsToDisplay, @"itemsToDisplay should be not nil");
+}
+
+- (void)testContentBlocksByLocationIdentifier {
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:nil completion:^(XMMContentByLocationIdentifier *result) {
+    self.apiResultGetByLocationIdentifier = result;
+    done = YES;
+  } error:^(XMMError *error) {
+    
+  }];
+  
+  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
+  XCTAssertNotNil(self.contentBlocks.itemsToDisplay, @"itemsToDisplay should be not nil");
 }
 
 #pragma mark - Helping methods
