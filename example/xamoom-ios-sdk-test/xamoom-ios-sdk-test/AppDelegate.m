@@ -18,6 +18,7 @@
 //
 
 #import "AppDelegate.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface AppDelegate ()
 
@@ -51,6 +52,22 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+/**
+ *  Allows the MPMoviePlayerViewController to display in landscape-mode, when you only support portrait mode.
+ *
+ *  @param application
+ *  @param window
+ *
+ *  @return
+ */
+- (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+  if ([[self.window.rootViewController presentedViewController] isKindOfClass:[MPMoviePlayerViewController class]]) {
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+  } else {
+    return UIInterfaceOrientationMaskPortrait;
+  }
 }
 
 @end

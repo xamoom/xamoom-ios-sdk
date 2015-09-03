@@ -70,7 +70,7 @@ NSString * const kLocationIdentifier = @"0ana0";
 
 - (IBAction)getContentByLocationIdentifierAction:(id)sender {
   [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
-                                                     completion:^(XMMResponseGetByLocationIdentifier *result){
+                                                     completion:^(XMMContentByLocationIdentifier *result){
                                                        NSLog(@"finishedLoadDataByLocationIdentifier: %@", result.description);
                                                        self.outputTextView.text = result.description;
                                                      } error:^(XMMError *error) {
@@ -81,7 +81,7 @@ NSString * const kLocationIdentifier = @"0ana0";
 
 - (IBAction)getContentByLocationAction:(id)sender {
   [[XMMEnduserApi sharedInstance] contentWithLat:@"46.615" withLon:@"14.263" withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
-                                      completion:^(XMMResponseGetByLocation *result){
+                                      completion:^(XMMContentByLocation *result){
                                         NSLog(@"finishedLoadDataByLocation: %@", result.description);
                                         self.outputTextView.text = result.description;
                                       } error:^(XMMError *error) {
@@ -92,7 +92,7 @@ NSString * const kLocationIdentifier = @"0ana0";
 
 - (IBAction)getSpotMapAction:(id)sender {
   [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"stw",@"raphi"] withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
-                                           completion:^(XMMResponseGetSpotMap *result) {
+                                           completion:^(XMMSpotMap *result) {
                                              NSLog(@"finishedGetSpotMap: %@", result.description);
                                              self.outputTextView.text = result.description;
                                            } error:^(XMMError *error) {
@@ -103,7 +103,7 @@ NSString * const kLocationIdentifier = @"0ana0";
 
 - (IBAction)getContentListAction:(id)sender {
   [[XMMEnduserApi sharedInstance] contentListWithPageSize:5 withLanguage:[XMMEnduserApi sharedInstance].systemLanguage withCursor:nil withTags:@[@"artists"]
-                                               completion:^(XMMResponseContentList *result){
+                                               completion:^(XMMContentList *result){
                                                  NSLog(@"finishedGetContentList full: %@", result.description);
                                                  self.outputTextView.text = result.description;
                                                } error:^(XMMError *error) {
@@ -114,7 +114,7 @@ NSString * const kLocationIdentifier = @"0ana0";
 
 - (IBAction)getContentByIdFull:(id)sender {
   [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:NO includeMenu:NO withLanguage:[XMMEnduserApi sharedInstance].systemLanguage full:YES
-                                            completion:^(XMMResponseGetById *result){
+                                            completion:^(XMMContentById *result){
                                               NSLog(@"finishedLoadDataById full: %@", result.description);
                                               self.outputTextView.text = result.description;
                                             } error:^(XMMError *error) {
@@ -125,7 +125,7 @@ NSString * const kLocationIdentifier = @"0ana0";
 
 - (IBAction)closestSpots:(id)sender {
   [[XMMEnduserApi sharedInstance] closestSpotsWithLat:46.615 withLon:14.263 withRadius:1000 withLimit:100 withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
-                                           completion:^(XMMResponseClosestSpot *result){
+                                           completion:^(XMMClosestSpot *result){
                                              NSLog(@"finishedLoadClosestSpots: %@", result.description);
                                              self.outputTextView.text = result.description;
                                            } error:^(XMMError *error) {
