@@ -22,7 +22,6 @@
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbq-ej-AT0">
                         <rect key="frame" x="8" y="37" width="304" height="354"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="354" id="xQs-el-AtM"/>
                         </constraints>
