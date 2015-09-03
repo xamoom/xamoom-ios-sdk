@@ -60,14 +60,34 @@
  *  @param application
  *  @param window
  *
- *  @return
+ *  @return 
  */
 - (NSUInteger) application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
-  if ([[self.window.rootViewController presentedViewController] isKindOfClass:[MPMoviePlayerViewController class]]) {
+  if ([[window.rootViewController presentedViewController]
+       isKindOfClass:[MPMoviePlayerViewController class]] || [[window.rootViewController presentedViewController] isKindOfClass:NSClassFromString(@"MPInlineVideoFullscreenViewController")] || [[window.rootViewController presentedViewController] isKindOfClass:NSClassFromString(@"AVFullScreenViewController")]) {
+    
     return UIInterfaceOrientationMaskAllButUpsideDown;
-  } else {
-    return UIInterfaceOrientationMaskPortrait;
+  }else {
+    
+    if ([[window.rootViewController presentedViewController]
+         isKindOfClass:[UINavigationController class]]) {
+      
+      // look for it inside UINavigationController
+      UINavigationController *nc = (UINavigationController *)[window.rootViewController presentedViewController];
+      
+      // is at the top?
+      if ([nc.topViewController isKindOfClass:[MPMoviePlayerViewController class]]) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+        
+        // or it's presented from the top?
+      } else if ([[nc.topViewController presentedViewController]
+                  isKindOfClass:[MPMoviePlayerViewController class]]) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+      }
+    }
   }
+  
+  return UIInterfaceOrientationMaskPortrait;
 }
 
 @end
