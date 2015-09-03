@@ -9,13 +9,13 @@
 
 Pod::Spec.new do |s|
   s.name             = "xamoom-ios-sdk"
-  s.version          = "1.2.1"
+  s.version          = "1.3.0"
   s.summary          = "xamoom-ios-sdk is a framework for the xamoom-cloud api. So you can write your own applications for the xamoom-cloud."
   s.homepage         = "http://xamoom.github.io/xamoom-ios-sdk/"
   s.license          = 'GNU'
   s.author           = { "Raphael Seher" => "raphael@xamoom.com" }
   s.source           = { :git => "https://github.com/xamoom/xamoom-ios-sdk.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/xamoom'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
