@@ -285,7 +285,7 @@ Every call is also on our documentation: [XMMEnduserApi documentation](http://xa
 # XMMContentBlocks
 
 xamoom has a lot of different contentBlocks. With XMMContentBlocks you have a easy way to display them.
-How to use it is in our [Step by Step Guide](https://github.com/xamoom/xamoom-ios-sdk/wiki/Step-by-Step:-New-App-with-xamoom-ios-sdk).
+How to use it is in our [Step by Step Guide](https://github.com/xamoom/xamoom-ios-sdk/wiki/Step-by-Step-Guide).
 
 # Requirements
 
