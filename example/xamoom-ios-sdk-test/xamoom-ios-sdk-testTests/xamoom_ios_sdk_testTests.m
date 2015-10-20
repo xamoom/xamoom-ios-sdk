@@ -24,9 +24,6 @@
 
 NSString * const kContentId = @"d8be762e9b644fc4bb7aedfa8c0e17b7";
 NSString * const kLocationIdentifier = @"0ana0";
-NSString * const kMajorId = @"5704";
-NSString * const kMinorId = @"1209";
-
 float const kTimeWaiting = 30.0;
 
 @interface xamoom_ios_sdk_testTests : XCTestCase
@@ -134,7 +131,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetContentByLocationIdentifierFull {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierFull");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier majorId:nil includeStyle:YES includeMenu:YES withLanguage:@"de" completion:^(XMMContentByLocationIdentifier *result) {
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:@"de" completion:^(XMMContentByLocationIdentifier *result) {
     self.apiResultGetByLocationIdentifier = result;
     done = YES;
   } error:^(XMMError *error) {
@@ -147,7 +144,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetContentByLocationIdentifierWithoutStyle {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithoutStyle");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier majorId:nil includeStyle:NO includeMenu:YES withLanguage:@"de"
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:NO includeMenu:YES withLanguage:@"de"
                                                      completion:^(XMMContentByLocationIdentifier *result) {
                                                        self.apiResultGetByLocationIdentifier = result;
                                                        done = YES;
@@ -161,7 +158,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetContentByLocationIdentifierWithoutMenu {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithoutMenu");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier majorId:nil  includeStyle:YES includeMenu:NO withLanguage:@"de"
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:NO withLanguage:@"de"
                                                      completion:^(XMMContentByLocationIdentifier *result) {
                                                        self.apiResultGetByLocationIdentifier = result;
                                                        done = YES;
@@ -175,7 +172,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetContentByLocationIdentifierWithoutStyleAndMenu {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithoutStyleAndMenu");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier majorId:nil includeStyle:NO includeMenu:NO withLanguage:@"de"
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:NO includeMenu:NO withLanguage:@"de"
                                                      completion:^(XMMContentByLocationIdentifier *result) {
                                                        self.apiResultGetByLocationIdentifier = result;
                                                        done = YES;
@@ -189,21 +186,7 @@ float const kTimeWaiting = 30.0;
 
 - (void)testGetContentByLocationIdentifierWithEnglishLanguage {
   NSLog(@"Test Suite - testGetContentByLocationIdentifierWithEnglishLanguage");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier majorId:nil includeStyle:YES includeMenu:YES withLanguage:@"en"
-                                                     completion:^(XMMContentByLocationIdentifier *result) {
-                                                       self.apiResultGetByLocationIdentifier = result;
-                                                       done = YES;
-                                                     } error:^(XMMError *error) {
-                                                       
-                                                     }];
-  
-  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
-  XCTAssertNotNil(self.apiResultGetByLocationIdentifier, @"getContentByLocationIdentifier should return something");
-}
-
-- (void)testGetContentByLocationIdentifierWithBeacon {
-  NSLog(@"Test Suite - testGetContentByLocationIdentifierWithBeacon");
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier majorId:nil includeStyle:YES includeMenu:YES withLanguage:@"en"
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:@"en"
                                                      completion:^(XMMContentByLocationIdentifier *result) {
                                                        self.apiResultGetByLocationIdentifier = result;
                                                        done = YES;
@@ -340,7 +323,7 @@ float const kTimeWaiting = 30.0;
 }
 
 - (void)testContentBlocksByLocationIdentifier {
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier majorId:nil includeStyle:YES includeMenu:YES withLanguage:nil completion:^(XMMContentByLocationIdentifier *result) {
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:nil completion:^(XMMContentByLocationIdentifier *result) {
     self.apiResultGetByLocationIdentifier = result;
     done = YES;
   } error:^(XMMError *error) {
