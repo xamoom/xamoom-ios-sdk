@@ -125,6 +125,7 @@ extern NSString * const kApiBaseURLString;
  * default language will be returned.
  *
  * @param locationIdentifier  The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend
+ * @param majorId             The major id of your beacons (find it in your system settings)
  * @param style               True or False for returning the style from xamoom backend as XMMStyle
  * @param menu                True of False for returning the menu from xamoom backend as Array of XMMMenuItem
  * @param language            The requested language of the content from xamoom backend
@@ -136,7 +137,7 @@ extern NSString * const kApiBaseURLString;
  * - *param1* error A XMMError with error informations
  * @return void
  */
-- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMContentByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
+- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier majorId:(NSString*)majorId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMContentByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  * Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the

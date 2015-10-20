@@ -21,7 +21,6 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString = @"https://13-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
 
 static XMMEnduserApi *sharedInstance;
 
@@ -81,16 +80,28 @@ static XMMEnduserApi *sharedInstance;
   [self apiPostWithPath:path andDescriptor:[XMMContentById contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
 }
 
-- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMContentByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler{
+- (void)contentWithLocationIdentifier:(NSString*)locationIdentifier majorId:(NSString*)majorId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMContentByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler{
   if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
   
-  NSDictionary *queryParams = @{@"location_identifier":locationIdentifier,
-                                @"include_style":(style) ? @"True" : @"False",
-                                @"include_menu":(menu) ? @"True" : @"False",
-                                @"language":language,
-                                };
+  NSDictionary *queryParams;
+  
+  if (majorId != nil) {
+    queryParams = @{@"location_identifier":locationIdentifier,
+                    @"ibeacon_major":majorId,
+                    @"include_style":(style) ? @"True" : @"False",
+                    @"include_menu":(menu) ? @"True" : @"False",
+                    @"language":language,
+                    };
+  } else {
+    queryParams = @{@"location_identifier":locationIdentifier,
+                    @"include_style":(style) ? @"True" : @"False",
+                    @"include_menu":(menu) ? @"True" : @"False",
+                    @"language":language,
+                    };
+  }
+  
   
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_location_identifier";
   
