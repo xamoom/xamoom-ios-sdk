@@ -56,7 +56,7 @@ When your call is successful you will get a [`XMMResponseGetById`](http://xamoom
 
 ## [API Calls]((https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls))
 
-Check out our the [API Calls Wiki Page](https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls).
+Check out our [API Calls Wiki Page](https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls).
 
 Every call is also on our documentation: [XMMEnduserApi documentation](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMEnduserApi.html)
 
