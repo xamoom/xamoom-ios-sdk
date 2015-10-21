@@ -69,7 +69,7 @@ NSString * const kLocationIdentifier = @"0ana0";
 }
 
 - (IBAction)getContentByLocationIdentifierAction:(id)sender {
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier majorId:nil includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
                                                      completion:^(XMMContentByLocationIdentifier *result){
                                                        NSLog(@"finishedLoadDataByLocationIdentifier: %@", result.description);
                                                        self.outputTextView.text = result.description;
@@ -78,6 +78,15 @@ NSString * const kLocationIdentifier = @"0ana0";
                                                      }];
 }
 
+- (IBAction)getContentByLocationIdentifierBeacon:(id)sender {
+  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:@"16984" majorId:@"52414" includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
+                                                     completion:^(XMMContentByLocationIdentifier *result){
+                                                       NSLog(@"finishedLoadDataByLocationIdentifierBeacon: %@", result.description);
+                                                       self.outputTextView.text = result.description;
+                                                     } error:^(XMMError *error) {
+                                                       NSLog(@"LoadDataByLocationIdentifier Error: %@", error.message);
+                                                     }];
+}
 
 - (IBAction)getContentByLocationAction:(id)sender {
   [[XMMEnduserApi sharedInstance] contentWithLat:@"46.615" withLon:@"14.263" withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
