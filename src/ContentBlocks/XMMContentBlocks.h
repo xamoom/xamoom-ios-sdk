@@ -69,7 +69,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 /**
  * Use XMMContentBlocks to display all our contentBlocks from xamoom cloud.
  */
-@interface XMMContentBlocks : NSObject <UIWebViewDelegate>
+@interface XMMContentBlocks : NSObject <UITableViewDataSource ,UIWebViewDelegate>
 
 @property (nonatomic, weak) id<XMMContentBlocksDelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *itemsToDisplay;
