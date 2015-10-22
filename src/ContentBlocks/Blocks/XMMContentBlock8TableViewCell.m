@@ -28,8 +28,7 @@
   [super setSelected:selected animated:animated];
 }
 
-- (void)setDownloadType:(int)type {
-  self.downloadType = type;
+- (void)initCellData {
   [self.icon setImage:[self selectRightIcon]];
   
   UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];

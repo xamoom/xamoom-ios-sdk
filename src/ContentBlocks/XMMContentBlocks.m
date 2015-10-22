@@ -397,6 +397,8 @@ int const kHorizontalSpaceToSubview = 32;
   cell.fileId = contentBlock.fileId;
   cell.downloadType = contentBlock.downloadType;
   
+  [cell initCellData];
+  
   [self.itemsToDisplay addObject:cell];
 }
 

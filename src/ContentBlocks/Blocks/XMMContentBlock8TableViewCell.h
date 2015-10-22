@@ -31,4 +31,6 @@
 @property (nonatomic) int downloadType;
 @property (strong, nonatomic) NSString *fileId;
 
+- (void)initCellData;
+
 @end
