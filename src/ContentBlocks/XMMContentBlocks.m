@@ -462,11 +462,16 @@ int const kHorizontalSpaceToSubview = 32;
 # pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.itemsToDisplay.count;
+  return self.items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  return [self.itemsToDisplay objectAtIndex:indexPath.row];
+  if ([[self.items objectAtIndex:indexPath.row] isKindOfClass:[XMMContentBlockType0 class]]) {
+    id object = [self.items objectAtIndex:indexPath.row];
+    return [object tableView:tableView representationAsCellForRowAtIndexPath:indexPath];
+  }
+  
+  return [[UITableViewCell alloc] init];
 }
 
 @end
