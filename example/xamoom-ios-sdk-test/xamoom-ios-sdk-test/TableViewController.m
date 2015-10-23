@@ -23,10 +23,13 @@
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   self.tableView.rowHeight = UITableViewAutomaticDimension;
   self.tableView.estimatedRowHeight = 150.0;
+  self.tableView.delegate = self;
   
   self.contentBlocks = [[XMMContentBlocks alloc] initWithLanguage:[XMMEnduserApi sharedInstance].systemLanguage withWidth:self.tableView.bounds.size.width];
   self.contentBlocks.delegate = self;
   self.contentBlocks.showAllStoreLinks = YES;
+  
+  self.tableView.dataSource = self.contentBlocks;
   
   if (self.contentId == nil) {
     self.contentId = @"8f51819db5c6403d8455593322437c07";
@@ -34,7 +37,8 @@
   
   [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:@"" full:YES
                                             completion:^(XMMContentById *result) {
-                                              [self.contentBlocks displayContentBlocksWithIdResult:result];
+                                              self.contentBlocks.items = (NSMutableArray*) result.content.contentBlocks;
+                                              [self.tableView reloadData];
                                             } error:^(XMMError *error) {
                                             }];
 }
@@ -46,14 +50,6 @@
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  return self.contentBlocks.itemsToDisplay[indexPath.row];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [self.contentBlocks.itemsToDisplay count];
 }
 
 -(void)reloadTableViewForContentBlocks {

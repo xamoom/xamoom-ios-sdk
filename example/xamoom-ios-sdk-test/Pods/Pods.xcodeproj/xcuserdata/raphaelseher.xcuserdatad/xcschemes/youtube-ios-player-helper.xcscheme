@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23154F2B37534582DC48A20C"
+               BlueprintIdentifier = "0C40FB608DF27AAC172EDA74"
                BuildableName = "libyoutube-ios-player-helper.a"
                BlueprintName = "youtube-ios-player-helper"
                ReferencedContainer = "container:Pods.xcodeproj">
