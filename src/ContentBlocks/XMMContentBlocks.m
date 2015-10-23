@@ -451,8 +451,12 @@ int const kHorizontalSpaceToSubview = 32;
   
   self.fontSize = newFontSize;
   
-  //Change fontSize in textblocks
+  
+  for (XMMContentBlock *contentItem in self.itemsToDisplay) {
+    if ([contentItem isKindOfClass:[XMMContentBlock0TableViewCell class]]) {
       XMMContentBlock0TableViewCell* textBlock = (XMMContentBlock0TableViewCell*)contentItem;
+      textBlock.contentTextView.attributedText = [self attributedStringFromHTML:textBlock.contentText];
+      [textBlock.titleLabel setFont:[UIFont boldSystemFontOfSize:self.fontSize+7]];
     }
   }
   
