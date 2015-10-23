@@ -73,6 +73,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 
 @property (nonatomic, weak) id<XMMContentBlocksDelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *itemsToDisplay;
+@property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic) float screenWidth;
 @property (nonatomic, strong) UIColor *linkColor;
 @property (nonatomic, strong) NSString *language;
