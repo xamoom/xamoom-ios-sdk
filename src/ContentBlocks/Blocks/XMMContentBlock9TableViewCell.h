@@ -42,7 +42,6 @@
 @property (strong, nonatomic) NSArray *spotMapTags;
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) UIColor* linkColor;
 
 - (void)getSpotMapWithSystemId:(NSString*)systemId withLanguage:(NSString*)language;
 
