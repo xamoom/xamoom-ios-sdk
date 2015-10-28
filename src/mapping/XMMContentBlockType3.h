@@ -18,7 +18,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImage+animatedGIF.h"
+#import "SVGKit.h"
 #import "XMMContentBlock.h"
+#import "XMMContentBlock3TableViewCell.h"
 
 /**
  * `XMMContentBlockType3` is used for mapping the JSON sended by the api.
@@ -64,5 +68,11 @@
  * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
+
+@end
+
+@interface XMMContentBlockType3 (XMMTableViewRepresentation)
+
+- (UITableViewCell *)tableView: (UITableView *)tableView representationAsCellForRowAtIndexPath: (NSIndexPath *)indexPath;
 
 @end
