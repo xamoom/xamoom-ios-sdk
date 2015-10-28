@@ -32,4 +32,6 @@
 @property (strong, nonatomic) NSString *contentText;
 @property (nonatomic) int contentBlockType;
 
+@property (nonatomic) int fontSize;
+
 @end

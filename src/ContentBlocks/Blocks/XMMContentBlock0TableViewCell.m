@@ -23,6 +23,7 @@
 
 - (void)awakeFromNib {
   // Initialization code
+  self.fontSize = 12;
 }
 
 /*
