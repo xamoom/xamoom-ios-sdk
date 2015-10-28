@@ -22,6 +22,8 @@
 
 @implementation XMMContentBlock6TableViewCell
 
+static NSString *contentLanguage;
+
 - (void)awakeFromNib {
   // Initialization code
   self.contentTitleLabel.text = @"";
@@ -55,6 +57,14 @@
   [self.contentExcerptLabel sizeToFit];
   
   [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.content.imagePublicUrl]];
+}
+
++ (NSString *)language {
+  return contentLanguage;
+}
+
++ (void)setLanguage:(NSString *)language {
+  contentLanguage = language;
 }
 
 @end
