@@ -32,6 +32,9 @@
 
 @implementation XMMContentBlock9TableViewCell
 
+static UIColor* contentLinkColor;
+static NSString* contentLanguage;
+
 - (void)awakeFromNib {
   // Initialization code
   [self setupLocationManager];
@@ -41,6 +44,22 @@
   [super setSelected:selected animated:animated];
   
   // Configure the view for the selected state
+}
+
++ (NSString *)language {
+  return contentLanguage;
+}
+
++ (void)setLanguage:(NSString *)language {
+  contentLanguage = language;
+}
+
++ (UIColor *)linkColor {
+  return contentLinkColor;
+}
+
++ (void)setLinkColor:(UIColor *)linkColor {
+  contentLinkColor = linkColor;
 }
 
 - (void)setupMapView {

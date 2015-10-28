@@ -44,5 +44,9 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
 - (void)getSpotMapWithSystemId:(NSString*)systemId withLanguage:(NSString*)language;
++ (NSString *)language;
++ (void)setLanguage:(NSString *)language;
++ (UIColor *)linkColor;
++ (void)setLinkColor:(UIColor *)linkColor;
 
 @end
