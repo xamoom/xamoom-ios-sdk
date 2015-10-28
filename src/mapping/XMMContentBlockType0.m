@@ -49,7 +49,7 @@
   //set title
   if(self.title != nil && ![self.title isEqualToString:@""]) {
     cell.titleLabel.text = self.title;
-    [cell.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:cell.fontSize+5]];
+    [cell.titleLabel setFont:[UIFont systemFontOfSize:cell.fontSize+5 weight:UIFontWeightMedium]];
   }
   
   //set content

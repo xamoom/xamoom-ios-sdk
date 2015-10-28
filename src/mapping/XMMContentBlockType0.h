@@ -58,8 +58,6 @@
 
 @interface XMMContentBlockType0 (XMMTableViewRepresentation)
 
-@property (nonatomic) int fontSize;
-
 - (UITableViewCell *)tableView: (UITableView *)tableView representationAsCellForRowAtIndexPath: (NSIndexPath *)indexPath;
 
 @end
