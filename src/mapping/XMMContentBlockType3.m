@@ -42,7 +42,7 @@
 
 #pragma mark - XMMTableViewRepresentation
 
--(UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
   XMMContentBlock3TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageBlockTableViewCell"];
   if (cell == nil) {
     [tableView registerNib:[UINib nibWithNibName:@"XMMContentBlock3TableViewCell" bundle:nil]

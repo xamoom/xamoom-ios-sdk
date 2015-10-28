@@ -41,7 +41,7 @@
 
 #pragma mark - XMMTableViewRepresentation
 
--(UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
   XMMContentBlock1TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AudioBlockTableViewCell"];
   if (cell == nil) {
     [tableView registerNib:[UINib nibWithNibName:@"XMMContentBlock1TableViewCell" bundle:nil]
