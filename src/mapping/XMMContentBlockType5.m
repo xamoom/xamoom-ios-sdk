@@ -39,5 +39,24 @@
   return matcher;
 }
 
+#pragma mark - XMMTableViewRepresentation
+
+- (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  XMMContentBlock5TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EbookBlockTableViewCell"];
+  if (cell == nil) {
+    [tableView registerNib:[UINib nibWithNibName:@"XMMContentBlock5TableViewCell" bundle:nil]
+    forCellReuseIdentifier:@"EbookBlockTableViewCell"];
+    cell = [tableView dequeueReusableCellWithIdentifier:@"EbookBlockTableViewCell"];
+  }
+  
+  //set title, artist and downloadUrl
+  if(self.title != nil && ![self.title isEqualToString:@""])
+    cell.titleLabel.text = self.title;
+  
+  cell.artistLabel.text = self.artist;
+  cell.downloadUrl = self.fileId;
+  
+  return cell;
+}
 
 @end
