@@ -73,8 +73,8 @@ static NSString* contentLanguage;
   [self.viewForMap addSubview:self.mapKitWithSMCalloutView];
 }
 
-- (void)getSpotMapWithSystemId:(NSString*)systemId withLanguage:(NSString*)language {
-  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:self.spotMapTags withLanguage:language
+- (void)getSpotMap {
+  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:self.spotMapTags withLanguage:contentLanguage
                                            completion:^(XMMSpotMap *result) {
                                              [self.loadingIndicator stopAnimating];
                                              [self setupMapView];
@@ -355,7 +355,7 @@ static NSString* contentLanguage;
   
   //create, design and adjust navigationButton
   UIButton *navigationButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, xamoomCalloutView.frame.size.height, 300.0f, 60.0f)];
-  navigationButton.backgroundColor = self.linkColor;
+  navigationButton.backgroundColor = contentLinkColor;
   [navigationButton setImage:[[UIImage imageNamed:@"car"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
   navigationButton.tintColor = [UIColor whiteColor];
   [navigationButton setImageEdgeInsets: UIEdgeInsetsMake(-10.0f, navigationButton.titleEdgeInsets.right, 10.0f, navigationButton.titleEdgeInsets.left)];
