@@ -44,6 +44,10 @@ int const kHorizontalSpaceToSubview = 32;
     self.language = language;
     self.screenWidth = screenWidth - kHorizontalSpaceToSubview;
     self.showAllStoreLinks = NO;
+    
+    [XMMContentBlock6TableViewCell setLanguage: language];
+    [XMMContentBlock9TableViewCell setLanguage: language];
+    [XMMContentBlock9TableViewCell setLinkColor: self.linkColor];
   }
   
   //notification to reload delegates tableview from special contentBlockCells
