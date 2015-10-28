@@ -474,12 +474,8 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  if ([[self.items objectAtIndex:indexPath.row] isKindOfClass:[XMMContentBlockType0 class]]) {
-    id object = [self.items objectAtIndex:indexPath.row];
-    return [object tableView:tableView representationAsCellForRowAtIndexPath:indexPath];
-  }
-  
-  return [[UITableViewCell alloc] init];
+  id object = [self.items objectAtIndex:indexPath.row];
+  return [object tableView:tableView representationAsCellForRowAtIndexPath:indexPath];
 }
 
 @end
