@@ -38,6 +38,8 @@
   return matcher;
 }
 
+#pragma mark - XMMTableViewRepresentation
+
 - (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
   XMMContentBlock0TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextBlockTableViewCell"];
   if (cell == nil) {
@@ -64,7 +66,7 @@
   }
   
   //set the linkcolor to a specific color
-  //[cell.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : self.linkColor, }];
+  //[cell.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : cell.linkColor, }];
   
   return cell;
 }
