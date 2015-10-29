@@ -49,7 +49,11 @@
     forCellReuseIdentifier:@"ImageBlockTableViewCell"];
     cell = [tableView dequeueReusableCellWithIdentifier:@"ImageBlockTableViewCell"];
   }
+
+  [cell.image removeConstraints:cell.image.constraints];
+  [cell.image setNeedsUpdateConstraints];
   
+  cell.titleLabel.text = nil;
   cell.linkUrl = self.linkUrl;
   
   //set title
@@ -84,7 +88,7 @@
                                        multiplier:(newImage.size.width/newImage.size.height)
                                        constant:0.0f];
       [cell.image addConstraint:constraint];
-      [cell needsUpdateConstraints];
+      [cell.image needsUpdateConstraints];
       [cell.imageLoadingIndicator stopAnimating];
     } else {
       [cell.image sd_setImageWithURL:[NSURL URLWithString:self.fileId]
@@ -99,7 +103,7 @@
                                                               constant:0.0f];
                              
                              [cell.image addConstraint:constraint];
-                             [cell needsUpdateConstraints];
+                             [cell.image needsUpdateConstraints];
                              [cell.imageLoadingIndicator stopAnimating];
                            }];
     }
