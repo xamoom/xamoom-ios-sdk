@@ -74,8 +74,17 @@ static NSString* contentLanguage;
 }
 
 - (void)getSpotMap {
+  XMMSpotMap *spotMap = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[self.spotMapTags componentsJoinedByString:@","]];
+  if (spotMap) {
+    [self showSpotMap:spotMap];
+    return;
+  }
+  
   [[XMMEnduserApi sharedInstance] spotMapWithMapTags:self.spotMapTags withLanguage:contentLanguage
                                            completion:^(XMMSpotMap *result) {
+                                             
+                                             [[XMMContentBlocksCache sharedInstance] saveSpotMap:result key:[self.spotMapTags componentsJoinedByString:@","]];
+                                             
                                              [self.loadingIndicator stopAnimating];
                                              [self setupMapView];
                                              [self showSpotMap:result];
