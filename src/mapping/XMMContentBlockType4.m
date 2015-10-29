@@ -43,12 +43,6 @@
 #pragma mark - XMMTableViewRepresentation
 
 - (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  /*
-  if (self.linkType == 16 || self.linkType == 17) {
-    return;
-  }
-  */
-  
   XMMContentBlock4TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LinkBlockTableViewCell"];
   if (cell == nil) {
     [tableView registerNib:[UINib nibWithNibName:@"XMMContentBlock4TableViewCell" bundle:nil]
