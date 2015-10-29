@@ -26,8 +26,6 @@ int const kHorizontalSpaceToSubview = 32;
 
 @interface XMMContentBlocks ()
 
-@property (nonatomic) int fontSize;
-
 @end
 
 #pragma mark - XMMContentBlocks Implementation
@@ -38,11 +36,11 @@ int const kHorizontalSpaceToSubview = 32;
   self = [super init];
   
   if(self) {
-    self.fontSize = NormalFontSize;
     self.linkColor = [UIColor blueColor];
     self.language = language;
     self.showAllStoreLinks = NO;
     
+    [XMMContentBlock0TableViewCell setFontSize: NormalFontSize];
     [XMMContentBlock6TableViewCell setLanguage: language];
     [XMMContentBlock9TableViewCell setLanguage: language];
     [XMMContentBlock9TableViewCell setLinkColor: self.linkColor];
@@ -64,6 +62,7 @@ int const kHorizontalSpaceToSubview = 32;
   }
   
   NSMutableArray *contentBlocks = [(NSMutableArray *)self.content.contentBlocks copy];
+
   for (XMMContentBlock *contentBlock in contentBlocks) {
     if ([contentBlock isKindOfClass:[XMMContentBlockType4 class]]) {
       XMMContentBlockType4 *linkBlock = (XMMContentBlockType4 *)contentBlock;
@@ -77,21 +76,7 @@ int const kHorizontalSpaceToSubview = 32;
 #pragma mark - Custom Methods
 
 - (void)updateFontSizeTo:(TextFontSize)newFontSize {
-  if (self.fontSize == newFontSize) {
-    return;
-  }
-  
-  self.fontSize = newFontSize;
-  /*
-  for (XMMContentBlock *contentItem in self.itemsToDisplay) {
-    if ([contentItem isKindOfClass:[XMMContentBlock0TableViewCell class]]) {
-      XMMContentBlock0TableViewCell* textBlock = (XMMContentBlock0TableViewCell*)contentItem;
-      textBlock.contentTextView.attributedText = [self attributedStringFromHTML:textBlock.contentText];
-      [textBlock.titleLabel setFont:[UIFont boldSystemFontOfSize:self.fontSize+7]];
-    }
-  }
-  */
-  //[self reloadTableView];
+  [XMMContentBlock0TableViewCell setFontSize:newFontSize];
 }
 
 # pragma mark - UITableViewDataSource

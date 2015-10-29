@@ -21,9 +21,18 @@
 
 @implementation XMMContentBlock0TableViewCell
 
+static int contentFontSize;
+
 - (void)awakeFromNib {
   // Initialization code
-  self.fontSize = 12;
+}
+
++ (int)fontSize {
+  return contentFontSize;
+}
+
++ (void)setFontSize:(int)fontSize {
+  contentFontSize = fontSize;
 }
 
 /*

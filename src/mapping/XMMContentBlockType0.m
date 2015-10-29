@@ -51,12 +51,12 @@
   //set title
   if(self.title != nil && ![self.title isEqualToString:@""]) {
     cell.titleLabel.text = self.title;
-    [cell.titleLabel setFont:[UIFont systemFontOfSize:cell.fontSize+5 weight:UIFontWeightMedium]];
+    [cell.titleLabel setFont:[UIFont systemFontOfSize:[XMMContentBlock0TableViewCell fontSize]+5 weight:UIFontWeightMedium]];
   }
   
   //set content
   if (self.text != nil && ![self.text isEqualToString:@""]) {
-    cell.contentTextView.attributedText = [self attributedStringFromHTML:self.text fontSize:cell.fontSize];
+    cell.contentTextView.attributedText = [self attributedStringFromHTML:self.text fontSize:[XMMContentBlock0TableViewCell fontSize]];
     [cell.contentTextView sizeToFit];
   } else {
     //make uitextview "disappear"
