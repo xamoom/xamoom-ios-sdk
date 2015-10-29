@@ -26,9 +26,8 @@
   self.tableView.estimatedRowHeight = 150.0;
   self.tableView.delegate = self;
   
-  self.contentBlocks = [[XMMContentBlocks alloc] initWithLanguage:[XMMEnduserApi sharedInstance].systemLanguage withWidth:self.tableView.bounds.size.width];
-  self.contentBlocks.delegate = self;
-  self.contentBlocks.showAllStoreLinks = YES;
+  self.contentBlocks = [[XMMContentBlocks alloc] initWithLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
+  //self.contentBlocks.showAllStoreLinks = YES;
   
   self.tableView.dataSource = self.contentBlocks;
   
@@ -38,7 +37,7 @@
   
   [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:@"" full:YES
                                             completion:^(XMMContentById *result) {
-                                              self.contentBlocks.items = (NSMutableArray*) result.content.contentBlocks;
+                                              self.contentBlocks.content = result.content;
                                               [self.tableView reloadData];
                                             } error:^(XMMError *error) {
                                             }];
@@ -51,10 +50,6 @@
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
-}
-
--(void)reloadTableViewForContentBlocks {
-  [self.tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
