@@ -26,6 +26,7 @@
 #import <SMCalloutView/SMCalloutView.h>
 #import "SVGKit.h"
 #import "SVGKSourceString.h"
+#import "XMMContentBlocksCache.h"
 
 @class XamoomMapView;
 
