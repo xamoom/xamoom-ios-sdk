@@ -21,6 +21,7 @@
 #import <MapKit/MapKit.h>
 #import "XMMEnduserApi.h"
 
+@class XMMSpot;
 
 /**
  * XMMAnnotation will be used to by XMMContentBlock9TableViewCell to create the map annotations.

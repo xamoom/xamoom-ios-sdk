@@ -27,7 +27,6 @@
   self.tableView.delegate = self;
   
   self.contentBlocks = [[XMMContentBlocks alloc] initWithLanguage:[XMMEnduserApi sharedInstance].systemLanguage];
-  //self.contentBlocks.showAllStoreLinks = YES;
   
   self.tableView.dataSource = self.contentBlocks;
   

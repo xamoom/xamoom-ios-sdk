@@ -80,7 +80,7 @@ extern NSString * const kApiBaseURLString;
 /**
  * A shared instance from XMMEnduserApi.
  */
-+ (XMMEnduserApi *) sharedInstance;
++ (XMMEnduserApi *)sharedInstance;
 
 /// @name Inits
 
