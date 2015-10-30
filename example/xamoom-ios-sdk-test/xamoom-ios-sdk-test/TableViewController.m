@@ -38,6 +38,9 @@
                                             completion:^(XMMContentById *result) {
                                               self.contentBlocks.content = result.content;
                                               [self.tableView reloadData];
+                                              [self.tableView setNeedsLayout];
+                                              [self.tableView layoutIfNeeded];
+                                              [self.tableView reloadData]; 
                                             } error:^(XMMError *error) {
                                             }];
 }
