@@ -64,13 +64,15 @@ static NSString* contentLanguage;
 
 - (void)setupMapView {
   //init map
-  self.mapKitWithSMCalloutView = [[XamoomMapView alloc] initWithFrame:self.viewForMap.bounds];
-  [self.mapKitWithSMCalloutView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-
-  [self.mapKitWithSMCalloutView sizeToFit];
-  self.mapKitWithSMCalloutView.delegate = self;
-  self.mapKitWithSMCalloutView.showsUserLocation = YES;
-  [self.viewForMap addSubview:self.mapKitWithSMCalloutView];
+  if (!self.mapKitWithSMCalloutView) {
+    self.mapKitWithSMCalloutView = [[XamoomMapView alloc] initWithFrame:self.viewForMap.bounds];
+    [self.mapKitWithSMCalloutView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    
+    [self.mapKitWithSMCalloutView sizeToFit];
+    self.mapKitWithSMCalloutView.delegate = self;
+    self.mapKitWithSMCalloutView.showsUserLocation = YES;
+    [self.viewForMap addSubview:self.mapKitWithSMCalloutView];
+  }
 }
 
 - (void)getSpotMap {
