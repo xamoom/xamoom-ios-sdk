@@ -41,9 +41,12 @@ IB_DESIGNABLE
 }
 
 - (void)initAudioPlayerWithUrlString:(NSString*)mediaUrlString {
+  if (self.audioPlayer) {
+    return;
+  }
+  
   //init avplayer with URL
   NSURL *mediaURL = [NSURL URLWithString:mediaUrlString];
-  //self.audioPlayer = [[AVPlayer alloc] initWithPlayerItem:[[AVPlayerItem alloc] initWithURL:mediaURL]];
   
   AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:mediaURL options:nil];
   NSArray *keys     = [NSArray arrayWithObject:@"playable"];
