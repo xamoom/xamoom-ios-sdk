@@ -49,9 +49,6 @@
     forCellReuseIdentifier:@"ImageBlockTableViewCell"];
     cell = [tableView dequeueReusableCellWithIdentifier:@"ImageBlockTableViewCell"];
   }
-
-  [cell.image removeConstraints:cell.image.constraints];
-  [cell.image setNeedsUpdateConstraints];
   
   cell.titleLabel.text = nil;
   cell.linkUrl = self.linkUrl;
@@ -70,6 +67,7 @@
     cell.imageLeftHorizontalSpaceConstraint.constant = sizeDiff/2;
     cell.imageRightHorizontalSpaceConstraint.constant = (sizeDiff/2)*(-1);
   }
+
   
   if (self.fileId != nil) {
     [cell.imageLoadingIndicator startAnimating];
@@ -79,7 +77,8 @@
       newImage = [SVGKImage imageWithContentsOfURL:[NSURL URLWithString:self.fileId]];
       cell.image.image = newImage.UIImage;
       
-      NSLayoutConstraint *constraint =[NSLayoutConstraint
+      [cell.image removeConstraint:cell.imageRatioConstraint];
+      cell.imageRatioConstraint =[NSLayoutConstraint
                                        constraintWithItem:cell.image
                                        attribute:NSLayoutAttributeWidth
                                        relatedBy:NSLayoutRelationEqual
@@ -87,13 +86,16 @@
                                        attribute:NSLayoutAttributeHeight
                                        multiplier:(newImage.size.width/newImage.size.height)
                                        constant:0.0f];
-      [cell.image addConstraint:constraint];
-      [cell.image needsUpdateConstraints];
+      
+      [cell.image addConstraint:cell.imageRatioConstraint];
+      [cell.image setNeedsUpdateConstraints];
+      [cell setNeedsLayout];
       [cell.imageLoadingIndicator stopAnimating];
     } else {
       [cell.image sd_setImageWithURL:[NSURL URLWithString:self.fileId]
                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                             NSLayoutConstraint *constraint =[NSLayoutConstraint
+                             [cell.image removeConstraint:cell.imageRatioConstraint];
+                             cell.imageRatioConstraint =[NSLayoutConstraint
                                                               constraintWithItem:cell.image
                                                               attribute:NSLayoutAttributeWidth
                                                               relatedBy:NSLayoutRelationEqual
@@ -102,8 +104,9 @@
                                                               multiplier:(image.size.width/image.size.height)
                                                               constant:0.0f];
                              
-                             [cell.image addConstraint:constraint];
-                             [cell.image needsUpdateConstraints];
+                             [cell.image addConstraint:cell.imageRatioConstraint];
+                             [cell.image setNeedsUpdateConstraints];
+                             [cell setNeedsLayout];
                              [cell.imageLoadingIndicator stopAnimating];
                            }];
     }

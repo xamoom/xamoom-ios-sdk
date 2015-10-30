@@ -27,7 +27,7 @@
                         <animations/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Fvj-ka-sv0" secondAttribute="height" multiplier="152:185" placeholder="YES" id="TAG-xr-bbF"/>
+                            <constraint firstAttribute="width" secondItem="Fvj-ka-sv0" secondAttribute="height" multiplier="152:185" placeholder="YES" id="90W-UG-Y2D"/>
                         </constraints>
                     </imageView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3na-Wc-qZL">
