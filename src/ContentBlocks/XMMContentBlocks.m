@@ -26,16 +26,23 @@ int const kHorizontalSpaceToSubview = 32;
 
 @interface XMMContentBlocks ()
 
+@property (nonatomic) UITableView *tableView;
+
 @end
 
 #pragma mark - XMMContentBlocks Implementation
 
 @implementation XMMContentBlocks
 
-- (instancetype)initWithLanguage:(NSString*)language {
+- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString *)language {
   self = [super init];
   
   if(self) {
+    self.tableView = tableView;
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 150.0;
+    
     self.linkColor = [UIColor blueColor];
     self.language = language;
     self.showAllStoreLinks = NO;
@@ -52,6 +59,11 @@ int const kHorizontalSpaceToSubview = 32;
 - (void)setContent:(XMMContent *)content {
   _content = content;
   [self contentBlocksFromContent];
+  
+  [self.tableView reloadData];
+  [self.tableView setNeedsLayout];
+  [self.tableView layoutIfNeeded];
+  [self.tableView reloadData];
 }
 
 - (void)contentBlocksFromContent {
@@ -79,7 +91,7 @@ int const kHorizontalSpaceToSubview = 32;
   [XMMContentBlock0TableViewCell setFontSize:newFontSize];
 }
 
-# pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   return self.items.count;
@@ -89,5 +101,20 @@ int const kHorizontalSpaceToSubview = 32;
   id object = [self.items objectAtIndex:indexPath.row];
   return [object tableView:tableView representationAsCellForRowAtIndexPath:indexPath];
 }
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
+    XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if ([self.delegate respondsToSelector:@selector(didClickContentBlock:)]) {
+      [self.delegate didClickContentBlock:cell.contentId];
+    }
+    //TODO didClick with cell.contentId
+  }
+}
+
 
 @end

@@ -53,13 +53,20 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
   BiggerFontSize = 18,
 };
 
+@protocol XMMContentBlocksDelegate <NSObject>
+
+- (void)didClickContentBlock:(NSString *)contentId;
+
+@end
+
 #pragma mark - XMMContentBlocks
 
 /**
  * Use XMMContentBlocks to display all our contentBlocks from xamoom cloud.
  */
-@interface XMMContentBlocks : NSObject <UITableViewDataSource ,UIWebViewDelegate>
+@interface XMMContentBlocks : NSObject <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 
+@property (nonatomic, retain) id<XMMContentBlocksDelegate> delegate;
 @property (nonatomic, strong) XMMContent *content;
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) UIColor *linkColor;
@@ -72,7 +79,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
  * @param language The preferred language, can be @"" for systemLanguage
  * @param screenWidth The width of the screen
  */
-- (instancetype)initWithLanguage:(NSString*)language;
+- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString*)language;
 
 /**
  * Can be used to change the fontSize of the text contentBlock

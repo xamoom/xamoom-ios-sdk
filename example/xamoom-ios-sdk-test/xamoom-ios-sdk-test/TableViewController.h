@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "XMMContentBlocks.h"
 
-@interface TableViewController : UIViewController <UITableViewDelegate>
+@interface TableViewController : UIViewController <XMMContentBlocksDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property NSString* contentId;
