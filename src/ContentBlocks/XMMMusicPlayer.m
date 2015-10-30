@@ -43,30 +43,37 @@ IB_DESIGNABLE
 - (void)initAudioPlayerWithUrlString:(NSString*)mediaUrlString {
   //init avplayer with URL
   NSURL *mediaURL = [NSURL URLWithString:mediaUrlString];
-  self.audioPlayer = [[AVPlayer alloc] initWithURL:mediaURL];
+  //self.audioPlayer = [[AVPlayer alloc] initWithPlayerItem:[[AVPlayerItem alloc] initWithURL:mediaURL]];
   
-  //addPeriodicTimeObserver for remainingTime and progressBar
-  __block XMMMusicPlayer *weakSelf = self;
-  [self.audioPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:NULL usingBlock:^(CMTime time) {
-    if (!time.value) {
-      return;
-    } else {
-      CGFloat songDuration = CMTimeGetSeconds([weakSelf.audioPlayer.currentItem duration]);
-      CGFloat currentSongTime = CMTimeGetSeconds([weakSelf.audioPlayer currentTime]);
-      CGFloat remainingSongTime = songDuration - currentSongTime;
-      
-      if (!isnan(songDuration)) {
-        weakSelf.lineProgress = currentSongTime / songDuration;
-        weakSelf.remainingSongTime = [NSString stringWithFormat:@"%d:%02d", (int)remainingSongTime / 60, (int)remainingSongTime %60];
+  AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:mediaURL options:nil];
+  NSArray *keys     = [NSArray arrayWithObject:@"playable"];
+  
+  [asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
+    self.audioPlayer = [[AVPlayer alloc] initWithPlayerItem:[[AVPlayerItem alloc] initWithAsset:asset automaticallyLoadedAssetKeys:keys]];
+    
+    //addPeriodicTimeObserver for remainingTime and progressBar
+    __block XMMMusicPlayer *weakSelf = self;
+    [self.audioPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:NULL usingBlock:^(CMTime time) {
+      if (!time.value) {
+        return;
+      } else {
+        CGFloat songDuration = CMTimeGetSeconds([weakSelf.audioPlayer.currentItem duration]);
+        CGFloat currentSongTime = CMTimeGetSeconds([weakSelf.audioPlayer currentTime]);
+        CGFloat remainingSongTime = songDuration - currentSongTime;
         
-        //notify delegate with remainingSongTime
-        if ([weakSelf.delegate respondsToSelector:@selector(didUpdateRemainingSongTime:)]) {
-          [weakSelf.delegate performSelector:@selector(didUpdateRemainingSongTime:) withObject:weakSelf.remainingSongTime];
+        if (!isnan(songDuration)) {
+          weakSelf.lineProgress = currentSongTime / songDuration;
+          weakSelf.remainingSongTime = [NSString stringWithFormat:@"%d:%02d", (int)remainingSongTime / 60, (int)remainingSongTime %60];
+          
+          //notify delegate with remainingSongTime
+          if ([weakSelf.delegate respondsToSelector:@selector(didUpdateRemainingSongTime:)]) {
+            [weakSelf.delegate performSelector:@selector(didUpdateRemainingSongTime:) withObject:weakSelf.remainingSongTime];
+          }
         }
       }
-    }
-    
-    [weakSelf setNeedsDisplay];
+      
+      [weakSelf setNeedsDisplay];
+    }];
   }];
 }
 
