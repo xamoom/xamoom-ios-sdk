@@ -20,7 +20,8 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view.
   
-  self.contentBlocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView language:[XMMEnduserApi sharedInstance].systemLanguage];
+  self.contentBlocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView
+                                                          language:[XMMEnduserApi sharedInstance].systemLanguage];
   self.contentBlocks.delegate = self;
   self.tableView.delegate = self.contentBlocks;
   self.tableView.dataSource = self.contentBlocks;
