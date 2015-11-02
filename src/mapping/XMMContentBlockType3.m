@@ -52,6 +52,8 @@
   
   cell.titleLabel.text = nil;
   cell.linkUrl = self.linkUrl;
+  cell.imageLeftHorizontalSpaceConstraint.constant = 0;
+  cell.imageRightHorizontalSpaceConstraint.constant = 0;
   
   //set title
   if(self.title != nil && ![self.title isEqualToString:@""])

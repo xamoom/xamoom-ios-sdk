@@ -48,6 +48,9 @@
     cell = [tableView dequeueReusableCellWithIdentifier:@"TextBlockTableViewCell"];
   }
   
+  cell.titleLabel.text = nil;
+  cell.contentTextView.text = nil;
+  
   //set title
   if(self.title != nil && ![self.title isEqualToString:@""]) {
     cell.titleLabel.text = self.title;
