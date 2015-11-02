@@ -48,7 +48,7 @@
     self.playIconImageView.hidden = NO;
     
     self.videoUrl = videoUrl;
-    self.screenWidth = width;
+    self.screenWidth = width-16;
     
     [self initVideoPlayer];
   }
