@@ -34,5 +34,7 @@
 
 + (int)fontSize;
 + (void)setFontSize:(int)fontSize;
++ (UIColor *)linkColor;
++ (void)setLinkColor:(UIColor *)linkColor;
 
 @end

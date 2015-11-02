@@ -22,6 +22,7 @@
 @implementation XMMContentBlock0TableViewCell
 
 static int contentFontSize;
+static UIColor *contentLinkColor;
 
 - (void)awakeFromNib {
   // Initialization code
@@ -33,6 +34,14 @@ static int contentFontSize;
 
 + (void)setFontSize:(int)fontSize {
   contentFontSize = fontSize;
+}
+
++ (UIColor *)linkColor {
+  return contentLinkColor;
+}
+
++ (void)setLinkColor:(UIColor *)linkColor {
+  contentLinkColor = linkColor;
 }
 
 /*

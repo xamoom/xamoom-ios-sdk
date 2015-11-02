@@ -69,7 +69,7 @@
   }
   
   //set the linkcolor to a specific color
-  //[cell.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : cell.linkColor, }];
+  [cell.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [XMMContentBlock0TableViewCell linkColor], }];
   
   return cell;
 }

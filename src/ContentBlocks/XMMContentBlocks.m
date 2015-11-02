@@ -56,16 +56,6 @@ int const kHorizontalSpaceToSubview = 32;
   return self;
 }
 
-- (void)setContent:(XMMContent *)content {
-  _content = content;
-  [self contentBlocksFromContent];
-  
-  [self.tableView reloadData];
-  [self.tableView setNeedsLayout];
-  [self.tableView layoutIfNeeded];
-  [self.tableView reloadData];
-}
-
 - (void)contentBlocksFromContent {
   self.items = (NSMutableArray *)self.content.contentBlocks;
   
@@ -100,6 +90,24 @@ int const kHorizontalSpaceToSubview = 32;
   
   [self.items insertObject:cb3 atIndex:0];
   [self.items insertObject:cb0 atIndex:0];
+}
+
+#pragma mark - Setters
+
+- (void)setContent:(XMMContent *)content {
+  _content = content;
+  [self contentBlocksFromContent];
+  
+  [self.tableView reloadData];
+  [self.tableView setNeedsLayout];
+  [self.tableView layoutIfNeeded];
+  [self.tableView reloadData];
+}
+
+- (void)setLinkColor:(UIColor *)linkColor {
+  _linkColor = linkColor;
+  [XMMContentBlock0TableViewCell setLinkColor:self.linkColor];
+  [XMMContentBlock9TableViewCell setLinkColor: self.linkColor];
 }
 
 #pragma mark - Custom Methods
