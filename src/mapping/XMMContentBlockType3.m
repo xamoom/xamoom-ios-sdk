@@ -67,7 +67,6 @@
     cell.imageLeftHorizontalSpaceConstraint.constant = sizeDiff/2;
     cell.imageRightHorizontalSpaceConstraint.constant = (sizeDiff/2)*(-1);
   }
-
   
   if (self.fileId != nil) {
     [cell.imageLoadingIndicator startAnimating];
@@ -88,8 +87,11 @@
                                        constant:0.0f];
       
       [cell.image addConstraint:cell.imageRatioConstraint];
-      [cell.image setNeedsUpdateConstraints];
-      [cell setNeedsLayout];
+      [cell needsUpdateConstraints];
+      if (cell.image.frame.size.height == 0 && cell.image.frame.size.width > 0) {
+        [tableView reloadData];
+      }
+      
       [cell.imageLoadingIndicator stopAnimating];
     } else {
       [cell.image sd_setImageWithURL:[NSURL URLWithString:self.fileId]
@@ -105,8 +107,11 @@
                                                               constant:0.0f];
                              
                              [cell.image addConstraint:cell.imageRatioConstraint];
-                             [cell.image setNeedsUpdateConstraints];
-                             [cell setNeedsLayout];
+                             [cell needsUpdateConstraints];
+                             if (cell.image.frame.size.height == 0 && cell.image.frame.size.width > 0) {
+                               [tableView reloadData];
+                             }
+                             
                              [cell.imageLoadingIndicator stopAnimating];
                            }];
     }
