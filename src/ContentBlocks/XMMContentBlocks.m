@@ -69,12 +69,13 @@ int const kHorizontalSpaceToSubview = 32;
 - (void)contentBlocksFromContent {
   self.items = (NSMutableArray *)self.content.contentBlocks;
   
+  [self addContentHeader];
+  
   if (self.showAllStoreLinks) {
     return;
   }
   
   NSMutableArray *contentBlocks = [(NSMutableArray *)self.content.contentBlocks copy];
-
   for (XMMContentBlock *contentBlock in contentBlocks) {
     if ([contentBlock isKindOfClass:[XMMContentBlockType4 class]]) {
       XMMContentBlockType4 *linkBlock = (XMMContentBlockType4 *)contentBlock;
@@ -83,6 +84,22 @@ int const kHorizontalSpaceToSubview = 32;
       }
     }
   }
+}
+
+- (void)addContentHeader {
+  XMMContentBlockType0 *cb0 = [[XMMContentBlockType0 alloc] init];
+  cb0.contentBlockType = 0;
+  cb0.publicStatus = true;
+  cb0.title = self.content.title;
+  cb0.text = self.content.descriptionOfContent;
+  
+  XMMContentBlockType3 *cb3 = [[XMMContentBlockType3 alloc] init];
+  cb3.contentBlockType = 3;
+  cb3.publicStatus = true;
+  cb3.fileId = self.content.imagePublicUrl;
+  
+  [self.items insertObject:cb3 atIndex:0];
+  [self.items insertObject:cb0 atIndex:0];
 }
 
 #pragma mark - Custom Methods
