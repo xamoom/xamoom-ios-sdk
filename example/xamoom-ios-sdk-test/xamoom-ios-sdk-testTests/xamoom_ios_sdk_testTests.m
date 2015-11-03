@@ -63,8 +63,6 @@ float const kTimeWaiting = 30.0;
                                                   error:NULL];
   
   [[XMMEnduserApi sharedInstance] setApiKey:apiKey];
-  
-  self.contentBlocks = [[XMMContentBlocks alloc] initWithLanguage:@"de"];
 }
 
 - (void)tearDown {
@@ -309,18 +307,6 @@ float const kTimeWaiting = 30.0;
 
 #pragma mark - XMMContentBlocks Tests
 //write some tests
-
-- (void)testContentBlockInit {
-  XCTAssertNotNil(self.contentBlocks);
-}
-
-- (void)testContentBlocksLanguage {
-  XCTAssertEqual(self.contentBlocks.language, @"de");
-}
-
-- (void)testContentBlocksLinkColor {
-  XCTAssertEqual(self.contentBlocks.linkColor, [UIColor blueColor]);
-}
 
 #pragma mark - Helping methods
 - (BOOL)waitForCompletion:(NSTimeInterval)timeoutSecs {
