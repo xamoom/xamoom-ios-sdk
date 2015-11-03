@@ -29,6 +29,7 @@
                                                 @"public":@"publicStatus",
                                                 @"content_block_type":@"contentBlockType",
                                                 @"title":@"title",
+                                                @"alt_text":@"altText",
                                                 }];
   return mapping;
 }
@@ -51,13 +52,22 @@
   }
   
   cell.titleLabel.text = nil;
+  [cell.image setIsAccessibilityElement:YES];
   cell.linkUrl = self.linkUrl;
   cell.imageLeftHorizontalSpaceConstraint.constant = 0;
   cell.imageRightHorizontalSpaceConstraint.constant = 0;
   
+  NSLog(@"Hellyeah: %@", self.altText);
+  
   //set title
-  if(self.title != nil && ![self.title isEqualToString:@""])
+  if (self.title != nil && ![self.title isEqualToString:@""]) {
     cell.titleLabel.text = self.title;
+    cell.image.accessibilityHint = self.title;
+  }
+  
+  if (self.altText != nil || [self.altText isEqualToString:@""]){
+    cell.image.accessibilityHint = self.altText;
+  }
   
   //scale the imageView
   float scalingFactor = 1;

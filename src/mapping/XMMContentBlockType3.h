@@ -51,7 +51,13 @@
  * Url the user inserted in xamoom cloud. Can be nil and "".
  * Should be opened in browser.
  */
-@property (nonatomic, copy) NSString* linkUrl;
+@property (nonatomic, copy) NSString *linkUrl;
+
+/**
+ * Alternative text for the image. Can be nil and "";
+ * If nil or "", use the title.
+ */
+@property (nonatomic, copy) NSString *altText;
 
 /// @name Mapping
 
