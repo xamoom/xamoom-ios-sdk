@@ -19,6 +19,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XMMContentBlock.h"
+#import "XMMContentBlock8TableViewCell.h"
 
 /**
  * `XMMContentBlockType8` is used for mapping the JSON sended by the api.
@@ -64,5 +65,11 @@
  * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
+
+@end
+
+@interface XMMContentBlockType8 (XMMTableViewRepresentation)
+
+- (UITableViewCell *)tableView: (UITableView *)tableView representationAsCellForRowAtIndexPath: (NSIndexPath *)indexPath;
 
 @end

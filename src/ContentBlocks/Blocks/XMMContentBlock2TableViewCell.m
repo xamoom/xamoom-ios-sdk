@@ -41,14 +41,13 @@
   NSString* youtubeVideoId = [self youtubeVideoIdFromUrl:videoUrl];
   
   if (youtubeVideoId != nil) {
-    
     //load video inside playerView
     [self.playerView loadWithVideoId:youtubeVideoId];
   } else {
     self.playIconImageView.hidden = NO;
     
     self.videoUrl = videoUrl;
-    self.screenWidth = width;
+    self.screenWidth = width-16;
     
     [self initVideoPlayer];
   }

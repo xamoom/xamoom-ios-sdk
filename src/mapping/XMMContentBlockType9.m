@@ -38,4 +38,22 @@
     return matcher;
 }
 
+#pragma mark - XMMTableViewRepresentation
+
+- (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  XMMContentBlock9TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SpotMapBlockTableViewCell"];
+  if (cell == nil) {
+    [tableView registerNib:[UINib nibWithNibName:@"XMMContentBlock9TableViewCell" bundle:nil]
+    forCellReuseIdentifier:@"SpotMapBlockTableViewCell"];
+    cell = [tableView dequeueReusableCellWithIdentifier:@"SpotMapBlockTableViewCell"];
+  }
+  
+  //set title, spotmapTags
+  cell.titleLabel.text = self.title;
+  cell.spotMapTags = [self.spotMapTag componentsSeparatedByString:@","];
+  [cell getSpotMap];
+  
+  return cell;
+}
+
 @end

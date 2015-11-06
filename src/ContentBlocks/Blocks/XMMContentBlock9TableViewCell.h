@@ -26,6 +26,7 @@
 #import <SMCalloutView/SMCalloutView.h>
 #import "SVGKit.h"
 #import "SVGKSourceString.h"
+#import "XMMContentBlocksCache.h"
 
 @class XamoomMapView;
 
@@ -42,8 +43,12 @@
 @property (strong, nonatomic) NSArray *spotMapTags;
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) UIColor* linkColor;
 
-- (void)getSpotMapWithSystemId:(NSString*)systemId withLanguage:(NSString*)language;
++ (NSString *)language;
++ (void)setLanguage:(NSString *)language;
++ (UIColor *)linkColor;
++ (void)setLinkColor:(UIColor *)linkColor;
+
+- (void)getSpotMap;
 
 @end

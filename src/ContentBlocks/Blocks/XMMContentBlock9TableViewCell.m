@@ -32,6 +32,9 @@
 
 @implementation XMMContentBlock9TableViewCell
 
+static UIColor* contentLinkColor;
+static NSString* contentLanguage;
+
 - (void)awakeFromNib {
   // Initialization code
   [self setupLocationManager];
@@ -43,20 +46,49 @@
   // Configure the view for the selected state
 }
 
-- (void)setupMapView {
-  //init map
-  self.mapKitWithSMCalloutView = [[XamoomMapView alloc] initWithFrame:self.viewForMap.bounds];
-  [self.mapKitWithSMCalloutView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-
-  [self.mapKitWithSMCalloutView sizeToFit];
-  self.mapKitWithSMCalloutView.delegate = self;
-  self.mapKitWithSMCalloutView.showsUserLocation = YES;
-  [self.viewForMap addSubview:self.mapKitWithSMCalloutView];
++ (NSString *)language {
+  return contentLanguage;
 }
 
-- (void)getSpotMapWithSystemId:(NSString*)systemId withLanguage:(NSString*)language {
-  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:self.spotMapTags withLanguage:language
++ (void)setLanguage:(NSString *)language {
+  contentLanguage = language;
+}
+
++ (UIColor *)linkColor {
+  return contentLinkColor;
+}
+
++ (void)setLinkColor:(UIColor *)linkColor {
+  contentLinkColor = linkColor;
+}
+
+- (void)setupMapView {
+  //init map
+  if (!self.mapKitWithSMCalloutView) {
+    self.mapKitWithSMCalloutView = [[XamoomMapView alloc] initWithFrame:self.viewForMap.bounds];
+    [self.mapKitWithSMCalloutView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    
+    [self.mapKitWithSMCalloutView sizeToFit];
+    self.mapKitWithSMCalloutView.delegate = self;
+    self.mapKitWithSMCalloutView.showsUserLocation = YES;
+    [self.viewForMap addSubview:self.mapKitWithSMCalloutView];
+  }
+}
+
+- (void)getSpotMap {
+  XMMSpotMap *spotMap = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[self.spotMapTags componentsJoinedByString:@","]];
+  if (spotMap) {
+    [self.loadingIndicator stopAnimating];
+    [self setupMapView];
+    [self showSpotMap:spotMap];
+    return;
+  }
+  
+  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:self.spotMapTags withLanguage:contentLanguage
                                            completion:^(XMMSpotMap *result) {
+                                             
+                                             [[XMMContentBlocksCache sharedInstance] saveSpotMap:result key:[self.spotMapTags componentsJoinedByString:@","]];
+                                             
                                              [self.loadingIndicator stopAnimating];
                                              [self setupMapView];
                                              [self showSpotMap:result];
@@ -336,7 +368,7 @@
   
   //create, design and adjust navigationButton
   UIButton *navigationButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, xamoomCalloutView.frame.size.height, 300.0f, 60.0f)];
-  navigationButton.backgroundColor = self.linkColor;
+  navigationButton.backgroundColor = contentLinkColor;
   [navigationButton setImage:[[UIImage imageNamed:@"car"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
   navigationButton.tintColor = [UIColor whiteColor];
   [navigationButton setImageEdgeInsets: UIEdgeInsetsMake(-10.0f, navigationButton.titleEdgeInsets.right, 10.0f, navigationButton.titleEdgeInsets.left)];

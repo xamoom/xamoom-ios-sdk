@@ -22,6 +22,8 @@
 
 @implementation XMMContentBlock6TableViewCell
 
+static NSString *contentLanguage;
+
 - (void)awakeFromNib {
   // Initialization code
   self.contentTitleLabel.text = @"";
@@ -35,19 +37,29 @@
 }
 
 - (void)initContentBlockWithLanguage:(NSString*)language {
-  self.contentView.backgroundColor = [UIColor colorWithRed: 222/255.0f green: 222/255.0f blue: 222/255.0f alpha:1.0];
+  self.contentImageView.image = nil;
+  self.contentTitleLabel.text = nil;
+  self.contentExcerptLabel.text = nil;
+  [self.loadingIndicator startAnimating];
+  
+  XMMContent *content = [[XMMContentBlocksCache sharedInstance] cachedContent:self.contentId];
+  if (content) {
+    [self.loadingIndicator stopAnimating];
+    [self showBlockData:content];
+    return;
+  }
   
   [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:language full:NO
                                             completion:^(XMMContentById *result) {
                                               [self.loadingIndicator stopAnimating];
-                                              self.contentView.backgroundColor = [UIColor clearColor];
-                                              [self showBlockData:result];
+                                              [[XMMContentBlocksCache sharedInstance] saveContent:result.content key:self.contentId];
+                                              [self showBlockData:result.content];
                                             } error:^(XMMError *error) {
                                             }];
 }
 
-- (void)showBlockData:(XMMContentById *)result {
-  self.content = result.content;
+- (void)showBlockData:(XMMContent *)content {
+  self.content = content;
   
   //set title and excerpt
   self.contentTitleLabel.text = self.content.title;
@@ -55,6 +67,14 @@
   [self.contentExcerptLabel sizeToFit];
   
   [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.content.imagePublicUrl]];
+}
+
++ (NSString *)language {
+  return contentLanguage;
+}
+
++ (void)setLanguage:(NSString *)language {
+  contentLanguage = language;
 }
 
 @end

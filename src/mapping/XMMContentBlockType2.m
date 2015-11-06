@@ -38,4 +38,23 @@
   return matcher;
 }
 
+#pragma mark - XMMTableViewRepresentation
+
+- (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  XMMContentBlock2TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YoutubeBlockTableView"];
+  if (cell == nil) {
+    [tableView registerNib:[UINib nibWithNibName:@"XMMContentBlock2TableViewCell" bundle:nil]
+    forCellReuseIdentifier:@"YoutubeBlockTableView"];
+    cell = [tableView dequeueReusableCellWithIdentifier:@"YoutubeBlockTableView"];
+  }
+  
+  //set title and youtubeUrl
+  if(self.title != nil && ![self.title isEqualToString:@""])
+    cell.titleLabel.text = self.title;
+  
+  [cell initVideoWithUrl:self.videoUrl andWidth:tableView.bounds.size.width];
+  
+  return cell;
+}
+
 @end

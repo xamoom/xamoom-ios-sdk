@@ -40,4 +40,28 @@
   return matcher;
 }
 
+#pragma mark - XMMTableViewRepresentation
+
+- (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  XMMContentBlock4TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LinkBlockTableViewCell"];
+  if (cell == nil) {
+    [tableView registerNib:[UINib nibWithNibName:@"XMMContentBlock4TableViewCell" bundle:nil]
+    forCellReuseIdentifier:@"LinkBlockTableViewCell"];
+    cell = [tableView dequeueReusableCellWithIdentifier:@"LinkBlockTableViewCell"];
+  }
+  
+  //set title, text, linkUrl and linkType
+  if(self.title != nil && ![self.title isEqualToString:@""])
+    cell.titleLabel.text = self.title;
+  
+  cell.linkTextLabel.text = self.text;
+  cell.linkUrl = self.linkUrl;
+  cell.linkType = self.linkType;
+  
+  //change style of the cell according to the linktype
+  [cell changeStyleAccordingToLinkType];
+  
+  return cell;
+}
+
 @end

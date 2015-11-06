@@ -33,6 +33,9 @@
 @property (strong, nonatomic) NSString *contentId;
 @property (strong, nonatomic) XMMContent *content;
 
++ (NSString *)language;
++ (void)setLanguage:(NSString *)language;
+
 - (void)initContentBlockWithLanguage:(NSString*)language;
 
 @end

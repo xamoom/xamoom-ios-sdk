@@ -52,7 +52,7 @@
       break;
     }
     case 1: {
-      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:85/255.0f green:172/255.0f blue:238/255.0f alpha:1.0f]];
+      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:0.10 green:0.56 blue:0.91 alpha:1.0]];
       [self.icon setImage:[UIImage imageNamed:@"twitter"]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
@@ -73,9 +73,9 @@
       [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:255/255.0f green:153/255.0f blue:0/255.0f alpha:1.0f]];
       [self.icon setImage:[UIImage imageNamed:@"shop"]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-      [self.icon setTintColor:[UIColor whiteColor]];
-      [self.linkTextLabel setTextColor:[UIColor whiteColor]];
-      [self.titleLabel setTextColor:[UIColor whiteColor]];
+      [self.icon setTintColor:[UIColor blackColor]];
+      [self.linkTextLabel setTextColor:[UIColor blackColor]];
+      [self.titleLabel setTextColor:[UIColor blackColor]];
       break;
     }
     case 4: {
@@ -109,9 +109,9 @@
       [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:255/255.0f green:136/255.0f blue:0/255.0f alpha:1.0f]];
       [self.icon setImage:[UIImage imageNamed:@"soundcloud"]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-      [self.icon setTintColor:[UIColor whiteColor]];
-      [self.linkTextLabel setTextColor:[UIColor whiteColor]];
-      [self.titleLabel setTextColor:[UIColor whiteColor]];
+      [self.icon setTintColor:[UIColor blackColor]];
+      [self.linkTextLabel setTextColor:[UIColor blackColor]];
+      [self.titleLabel setTextColor:[UIColor blackColor]];
       break;
     }
     case 8: {
@@ -160,12 +160,12 @@
       break;
     }
     case 13: {
-      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:99/255.0f green:144/255.0f blue:1/255.0f alpha:1.0f]];
+      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:0.18 green:0.74 blue:0.35 alpha:1.0]];
       [self.icon setImage:[UIImage imageNamed:@"spotify"]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-      [self.icon setTintColor:[UIColor whiteColor]];
-      [self.linkTextLabel setTextColor:[UIColor whiteColor]];
-      [self.titleLabel setTextColor:[UIColor whiteColor]];
+      [self.icon setTintColor:[UIColor blackColor]];
+      [self.linkTextLabel setTextColor:[UIColor blackColor]];
+      [self.titleLabel setTextColor:[UIColor blackColor]];
       break;
     }
     case 14: {
@@ -187,7 +187,7 @@
       break;
     }
     case 16: {
-      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:173/255.0f green:205/255.0f blue:65/255.0f alpha:1.0f]];
+      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:0.32 green:0.42 blue:0.00 alpha:1.0]];
       [self.icon setImage:[UIImage imageNamed:@"android"]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
@@ -196,7 +196,7 @@
       break;
     }
     case 17: {
-      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:52/255.0f green:148/255.0f blue:241/255.0f alpha:1.0f]];
+      [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:0.17 green:0.38 blue:0.94 alpha:1.0]];
       [self.icon setImage:[UIImage imageNamed:@"windows"]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];

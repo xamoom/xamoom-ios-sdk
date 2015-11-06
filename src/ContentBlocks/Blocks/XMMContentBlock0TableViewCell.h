@@ -32,4 +32,9 @@
 @property (strong, nonatomic) NSString *contentText;
 @property (nonatomic) int contentBlockType;
 
++ (int)fontSize;
++ (void)setFontSize:(int)fontSize;
++ (UIColor *)linkColor;
++ (void)setLinkColor:(UIColor *)linkColor;
+
 @end

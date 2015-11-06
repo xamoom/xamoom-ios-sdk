@@ -41,4 +41,25 @@
   return matcher;
 }
 
+#pragma mark - XMMTableViewRepresentation
+
+- (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  XMMContentBlock8TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DownloadBlockTableViewCell"];
+  if (cell == nil) {
+    [tableView registerNib:[UINib nibWithNibName:@"XMMContentBlock8TableViewCell" bundle:nil]
+    forCellReuseIdentifier:@"DownloadBlockTableViewCell"];
+    cell = [tableView dequeueReusableCellWithIdentifier:@"DownloadBlockTableViewCell"];
+  }
+  
+  //set title, text, fileId and downloadType
+  cell.titleLabel.text = self.title;
+  cell.contentTextLabel.text = self.text;
+  cell.fileId = self.fileId;
+  cell.downloadType = self.downloadType;
+  
+  [cell initCellData];
+  
+  return cell;
+}
+
 @end

@@ -21,7 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		193BE2A7A90697F6E9D018AB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CF7D8E893047483C215A55 /* libPods.a */; };
 		8858D2461A822513001B45D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2451A822513001B45D5 /* main.m */; };
 		8858D2491A822513001B45D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D2481A822513001B45D5 /* AppDelegate.m */; };
 		8858D24C1A822513001B45D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D24B1A822513001B45D5 /* ViewController.m */; };
@@ -31,6 +30,7 @@
 		8858D2601A822513001B45D5 /* xamoom_ios_sdk_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D25F1A822513001B45D5 /* xamoom_ios_sdk_testTests.m */; };
 		887A01491B60E41800421DEE /* xamoom-ios-sdk.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 887A01481B60E41800421DEE /* xamoom-ios-sdk.podspec */; };
 		8888F7971B8F2C57009DB9AB /* api.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8888F7961B8F2C57009DB9AB /* api.txt */; };
+		88C7192A1BDA20E0007DFF1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C719291BDA20DF007DFF1F /* libPods.a */; };
 		88D45BE81B66219F00EFD56D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88301DAB1A9DBB9C00F24F84 /* MobileCoreServices.framework */; };
 		88D45BEA1B6621A600EFD56D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D45BE91B6621A600EFD56D /* Security.framework */; };
 		88D45BEB1B6621AD00EFD56D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88301DA71A9DBB8800F24F84 /* CFNetwork.framework */; };
@@ -85,6 +85,7 @@
 		8858D25F1A822513001B45D5 /* xamoom_ios_sdk_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xamoom_ios_sdk_testTests.m; sourceTree = "<group>"; };
 		887A01481B60E41800421DEE /* xamoom-ios-sdk.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "xamoom-ios-sdk.podspec"; path = "../../../xamoom-ios-sdk.podspec"; sourceTree = "<group>"; };
 		8888F7961B8F2C57009DB9AB /* api.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = api.txt; sourceTree = SOURCE_ROOT; };
+		88C719291BDA20DF007DFF1F /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		88D45BE91B6621A600EFD56D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		88D45BED1B6621BA00EFD56D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		88D45BEF1B6621C000EFD56D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -101,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88C7192A1BDA20E0007DFF1F /* libPods.a in Frameworks */,
 				88D45BF41B6621CD00EFD56D /* CoreGraphics.framework in Frameworks */,
 				88D45BF21B6621C700EFD56D /* Foundation.framework in Frameworks */,
 				88D45BEE1B6621BA00EFD56D /* UIKit.framework in Frameworks */,
@@ -108,7 +110,6 @@
 				88D45BEB1B6621AD00EFD56D /* CFNetwork.framework in Frameworks */,
 				88D45BEA1B6621A600EFD56D /* Security.framework in Frameworks */,
 				88D45BE81B66219F00EFD56D /* MobileCoreServices.framework in Frameworks */,
-				193BE2A7A90697F6E9D018AB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +200,7 @@
 		FBBA45687E405BB9EDD1EEEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88C719291BDA20DF007DFF1F /* libPods.a */,
 				88D45BF31B6621CD00EFD56D /* CoreGraphics.framework */,
 				88D45BF11B6621C700EFD56D /* Foundation.framework */,
 				88D45BEF1B6621C000EFD56D /* AVFoundation.framework */,
@@ -260,7 +262,7 @@
 		8858D2381A822513001B45D5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Raphael Seher";
 				TargetAttributes = {
 					8801B4C91AA4AA9700A9F99F = {
@@ -448,6 +450,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -519,7 +522,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/raphaelseher/dev/xamoom-ios-sdk/src/lib/SVGKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xamoom.xamoom-ios-sdk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -537,7 +542,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/raphaelseher/dev/xamoom-ios-sdk/src/lib/SVGKit",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xamoom.xamoom-ios-sdk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -563,6 +570,7 @@
 				INFOPLIST_FILE = "xamoom-ios-sdk-testTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.xamoom.xamoom-ios-sdk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xamoom-ios-sdk-test.app/xamoom-ios-sdk-test";
 			};
@@ -585,6 +593,7 @@
 				INFOPLIST_FILE = "xamoom-ios-sdk-testTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.xamoom.xamoom-ios-sdk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/xamoom-ios-sdk-test.app/xamoom-ios-sdk-test";
 			};

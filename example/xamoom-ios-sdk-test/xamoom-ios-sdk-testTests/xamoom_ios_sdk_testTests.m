@@ -63,8 +63,6 @@ float const kTimeWaiting = 30.0;
                                                   error:NULL];
   
   [[XMMEnduserApi sharedInstance] setApiKey:apiKey];
-  
-  self.contentBlocks = [[XMMContentBlocks alloc] initWithLanguage:@"de" withWidth:100];
 }
 
 - (void)tearDown {
@@ -309,47 +307,6 @@ float const kTimeWaiting = 30.0;
 
 #pragma mark - XMMContentBlocks Tests
 //write some tests
-
-- (void)testContentBlockInit {
-  XCTAssertNotNil(self.contentBlocks);
-}
-
-- (void)testContentBlocksWidth {
-  XCTAssertEqual(self.contentBlocks.screenWidth, (100-32));
-}
-
-- (void)testContentBlocksLanguage {
-  XCTAssertEqual(self.contentBlocks.language, @"de");
-}
-
-- (void)testContentBlocksLinkColor {
-  XCTAssertEqual(self.contentBlocks.linkColor, [UIColor blueColor]);
-}
-
-- (void)testContentBlocksById {
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:nil full:YES completion:^(XMMContentById *result) {
-    self.apiResultGetContentById = result;
-    [self.contentBlocks displayContentBlocksWithIdResult:result];
-    done = YES;
-  } error:^(XMMError *error) {
-    
-  }];
-  
-  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
-  XCTAssertNotNil(self.contentBlocks.itemsToDisplay, @"itemsToDisplay should be not nil");
-}
-
-- (void)testContentBlocksByLocationIdentifier {
-  [[XMMEnduserApi sharedInstance] contentWithLocationIdentifier:kLocationIdentifier majorId:nil includeStyle:YES includeMenu:YES withLanguage:nil completion:^(XMMContentByLocationIdentifier *result) {
-    self.apiResultGetByLocationIdentifier = result;
-    done = YES;
-  } error:^(XMMError *error) {
-    
-  }];
-  
-  XCTAssertTrue([self waitForCompletion:kTimeWaiting], @"Failed to get any results in time");
-  XCTAssertNotNil(self.contentBlocks.itemsToDisplay, @"itemsToDisplay should be not nil");
-}
 
 #pragma mark - Helping methods
 - (BOOL)waitForCompletion:(NSTimeInterval)timeoutSecs {

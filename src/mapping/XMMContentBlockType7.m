@@ -38,4 +38,29 @@
   return matcher;
 }
 
+#pragma mark - XMMTableViewRepresentation
+
+- (UITableViewCell *)tableView:(UITableView *)tableView representationAsCellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  XMMContentBlock7TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SoundcloudBlockTableViewCell"];
+  if (cell == nil) {
+    [tableView registerNib:[UINib nibWithNibName:@"XMMContentBlock7TableViewCell" bundle:nil]
+    forCellReuseIdentifier:@"SoundcloudBlockTableViewCell"];
+    cell = [tableView dequeueReusableCellWithIdentifier:@"SoundcloudBlockTableViewCell"];
+  }
+  
+  //disable scrolling and bouncing
+  [cell.webView.scrollView setScrollEnabled:NO];
+  [cell.webView.scrollView setBounces:NO];
+  
+  //set title
+  cell.titleLabel.text = self.title;
+  
+  NSString *soundcloudHTML = [NSString stringWithFormat:@"<iframe width='100%%' height='%f' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=%@&auto_play=false&hide_related=true&show_comments=false&show_comments=false&show_user=false&show_reposts=false&sharing=false&download=false&buying=false&visual=true'></iframe> <script src=\"https://w.soundcloud.com/player/api.js\" type=\"text/javascript\"></script>",cell.webView.frame.size.height, self.soundcloudUrl];
+  
+  //display soundcloud in webview
+  [cell.webView loadHTMLString:soundcloudHTML baseURL:nil];
+  
+  return cell;
+}
+
 @end

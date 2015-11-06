@@ -18,7 +18,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImage+animatedGIF.h"
+#import "SVGKit.h"
 #import "XMMContentBlock.h"
+#import "XMMContentBlock3TableViewCell.h"
 
 /**
  * `XMMContentBlockType3` is used for mapping the JSON sended by the api.
@@ -47,7 +51,13 @@
  * Url the user inserted in xamoom cloud. Can be nil and "".
  * Should be opened in browser.
  */
-@property (nonatomic, copy) NSString* linkUrl;
+@property (nonatomic, copy) NSString *linkUrl;
+
+/**
+ * Alternative text for the image. Can be nil and "";
+ * If nil or "", use the title.
+ */
+@property (nonatomic, copy) NSString *altText;
 
 /// @name Mapping
 
@@ -64,5 +74,11 @@
  * @return RKObjectMappingMatcher*
  */
 + (RKObjectMappingMatcher*)dynamicMappingMatcher;
+
+@end
+
+@interface XMMContentBlockType3 (XMMTableViewRepresentation)
+
+- (UITableViewCell *)tableView: (UITableView *)tableView representationAsCellForRowAtIndexPath: (NSIndexPath *)indexPath;
 
 @end
