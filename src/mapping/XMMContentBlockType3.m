@@ -57,8 +57,6 @@
   cell.imageLeftHorizontalSpaceConstraint.constant = 0;
   cell.imageRightHorizontalSpaceConstraint.constant = 0;
   
-  NSLog(@"Hellyeah: %@", self.altText);
-  
   //set title
   if (self.title != nil && ![self.title isEqualToString:@""]) {
     cell.titleLabel.text = self.title;
