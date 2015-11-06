@@ -27,6 +27,7 @@ int const kHorizontalSpaceToSubview = 32;
 @interface XMMContentBlocks ()
 
 @property (nonatomic) UITableView *tableView;
+@property (nonatomic) BOOL isContentHeaderAdded;
 
 @end
 
@@ -46,6 +47,7 @@ int const kHorizontalSpaceToSubview = 32;
     self.linkColor = [UIColor blueColor];
     self.language = language;
     self.showAllStoreLinks = NO;
+    self.isContentHeaderAdded = NO;
     
     [XMMContentBlock0TableViewCell setFontSize: NormalFontSize];
     [XMMContentBlock6TableViewCell setLanguage: language];
@@ -77,6 +79,10 @@ int const kHorizontalSpaceToSubview = 32;
 }
 
 - (void)addContentHeader {
+  if (self.isContentHeaderAdded) {
+    return;
+  }
+  
   XMMContentBlockType0 *cb0 = [[XMMContentBlockType0 alloc] init];
   cb0.contentBlockType = 0;
   cb0.publicStatus = true;
@@ -90,7 +96,10 @@ int const kHorizontalSpaceToSubview = 32;
   
   [self.items insertObject:cb3 atIndex:0];
   [self.items insertObject:cb0 atIndex:0];
+  
+  self.isContentHeaderAdded = true;
 }
+
 
 #pragma mark - Setters
 
