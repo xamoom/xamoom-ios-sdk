@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlockType5.html">
+	<File path="Classes/XMMContentBlock4TableViewCell.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType5</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlockType5 is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType5.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlock4TableViewCell</TokenIdentifier>
+			<Abstract type="html">LinkBlockTableViewCell is used to display link contentBlocks from the xamoom cloud.</Abstract>
+			<DeclaredIn>XMMContentBlock4TableViewCell.h</DeclaredIn>
             
 			
 			<NodeRef refid="11"/>
@@ -13,98 +13,14 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType5/setFileId:</TokenIdentifier>
-			<Abstract type="html">Url to a ebook file (epub, mobi, pdf).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType5.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock4TableViewCell/changeStyleAccordingToLinkType</TokenIdentifier>
+			<Abstract type="html">Change the style and image of the tableViewCell to look like on http://xm.gl scanned page</Abstract>
+			<DeclaredIn>XMMContentBlock4TableViewCell.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
-			
-			
-			<Anchor>//api/name/fileId</Anchor>
-            <NodeRef refid="11"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType5/fileId</TokenIdentifier>
-			<Abstract type="html">Url to a ebook file (epub, mobi, pdf).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType5.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
+			<Declaration>- (void)changeStyleAccordingToLinkType</Declaration>
 			
 			
-			<Anchor>//api/name/fileId</Anchor>
-            <NodeRef refid="11"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType5/fileId</TokenIdentifier>
-			<Abstract type="html">Url to a ebook file (epub, mobi, pdf).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType5.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
-			
-			
-			<Anchor>//api/name/fileId</Anchor>
-            <NodeRef refid="11"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType5/setArtist:</TokenIdentifier>
-			<Abstract type="html">The name of the artist(s).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType5.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
-			
-			
-			<Anchor>//api/name/artist</Anchor>
-            <NodeRef refid="11"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType5/artist</TokenIdentifier>
-			<Abstract type="html">The name of the artist(s).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType5.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
-			
-			
-			<Anchor>//api/name/artist</Anchor>
-            <NodeRef refid="11"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType5/artist</TokenIdentifier>
-			<Abstract type="html">The name of the artist(s).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType5.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
-			
-			
-			<Anchor>//api/name/artist</Anchor>
-            <NodeRef refid="11"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType5/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType5 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType5.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
-            <NodeRef refid="11"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType5/dynamicMappingMatcher</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType5 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType5.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
-			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
+			<Anchor>//api/name/changeStyleAccordingToLinkType</Anchor>
             <NodeRef refid="11"/>
 		</Token>
 		

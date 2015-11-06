@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseGetSpotMapItem.html">
+	<File path="Classes/XMMContentBlockType5.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseGetSpotMapItem</TokenIdentifier>
-			<Abstract type="html">XMMResponseGetSpotMapItem is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlockType5</TokenIdentifier>
+			<Abstract type="html">XMMContentBlockType5 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContentBlockType5.h</DeclaredIn>
             
 			
 			<NodeRef refid="22"/>
@@ -13,194 +13,98 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/setDisplayName:</TokenIdentifier>
-			<Abstract type="html">The displayName of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType5/setFileId:</TokenIdentifier>
+			<Abstract type="html">Url to a ebook file (epub, mobi, pdf).</Abstract>
+			<DeclaredIn>XMMContentBlockType5.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *displayName</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
 			
 			
-			<Anchor>//api/name/displayName</Anchor>
+			<Anchor>//api/name/fileId</Anchor>
             <NodeRef refid="22"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/displayName</TokenIdentifier>
-			<Abstract type="html">The displayName of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType5/fileId</TokenIdentifier>
+			<Abstract type="html">Url to a ebook file (epub, mobi, pdf).</Abstract>
+			<DeclaredIn>XMMContentBlockType5.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *displayName</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
 			
 			
-			<Anchor>//api/name/displayName</Anchor>
+			<Anchor>//api/name/fileId</Anchor>
             <NodeRef refid="22"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetSpotMapItem/displayName</TokenIdentifier>
-			<Abstract type="html">The displayName of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType5/fileId</TokenIdentifier>
+			<Abstract type="html">Url to a ebook file (epub, mobi, pdf).</Abstract>
+			<DeclaredIn>XMMContentBlockType5.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *displayName</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
 			
 			
-			<Anchor>//api/name/displayName</Anchor>
+			<Anchor>//api/name/fileId</Anchor>
             <NodeRef refid="22"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/setDescriptionOfSpot:</TokenIdentifier>
-			<Abstract type="html">The description of the spot. (E.g. &quot;on the front door of the xamoom office&quot;)</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType5/setArtist:</TokenIdentifier>
+			<Abstract type="html">The name of the artist(s).</Abstract>
+			<DeclaredIn>XMMContentBlockType5.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfSpot</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
 			
 			
-			<Anchor>//api/name/descriptionOfSpot</Anchor>
+			<Anchor>//api/name/artist</Anchor>
             <NodeRef refid="22"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/descriptionOfSpot</TokenIdentifier>
-			<Abstract type="html">The description of the spot. (E.g. &quot;on the front door of the xamoom office&quot;)</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType5/artist</TokenIdentifier>
+			<Abstract type="html">The name of the artist(s).</Abstract>
+			<DeclaredIn>XMMContentBlockType5.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfSpot</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
 			
 			
-			<Anchor>//api/name/descriptionOfSpot</Anchor>
+			<Anchor>//api/name/artist</Anchor>
             <NodeRef refid="22"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetSpotMapItem/descriptionOfSpot</TokenIdentifier>
-			<Abstract type="html">The description of the spot. (E.g. &quot;on the front door of the xamoom office&quot;)</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType5/artist</TokenIdentifier>
+			<Abstract type="html">The name of the artist(s).</Abstract>
+			<DeclaredIn>XMMContentBlockType5.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfSpot</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
 			
 			
-			<Anchor>//api/name/descriptionOfSpot</Anchor>
+			<Anchor>//api/name/artist</Anchor>
             <NodeRef refid="22"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/setLat:</TokenIdentifier>
-			<Abstract type="html">The latitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lat</Declaration>
-			
-			
-			<Anchor>//api/name/lat</Anchor>
-            <NodeRef refid="22"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/lat</TokenIdentifier>
-			<Abstract type="html">The latitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lat</Declaration>
-			
-			
-			<Anchor>//api/name/lat</Anchor>
-            <NodeRef refid="22"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetSpotMapItem/lat</TokenIdentifier>
-			<Abstract type="html">The latitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lat</Declaration>
-			
-			
-			<Anchor>//api/name/lat</Anchor>
-            <NodeRef refid="22"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/setLon:</TokenIdentifier>
-			<Abstract type="html">The longitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lon</Declaration>
-			
-			
-			<Anchor>//api/name/lon</Anchor>
-            <NodeRef refid="22"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/lon</TokenIdentifier>
-			<Abstract type="html">The longitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lon</Declaration>
-			
-			
-			<Anchor>//api/name/lon</Anchor>
-            <NodeRef refid="22"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetSpotMapItem/lon</TokenIdentifier>
-			<Abstract type="html">The longitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lon</Declaration>
-			
-			
-			<Anchor>//api/name/lon</Anchor>
-            <NodeRef refid="22"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/setImage:</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *image</Declaration>
-			
-			
-			<Anchor>//api/name/image</Anchor>
-            <NodeRef refid="22"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetSpotMapItem/image</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *image</Declaration>
-			
-			
-			<Anchor>//api/name/image</Anchor>
-            <NodeRef refid="22"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetSpotMapItem/image</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *image</Declaration>
-			
-			
-			<Anchor>//api/name/image</Anchor>
-            <NodeRef refid="22"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseGetSpotMapItem/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseGetSpotMapItem class.</Abstract>
-			<DeclaredIn>XMMResponseGetSpotMapItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType5/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMContentBlockType5 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType5.h</DeclaredIn>
 			
 			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
 			<Anchor>//api/name/mapping</Anchor>
+            <NodeRef refid="22"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType5/dynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMContentBlockType5 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType5.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
+			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
             <NodeRef refid="22"/>
 		</Token>
 		

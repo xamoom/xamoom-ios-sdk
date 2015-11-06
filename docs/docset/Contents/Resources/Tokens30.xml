@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMContentByLocationIdentifier.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentByLocationIdentifier</TokenIdentifier>
+			<Abstract type="html">XMMContentByLocationIdentifier is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+            
+			
+			<NodeRef refid="30"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/setSystemName:</TokenIdentifier>
+			<Abstract type="html">The systemName on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *systemName</Declaration>
+			
+			
+			<Anchor>//api/name/systemName</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/systemName</TokenIdentifier>
+			<Abstract type="html">The systemName on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *systemName</Declaration>
+			
+			
+			<Anchor>//api/name/systemName</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentByLocationIdentifier/systemName</TokenIdentifier>
+			<Abstract type="html">The systemName on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *systemName</Declaration>
+			
+			
+			<Anchor>//api/name/systemName</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/setSystemUrl:</TokenIdentifier>
+			<Abstract type="html">Url to the homepage.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *systemUrl</Declaration>
+			
+			
+			<Anchor>//api/name/systemUrl</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/systemUrl</TokenIdentifier>
+			<Abstract type="html">Url to the homepage.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *systemUrl</Declaration>
+			
+			
+			<Anchor>//api/name/systemUrl</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentByLocationIdentifier/systemUrl</TokenIdentifier>
+			<Abstract type="html">Url to the homepage.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *systemUrl</Declaration>
+			
+			
+			<Anchor>//api/name/systemUrl</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/setSystemId:</TokenIdentifier>
+			<Abstract type="html">The unique systemId on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *systemId</Declaration>
+			
+			
+			<Anchor>//api/name/systemId</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/systemId</TokenIdentifier>
+			<Abstract type="html">The unique systemId on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *systemId</Declaration>
+			
+			
+			<Anchor>//api/name/systemId</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentByLocationIdentifier/systemId</TokenIdentifier>
+			<Abstract type="html">The unique systemId on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *systemId</Declaration>
+			
+			
+			<Anchor>//api/name/systemId</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/setHasContent:</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there is a XMMContent linked to the locationIdentifier on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasContent</Declaration>
+			
+			
+			<Anchor>//api/name/hasContent</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/hasContent</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there is a XMMContent linked to the locationIdentifier on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasContent</Declaration>
+			
+			
+			<Anchor>//api/name/hasContent</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentByLocationIdentifier/hasContent</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there is a XMMContent linked to the locationIdentifier on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasContent</Declaration>
+			
+			
+			<Anchor>//api/name/hasContent</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/setHasSpot:</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there is a Spot linked to the locationIdentifier on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasSpot</Declaration>
+			
+			
+			<Anchor>//api/name/hasSpot</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/hasSpot</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there is a Spot linked to the locationIdentifier on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasSpot</Declaration>
+			
+			
+			<Anchor>//api/name/hasSpot</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentByLocationIdentifier/hasSpot</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there is a Spot linked to the locationIdentifier on our system.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasSpot</Declaration>
+			
+			
+			<Anchor>//api/name/hasSpot</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/setContent:</TokenIdentifier>
+			<Abstract type="html">The content as XMMContent to display.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMContent *content</Declaration>
+			
+			
+			<Anchor>//api/name/content</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/content</TokenIdentifier>
+			<Abstract type="html">The content as XMMContent to display.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMContent *content</Declaration>
+			
+			
+			<Anchor>//api/name/content</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentByLocationIdentifier/content</TokenIdentifier>
+			<Abstract type="html">The content as XMMContent to display.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMContent *content</Declaration>
+			
+			
+			<Anchor>//api/name/content</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/setStyle:</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMStyle *style</Declaration>
+			
+			
+			<Anchor>//api/name/style</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/style</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMStyle *style</Declaration>
+			
+			
+			<Anchor>//api/name/style</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentByLocationIdentifier/style</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMStyle *style</Declaration>
+			
+			
+			<Anchor>//api/name/style</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/setMenu:</TokenIdentifier>
+			<Abstract type="html">Array containing items of XMMMenuItem.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *menu</Declaration>
+			
+			
+			<Anchor>//api/name/menu</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocationIdentifier/menu</TokenIdentifier>
+			<Abstract type="html">Array containing items of XMMMenuItem.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *menu</Declaration>
+			
+			
+			<Anchor>//api/name/menu</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentByLocationIdentifier/menu</TokenIdentifier>
+			<Abstract type="html">Array containing items of XMMMenuItem.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *menu</Declaration>
+			
+			
+			<Anchor>//api/name/menu</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentByLocationIdentifier/contentDescriptor</TokenIdentifier>
+			<Abstract type="html">Returns a RKResponseDescriptor for XMMContentByLocationIdentifier class.</Abstract>
+			<DeclaredIn>XMMContentByLocationIdentifier.h</DeclaredIn>
+			
+			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
+			<Anchor>//api/name/contentDescriptor</Anchor>
+            <NodeRef refid="30"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

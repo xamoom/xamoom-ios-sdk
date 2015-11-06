@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlockType3.html">
+	<File path="Classes/XMMContentBlock2TableViewCell.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType3</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlockType3 is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType3.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlock2TableViewCell</TokenIdentifier>
+			<Abstract type="html">XMMContentBlock2TableViewCell is used to display video contentBlocks from the xamoom cloud.</Abstract>
+			<DeclaredIn>XMMContentBlock2TableViewCell.h</DeclaredIn>
             
 			
 			<NodeRef refid="9"/>
@@ -13,62 +13,84 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType3/setFileId:</TokenIdentifier>
-			<Abstract type="html">Url to a imageFile (jpg, png, webp, svg)</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType3.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock2TableViewCell/youtubeVideoIdFromUrl:</TokenIdentifier>
+			<Abstract type="html">Returns the videoId from a youtubeUrl.</Abstract>
+			<DeclaredIn>XMMContentBlock2TableViewCell.m</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
-			
-			
-			<Anchor>//api/name/fileId</Anchor>
+			<Declaration>- (NSString *)youtubeVideoIdFromUrl:(NSString *)videoUrl</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>videoUrl</Name>
+					<Abstract type="html">youtube url.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">String videoId</Abstract></ReturnValue>
+			<Anchor>//api/name/youtubeVideoIdFromUrl:</Anchor>
             <NodeRef refid="9"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType3/fileId</TokenIdentifier>
-			<Abstract type="html">Url to a imageFile (jpg, png, webp, svg)</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType3.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock2TableViewCell/initVideoPlayer</TokenIdentifier>
+			<Abstract type="html">Creates and inits the videoplayer.
+Adds a gesture recognizer when tapping on the playerView, adds a notificication, and downloads
+a imagethumbnail for the video.</Abstract>
+			<DeclaredIn>XMMContentBlock2TableViewCell.m</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
+			<Declaration>- (void)initVideoPlayer</Declaration>
 			
 			
-			<Anchor>//api/name/fileId</Anchor>
+			<Anchor>//api/name/initVideoPlayer</Anchor>
             <NodeRef refid="9"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType3/fileId</TokenIdentifier>
-			<Abstract type="html">Url to a imageFile (jpg, png, webp, svg)</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType3.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock2TableViewCell/tappedVideoView:</TokenIdentifier>
+			<Abstract type="html">Opens a moviePlayerViewController</Abstract>
+			<DeclaredIn>XMMContentBlock2TableViewCell.m</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
+			<Declaration>- (void)tappedVideoView:(UITapGestureRecognizer *)sender</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>sender</Name>
+					<Abstract type="html">Sender</Abstract>
+				</Parameter>
+			</Parameters>
 			
-			
-			<Anchor>//api/name/fileId</Anchor>
+			<Anchor>//api/name/tappedVideoView:</Anchor>
             <NodeRef refid="9"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType3/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType3 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType3.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock2TableViewCell/handleMoviePlayerFinish:</TokenIdentifier>
+			<Abstract type="html">Handles errors and the &quot;done&quot; click.</Abstract>
+			<DeclaredIn>XMMContentBlock2TableViewCell.m</DeclaredIn>
 			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
+			<Declaration>- (void)handleMoviePlayerFinish:(NSNotification *)notification</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>notification</Name>
+					<Abstract type="html">Notification</Abstract>
+				</Parameter>
+			</Parameters>
 			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
+			<Anchor>//api/name/handleMoviePlayerFinish:</Anchor>
             <NodeRef refid="9"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType3/dynamicMappingMatcher</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType3 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType3.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock2TableViewCell/didReceiveImage:</TokenIdentifier>
+			<Abstract type="html">Displays the thumbnail image from the video.</Abstract>
+			<DeclaredIn>XMMContentBlock2TableViewCell.m</DeclaredIn>
 			
-			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
+			<Declaration>- (void)didReceiveImage:(NSNotification *)notification</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>notification</Name>
+					<Abstract type="html">Notification</Abstract>
+				</Parameter>
+			</Parameters>
 			
-			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
-			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
+			<Anchor>//api/name/didReceiveImage:</Anchor>
             <NodeRef refid="9"/>
 		</Token>
 		

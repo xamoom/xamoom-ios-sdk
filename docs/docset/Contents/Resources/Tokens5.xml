@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlock.html">
+	<File path="Classes/XMMContent.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlock</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlock is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContent</TokenIdentifier>
+			<Abstract type="html">XMMContent is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
             
 			
 			<NodeRef refid="5"/>
@@ -13,9 +13,153 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/setTitle:</TokenIdentifier>
-			<Abstract type="html">The title of this contentBlock.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setContentId:</TokenIdentifier>
+			<Abstract type="html">The unique contentId on our system.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			
+			
+			<Anchor>//api/name/contentId</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/contentId</TokenIdentifier>
+			<Abstract type="html">The unique contentId on our system.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			
+			
+			<Anchor>//api/name/contentId</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/contentId</TokenIdentifier>
+			<Abstract type="html">The unique contentId on our system.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			
+			
+			<Anchor>//api/name/contentId</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setImagePublicUrl:</TokenIdentifier>
+			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imagePublicUrl</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/imagePublicUrl</TokenIdentifier>
+			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imagePublicUrl</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/imagePublicUrl</TokenIdentifier>
+			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imagePublicUrl</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setDescriptionOfContent:</TokenIdentifier>
+			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *descriptionOfContent</Declaration>
+			
+			
+			<Anchor>//api/name/descriptionOfContent</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/descriptionOfContent</TokenIdentifier>
+			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *descriptionOfContent</Declaration>
+			
+			
+			<Anchor>//api/name/descriptionOfContent</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/descriptionOfContent</TokenIdentifier>
+			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *descriptionOfContent</Declaration>
+			
+			
+			<Anchor>//api/name/descriptionOfContent</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setLanguage:</TokenIdentifier>
+			<Abstract type="html">The language of the content</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
+			
+			
+			<Anchor>//api/name/language</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/language</TokenIdentifier>
+			<Abstract type="html">The language of the content</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
+			
+			
+			<Anchor>//api/name/language</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/language</TokenIdentifier>
+			<Abstract type="html">The language of the content</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
+			
+			
+			<Anchor>//api/name/language</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setTitle:</TokenIdentifier>
+			<Abstract type="html">The title of the content.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
 			
@@ -25,9 +169,9 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/title</TokenIdentifier>
-			<Abstract type="html">The title of this contentBlock.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/title</TokenIdentifier>
+			<Abstract type="html">The title of the content.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
 			
@@ -37,9 +181,9 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlock/title</TokenIdentifier>
-			<Abstract type="html">The title of this contentBlock.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/title</TokenIdentifier>
+			<Abstract type="html">The title of the content.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
 			
@@ -49,89 +193,89 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/setPublicStatus:</TokenIdentifier>
-			<Abstract type="html">The publicStatus of the content. Yes means public.
-Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setContentBlocks:</TokenIdentifier>
+			<Abstract type="html">Array containing items of XMMContentBlock.
+Display all different contentBlocks.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) BOOL publicStatus</Declaration>
+			<Declaration>@property (nonatomic) NSArray *contentBlocks</Declaration>
 			
 			
-			<Anchor>//api/name/publicStatus</Anchor>
+			<Anchor>//api/name/contentBlocks</Anchor>
             <NodeRef refid="5"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/publicStatus</TokenIdentifier>
-			<Abstract type="html">The publicStatus of the content. Yes means public.
-Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/contentBlocks</TokenIdentifier>
+			<Abstract type="html">Array containing items of XMMContentBlock.
+Display all different contentBlocks.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) BOOL publicStatus</Declaration>
+			<Declaration>@property (nonatomic) NSArray *contentBlocks</Declaration>
 			
 			
-			<Anchor>//api/name/publicStatus</Anchor>
+			<Anchor>//api/name/contentBlocks</Anchor>
             <NodeRef refid="5"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlock/publicStatus</TokenIdentifier>
-			<Abstract type="html">The publicStatus of the content. Yes means public.
-Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/contentBlocks</TokenIdentifier>
+			<Abstract type="html">Array containing items of XMMContentBlock.
+Display all different contentBlocks.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) BOOL publicStatus</Declaration>
+			<Declaration>@property (nonatomic) NSArray *contentBlocks</Declaration>
 			
 			
-			<Anchor>//api/name/publicStatus</Anchor>
+			<Anchor>//api/name/contentBlocks</Anchor>
             <NodeRef refid="5"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/setContentBlockType:</TokenIdentifier>
-			<Abstract type="html">The contentBlockType (0-9) determining the type of the contentBlock.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) int contentBlockType</Declaration>
-			
-			
-			<Anchor>//api/name/contentBlockType</Anchor>
-            <NodeRef refid="5"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlock/contentBlockType</TokenIdentifier>
-			<Abstract type="html">The contentBlockType (0-9) determining the type of the contentBlock.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) int contentBlockType</Declaration>
-			
-			
-			<Anchor>//api/name/contentBlockType</Anchor>
-            <NodeRef refid="5"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlock/contentBlockType</TokenIdentifier>
-			<Abstract type="html">The contentBlockType (0-9) determining the type of the contentBlock.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) int contentBlockType</Declaration>
-			
-			
-			<Anchor>//api/name/contentBlockType</Anchor>
-            <NodeRef refid="5"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlock/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlock class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlock.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContent/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMContent class.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
 			
 			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
 			<Anchor>//api/name/mapping</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setSortedContentBlocks:</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedContentBlocks</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/sortedContentBlocks</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedContentBlocks</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/sortedContentBlocks</TokenIdentifier>
+			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
+			
+			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
+			<Anchor>//api/name/sortedContentBlocks</Anchor>
             <NodeRef refid="5"/>
 		</Token>
 		

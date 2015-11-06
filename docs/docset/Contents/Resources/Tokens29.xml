@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMContentByLocation.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentByLocation</TokenIdentifier>
+			<Abstract type="html">XMMContentByLocation is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContentByLocation.h</DeclaredIn>
+            
+			
+			<NodeRef refid="29"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocation/setItems:</TokenIdentifier>
+			<Abstract type="html">Array containing XMMContentByLocation items.</Abstract>
+			<DeclaredIn>XMMContentByLocation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentByLocation/items</TokenIdentifier>
+			<Abstract type="html">Array containing XMMContentByLocation items.</Abstract>
+			<DeclaredIn>XMMContentByLocation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentByLocation/items</TokenIdentifier>
+			<Abstract type="html">Array containing XMMContentByLocation items.</Abstract>
+			<DeclaredIn>XMMContentByLocation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentByLocation/contentDescriptor</TokenIdentifier>
+			<Abstract type="html">Returns a RKResponseDescriptor for XMMContentByLocation class.</Abstract>
+			<DeclaredIn>XMMContentByLocation.h</DeclaredIn>
+			
+			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
+			<Anchor>//api/name/contentDescriptor</Anchor>
+            <NodeRef refid="29"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,76 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlockType7.html">
+	<File path="Classes/XMMContentBlock6TableViewCell.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType7</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlockType7 is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlock6TableViewCell</TokenIdentifier>
+			<Abstract type="html">XMMContentBlock6TableViewCell is used to display content contentBlocks from the xamoom cloud.</Abstract>
+			<DeclaredIn>XMMContentBlock6TableViewCell.h</DeclaredIn>
             
 			
 			<NodeRef refid="13"/>
 		</Token>
 		
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType7/setSoundcloudUrl:</TokenIdentifier>
-			<Abstract type="html">A soundcloud url.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *soundcloudUrl</Declaration>
-			
-			
-			<Anchor>//api/name/soundcloudUrl</Anchor>
-            <NodeRef refid="13"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType7/soundcloudUrl</TokenIdentifier>
-			<Abstract type="html">A soundcloud url.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *soundcloudUrl</Declaration>
-			
-			
-			<Anchor>//api/name/soundcloudUrl</Anchor>
-            <NodeRef refid="13"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType7/soundcloudUrl</TokenIdentifier>
-			<Abstract type="html">A soundcloud url.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *soundcloudUrl</Declaration>
-			
-			
-			<Anchor>//api/name/soundcloudUrl</Anchor>
-            <NodeRef refid="13"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType7/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType7 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
-            <NodeRef refid="13"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType7/dynamicMappingMatcher</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType7 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType7.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
-			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
-            <NodeRef refid="13"/>
-		</Token>
 		
         
         

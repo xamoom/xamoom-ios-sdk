@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMError.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMError</TokenIdentifier>
+			<Abstract type="html">XMMError is used for mapping error messages from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
+            
+			
+			<NodeRef refid="34"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMError/setCode:</TokenIdentifier>
+			<Abstract type="html">Error code from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
+			
+			<Declaration>@property NSString *code</Declaration>
+			
+			
+			<Anchor>//api/name/code</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMError/code</TokenIdentifier>
+			<Abstract type="html">Error code from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
+			
+			<Declaration>@property NSString *code</Declaration>
+			
+			
+			<Anchor>//api/name/code</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMError/code</TokenIdentifier>
+			<Abstract type="html">Error code from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
+			
+			<Declaration>@property NSString *code</Declaration>
+			
+			
+			<Anchor>//api/name/code</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMError/setMessage:</TokenIdentifier>
+			<Abstract type="html">Error message from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
+			
+			<Declaration>@property NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMError/message</TokenIdentifier>
+			<Abstract type="html">Error message from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
+			
+			<Declaration>@property NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMError/message</TokenIdentifier>
+			<Abstract type="html">Error message from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
+			
+			<Declaration>@property NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="34"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

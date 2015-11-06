@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseGetByLocationItem.html">
+	<File path="Classes/XMMContentBlockType3.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseGetByLocationItem</TokenIdentifier>
-			<Abstract type="html">XMMResponseGetByLocationItem is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlockType3</TokenIdentifier>
+			<Abstract type="html">XMMContentBlockType3 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
             
 			
 			<NodeRef refid="20"/>
@@ -13,626 +13,179 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setSystemName:</TokenIdentifier>
-			<Abstract type="html">The systemName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType3/setFileId:</TokenIdentifier>
+			<Abstract type="html">Url to a imageFile (jpg, png, webp, svg)</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemName</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
 			
 			
-			<Anchor>//api/name/systemName</Anchor>
+			<Anchor>//api/name/fileId</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/systemName</TokenIdentifier>
-			<Abstract type="html">The systemName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType3/fileId</TokenIdentifier>
+			<Abstract type="html">Url to a imageFile (jpg, png, webp, svg)</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemName</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
 			
 			
-			<Anchor>//api/name/systemName</Anchor>
+			<Anchor>//api/name/fileId</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/systemName</TokenIdentifier>
-			<Abstract type="html">The systemName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType3/fileId</TokenIdentifier>
+			<Abstract type="html">Url to a imageFile (jpg, png, webp, svg)</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemName</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
 			
 			
-			<Anchor>//api/name/systemName</Anchor>
+			<Anchor>//api/name/fileId</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setSystemUrl:</TokenIdentifier>
-			<Abstract type="html">Url to the homepage.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType3/setScaleX:</TokenIdentifier>
+			<Abstract type="html">Value to determine a x-axis (width) scaling from 0 to 100 in percent.
+Is null when not set.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemUrl</Declaration>
+			<Declaration>@property (nonatomic, copy) NSDecimalNumber *scaleX</Declaration>
 			
 			
-			<Anchor>//api/name/systemUrl</Anchor>
+			<Anchor>//api/name/scaleX</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/systemUrl</TokenIdentifier>
-			<Abstract type="html">Url to the homepage.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType3/scaleX</TokenIdentifier>
+			<Abstract type="html">Value to determine a x-axis (width) scaling from 0 to 100 in percent.
+Is null when not set.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemUrl</Declaration>
+			<Declaration>@property (nonatomic, copy) NSDecimalNumber *scaleX</Declaration>
 			
 			
-			<Anchor>//api/name/systemUrl</Anchor>
+			<Anchor>//api/name/scaleX</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/systemUrl</TokenIdentifier>
-			<Abstract type="html">Url to the homepage.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType3/scaleX</TokenIdentifier>
+			<Abstract type="html">Value to determine a x-axis (width) scaling from 0 to 100 in percent.
+Is null when not set.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemUrl</Declaration>
+			<Declaration>@property (nonatomic, copy) NSDecimalNumber *scaleX</Declaration>
 			
 			
-			<Anchor>//api/name/systemUrl</Anchor>
+			<Anchor>//api/name/scaleX</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setSystemId:</TokenIdentifier>
-			<Abstract type="html">The unique systemId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType3/setLinkUrl:</TokenIdentifier>
+			<Abstract type="html">Url the user inserted in xamoom cloud. Can be nil and &quot;&quot;.
+Should be opened in browser.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemId</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *linkUrl</Declaration>
 			
 			
-			<Anchor>//api/name/systemId</Anchor>
+			<Anchor>//api/name/linkUrl</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/systemId</TokenIdentifier>
-			<Abstract type="html">The unique systemId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType3/linkUrl</TokenIdentifier>
+			<Abstract type="html">Url the user inserted in xamoom cloud. Can be nil and &quot;&quot;.
+Should be opened in browser.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemId</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *linkUrl</Declaration>
 			
 			
-			<Anchor>//api/name/systemId</Anchor>
+			<Anchor>//api/name/linkUrl</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/systemId</TokenIdentifier>
-			<Abstract type="html">The unique systemId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType3/linkUrl</TokenIdentifier>
+			<Abstract type="html">Url the user inserted in xamoom cloud. Can be nil and &quot;&quot;.
+Should be opened in browser.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemId</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *linkUrl</Declaration>
 			
 			
-			<Anchor>//api/name/systemId</Anchor>
+			<Anchor>//api/name/linkUrl</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setContentId:</TokenIdentifier>
-			<Abstract type="html">The unique contentId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType3/setAltText:</TokenIdentifier>
+			<Abstract type="html">Alternative text for the image. Can be nil and &quot;&quot;;
+If nil or &quot;&quot;, use the title.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *altText</Declaration>
 			
 			
-			<Anchor>//api/name/contentId</Anchor>
+			<Anchor>//api/name/altText</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/contentId</TokenIdentifier>
-			<Abstract type="html">The unique contentId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType3/altText</TokenIdentifier>
+			<Abstract type="html">Alternative text for the image. Can be nil and &quot;&quot;;
+If nil or &quot;&quot;, use the title.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *altText</Declaration>
 			
 			
-			<Anchor>//api/name/contentId</Anchor>
+			<Anchor>//api/name/altText</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/contentId</TokenIdentifier>
-			<Abstract type="html">The unique contentId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType3/altText</TokenIdentifier>
+			<Abstract type="html">Alternative text for the image. Can be nil and &quot;&quot;;
+If nil or &quot;&quot;, use the title.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *altText</Declaration>
 			
 			
-			<Anchor>//api/name/contentId</Anchor>
+			<Anchor>//api/name/altText</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setDescriptionOfContent:</TokenIdentifier>
-			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfContent</Declaration>
-			
-			
-			<Anchor>//api/name/descriptionOfContent</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/descriptionOfContent</TokenIdentifier>
-			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfContent</Declaration>
-			
-			
-			<Anchor>//api/name/descriptionOfContent</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/descriptionOfContent</TokenIdentifier>
-			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfContent</Declaration>
-			
-			
-			<Anchor>//api/name/descriptionOfContent</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setLanguage:</TokenIdentifier>
-			<Abstract type="html">The language of the content</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
-			
-			
-			<Anchor>//api/name/language</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/language</TokenIdentifier>
-			<Abstract type="html">The language of the content</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
-			
-			
-			<Anchor>//api/name/language</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/language</TokenIdentifier>
-			<Abstract type="html">The language of the content</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
-			
-			
-			<Anchor>//api/name/language</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setTitle:</TokenIdentifier>
-			<Abstract type="html">The title of the content.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
-			
-			
-			<Anchor>//api/name/title</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/title</TokenIdentifier>
-			<Abstract type="html">The title of the content.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
-			
-			
-			<Anchor>//api/name/title</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/title</TokenIdentifier>
-			<Abstract type="html">The title of the content.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
-			
-			
-			<Anchor>//api/name/title</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setBackgroundColor:</TokenIdentifier>
-			<Abstract type="html">The background color defined on our system. (E.g. #f5f5f5)</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *backgroundColor</Declaration>
-			
-			
-			<Anchor>//api/name/backgroundColor</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/backgroundColor</TokenIdentifier>
-			<Abstract type="html">The background color defined on our system. (E.g. #f5f5f5)</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *backgroundColor</Declaration>
-			
-			
-			<Anchor>//api/name/backgroundColor</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/backgroundColor</TokenIdentifier>
-			<Abstract type="html">The background color defined on our system. (E.g. #f5f5f5)</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *backgroundColor</Declaration>
-			
-			
-			<Anchor>//api/name/backgroundColor</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setLat:</TokenIdentifier>
-			<Abstract type="html">Latitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lat</Declaration>
-			
-			
-			<Anchor>//api/name/lat</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/lat</TokenIdentifier>
-			<Abstract type="html">Latitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lat</Declaration>
-			
-			
-			<Anchor>//api/name/lat</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/lat</TokenIdentifier>
-			<Abstract type="html">Latitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lat</Declaration>
-			
-			
-			<Anchor>//api/name/lat</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setLon:</TokenIdentifier>
-			<Abstract type="html">Longitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lon</Declaration>
-			
-			
-			<Anchor>//api/name/lon</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/lon</TokenIdentifier>
-			<Abstract type="html">Longitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lon</Declaration>
-			
-			
-			<Anchor>//api/name/lon</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/lon</TokenIdentifier>
-			<Abstract type="html">Longitude of the spot.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lon</Declaration>
-			
-			
-			<Anchor>//api/name/lon</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setForegroundFontColor:</TokenIdentifier>
-			<Abstract type="html">The foregroundFont color defined on our system. (E.g. #f9f9f9)</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *foregroundFontColor</Declaration>
-			
-			
-			<Anchor>//api/name/foregroundFontColor</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/foregroundFontColor</TokenIdentifier>
-			<Abstract type="html">The foregroundFont color defined on our system. (E.g. #f9f9f9)</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *foregroundFontColor</Declaration>
-			
-			
-			<Anchor>//api/name/foregroundFontColor</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/foregroundFontColor</TokenIdentifier>
-			<Abstract type="html">The foregroundFont color defined on our system. (E.g. #f9f9f9)</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *foregroundFontColor</Declaration>
-			
-			
-			<Anchor>//api/name/foregroundFontColor</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setIcon:</TokenIdentifier>
-			<Abstract type="html">The icon as DOUBLE base64 encoded string.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *icon</Declaration>
-			
-			
-			<Anchor>//api/name/icon</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/icon</TokenIdentifier>
-			<Abstract type="html">The icon as DOUBLE base64 encoded string.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *icon</Declaration>
-			
-			
-			<Anchor>//api/name/icon</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/icon</TokenIdentifier>
-			<Abstract type="html">The icon as DOUBLE base64 encoded string.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *icon</Declaration>
-			
-			
-			<Anchor>//api/name/icon</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setHighlightFontColor:</TokenIdentifier>
-			<Abstract type="html">The hightLightFontColor defined on our system. Used for links. (E.g. #ff0000)</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *highlightFontColor</Declaration>
-			
-			
-			<Anchor>//api/name/highlightFontColor</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/highlightFontColor</TokenIdentifier>
-			<Abstract type="html">The hightLightFontColor defined on our system. Used for links. (E.g. #ff0000)</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *highlightFontColor</Declaration>
-			
-			
-			<Anchor>//api/name/highlightFontColor</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/highlightFontColor</TokenIdentifier>
-			<Abstract type="html">The hightLightFontColor defined on our system. Used for links. (E.g. #ff0000)</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *highlightFontColor</Declaration>
-			
-			
-			<Anchor>//api/name/highlightFontColor</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setImagePublicUrl:</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
-			
-			
-			<Anchor>//api/name/imagePublicUrl</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/imagePublicUrl</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
-			
-			
-			<Anchor>//api/name/imagePublicUrl</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/imagePublicUrl</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
-			
-			
-			<Anchor>//api/name/imagePublicUrl</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setSpotId:</TokenIdentifier>
-			<Abstract type="html">The unique spotId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *spotId</Declaration>
-			
-			
-			<Anchor>//api/name/spotId</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/spotId</TokenIdentifier>
-			<Abstract type="html">The unique spotId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *spotId</Declaration>
-			
-			
-			<Anchor>//api/name/spotId</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/spotId</TokenIdentifier>
-			<Abstract type="html">The unique spotId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *spotId</Declaration>
-			
-			
-			<Anchor>//api/name/spotId</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setSpotName:</TokenIdentifier>
-			<Abstract type="html">The spotName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *spotName</Declaration>
-			
-			
-			<Anchor>//api/name/spotName</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/spotName</TokenIdentifier>
-			<Abstract type="html">The spotName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *spotName</Declaration>
-			
-			
-			<Anchor>//api/name/spotName</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/spotName</TokenIdentifier>
-			<Abstract type="html">The spotName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *spotName</Declaration>
-			
-			
-			<Anchor>//api/name/spotName</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/setContentName:</TokenIdentifier>
-			<Abstract type="html">The contentName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *contentName</Declaration>
-			
-			
-			<Anchor>//api/name/contentName</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocationItem/contentName</TokenIdentifier>
-			<Abstract type="html">The contentName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *contentName</Declaration>
-			
-			
-			<Anchor>//api/name/contentName</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocationItem/contentName</TokenIdentifier>
-			<Abstract type="html">The contentName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *contentName</Declaration>
-			
-			
-			<Anchor>//api/name/contentName</Anchor>
-            <NodeRef refid="20"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseGetByLocationItem/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseGetByLocationItem class.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocationItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType3/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMContentBlockType3 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
 			
 			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
 			<Anchor>//api/name/mapping</Anchor>
+            <NodeRef refid="20"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType3/dynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMContentBlockType3 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType3.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
+			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
             <NodeRef refid="20"/>
 		</Token>
 		

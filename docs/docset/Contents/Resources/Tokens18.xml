@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseGetByLocation.html">
+	<File path="Classes/XMMContentBlockType1.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseGetByLocation</TokenIdentifier>
-			<Abstract type="html">XMMResponseGetByLocation is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocation.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlockType1</TokenIdentifier>
+			<Abstract type="html">XMMContentBlockType1 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContentBlockType1.h</DeclaredIn>
             
 			
 			<NodeRef refid="18"/>
@@ -13,50 +13,98 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocation/setItems:</TokenIdentifier>
-			<Abstract type="html">Array containing XMMResponseGetByLocation items.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocation.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType1/setFileId:</TokenIdentifier>
+			<Abstract type="html">Url to a audioFile (mp3, m4a, aac).</Abstract>
+			<DeclaredIn>XMMContentBlockType1.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
 			
 			
-			<Anchor>//api/name/items</Anchor>
+			<Anchor>//api/name/fileId</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetByLocation/items</TokenIdentifier>
-			<Abstract type="html">Array containing XMMResponseGetByLocation items.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocation.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType1/fileId</TokenIdentifier>
+			<Abstract type="html">Url to a audioFile (mp3, m4a, aac).</Abstract>
+			<DeclaredIn>XMMContentBlockType1.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
 			
 			
-			<Anchor>//api/name/items</Anchor>
+			<Anchor>//api/name/fileId</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetByLocation/items</TokenIdentifier>
-			<Abstract type="html">Array containing XMMResponseGetByLocation items.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocation.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType1/fileId</TokenIdentifier>
+			<Abstract type="html">Url to a audioFile (mp3, m4a, aac).</Abstract>
+			<DeclaredIn>XMMContentBlockType1.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
 			
 			
-			<Anchor>//api/name/items</Anchor>
+			<Anchor>//api/name/fileId</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseGetByLocation/contentDescriptor</TokenIdentifier>
-			<Abstract type="html">Returns a RKResponseDescriptor for XMMResponseGetByLocation class.</Abstract>
-			<DeclaredIn>XMMResponseGetByLocation.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType1/setArtist:</TokenIdentifier>
+			<Abstract type="html">The name of the artist(s).</Abstract>
+			<DeclaredIn>XMMContentBlockType1.h</DeclaredIn>
 			
-			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
 			
-			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
-			<Anchor>//api/name/contentDescriptor</Anchor>
+			
+			<Anchor>//api/name/artist</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType1/artist</TokenIdentifier>
+			<Abstract type="html">The name of the artist(s).</Abstract>
+			<DeclaredIn>XMMContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
+			
+			
+			<Anchor>//api/name/artist</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType1/artist</TokenIdentifier>
+			<Abstract type="html">The name of the artist(s).</Abstract>
+			<DeclaredIn>XMMContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
+			
+			
+			<Anchor>//api/name/artist</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType1/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMContentBlockType1 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
+			<Anchor>//api/name/mapping</Anchor>
+            <NodeRef refid="18"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType1/dynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMContentBlockType1 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType1.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
+			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
             <NodeRef refid="18"/>
 		</Token>
 		

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseMenuItem.html">
+	<File path="Classes/XMMContentBlockType6.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseMenuItem</TokenIdentifier>
-			<Abstract type="html">XMMResponseMenuItem is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlockType6</TokenIdentifier>
+			<Abstract type="html">XMMContentBlockType6 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContentBlockType6.h</DeclaredIn>
             
 			
 			<NodeRef refid="23"/>
@@ -13,86 +13,26 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseMenuItem/setItemLabel:</TokenIdentifier>
-			<Abstract type="html">Name of the menu item.</Abstract>
-			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *itemLabel</Declaration>
-			
-			
-			<Anchor>//api/name/itemLabel</Anchor>
-            <NodeRef refid="23"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseMenuItem/itemLabel</TokenIdentifier>
-			<Abstract type="html">Name of the menu item.</Abstract>
-			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *itemLabel</Declaration>
-			
-			
-			<Anchor>//api/name/itemLabel</Anchor>
-            <NodeRef refid="23"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseMenuItem/itemLabel</TokenIdentifier>
-			<Abstract type="html">Name of the menu item.</Abstract>
-			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *itemLabel</Declaration>
-			
-			
-			<Anchor>//api/name/itemLabel</Anchor>
-            <NodeRef refid="23"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseMenuItem/setContentId:</TokenIdentifier>
-			<Abstract type="html">ContentId of the item.</Abstract>
-			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
-			
-			
-			<Anchor>//api/name/contentId</Anchor>
-            <NodeRef refid="23"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseMenuItem/contentId</TokenIdentifier>
-			<Abstract type="html">ContentId of the item.</Abstract>
-			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
-			
-			
-			<Anchor>//api/name/contentId</Anchor>
-            <NodeRef refid="23"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseMenuItem/contentId</TokenIdentifier>
-			<Abstract type="html">ContentId of the item.</Abstract>
-			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
-			
-			
-			<Anchor>//api/name/contentId</Anchor>
-            <NodeRef refid="23"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseMenuItem/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseMenuItem class.</Abstract>
-			<DeclaredIn>XMMResponseMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType6/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMContentBlockType6 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType6.h</DeclaredIn>
 			
 			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
 			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
 			<Anchor>//api/name/mapping</Anchor>
+            <NodeRef refid="23"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType6/dynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMContentBlockType6 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType6.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
+			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
             <NodeRef refid="23"/>
 		</Token>
 		

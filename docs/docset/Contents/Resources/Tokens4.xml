@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContent.html">
+	<File path="Classes/XMMClosestSpot.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContent</TokenIdentifier>
-			<Abstract type="html">XMMResponseContent is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMClosestSpot</TokenIdentifier>
+			<Abstract type="html">XMMClosestSpot is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
             
 			
 			<NodeRef refid="4"/>
@@ -13,269 +13,158 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/setContentId:</TokenIdentifier>
-			<Abstract type="html">The unique contentId on our system.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMClosestSpot/setItems:</TokenIdentifier>
+			<Abstract type="html">Array of XMMSpot items.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
 			
 			
-			<Anchor>//api/name/contentId</Anchor>
+			<Anchor>//api/name/items</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/contentId</TokenIdentifier>
-			<Abstract type="html">The unique contentId on our system.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMClosestSpot/items</TokenIdentifier>
+			<Abstract type="html">Array of XMMSpot items.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
 			
 			
-			<Anchor>//api/name/contentId</Anchor>
+			<Anchor>//api/name/items</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContent/contentId</TokenIdentifier>
-			<Abstract type="html">The unique contentId on our system.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMClosestSpot/items</TokenIdentifier>
+			<Abstract type="html">Array of XMMSpot items.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
 			
 			
-			<Anchor>//api/name/contentId</Anchor>
+			<Anchor>//api/name/items</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/setImagePublicUrl:</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMClosestSpot/setStyle:</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
+			<Declaration>@property (nonatomic, copy) XMMStyle *style</Declaration>
 			
 			
-			<Anchor>//api/name/imagePublicUrl</Anchor>
+			<Anchor>//api/name/style</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/imagePublicUrl</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMClosestSpot/style</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
+			<Declaration>@property (nonatomic, copy) XMMStyle *style</Declaration>
 			
 			
-			<Anchor>//api/name/imagePublicUrl</Anchor>
+			<Anchor>//api/name/style</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContent/imagePublicUrl</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMClosestSpot/style</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
+			<Declaration>@property (nonatomic, copy) XMMStyle *style</Declaration>
 			
 			
-			<Anchor>//api/name/imagePublicUrl</Anchor>
+			<Anchor>//api/name/style</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/setDescriptionOfContent:</TokenIdentifier>
-			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMClosestSpot/setRadius:</TokenIdentifier>
+			<Abstract type="html">The requested radius in meter.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfContent</Declaration>
+			<Declaration>@property (nonatomic) int radius</Declaration>
 			
 			
-			<Anchor>//api/name/descriptionOfContent</Anchor>
+			<Anchor>//api/name/radius</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/descriptionOfContent</TokenIdentifier>
-			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMClosestSpot/radius</TokenIdentifier>
+			<Abstract type="html">The requested radius in meter.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfContent</Declaration>
+			<Declaration>@property (nonatomic) int radius</Declaration>
 			
 			
-			<Anchor>//api/name/descriptionOfContent</Anchor>
+			<Anchor>//api/name/radius</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContent/descriptionOfContent</TokenIdentifier>
-			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMClosestSpot/radius</TokenIdentifier>
+			<Abstract type="html">The requested radius in meter.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfContent</Declaration>
+			<Declaration>@property (nonatomic) int radius</Declaration>
 			
 			
-			<Anchor>//api/name/descriptionOfContent</Anchor>
+			<Anchor>//api/name/radius</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/setLanguage:</TokenIdentifier>
-			<Abstract type="html">The language of the content</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMClosestSpot/setLimit:</TokenIdentifier>
+			<Abstract type="html">The requestet limit of items to return.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
+			<Declaration>@property (nonatomic) int limit</Declaration>
 			
 			
-			<Anchor>//api/name/language</Anchor>
+			<Anchor>//api/name/limit</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/language</TokenIdentifier>
-			<Abstract type="html">The language of the content</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMClosestSpot/limit</TokenIdentifier>
+			<Abstract type="html">The requestet limit of items to return.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
+			<Declaration>@property (nonatomic) int limit</Declaration>
 			
 			
-			<Anchor>//api/name/language</Anchor>
+			<Anchor>//api/name/limit</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContent/language</TokenIdentifier>
-			<Abstract type="html">The language of the content</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMClosestSpot/limit</TokenIdentifier>
+			<Abstract type="html">The requestet limit of items to return.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
+			<Declaration>@property (nonatomic) int limit</Declaration>
 			
 			
-			<Anchor>//api/name/language</Anchor>
+			<Anchor>//api/name/limit</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/setTitle:</TokenIdentifier>
-			<Abstract type="html">The title of the content.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMClosestSpot/contentDescriptor</TokenIdentifier>
+			<Abstract type="html">Returns a RKResponseDescriptor for XMMClosestSpot class.</Abstract>
+			<DeclaredIn>XMMClosestSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
+			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
 			
-			
-			<Anchor>//api/name/title</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/title</TokenIdentifier>
-			<Abstract type="html">The title of the content.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
-			
-			
-			<Anchor>//api/name/title</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContent/title</TokenIdentifier>
-			<Abstract type="html">The title of the content.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *title</Declaration>
-			
-			
-			<Anchor>//api/name/title</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/setContentBlocks:</TokenIdentifier>
-			<Abstract type="html">Array containing items of XMMResponseContentBlock.
-Display all different contentBlocks.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) NSArray *contentBlocks</Declaration>
-			
-			
-			<Anchor>//api/name/contentBlocks</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/contentBlocks</TokenIdentifier>
-			<Abstract type="html">Array containing items of XMMResponseContentBlock.
-Display all different contentBlocks.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) NSArray *contentBlocks</Declaration>
-			
-			
-			<Anchor>//api/name/contentBlocks</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContent/contentBlocks</TokenIdentifier>
-			<Abstract type="html">Array containing items of XMMResponseContentBlock.
-Display all different contentBlocks.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) NSArray *contentBlocks</Declaration>
-			
-			
-			<Anchor>//api/name/contentBlocks</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContent/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContent class.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/setSortedContentBlocks:</TokenIdentifier>
-			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
-			
-			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
-			
-			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
-			<Anchor>//api/name/sortedContentBlocks</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContent/sortedContentBlocks</TokenIdentifier>
-			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
-			
-			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
-			
-			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
-			<Anchor>//api/name/sortedContentBlocks</Anchor>
-            <NodeRef refid="4"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContent/sortedContentBlocks</TokenIdentifier>
-			<Abstract type="html">Returns the XMMCoreDataContentBlocks in the right order.</Abstract>
-			<DeclaredIn>XMMResponseContent.h</DeclaredIn>
-			
-			<Declaration>@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks</Declaration>
-			
-			<ReturnValue><Abstract type="html">NSArray*</Abstract></ReturnValue>
-			<Anchor>//api/name/sortedContentBlocks</Anchor>
+			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
+			<Anchor>//api/name/contentDescriptor</Anchor>
             <NodeRef refid="4"/>
 		</Token>
 		

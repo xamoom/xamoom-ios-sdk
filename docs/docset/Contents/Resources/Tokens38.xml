@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMSpotMap.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMSpotMap</TokenIdentifier>
+			<Abstract type="html">XMMSpotMap is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+            
+			
+			<NodeRef refid="38"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpotMap/setItems:</TokenIdentifier>
+			<Abstract type="html">Array containing XMMSpotMapItem items.</Abstract>
+			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpotMap/items</TokenIdentifier>
+			<Abstract type="html">Array containing XMMSpotMapItem items.</Abstract>
+			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMSpotMap/items</TokenIdentifier>
+			<Abstract type="html">Array containing XMMSpotMapItem items.</Abstract>
+			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpotMap/setStyle:</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
+			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMStyle *style</Declaration>
+			
+			
+			<Anchor>//api/name/style</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpotMap/style</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
+			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMStyle *style</Declaration>
+			
+			
+			<Anchor>//api/name/style</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMSpotMap/style</TokenIdentifier>
+			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
+			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMStyle *style</Declaration>
+			
+			
+			<Anchor>//api/name/style</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMSpotMap/contentDescriptor</TokenIdentifier>
+			<Abstract type="html">Returns a RKResponseDescriptor for XMMSpotMap class.</Abstract>
+			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			
+			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
+			<Anchor>//api/name/contentDescriptor</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

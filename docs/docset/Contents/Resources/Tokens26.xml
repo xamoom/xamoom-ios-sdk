@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMContentBlockType9.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlockType9</TokenIdentifier>
+			<Abstract type="html">XMMContentBlockType9 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContentBlockType9.h</DeclaredIn>
+            
+			
+			<NodeRef refid="26"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType9/setSpotMapTag:</TokenIdentifier>
+			<Abstract type="html">String of comma seperated tags to display spotmap.</Abstract>
+			<DeclaredIn>XMMContentBlockType9.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *spotMapTag</Declaration>
+			
+			
+			<Anchor>//api/name/spotMapTag</Anchor>
+            <NodeRef refid="26"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType9/spotMapTag</TokenIdentifier>
+			<Abstract type="html">String of comma seperated tags to display spotmap.</Abstract>
+			<DeclaredIn>XMMContentBlockType9.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *spotMapTag</Declaration>
+			
+			
+			<Anchor>//api/name/spotMapTag</Anchor>
+            <NodeRef refid="26"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType9/spotMapTag</TokenIdentifier>
+			<Abstract type="html">String of comma seperated tags to display spotmap.</Abstract>
+			<DeclaredIn>XMMContentBlockType9.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *spotMapTag</Declaration>
+			
+			
+			<Anchor>//api/name/spotMapTag</Anchor>
+            <NodeRef refid="26"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType9/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMContentBlockType9 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType9.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
+			<Anchor>//api/name/mapping</Anchor>
+            <NodeRef refid="26"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType9/dynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMContentBlockType9 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType9.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
+			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
+            <NodeRef refid="26"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

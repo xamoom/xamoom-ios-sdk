@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMContentList.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentList</TokenIdentifier>
+			<Abstract type="html">XMMContentList is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+            
+			
+			<NodeRef refid="32"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentList/setCursor:</TokenIdentifier>
+			<Abstract type="html">Cursor for paging.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *cursor</Declaration>
+			
+			
+			<Anchor>//api/name/cursor</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentList/cursor</TokenIdentifier>
+			<Abstract type="html">Cursor for paging.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *cursor</Declaration>
+			
+			
+			<Anchor>//api/name/cursor</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentList/cursor</TokenIdentifier>
+			<Abstract type="html">Cursor for paging.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *cursor</Declaration>
+			
+			
+			<Anchor>//api/name/cursor</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentList/setHasMore:</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there are more items on our system to fetch.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasMore</Declaration>
+			
+			
+			<Anchor>//api/name/hasMore</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentList/hasMore</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there are more items on our system to fetch.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasMore</Declaration>
+			
+			
+			<Anchor>//api/name/hasMore</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentList/hasMore</TokenIdentifier>
+			<Abstract type="html">Bool to determine if there are more items on our system to fetch.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL hasMore</Declaration>
+			
+			
+			<Anchor>//api/name/hasMore</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentList/setItems:</TokenIdentifier>
+			<Abstract type="html">Array of XMMContent items.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentList/items</TokenIdentifier>
+			<Abstract type="html">Array of XMMContent items.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentList/items</TokenIdentifier>
+			<Abstract type="html">Array of XMMContent items.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentList/contentDescriptor</TokenIdentifier>
+			<Abstract type="html">Returns a RKResponseDescriptor for XMMContentList class.</Abstract>
+			<DeclaredIn>XMMContentList.h</DeclaredIn>
+			
+			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
+			<Anchor>//api/name/contentDescriptor</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

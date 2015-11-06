@@ -1,40 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlockType6.html">
+	<File path="Classes/XMMContentBlock5TableViewCell.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType6</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlockType6 is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType6.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlock5TableViewCell</TokenIdentifier>
+			<Abstract type="html">XMMContentBlock5TableViewCell is used to display ebook contentBlocks from the xamoom cloud.</Abstract>
+			<DeclaredIn>XMMContentBlock5TableViewCell.h</DeclaredIn>
             
 			
 			<NodeRef refid="12"/>
 		</Token>
 		
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType6/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType6 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType6.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
-            <NodeRef refid="12"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType6/dynamicMappingMatcher</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType6 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType6.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
-			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
-            <NodeRef refid="12"/>
-		</Token>
 		
         
         

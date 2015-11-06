@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseGetById.html">
+	<File path="Classes/XMMContentBlockType0.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseGetById</TokenIdentifier>
-			<Abstract type="html">XMMResponseGetById is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlockType0</TokenIdentifier>
+			<Abstract type="html">XMMContentBlockType0 is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContentBlockType0.h</DeclaredIn>
             
 			
 			<NodeRef refid="17"/>
@@ -13,230 +13,62 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/setSystemName:</TokenIdentifier>
-			<Abstract type="html">The systemName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType0/setText:</TokenIdentifier>
+			<Abstract type="html">The text from our system as HTML.</Abstract>
+			<DeclaredIn>XMMContentBlockType0.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemName</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
 			
 			
-			<Anchor>//api/name/systemName</Anchor>
+			<Anchor>//api/name/text</Anchor>
             <NodeRef refid="17"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/systemName</TokenIdentifier>
-			<Abstract type="html">The systemName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlockType0/text</TokenIdentifier>
+			<Abstract type="html">The text from our system as HTML.</Abstract>
+			<DeclaredIn>XMMContentBlockType0.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemName</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
 			
 			
-			<Anchor>//api/name/systemName</Anchor>
+			<Anchor>//api/name/text</Anchor>
             <NodeRef refid="17"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetById/systemName</TokenIdentifier>
-			<Abstract type="html">The systemName on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlockType0/text</TokenIdentifier>
+			<Abstract type="html">The text from our system as HTML.</Abstract>
+			<DeclaredIn>XMMContentBlockType0.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemName</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
 			
 			
-			<Anchor>//api/name/systemName</Anchor>
+			<Anchor>//api/name/text</Anchor>
             <NodeRef refid="17"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/setSystemUrl:</TokenIdentifier>
-			<Abstract type="html">Url to the homepage.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType0/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMContentBlockType0 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType0.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemUrl</Declaration>
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
 			
-			
-			<Anchor>//api/name/systemUrl</Anchor>
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
+			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="17"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/systemUrl</TokenIdentifier>
-			<Abstract type="html">Url to the homepage.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMContentBlockType0/dynamicMappingMatcher</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMContentBlockType0 class.</Abstract>
+			<DeclaredIn>XMMContentBlockType0.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *systemUrl</Declaration>
+			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
 			
-			
-			<Anchor>//api/name/systemUrl</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetById/systemUrl</TokenIdentifier>
-			<Abstract type="html">Url to the homepage.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *systemUrl</Declaration>
-			
-			
-			<Anchor>//api/name/systemUrl</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/setSystemId:</TokenIdentifier>
-			<Abstract type="html">The unique systemId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *systemId</Declaration>
-			
-			
-			<Anchor>//api/name/systemId</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/systemId</TokenIdentifier>
-			<Abstract type="html">The unique systemId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *systemId</Declaration>
-			
-			
-			<Anchor>//api/name/systemId</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetById/systemId</TokenIdentifier>
-			<Abstract type="html">The unique systemId on our system.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *systemId</Declaration>
-			
-			
-			<Anchor>//api/name/systemId</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/setContent:</TokenIdentifier>
-			<Abstract type="html">The content as XMMResponseContent to display.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) XMMResponseContent *content</Declaration>
-			
-			
-			<Anchor>//api/name/content</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/content</TokenIdentifier>
-			<Abstract type="html">The content as XMMResponseContent to display.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) XMMResponseContent *content</Declaration>
-			
-			
-			<Anchor>//api/name/content</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetById/content</TokenIdentifier>
-			<Abstract type="html">The content as XMMResponseContent to display.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) XMMResponseContent *content</Declaration>
-			
-			
-			<Anchor>//api/name/content</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/setMenu:</TokenIdentifier>
-			<Abstract type="html">Array containing items of XMMResponseMenuItem.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) NSArray *menu</Declaration>
-			
-			
-			<Anchor>//api/name/menu</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/menu</TokenIdentifier>
-			<Abstract type="html">Array containing items of XMMResponseMenuItem.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) NSArray *menu</Declaration>
-			
-			
-			<Anchor>//api/name/menu</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetById/menu</TokenIdentifier>
-			<Abstract type="html">Array containing items of XMMResponseMenuItem.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) NSArray *menu</Declaration>
-			
-			
-			<Anchor>//api/name/menu</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/setStyle:</TokenIdentifier>
-			<Abstract type="html">The style of the system as XMMResponseStyle.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) XMMResponseStyle *style</Declaration>
-			
-			
-			<Anchor>//api/name/style</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseGetById/style</TokenIdentifier>
-			<Abstract type="html">The style of the system as XMMResponseStyle.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) XMMResponseStyle *style</Declaration>
-			
-			
-			<Anchor>//api/name/style</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseGetById/style</TokenIdentifier>
-			<Abstract type="html">The style of the system as XMMResponseStyle.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) XMMResponseStyle *style</Declaration>
-			
-			
-			<Anchor>//api/name/style</Anchor>
-            <NodeRef refid="17"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseGetById/contentDescriptor</TokenIdentifier>
-			<Abstract type="html">Returns a RKResponseDescriptor for XMMResponseGetById class.</Abstract>
-			<DeclaredIn>XMMResponseGetById.h</DeclaredIn>
-			
-			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
-			<Anchor>//api/name/contentDescriptor</Anchor>
+			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
+			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
             <NodeRef refid="17"/>
 		</Token>
 		

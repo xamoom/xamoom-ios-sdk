@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMMusicPlayer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMMusicPlayer</TokenIdentifier>
+			<Abstract type="html">The XMMMusicPlayer is our audio-player for streaming audio from the xamoom system.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
+            
+			
+			<NodeRef refid="36"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMMusicPlayer/initAudioPlayerWithUrlString:</TokenIdentifier>
+			<Abstract type="html">Initialize the avplayer and also add the periodicTimeObserver.
+After initialization you are able to get the song duration.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
+			
+			<Declaration>- (void)initAudioPlayerWithUrlString:(NSString *)mediaUrlString</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>mediaUrlString</Name>
+					<Abstract type="html">- String of an url to a mediafile like www.xamoom.com/song.mp3</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initAudioPlayerWithUrlString:</Anchor>
+            <NodeRef refid="36"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMMusicPlayer/play</TokenIdentifier>
+			<Abstract type="html">Audioplayer starts playing.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
+			
+			<Declaration>- (void)play</Declaration>
+			
+			
+			<Anchor>//api/name/play</Anchor>
+            <NodeRef refid="36"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMMusicPlayer/pause</TokenIdentifier>
+			<Abstract type="html">Audioplayer pauses playing.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
+			
+			<Declaration>- (void)pause</Declaration>
+			
+			
+			<Anchor>//api/name/pause</Anchor>
+            <NodeRef refid="36"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

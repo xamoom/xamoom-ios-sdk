@@ -56,8 +56,6 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/apiBaseURL">apiBaseURL</option>
-		
 		<option value="//api/name/qrCodeViewControllerCancelButtonTitle">qrCodeViewControllerCancelButtonTitle</option>
 		
 		<option value="//api/name/systemLanguage">systemLanguage</option>
@@ -84,7 +82,7 @@
 		
 		<option value="//api/name/contentWithLat:withLon:withLanguage:completion:error:">- contentWithLat:withLon:withLanguage:completion:error:</option>
 		
-		<option value="//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:">- contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:</option>
+		<option value="//api/name/contentWithLocationIdentifier:majorId:includeStyle:includeMenu:withLanguage:completion:error:">- contentWithLocationIdentifier:majorId:includeStyle:includeMenu:withLanguage:completion:error:</option>
 		
 		<option value="//api/name/geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:">- geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:</option>
 		
@@ -153,48 +151,6 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/apiBaseURL" title="apiBaseURL"></a>
-	<h3 class="method-title"><code><a href="#//api/name/apiBaseURL">&nbsp;&nbsp;apiBaseURL</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The base url of xamoom api.
-(readonly)</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (readonly) NSURL *apiBaseURL</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/systemLanguage" title="systemLanguage"></a>
 	<h3 class="method-title"><code><a href="#//api/name/systemLanguage">&nbsp;&nbsp;systemLanguage</a></code>
 </h3>
@@ -211,7 +167,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property NSString *systemLanguage</code></div>
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) NSString *systemLanguage</code></div>
 
 		    
 			
@@ -252,7 +208,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property NSString *qrCodeViewControllerCancelButtonTitle</code></div>
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) NSString *qrCodeViewControllerCancelButtonTitle</code></div>
 
 		    
 			
@@ -449,7 +405,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> full:(BOOL)<em>full</em> completion:(void ( ^ ) ( XMMResponseGetById *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> full:(BOOL)<em>full</em> completion:(void ( ^ ) ( XMMContentById *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -464,12 +420,12 @@
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>style</code></th>
-						<td><p>True or False for returning the style from xamoom backend as <a href="../Classes/XMMResponseStyle.html">XMMResponseStyle</a></p></td>
+						<td><p>True or False for returning the style from xamoom backend as <a href="../Classes/XMMStyle.html">XMMStyle</a></p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>menu</code></th>
-						<td><p>True or False for returning the menu from xamoom backend as Array of <a href="../Classes/XMMResponseMenuItem.html">XMMResponseMenuItem</a></p></td>
+						<td><p>True or False for returning the menu from xamoom backend as Array of <a href="../Classes/XMMMenuItem.html">XMMMenuItem</a></p></td>
 					</tr>
 				
 					<tr>
@@ -487,7 +443,7 @@
 						<td><p>CompletionHandler returns the result</p>
 
 <ul>
-<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseGetById.html">XMMResponseGetById</a></li>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMContentById.html">XMMContentById</a></li>
 </ul>
 </td>
 					</tr>
@@ -531,8 +487,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:" title="contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:">&ndash;&nbsp;contentWithLocationIdentifier:includeStyle:includeMenu:withLanguage:completion:error:</a></code>
+	<a name="//api/name/contentWithLocationIdentifier:majorId:includeStyle:includeMenu:withLanguage:completion:error:" title="contentWithLocationIdentifier:majorId:includeStyle:includeMenu:withLanguage:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentWithLocationIdentifier:majorId:includeStyle:includeMenu:withLanguage:completion:error:">&ndash;&nbsp;contentWithLocationIdentifier:majorId:includeStyle:includeMenu:withLanguage:completion:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -548,7 +504,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMResponseGetByLocationIdentifier *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithLocationIdentifier:(NSString *)<em>locationIdentifier</em> majorId:(NSString *)<em>majorId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMContentByLocationIdentifier *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -562,13 +518,18 @@ default language will be returned.</p>
 					</tr>
 				
 					<tr>
+						<th scope="row" class="argument-name"><code>majorId</code></th>
+						<td><p>Major Id, if you are using beacons</p></td>
+					</tr>
+				
+					<tr>
 						<th scope="row" class="argument-name"><code>style</code></th>
-						<td><p>True or False for returning the style from xamoom backend as <a href="../Classes/XMMResponseStyle.html">XMMResponseStyle</a></p></td>
+						<td><p>True or False for returning the style from xamoom backend as <a href="../Classes/XMMStyle.html">XMMStyle</a></p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>menu</code></th>
-						<td><p>True of False for returning the menu from xamoom backend as Array of <a href="../Classes/XMMResponseMenuItem.html">XMMResponseMenuItem</a></p></td>
+						<td><p>True of False for returning the menu from xamoom backend as Array of <a href="../Classes/XMMMenuItem.html">XMMMenuItem</a></p></td>
 					</tr>
 				
 					<tr>
@@ -581,7 +542,7 @@ default language will be returned.</p>
 						<td><p>CompletionHandler returns the result</p>
 
 <ul>
-<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseGetByLocationIdentifier.html">XMMResponseGetByLocationIdentifier</a></li>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMContentByLocationIdentifier.html">XMMContentByLocationIdentifier</a></li>
 </ul>
 </td>
 					</tr>
@@ -642,7 +603,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithLat:(NSString *)<em>lat</em> withLon:(NSString *)<em>lon</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMResponseGetByLocation *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithLat:(NSString *)<em>lat</em> withLon:(NSString *)<em>lon</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMContentByLocation *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -670,7 +631,7 @@ default language will be returned.</p>
 						<td><p>CompletionHandler returns the result</p>
 
 <ul>
-<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseGetByLocation.html">XMMResponseGetByLocation</a></li>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMContentByLocation.html">XMMContentByLocation</a></li>
 </ul>
 </td>
 					</tr>
@@ -735,7 +696,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)spotMapWithMapTags:(NSArray *)<em>mapTags</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMResponseGetSpotMap *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)spotMapWithMapTags:(NSArray *)<em>mapTags</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMSpotMap *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -745,7 +706,7 @@ default language will be returned.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>mapTags</code></th>
-						<td><p>The Tags of the wanted spots</p></td>
+						<td><p>The tags of the wanted spots</p></td>
 					</tr>
 				
 					<tr>
@@ -758,7 +719,7 @@ default language will be returned.</p>
 						<td><p>CompletionHandler returns the result</p>
 
 <ul>
-<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseGetSpotMap.html">XMMResponseGetSpotMap</a></li>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMSpotMap.html">XMMSpotMap</a></li>
 </ul>
 </td>
 					</tr>
@@ -818,7 +779,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentListWithPageSize:(int)<em>pageSize</em> withLanguage:(NSString *)<em>language</em> withCursor:(NSString *)<em>cursor</em> withTags:(NSArray *)<em>tags</em> completion:(void ( ^ ) ( XMMResponseContentList *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentListWithPageSize:(int)<em>pageSize</em> withLanguage:(NSString *)<em>language</em> withCursor:(NSString *)<em>cursor</em> withTags:(NSArray *)<em>tags</em> completion:(void ( ^ ) ( XMMContentList *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -851,7 +812,7 @@ default language will be returned.</p>
 						<td><p>CompletionHandler returns the result</p>
 
 <ul>
-<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseContentList.html">XMMResponseContentList</a></li>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMContentList.html">XMMContentList</a></li>
 </ul>
 </td>
 					</tr>
@@ -912,7 +873,7 @@ If the selected language is not available the default language will be returned.
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)closestSpotsWithLat:(float)<em>lat</em> withLon:(float)<em>lon</em> withRadius:(int)<em>radius</em> withLimit:(int)<em>limit</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMResponseClosestSpot *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)closestSpotsWithLat:(float)<em>lat</em> withLon:(float)<em>lon</em> withRadius:(int)<em>radius</em> withLimit:(int)<em>limit</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMClosestSpot *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -950,7 +911,7 @@ If the selected language is not available the default language will be returned.
 						<td><p>CompletionHandler returns the result</p>
 
 <ul>
-<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMResponseClosestSpot.html">XMMResponseClosestSpot</a></li>
+<li><em>param1</em> result The result from xamoom backend as <a href="../Classes/XMMClosestSpot.html">XMMClosestSpot</a></li>
 </ul>
 </td>
 					</tr>
@@ -1122,8 +1083,8 @@ If the selected language is not available the default language will be returned.
 					<tr>
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>CompletionHandler returns the result
-  - <em>param1</em> locationIdentifier NSString with only the locaitionIdentifier of the scanned QR
-  - <em>param2</em> url NSString wiht the complete scanned url</p></td>
+- <em>param1</em> locationIdentifier NSString with only the locaitionIdentifier of the scanned QR
+- <em>param2</em> url NSString wiht the complete scanned url</p></td>
 					</tr>
 				
 				</table>
@@ -1167,7 +1128,7 @@ If the selected language is not available the default language will be returned.
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-07-23</p>
+						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-11-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

@@ -1,112 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlockType1.html">
+	<File path="Classes/XMMContentBlock0TableViewCell.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType1</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlockType1 is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlock0TableViewCell</TokenIdentifier>
+			<Abstract type="html">XMMContentBlock0TableViewCell is used to display text contentBlocks from the xamoom cloud.</Abstract>
+			<DeclaredIn>XMMContentBlock0TableViewCell.h</DeclaredIn>
             
 			
 			<NodeRef refid="7"/>
 		</Token>
 		
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType1/setFileId:</TokenIdentifier>
-			<Abstract type="html">Url to a audioFile (mp3, m4a, aac).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
-			
-			
-			<Anchor>//api/name/fileId</Anchor>
-            <NodeRef refid="7"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType1/fileId</TokenIdentifier>
-			<Abstract type="html">Url to a audioFile (mp3, m4a, aac).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
-			
-			
-			<Anchor>//api/name/fileId</Anchor>
-            <NodeRef refid="7"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType1/fileId</TokenIdentifier>
-			<Abstract type="html">Url to a audioFile (mp3, m4a, aac).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
-			
-			
-			<Anchor>//api/name/fileId</Anchor>
-            <NodeRef refid="7"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType1/setArtist:</TokenIdentifier>
-			<Abstract type="html">The name of the artist(s).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
-			
-			
-			<Anchor>//api/name/artist</Anchor>
-            <NodeRef refid="7"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType1/artist</TokenIdentifier>
-			<Abstract type="html">The name of the artist(s).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
-			
-			
-			<Anchor>//api/name/artist</Anchor>
-            <NodeRef refid="7"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType1/artist</TokenIdentifier>
-			<Abstract type="html">The name of the artist(s).</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *artist</Declaration>
-			
-			
-			<Anchor>//api/name/artist</Anchor>
-            <NodeRef refid="7"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType1/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType1 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
-            <NodeRef refid="7"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType1/dynamicMappingMatcher</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType1 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType1.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
-			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
-            <NodeRef refid="7"/>
-		</Token>
 		
         
         

@@ -1,148 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMResponseContentBlockType8.html">
+	<File path="Classes/XMMContentBlock7TableViewCell.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMResponseContentBlockType8</TokenIdentifier>
-			<Abstract type="html">XMMResponseContentBlockType8 is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlock7TableViewCell</TokenIdentifier>
+			<Abstract type="html">XMMContentBlock0TableViewCell is used to display soundcloud contentBlocks from the xamoom cloud.</Abstract>
+			<DeclaredIn>XMMContentBlock7TableViewCell.h</DeclaredIn>
             
 			
 			<NodeRef refid="14"/>
 		</Token>
 		
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType8/setFileId:</TokenIdentifier>
-			<Abstract type="html">Url to a file (vcf, ical)</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
-			
-			
-			<Anchor>//api/name/fileId</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType8/fileId</TokenIdentifier>
-			<Abstract type="html">Url to a file (vcf, ical)</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
-			
-			
-			<Anchor>//api/name/fileId</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType8/fileId</TokenIdentifier>
-			<Abstract type="html">Url to a file (vcf, ical)</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *fileId</Declaration>
-			
-			
-			<Anchor>//api/name/fileId</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType8/setDownloadType:</TokenIdentifier>
-			<Abstract type="html">Download type to determine the type of the download.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) int *downloadType</Declaration>
-			
-			
-			<Anchor>//api/name/downloadType</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType8/downloadType</TokenIdentifier>
-			<Abstract type="html">Download type to determine the type of the download.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) int *downloadType</Declaration>
-			
-			
-			<Anchor>//api/name/downloadType</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType8/downloadType</TokenIdentifier>
-			<Abstract type="html">Download type to determine the type of the download.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) int *downloadType</Declaration>
-			
-			
-			<Anchor>//api/name/downloadType</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType8/setText:</TokenIdentifier>
-			<Abstract type="html">Text as description for the url.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
-			
-			
-			<Anchor>//api/name/text</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMResponseContentBlockType8/text</TokenIdentifier>
-			<Abstract type="html">Text as description for the url.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
-			
-			
-			<Anchor>//api/name/text</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMResponseContentBlockType8/text</TokenIdentifier>
-			<Abstract type="html">Text as description for the url.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *text</Declaration>
-			
-			
-			<Anchor>//api/name/text</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType8/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMResponseContentBlockType8 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMResponseContentBlockType8/dynamicMappingMatcher</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMappingMatcher for XMMResponseContentBlockType8 class.</Abstract>
-			<DeclaredIn>XMMResponseContentBlockType8.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMappingMatcher *)dynamicMappingMatcher</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMappingMatcher*</Abstract></ReturnValue>
-			<Anchor>//api/name/dynamicMappingMatcher</Anchor>
-            <NodeRef refid="14"/>
-		</Token>
 		
         
         

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMContentBlocks.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlocks</TokenIdentifier>
+			<Abstract type="html">Use XMMContentBlocks to display all our contentBlocks from xamoom cloud.</Abstract>
+			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+            
+			
+			<NodeRef refid="27"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlocks/initWithTableView:language:</TokenIdentifier>
+			<Abstract type="html">Initializes the XMMContentBlock.</Abstract>
+			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString *)language</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tableView</Name>
+					<Abstract type="html">UITableView you are using in your UI</Abstract>
+				</Parameter><Parameter>
+					<Name>language</Name>
+					<Abstract type="html">The preferred language, can be @&quot;&quot; for systemLanguage</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithTableView:language:</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlocks/updateFontSizeTo:</TokenIdentifier>
+			<Abstract type="html">Can be used to change the fontSize of the text contentBlock
+for better readability.</Abstract>
+			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+			
+			<Declaration>- (void)updateFontSizeTo:(TextFontSize)newFontSize</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newFontSize</Name>
+					<Abstract type="html">New fontSize of the text contentBlock</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateFontSizeTo:</Anchor>
+            <NodeRef refid="27"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
