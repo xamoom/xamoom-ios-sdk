@@ -125,6 +125,7 @@ extern NSString * const kApiBaseURLString;
  * default language will be returned.
  *
  * @param locationIdentifier  The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend
+ * @param majorId             Major Id, if you are using beacons
  * @param style               True or False for returning the style from xamoom backend as XMMStyle
  * @param menu                True of False for returning the menu from xamoom backend as Array of XMMMenuItem
  * @param language            The requested language of the content from xamoom backend

@@ -100,7 +100,7 @@
 /**
  *  Opens a moviePlayerViewController
  *
- *  @param sender
+ *  @param sender Sender
  */
 - (void)tappedVideoView:(UITapGestureRecognizer*)sender {
   MPMoviePlayerViewController *mpvc = [[MPMoviePlayerViewController alloc] initWithContentURL:  self.videoPlayer.contentURL];
@@ -115,7 +115,7 @@
 /**
  *  Handles errors and the "done" click.
  *
- *  @param notification
+ *  @param notification Notification
  */
 - (void)handleMoviePlayerFinish:(NSNotification*)notification{
   NSDictionary *notificationUserInfo = [notification userInfo];
@@ -141,7 +141,7 @@
 /**
  *  Displays the thumbnail image from the video.
  *
- *  @param notification
+ *  @param notification Notification
  */
 - (void)didReceiveImage:(NSNotification*)notification {
   NSDictionary *userInfo = [notification userInfo];

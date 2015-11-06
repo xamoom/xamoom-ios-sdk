@@ -58,15 +58,17 @@ int const kHorizontalSpaceToSubview = 32;
   return self;
 }
 
+
 - (void)contentBlocksFromContent {
   self.items = (NSMutableArray *)self.content.contentBlocks;
   
   [self addContentHeader];
-  
+
   if (self.showAllStoreLinks) {
     return;
   }
   
+  //remove store links from (Playstore and Windows Store)
   NSMutableArray *contentBlocks = [(NSMutableArray *)self.content.contentBlocks copy];
   for (XMMContentBlock *contentBlock in contentBlocks) {
     if ([contentBlock isKindOfClass:[XMMContentBlockType4 class]]) {
@@ -78,6 +80,10 @@ int const kHorizontalSpaceToSubview = 32;
   }
 }
 
+/*
+ * Adds a XMMContentBlockType0() and XMMContentBlockType3() to the top
+ * of the items.
+ */
 - (void)addContentHeader {
   if (self.isContentHeaderAdded) {
     return;
@@ -146,7 +152,6 @@ int const kHorizontalSpaceToSubview = 32;
     if ([self.delegate respondsToSelector:@selector(didClickContentBlock:)]) {
       [self.delegate didClickContentBlock:cell.contentId];
     }
-    //TODO didClick with cell.contentId
   }
 }
 

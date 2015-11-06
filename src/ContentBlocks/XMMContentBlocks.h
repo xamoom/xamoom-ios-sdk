@@ -63,6 +63,19 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 
 /**
  * Use XMMContentBlocks to display all our contentBlocks from xamoom cloud.
+ * 
+ * Usage
+ *
+ * Init XMMContentBlocks with initWithTableView:tableview:language,
+ * set the delegalte and UITableViews delegate and datasource.
+ *
+ *     self.contentBlocks.delegate = self;
+ *     self.tableView.delegate = self.contentBlocks;
+ *     self.tableView.dataSource = self.contentBlocks;
+ *
+ * To display content just set the XMMContentBlocks content property.
+ *
+ *     self.contentBlocks.content = result.content;
  */
 @interface XMMContentBlocks : NSObject <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 
@@ -76,8 +89,8 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 /**
  * Initializes the XMMContentBlock.
  *
- * @param language The preferred language, can be @"" for systemLanguage
- * @param screenWidth The width of the screen
+ * @param tableView   UITableView you are using in your UI
+ * @param language    The preferred language, can be @"" for systemLanguage
  */
 - (instancetype)initWithTableView:(UITableView *)tableView language:(NSString*)language;
 
