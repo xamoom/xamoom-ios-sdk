@@ -22,7 +22,7 @@ Download the xamoom-ios-sdk and add it to your project. Don't forget to install 
 
 Add in your podfile
 
-    pod 'xamoom-ios-sdk', '~> 1.3.2'
+    pod 'xamoom-ios-sdk', '~> 1.4.0'
 
 Install pods via terminal
 
@@ -52,7 +52,7 @@ Grab a contentId from your [xamoom-system](https://xamoom.net/) (open a page and
    ];
 ```
 
-When your call is successful you will get a [`XMMResponseGetById`](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMResponseGetById.html) object. 
+When your call is successful you will get a [`XMMResponseGetById`](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMResponseGetById.html) object.
 
 ## [API Calls]((https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls))
 
