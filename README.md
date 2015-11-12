@@ -22,7 +22,7 @@ Download the xamoom-ios-sdk and add it to your project. Don't forget to install 
 
 Add in your podfile
 
-    pod 'xamoom-ios-sdk', '~> 1.3.2'
+    pod 'xamoom-ios-sdk', '~> 1.4.0'
 
 Install pods via terminal
 
