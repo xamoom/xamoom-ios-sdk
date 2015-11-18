@@ -28,6 +28,7 @@
 		8858D2511A822513001B45D5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8858D2501A822513001B45D5 /* Images.xcassets */; };
 		8858D2541A822513001B45D5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8858D2521A822513001B45D5 /* LaunchScreen.xib */; };
 		8858D2601A822513001B45D5 /* xamoom_ios_sdk_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8858D25F1A822513001B45D5 /* xamoom_ios_sdk_testTests.m */; };
+		885EAB731BFCA3BE00773F2C /* TestLogins.plist in Resources */ = {isa = PBXBuildFile; fileRef = 885EAB721BFCA3BE00773F2C /* TestLogins.plist */; };
 		887A01491B60E41800421DEE /* xamoom-ios-sdk.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 887A01481B60E41800421DEE /* xamoom-ios-sdk.podspec */; };
 		8888F7971B8F2C57009DB9AB /* api.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8888F7961B8F2C57009DB9AB /* api.txt */; };
 		88C7192A1BDA20E0007DFF1F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88C719291BDA20DF007DFF1F /* libPods.a */; };
@@ -83,6 +84,7 @@
 		8858D2591A822513001B45D5 /* xamoom-ios-sdk-testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xamoom-ios-sdk-testTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8858D25E1A822513001B45D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8858D25F1A822513001B45D5 /* xamoom_ios_sdk_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xamoom_ios_sdk_testTests.m; sourceTree = "<group>"; };
+		885EAB721BFCA3BE00773F2C /* TestLogins.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestLogins.plist; sourceTree = "<group>"; };
 		887A01481B60E41800421DEE /* xamoom-ios-sdk.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "xamoom-ios-sdk.podspec"; path = "../../../xamoom-ios-sdk.podspec"; sourceTree = "<group>"; };
 		8888F7961B8F2C57009DB9AB /* api.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = api.txt; sourceTree = SOURCE_ROOT; };
 		88C719291BDA20DF007DFF1F /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				8858D2441A822513001B45D5 /* Info.plist */,
 				8858D2451A822513001B45D5 /* main.m */,
 				887A01481B60E41800421DEE /* xamoom-ios-sdk.podspec */,
+				885EAB721BFCA3BE00773F2C /* TestLogins.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			files = (
 				8888F7971B8F2C57009DB9AB /* api.txt in Resources */,
 				8858D24F1A822513001B45D5 /* Main.storyboard in Resources */,
+				885EAB731BFCA3BE00773F2C /* TestLogins.plist in Resources */,
 				8858D2541A822513001B45D5 /* LaunchScreen.xib in Resources */,
 				8858D2511A822513001B45D5 /* Images.xcassets in Resources */,
 				887A01491B60E41800421DEE /* xamoom-ios-sdk.podspec in Resources */,

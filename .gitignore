@@ -18,3 +18,5 @@ example/xamoom-ios-sdk-test/xamoom-ios-sdk-test/api.txt
 example/xamoom-ios-sdk-test/xamoom-ios-sdk-test.xcodeproj/project.xcworkspace/xcuserdata/raphaelseher.xcuserdatad/UserInterfaceState.xcuserstate
 
 *.xcuserstate
+
+example/xamoom-ios-sdk-test/xamoom-ios-sdk-test/TestLogins.plist

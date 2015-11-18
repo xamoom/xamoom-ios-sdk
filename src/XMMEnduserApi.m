@@ -132,6 +132,7 @@ static XMMEnduserApi *sharedInstance;
   }
   
   NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%i/%@/%@", 0, [mapTags componentsJoinedByString:@","], language];
+  path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   
   [self apiGetWithPath:path andDescriptor:[XMMSpotMap contentDescriptor] andParams:nil completion:completionHandler error:errorHandler];
 }
@@ -152,6 +153,7 @@ static XMMEnduserApi *sharedInstance;
     tagsAsString = @"null";
   
   NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/content_list/%@/%i/%@/%@", language, pageSize, cursor, tagsAsString];
+  path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   
   [self apiGetWithPath:path andDescriptor:[XMMContentList contentDescriptor] andParams:nil completion:completionHandler error:errorHandler];
 }
