@@ -60,6 +60,10 @@ Check out our [API Calls Wiki Page](https://github.com/xamoom/xamoom-ios-sdk/wik
 
 Every call is also on our documentation: [XMMEnduserApi documentation](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMEnduserApi.html)
 
+# iBeacons
+
+xamoom offers support for iBeacons. We have a [small guide](https://github.com/xamoom/xamoom-ios-sdk/wiki/iBeacons) to implement them in the [wiki](https://github.com/xamoom/xamoom-ios-sdk/wiki).
+
 # XMMContentBlocks
 
 xamoom has a lot of different contentBlocks. With XMMContentBlocks you have a easy way to display them.
