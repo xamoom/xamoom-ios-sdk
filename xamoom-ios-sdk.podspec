@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
   
   #s.public_header_files = 'Pod/Classes/**/*.h'
   #s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'RestKit', '~> 0.24.1'
+  s.dependency 'RestKit', '~> 0.25.0'
   s.dependency 'QRCodeReaderViewController', '~> 2.0.0'
   s.dependency 'SMCalloutView'
   s.dependency 'youtube-ios-player-helper', '~> 0.1.1'

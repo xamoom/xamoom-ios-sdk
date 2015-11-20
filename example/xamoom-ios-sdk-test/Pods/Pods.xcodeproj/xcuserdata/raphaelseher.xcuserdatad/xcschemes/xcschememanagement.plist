@@ -2,9 +2,87 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ISO8601DateFormatterValueTransformer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QRCodeReaderViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RKValueTransformers.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RestKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SMCalloutView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SOCKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>TransitionKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>xamoom-ios-sdk-xamoom-ios-sdk.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>xamoom-ios-sdk.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>youtube-ios-player-helper-Assets.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>youtube-ios-player-helper.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>139C17FC004F2A6966DBDDFA188AD369</key>
+		<key>09E92EC99E3167B7EE8EA23776C1F554</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0EE9375C8870C26D420C13EC521F8F69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -14,17 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1714B7C451869BD296F314DD7CC7BECC</key>
+		<key>1BAF6AABF1A2FF85A317733F59B3BEBF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>18002828ACE91D17C2C2CEB3CA40A583</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>228042B2F0908BD8F1D91CD6B14A567E</key>
+		<key>1E8AFAC88B02918381A16ECC3AF16A3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -34,72 +107,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>27A870891D71055C6644460C5434FA75</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2DD63BB8DC8CF533E7BC34AFC882C64D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E19F005FB610212B7C1BF7FC0ACDEA9</key>
+		<key>495694D540AE51A8D51592B67BAE9DEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>343CB86E7E3310BD846149972E7873C8</key>
+		<key>5433CAC08D372D0C72EF34DF41B0D30E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>34A269D36EBB40AEFAB352E63EBC6162</key>
+		<key>69E3200997B3B0C921F97043AD22F031</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>36D7DE6002C807364A3B2F3A686236EE</key>
+		<key>6E053E7E944F952C5779862141064C74</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4091E35864159B7ED5164BD65A74AF14</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6832655303029CA8A16D58320ADE72A9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>78C5F9283566C002A53096691B4112F9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7980148BC75C7B8F9E72D2549FB1D402</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7A76CF5ED81C5441CF33B67EAC36A310</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8A1599E2467E3C0FE576A8C4624C54A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8E8C846C9A50B1DDAE8FCAC06455DAE1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>91A25E4D0881B092BFBF370970B1DE02</key>
+		<key>9B33AF09103E6E9B393EB7CD51D98F69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -109,17 +142,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F23B12FF732B7E21275AA6B9B9EB9E9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E0383404DFD62335199D7A15EDAD37FE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F2ECB0B9271EBD3D81A6889FDEF03309</key>
+		<key>C917504DCC6097275D52826B11C49B4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
