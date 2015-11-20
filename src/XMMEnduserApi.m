@@ -21,7 +21,8 @@
 #import <RestKit/RestKit.h>
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString = @"https://18-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
+NSString * const kApiBaseURLString =
+@"https://19-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
 
 static XMMEnduserApi *sharedInstance;
 
@@ -50,7 +51,8 @@ static XMMEnduserApi *sharedInstance;
   self.qrCodeViewControllerCancelButtonTitle = @"Cancel";
   
   //create RKObjectManager
-  RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kApiBaseURLString]];
+  RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:
+                                    [NSURL URLWithString:kApiBaseURLString]];
   [RKObjectManager setSharedManager:objectManager];
   return self;
 }
@@ -58,13 +60,20 @@ static XMMEnduserApi *sharedInstance;
 - (void)setApiKey:(NSString*)apiKey {
   //set JSON-Type and Authorization Header
   [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
-  [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization" value:apiKey];
+  [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization"
+                                                         value:apiKey];
 }
 
 #pragma mark public methods
 #pragma mark API calls
 
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
+- (void)contentWithContentId:(NSString*)contentId
+                includeStyle:(BOOL)style
+                 includeMenu:(BOOL)menu
+                withLanguage:(NSString*)language
+                        full:(BOOL)full
+                  completion:(void(^)(XMMContentById *result))completionHandler
+                       error:(void(^)(XMMError *error))errorHandler {
   if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
@@ -78,7 +87,11 @@ static XMMEnduserApi *sharedInstance;
   
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id_full";
   
-  [self apiPostWithPath:path andDescriptor:[XMMContentById contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
+  [self apiPostWithPath:path
+          andDescriptor:[XMMContentById contentDescriptor]
+              andParams:queryParams
+             completion:completionHandler
+                  error:errorHandler];
 }
 
 - (void)contentWithLocationIdentifier:(NSString*)locationIdentifier majorId:(NSString*)majorId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMContentByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler{
@@ -105,7 +118,11 @@ static XMMEnduserApi *sharedInstance;
   
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_location_identifier";
   
-  [self apiPostWithPath:path andDescriptor:[XMMContentByLocationIdentifier contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
+  [self apiPostWithPath:path
+          andDescriptor:[XMMContentByLocationIdentifier contentDescriptor]
+              andParams:queryParams
+             completion:completionHandler
+                  error:errorHandler];
 }
 
 - (void)contentWithLat:(NSString*)lat withLon:(NSString*)lon withLanguage:(NSString*)language completion:(void(^)(XMMContentByLocation *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
@@ -123,7 +140,11 @@ static XMMEnduserApi *sharedInstance;
   
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_location";
   
-  [self apiPostWithPath:path andDescriptor:[XMMContentByLocation contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
+  [self apiPostWithPath:path
+          andDescriptor:[XMMContentByLocation contentDescriptor]
+              andParams:queryParams
+             completion:completionHandler
+                  error:errorHandler];
 }
 
 - (void)spotMapWithMapTags:(NSArray *)mapTags withLanguage:(NSString *)language completion:(void(^)(XMMSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
@@ -134,7 +155,11 @@ static XMMEnduserApi *sharedInstance;
   NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%i/%@/%@", 0, [mapTags componentsJoinedByString:@","], language];
   path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   
-  [self apiGetWithPath:path andDescriptor:[XMMSpotMap contentDescriptor] andParams:nil completion:completionHandler error:errorHandler];
+  [self apiGetWithPath:path
+         andDescriptor:[XMMSpotMap contentDescriptor]
+             andParams:nil
+            completion:completionHandler
+                 error:errorHandler];
 }
 
 - (void)contentListWithPageSize:(int)pageSize withLanguage:(NSString*)language withCursor:(NSString*)cursor withTags:(NSArray*)tags completion:(void(^)(XMMContentList *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
@@ -155,7 +180,11 @@ static XMMEnduserApi *sharedInstance;
   NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/content_list/%@/%i/%@/%@", language, pageSize, cursor, tagsAsString];
   path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   
-  [self apiGetWithPath:path andDescriptor:[XMMContentList contentDescriptor] andParams:nil completion:completionHandler error:errorHandler];
+  [self apiGetWithPath:path
+         andDescriptor:[XMMContentList contentDescriptor]
+             andParams:nil
+            completion:completionHandler
+                 error:errorHandler];
 }
 
 - (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language completion:(void(^)(XMMClosestSpot *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
@@ -174,7 +203,11 @@ static XMMEnduserApi *sharedInstance;
   
   NSString *path = @"xamoomEndUserApi/v1/get_closest_spots";
   
-  [self apiPostWithPath:path andDescriptor:[XMMClosestSpot contentDescriptor] andParams:queryParams completion:completionHandler error:errorHandler];
+  [self apiPostWithPath:path
+          andDescriptor:[XMMClosestSpot contentDescriptor]
+              andParams:queryParams
+             completion:completionHandler
+                  error:errorHandler];
 }
 
 - (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)sytemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName {
