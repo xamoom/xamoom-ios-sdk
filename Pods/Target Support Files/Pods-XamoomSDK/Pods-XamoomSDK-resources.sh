@@ -58,32 +58,10 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock0TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock1TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock2TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock3TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock4TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock5TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock6TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock7TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock8TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock9TableViewCell.xib"
   install_resource "${BUILT_PRODUCTS_DIR}/Assets.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/xamoom-ios-sdk.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock0TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock1TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock2TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock3TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock4TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock5TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock6TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock7TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock8TableViewCell.xib"
-  install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock9TableViewCell.xib"
   install_resource "${BUILT_PRODUCTS_DIR}/Assets.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/xamoom-ios-sdk.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

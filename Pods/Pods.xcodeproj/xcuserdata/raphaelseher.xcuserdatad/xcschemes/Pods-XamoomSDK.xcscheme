@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E98C603F7636FADF9B19DC22'
-               BlueprintName = 'AFNetworking'
+               BlueprintIdentifier = '442ADC453F677DF30DE09A83'
+               BlueprintName = 'Pods-XamoomSDK'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libAFNetworking.a'>
+               BuildableName = 'libPods-XamoomSDK.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

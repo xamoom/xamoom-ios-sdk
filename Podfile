@@ -5,6 +5,15 @@ platform :ios, '8.0'
 
 workspace 'xamoom-ios-sdk'
 
+target 'XamoomSDK' do
+  xcodeproj 'xamoom-ios-sdk.xcodeproj'
+  pod 'RestKit', '~> 0.25.0'
+  pod 'QRCodeReaderViewController', '~> 2.0.0'
+  pod 'SMCalloutView'
+  pod 'youtube-ios-player-helper', '~> 0.1.1'
+  pod 'SDWebImage', '~>3.7'
+end
+
 target 'xamoom-ios-sdk' do
   xcodeproj 'xamoom-ios-sdk.xcodeproj'
   pod 'RestKit', '~> 0.25.0'
@@ -14,12 +23,11 @@ target 'xamoom-ios-sdk' do
   pod 'SDWebImage', '~>3.7'
 end
 
-target 'xamoom-ios-sdk-example' do
-  xcodeproj 'example/xamoom-ios-sdk-example.xcodeproj'
-  pod 'xamoom-ios-sdk', :path => './'
+target 'Tests' do
+
 end
 
-target 'xamoom-ios-sdk-exampleTests' do
+target 'xamoom-ios-sdk-example' do
   xcodeproj 'example/xamoom-ios-sdk-example.xcodeproj'
   pod 'xamoom-ios-sdk', :path => './'
 end

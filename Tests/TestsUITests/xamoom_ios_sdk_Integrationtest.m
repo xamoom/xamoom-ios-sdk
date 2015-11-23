@@ -88,12 +88,6 @@ float const kTimeWaiting = 3.0;
 
 #pragma mark - Tests
 
-- (void)testSystemLanguage {
-  NSLog(@"Test Suite - testSystemLanguage");
-  
-  XCTAssertNotNil([XMMEnduserApi sharedInstance].systemLanguage, @"api.systemLanguage should not be nil");
-}
-
 #pragma mark API request tests
 
 - (void)testGetContentByIdFullFull {

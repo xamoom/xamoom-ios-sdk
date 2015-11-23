@@ -81,26 +81,6 @@
                ReferencedContainer = "container:xamoom-ios-sdk-example.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88F212D21B539F7600FFB6D1"
-               BuildableName = "xamoom-ios-sdkTests.xctest"
-               BlueprintName = "xamoom-ios-sdkTests"
-               ReferencedContainer = "container:xamoom-ios-sdk-example.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88F212F71B53A44F00FFB6D1"
-               BuildableName = "XMMEnduserApiTests.xctest"
-               BlueprintName = "XMMEnduserApiTests"
-               ReferencedContainer = "container:xamoom-ios-sdk-example.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

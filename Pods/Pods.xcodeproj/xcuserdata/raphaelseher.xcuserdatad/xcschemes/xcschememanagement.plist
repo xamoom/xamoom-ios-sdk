@@ -14,12 +14,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-xamoom-ios-sdk-example.xcscheme</key>
+		<key>Pods-XamoomSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-xamoom-ios-sdk-exampleTests.xcscheme</key>
+		<key>Pods-xamoom-ios-sdk-example.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -147,7 +147,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4FC2D2AC80D50E46EFF187B4AC9270F</key>
+		<key>D2A6A3196D03CD23FEA8A01F1BEA595D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

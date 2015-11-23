@@ -22,6 +22,9 @@
 
 /* Begin PBXBuildFile section */
 		859A13E415C285A3D33C7409 /* libPods-xamoom-ios-sdk-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBA77FBA814571CB6230BBA /* libPods-xamoom-ios-sdk-example.a */; };
+		880BE01E1C03587000E97A74 /* XamoomSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 880BE01D1C03587000E97A74 /* XamoomSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		880BE0221C03587000E97A74 /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880BE01B1C03587000E97A74 /* XamoomSDK.framework */; };
+		880BE0231C03587000E97A74 /* XamoomSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 880BE01B1C03587000E97A74 /* XamoomSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88394B741C032611008D2FCC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88394B701C032611008D2FCC /* LaunchScreen.xib */; };
 		88394B751C032611008D2FCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88394B721C032611008D2FCC /* Main.storyboard */; };
 		88394B7A1C032644008D2FCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 88394B771C032644008D2FCC /* main.m */; };
@@ -29,7 +32,6 @@
 		884D3B901C030116007F0B0A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884D3B8A1C030116007F0B0A /* Images.xcassets */; };
 		884D3B911C030116007F0B0A /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3B8C1C030116007F0B0A /* TableViewController.m */; };
 		884D3B921C030116007F0B0A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3B8E1C030116007F0B0A /* ViewController.m */; };
-		884D3B9E1C03019F007F0B0A /* xamoom_ios_sdk_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3B9D1C03019F007F0B0A /* xamoom_ios_sdk_testTests.m */; };
 		88B868341C0325490023444C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B868331C0325490023444C /* Default-568h@2x.png */; };
 		88D45BE81B66219F00EFD56D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88301DAB1A9DBB9C00F24F84 /* MobileCoreServices.framework */; };
 		88D45BEA1B6621A600EFD56D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D45BE91B6621A600EFD56D /* Security.framework */; };
@@ -43,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		880BE0201C03587000E97A74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8858D2381A822513001B45D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 880BE01A1C03587000E97A74;
+			remoteInfo = XamoomSDK;
+		};
 		8858D25A1A822513001B45D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8858D2381A822513001B45D5 /* Project object */;
@@ -59,6 +68,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				880BE0231C03587000E97A74 /* XamoomSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +82,9 @@
 		69DB50E9F58DC471E6DEE0CA /* Pods-xamoom-ios-sdk-exampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xamoom-ios-sdk-exampleTests.release.xcconfig"; path = "../Pods/Target Support Files/Pods-xamoom-ios-sdk-exampleTests/Pods-xamoom-ios-sdk-exampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		790D4D27F8CA02B2B2FB22AA /* libPods-xamoom-ios-sdk-exampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xamoom-ios-sdk-exampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CF7D8E893047483C215A55 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		880BE01B1C03587000E97A74 /* XamoomSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XamoomSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		880BE01D1C03587000E97A74 /* XamoomSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XamoomSDK.h; sourceTree = "<group>"; };
+		880BE01F1C03587000E97A74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88301DA71A9DBB8800F24F84 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		88301DA91A9DBB9300F24F84 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		88301DAB1A9DBB9C00F24F84 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -88,7 +101,7 @@
 		884D3B8D1C030116007F0B0A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "xamoom-ios-sdk-example/ViewController.h"; sourceTree = SOURCE_ROOT; };
 		884D3B8E1C030116007F0B0A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "xamoom-ios-sdk-example/ViewController.m"; sourceTree = SOURCE_ROOT; };
 		884D3B9B1C030158007F0B0A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "xamoom-ios-sdk-exampleTests/Info.plist"; sourceTree = SOURCE_ROOT; };
-		884D3B9D1C03019F007F0B0A /* xamoom_ios_sdk_testTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = xamoom_ios_sdk_testTests.m; path = "xamoom-ios-sdk-exampleTests/xamoom_ios_sdk_testTests.m"; sourceTree = SOURCE_ROOT; };
+		884D3B9D1C03019F007F0B0A /* xamoom_ios_sdk_Integrationtest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = xamoom_ios_sdk_Integrationtest.m; path = "xamoom-ios-sdk-exampleTests/xamoom_ios_sdk_Integrationtest.m"; sourceTree = SOURCE_ROOT; };
 		884D3CAC1C0322A2007F0B0A /* libSVGKit-iOS.1.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSVGKit-iOS.1.2.0.a"; path = "../xamoom-ios-sdk/lib/SVGKit/libSVGKit-iOS.1.2.0.a"; sourceTree = "<group>"; };
 		8858D2401A822513001B45D5 /* xamoom-ios-sdk-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xamoom-ios-sdk-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8858D2591A822513001B45D5 /* xamoom-ios-sdk-example.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "xamoom-ios-sdk-example.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,12 +119,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		880BE0171C03587000E97A74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8858D23D1A822513001B45D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				88D45BF41B6621CD00EFD56D /* CoreGraphics.framework in Frameworks */,
 				88D45BF21B6621C700EFD56D /* Foundation.framework in Frameworks */,
+				880BE0221C03587000E97A74 /* XamoomSDK.framework in Frameworks */,
 				88D45BEE1B6621BA00EFD56D /* UIKit.framework in Frameworks */,
 				88D45BEC1B6621B300EFD56D /* SystemConfiguration.framework in Frameworks */,
 				88D45BEB1B6621AD00EFD56D /* CFNetwork.framework in Frameworks */,
@@ -145,12 +166,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		880BE01C1C03587000E97A74 /* XamoomSDK */ = {
+			isa = PBXGroup;
+			children = (
+				880BE01D1C03587000E97A74 /* XamoomSDK.h */,
+				880BE01F1C03587000E97A74 /* Info.plist */,
+			);
+			path = XamoomSDK;
+			sourceTree = "<group>";
+		};
 		8858D2371A822513001B45D5 = {
 			isa = PBXGroup;
 			children = (
 				88B868331C0325490023444C /* Default-568h@2x.png */,
 				8858D2421A822513001B45D5 /* xamoom-ios-sdk-example */,
 				8858D25C1A822513001B45D5 /* xamoom-ios-sdk-exampleTests */,
+				880BE01C1C03587000E97A74 /* XamoomSDK */,
 				8858D2411A822513001B45D5 /* Products */,
 				FBBA45687E405BB9EDD1EEEA /* Frameworks */,
 				1BAD160D5F3BBCB8B60A1C8A /* Pods */,
@@ -162,6 +193,7 @@
 			children = (
 				8858D2401A822513001B45D5 /* xamoom-ios-sdk-example.app */,
 				8858D2591A822513001B45D5 /* xamoom-ios-sdk-example.xctest */,
+				880BE01B1C03587000E97A74 /* XamoomSDK.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,7 +229,7 @@
 		8858D25C1A822513001B45D5 /* xamoom-ios-sdk-exampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				884D3B9D1C03019F007F0B0A /* xamoom_ios_sdk_testTests.m */,
+				884D3B9D1C03019F007F0B0A /* xamoom_ios_sdk_Integrationtest.m */,
 				8858D25D1A822513001B45D5 /* Supporting Files */,
 			);
 			name = "xamoom-ios-sdk-exampleTests";
@@ -235,7 +267,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		880BE0181C03587000E97A74 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				880BE01E1C03587000E97A74 /* XamoomSDK.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		880BE01A1C03587000E97A74 /* XamoomSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 880BE0261C03587000E97A74 /* Build configuration list for PBXNativeTarget "XamoomSDK" */;
+			buildPhases = (
+				880BE0161C03587000E97A74 /* Sources */,
+				880BE0171C03587000E97A74 /* Frameworks */,
+				880BE0181C03587000E97A74 /* Headers */,
+				880BE0191C03587000E97A74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XamoomSDK;
+			productName = XamoomSDK;
+			productReference = 880BE01B1C03587000E97A74 /* XamoomSDK.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8858D23F1A822513001B45D5 /* xamoom-ios-sdk-example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8858D2631A822513001B45D5 /* Build configuration list for PBXNativeTarget "xamoom-ios-sdk-example" */;
@@ -251,6 +312,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				880BE0211C03587000E97A74 /* PBXTargetDependency */,
 			);
 			name = "xamoom-ios-sdk-example";
 			productName = "xamoom-ios-sdk-test";
@@ -261,12 +323,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8858D2661A822513001B45D5 /* Build configuration list for PBXNativeTarget "xamoom-ios-sdk-exampleTests" */;
 			buildPhases = (
-				6B190DFAF44493697F53713C /* Check Pods Manifest.lock */,
 				8858D2551A822513001B45D5 /* Sources */,
 				8858D2561A822513001B45D5 /* Frameworks */,
 				8858D2571A822513001B45D5 /* Resources */,
-				0CC1113A58536DA9E7D4E584 /* Embed Pods Frameworks */,
-				C1AF846D19B2C7B2E9C8497B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,6 +348,10 @@
 				TargetAttributes = {
 					8801B4C91AA4AA9700A9F99F = {
 						CreatedOnToolsVersion = 6.1.1;
+					};
+					880BE01A1C03587000E97A74 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 55MDUF7392;
 					};
 					8858D23F1A822513001B45D5 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -316,11 +379,19 @@
 				8858D23F1A822513001B45D5 /* xamoom-ios-sdk-example */,
 				8858D2581A822513001B45D5 /* xamoom-ios-sdk-exampleTests */,
 				8801B4C91AA4AA9700A9F99F /* documentation */,
+				880BE01A1C03587000E97A74 /* XamoomSDK */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		880BE0191C03587000E97A74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8858D23E1A822513001B45D5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,21 +414,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CC1113A58536DA9E7D4E584 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-xamoom-ios-sdk-exampleTests/Pods-xamoom-ios-sdk-exampleTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5C639005B911C5D42D407A4B /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -371,21 +427,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-xamoom-ios-sdk-example/Pods-xamoom-ios-sdk-example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6B190DFAF44493697F53713C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8801B4CD1AA4AA9E00A9F99F /* ShellScript */ = {
@@ -431,24 +472,16 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C1AF846D19B2C7B2E9C8497B /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-xamoom-ios-sdk-exampleTests/Pods-xamoom-ios-sdk-exampleTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		880BE0161C03587000E97A74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8858D23C1A822513001B45D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -464,13 +497,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				884D3B9E1C03019F007F0B0A /* xamoom_ios_sdk_testTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		880BE0211C03587000E97A74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 880BE01A1C03587000E97A74 /* XamoomSDK */;
+			targetProxy = 880BE0201C03587000E97A74 /* PBXContainerItemProxy */;
+		};
 		8858D25B1A822513001B45D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8858D23F1A822513001B45D5 /* xamoom-ios-sdk-example */;
@@ -509,6 +546,53 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		880BE0241C03587000E97A74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = XamoomSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.XamoomSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		880BE0251C03587000E97A74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = XamoomSDK/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.XamoomSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -729,6 +813,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		880BE0261C03587000E97A74 /* Build configuration list for PBXNativeTarget "XamoomSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				880BE0241C03587000E97A74 /* Debug */,
+				880BE0251C03587000E97A74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		8858D23B1A822513001B45D5 /* Build configuration list for PBXProject "xamoom-ios-sdk-example" */ = {
 			isa = XCConfigurationList;
