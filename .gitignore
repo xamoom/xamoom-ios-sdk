@@ -20,3 +20,7 @@ example/xamoom-ios-sdk-test/xamoom-ios-sdk-test.xcodeproj/project.xcworkspace/xc
 *.xcuserstate
 
 example/xamoom-ios-sdk-test/xamoom-ios-sdk-test/TestLogins.plist
+
+example/xamoom-ios-sdk-example/TestLogins.plist
+
+example/TestLogins.plist

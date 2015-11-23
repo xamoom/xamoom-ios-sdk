@@ -1,0 +1,1 @@
+../../../../xamoom-ios-sdk/mapping/XMMContentBlockType8.h

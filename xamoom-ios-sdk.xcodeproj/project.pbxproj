@@ -1,0 +1,938 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		105C3B2B8E907CFF6C17D7D2 /* libPods-xamoom-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3C3061279131F25AE6F0C2 /* libPods-xamoom-ios-sdk.a */; };
+		884D3C821C0305A1007F0B0A /* XMMContentBlock0TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BA21C0305A1007F0B0A /* XMMContentBlock0TableViewCell.m */; };
+		884D3C831C0305A1007F0B0A /* XMMContentBlock1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BA51C0305A1007F0B0A /* XMMContentBlock1TableViewCell.m */; };
+		884D3C841C0305A1007F0B0A /* XMMContentBlock2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BA81C0305A1007F0B0A /* XMMContentBlock2TableViewCell.m */; };
+		884D3C851C0305A1007F0B0A /* XMMContentBlock3TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BAB1C0305A1007F0B0A /* XMMContentBlock3TableViewCell.m */; };
+		884D3C861C0305A1007F0B0A /* XMMContentBlock4TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BAE1C0305A1007F0B0A /* XMMContentBlock4TableViewCell.m */; };
+		884D3C871C0305A1007F0B0A /* XMMContentBlock5TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BB11C0305A1007F0B0A /* XMMContentBlock5TableViewCell.m */; };
+		884D3C881C0305A1007F0B0A /* XMMContentBlock6TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BB41C0305A1007F0B0A /* XMMContentBlock6TableViewCell.m */; };
+		884D3C891C0305A1007F0B0A /* XMMContentBlock7TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BB71C0305A1007F0B0A /* XMMContentBlock7TableViewCell.m */; };
+		884D3C8A1C0305A1007F0B0A /* XMMContentBlock8TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BBA1C0305A1007F0B0A /* XMMContentBlock8TableViewCell.m */; };
+		884D3C8B1C0305A1007F0B0A /* XMMContentBlock9TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BBD1C0305A1007F0B0A /* XMMContentBlock9TableViewCell.m */; };
+		884D3C8C1C0305A1007F0B0A /* XMMAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BC11C0305A1007F0B0A /* XMMAnnotation.m */; };
+		884D3C8D1C0305A1007F0B0A /* XMMAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BC31C0305A1007F0B0A /* XMMAnnotationView.m */; };
+		884D3C8E1C0305A1007F0B0A /* XMMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BC51C0305A1007F0B0A /* XMMCalloutView.m */; };
+		884D3C8F1C0305A1007F0B0A /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BC71C0305A1007F0B0A /* UIImage+animatedGIF.m */; };
+		884D3C901C0305A1007F0B0A /* XMMContentBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BC91C0305A1007F0B0A /* XMMContentBlocks.m */; };
+		884D3C911C0305A1007F0B0A /* XMMContentBlocksCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BCB1C0305A1007F0B0A /* XMMContentBlocksCache.m */; };
+		884D3C921C0305A1007F0B0A /* XMMMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BCD1C0305A1007F0B0A /* XMMMusicPlayer.m */; };
+		884D3C931C0305A1007F0B0A /* libSVGKit-iOS.1.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 884D3BD01C0305A1007F0B0A /* libSVGKit-iOS.1.2.0.a */; };
+		884D3C941C0305A1007F0B0A /* XMMClosestSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C531C0305A1007F0B0A /* XMMClosestSpot.m */; };
+		884D3C951C0305A1007F0B0A /* XMMContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C551C0305A1007F0B0A /* XMMContent.m */; };
+		884D3C961C0305A1007F0B0A /* XMMContentBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C571C0305A1007F0B0A /* XMMContentBlock.m */; };
+		884D3C971C0305A1007F0B0A /* XMMContentBlockType0.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C591C0305A1007F0B0A /* XMMContentBlockType0.m */; };
+		884D3C981C0305A1007F0B0A /* XMMContentBlockType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C5B1C0305A1007F0B0A /* XMMContentBlockType1.m */; };
+		884D3C991C0305A1007F0B0A /* XMMContentBlockType2.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C5D1C0305A1007F0B0A /* XMMContentBlockType2.m */; };
+		884D3C9A1C0305A1007F0B0A /* XMMContentBlockType3.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C5F1C0305A1007F0B0A /* XMMContentBlockType3.m */; };
+		884D3C9B1C0305A1007F0B0A /* XMMContentBlockType4.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C611C0305A1007F0B0A /* XMMContentBlockType4.m */; };
+		884D3C9C1C0305A1007F0B0A /* XMMContentBlockType5.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C631C0305A1007F0B0A /* XMMContentBlockType5.m */; };
+		884D3C9D1C0305A1007F0B0A /* XMMContentBlockType6.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C651C0305A1007F0B0A /* XMMContentBlockType6.m */; };
+		884D3C9E1C0305A1007F0B0A /* XMMContentBlockType7.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C671C0305A1007F0B0A /* XMMContentBlockType7.m */; };
+		884D3C9F1C0305A1007F0B0A /* XMMContentBlockType8.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C691C0305A1007F0B0A /* XMMContentBlockType8.m */; };
+		884D3CA01C0305A1007F0B0A /* XMMContentBlockType9.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C6B1C0305A1007F0B0A /* XMMContentBlockType9.m */; };
+		884D3CA11C0305A1007F0B0A /* XMMContentById.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C6D1C0305A1007F0B0A /* XMMContentById.m */; };
+		884D3CA21C0305A1007F0B0A /* XMMContentByLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C6F1C0305A1007F0B0A /* XMMContentByLocation.m */; };
+		884D3CA31C0305A1007F0B0A /* XMMContentByLocationIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C711C0305A1007F0B0A /* XMMContentByLocationIdentifier.m */; };
+		884D3CA41C0305A1007F0B0A /* XMMContentByLocationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C731C0305A1007F0B0A /* XMMContentByLocationItem.m */; };
+		884D3CA51C0305A1007F0B0A /* XMMContentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C751C0305A1007F0B0A /* XMMContentList.m */; };
+		884D3CA61C0305A1007F0B0A /* XMMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C771C0305A1007F0B0A /* XMMError.m */; };
+		884D3CA71C0305A1007F0B0A /* XMMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C791C0305A1007F0B0A /* XMMMenuItem.m */; };
+		884D3CA81C0305A1007F0B0A /* XMMSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C7B1C0305A1007F0B0A /* XMMSpot.m */; };
+		884D3CA91C0305A1007F0B0A /* XMMSpotMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C7D1C0305A1007F0B0A /* XMMSpotMap.m */; };
+		884D3CAA1C0305A1007F0B0A /* XMMStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C7F1C0305A1007F0B0A /* XMMStyle.m */; };
+		884D3CAB1C0305A1007F0B0A /* XMMEnduserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C811C0305A1007F0B0A /* XMMEnduserApi.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8866F4BE1C02FA77003C3363 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6B3C3061279131F25AE6F0C2 /* libPods-xamoom-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xamoom-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		884D3BA11C0305A1007F0B0A /* XMMContentBlock0TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock0TableViewCell.h; sourceTree = "<group>"; };
+		884D3BA21C0305A1007F0B0A /* XMMContentBlock0TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock0TableViewCell.m; sourceTree = "<group>"; };
+		884D3BA31C0305A1007F0B0A /* XMMContentBlock0TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock0TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BA41C0305A1007F0B0A /* XMMContentBlock1TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock1TableViewCell.h; sourceTree = "<group>"; };
+		884D3BA51C0305A1007F0B0A /* XMMContentBlock1TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock1TableViewCell.m; sourceTree = "<group>"; };
+		884D3BA61C0305A1007F0B0A /* XMMContentBlock1TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock1TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BA71C0305A1007F0B0A /* XMMContentBlock2TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock2TableViewCell.h; sourceTree = "<group>"; };
+		884D3BA81C0305A1007F0B0A /* XMMContentBlock2TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock2TableViewCell.m; sourceTree = "<group>"; };
+		884D3BA91C0305A1007F0B0A /* XMMContentBlock2TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock2TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BAA1C0305A1007F0B0A /* XMMContentBlock3TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock3TableViewCell.h; sourceTree = "<group>"; };
+		884D3BAB1C0305A1007F0B0A /* XMMContentBlock3TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock3TableViewCell.m; sourceTree = "<group>"; };
+		884D3BAC1C0305A1007F0B0A /* XMMContentBlock3TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock3TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BAD1C0305A1007F0B0A /* XMMContentBlock4TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock4TableViewCell.h; sourceTree = "<group>"; };
+		884D3BAE1C0305A1007F0B0A /* XMMContentBlock4TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock4TableViewCell.m; sourceTree = "<group>"; };
+		884D3BAF1C0305A1007F0B0A /* XMMContentBlock4TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock4TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BB01C0305A1007F0B0A /* XMMContentBlock5TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock5TableViewCell.h; sourceTree = "<group>"; };
+		884D3BB11C0305A1007F0B0A /* XMMContentBlock5TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock5TableViewCell.m; sourceTree = "<group>"; };
+		884D3BB21C0305A1007F0B0A /* XMMContentBlock5TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock5TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BB31C0305A1007F0B0A /* XMMContentBlock6TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock6TableViewCell.h; sourceTree = "<group>"; };
+		884D3BB41C0305A1007F0B0A /* XMMContentBlock6TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock6TableViewCell.m; sourceTree = "<group>"; };
+		884D3BB51C0305A1007F0B0A /* XMMContentBlock6TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock6TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BB61C0305A1007F0B0A /* XMMContentBlock7TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock7TableViewCell.h; sourceTree = "<group>"; };
+		884D3BB71C0305A1007F0B0A /* XMMContentBlock7TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock7TableViewCell.m; sourceTree = "<group>"; };
+		884D3BB81C0305A1007F0B0A /* XMMContentBlock7TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock7TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BB91C0305A1007F0B0A /* XMMContentBlock8TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock8TableViewCell.h; sourceTree = "<group>"; };
+		884D3BBA1C0305A1007F0B0A /* XMMContentBlock8TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock8TableViewCell.m; sourceTree = "<group>"; };
+		884D3BBB1C0305A1007F0B0A /* XMMContentBlock8TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock8TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BBC1C0305A1007F0B0A /* XMMContentBlock9TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock9TableViewCell.h; sourceTree = "<group>"; };
+		884D3BBD1C0305A1007F0B0A /* XMMContentBlock9TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock9TableViewCell.m; sourceTree = "<group>"; };
+		884D3BBE1C0305A1007F0B0A /* XMMContentBlock9TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock9TableViewCell.xib; sourceTree = "<group>"; };
+		884D3BC01C0305A1007F0B0A /* XMMAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMAnnotation.h; sourceTree = "<group>"; };
+		884D3BC11C0305A1007F0B0A /* XMMAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMAnnotation.m; sourceTree = "<group>"; };
+		884D3BC21C0305A1007F0B0A /* XMMAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMAnnotationView.h; sourceTree = "<group>"; };
+		884D3BC31C0305A1007F0B0A /* XMMAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMAnnotationView.m; sourceTree = "<group>"; };
+		884D3BC41C0305A1007F0B0A /* XMMCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMCalloutView.h; sourceTree = "<group>"; };
+		884D3BC51C0305A1007F0B0A /* XMMCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMCalloutView.m; sourceTree = "<group>"; };
+		884D3BC61C0305A1007F0B0A /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		884D3BC71C0305A1007F0B0A /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		884D3BC81C0305A1007F0B0A /* XMMContentBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlocks.h; sourceTree = "<group>"; };
+		884D3BC91C0305A1007F0B0A /* XMMContentBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocks.m; sourceTree = "<group>"; };
+		884D3BCA1C0305A1007F0B0A /* XMMContentBlocksCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlocksCache.h; sourceTree = "<group>"; };
+		884D3BCB1C0305A1007F0B0A /* XMMContentBlocksCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksCache.m; sourceTree = "<group>"; };
+		884D3BCC1C0305A1007F0B0A /* XMMMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMMusicPlayer.h; sourceTree = "<group>"; };
+		884D3BCD1C0305A1007F0B0A /* XMMMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMusicPlayer.m; sourceTree = "<group>"; };
+		884D3BD01C0305A1007F0B0A /* libSVGKit-iOS.1.2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libSVGKit-iOS.1.2.0.a"; sourceTree = "<group>"; };
+		884D3BD41C0305A1007F0B0A /* AppleSucksDOMImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleSucksDOMImplementation.h; sourceTree = "<group>"; };
+		884D3BD51C0305A1007F0B0A /* Attr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attr.h; sourceTree = "<group>"; };
+		884D3BD61C0305A1007F0B0A /* BaseClassForAllSVGBasicShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClassForAllSVGBasicShapes.h; sourceTree = "<group>"; };
+		884D3BD71C0305A1007F0B0A /* BaseClassForAllSVGBasicShapes_ForSubclasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClassForAllSVGBasicShapes_ForSubclasses.h; sourceTree = "<group>"; };
+		884D3BD81C0305A1007F0B0A /* CALayer+RecursiveClone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+RecursiveClone.h"; sourceTree = "<group>"; };
+		884D3BD91C0305A1007F0B0A /* CALayerExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerExporter.h; sourceTree = "<group>"; };
+		884D3BDA1C0305A1007F0B0A /* CALayerWithChildHitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerWithChildHitTest.h; sourceTree = "<group>"; };
+		884D3BDB1C0305A1007F0B0A /* CALayerWithClipRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerWithClipRender.h; sourceTree = "<group>"; };
+		884D3BDC1C0305A1007F0B0A /* CAShapeLayerWithClipRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAShapeLayerWithClipRender.h; sourceTree = "<group>"; };
+		884D3BDD1C0305A1007F0B0A /* CAShapeLayerWithHitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAShapeLayerWithHitTest.h; sourceTree = "<group>"; };
+		884D3BDE1C0305A1007F0B0A /* CDATASection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDATASection.h; sourceTree = "<group>"; };
+		884D3BDF1C0305A1007F0B0A /* CGPathAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPathAdditions.h; sourceTree = "<group>"; };
+		884D3BE01C0305A1007F0B0A /* CharacterData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterData.h; sourceTree = "<group>"; };
+		884D3BE11C0305A1007F0B0A /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		884D3BE21C0305A1007F0B0A /* ConverterSVGToCALayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverterSVGToCALayer.h; sourceTree = "<group>"; };
+		884D3BE31C0305A1007F0B0A /* CSSPrimitiveValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSPrimitiveValue.h; sourceTree = "<group>"; };
+		884D3BE41C0305A1007F0B0A /* CSSRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSRule.h; sourceTree = "<group>"; };
+		884D3BE51C0305A1007F0B0A /* CSSRuleList+Mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CSSRuleList+Mutable.h"; sourceTree = "<group>"; };
+		884D3BE61C0305A1007F0B0A /* CSSRuleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSRuleList.h; sourceTree = "<group>"; };
+		884D3BE71C0305A1007F0B0A /* CSSStyleDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSStyleDeclaration.h; sourceTree = "<group>"; };
+		884D3BE81C0305A1007F0B0A /* CSSStyleRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSStyleRule.h; sourceTree = "<group>"; };
+		884D3BE91C0305A1007F0B0A /* CSSStyleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSStyleSheet.h; sourceTree = "<group>"; };
+		884D3BEA1C0305A1007F0B0A /* CSSValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSValue.h; sourceTree = "<group>"; };
+		884D3BEB1C0305A1007F0B0A /* CSSValue_ForSubclasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSValue_ForSubclasses.h; sourceTree = "<group>"; };
+		884D3BEC1C0305A1007F0B0A /* CSSValueList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSSValueList.h; sourceTree = "<group>"; };
+		884D3BED1C0305A1007F0B0A /* Document+Mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Document+Mutable.h"; sourceTree = "<group>"; };
+		884D3BEE1C0305A1007F0B0A /* Document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		884D3BEF1C0305A1007F0B0A /* DocumentCSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentCSS.h; sourceTree = "<group>"; };
+		884D3BF01C0305A1007F0B0A /* DocumentFragment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentFragment.h; sourceTree = "<group>"; };
+		884D3BF11C0305A1007F0B0A /* DocumentStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentStyle.h; sourceTree = "<group>"; };
+		884D3BF21C0305A1007F0B0A /* DocumentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentType.h; sourceTree = "<group>"; };
+		884D3BF31C0305A1007F0B0A /* DOMGlobalSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOMGlobalSettings.h; sourceTree = "<group>"; };
+		884D3BF41C0305A1007F0B0A /* DOMHelperUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOMHelperUtilities.h; sourceTree = "<group>"; };
+		884D3BF51C0305A1007F0B0A /* Element.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Element.h; sourceTree = "<group>"; };
+		884D3BF61C0305A1007F0B0A /* EntityReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityReference.h; sourceTree = "<group>"; };
+		884D3BF71C0305A1007F0B0A /* MediaList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaList.h; sourceTree = "<group>"; };
+		884D3BF81C0305A1007F0B0A /* NamedNodeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamedNodeMap.h; sourceTree = "<group>"; };
+		884D3BF91C0305A1007F0B0A /* NamedNodeMap_Iterable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamedNodeMap_Iterable.h; sourceTree = "<group>"; };
+		884D3BFA1C0305A1007F0B0A /* Node+Mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Node+Mutable.h"; sourceTree = "<group>"; };
+		884D3BFB1C0305A1007F0B0A /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		884D3BFC1C0305A1007F0B0A /* NodeList+Mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NodeList+Mutable.h"; sourceTree = "<group>"; };
+		884D3BFD1C0305A1007F0B0A /* NodeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeList.h; sourceTree = "<group>"; };
+		884D3BFE1C0305A1007F0B0A /* NSCharacterSet+SVGKExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCharacterSet+SVGKExtensions.h"; sourceTree = "<group>"; };
+		884D3BFF1C0305A1007F0B0A /* NSData+NSInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+NSInputStream.h"; sourceTree = "<group>"; };
+		884D3C001C0305A1007F0B0A /* ProcessingInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessingInstruction.h; sourceTree = "<group>"; };
+		884D3C011C0305A1007F0B0A /* StyleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleSheet.h; sourceTree = "<group>"; };
+		884D3C021C0305A1007F0B0A /* StyleSheetList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleSheetList.h; sourceTree = "<group>"; };
+		884D3C031C0305A1007F0B0A /* SVGAngle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGAngle.h; sourceTree = "<group>"; };
+		884D3C041C0305A1007F0B0A /* SVGAnimatedPreserveAspectRatio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGAnimatedPreserveAspectRatio.h; sourceTree = "<group>"; };
+		884D3C051C0305A1007F0B0A /* SVGCircleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGCircleElement.h; sourceTree = "<group>"; };
+		884D3C061C0305A1007F0B0A /* SVGClipPathElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGClipPathElement.h; sourceTree = "<group>"; };
+		884D3C071C0305A1007F0B0A /* SVGDefsElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGDefsElement.h; sourceTree = "<group>"; };
+		884D3C081C0305A1007F0B0A /* SVGDescriptionElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGDescriptionElement.h; sourceTree = "<group>"; };
+		884D3C091C0305A1007F0B0A /* SVGDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGDocument.h; sourceTree = "<group>"; };
+		884D3C0A1C0305A1007F0B0A /* SVGDocument_Mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGDocument_Mutable.h; sourceTree = "<group>"; };
+		884D3C0B1C0305A1007F0B0A /* SVGElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGElement.h; sourceTree = "<group>"; };
+		884D3C0C1C0305A1007F0B0A /* SVGElement_ForParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGElement_ForParser.h; sourceTree = "<group>"; };
+		884D3C0D1C0305A1007F0B0A /* SVGElementInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGElementInstance.h; sourceTree = "<group>"; };
+		884D3C0E1C0305A1007F0B0A /* SVGElementInstance_Mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGElementInstance_Mutable.h; sourceTree = "<group>"; };
+		884D3C0F1C0305A1007F0B0A /* SVGElementInstanceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGElementInstanceList.h; sourceTree = "<group>"; };
+		884D3C101C0305A1007F0B0A /* SVGElementInstanceList_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGElementInstanceList_Internal.h; sourceTree = "<group>"; };
+		884D3C111C0305A1007F0B0A /* SVGEllipseElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGEllipseElement.h; sourceTree = "<group>"; };
+		884D3C121C0305A1007F0B0A /* SVGFitToViewBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGFitToViewBox.h; sourceTree = "<group>"; };
+		884D3C131C0305A1007F0B0A /* SVGGElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGGElement.h; sourceTree = "<group>"; };
+		884D3C141C0305A1007F0B0A /* SVGGradientElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGGradientElement.h; sourceTree = "<group>"; };
+		884D3C151C0305A1007F0B0A /* SVGGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGGradientLayer.h; sourceTree = "<group>"; };
+		884D3C161C0305A1007F0B0A /* SVGGradientStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGGradientStop.h; sourceTree = "<group>"; };
+		884D3C171C0305A1007F0B0A /* SVGGroupElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGGroupElement.h; sourceTree = "<group>"; };
+		884D3C181C0305A1007F0B0A /* SVGHelperUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGHelperUtilities.h; sourceTree = "<group>"; };
+		884D3C191C0305A1007F0B0A /* SVGImageElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGImageElement.h; sourceTree = "<group>"; };
+		884D3C1A1C0305A1007F0B0A /* SVGKExporterNSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKExporterNSData.h; sourceTree = "<group>"; };
+		884D3C1B1C0305A1007F0B0A /* SVGKExporterUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKExporterUIImage.h; sourceTree = "<group>"; };
+		884D3C1C1C0305A1007F0B0A /* SVGKFastImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKFastImageView.h; sourceTree = "<group>"; };
+		884D3C1D1C0305A1007F0B0A /* SVGKImage+CGContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVGKImage+CGContext.h"; sourceTree = "<group>"; };
+		884D3C1E1C0305A1007F0B0A /* SVGKImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKImage.h; sourceTree = "<group>"; };
+		884D3C1F1C0305A1007F0B0A /* SVGKImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKImageView.h; sourceTree = "<group>"; };
+		884D3C201C0305A1007F0B0A /* SVGKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKit.h; sourceTree = "<group>"; };
+		884D3C211C0305A1007F0B0A /* SVGKLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKLayer.h; sourceTree = "<group>"; };
+		884D3C221C0305A1007F0B0A /* SVGKLayeredImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKLayeredImageView.h; sourceTree = "<group>"; };
+		884D3C231C0305A1007F0B0A /* SVGKParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKParser.h; sourceTree = "<group>"; };
+		884D3C241C0305A1007F0B0A /* SVGKParserDefsAndUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKParserDefsAndUse.h; sourceTree = "<group>"; };
+		884D3C251C0305A1007F0B0A /* SVGKParserDOM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKParserDOM.h; sourceTree = "<group>"; };
+		884D3C261C0305A1007F0B0A /* SVGKParseResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKParseResult.h; sourceTree = "<group>"; };
+		884D3C271C0305A1007F0B0A /* SVGKParserExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKParserExtension.h; sourceTree = "<group>"; };
+		884D3C281C0305A1007F0B0A /* SVGKParserGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKParserGradient.h; sourceTree = "<group>"; };
+		884D3C291C0305A1007F0B0A /* SVGKParserPatternsAndGradients.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKParserPatternsAndGradients.h; sourceTree = "<group>"; };
+		884D3C2A1C0305A1007F0B0A /* SVGKParserStyles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKParserStyles.h; sourceTree = "<group>"; };
+		884D3C2B1C0305A1007F0B0A /* SVGKParserSVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKParserSVG.h; sourceTree = "<group>"; };
+		884D3C2C1C0305A1007F0B0A /* SVGKPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKPattern.h; sourceTree = "<group>"; };
+		884D3C2D1C0305A1007F0B0A /* SVGKPointsAndPathsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKPointsAndPathsParser.h; sourceTree = "<group>"; };
+		884D3C2E1C0305A1007F0B0A /* SVGKSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKSource.h; sourceTree = "<group>"; };
+		884D3C2F1C0305A1007F0B0A /* SVGKSourceLocalFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKSourceLocalFile.h; sourceTree = "<group>"; };
+		884D3C301C0305A1007F0B0A /* SVGKSourceNSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKSourceNSData.h; sourceTree = "<group>"; };
+		884D3C311C0305A1007F0B0A /* SVGKSourceString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKSourceString.h; sourceTree = "<group>"; };
+		884D3C321C0305A1007F0B0A /* SVGKSourceURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGKSourceURL.h; sourceTree = "<group>"; };
+		884D3C331C0305A1007F0B0A /* SVGLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGLength.h; sourceTree = "<group>"; };
+		884D3C341C0305A1007F0B0A /* SVGLineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGLineElement.h; sourceTree = "<group>"; };
+		884D3C351C0305A1007F0B0A /* SVGMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGMatrix.h; sourceTree = "<group>"; };
+		884D3C361C0305A1007F0B0A /* SVGNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGNumber.h; sourceTree = "<group>"; };
+		884D3C371C0305A1007F0B0A /* SVGPathElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGPathElement.h; sourceTree = "<group>"; };
+		884D3C381C0305A1007F0B0A /* SVGPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGPoint.h; sourceTree = "<group>"; };
+		884D3C391C0305A1007F0B0A /* SVGPolygonElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGPolygonElement.h; sourceTree = "<group>"; };
+		884D3C3A1C0305A1007F0B0A /* SVGPolylineElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGPolylineElement.h; sourceTree = "<group>"; };
+		884D3C3B1C0305A1007F0B0A /* SVGPreserveAspectRatio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGPreserveAspectRatio.h; sourceTree = "<group>"; };
+		884D3C3C1C0305A1007F0B0A /* SVGRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGRect.h; sourceTree = "<group>"; };
+		884D3C3D1C0305A1007F0B0A /* SVGRectElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGRectElement.h; sourceTree = "<group>"; };
+		884D3C3E1C0305A1007F0B0A /* SVGStylable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGStylable.h; sourceTree = "<group>"; };
+		884D3C3F1C0305A1007F0B0A /* SVGStyleCatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGStyleCatcher.h; sourceTree = "<group>"; };
+		884D3C401C0305A1007F0B0A /* SVGStyleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGStyleElement.h; sourceTree = "<group>"; };
+		884D3C411C0305A1007F0B0A /* SVGSVGElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGSVGElement.h; sourceTree = "<group>"; };
+		884D3C421C0305A1007F0B0A /* SVGSVGElement_Mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGSVGElement_Mutable.h; sourceTree = "<group>"; };
+		884D3C431C0305A1007F0B0A /* SVGTextContentElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGTextContentElement.h; sourceTree = "<group>"; };
+		884D3C441C0305A1007F0B0A /* SVGTextElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGTextElement.h; sourceTree = "<group>"; };
+		884D3C451C0305A1007F0B0A /* SVGTextPositioningElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGTextPositioningElement.h; sourceTree = "<group>"; };
+		884D3C461C0305A1007F0B0A /* SVGTextPositioningElement_Mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGTextPositioningElement_Mutable.h; sourceTree = "<group>"; };
+		884D3C471C0305A1007F0B0A /* SVGTitleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGTitleElement.h; sourceTree = "<group>"; };
+		884D3C481C0305A1007F0B0A /* SVGTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGTransform.h; sourceTree = "<group>"; };
+		884D3C491C0305A1007F0B0A /* SVGTransformable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGTransformable.h; sourceTree = "<group>"; };
+		884D3C4A1C0305A1007F0B0A /* SVGUnitTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGUnitTypes.h; sourceTree = "<group>"; };
+		884D3C4B1C0305A1007F0B0A /* SVGUseElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGUseElement.h; sourceTree = "<group>"; };
+		884D3C4C1C0305A1007F0B0A /* SVGUseElement_Mutable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGUseElement_Mutable.h; sourceTree = "<group>"; };
+		884D3C4D1C0305A1007F0B0A /* SVGUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGUtils.h; sourceTree = "<group>"; };
+		884D3C4E1C0305A1007F0B0A /* SVGViewSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVGViewSpec.h; sourceTree = "<group>"; };
+		884D3C4F1C0305A1007F0B0A /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Text.h; sourceTree = "<group>"; };
+		884D3C501C0305A1007F0B0A /* TinySVGTextAreaElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinySVGTextAreaElement.h; sourceTree = "<group>"; };
+		884D3C521C0305A1007F0B0A /* XMMClosestSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMClosestSpot.h; sourceTree = "<group>"; };
+		884D3C531C0305A1007F0B0A /* XMMClosestSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMClosestSpot.m; sourceTree = "<group>"; };
+		884D3C541C0305A1007F0B0A /* XMMContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContent.h; sourceTree = "<group>"; };
+		884D3C551C0305A1007F0B0A /* XMMContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContent.m; sourceTree = "<group>"; };
+		884D3C561C0305A1007F0B0A /* XMMContentBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock.h; sourceTree = "<group>"; };
+		884D3C571C0305A1007F0B0A /* XMMContentBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock.m; sourceTree = "<group>"; };
+		884D3C581C0305A1007F0B0A /* XMMContentBlockType0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType0.h; sourceTree = "<group>"; };
+		884D3C591C0305A1007F0B0A /* XMMContentBlockType0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType0.m; sourceTree = "<group>"; };
+		884D3C5A1C0305A1007F0B0A /* XMMContentBlockType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType1.h; sourceTree = "<group>"; };
+		884D3C5B1C0305A1007F0B0A /* XMMContentBlockType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType1.m; sourceTree = "<group>"; };
+		884D3C5C1C0305A1007F0B0A /* XMMContentBlockType2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType2.h; sourceTree = "<group>"; };
+		884D3C5D1C0305A1007F0B0A /* XMMContentBlockType2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType2.m; sourceTree = "<group>"; };
+		884D3C5E1C0305A1007F0B0A /* XMMContentBlockType3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType3.h; sourceTree = "<group>"; };
+		884D3C5F1C0305A1007F0B0A /* XMMContentBlockType3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType3.m; sourceTree = "<group>"; };
+		884D3C601C0305A1007F0B0A /* XMMContentBlockType4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType4.h; sourceTree = "<group>"; };
+		884D3C611C0305A1007F0B0A /* XMMContentBlockType4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType4.m; sourceTree = "<group>"; };
+		884D3C621C0305A1007F0B0A /* XMMContentBlockType5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType5.h; sourceTree = "<group>"; };
+		884D3C631C0305A1007F0B0A /* XMMContentBlockType5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType5.m; sourceTree = "<group>"; };
+		884D3C641C0305A1007F0B0A /* XMMContentBlockType6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType6.h; sourceTree = "<group>"; };
+		884D3C651C0305A1007F0B0A /* XMMContentBlockType6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType6.m; sourceTree = "<group>"; };
+		884D3C661C0305A1007F0B0A /* XMMContentBlockType7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType7.h; sourceTree = "<group>"; };
+		884D3C671C0305A1007F0B0A /* XMMContentBlockType7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType7.m; sourceTree = "<group>"; };
+		884D3C681C0305A1007F0B0A /* XMMContentBlockType8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType8.h; sourceTree = "<group>"; };
+		884D3C691C0305A1007F0B0A /* XMMContentBlockType8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType8.m; sourceTree = "<group>"; };
+		884D3C6A1C0305A1007F0B0A /* XMMContentBlockType9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType9.h; sourceTree = "<group>"; };
+		884D3C6B1C0305A1007F0B0A /* XMMContentBlockType9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType9.m; sourceTree = "<group>"; };
+		884D3C6C1C0305A1007F0B0A /* XMMContentById.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentById.h; sourceTree = "<group>"; };
+		884D3C6D1C0305A1007F0B0A /* XMMContentById.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentById.m; sourceTree = "<group>"; };
+		884D3C6E1C0305A1007F0B0A /* XMMContentByLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentByLocation.h; sourceTree = "<group>"; };
+		884D3C6F1C0305A1007F0B0A /* XMMContentByLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentByLocation.m; sourceTree = "<group>"; };
+		884D3C701C0305A1007F0B0A /* XMMContentByLocationIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentByLocationIdentifier.h; sourceTree = "<group>"; };
+		884D3C711C0305A1007F0B0A /* XMMContentByLocationIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentByLocationIdentifier.m; sourceTree = "<group>"; };
+		884D3C721C0305A1007F0B0A /* XMMContentByLocationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentByLocationItem.h; sourceTree = "<group>"; };
+		884D3C731C0305A1007F0B0A /* XMMContentByLocationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentByLocationItem.m; sourceTree = "<group>"; };
+		884D3C741C0305A1007F0B0A /* XMMContentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentList.h; sourceTree = "<group>"; };
+		884D3C751C0305A1007F0B0A /* XMMContentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentList.m; sourceTree = "<group>"; };
+		884D3C761C0305A1007F0B0A /* XMMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMError.h; sourceTree = "<group>"; };
+		884D3C771C0305A1007F0B0A /* XMMError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMError.m; sourceTree = "<group>"; };
+		884D3C781C0305A1007F0B0A /* XMMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMMenuItem.h; sourceTree = "<group>"; };
+		884D3C791C0305A1007F0B0A /* XMMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMenuItem.m; sourceTree = "<group>"; };
+		884D3C7A1C0305A1007F0B0A /* XMMSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMSpot.h; sourceTree = "<group>"; };
+		884D3C7B1C0305A1007F0B0A /* XMMSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMSpot.m; sourceTree = "<group>"; };
+		884D3C7C1C0305A1007F0B0A /* XMMSpotMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMSpotMap.h; sourceTree = "<group>"; };
+		884D3C7D1C0305A1007F0B0A /* XMMSpotMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMSpotMap.m; sourceTree = "<group>"; };
+		884D3C7E1C0305A1007F0B0A /* XMMStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMStyle.h; sourceTree = "<group>"; };
+		884D3C7F1C0305A1007F0B0A /* XMMStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMStyle.m; sourceTree = "<group>"; };
+		884D3C801C0305A1007F0B0A /* XMMEnduserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMEnduserApi.h; sourceTree = "<group>"; };
+		884D3C811C0305A1007F0B0A /* XMMEnduserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMEnduserApi.m; sourceTree = "<group>"; };
+		8866F4C01C02FA77003C3363 /* libxamoom-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libxamoom-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E6168CBA4BCA9E467BBFFB1 /* Pods-xamoom-ios-sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xamoom-ios-sdk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xamoom-ios-sdk/Pods-xamoom-ios-sdk.debug.xcconfig"; sourceTree = "<group>"; };
+		B1C7E9E72E0F088E1C200DE3 /* Pods-xamoom-ios-sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xamoom-ios-sdk.release.xcconfig"; path = "Pods/Target Support Files/Pods-xamoom-ios-sdk/Pods-xamoom-ios-sdk.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8866F4BD1C02FA77003C3363 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				884D3C931C0305A1007F0B0A /* libSVGKit-iOS.1.2.0.a in Frameworks */,
+				105C3B2B8E907CFF6C17D7D2 /* libPods-xamoom-ios-sdk.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		433D2C0A00070EB8067942C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E6168CBA4BCA9E467BBFFB1 /* Pods-xamoom-ios-sdk.debug.xcconfig */,
+				B1C7E9E72E0F088E1C200DE3 /* Pods-xamoom-ios-sdk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		884D3B9F1C0305A1007F0B0A /* ContentBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				884D3BA01C0305A1007F0B0A /* Blocks */,
+				884D3BBF1C0305A1007F0B0A /* MapViews */,
+				884D3BC61C0305A1007F0B0A /* UIImage+animatedGIF.h */,
+				884D3BC71C0305A1007F0B0A /* UIImage+animatedGIF.m */,
+				884D3BC81C0305A1007F0B0A /* XMMContentBlocks.h */,
+				884D3BC91C0305A1007F0B0A /* XMMContentBlocks.m */,
+				884D3BCA1C0305A1007F0B0A /* XMMContentBlocksCache.h */,
+				884D3BCB1C0305A1007F0B0A /* XMMContentBlocksCache.m */,
+				884D3BCC1C0305A1007F0B0A /* XMMMusicPlayer.h */,
+				884D3BCD1C0305A1007F0B0A /* XMMMusicPlayer.m */,
+			);
+			path = ContentBlocks;
+			sourceTree = "<group>";
+		};
+		884D3BA01C0305A1007F0B0A /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				884D3BA11C0305A1007F0B0A /* XMMContentBlock0TableViewCell.h */,
+				884D3BA21C0305A1007F0B0A /* XMMContentBlock0TableViewCell.m */,
+				884D3BA31C0305A1007F0B0A /* XMMContentBlock0TableViewCell.xib */,
+				884D3BA41C0305A1007F0B0A /* XMMContentBlock1TableViewCell.h */,
+				884D3BA51C0305A1007F0B0A /* XMMContentBlock1TableViewCell.m */,
+				884D3BA61C0305A1007F0B0A /* XMMContentBlock1TableViewCell.xib */,
+				884D3BA71C0305A1007F0B0A /* XMMContentBlock2TableViewCell.h */,
+				884D3BA81C0305A1007F0B0A /* XMMContentBlock2TableViewCell.m */,
+				884D3BA91C0305A1007F0B0A /* XMMContentBlock2TableViewCell.xib */,
+				884D3BAA1C0305A1007F0B0A /* XMMContentBlock3TableViewCell.h */,
+				884D3BAB1C0305A1007F0B0A /* XMMContentBlock3TableViewCell.m */,
+				884D3BAC1C0305A1007F0B0A /* XMMContentBlock3TableViewCell.xib */,
+				884D3BAD1C0305A1007F0B0A /* XMMContentBlock4TableViewCell.h */,
+				884D3BAE1C0305A1007F0B0A /* XMMContentBlock4TableViewCell.m */,
+				884D3BAF1C0305A1007F0B0A /* XMMContentBlock4TableViewCell.xib */,
+				884D3BB01C0305A1007F0B0A /* XMMContentBlock5TableViewCell.h */,
+				884D3BB11C0305A1007F0B0A /* XMMContentBlock5TableViewCell.m */,
+				884D3BB21C0305A1007F0B0A /* XMMContentBlock5TableViewCell.xib */,
+				884D3BB31C0305A1007F0B0A /* XMMContentBlock6TableViewCell.h */,
+				884D3BB41C0305A1007F0B0A /* XMMContentBlock6TableViewCell.m */,
+				884D3BB51C0305A1007F0B0A /* XMMContentBlock6TableViewCell.xib */,
+				884D3BB61C0305A1007F0B0A /* XMMContentBlock7TableViewCell.h */,
+				884D3BB71C0305A1007F0B0A /* XMMContentBlock7TableViewCell.m */,
+				884D3BB81C0305A1007F0B0A /* XMMContentBlock7TableViewCell.xib */,
+				884D3BB91C0305A1007F0B0A /* XMMContentBlock8TableViewCell.h */,
+				884D3BBA1C0305A1007F0B0A /* XMMContentBlock8TableViewCell.m */,
+				884D3BBB1C0305A1007F0B0A /* XMMContentBlock8TableViewCell.xib */,
+				884D3BBC1C0305A1007F0B0A /* XMMContentBlock9TableViewCell.h */,
+				884D3BBD1C0305A1007F0B0A /* XMMContentBlock9TableViewCell.m */,
+				884D3BBE1C0305A1007F0B0A /* XMMContentBlock9TableViewCell.xib */,
+			);
+			path = Blocks;
+			sourceTree = "<group>";
+		};
+		884D3BBF1C0305A1007F0B0A /* MapViews */ = {
+			isa = PBXGroup;
+			children = (
+				884D3BC01C0305A1007F0B0A /* XMMAnnotation.h */,
+				884D3BC11C0305A1007F0B0A /* XMMAnnotation.m */,
+				884D3BC21C0305A1007F0B0A /* XMMAnnotationView.h */,
+				884D3BC31C0305A1007F0B0A /* XMMAnnotationView.m */,
+				884D3BC41C0305A1007F0B0A /* XMMCalloutView.h */,
+				884D3BC51C0305A1007F0B0A /* XMMCalloutView.m */,
+			);
+			path = MapViews;
+			sourceTree = "<group>";
+		};
+		884D3BCE1C0305A1007F0B0A /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				884D3BCF1C0305A1007F0B0A /* SVGKit */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		884D3BCF1C0305A1007F0B0A /* SVGKit */ = {
+			isa = PBXGroup;
+			children = (
+				884D3BD01C0305A1007F0B0A /* libSVGKit-iOS.1.2.0.a */,
+				884D3BD11C0305A1007F0B0A /* usr */,
+			);
+			path = SVGKit;
+			sourceTree = "<group>";
+		};
+		884D3BD11C0305A1007F0B0A /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				884D3BD21C0305A1007F0B0A /* local */,
+			);
+			path = usr;
+			sourceTree = "<group>";
+		};
+		884D3BD21C0305A1007F0B0A /* local */ = {
+			isa = PBXGroup;
+			children = (
+				884D3BD31C0305A1007F0B0A /* include */,
+			);
+			path = local;
+			sourceTree = "<group>";
+		};
+		884D3BD31C0305A1007F0B0A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				884D3BD41C0305A1007F0B0A /* AppleSucksDOMImplementation.h */,
+				884D3BD51C0305A1007F0B0A /* Attr.h */,
+				884D3BD61C0305A1007F0B0A /* BaseClassForAllSVGBasicShapes.h */,
+				884D3BD71C0305A1007F0B0A /* BaseClassForAllSVGBasicShapes_ForSubclasses.h */,
+				884D3BD81C0305A1007F0B0A /* CALayer+RecursiveClone.h */,
+				884D3BD91C0305A1007F0B0A /* CALayerExporter.h */,
+				884D3BDA1C0305A1007F0B0A /* CALayerWithChildHitTest.h */,
+				884D3BDB1C0305A1007F0B0A /* CALayerWithClipRender.h */,
+				884D3BDC1C0305A1007F0B0A /* CAShapeLayerWithClipRender.h */,
+				884D3BDD1C0305A1007F0B0A /* CAShapeLayerWithHitTest.h */,
+				884D3BDE1C0305A1007F0B0A /* CDATASection.h */,
+				884D3BDF1C0305A1007F0B0A /* CGPathAdditions.h */,
+				884D3BE01C0305A1007F0B0A /* CharacterData.h */,
+				884D3BE11C0305A1007F0B0A /* Comment.h */,
+				884D3BE21C0305A1007F0B0A /* ConverterSVGToCALayer.h */,
+				884D3BE31C0305A1007F0B0A /* CSSPrimitiveValue.h */,
+				884D3BE41C0305A1007F0B0A /* CSSRule.h */,
+				884D3BE51C0305A1007F0B0A /* CSSRuleList+Mutable.h */,
+				884D3BE61C0305A1007F0B0A /* CSSRuleList.h */,
+				884D3BE71C0305A1007F0B0A /* CSSStyleDeclaration.h */,
+				884D3BE81C0305A1007F0B0A /* CSSStyleRule.h */,
+				884D3BE91C0305A1007F0B0A /* CSSStyleSheet.h */,
+				884D3BEA1C0305A1007F0B0A /* CSSValue.h */,
+				884D3BEB1C0305A1007F0B0A /* CSSValue_ForSubclasses.h */,
+				884D3BEC1C0305A1007F0B0A /* CSSValueList.h */,
+				884D3BED1C0305A1007F0B0A /* Document+Mutable.h */,
+				884D3BEE1C0305A1007F0B0A /* Document.h */,
+				884D3BEF1C0305A1007F0B0A /* DocumentCSS.h */,
+				884D3BF01C0305A1007F0B0A /* DocumentFragment.h */,
+				884D3BF11C0305A1007F0B0A /* DocumentStyle.h */,
+				884D3BF21C0305A1007F0B0A /* DocumentType.h */,
+				884D3BF31C0305A1007F0B0A /* DOMGlobalSettings.h */,
+				884D3BF41C0305A1007F0B0A /* DOMHelperUtilities.h */,
+				884D3BF51C0305A1007F0B0A /* Element.h */,
+				884D3BF61C0305A1007F0B0A /* EntityReference.h */,
+				884D3BF71C0305A1007F0B0A /* MediaList.h */,
+				884D3BF81C0305A1007F0B0A /* NamedNodeMap.h */,
+				884D3BF91C0305A1007F0B0A /* NamedNodeMap_Iterable.h */,
+				884D3BFA1C0305A1007F0B0A /* Node+Mutable.h */,
+				884D3BFB1C0305A1007F0B0A /* Node.h */,
+				884D3BFC1C0305A1007F0B0A /* NodeList+Mutable.h */,
+				884D3BFD1C0305A1007F0B0A /* NodeList.h */,
+				884D3BFE1C0305A1007F0B0A /* NSCharacterSet+SVGKExtensions.h */,
+				884D3BFF1C0305A1007F0B0A /* NSData+NSInputStream.h */,
+				884D3C001C0305A1007F0B0A /* ProcessingInstruction.h */,
+				884D3C011C0305A1007F0B0A /* StyleSheet.h */,
+				884D3C021C0305A1007F0B0A /* StyleSheetList.h */,
+				884D3C031C0305A1007F0B0A /* SVGAngle.h */,
+				884D3C041C0305A1007F0B0A /* SVGAnimatedPreserveAspectRatio.h */,
+				884D3C051C0305A1007F0B0A /* SVGCircleElement.h */,
+				884D3C061C0305A1007F0B0A /* SVGClipPathElement.h */,
+				884D3C071C0305A1007F0B0A /* SVGDefsElement.h */,
+				884D3C081C0305A1007F0B0A /* SVGDescriptionElement.h */,
+				884D3C091C0305A1007F0B0A /* SVGDocument.h */,
+				884D3C0A1C0305A1007F0B0A /* SVGDocument_Mutable.h */,
+				884D3C0B1C0305A1007F0B0A /* SVGElement.h */,
+				884D3C0C1C0305A1007F0B0A /* SVGElement_ForParser.h */,
+				884D3C0D1C0305A1007F0B0A /* SVGElementInstance.h */,
+				884D3C0E1C0305A1007F0B0A /* SVGElementInstance_Mutable.h */,
+				884D3C0F1C0305A1007F0B0A /* SVGElementInstanceList.h */,
+				884D3C101C0305A1007F0B0A /* SVGElementInstanceList_Internal.h */,
+				884D3C111C0305A1007F0B0A /* SVGEllipseElement.h */,
+				884D3C121C0305A1007F0B0A /* SVGFitToViewBox.h */,
+				884D3C131C0305A1007F0B0A /* SVGGElement.h */,
+				884D3C141C0305A1007F0B0A /* SVGGradientElement.h */,
+				884D3C151C0305A1007F0B0A /* SVGGradientLayer.h */,
+				884D3C161C0305A1007F0B0A /* SVGGradientStop.h */,
+				884D3C171C0305A1007F0B0A /* SVGGroupElement.h */,
+				884D3C181C0305A1007F0B0A /* SVGHelperUtilities.h */,
+				884D3C191C0305A1007F0B0A /* SVGImageElement.h */,
+				884D3C1A1C0305A1007F0B0A /* SVGKExporterNSData.h */,
+				884D3C1B1C0305A1007F0B0A /* SVGKExporterUIImage.h */,
+				884D3C1C1C0305A1007F0B0A /* SVGKFastImageView.h */,
+				884D3C1D1C0305A1007F0B0A /* SVGKImage+CGContext.h */,
+				884D3C1E1C0305A1007F0B0A /* SVGKImage.h */,
+				884D3C1F1C0305A1007F0B0A /* SVGKImageView.h */,
+				884D3C201C0305A1007F0B0A /* SVGKit.h */,
+				884D3C211C0305A1007F0B0A /* SVGKLayer.h */,
+				884D3C221C0305A1007F0B0A /* SVGKLayeredImageView.h */,
+				884D3C231C0305A1007F0B0A /* SVGKParser.h */,
+				884D3C241C0305A1007F0B0A /* SVGKParserDefsAndUse.h */,
+				884D3C251C0305A1007F0B0A /* SVGKParserDOM.h */,
+				884D3C261C0305A1007F0B0A /* SVGKParseResult.h */,
+				884D3C271C0305A1007F0B0A /* SVGKParserExtension.h */,
+				884D3C281C0305A1007F0B0A /* SVGKParserGradient.h */,
+				884D3C291C0305A1007F0B0A /* SVGKParserPatternsAndGradients.h */,
+				884D3C2A1C0305A1007F0B0A /* SVGKParserStyles.h */,
+				884D3C2B1C0305A1007F0B0A /* SVGKParserSVG.h */,
+				884D3C2C1C0305A1007F0B0A /* SVGKPattern.h */,
+				884D3C2D1C0305A1007F0B0A /* SVGKPointsAndPathsParser.h */,
+				884D3C2E1C0305A1007F0B0A /* SVGKSource.h */,
+				884D3C2F1C0305A1007F0B0A /* SVGKSourceLocalFile.h */,
+				884D3C301C0305A1007F0B0A /* SVGKSourceNSData.h */,
+				884D3C311C0305A1007F0B0A /* SVGKSourceString.h */,
+				884D3C321C0305A1007F0B0A /* SVGKSourceURL.h */,
+				884D3C331C0305A1007F0B0A /* SVGLength.h */,
+				884D3C341C0305A1007F0B0A /* SVGLineElement.h */,
+				884D3C351C0305A1007F0B0A /* SVGMatrix.h */,
+				884D3C361C0305A1007F0B0A /* SVGNumber.h */,
+				884D3C371C0305A1007F0B0A /* SVGPathElement.h */,
+				884D3C381C0305A1007F0B0A /* SVGPoint.h */,
+				884D3C391C0305A1007F0B0A /* SVGPolygonElement.h */,
+				884D3C3A1C0305A1007F0B0A /* SVGPolylineElement.h */,
+				884D3C3B1C0305A1007F0B0A /* SVGPreserveAspectRatio.h */,
+				884D3C3C1C0305A1007F0B0A /* SVGRect.h */,
+				884D3C3D1C0305A1007F0B0A /* SVGRectElement.h */,
+				884D3C3E1C0305A1007F0B0A /* SVGStylable.h */,
+				884D3C3F1C0305A1007F0B0A /* SVGStyleCatcher.h */,
+				884D3C401C0305A1007F0B0A /* SVGStyleElement.h */,
+				884D3C411C0305A1007F0B0A /* SVGSVGElement.h */,
+				884D3C421C0305A1007F0B0A /* SVGSVGElement_Mutable.h */,
+				884D3C431C0305A1007F0B0A /* SVGTextContentElement.h */,
+				884D3C441C0305A1007F0B0A /* SVGTextElement.h */,
+				884D3C451C0305A1007F0B0A /* SVGTextPositioningElement.h */,
+				884D3C461C0305A1007F0B0A /* SVGTextPositioningElement_Mutable.h */,
+				884D3C471C0305A1007F0B0A /* SVGTitleElement.h */,
+				884D3C481C0305A1007F0B0A /* SVGTransform.h */,
+				884D3C491C0305A1007F0B0A /* SVGTransformable.h */,
+				884D3C4A1C0305A1007F0B0A /* SVGUnitTypes.h */,
+				884D3C4B1C0305A1007F0B0A /* SVGUseElement.h */,
+				884D3C4C1C0305A1007F0B0A /* SVGUseElement_Mutable.h */,
+				884D3C4D1C0305A1007F0B0A /* SVGUtils.h */,
+				884D3C4E1C0305A1007F0B0A /* SVGViewSpec.h */,
+				884D3C4F1C0305A1007F0B0A /* Text.h */,
+				884D3C501C0305A1007F0B0A /* TinySVGTextAreaElement.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		884D3C511C0305A1007F0B0A /* mapping */ = {
+			isa = PBXGroup;
+			children = (
+				884D3C521C0305A1007F0B0A /* XMMClosestSpot.h */,
+				884D3C531C0305A1007F0B0A /* XMMClosestSpot.m */,
+				884D3C541C0305A1007F0B0A /* XMMContent.h */,
+				884D3C551C0305A1007F0B0A /* XMMContent.m */,
+				884D3C561C0305A1007F0B0A /* XMMContentBlock.h */,
+				884D3C571C0305A1007F0B0A /* XMMContentBlock.m */,
+				884D3C581C0305A1007F0B0A /* XMMContentBlockType0.h */,
+				884D3C591C0305A1007F0B0A /* XMMContentBlockType0.m */,
+				884D3C5A1C0305A1007F0B0A /* XMMContentBlockType1.h */,
+				884D3C5B1C0305A1007F0B0A /* XMMContentBlockType1.m */,
+				884D3C5C1C0305A1007F0B0A /* XMMContentBlockType2.h */,
+				884D3C5D1C0305A1007F0B0A /* XMMContentBlockType2.m */,
+				884D3C5E1C0305A1007F0B0A /* XMMContentBlockType3.h */,
+				884D3C5F1C0305A1007F0B0A /* XMMContentBlockType3.m */,
+				884D3C601C0305A1007F0B0A /* XMMContentBlockType4.h */,
+				884D3C611C0305A1007F0B0A /* XMMContentBlockType4.m */,
+				884D3C621C0305A1007F0B0A /* XMMContentBlockType5.h */,
+				884D3C631C0305A1007F0B0A /* XMMContentBlockType5.m */,
+				884D3C641C0305A1007F0B0A /* XMMContentBlockType6.h */,
+				884D3C651C0305A1007F0B0A /* XMMContentBlockType6.m */,
+				884D3C661C0305A1007F0B0A /* XMMContentBlockType7.h */,
+				884D3C671C0305A1007F0B0A /* XMMContentBlockType7.m */,
+				884D3C681C0305A1007F0B0A /* XMMContentBlockType8.h */,
+				884D3C691C0305A1007F0B0A /* XMMContentBlockType8.m */,
+				884D3C6A1C0305A1007F0B0A /* XMMContentBlockType9.h */,
+				884D3C6B1C0305A1007F0B0A /* XMMContentBlockType9.m */,
+				884D3C6C1C0305A1007F0B0A /* XMMContentById.h */,
+				884D3C6D1C0305A1007F0B0A /* XMMContentById.m */,
+				884D3C6E1C0305A1007F0B0A /* XMMContentByLocation.h */,
+				884D3C6F1C0305A1007F0B0A /* XMMContentByLocation.m */,
+				884D3C701C0305A1007F0B0A /* XMMContentByLocationIdentifier.h */,
+				884D3C711C0305A1007F0B0A /* XMMContentByLocationIdentifier.m */,
+				884D3C721C0305A1007F0B0A /* XMMContentByLocationItem.h */,
+				884D3C731C0305A1007F0B0A /* XMMContentByLocationItem.m */,
+				884D3C741C0305A1007F0B0A /* XMMContentList.h */,
+				884D3C751C0305A1007F0B0A /* XMMContentList.m */,
+				884D3C761C0305A1007F0B0A /* XMMError.h */,
+				884D3C771C0305A1007F0B0A /* XMMError.m */,
+				884D3C781C0305A1007F0B0A /* XMMMenuItem.h */,
+				884D3C791C0305A1007F0B0A /* XMMMenuItem.m */,
+				884D3C7A1C0305A1007F0B0A /* XMMSpot.h */,
+				884D3C7B1C0305A1007F0B0A /* XMMSpot.m */,
+				884D3C7C1C0305A1007F0B0A /* XMMSpotMap.h */,
+				884D3C7D1C0305A1007F0B0A /* XMMSpotMap.m */,
+				884D3C7E1C0305A1007F0B0A /* XMMStyle.h */,
+				884D3C7F1C0305A1007F0B0A /* XMMStyle.m */,
+			);
+			path = mapping;
+			sourceTree = "<group>";
+		};
+		8866F4B71C02FA77003C3363 = {
+			isa = PBXGroup;
+			children = (
+				8866F4C21C02FA77003C3363 /* xamoom-ios-sdk */,
+				8866F4C11C02FA77003C3363 /* Products */,
+				433D2C0A00070EB8067942C0 /* Pods */,
+				E76B381ECF6CCA64FD75A473 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8866F4C11C02FA77003C3363 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8866F4C01C02FA77003C3363 /* libxamoom-ios-sdk.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8866F4C21C02FA77003C3363 /* xamoom-ios-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				884D3C801C0305A1007F0B0A /* XMMEnduserApi.h */,
+				884D3C811C0305A1007F0B0A /* XMMEnduserApi.m */,
+				884D3C511C0305A1007F0B0A /* mapping */,
+				884D3B9F1C0305A1007F0B0A /* ContentBlocks */,
+				884D3BCE1C0305A1007F0B0A /* lib */,
+			);
+			path = "xamoom-ios-sdk";
+			sourceTree = "<group>";
+		};
+		E76B381ECF6CCA64FD75A473 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B3C3061279131F25AE6F0C2 /* libPods-xamoom-ios-sdk.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8866F4BF1C02FA77003C3363 /* xamoom-ios-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8866F4C91C02FA77003C3363 /* Build configuration list for PBXNativeTarget "xamoom-ios-sdk" */;
+			buildPhases = (
+				5868D2CD4684D241D7691FAB /* Check Pods Manifest.lock */,
+				8866F4BC1C02FA77003C3363 /* Sources */,
+				8866F4BD1C02FA77003C3363 /* Frameworks */,
+				8866F4BE1C02FA77003C3363 /* CopyFiles */,
+				53B0C48177B78D6F8464E2FF /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "xamoom-ios-sdk";
+			productName = "xamoom-ios-sdk";
+			productReference = 8866F4C01C02FA77003C3363 /* libxamoom-ios-sdk.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8866F4B81C02FA77003C3363 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "xamoom GmbH";
+				TargetAttributes = {
+					8866F4BF1C02FA77003C3363 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = MWLX9RPJYE;
+					};
+				};
+			};
+			buildConfigurationList = 8866F4BB1C02FA77003C3363 /* Build configuration list for PBXProject "xamoom-ios-sdk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8866F4B71C02FA77003C3363;
+			productRefGroup = 8866F4C11C02FA77003C3363 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8866F4BF1C02FA77003C3363 /* xamoom-ios-sdk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53B0C48177B78D6F8464E2FF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xamoom-ios-sdk/Pods-xamoom-ios-sdk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5868D2CD4684D241D7691FAB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8866F4BC1C02FA77003C3363 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				884D3C971C0305A1007F0B0A /* XMMContentBlockType0.m in Sources */,
+				884D3C961C0305A1007F0B0A /* XMMContentBlock.m in Sources */,
+				884D3C851C0305A1007F0B0A /* XMMContentBlock3TableViewCell.m in Sources */,
+				884D3C911C0305A1007F0B0A /* XMMContentBlocksCache.m in Sources */,
+				884D3C8A1C0305A1007F0B0A /* XMMContentBlock8TableViewCell.m in Sources */,
+				884D3C901C0305A1007F0B0A /* XMMContentBlocks.m in Sources */,
+				884D3C9C1C0305A1007F0B0A /* XMMContentBlockType5.m in Sources */,
+				884D3C9A1C0305A1007F0B0A /* XMMContentBlockType3.m in Sources */,
+				884D3C831C0305A1007F0B0A /* XMMContentBlock1TableViewCell.m in Sources */,
+				884D3CA71C0305A1007F0B0A /* XMMMenuItem.m in Sources */,
+				884D3C9D1C0305A1007F0B0A /* XMMContentBlockType6.m in Sources */,
+				884D3C9F1C0305A1007F0B0A /* XMMContentBlockType8.m in Sources */,
+				884D3C921C0305A1007F0B0A /* XMMMusicPlayer.m in Sources */,
+				884D3C8C1C0305A1007F0B0A /* XMMAnnotation.m in Sources */,
+				884D3CA51C0305A1007F0B0A /* XMMContentList.m in Sources */,
+				884D3C821C0305A1007F0B0A /* XMMContentBlock0TableViewCell.m in Sources */,
+				884D3CAA1C0305A1007F0B0A /* XMMStyle.m in Sources */,
+				884D3CA11C0305A1007F0B0A /* XMMContentById.m in Sources */,
+				884D3C981C0305A1007F0B0A /* XMMContentBlockType1.m in Sources */,
+				884D3CA81C0305A1007F0B0A /* XMMSpot.m in Sources */,
+				884D3C9E1C0305A1007F0B0A /* XMMContentBlockType7.m in Sources */,
+				884D3C951C0305A1007F0B0A /* XMMContent.m in Sources */,
+				884D3CA21C0305A1007F0B0A /* XMMContentByLocation.m in Sources */,
+				884D3C941C0305A1007F0B0A /* XMMClosestSpot.m in Sources */,
+				884D3CA01C0305A1007F0B0A /* XMMContentBlockType9.m in Sources */,
+				884D3C8E1C0305A1007F0B0A /* XMMCalloutView.m in Sources */,
+				884D3C841C0305A1007F0B0A /* XMMContentBlock2TableViewCell.m in Sources */,
+				884D3C891C0305A1007F0B0A /* XMMContentBlock7TableViewCell.m in Sources */,
+				884D3CA61C0305A1007F0B0A /* XMMError.m in Sources */,
+				884D3C881C0305A1007F0B0A /* XMMContentBlock6TableViewCell.m in Sources */,
+				884D3CA41C0305A1007F0B0A /* XMMContentByLocationItem.m in Sources */,
+				884D3C991C0305A1007F0B0A /* XMMContentBlockType2.m in Sources */,
+				884D3C871C0305A1007F0B0A /* XMMContentBlock5TableViewCell.m in Sources */,
+				884D3C8B1C0305A1007F0B0A /* XMMContentBlock9TableViewCell.m in Sources */,
+				884D3CA91C0305A1007F0B0A /* XMMSpotMap.m in Sources */,
+				884D3C8D1C0305A1007F0B0A /* XMMAnnotationView.m in Sources */,
+				884D3C861C0305A1007F0B0A /* XMMContentBlock4TableViewCell.m in Sources */,
+				884D3CAB1C0305A1007F0B0A /* XMMEnduserApi.m in Sources */,
+				884D3C9B1C0305A1007F0B0A /* XMMContentBlockType4.m in Sources */,
+				884D3C8F1C0305A1007F0B0A /* UIImage+animatedGIF.m in Sources */,
+				884D3CA31C0305A1007F0B0A /* XMMContentByLocationIdentifier.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8866F4C71C02FA77003C3363 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8866F4C81C02FA77003C3363 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8866F4CA1C02FA77003C3363 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E6168CBA4BCA9E467BBFFB1 /* Pods-xamoom-ios-sdk.debug.xcconfig */;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"\"${PODS_ROOT}/Headers/Public\"/**",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"/**",
+					"\"${PODS_ROOT}/Headers/Public/ISO8601DateFormatterValueTransformer\"/**",
+					"\"${PODS_ROOT}/Headers/Public/QRCodeReaderViewController\"/**",
+					"\"${PODS_ROOT}/Headers/Public/RKValueTransformers\"/**",
+					"\"${PODS_ROOT}/Headers/Public/RestKit\"/**",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"/**",
+					"\"${PODS_ROOT}/Headers/Public/SMCalloutView\"/**",
+					"\"${PODS_ROOT}/Headers/Public/SOCKit\"/**",
+					"\"${PODS_ROOT}/Headers/Public/TransitionKit\"/**",
+					"\"${PODS_ROOT}/Headers/Public/xamoom-ios-sdk\"/**",
+					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/xamoom-ios-sdk/lib/SVGKit",
+				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		8866F4CB1C02FA77003C3363 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1C7E9E72E0F088E1C200DE3 /* Pods-xamoom-ios-sdk.release.xcconfig */;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)/**",
+					"\"${PODS_ROOT}/Headers/Public\"/**",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"/**",
+					"\"${PODS_ROOT}/Headers/Public/ISO8601DateFormatterValueTransformer\"/**",
+					"\"${PODS_ROOT}/Headers/Public/QRCodeReaderViewController\"/**",
+					"\"${PODS_ROOT}/Headers/Public/RKValueTransformers\"/**",
+					"\"${PODS_ROOT}/Headers/Public/RestKit\"/**",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"/**",
+					"\"${PODS_ROOT}/Headers/Public/SMCalloutView\"/**",
+					"\"${PODS_ROOT}/Headers/Public/SOCKit\"/**",
+					"\"${PODS_ROOT}/Headers/Public/TransitionKit\"/**",
+					"\"${PODS_ROOT}/Headers/Public/xamoom-ios-sdk\"/**",
+					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"/**",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/xamoom-ios-sdk/lib/SVGKit",
+				);
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8866F4BB1C02FA77003C3363 /* Build configuration list for PBXProject "xamoom-ios-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8866F4C71C02FA77003C3363 /* Debug */,
+				8866F4C81C02FA77003C3363 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8866F4C91C02FA77003C3363 /* Build configuration list for PBXNativeTarget "xamoom-ios-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8866F4CA1C02FA77003C3363 /* Debug */,
+				8866F4CB1C02FA77003C3363 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8866F4B81C02FA77003C3363 /* Project object */;
+}
