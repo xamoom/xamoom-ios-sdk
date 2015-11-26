@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>OCMock.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-XamoomSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -98,6 +108,16 @@
 			<true/>
 		</dict>
 		<key>2524F8243C60C5BB9BDFFDF7ABD7C06B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B4FE3D8536668562AD23F0102828EBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A2CAA839F2722C796C6F1DFDC806B92</key>
 		<dict>
 			<key>primary</key>
 			<true/>

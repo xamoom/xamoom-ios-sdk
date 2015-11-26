@@ -24,7 +24,7 @@ target 'xamoom-ios-sdk' do
 end
 
 target 'Tests' do
-
+  pod 'OCMock', '~> 3.2'
 end
 
 target 'xamoom-ios-sdk-example' do

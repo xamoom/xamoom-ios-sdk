@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		105C3B2B8E907CFF6C17D7D2 /* libPods-xamoom-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3C3061279131F25AE6F0C2 /* libPods-xamoom-ios-sdk.a */; };
+		703E06B53FC0924911F50208 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2F3EF54EFD92C301B45C01 /* libPods-Tests.a */; };
 		73F6B46C45CC22FF40206477 /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5634A1703946A95732063B /* libPods-XamoomSDK.a */; };
-		880BE0001C03522200E97A74 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 880BDFFF1C03522200E97A74 /* Tests.m */; };
+		880BE0001C03522200E97A74 /* XMMEnduserApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 880BDFFF1C03522200E97A74 /* XMMEnduserApiTest.m */; };
 		880BE1221C035E9100E97A74 /* XamoomSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 880BE1211C035E9100E97A74 /* XamoomSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		880BE20F1C035F5E00E97A74 /* XMMContentBlock0TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 880BE12B1C035F5E00E97A74 /* XMMContentBlock0TableViewCell.h */; };
 		880BE2101C035F5E00E97A74 /* XMMContentBlock0TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 880BE12C1C035F5E00E97A74 /* XMMContentBlock0TableViewCell.m */; };
@@ -234,6 +235,7 @@
 		880BE2EB1C03625300E97A74 /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880BE11F1C035E9100E97A74 /* XamoomSDK.framework */; };
 		880BE2EF1C03628D00E97A74 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 880BE1181C035DF600E97A74 /* libxml2.tbd */; };
 		882379B61C0364700039BABE /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 880BE1181C035DF600E97A74 /* libxml2.tbd */; };
+		88491A5F1C0729E000647A68 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88491A5E1C0729E000647A68 /* libOCMock.a */; };
 		884D3C821C0305A1007F0B0A /* XMMContentBlock0TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BA21C0305A1007F0B0A /* XMMContentBlock0TableViewCell.m */; };
 		884D3C831C0305A1007F0B0A /* XMMContentBlock1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BA51C0305A1007F0B0A /* XMMContentBlock1TableViewCell.m */; };
 		884D3C841C0305A1007F0B0A /* XMMContentBlock2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3BA81C0305A1007F0B0A /* XMMContentBlock2TableViewCell.m */; };
@@ -306,7 +308,7 @@
 		6B3C3061279131F25AE6F0C2 /* libPods-xamoom-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-xamoom-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849743449ECF26EC54DE7F90 /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
 		880BDFFD1C03522200E97A74 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		880BDFFF1C03522200E97A74 /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		880BDFFF1C03522200E97A74 /* XMMEnduserApiTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMEnduserApiTest.m; sourceTree = "<group>"; };
 		880BE0011C03522200E97A74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		880BE10F1C035C2E00E97A74 /* libxamoom-ios-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libxamoom-ios-sdk.a"; path = "Pods/../build/Debug-iphoneos/libxamoom-ios-sdk.a"; sourceTree = "<group>"; };
 		880BE1131C035D8500E97A74 /* libPods-xamoom-ios-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-xamoom-ios-sdk.a"; path = "Pods/../build/Debug-iphoneos/libPods-xamoom-ios-sdk.a"; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 		880BE20B1C035F5E00E97A74 /* xamoom-ios-sdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "xamoom-ios-sdk.h"; path = "xamoom-ios-sdk/xamoom-ios-sdk.h"; sourceTree = SOURCE_ROOT; };
 		880BE20C1C035F5E00E97A74 /* XMMEnduserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMEnduserApi.h; path = "xamoom-ios-sdk/XMMEnduserApi.h"; sourceTree = SOURCE_ROOT; };
 		880BE20D1C035F5E00E97A74 /* XMMEnduserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMEnduserApi.m; path = "xamoom-ios-sdk/XMMEnduserApi.m"; sourceTree = SOURCE_ROOT; };
+		88491A5E1C0729E000647A68 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = "Pods/../build/Debug-iphoneos/libOCMock.a"; sourceTree = "<group>"; };
 		884D3BA11C0305A1007F0B0A /* XMMContentBlock0TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock0TableViewCell.h; sourceTree = "<group>"; };
 		884D3BA21C0305A1007F0B0A /* XMMContentBlock0TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock0TableViewCell.m; sourceTree = "<group>"; };
 		884D3BA31C0305A1007F0B0A /* XMMContentBlock0TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock0TableViewCell.xib; sourceTree = "<group>"; };
@@ -755,6 +758,7 @@
 		8866F4C01C02FA77003C3363 /* libxamoom-ios-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libxamoom-ios-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E6168CBA4BCA9E467BBFFB1 /* Pods-xamoom-ios-sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xamoom-ios-sdk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xamoom-ios-sdk/Pods-xamoom-ios-sdk.debug.xcconfig"; sourceTree = "<group>"; };
 		B1C7E9E72E0F088E1C200DE3 /* Pods-xamoom-ios-sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xamoom-ios-sdk.release.xcconfig"; path = "Pods/Target Support Files/Pods-xamoom-ios-sdk/Pods-xamoom-ios-sdk.release.xcconfig"; sourceTree = "<group>"; };
+		DF2F3EF54EFD92C301B45C01 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2EDEC5F2FB5B9E6A02E6D54 /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -763,8 +767,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88491A5F1C0729E000647A68 /* libOCMock.a in Frameworks */,
 				880BE2EF1C03628D00E97A74 /* libxml2.tbd in Frameworks */,
 				880BE2EB1C03625300E97A74 /* XamoomSDK.framework in Frameworks */,
+				703E06B53FC0924911F50208 /* libPods-Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,7 +811,7 @@
 		880BDFFE1C03522200E97A74 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				880BDFFF1C03522200E97A74 /* Tests.m */,
+				880BDFFF1C03522200E97A74 /* XMMEnduserApiTest.m */,
 				880BE0011C03522200E97A74 /* Info.plist */,
 			);
 			path = Tests;
@@ -1436,12 +1442,14 @@
 		E76B381ECF6CCA64FD75A473 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88491A5E1C0729E000647A68 /* libOCMock.a */,
 				880BE1181C035DF600E97A74 /* libxml2.tbd */,
 				880BE1161C035DA500E97A74 /* libxamoom-ios-sdk.a */,
 				880BE1131C035D8500E97A74 /* libPods-xamoom-ios-sdk.a */,
 				880BE10F1C035C2E00E97A74 /* libxamoom-ios-sdk.a */,
 				6B3C3061279131F25AE6F0C2 /* libPods-xamoom-ios-sdk.a */,
 				1E5634A1703946A95732063B /* libPods-XamoomSDK.a */,
+				DF2F3EF54EFD92C301B45C01 /* libPods-Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1770,7 +1778,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xamoom-ios-sdk/Pods-xamoom-ios-sdk-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		51347E481A482EC3D8FBD806 /* Copy Pods Resources */ = {
@@ -1815,7 +1823,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-xamoom-ios-sdk/Pods-xamoom-ios-sdk-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C0A23C7389EAB41B9CBEB13A /* Check Pods Manifest.lock */ = {
@@ -1870,7 +1878,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				880BE0001C03522200E97A74 /* Tests.m in Sources */,
+				880BE0001C03522200E97A74 /* XMMEnduserApiTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1985,7 +1993,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E6168CBA4BCA9E467BBFFB1 /* Pods-xamoom-ios-sdk.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)/**",
@@ -2001,12 +2008,14 @@
 					"\"${PODS_ROOT}/Headers/Public/TransitionKit\"/**",
 					"\"${PODS_ROOT}/Headers/Public/xamoom-ios-sdk\"/**",
 					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"/**",
+					"$(PROJECT_DIR)/Tests/OCMock/**",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Tests",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.Tests;
@@ -2019,7 +2028,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B1C7E9E72E0F088E1C200DE3 /* Pods-xamoom-ios-sdk.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)/**",
@@ -2035,12 +2043,14 @@
 					"\"${PODS_ROOT}/Headers/Public/TransitionKit\"/**",
 					"\"${PODS_ROOT}/Headers/Public/xamoom-ios-sdk\"/**",
 					"\"${PODS_ROOT}/Headers/Public/youtube-ios-player-helper\"/**",
+					"$(PROJECT_DIR)/Tests/OCMock/**",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Tests",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

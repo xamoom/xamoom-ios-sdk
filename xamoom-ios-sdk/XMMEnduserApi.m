@@ -45,22 +45,21 @@ static XMMEnduserApi *sharedInstance;
   return sharedInstance;
 }
 
--(instancetype)init {
+- (instancetype)init {
   self = [super init];
   self.systemLanguage = [NSLocale preferredLanguages][0];
   self.qrCodeViewControllerCancelButtonTitle = @"Cancel";
   
   //create RKObjectManager
-  RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:
+  self.objectManager = [RKObjectManager managerWithBaseURL:
                                     [NSURL URLWithString:kApiBaseURLString]];
-  [RKObjectManager setSharedManager:objectManager];
+  self.objectManager.requestSerializationMIMEType = RKMIMETypeJSON;
   return self;
 }
 
 - (void)setApiKey:(NSString*)apiKey {
   //set JSON-Type and Authorization Header
-  [RKObjectManager sharedManager].requestSerializationMIMEType = RKMIMETypeJSON;
-  [[RKObjectManager sharedManager].HTTPClient setDefaultHeader:@"Authorization"
+  [self.objectManager.HTTPClient setDefaultHeader:@"Authorization"
                                                          value:apiKey];
 }
 
@@ -86,7 +85,7 @@ static XMMEnduserApi *sharedInstance;
                                 };
   
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id_full";
-  
+    
   [self apiPostWithPath:path
           andDescriptor:[XMMContentById contentDescriptor]
               andParams:queryParams
@@ -222,7 +221,7 @@ static XMMEnduserApi *sharedInstance;
                                 };
   
   NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/queue_geofence_analytics/"];
-  [[RKObjectManager sharedManager] postObject:nil path:path parameters:queryParams
+  [self.objectManager postObject:nil path:path parameters:queryParams
                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                         NSLog(@"queue_geofence_analytics successfull");
                                       } failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -232,9 +231,9 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)apiPostWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler{
-  [[RKObjectManager sharedManager] addResponseDescriptor:[XMMError contentDescriptor]];
-  [[RKObjectManager sharedManager] addResponseDescriptor:descriptor];
-  [[RKObjectManager sharedManager] postObject:nil path:path parameters:params
+  [self.objectManager addResponseDescriptor:[XMMError contentDescriptor]];
+  [self.objectManager addResponseDescriptor:descriptor];
+  [self.objectManager postObject:nil path:path parameters:params
                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                         NSLog(@"Output: %@", mappingResult.firstObject);
                                         XMMContentById *result = mappingResult.firstObject;
@@ -248,9 +247,9 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)apiGetWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler{
-  [[RKObjectManager sharedManager] addResponseDescriptor:[XMMError contentDescriptor]];
-  [[RKObjectManager sharedManager] addResponseDescriptor:descriptor];
-  [[RKObjectManager sharedManager] getObject:nil path:path parameters:params
+  [self.objectManager addResponseDescriptor:[XMMError contentDescriptor]];
+  [self.objectManager addResponseDescriptor:descriptor];
+  [self.objectManager getObject:nil path:path parameters:params
                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                        NSLog(@"Output: %@", mappingResult.firstObject);
                                        XMMContentById *result = mappingResult.firstObject;

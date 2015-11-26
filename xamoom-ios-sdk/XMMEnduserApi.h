@@ -82,6 +82,12 @@ extern NSString * const kApiBaseURLString;
  */
 + (XMMEnduserApi *)sharedInstance;
 
+/**
+ *  RKObjectManager used to make calls to api.
+ */
+@property (strong, nonatomic) RKObjectManager *objectManager;
+
+
 /// @name Inits
 
 /**
@@ -221,6 +227,12 @@ extern NSString * const kApiBaseURLString;
  * @param spotName The spotName you got from the system
  */
 - (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)systemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName;
+
+//Comment here
+- (void)apiPostWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler;
+
+//Comment here
+- (void)apiGetWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 #pragma mark - QRCodeReaderViewController
 
