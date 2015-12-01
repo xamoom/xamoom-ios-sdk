@@ -23,7 +23,7 @@ target 'xamoom-ios-sdk' do
   pod 'SDWebImage', '~>3.7'
 end
 
-target 'Tests' do
+target 'Tests', :exclusive => true do
   pod 'OCMock', '~> 3.2'
 end
 

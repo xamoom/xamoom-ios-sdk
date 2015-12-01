@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '46AA6DE052F5E6ED5D517509'
+               BlueprintIdentifier = 'BC0636C5A9AFCBB3E3231E6A'
                BlueprintName = 'Pods-xamoom-ios-sdk-example'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-xamoom-ios-sdk-example.a'>

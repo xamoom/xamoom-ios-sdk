@@ -47,7 +47,7 @@ static XMMEnduserApi *sharedInstance;
 
 - (instancetype)init {
   self = [super init];
-  self.systemLanguage = [NSLocale preferredLanguages][0];
+  self.systemLanguage = [self systemLanguageWithoutRegionCode];
   self.qrCodeViewControllerCancelButtonTitle = @"Cancel";
   
   //create RKObjectManager
@@ -63,16 +63,15 @@ static XMMEnduserApi *sharedInstance;
                                                          value:apiKey];
 }
 
+- (NSString *)systemLanguageWithoutRegionCode {
+  NSString *preferredLanguage = [NSLocale preferredLanguages][0];
+  return [preferredLanguage substringWithRange:NSMakeRange(0, 2)];
+}
+
 #pragma mark public methods
 #pragma mark API calls
 
-- (void)contentWithContentId:(NSString*)contentId
-                includeStyle:(BOOL)style
-                 includeMenu:(BOOL)menu
-                withLanguage:(NSString*)language
-                        full:(BOOL)full
-                  completion:(void(^)(XMMContentById *result))completionHandler
-                       error:(void(^)(XMMError *error))errorHandler {
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
@@ -209,11 +208,11 @@ static XMMEnduserApi *sharedInstance;
                   error:errorHandler];
 }
 
-- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)sytemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName {
+- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)systemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName {
   NSDictionary *queryParams = @{@"requested_language":requestedLanguage,
                                 @"delivered_language":deliveredLanguage,
                                 @"system_id":systemId,
-                                @"system_name":sytemName,
+                                @"system_name":systemName,
                                 @"content_id":contentId,
                                 @"content_name":contentName,
                                 @"spot_id":spotId,
@@ -281,7 +280,7 @@ static XMMEnduserApi *sharedInstance;
     if (!self.isQRCodeScanFinished && resultAsString != nil) {
       self.QRCodeScanFinished = YES;
       [self.qrCodeParentViewController dismissViewControllerAnimated:YES completion:nil];
-      completionHandler([self getLocationIdentifierFromURL:resultAsString], resultAsString);
+      completionHandler([self locationIdentifierFromURL:resultAsString], resultAsString);
     }
   }];
   
@@ -289,13 +288,13 @@ static XMMEnduserApi *sharedInstance;
   [viewController presentViewController:reader animated:YES completion:NULL];
 }
 
--(void)readerDidCancel:(QRCodeReaderViewController *)reader {
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader {
   [self.qrCodeParentViewController dismissViewControllerAnimated:YES completion:nil];
   self.QRCodeScanFinished = YES;
   self.qrCodeParentViewController = nil;
 }
 
-- (NSString*)getLocationIdentifierFromURL:(NSString*)URL {
+- (NSString*)locationIdentifierFromURL:(NSString*)URL {
   NSURL* realUrl = [NSURL URLWithString:[self checkUrlPrefix:URL]];
   NSString *path = [realUrl path];
   path = [path stringByReplacingOccurrencesOfString:@"/" withString:@""];
@@ -303,13 +302,9 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (NSString*)checkUrlPrefix:(NSString*)URL {
-  if ([[URL lowercaseString] hasPrefix:@"http://"]) {
+  if ([[URL lowercaseString] hasPrefix:@"http://"] || [[URL lowercaseString] hasPrefix:@"https://"]) {
     return URL;
-  }
-  else if ([[URL lowercaseString] hasPrefix:@"https://"]) {
-    return URL;
-  }
-  else {
+  } else {
     return [NSString stringWithFormat:@"http://%@", URL];
   }
 }

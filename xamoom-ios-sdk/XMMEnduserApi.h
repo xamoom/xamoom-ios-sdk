@@ -228,10 +228,26 @@ extern NSString * const kApiBaseURLString;
  */
 - (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)systemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName;
 
-//Comment here
+/**
+ *  Post to xamoom enduser-api.
+ *
+ *  @param path              Enduser-api path
+ *  @param descriptor        RKResponseDescriptor
+ *  @param params            Parameters as NSDictionary
+ *  @param completionHandler A completionHandler block
+ *  @param errorHandler      A errorhandler block
+ */
 - (void)apiPostWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
-//Comment here
+/**
+ *  Get to xamoom enduser-api.
+ *
+ *  @param path                                Enduser-api path
+ *  @param descriptor                          RKResponseDescriptor
+ *  @param params                              Paramters as NSDicationary
+ *  @param completionHandler                   A completionHandler block
+ *  @param error                               A errorhandler block
+ */
 - (void)apiGetWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 #pragma mark - QRCodeReaderViewController
@@ -248,5 +264,25 @@ extern NSString * const kApiBaseURLString;
  * @return void
  */
 - (void)startQRCodeReaderFromViewController:(UIViewController*)viewController didLoad:(void(^)(NSString *locationIdentifier, NSString *url))completionHandler;
+
+/**
+ *  Will return an url with http:// if there is none. Returns url without
+ *  changes if there is a http:// or https:// as prefix.
+ *
+ *  @param URL Url like "http://xm.gl/0ana0"
+ *
+ *  @return Returns an url with http:// in front.
+ */
+- (NSString*)checkUrlPrefix:(NSString*)URL;
+
+/**
+ *  Returns the LocationIdentifier, when you enter an url with locationIdentifier
+ *  like "http://xm.gl/0ana0".
+ *
+ *  @param URL
+ *
+ *  @return A locationIdentifier
+ */
+- (NSString*)locationIdentifierFromURL:(NSString*)URL;
 
 @end
