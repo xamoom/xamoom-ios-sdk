@@ -34,7 +34,7 @@ NSString * const kLocationIdentifier = @"i4n7l";
   [super viewDidLoad];
   
   //get apikey from .plist
-  NSString* path = [[NSBundle mainBundle] pathForResource:@"TestLogins"
+  NSString* path = [[NSBundle mainBundle] pathForResource:@"TestingIDs"
                                                    ofType:@"plist"];
   
   NSDictionary* testLogins = [NSDictionary dictionaryWithContentsOfFile:path];
@@ -42,6 +42,11 @@ NSString * const kLocationIdentifier = @"i4n7l";
   NSString *apikey = [testLogins valueForKey:@"apikey"];
   
   [[XMMEnduserApi sharedInstance] setApiKey:apikey];
+  
+  CLLocationManager *locationManager = [[CLLocationManager alloc] init];
+  if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+    [locationManager requestWhenInUseAuthorization];
+  }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,7 +106,7 @@ NSString * const kLocationIdentifier = @"i4n7l";
 }
 
 - (IBAction)getSpotMapAction:(id)sender {
-  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"stw",@"raphi"] withLanguage:[XMMEnduserApi sharedInstance].systemLanguage
+  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"stw",@"raphi"] withLanguage:[XMMEnduserApi sharedInstance].systemLanguage includeContent:NO
                                            completion:^(XMMSpotMap *result) {
                                              NSLog(@"finishedGetSpotMap: %@", result.description);
                                              self.outputTextView.text = result.description;
@@ -123,7 +128,7 @@ NSString * const kLocationIdentifier = @"i4n7l";
 }
 
 - (IBAction)getContentByIdFull:(id)sender {
-  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:NO includeMenu:NO withLanguage:[XMMEnduserApi sharedInstance].systemLanguage full:YES
+  [[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:NO includeMenu:NO withLanguage:[XMMEnduserApi sharedInstance].systemLanguage full:YES preview:NO
                                             completion:^(XMMContentById *result){
                                               NSLog(@"finishedLoadDataById full: %@", result.description);
                                               self.outputTextView.text = result.description;

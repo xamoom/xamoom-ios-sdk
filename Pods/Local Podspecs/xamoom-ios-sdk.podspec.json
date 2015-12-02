@@ -16,14 +16,12 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "resource_bundles": {
-    "xamoom-ios-sdk": [
-      "xamoom-ios-sdk/Assets/*.*"
-    ]
-  },
   "source_files": "xamoom-ios-sdk/**/*.{h,m}",
   "public_header_files": "xamoom-ios-sdk/**/*.h",
-  "resources": "xamoom-ios-sdk/ContentBlocks/Blocks/*.xib",
+  "resources": [
+    "xamoom-ios-sdk/ContentBlocks/Blocks/*.xib",
+    "xamoom-ios-sdk/Assets/**.*"
+  ],
   "vendored_libraries": "xamoom-ios-sdk/lib/SVGKit/libSVGKit-iOS.1.2.0.a",
   "frameworks": [
     "CoreText",

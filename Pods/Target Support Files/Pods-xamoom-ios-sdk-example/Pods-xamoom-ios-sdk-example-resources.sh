@@ -68,8 +68,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock7TableViewCell.xib"
   install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock8TableViewCell.xib"
   install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock9TableViewCell.xib"
+  install_resource "../xamoom-ios-sdk/Assets/Images.xcassets"
   install_resource "${BUILT_PRODUCTS_DIR}/Assets.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/xamoom-ios-sdk.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock0TableViewCell.xib"
@@ -82,8 +82,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock7TableViewCell.xib"
   install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock8TableViewCell.xib"
   install_resource "../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock9TableViewCell.xib"
+  install_resource "../xamoom-ios-sdk/Assets/Images.xcassets"
   install_resource "${BUILT_PRODUCTS_DIR}/Assets.bundle"
-  install_resource "${BUILT_PRODUCTS_DIR}/xamoom-ios-sdk.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

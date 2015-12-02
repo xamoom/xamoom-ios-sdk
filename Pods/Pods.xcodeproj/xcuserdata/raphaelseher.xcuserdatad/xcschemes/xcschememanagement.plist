@@ -74,11 +74,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>xamoom-ios-sdk-xamoom-ios-sdk.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>xamoom-ios-sdk.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -133,11 +128,6 @@
 			<true/>
 		</dict>
 		<key>668EFD51D14957B41A18DAFDFFDD97AF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9BDB91120C9561E6553863E64114AE0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

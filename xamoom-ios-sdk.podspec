@@ -20,13 +20,9 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.resource_bundles = {
-    'xamoom-ios-sdk' => ['xamoom-ios-sdk/Assets/*.*']
-  }
-
   s.source_files = 'xamoom-ios-sdk/**/*.{h,m}'
   s.public_header_files = 'xamoom-ios-sdk/**/*.h'
-  s.resources = 'xamoom-ios-sdk/ContentBlocks/Blocks/*.xib'
+  s.resources = 'xamoom-ios-sdk/ContentBlocks/Blocks/*.xib', 'xamoom-ios-sdk/Assets/**.*'
   s.vendored_libraries = 'xamoom-ios-sdk/lib/SVGKit/libSVGKit-iOS.1.2.0.a'
 
   s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics',

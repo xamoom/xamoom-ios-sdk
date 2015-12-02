@@ -30,7 +30,7 @@
     self.contentId = @"7cf2c58e6d374ce3888c32eb80be53b5";
   }
   
-  [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:@"" full:YES
+  [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:nil full:YES preview:NO
                                             completion:^(XMMContentById *result) {
                                               self.contentBlocks.content = result.content;
                                             } error:^(XMMError *error) {
