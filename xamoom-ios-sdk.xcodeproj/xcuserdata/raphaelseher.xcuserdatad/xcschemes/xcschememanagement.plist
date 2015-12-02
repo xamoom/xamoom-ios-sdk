@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Tests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>XamoomSDK.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>xamoom-ios-sdk.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>880BDFFC1C03522200E97A74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>880BE00D1C03584C00E97A74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>880BE02B1C0358B200E97A74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>880BE11E1C035E9100E97A74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8866F4BF1C02FA77003C3363</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
