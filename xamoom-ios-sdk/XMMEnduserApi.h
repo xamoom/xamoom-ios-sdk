@@ -169,6 +169,7 @@ extern NSString * const kApiBaseURLString;
  *
  * @param mapTags     The tags of the wanted spots
  * @param language    The requested language of the content from xamoom backend
+ * @param includeContent Will return contentId of spots with assigned content if YES
  * @param completionHandler CompletionHandler returns the result
  *
  * - *param1* result The result from xamoom backend as XMMSpotMap
@@ -177,7 +178,7 @@ extern NSString * const kApiBaseURLString;
  * - *param1* error A XMMError with error informations
  * @return void
  */
-- (void)spotMapWithMapTags:(NSArray*)mapTags withLanguage:(NSString*)language completion:(void(^)(XMMSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
+- (void)spotMapWithMapTags:(NSArray*)mapTags withLanguage:(NSString*)language includeContent:(BOOL)includeContent completion:(void(^)(XMMSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  * Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.

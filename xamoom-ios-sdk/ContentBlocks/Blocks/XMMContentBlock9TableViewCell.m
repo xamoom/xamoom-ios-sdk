@@ -84,7 +84,7 @@ static NSString* contentLanguage;
     return;
   }
   
-  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:self.spotMapTags withLanguage:contentLanguage
+  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:self.spotMapTags withLanguage:contentLanguage includeContent:YES
                                            completion:^(XMMSpotMap *result) {
                                              
                                              [[XMMContentBlocksCache sharedInstance] saveSpotMap:result key:[self.spotMapTags componentsJoinedByString:@","]];

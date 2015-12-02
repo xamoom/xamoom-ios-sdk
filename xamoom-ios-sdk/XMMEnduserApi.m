@@ -76,9 +76,6 @@ static XMMEnduserApi *sharedInstance;
     language = self.systemLanguage;
   }
   
-  if (preview == nil) {
-    preview = NO;
-  }
   NSDictionary *queryParams = @{@"content_id":contentId,
                                 @"include_style":(style) ? @"True" : @"False",
                                 @"include_menu":(menu) ? @"True" : @"False",
@@ -149,17 +146,19 @@ static XMMEnduserApi *sharedInstance;
                   error:errorHandler];
 }
 
-- (void)spotMapWithMapTags:(NSArray *)mapTags withLanguage:(NSString *)language completion:(void(^)(XMMSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
+- (void)spotMapWithMapTags:(NSArray *)mapTags withLanguage:(NSString *)language includeContent:(BOOL)includeContent completion:(void(^)(XMMSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
+  
+  NSDictionary *queryParams = @{@"include_content":(includeContent) ? @"True" : @"False"};
   
   NSString *path = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%i/%@/%@", 0, [mapTags componentsJoinedByString:@","], language];
   path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   
   [self apiGetWithPath:path
          andDescriptor:[XMMSpotMap contentDescriptor]
-             andParams:nil
+             andParams:queryParams
             completion:completionHandler
                  error:errorHandler];
 }

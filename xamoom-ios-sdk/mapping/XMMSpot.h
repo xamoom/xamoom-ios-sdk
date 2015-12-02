@@ -49,6 +49,10 @@
  *  Category as an number to specify an icon.
  */
 @property (nonatomic) NSNumber *category;
+/**
+ *  ContentId if spot has assigned content.
+ */
+@property (nonatomic) NSString *contentId;
 
 /// @name Mapping
 

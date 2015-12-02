@@ -337,6 +337,8 @@
 - (void)testThatSpotMapWithTagsCallsApiGetWithPath {
   self.mockedApi = OCMPartialMock([[XMMEnduserApi alloc] init]);
   
+  NSDictionary *checkDict = @{@"include_content":@"True"};
+  
   NSString *checkPath = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%i/%@/%@", 0, @"Tag1,Tag2", @"de"];
   checkPath = [checkPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   
@@ -347,23 +349,25 @@
     stubResponse(content);
   }] apiGetWithPath:[OCMArg any] andDescriptor:[OCMArg any] andParams:[OCMArg any] completion:[OCMArg any] error:[OCMArg any]];
   
-  [self.mockedApi spotMapWithMapTags:@[@"Tag1", @"Tag2"] withLanguage:@"de" completion:^(XMMSpotMap *result) {
+  [self.mockedApi spotMapWithMapTags:@[@"Tag1", @"Tag2"] withLanguage:@"de" includeContent:YES completion:^(XMMSpotMap *result) {
     XCTAssertNotNil(result);
   } error:nil];
   
-  OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:nil completion:[OCMArg any] error:[OCMArg any]]);
+  OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:[OCMArg isNotEqual:checkDict] completion:[OCMArg any] error:[OCMArg any]]);
 }
 
 - (void)testThatSpotMapWithTagsHandlesUmlautsInTags {
   self.mockedApi = OCMPartialMock([[XMMEnduserApi alloc] init]);
   
+  NSDictionary *checkDict = @{@"include_content":@"True"};
+
   NSString *checkPath = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%i/%@/%@", 0, @"Täg1,Täg2", @"de"];
   checkPath = [checkPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   
-  [self.mockedApi spotMapWithMapTags:@[@"Täg1", @"Täg2"] withLanguage:@"de" completion:^(XMMSpotMap *result) {
+  [self.mockedApi spotMapWithMapTags:@[@"Täg1", @"Täg2"] withLanguage:@"de" includeContent:YES completion:^(XMMSpotMap *result) {
     XCTAssertNotNil(result);
     
-    OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:nil completion:[OCMArg any] error:[OCMArg any]]);
+    OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:[OCMArg isNotEqual:checkDict] completion:[OCMArg any] error:[OCMArg any]]);
     
   } error:nil];
   
@@ -375,9 +379,9 @@
   NSString *checkPath = [NSString stringWithFormat:@"xamoomEndUserApi/v1/spotmap/%i/%@/%@", 0, @"Tag", @"en"];
   checkPath = [checkPath stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
   
-  [self.mockedApi spotMapWithMapTags:@[@"Tag"] withLanguage:nil completion:nil error:nil];
+  [self.mockedApi spotMapWithMapTags:@[@"Tag"] withLanguage:nil includeContent:NO completion:nil error:nil];
   
-  OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:nil completion:[OCMArg any] error:[OCMArg any]]);
+  OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:[OCMArg any] completion:[OCMArg any] error:[OCMArg any]]);
 }
 
 #pragma mark - contentListWithPageSize

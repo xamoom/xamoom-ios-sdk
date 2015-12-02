@@ -28,7 +28,8 @@
                                                 @"location.lat":@"lat",
                                                 @"location.lon":@"lon",
                                                 @"image":@"image",
-                                                @"category":@"category"
+                                                @"category":@"category",
+                                                @"content_id":@"contentId",
                                                 }];
   return mapping;
 }

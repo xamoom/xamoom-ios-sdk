@@ -27,7 +27,7 @@
   
   NSString *path = [[NSBundle bundleForClass:[XMMEnduserApiIntegrationTest class]] pathForResource:@"TestingIDs" ofType:@"plist"];
   NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
-
+  
   self.apikey = [dict objectForKey:@"apikey"];
   self.contentId = [dict objectForKey:@"contentId"];
   
@@ -69,6 +69,7 @@
   
   [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"spot1"]
                                         withLanguage:nil
+                                      includeContent:YES
                                           completion:^(XMMSpotMap *result) {
                                             XMMSpot *spot = result.items.firstObject;
                                             XCTAssertNotNil(spot.displayName);
@@ -77,6 +78,7 @@
                                             XCTAssertNotNil([NSNumber numberWithFloat:spot.lon]);
                                             XCTAssertNotNil(spot.image);
                                             XCTAssertNotNil(spot.category);
+                                            XCTAssertNotNil(spot.contentId);
                                             
                                             [expectation fulfill];
                                           }
