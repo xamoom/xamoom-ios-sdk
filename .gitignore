@@ -1,5 +1,7 @@
 Tests/TestingIDs.plist
 
+Tests/TestsUITests/IntegrationTest/
+
 example/TestLogins.plist
 
 docs/

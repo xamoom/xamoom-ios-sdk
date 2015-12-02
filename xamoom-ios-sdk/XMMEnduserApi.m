@@ -235,12 +235,16 @@ static XMMEnduserApi *sharedInstance;
   [self.objectManager postObject:nil path:path parameters:params
                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                         NSLog(@"Output: %@", mappingResult.firstObject);
-                                        XMMContentById *result = mappingResult.firstObject;
-                                        completionHandler(result);
+                                        id result = mappingResult.firstObject;
+                                        if (completionHandler != nil) {
+                                          completionHandler(result);
+                                        }
                                       }
                                       failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                         NSArray *errors = [[error userInfo] objectForKey:RKObjectMapperErrorObjectsKey];
-                                        errorHandler(errors.firstObject);
+                                        if (errorHandler != nil) {
+                                          errorHandler(errors.firstObject);
+                                        }
                                       }
    ];
 }
@@ -251,11 +255,15 @@ static XMMEnduserApi *sharedInstance;
   [self.objectManager getObject:nil path:path parameters:params
                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                        NSLog(@"Output: %@", mappingResult.firstObject);
-                                       XMMContentById *result = mappingResult.firstObject;
-                                       completionHandler(result);
+                                       id result = mappingResult.firstObject;
+                                       if (completionHandler != nil) {
+                                         completionHandler(result);
+                                       }
                                      } failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                        NSArray *errors = [[error userInfo] objectForKey:RKObjectMapperErrorObjectsKey];
-                                       errorHandler(errors.firstObject);
+                                       if (errorHandler != nil) {
+                                         errorHandler(errors.firstObject);
+                                       }
                                      }
    ];
 }
