@@ -116,6 +116,7 @@ extern NSString * const kApiBaseURLString;
  * @param menu        True or False for returning the menu from xamoom backend as Array of XMMMenuItem
  * @param language    The requested language of the content from xamoom backend
  * @param full        True or false for returning "unsynced" data or not
+ * @param preview     If YES it won't show up in statistics.
  * @param completionHandler CompletionHandler returns the result
  *
  * - *param1* result The result from xamoom backend as XMMContentById
@@ -124,7 +125,7 @@ extern NSString * const kApiBaseURLString;
  * - *param1* error A XMMError with error informations
  * @return void
  */
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
 /**
  * Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not available the

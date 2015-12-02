@@ -91,15 +91,15 @@
     stubResponse(content);
   }] apiPostWithPath:[OCMArg any] andDescriptor:[OCMArg any] andParams:[OCMArg any] completion:[OCMArg any] error:[OCMArg any]];
   
-  [self.mockedApi contentWithContentId:@"1" includeStyle:NO includeMenu:NO withLanguage:@"de" full:NO completion:^(XMMContentById *result) {
+  [self.mockedApi contentWithContentId:@"1" includeStyle:NO includeMenu:NO withLanguage:@"de" full:NO preview:NO completion:^(XMMContentById *result) {
     XCTAssertEqual(result.systemName, @"Hello");
   } error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg isEqual:@"xamoomEndUserApi/v1/get_content_by_content_id_full"]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg any]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg any]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatContentWithContentIdCreatesParametersWithFalse {
@@ -109,19 +109,21 @@
                               @"include_style":@"False",
                               @"include_menu":@"False",
                               @"language":@"de",
-                              @"full":@"False",};
+                              @"full":@"False",
+                              @"preview":@"False"};
   
   [self.mockedApi contentWithContentId:@"1"
-                     includeStyle:NO
-                      includeMenu:NO
-                     withLanguage:@"de"
-                             full:NO completion:nil error:nil];
+                          includeStyle:NO
+                           includeMenu:NO
+                          withLanguage:@"de"
+                                  full:NO
+                               preview:NO completion:nil error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg any]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatContentWithContentIdCreatesParametersWithTrue {
@@ -131,19 +133,21 @@
                               @"include_style":@"True",
                               @"include_menu":@"True",
                               @"language":@"de",
-                              @"full":@"True",};
+                              @"full":@"True",
+                              @"preview":@"False",};
   
   [self.mockedApi contentWithContentId:@"1"
-                     includeStyle:YES
-                      includeMenu:YES
-                     withLanguage:@"de"
-                             full:YES completion:nil error:nil];
+                          includeStyle:YES
+                           includeMenu:YES
+                          withLanguage:@"de"
+                                  full:YES
+                               preview:NO completion:nil error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg any]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatContentWithContentIdHandlesNilLanguage {
@@ -153,19 +157,21 @@
                               @"include_style":@"True",
                               @"include_menu":@"True",
                               @"language":@"en",
-                              @"full":@"True",};
+                              @"full":@"True",
+                              @"preview":@"False",};
   
   [self.mockedApi contentWithContentId:@"1"
-                     includeStyle:YES
-                      includeMenu:YES
-                     withLanguage:nil
-                             full:YES completion:nil error:nil];
+                          includeStyle:YES
+                           includeMenu:YES
+                          withLanguage:nil
+                                  full:YES
+                               preview:NO completion:nil error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg any]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 #pragma mark - contentWithLocationIdentifier
@@ -186,10 +192,10 @@
   } error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg isEqual:@"xamoomEndUserApi/v1/get_content_by_location_identifier"]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg any]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg any]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatContentWithLocationIdentifierCreatesParameters {
@@ -201,16 +207,16 @@
                               @"language":@"de",};
   
   [self.mockedApi contentWithLocationIdentifier:@"1"
-                                   majorId:nil
-                              includeStyle:NO
-                               includeMenu:NO
-                              withLanguage:@"de" completion:nil error:nil];
+                                        majorId:nil
+                                   includeStyle:NO
+                                    includeMenu:NO
+                                   withLanguage:@"de" completion:nil error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg any]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatContentWithLocationIdentifierCreatesParametersWithBeaconMajor {
@@ -223,16 +229,16 @@
                               @"language":@"de",};
   
   [self.mockedApi contentWithLocationIdentifier:@"1"
-                                   majorId:@"2"
-                              includeStyle:NO
-                               includeMenu:NO
-                              withLanguage:@"de" completion:nil error:nil];
+                                        majorId:@"2"
+                                   includeStyle:NO
+                                    includeMenu:NO
+                                   withLanguage:@"de" completion:nil error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg any]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatContentWithLocationIdentifierHandlesNilLanguage {
@@ -245,18 +251,18 @@
                               @"language":@"en",};
   
   [self.mockedApi contentWithLocationIdentifier:@"1"
-                                   majorId:@"2"
-                              includeStyle:NO
-                               includeMenu:NO
-                              withLanguage:nil completion:nil error:nil];
+                                        majorId:@"2"
+                                   includeStyle:NO
+                                    includeMenu:NO
+                                   withLanguage:nil completion:nil error:nil];
   
   
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg any]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 #pragma mark - contentWithLocation
@@ -276,10 +282,10 @@
   } error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg isEqual:@"xamoomEndUserApi/v1/get_content_by_location"]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg any]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg any]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatContentWithLocationCreatesParameters {
@@ -293,24 +299,24 @@
                               };
   
   [self.mockedApi contentWithLat:@"46.6247222"
-                    withLon:@"14.3052778"
-               withLanguage:@"de"
-                 completion:nil error:nil];
+                         withLon:@"14.3052778"
+                    withLanguage:@"de"
+                      completion:nil error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg any]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatContentWithLocationHandlesNilLanguage {
   self.mockedApi = OCMPartialMock([[XMMEnduserApi alloc] init]);
   
   [self.mockedApi contentWithLat:@"46.6247222"
-                    withLon:@"14.3052778"
-               withLanguage:nil
-                 completion:nil error:nil];
+                         withLon:@"14.3052778"
+                    withLanguage:nil
+                      completion:nil error:nil];
   
   NSDictionary *checkDict = @{@"location":
                                 @{@"lat":@"46.6247222",
@@ -320,10 +326,10 @@
                               };
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg any]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 #pragma mark - spotMapWithTags
@@ -435,10 +441,10 @@
   } error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg isEqual:@"xamoomEndUserApi/v1/get_closest_spots"]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg any]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg any]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatClosestSpotsWithLatCreatesParameters {
@@ -456,10 +462,10 @@
   [self.mockedApi closestSpotsWithLat:46.624722 withLon:14.305278 withRadius:1000 withLimit:10 withLanguage:@"de" completion:nil error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg isEqual:@"xamoomEndUserApi/v1/get_closest_spots"]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 - (void)testThatClosestSpotsWithLatHandlesNil {
@@ -477,10 +483,10 @@
   [self.mockedApi closestSpotsWithLat:46.624722 withLon:14.305278 withRadius:1000 withLimit:10 withLanguage:nil completion:nil error:nil];
   
   OCMVerify([self.mockedApi apiPostWithPath:[OCMArg isEqual:@"xamoomEndUserApi/v1/get_closest_spots"]
-                         andDescriptor:[OCMArg any]
-                             andParams:[OCMArg isEqual:checkDict]
-                            completion:[OCMArg any]
-                                 error:[OCMArg any]]);
+                              andDescriptor:[OCMArg any]
+                                  andParams:[OCMArg isEqual:checkDict]
+                                 completion:[OCMArg any]
+                                      error:[OCMArg any]]);
 }
 
 #pragma mark - geofenceAnalytics
@@ -499,28 +505,28 @@
                               };
   
   [self.mockedApi geofenceAnalyticsMessageWithRequestedLanguage:@"de"
-                                     withDeliveredLanguage:@"de"
-                                              withSystemId:@"1"
-                                            withSystemName:@"2"
-                                             withContentId:@"3"
-                                           withContentName:@"4"
-                                                withSpotId:@"5"
-                                              withSpotName:@"6"];
+                                          withDeliveredLanguage:@"de"
+                                                   withSystemId:@"1"
+                                                 withSystemName:@"2"
+                                                  withContentId:@"3"
+                                                withContentName:@"4"
+                                                     withSpotId:@"5"
+                                                   withSpotName:@"6"];
   
   OCMVerify([[self.mockedApi objectManager] postObject:[OCMArg any]
-                                             path:[OCMArg any]
-                                       parameters:[OCMArg isEqual:checkDict]
-                                          success:[OCMArg any]
-                                          failure:[OCMArg any]]);
+                                                  path:[OCMArg any]
+                                            parameters:[OCMArg isEqual:checkDict]
+                                               success:[OCMArg any]
+                                               failure:[OCMArg any]]);
 }
 
 #pragma mark - QRCodeReaderViewController
 
 - (void)testThatStartQRCodeReaderFromViewControllerOpensView {
   UIViewController *mockedViewController = OCMPartialMock([[UIViewController alloc] init]);
-
+  
   [[XMMEnduserApi sharedInstance] startQRCodeReaderFromViewController:mockedViewController
-                                                               didLoad:nil];
+                                                              didLoad:nil];
   
   OCMVerify([mockedViewController presentViewController:[OCMArg any] animated:YES completion:NULL]);
 }
@@ -528,13 +534,13 @@
 - (void)testThatStartQRCodeReaderFromViewControllerReturnsValues {
   self.mockedApi = OCMPartialMock([[XMMEnduserApi alloc] init]);
   UIViewController *mockedViewController = OCMPartialMock([[UIViewController alloc] init]);
-
+  
   [[[self.mockedApi stub] andDo:^(NSInvocation *invocation) {
     void (^stubResponse)(NSString *locationIdentifier, NSString *url);
     [invocation getArgument:&stubResponse atIndex:3];
     stubResponse(@"1", @"2");
   }] startQRCodeReaderFromViewController:[OCMArg any] didLoad:[OCMArg any]];
-
+  
   [self.mockedApi startQRCodeReaderFromViewController:mockedViewController didLoad:^(NSString *locationIdentifier, NSString *url) {
     XCTAssertTrue([locationIdentifier isEqualToString:@"1"]);
     XCTAssertTrue([url isEqualToString:@"2"]);

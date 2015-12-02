@@ -71,16 +71,20 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark public methods
 #pragma mark API calls
 
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
+- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   if ([language isEqual:@""] || language == nil) {
     language = self.systemLanguage;
   }
   
+  if (preview == nil) {
+    preview = NO;
+  }
   NSDictionary *queryParams = @{@"content_id":contentId,
                                 @"include_style":(style) ? @"True" : @"False",
                                 @"include_menu":(menu) ? @"True" : @"False",
                                 @"language":language,
                                 @"full":(full) ? @"True" : @"False",
+                                @"preview":(preview) ? @"True" : @"False",
                                 };
   
   NSString *path = @"xamoomEndUserApi/v1/get_content_by_content_id_full";

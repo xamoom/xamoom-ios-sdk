@@ -46,6 +46,7 @@
                                            includeMenu:NO
                                           withLanguage:nil
                                                   full:NO
+                                               preview:NO
                                             completion:^(XMMContentById *result) {
                                               XCTAssertNotNil(result);
                                               XCTAssertNotNil(result.content.contentId);

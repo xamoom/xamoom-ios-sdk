@@ -49,7 +49,7 @@ static NSString *contentLanguage;
     return;
   }
   
-  [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:language full:NO
+  [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:language full:NO preview:YES
                                             completion:^(XMMContentById *result) {
                                               [self.loadingIndicator stopAnimating];
                                               [[XMMContentBlocksCache sharedInstance] saveContent:result.content key:self.contentId];
