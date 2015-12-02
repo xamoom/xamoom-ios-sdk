@@ -28,11 +28,11 @@
 /**
  * The displayName of the spot.
  */
-@property (nonatomic, copy) NSString* displayName;
+@property (nonatomic, copy) NSString *displayName;
 /**
  * The description of the spot. (E.g. "on the front door of the xamoom office")
  */
-@property (nonatomic, copy) NSString* descriptionOfSpot;
+@property (nonatomic, copy) NSString *descriptionOfSpot;
 /**
  * The latitude of the spot.
  */
@@ -44,7 +44,11 @@
 /**
  * Public url pointing to an image on our system.
  */
-@property (nonatomic, copy) NSString* image;
+@property (nonatomic, copy) NSString *image;
+/**
+ *  Category as an number to specify an icon.
+ */
+@property (nonatomic) NSNumber *category;
 
 /// @name Mapping
 

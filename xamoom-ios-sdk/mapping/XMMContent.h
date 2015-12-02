@@ -53,7 +53,10 @@
  * Display all different contentBlocks.
  */
 @property (nonatomic) NSArray *contentBlocks;
-
+/**
+ *  Category as an number to specify an icon.
+ */
+@property (nonatomic) NSNumber *category;
 /// @name Mapping
 
 /**

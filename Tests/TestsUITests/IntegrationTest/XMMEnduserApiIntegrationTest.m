@@ -40,16 +40,13 @@
 }
 
 - (void)testThatContentWithContentIdReturnsAllSetProperties {
-  
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  
   [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId
                                           includeStyle:NO
                                            includeMenu:NO
                                           withLanguage:nil
                                                   full:NO
                                             completion:^(XMMContentById *result) {
-                                              [expectation fulfill];
                                               XCTAssertNotNil(result);
                                               XCTAssertNotNil(result.content.contentId);
                                               XCTAssertNotNil(result.content.imagePublicUrl);
@@ -58,7 +55,31 @@
                                               XCTAssertNotNil(result.content.title);
                                               XCTAssertNotNil(result.content.contentBlocks);
                                               XCTAssertNotNil(result.content.category);
+                                              
+                                              [expectation fulfill];
                                             } error:nil];
+  
+  [self waitForExpectationsWithTimeout:3.0 handler:nil];
+}
+
+- (void)testThatSpotMapWithTagsReturnsAllSetProperties {
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  
+  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:@[@"spot1"]
+                                        withLanguage:nil
+                                          completion:^(XMMSpotMap *result) {
+                                            XMMSpot *spot = result.items.firstObject;
+                                            XCTAssertNotNil(spot.displayName);
+                                            XCTAssertNotNil(spot.descriptionOfSpot);
+                                            XCTAssertNotNil([NSNumber numberWithFloat:spot.lat]);
+                                            XCTAssertNotNil([NSNumber numberWithFloat:spot.lon]);
+                                            XCTAssertNotNil(spot.image);
+                                            XCTAssertNotNil(spot.category);
+                                            
+                                            [expectation fulfill];
+                                          }
+                                               error:nil];
   
   [self waitForExpectationsWithTimeout:3.0 handler:nil];
 }

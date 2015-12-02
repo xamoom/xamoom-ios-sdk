@@ -29,6 +29,7 @@
                                                 @"title":@"title",
                                                 @"image_public_url":@"imagePublicUrl",
                                                 @"content_id":@"contentId",
+                                                @"category":@"category",
                                                 }];
   return mapping;
 }

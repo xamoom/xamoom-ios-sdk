@@ -28,6 +28,7 @@
                                                 @"location.lat":@"lat",
                                                 @"location.lon":@"lon",
                                                 @"image":@"image",
+                                                @"category":@"category"
                                                 }];
   return mapping;
 }
