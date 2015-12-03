@@ -32,6 +32,7 @@
 #import "SVGKit.h"
 
 extern int const kHorizontalSpaceToSubview;
+extern NSString* const kContentBlock9MapContentLinkNotification;
 
 /**
  * Declaring different TextFontSizes.
@@ -61,6 +62,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 
 #pragma mark - XMMContentBlocks
 
+
 /**
  * Use XMMContentBlocks to display all our contentBlocks from xamoom cloud.
  */
@@ -79,7 +81,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
  * @param language The preferred language, can be @"" for systemLanguage
  * @param screenWidth The width of the screen
  */
-- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString*)language;
+- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString*)language showContentLinks:(BOOL)showContentLinks;
 
 /**
  * Can be used to change the fontSize of the text contentBlock
@@ -88,5 +90,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
  * @param newFontSize New fontSize of the text contentBlock
  */
 - (void)updateFontSizeTo:(TextFontSize)newFontSize;
+
++ (NSString *)kContentBlock9MapContentLinkNotification;
 
 @end

@@ -26,6 +26,7 @@
 #import <SMCalloutView/SMCalloutView.h>
 #import "SVGKit.h"
 #import "SVGKSourceString.h"
+#import "XMMContentBlocks.h"
 #import "XMMContentBlocksCache.h"
 
 @class XamoomMapView;
@@ -48,6 +49,8 @@
 + (void)setLanguage:(NSString *)language;
 + (UIColor *)linkColor;
 + (void)setLinkColor:(UIColor *)linkColor;
++ (BOOL)showContentLinks;
++ (void)setShowContentLinks:(BOOL)showContentLinks;
 
 - (void)getSpotMap;
 

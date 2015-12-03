@@ -30,10 +30,17 @@
 
 @end
 
+@interface XMMContentBlock9TableViewCell()
+
+@property (nonatomic, strong) NSString *currentContentId;
+
+@end
+
 @implementation XMMContentBlock9TableViewCell
 
-static UIColor* contentLinkColor;
-static NSString* contentLanguage;
+static UIColor *contentLinkColor;
+static NSString *contentLanguage;
+static bool showContentLinks;
 
 - (void)awakeFromNib {
   // Initialization code
@@ -60,6 +67,14 @@ static NSString* contentLanguage;
 
 + (void)setLinkColor:(UIColor *)linkColor {
   contentLinkColor = linkColor;
+}
+
++ (BOOL)showContentLinks {
+  return showContentLinks;
+}
+
++ (void)setShowContentLinks:(BOOL)showLinks {
+  showContentLinks = showLinks;
 }
 
 - (void)setupMapView {
@@ -288,7 +303,8 @@ static NSString* contentLanguage;
   xamoomCalloutView.nameOfSpot = xamoomAnnotationView.data.displayName;
   
   //create titleLabel
-  UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 280.0f, 25.0f)];
+  //CGRectMake(10.0f, 10.0f, 280.0f, 25.0f)
+  UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 255.0f, 25.0f)];
   titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
   titleLabel.numberOfLines = 0;
   titleLabel.text = xamoomAnnotationView.data.displayName;
@@ -382,6 +398,21 @@ static NSString* contentLanguage;
   
   [xamoomCalloutView addSubview:navigationButton];
   
+  if (showContentLinks) {
+    //create, design and adjust openExternalButton
+    UIButton *openExternalButton = [[UIButton alloc] initWithFrame:CGRectMake(240.0f, xamoomCalloutView.frame.size.height - 40.0f, 60.0f, 60.0f)];
+    openExternalButton.backgroundColor = [UIColor whiteColor];
+    [openExternalButton setImage:[[UIImage imageNamed:@"openextern"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    openExternalButton.tintColor = [UIColor blackColor];
+    [openExternalButton setImageEdgeInsets: UIEdgeInsetsMake(10,20,30,20)];
+    
+    [openExternalButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openContentTapped)]];
+    
+    [xamoomCalloutView addSubview:openExternalButton];
+    
+    self.currentContentId = xamoomAnnotationView.data.contentId;
+  }
+  
   return xamoomCalloutView;
 }
 
@@ -400,6 +431,10 @@ static NSString* contentLanguage;
   [mapItem openInMapsWithLaunchOptions:launchOptions];
 }
 
+- (void)openContentTapped {
+  NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.currentContentId forKey:@"contentId"];
+  [[NSNotificationCenter defaultCenter] postNotificationName:[XMMContentBlocks kContentBlock9MapContentLinkNotification] object:nil userInfo:userInfo];
+}
 
 #pragma mark - Image Methods
 

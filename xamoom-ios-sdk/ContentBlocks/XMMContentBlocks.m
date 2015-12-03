@@ -21,6 +21,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 int const kHorizontalSpaceToSubview = 32;
+NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContentBlock9MapContentLinkNotification";
 
 #pragma mark - XMMContentBlocks Interface
 
@@ -35,7 +36,7 @@ int const kHorizontalSpaceToSubview = 32;
 
 @implementation XMMContentBlocks
 
-- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString *)language {
+- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString *)language showContentLinks:(BOOL)showContentLinks {
   self = [super init];
   
   if(self) {
@@ -53,9 +54,24 @@ int const kHorizontalSpaceToSubview = 32;
     [XMMContentBlock6TableViewCell setLanguage: language];
     [XMMContentBlock9TableViewCell setLanguage: language];
     [XMMContentBlock9TableViewCell setLinkColor: self.linkColor];
-  }
+    [XMMContentBlock9TableViewCell setShowContentLinks: showContentLinks];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveContentBlock9MapContentLinkNotification:)
+                                                 name:kContentBlock9MapContentLinkNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(removeCustomObserver:)
+                                                 name:@"pauseAllSounds"
+                                               object:nil];
+}
   
   return self;
+}
+
+- (void)removeCustomObserver:(NSNotification *)notification {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)contentBlocksFromContent {
@@ -100,6 +116,17 @@ int const kHorizontalSpaceToSubview = 32;
   self.isContentHeaderAdded = true;
 }
 
+- (void)receiveContentBlock9MapContentLinkNotification:(NSNotification *)notification {
+  NSDictionary *userInfo = notification.userInfo;
+  NSString *contentId = [userInfo objectForKey:@"contentId"];
+  [self sendDidClickContentBlockWithContentId:contentId];
+}
+
+- (void)sendDidClickContentBlockWithContentId:(NSString *)contentId {
+  if ([self.delegate respondsToSelector:@selector(didClickContentBlock:)]) {
+    [self.delegate didClickContentBlock:contentId];
+  }
+}
 
 #pragma mark - Setters
 
@@ -117,6 +144,12 @@ int const kHorizontalSpaceToSubview = 32;
   _linkColor = linkColor;
   [XMMContentBlock0TableViewCell setLinkColor:self.linkColor];
   [XMMContentBlock9TableViewCell setLinkColor: self.linkColor];
+}
+
+#pragma mark - Getters
+
++ (NSString *)kContentBlock9MapContentLinkNotification {
+  return kContentBlock9MapContentLinkNotification;
 }
 
 #pragma mark - Custom Methods
@@ -142,11 +175,8 @@ int const kHorizontalSpaceToSubview = 32;
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
     XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    if ([self.delegate respondsToSelector:@selector(didClickContentBlock:)]) {
-      [self.delegate didClickContentBlock:cell.contentId];
-    }
-    //TODO didClick with cell.contentId
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self sendDidClickContentBlockWithContentId:cell.contentId];
   }
 }
 
