@@ -1,3 +1,6 @@
+Tests/TestingIDs.plist
+
+example/TestingIDs.plist
 
 docs/
 
@@ -18,3 +21,9 @@ example/xamoom-ios-sdk-test/xamoom-ios-sdk-test/api.txt
 example/xamoom-ios-sdk-test/xamoom-ios-sdk-test.xcodeproj/project.xcworkspace/xcuserdata/raphaelseher.xcuserdatad/UserInterfaceState.xcuserstate
 
 *.xcuserstate
+
+example/xamoom-ios-sdk-test/xamoom-ios-sdk-test/TestLogins.plist
+
+example/xamoom-ios-sdk-example/TestLogins.plist
+
+example/TestLogins.plist

@@ -22,7 +22,7 @@ Download the xamoom-ios-sdk and add it to your project. Don't forget to install 
 
 Add in your podfile
 
-    pod 'xamoom-ios-sdk', '~> 1.4.0'
+    pod 'xamoom-ios-sdk', '~> 1.4.1'
 
 Install pods via terminal
 
@@ -43,7 +43,7 @@ Grab a contentId from your [xamoom-system](https://xamoom.net/) (open a page and
 
 ```objective-c
 //make your call
-[[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage full:YES
+[[XMMEnduserApi sharedInstance] contentWithContentId:kContentId includeStyle:YES includeMenu:YES withLanguage:[XMMEnduserApi sharedInstance].systemLanguage full:YES preview:NO
                                             completion:^(XMMResponseGetById *result){
                                               NSLog(@"finishedLoadDataById: %@", result.description);
                                             } error:^(XMMError *error) {
@@ -72,7 +72,7 @@ How to use it is in our [Step by Step Guide](https://github.com/xamoom/xamoom-io
 # Requirements
 
 * ARC
-* Minumum iOS Target: iOS 8
+* Minimum iOS Target: iOS 8
 * [RestKit 0.24.1](https://github.com/RestKit/RestKit)
 * [QRCodeReaderViewController 2.0.0](https://github.com/dlazaro66/QRCodeReaderView)
 * [SMCalloutView](https://github.com/nfarina/calloutview)

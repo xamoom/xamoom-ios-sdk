@@ -1,0 +1,1 @@
+../../../../xamoom-ios-sdk/ContentBlocks/MapViews/XMMAnnotation.h
