@@ -22,7 +22,7 @@ Download the xamoom-ios-sdk and add it to your project. Don't forget to install 
 
 Add in your podfile
 
-    pod 'xamoom-ios-sdk', '~> 1.3.2'
+    pod 'xamoom-ios-sdk', '~> 1.4.1'
 
 Install pods via terminal
 
@@ -52,13 +52,17 @@ Grab a contentId from your [xamoom-system](https://xamoom.net/) (open a page and
    ];
 ```
 
-When your call is successful you will get a [`XMMResponseGetById`](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMResponseGetById.html) object. 
+When your call is successful you will get a [`XMMResponseGetById`](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMResponseGetById.html) object.
 
 ## [API Calls]((https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls))
 
 Check out our [API Calls Wiki Page](https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls).
 
 Every call is also on our documentation: [XMMEnduserApi documentation](http://xamoom.github.io/xamoom-ios-sdk/docs/html/Classes/XMMEnduserApi.html)
+
+# iBeacons
+
+xamoom offers support for iBeacons. We have a [small guide](https://github.com/xamoom/xamoom-ios-sdk/wiki/iBeacons) to implement them in the [wiki](https://github.com/xamoom/xamoom-ios-sdk/wiki).
 
 # XMMContentBlocks
 
@@ -68,7 +72,7 @@ How to use it is in our [Step by Step Guide](https://github.com/xamoom/xamoom-io
 # Requirements
 
 * ARC
-* Minumum iOS Target: iOS 8
+* Minimum iOS Target: iOS 8
 * [RestKit 0.24.1](https://github.com/RestKit/RestKit)
 * [QRCodeReaderViewController 2.0.0](https://github.com/dlazaro66/QRCodeReaderView)
 * [SMCalloutView](https://github.com/nfarina/calloutview)
