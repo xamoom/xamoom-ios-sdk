@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMSpot.html">
+	<File path="Classes/XMMMusicPlayer.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMSpot</TokenIdentifier>
-			<Abstract type="html">XMMSpot is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMMusicPlayer</TokenIdentifier>
+			<Abstract type="html">The XMMMusicPlayer is our audio-player for streaming audio from the xamoom system.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
             
 			
 			<NodeRef refid="37"/>
@@ -13,194 +13,44 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setDisplayName:</TokenIdentifier>
-			<Abstract type="html">The displayName of the spot.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMMusicPlayer/initAudioPlayerWithUrlString:</TokenIdentifier>
+			<Abstract type="html">Initialize the avplayer and also add the periodicTimeObserver.
+After initialization you are able to get the song duration.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *displayName</Declaration>
+			<Declaration>- (void)initAudioPlayerWithUrlString:(NSString *)mediaUrlString</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>mediaUrlString</Name>
+					<Abstract type="html">- String of an url to a mediafile like www.xamoom.com/song.mp3</Abstract>
+				</Parameter>
+			</Parameters>
 			
-			
-			<Anchor>//api/name/displayName</Anchor>
+			<Anchor>//api/name/initAudioPlayerWithUrlString:</Anchor>
             <NodeRef refid="37"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/displayName</TokenIdentifier>
-			<Abstract type="html">The displayName of the spot.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMMusicPlayer/play</TokenIdentifier>
+			<Abstract type="html">Audioplayer starts playing.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *displayName</Declaration>
+			<Declaration>- (void)play</Declaration>
 			
 			
-			<Anchor>//api/name/displayName</Anchor>
+			<Anchor>//api/name/play</Anchor>
             <NodeRef refid="37"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/displayName</TokenIdentifier>
-			<Abstract type="html">The displayName of the spot.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMMusicPlayer/pause</TokenIdentifier>
+			<Abstract type="html">Audioplayer pauses playing.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *displayName</Declaration>
-			
-			
-			<Anchor>//api/name/displayName</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setDescriptionOfSpot:</TokenIdentifier>
-			<Abstract type="html">The description of the spot. (E.g. &quot;on the front door of the xamoom office&quot;)</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfSpot</Declaration>
+			<Declaration>- (void)pause</Declaration>
 			
 			
-			<Anchor>//api/name/descriptionOfSpot</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/descriptionOfSpot</TokenIdentifier>
-			<Abstract type="html">The description of the spot. (E.g. &quot;on the front door of the xamoom office&quot;)</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfSpot</Declaration>
-			
-			
-			<Anchor>//api/name/descriptionOfSpot</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/descriptionOfSpot</TokenIdentifier>
-			<Abstract type="html">The description of the spot. (E.g. &quot;on the front door of the xamoom office&quot;)</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *descriptionOfSpot</Declaration>
-			
-			
-			<Anchor>//api/name/descriptionOfSpot</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setLat:</TokenIdentifier>
-			<Abstract type="html">The latitude of the spot.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lat</Declaration>
-			
-			
-			<Anchor>//api/name/lat</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/lat</TokenIdentifier>
-			<Abstract type="html">The latitude of the spot.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lat</Declaration>
-			
-			
-			<Anchor>//api/name/lat</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/lat</TokenIdentifier>
-			<Abstract type="html">The latitude of the spot.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lat</Declaration>
-			
-			
-			<Anchor>//api/name/lat</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setLon:</TokenIdentifier>
-			<Abstract type="html">The longitude of the spot.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lon</Declaration>
-			
-			
-			<Anchor>//api/name/lon</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/lon</TokenIdentifier>
-			<Abstract type="html">The longitude of the spot.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lon</Declaration>
-			
-			
-			<Anchor>//api/name/lon</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/lon</TokenIdentifier>
-			<Abstract type="html">The longitude of the spot.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic) float lon</Declaration>
-			
-			
-			<Anchor>//api/name/lon</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setImage:</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *image</Declaration>
-			
-			
-			<Anchor>//api/name/image</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/image</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *image</Declaration>
-			
-			
-			<Anchor>//api/name/image</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/image</TokenIdentifier>
-			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>@property (nonatomic, copy) NSString *image</Declaration>
-			
-			
-			<Anchor>//api/name/image</Anchor>
-            <NodeRef refid="37"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMSpot/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMSpot class.</Abstract>
-			<DeclaredIn>XMMSpot.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
+			<Anchor>//api/name/pause</Anchor>
             <NodeRef refid="37"/>
 		</Token>
 		

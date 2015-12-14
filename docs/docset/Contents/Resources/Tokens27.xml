@@ -13,22 +13,22 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlocks/initWithTableView:language:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlocks/initWithTableView:language:showContentLinks:</TokenIdentifier>
 			<Abstract type="html">Initializes the XMMContentBlock.</Abstract>
 			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
 			
-			<Declaration>- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString *)language</Declaration>
+			<Declaration>- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString *)language showContentLinks:(BOOL)showContentLinks</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>tableView</Name>
-					<Abstract type="html">UITableView you are using in your UI</Abstract>
-				</Parameter><Parameter>
 					<Name>language</Name>
 					<Abstract type="html">The preferred language, can be @&quot;&quot; for systemLanguage</Abstract>
+				</Parameter><Parameter>
+					<Name>showContentLinks</Name>
+					<Abstract type="html">Yes to show contentLinks when displaying a spotMap</Abstract>
 				</Parameter>
 			</Parameters>
 			
-			<Anchor>//api/name/initWithTableView:language:</Anchor>
+			<Anchor>//api/name/initWithTableView:language:showContentLinks:</Anchor>
             <NodeRef refid="27"/>
 		</Token>
 		

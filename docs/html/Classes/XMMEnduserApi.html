@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">xamoom-ios-sdk-test </a>
+				<a href="../index.html">xamoom-ios-sdk </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,6 +56,8 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/objectManager">objectManager</option>
+		
 		<option value="//api/name/qrCodeViewControllerCancelButtonTitle">qrCodeViewControllerCancelButtonTitle</option>
 		
 		<option value="//api/name/systemLanguage">systemLanguage</option>
@@ -74,11 +76,17 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/apiGetWithPath:andDescriptor:andParams:completion:error:">- apiGetWithPath:andDescriptor:andParams:completion:error:</option>
+		
+		<option value="//api/name/apiPostWithPath:andDescriptor:andParams:completion:error:">- apiPostWithPath:andDescriptor:andParams:completion:error:</option>
+		
+		<option value="//api/name/checkUrlPrefix:">- checkUrlPrefix:</option>
+		
 		<option value="//api/name/closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:completion:error:">- closestSpotsWithLat:withLon:withRadius:withLimit:withLanguage:completion:error:</option>
 		
 		<option value="//api/name/contentListWithPageSize:withLanguage:withCursor:withTags:completion:error:">- contentListWithPageSize:withLanguage:withCursor:withTags:completion:error:</option>
 		
-		<option value="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:">- contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:</option>
+		<option value="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:preview:completion:error:">- contentWithContentId:includeStyle:includeMenu:withLanguage:full:preview:completion:error:</option>
 		
 		<option value="//api/name/contentWithLat:withLon:withLanguage:completion:error:">- contentWithLat:withLon:withLanguage:completion:error:</option>
 		
@@ -88,9 +96,11 @@
 		
 		<option value="//api/name/init">- init</option>
 		
+		<option value="//api/name/locationIdentifierFromURL:">- locationIdentifierFromURL:</option>
+		
 		<option value="//api/name/setApiKey:">- setApiKey:</option>
 		
-		<option value="//api/name/spotMapWithMapTags:withLanguage:completion:error:">- spotMapWithMapTags:withLanguage:completion:error:</option>
+		<option value="//api/name/spotMapWithMapTags:withLanguage:includeContent:completion:error:">- spotMapWithMapTags:withLanguage:includeContent:completion:error:</option>
 		
 		<option value="//api/name/startQRCodeReaderFromViewController:didLoad:">- startQRCodeReaderFromViewController:didLoad:</option>
 		
@@ -273,6 +283,47 @@
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/objectManager" title="objectManager"></a>
+	<h3 class="method-title"><code><a href="#//api/name/objectManager">&nbsp;&nbsp;objectManager</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>RKObjectManager used to make calls to api.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) RKObjectManager *objectManager</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -389,8 +440,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:" title="contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:">&ndash;&nbsp;contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:</a></code>
+	<a name="//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:preview:completion:error:" title="contentWithContentId:includeStyle:includeMenu:withLanguage:full:preview:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:preview:completion:error:">&ndash;&nbsp;contentWithContentId:includeStyle:includeMenu:withLanguage:full:preview:completion:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -405,7 +456,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> full:(BOOL)<em>full</em> completion:(void ( ^ ) ( XMMContentById *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)contentWithContentId:(NSString *)<em>contentId</em> includeStyle:(BOOL)<em>style</em> includeMenu:(BOOL)<em>menu</em> withLanguage:(NSString *)<em>language</em> full:(BOOL)<em>full</em> preview:(BOOL)<em>preview</em> completion:(void ( ^ ) ( XMMContentById *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -436,6 +487,11 @@
 					<tr>
 						<th scope="row" class="argument-name"><code>full</code></th>
 						<td><p>True or false for returning &ldquo;unsynced&rdquo; data or not</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>preview</code></th>
+						<td><p>If YES it won&rsquo;t show up in statistics.</p></td>
 					</tr>
 				
 					<tr>
@@ -519,7 +575,7 @@ default language will be returned.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>majorId</code></th>
-						<td><p>Major Id, if you are using beacons</p></td>
+						<td><p>BeaconMajor, only when you use a beacon.</p></td>
 					</tr>
 				
 					<tr>
@@ -680,8 +736,8 @@ default language will be returned.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/spotMapWithMapTags:withLanguage:completion:error:" title="spotMapWithMapTags:withLanguage:completion:error:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/spotMapWithMapTags:withLanguage:completion:error:">&ndash;&nbsp;spotMapWithMapTags:withLanguage:completion:error:</a></code>
+	<a name="//api/name/spotMapWithMapTags:withLanguage:includeContent:completion:error:" title="spotMapWithMapTags:withLanguage:includeContent:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/spotMapWithMapTags:withLanguage:includeContent:completion:error:">&ndash;&nbsp;spotMapWithMapTags:withLanguage:includeContent:completion:error:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -696,7 +752,7 @@ default language will be returned.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)spotMapWithMapTags:(NSArray *)<em>mapTags</em> withLanguage:(NSString *)<em>language</em> completion:(void ( ^ ) ( XMMSpotMap *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)spotMapWithMapTags:(NSArray *)<em>mapTags</em> withLanguage:(NSString *)<em>language</em> includeContent:(BOOL)<em>includeContent</em> completion:(void ( ^ ) ( XMMSpotMap *result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
 
 		    
 			
@@ -712,6 +768,11 @@ default language will be returned.</p>
 					<tr>
 						<th scope="row" class="argument-name"><code>language</code></th>
 						<td><p>The requested language of the content from xamoom backend</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>includeContent</code></th>
+						<td><p>Will return contentId of spots with assigned content if YES</p></td>
 					</tr>
 				
 					<tr>
@@ -1042,6 +1103,152 @@ If the selected language is not available the default language will be returned.
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/apiPostWithPath:andDescriptor:andParams:completion:error:" title="apiPostWithPath:andDescriptor:andParams:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/apiPostWithPath:andDescriptor:andParams:completion:error:">&ndash;&nbsp;apiPostWithPath:andDescriptor:andParams:completion:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Post to xamoom enduser-api.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)apiPostWithPath:(NSString *)<em>path</em> andDescriptor:(RKResponseDescriptor *)<em>descriptor</em> andParams:(NSDictionary *)<em>params</em> completion:(void ( ^ ) ( id result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>path</code></th>
+						<td><p>Enduser-api path</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>descriptor</code></th>
+						<td><p>RKResponseDescriptor</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>Parameters as NSDictionary</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>A completionHandler block</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>A errorhandler block</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/apiGetWithPath:andDescriptor:andParams:completion:error:" title="apiGetWithPath:andDescriptor:andParams:completion:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/apiGetWithPath:andDescriptor:andParams:completion:error:">&ndash;&nbsp;apiGetWithPath:andDescriptor:andParams:completion:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get to xamoom enduser-api.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)apiGetWithPath:(NSString *)<em>path</em> andDescriptor:(RKResponseDescriptor *)<em>descriptor</em> andParams:(NSDictionary *)<em>params</em> completion:(void ( ^ ) ( id result ))<em>completionHandler</em> error:(void ( ^ ) ( XMMError *error ))<em>errorHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>path</code></th>
+						<td><p>Enduser-api path</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>descriptor</code></th>
+						<td><p>RKResponseDescriptor</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>params</code></th>
+						<td><p>Paramters as NSDicationary</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>A completionHandler block</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>errorHandler</code></th>
+						<td><p>A errorhandler block</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -1115,6 +1322,124 @@ If the selected language is not available the default language will be returned.
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/checkUrlPrefix:" title="checkUrlPrefix:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/checkUrlPrefix:">&ndash;&nbsp;checkUrlPrefix:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Will return an url with http:// if there is none. Returns url without
+changes if there is a http:// or https:// as prefix.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)checkUrlPrefix:(NSString *)<em>URL</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>URL</code></th>
+						<td><p>Url like &ldquo;<a href="http://xm.gl/0ana0">http://xm.gl/0ana0</a>&rdquo;</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an url with http:// in front.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/locationIdentifierFromURL:" title="locationIdentifierFromURL:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/locationIdentifierFromURL:">&ndash;&nbsp;locationIdentifierFromURL:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the LocationIdentifier, when you enter an url with locationIdentifier
+like &ldquo;<a href="http://xm.gl/0ana0">http://xm.gl/0ana0</a>&rdquo;.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)locationIdentifierFromURL:(NSString *)<em>URL</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>URL</code></th>
+						<td><p>A <a href="http://xm.gl/*">http://xm.gl/*</a> url.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A locationIdentifier</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMEnduserApi.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -1128,7 +1453,7 @@ If the selected language is not available the default language will be returned.
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-11-06</p>
+						<p class="copyright">Copyright &copy; 2015 xamoom. All rights reserved. Updated: 2015-12-14</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

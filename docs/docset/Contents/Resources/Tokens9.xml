@@ -43,57 +43,6 @@ a imagethumbnail for the video.</Abstract>
             <NodeRef refid="9"/>
 		</Token>
 		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock2TableViewCell/tappedVideoView:</TokenIdentifier>
-			<Abstract type="html">Opens a moviePlayerViewController</Abstract>
-			<DeclaredIn>XMMContentBlock2TableViewCell.m</DeclaredIn>
-			
-			<Declaration>- (void)tappedVideoView:(UITapGestureRecognizer *)sender</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>sender</Name>
-					<Abstract type="html">Sender</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/tappedVideoView:</Anchor>
-            <NodeRef refid="9"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock2TableViewCell/handleMoviePlayerFinish:</TokenIdentifier>
-			<Abstract type="html">Handles errors and the &quot;done&quot; click.</Abstract>
-			<DeclaredIn>XMMContentBlock2TableViewCell.m</DeclaredIn>
-			
-			<Declaration>- (void)handleMoviePlayerFinish:(NSNotification *)notification</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>notification</Name>
-					<Abstract type="html">Notification</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/handleMoviePlayerFinish:</Anchor>
-            <NodeRef refid="9"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock2TableViewCell/didReceiveImage:</TokenIdentifier>
-			<Abstract type="html">Displays the thumbnail image from the video.</Abstract>
-			<DeclaredIn>XMMContentBlock2TableViewCell.m</DeclaredIn>
-			
-			<Declaration>- (void)didReceiveImage:(NSNotification *)notification</Declaration>
-			<Parameters>
-				<Parameter>
-					<Name>notification</Name>
-					<Abstract type="html">Notification</Abstract>
-				</Parameter>
-			</Parameters>
-			
-			<Anchor>//api/name/didReceiveImage:</Anchor>
-            <NodeRef refid="9"/>
-		</Token>
-		
         
         
 	</File>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMMenuItem.html">
+	<File path="Classes/XMMError.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMMenuItem</TokenIdentifier>
-			<Abstract type="html">XMMMenuItem is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMError</TokenIdentifier>
+			<Abstract type="html">XMMError is used for mapping error messages from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
             
 			
 			<NodeRef refid="35"/>
@@ -13,86 +13,74 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMMenuItem/setItemLabel:</TokenIdentifier>
-			<Abstract type="html">Name of the menu item.</Abstract>
-			<DeclaredIn>XMMMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMError/setCode:</TokenIdentifier>
+			<Abstract type="html">Error code from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *itemLabel</Declaration>
+			<Declaration>@property NSString *code</Declaration>
 			
 			
-			<Anchor>//api/name/itemLabel</Anchor>
+			<Anchor>//api/name/code</Anchor>
             <NodeRef refid="35"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMMenuItem/itemLabel</TokenIdentifier>
-			<Abstract type="html">Name of the menu item.</Abstract>
-			<DeclaredIn>XMMMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMError/code</TokenIdentifier>
+			<Abstract type="html">Error code from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *itemLabel</Declaration>
+			<Declaration>@property NSString *code</Declaration>
 			
 			
-			<Anchor>//api/name/itemLabel</Anchor>
+			<Anchor>//api/name/code</Anchor>
             <NodeRef refid="35"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMMenuItem/itemLabel</TokenIdentifier>
-			<Abstract type="html">Name of the menu item.</Abstract>
-			<DeclaredIn>XMMMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMError/code</TokenIdentifier>
+			<Abstract type="html">Error code from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *itemLabel</Declaration>
+			<Declaration>@property NSString *code</Declaration>
 			
 			
-			<Anchor>//api/name/itemLabel</Anchor>
+			<Anchor>//api/name/code</Anchor>
             <NodeRef refid="35"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMMenuItem/setContentId:</TokenIdentifier>
-			<Abstract type="html">ContentId of the item.</Abstract>
-			<DeclaredIn>XMMMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMError/setMessage:</TokenIdentifier>
+			<Abstract type="html">Error message from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			<Declaration>@property NSString *message</Declaration>
 			
 			
-			<Anchor>//api/name/contentId</Anchor>
+			<Anchor>//api/name/message</Anchor>
             <NodeRef refid="35"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMMenuItem/contentId</TokenIdentifier>
-			<Abstract type="html">ContentId of the item.</Abstract>
-			<DeclaredIn>XMMMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMError/message</TokenIdentifier>
+			<Abstract type="html">Error message from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			<Declaration>@property NSString *message</Declaration>
 			
 			
-			<Anchor>//api/name/contentId</Anchor>
+			<Anchor>//api/name/message</Anchor>
             <NodeRef refid="35"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMMenuItem/contentId</TokenIdentifier>
-			<Abstract type="html">ContentId of the item.</Abstract>
-			<DeclaredIn>XMMMenuItem.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMError/message</TokenIdentifier>
+			<Abstract type="html">Error message from the xamoom backend.</Abstract>
+			<DeclaredIn>XMMError.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic, copy) NSString *contentId</Declaration>
+			<Declaration>@property NSString *message</Declaration>
 			
 			
-			<Anchor>//api/name/contentId</Anchor>
-            <NodeRef refid="35"/>
-		</Token>
-		
-		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMMenuItem/mapping</TokenIdentifier>
-			<Abstract type="html">Returns a RKObjectMapping for XMMMenuItem class.</Abstract>
-			<DeclaredIn>XMMMenuItem.h</DeclaredIn>
-			
-			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
-			
-			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
-			<Anchor>//api/name/mapping</Anchor>
+			<Anchor>//api/name/message</Anchor>
             <NodeRef refid="35"/>
 		</Token>
 		

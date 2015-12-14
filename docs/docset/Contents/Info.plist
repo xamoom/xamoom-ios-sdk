@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.xamoom.xamoom-ios-sdk-test</string>
+	<string>com.xamoom.xamoom-ios-sdk</string>
 	<key>CFBundleName</key>
-	<string>xamoom-ios-sdk-test Documentation</string>
+	<string>xamoom-ios-sdk Documentation</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -18,7 +18,7 @@
 	<key>DocSetFallbackURL</key>
 	<string>http://xamoom.com/xamoom</string>
 	<key>DocSetFeedName</key>
-	<string>xamoom-ios-sdk-test Documentation</string>
+	<string>xamoom-ios-sdk Documentation</string>
 	<key>DocSetFeedURL</key>
 	<string>http://xamoom.com/xamoom/xamoom.atom</string>
 	<key>DocSetMinimumXcodeVersion</key>

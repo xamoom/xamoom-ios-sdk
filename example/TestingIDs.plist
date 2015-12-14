@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contentId</key>
+	<string>7cf2c58e6d374ce3888c32eb80be53b5</string>
+	<key>apikey</key>
+	<string>0UR-GR34T-D3V-AP1-K3Y-H3LLY34H</string>
+  <key>qrMarker</key>
+  <string>i4n7l</string>
+  <key>nfcMarker</key>
+  <string>wd9cu7xwvzty</string>
+  <key>beaconId2</key>
+  <string>8843</string>
+  <key>beaconId3</key>
+  <string>65094</string>
+</dict>
+</plist>

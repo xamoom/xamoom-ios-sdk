@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Classes/XMMSpotMap.html">
+	<File path="Classes/XMMSpot.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/cl/XMMSpotMap</TokenIdentifier>
-			<Abstract type="html">XMMSpotMap is used for mapping the JSON sended by the api.</Abstract>
-			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMSpot</TokenIdentifier>
+			<Abstract type="html">XMMSpot is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
             
 			
 			<NodeRef refid="38"/>
@@ -13,86 +13,266 @@
 		
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpotMap/setItems:</TokenIdentifier>
-			<Abstract type="html">Array containing XMMSpotMapItem items.</Abstract>
-			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setDisplayName:</TokenIdentifier>
+			<Abstract type="html">The displayName of the spot.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *displayName</Declaration>
 			
 			
-			<Anchor>//api/name/items</Anchor>
+			<Anchor>//api/name/displayName</Anchor>
             <NodeRef refid="38"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpotMap/items</TokenIdentifier>
-			<Abstract type="html">Array containing XMMSpotMapItem items.</Abstract>
-			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/displayName</TokenIdentifier>
+			<Abstract type="html">The displayName of the spot.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *displayName</Declaration>
 			
 			
-			<Anchor>//api/name/items</Anchor>
+			<Anchor>//api/name/displayName</Anchor>
             <NodeRef refid="38"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMSpotMap/items</TokenIdentifier>
-			<Abstract type="html">Array containing XMMSpotMapItem items.</Abstract>
-			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/displayName</TokenIdentifier>
+			<Abstract type="html">The displayName of the spot.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) NSArray *items</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *displayName</Declaration>
 			
 			
-			<Anchor>//api/name/items</Anchor>
+			<Anchor>//api/name/displayName</Anchor>
             <NodeRef refid="38"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpotMap/setStyle:</TokenIdentifier>
-			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
-			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setDescriptionOfSpot:</TokenIdentifier>
+			<Abstract type="html">The description of the spot. (E.g. &quot;on the front door of the xamoom office&quot;)</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) XMMStyle *style</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *descriptionOfSpot</Declaration>
 			
 			
-			<Anchor>//api/name/style</Anchor>
+			<Anchor>//api/name/descriptionOfSpot</Anchor>
             <NodeRef refid="38"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMSpotMap/style</TokenIdentifier>
-			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
-			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/descriptionOfSpot</TokenIdentifier>
+			<Abstract type="html">The description of the spot. (E.g. &quot;on the front door of the xamoom office&quot;)</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) XMMStyle *style</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *descriptionOfSpot</Declaration>
 			
 			
-			<Anchor>//api/name/style</Anchor>
+			<Anchor>//api/name/descriptionOfSpot</Anchor>
             <NodeRef refid="38"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instp/XMMSpotMap/style</TokenIdentifier>
-			<Abstract type="html">The style of the system as XMMStyle.</Abstract>
-			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/descriptionOfSpot</TokenIdentifier>
+			<Abstract type="html">The description of the spot. (E.g. &quot;on the front door of the xamoom office&quot;)</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
 			
-			<Declaration>@property (nonatomic) XMMStyle *style</Declaration>
+			<Declaration>@property (nonatomic, copy) NSString *descriptionOfSpot</Declaration>
 			
 			
-			<Anchor>//api/name/style</Anchor>
+			<Anchor>//api/name/descriptionOfSpot</Anchor>
             <NodeRef refid="38"/>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/clm/XMMSpotMap/contentDescriptor</TokenIdentifier>
-			<Abstract type="html">Returns a RKResponseDescriptor for XMMSpotMap class.</Abstract>
-			<DeclaredIn>XMMSpotMap.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setLat:</TokenIdentifier>
+			<Abstract type="html">The latitude of the spot.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
 			
-			<Declaration>+ (RKResponseDescriptor *)contentDescriptor</Declaration>
+			<Declaration>@property (nonatomic) float lat</Declaration>
 			
-			<ReturnValue><Abstract type="html">RKResponseDescriptor*</Abstract></ReturnValue>
-			<Anchor>//api/name/contentDescriptor</Anchor>
+			
+			<Anchor>//api/name/lat</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/lat</TokenIdentifier>
+			<Abstract type="html">The latitude of the spot.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) float lat</Declaration>
+			
+			
+			<Anchor>//api/name/lat</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/lat</TokenIdentifier>
+			<Abstract type="html">The latitude of the spot.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) float lat</Declaration>
+			
+			
+			<Anchor>//api/name/lat</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setLon:</TokenIdentifier>
+			<Abstract type="html">The longitude of the spot.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) float lon</Declaration>
+			
+			
+			<Anchor>//api/name/lon</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/lon</TokenIdentifier>
+			<Abstract type="html">The longitude of the spot.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) float lon</Declaration>
+			
+			
+			<Anchor>//api/name/lon</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/lon</TokenIdentifier>
+			<Abstract type="html">The longitude of the spot.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) float lon</Declaration>
+			
+			
+			<Anchor>//api/name/lon</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setImage:</TokenIdentifier>
+			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *image</Declaration>
+			
+			
+			<Anchor>//api/name/image</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/image</TokenIdentifier>
+			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *image</Declaration>
+			
+			
+			<Anchor>//api/name/image</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/image</TokenIdentifier>
+			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *image</Declaration>
+			
+			
+			<Anchor>//api/name/image</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setCategory:</TokenIdentifier>
+			<Abstract type="html">Category as an number to specify an icon.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/category</TokenIdentifier>
+			<Abstract type="html">Category as an number to specify an icon.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/category</TokenIdentifier>
+			<Abstract type="html">Category as an number to specify an icon.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/setContentId:</TokenIdentifier>
+			<Abstract type="html">ContentId if spot has assigned content.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSString *contentId</Declaration>
+			
+			
+			<Anchor>//api/name/contentId</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMSpot/contentId</TokenIdentifier>
+			<Abstract type="html">ContentId if spot has assigned content.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSString *contentId</Declaration>
+			
+			
+			<Anchor>//api/name/contentId</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMSpot/contentId</TokenIdentifier>
+			<Abstract type="html">ContentId if spot has assigned content.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSString *contentId</Declaration>
+			
+			
+			<Anchor>//api/name/contentId</Anchor>
+            <NodeRef refid="38"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/XMMSpot/mapping</TokenIdentifier>
+			<Abstract type="html">Returns a RKObjectMapping for XMMSpot class.</Abstract>
+			<DeclaredIn>XMMSpot.h</DeclaredIn>
+			
+			<Declaration>+ (RKObjectMapping *)mapping</Declaration>
+			
+			<ReturnValue><Abstract type="html">RKObjectMapping*</Abstract></ReturnValue>
+			<Anchor>//api/name/mapping</Anchor>
             <NodeRef refid="38"/>
 		</Token>
 		

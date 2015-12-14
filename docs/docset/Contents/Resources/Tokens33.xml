@@ -97,6 +97,42 @@
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/setObjectManager:</TokenIdentifier>
+			<Abstract type="html">RKObjectManager used to make calls to api.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) RKObjectManager *objectManager</Declaration>
+			
+			
+			<Anchor>//api/name/objectManager</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/objectManager</TokenIdentifier>
+			<Abstract type="html">RKObjectManager used to make calls to api.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) RKObjectManager *objectManager</Declaration>
+			
+			
+			<Anchor>//api/name/objectManager</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMEnduserApi/objectManager</TokenIdentifier>
+			<Abstract type="html">RKObjectManager used to make calls to api.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) RKObjectManager *objectManager</Declaration>
+			
+			
+			<Anchor>//api/name/objectManager</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/init</TokenIdentifier>
 			<Abstract type="html">Inits the XMMEnduserApi: sets the apiBaseUrl and gets the preferred systemLanguage.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
@@ -126,11 +162,11 @@
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithContentId:includeStyle:includeMenu:withLanguage:full:preview:completion:error:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)contentWithContentId:(NSString *)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language full:(BOOL)full completion:(void ( ^ ) ( XMMContentById *result ))completionHandler error:(void ( ^ ) ( XMMError *error ))errorHandler</Declaration>
+			<Declaration>- (void)contentWithContentId:(NSString *)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString *)language full:(BOOL)full preview:(BOOL)preview completion:(void ( ^ ) ( XMMContentById *result ))completionHandler error:(void ( ^ ) ( XMMError *error ))errorHandler</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>contentId</Name>
@@ -148,6 +184,9 @@
 					<Name>full</Name>
 					<Abstract type="html">True or false for returning &quot;unsynced&quot; data or not</Abstract>
 				</Parameter><Parameter>
+					<Name>preview</Name>
+					<Abstract type="html">If YES it won&apos;t show up in statistics.</Abstract>
+				</Parameter><Parameter>
 					<Name>completionHandler</Name>
 					<Abstract type="html">CompletionHandler returns the result
 
@@ -160,7 +199,7 @@
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:</Anchor>
+			<Anchor>//api/name/contentWithContentId:includeStyle:includeMenu:withLanguage:full:preview:completion:error:</Anchor>
             <NodeRef refid="33"/>
 		</Token>
 		
@@ -177,7 +216,7 @@ default language will be returned.</Abstract>
 					<Abstract type="html">The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend</Abstract>
 				</Parameter><Parameter>
 					<Name>majorId</Name>
-					<Abstract type="html">Major Id, if you are using beacons</Abstract>
+					<Abstract type="html">BeaconMajor, only when you use a beacon.</Abstract>
 				</Parameter><Parameter>
 					<Name>style</Name>
 					<Abstract type="html">True or False for returning the style from xamoom backend as XMMStyle</Abstract>
@@ -239,11 +278,11 @@ default language will be returned.</Abstract>
 		</Token>
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/spotMapWithMapTags:withLanguage:completion:error:</TokenIdentifier>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/spotMapWithMapTags:withLanguage:includeContent:completion:error:</TokenIdentifier>
 			<Abstract type="html">Makes an api call to xamoom with params to get a list of all items, so you can show them on a map</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
-			<Declaration>- (void)spotMapWithMapTags:(NSArray *)mapTags withLanguage:(NSString *)language completion:(void ( ^ ) ( XMMSpotMap *result ))completionHandler error:(void ( ^ ) ( XMMError *error ))errorHandler</Declaration>
+			<Declaration>- (void)spotMapWithMapTags:(NSArray *)mapTags withLanguage:(NSString *)language includeContent:(BOOL)includeContent completion:(void ( ^ ) ( XMMSpotMap *result ))completionHandler error:(void ( ^ ) ( XMMError *error ))errorHandler</Declaration>
 			<Parameters>
 				<Parameter>
 					<Name>mapTags</Name>
@@ -251,6 +290,9 @@ default language will be returned.</Abstract>
 				</Parameter><Parameter>
 					<Name>language</Name>
 					<Abstract type="html">The requested language of the content from xamoom backend</Abstract>
+				</Parameter><Parameter>
+					<Name>includeContent</Name>
+					<Abstract type="html">Will return contentId of spots with assigned content if YES</Abstract>
 				</Parameter><Parameter>
 					<Name>completionHandler</Name>
 					<Abstract type="html">CompletionHandler returns the result
@@ -264,7 +306,7 @@ default language will be returned.</Abstract>
 				</Parameter>
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
-			<Anchor>//api/name/spotMapWithMapTags:withLanguage:completion:error:</Anchor>
+			<Anchor>//api/name/spotMapWithMapTags:withLanguage:includeContent:completion:error:</Anchor>
             <NodeRef refid="33"/>
 		</Token>
 		
@@ -383,6 +425,64 @@ If the selected language is not available the default language will be returned.
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/apiPostWithPath:andDescriptor:andParams:completion:error:</TokenIdentifier>
+			<Abstract type="html">Post to xamoom enduser-api.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)apiPostWithPath:(NSString *)path andDescriptor:(RKResponseDescriptor *)descriptor andParams:(NSDictionary *)params completion:(void ( ^ ) ( id result ))completionHandler error:(void ( ^ ) ( XMMError *error ))errorHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>path</Name>
+					<Abstract type="html">Enduser-api path</Abstract>
+				</Parameter><Parameter>
+					<Name>descriptor</Name>
+					<Abstract type="html">RKResponseDescriptor</Abstract>
+				</Parameter><Parameter>
+					<Name>params</Name>
+					<Abstract type="html">Parameters as NSDictionary</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">A completionHandler block</Abstract>
+				</Parameter><Parameter>
+					<Name>errorHandler</Name>
+					<Abstract type="html">A errorhandler block</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/apiPostWithPath:andDescriptor:andParams:completion:error:</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/apiGetWithPath:andDescriptor:andParams:completion:error:</TokenIdentifier>
+			<Abstract type="html">Get to xamoom enduser-api.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)apiGetWithPath:(NSString *)path andDescriptor:(RKResponseDescriptor *)descriptor andParams:(NSDictionary *)params completion:(void ( ^ ) ( id result ))completionHandler error:(void ( ^ ) ( XMMError *error ))errorHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>path</Name>
+					<Abstract type="html">Enduser-api path</Abstract>
+				</Parameter><Parameter>
+					<Name>descriptor</Name>
+					<Abstract type="html">RKResponseDescriptor</Abstract>
+				</Parameter><Parameter>
+					<Name>params</Name>
+					<Abstract type="html">Paramters as NSDicationary</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">A completionHandler block</Abstract>
+				</Parameter><Parameter>
+					<Name>errorHandler</Name>
+					<Abstract type="html">A errorhandler block</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/apiGetWithPath:andDescriptor:andParams:completion:error:</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/startQRCodeReaderFromViewController:didLoad:</TokenIdentifier>
 			<Abstract type="html">Starts the QRCodeReaderViewController to scan qr codes.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
@@ -401,6 +501,42 @@ If the selected language is not available the default language will be returned.
 			</Parameters>
 			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
 			<Anchor>//api/name/startQRCodeReaderFromViewController:didLoad:</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/checkUrlPrefix:</TokenIdentifier>
+			<Abstract type="html">Will return an url with http:// if there is none. Returns url without
+changes if there is a http:// or https:// as prefix.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)checkUrlPrefix:(NSString *)URL</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URL</Name>
+					<Abstract type="html">Url like &quot;http://xm.gl/0ana0&quot;</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Returns an url with http:// in front.</Abstract></ReturnValue>
+			<Anchor>//api/name/checkUrlPrefix:</Anchor>
+            <NodeRef refid="33"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/locationIdentifierFromURL:</TokenIdentifier>
+			<Abstract type="html">Returns the LocationIdentifier, when you enter an url with locationIdentifier
+like &quot;http://xm.gl/0ana0&quot;.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)locationIdentifierFromURL:(NSString *)URL</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URL</Name>
+					<Abstract type="html">A http://xm.gl/* url.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A locationIdentifier</Abstract></ReturnValue>
+			<Anchor>//api/name/locationIdentifierFromURL:</Anchor>
             <NodeRef refid="33"/>
 		</Token>
 		

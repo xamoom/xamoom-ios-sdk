@@ -2,7 +2,7 @@
 <DocSetNodes version="1.0">
     <TOC>
         <Node type="folder">
-            <Name>xamoom-ios-sdk-test</Name>
+            <Name>xamoom-ios-sdk</Name>
             <Path>index.html</Path>
 			<Subnodes>
                 
@@ -50,6 +50,7 @@
 						<NodeRef refid="37"/>
 						<NodeRef refid="38"/>
 						<NodeRef refid="39"/>
+						<NodeRef refid="40"/>
 						
 					</Subnodes>
 				</Node>
@@ -59,7 +60,7 @@
 					<Name>Categories</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="40"/>
+						<NodeRef refid="41"/>
 						
 					</Subnodes>
 				</Node>
@@ -69,7 +70,7 @@
 					<Name>Protocols</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="41"/>
+						<NodeRef refid="42"/>
 						
 					</Subnodes>
 				</Node>
@@ -79,7 +80,7 @@
 					<Name>Constants</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="42"/>
+						<NodeRef refid="43"/>
 						
 					</Subnodes>
 				</Node>
@@ -876,6 +877,11 @@
             
         </Node>
 		<Node id="34" type="file" documentType="reference">
+            <Name>XMMEnduserApiIntegrationTest</Name>
+            <Path>Classes/XMMEnduserApiIntegrationTest.html</Path>
+            
+        </Node>
+		<Node id="35" type="file" documentType="reference">
             <Name>XMMError</Name>
             <Path>Classes/XMMError.html</Path>
             
@@ -902,7 +908,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="35" type="file" documentType="reference">
+		<Node id="36" type="file" documentType="reference">
             <Name>XMMMenuItem</Name>
             <Path>Classes/XMMMenuItem.html</Path>
             
@@ -935,7 +941,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="36" type="file" documentType="reference">
+		<Node id="37" type="file" documentType="reference">
             <Name>XMMMusicPlayer</Name>
             <Path>Classes/XMMMusicPlayer.html</Path>
             
@@ -962,7 +968,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="37" type="file" documentType="reference">
+		<Node id="38" type="file" documentType="reference">
             <Name>XMMSpot</Name>
             <Path>Classes/XMMSpot.html</Path>
             
@@ -995,7 +1001,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="38" type="file" documentType="reference">
+		<Node id="39" type="file" documentType="reference">
             <Name>XMMSpotMap</Name>
             <Path>Classes/XMMSpotMap.html</Path>
             
@@ -1028,7 +1034,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="39" type="file" documentType="reference">
+		<Node id="40" type="file" documentType="reference">
             <Name>XMMStyle</Name>
             <Path>Classes/XMMStyle.html</Path>
             
@@ -1062,13 +1068,13 @@
             
         </Node>
 		
-		<Node id="40" type="file" documentType="reference">
+		<Node id="41" type="file" documentType="reference">
             <Name>UIImage(animatedGIF)</Name>
             <Path>Categories/UIImage+animatedGIF.html</Path>
             
         </Node>
 		
-        <Node id="41" type="file" documentType="reference">
+        <Node id="42" type="file" documentType="reference">
             <Name>XMMMusicerPlayerDelegate</Name>
             <Path>Protocols/XMMMusicerPlayerDelegate.html</Path>
             
@@ -1096,7 +1102,7 @@
             
         </Node>
 		
-        <Node id="42" type="file" documentType="reference">
+        <Node id="43" type="file" documentType="reference">
             <Name>TextFontSize</Name>
             <Path>Constants/TextFontSize.html</Path>
             

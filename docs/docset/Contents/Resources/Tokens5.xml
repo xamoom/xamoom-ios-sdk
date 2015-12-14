@@ -232,6 +232,42 @@ Display all different contentBlocks.</Abstract>
 		</Token>
 		
 		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setCategory:</TokenIdentifier>
+			<Abstract type="html">Category as an number to specify an icon.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/category</TokenIdentifier>
+			<Abstract type="html">Category as an number to specify an icon.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/category</TokenIdentifier>
+			<Abstract type="html">Category as an number to specify an icon.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSNumber *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="5"/>
+		</Token>
+		
+		<Token>
 			<TokenIdentifier>//apple_ref/occ/clm/XMMContent/mapping</TokenIdentifier>
 			<Abstract type="html">Returns a RKObjectMapping for XMMContent class.</Abstract>
 			<DeclaredIn>XMMContent.h</DeclaredIn>

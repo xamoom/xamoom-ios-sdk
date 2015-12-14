@@ -1,52 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Constants/TextFontSize.html">
+	<File path="Protocols/XMMMusicerPlayerDelegate.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/c/tdef/TextFontSize</TokenIdentifier>
-			<Abstract type="html">Declaring different TextFontSizes.
-Can be used to provide 3 different fontSizes for
-the XMMContentBlocks.</Abstract>
-			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intf/XMMMusicerPlayerDelegate</TokenIdentifier>
+			<Abstract type="html">XMMMusicPlayerDelegate is used for messages between the XMMMusicPlayer and the UI.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
             
 			
 			<NodeRef refid="42"/>
 		</Token>
 		
 		
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/NormalFontSize</TokenIdentifier>
-            <Abstract type="html">NormalFontSize is the &quot;standard&quot; fontSize.
-   </Abstract>
-            <Declaration>NormalFontSize</Declaration>
-            
-            <DeclaredIn>XMMContentBlocks.h</DeclaredIn>
-            
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/XMMMusicerPlayerDelegate/didUpdateRemainingSongTime:</TokenIdentifier>
+			<Abstract type="html">Notify delegate with the actual remaining song time.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
+			
+			<Declaration>- (void)didUpdateRemainingSongTime:(NSString *)remainingSongTime</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>remainingSongTime</Name>
+					<Abstract type="html">- Remaining song time as string with format 0:00</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/didUpdateRemainingSongTime:</Anchor>
             <NodeRef refid="42"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/BigFontSize</TokenIdentifier>
-            <Abstract type="html">BigFontSize is the next &quot;bigger&quot; fontSize.
-   </Abstract>
-            <Declaration>BigFontSize</Declaration>
-            
-            <DeclaredIn>XMMContentBlocks.h</DeclaredIn>
-            
-            <NodeRef refid="42"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/BiggerFontSize</TokenIdentifier>
-            <Abstract type="html">BiggerFontSize is the &quot;biggest&quot; fontSize.
-   </Abstract>
-            <Declaration>BiggerFontSize</Declaration>
-            
-            <DeclaredIn>XMMContentBlocks.h</DeclaredIn>
-            
-            <NodeRef refid="42"/>
-        </Token>
+		</Token>
+		
         
         
 	</File>
