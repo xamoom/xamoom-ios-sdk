@@ -79,7 +79,6 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
  * Initializes the XMMContentBlock.
  *
  * @param language The preferred language, can be @"" for systemLanguage
- * @param screenWidth The width of the screen
  * @param showContentLinks Yes to show contentLinks when displaying a spotMap
  */
 - (instancetype)initWithTableView:(UITableView *)tableView language:(NSString*)language showContentLinks:(BOOL)showContentLinks;

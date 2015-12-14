@@ -97,11 +97,6 @@
   [self.videoPlayer requestThumbnailImagesAtTimes:timeArray timeOption:MPMovieTimeOptionNearestKeyFrame];
 }
 
-/**
- *  Opens a moviePlayerViewController
- *
- *  @param sender
- */
 - (void)tappedVideoView:(UITapGestureRecognizer*)sender {
   MPMoviePlayerViewController *mpvc = [[MPMoviePlayerViewController alloc] initWithContentURL:  self.videoPlayer.contentURL];
   [self.window.rootViewController presentMoviePlayerViewControllerAnimated:mpvc];
@@ -112,11 +107,6 @@
                                              object:nil];
 }
 
-/**
- *  Handles errors and the "done" click.
- *
- *  @param notification
- */
 - (void)handleMoviePlayerFinish:(NSNotification*)notification{
   NSDictionary *notificationUserInfo = [notification userInfo];
   NSNumber *resultValue = [notificationUserInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
@@ -138,11 +128,6 @@
   [[NSNotificationCenter defaultCenter] removeObserver:MPMoviePlayerPlaybackDidFinishNotification];
 }
 
-/**
- *  Displays the thumbnail image from the video.
- *
- *  @param notification
- */
 - (void)didReceiveImage:(NSNotification*)notification {
   NSDictionary *userInfo = [notification userInfo];
   UIImage *image = [userInfo valueForKey:MPMoviePlayerThumbnailImageKey];

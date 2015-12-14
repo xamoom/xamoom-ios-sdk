@@ -132,6 +132,7 @@ extern NSString * const kApiBaseURLString;
  * default language will be returned.
  *
  * @param locationIdentifier  The locationidentifier (code saved on NFC or QR) of the marker from xamoom backend
+ * @param majorId             BeaconMajor, only when you use a beacon.
  * @param style               True or False for returning the style from xamoom backend as XMMStyle
  * @param menu                True of False for returning the menu from xamoom backend as Array of XMMMenuItem
  * @param language            The requested language of the content from xamoom backend
@@ -248,7 +249,7 @@ extern NSString * const kApiBaseURLString;
  *  @param descriptor                          RKResponseDescriptor
  *  @param params                              Paramters as NSDicationary
  *  @param completionHandler                   A completionHandler block
- *  @param error                               A errorhandler block
+ *  @param errorHandler                        A errorhandler block
  */
 - (void)apiGetWithPath:(NSString*)path andDescriptor:(RKResponseDescriptor*)descriptor andParams:(NSDictionary*)params completion:(void(^)(id result))completionHandler error:(void(^)(XMMError *error))errorHandler;
 
@@ -281,7 +282,7 @@ extern NSString * const kApiBaseURLString;
  *  Returns the LocationIdentifier, when you enter an url with locationIdentifier
  *  like "http://xm.gl/0ana0".
  *
- *  @param URL
+ *  @param URL A http://xm.gl/* url.
  *
  *  @return A locationIdentifier
  */

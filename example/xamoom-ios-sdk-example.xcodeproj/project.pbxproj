@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		8801B4C91AA4AA9700A9F99F /* documentation */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 8801B4CA1AA4AA9700A9F99F /* Build configuration list for PBXAggregateTarget "documentation" */;
-			buildPhases = (
-				8801B4CD1AA4AA9E00A9F99F /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = documentation;
-			productName = documentation;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		859A13E415C285A3D33C7409 /* libPods-xamoom-ios-sdk-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBA77FBA814571CB6230BBA /* libPods-xamoom-ios-sdk-example.a */; };
 		88394B741C032611008D2FCC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88394B701C032611008D2FCC /* LaunchScreen.xib */; };
@@ -295,9 +281,6 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Raphael Seher";
 				TargetAttributes = {
-					8801B4C91AA4AA9700A9F99F = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
 					8858D23F1A822513001B45D5 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 55MDUF7392;
@@ -323,7 +306,6 @@
 			targets = (
 				8858D23F1A822513001B45D5 /* xamoom-ios-sdk-example */,
 				8858D2581A822513001B45D5 /* xamoom-ios-sdk-exampleTests */,
-				8801B4C91AA4AA9700A9F99F /* documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -365,19 +347,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-xamoom-ios-sdk-example/Pods-xamoom-ios-sdk-example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		8801B4CD1AA4AA9E00A9F99F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"xamoom\";\ncompanyID=\"com.xamoom\";\ncompanyURL=\"http://xamoom.com\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"~/dev/xamoom-ios-sdk-gh-pages/xamoom-ios-sdk/docs\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--ignore \"Pods\" \\\n--ignore \"xamoom-ios-sdk-testTests\" \\\n--ignore \"xamoom-ios-sdk-test\" \\\n--ignore \"lib\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}/../../src\" \\";
 		};
 		8DF25549D4BEB804D6A14F11 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -460,20 +429,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8801B4CB1AA4AA9700A9F99F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		8801B4CC1AA4AA9700A9F99F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		8858D2611A822513001B45D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -681,15 +636,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8801B4CA1AA4AA9700A9F99F /* Build configuration list for PBXAggregateTarget "documentation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8801B4CB1AA4AA9700A9F99F /* Debug */,
-				8801B4CC1AA4AA9700A9F99F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		8858D23B1A822513001B45D5 /* Build configuration list for PBXProject "xamoom-ios-sdk-example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -14,7 +14,12 @@
 		<key>XamoomSDK.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>20</integer>
+			<integer>5</integer>
+		</dict>
+		<key>documentation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>23</integer>
 		</dict>
 		<key>xamoom-ios-sdk.xcscheme</key>
 		<dict>
@@ -42,6 +47,11 @@
 			<true/>
 		</dict>
 		<key>880BE11E1C035E9100E97A74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88468A1B1C1F036300548DE7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
