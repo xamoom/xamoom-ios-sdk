@@ -1,1 +1,0 @@
-../../../../../../src/mapping/XMMClosestSpot.h

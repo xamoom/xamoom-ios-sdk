@@ -10,7 +10,7 @@ target 'XamoomSDK' do
   pod 'RestKit', '~> 0.25.0'
   pod 'QRCodeReaderViewController', '~> 2.0.0'
   pod 'SMCalloutView'
-  pod 'youtube-ios-player-helper', '~> 0.1.1'
+  pod 'youtube-ios-player-helper', '~> 0.1.5'
   pod 'SDWebImage', '~>3.7'
 end
 
@@ -19,7 +19,7 @@ target 'xamoom-ios-sdk' do
   pod 'RestKit', '~> 0.25.0'
   pod 'QRCodeReaderViewController', '~> 2.0.0'
   pod 'SMCalloutView'
-  pod 'youtube-ios-player-helper', '~> 0.1.1'
+  pod 'youtube-ios-player-helper', '~> 0.1.5'
   pod 'SDWebImage', '~>3.7'
 end
 
