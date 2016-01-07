@@ -294,7 +294,6 @@
 		884D3CAB1C0305A1007F0B0A /* XMMEnduserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 884D3C811C0305A1007F0B0A /* XMMEnduserApi.m */; };
 		886C706B1C0EDAD1008AC197 /* XMMEnduserApiIntegrationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 886C706A1C0EDAD1008AC197 /* XMMEnduserApiIntegrationTest.m */; };
 		886C70701C0EEE39008AC197 /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 886C706F1C0EEE39008AC197 /* TestingIDs.plist */; };
-		886C70791C0F2083008AC197 /* XMMImagesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 886C70781C0F2083008AC197 /* XMMImagesTest.m */; };
 		886C707E1C0F26C8008AC197 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886C707D1C0F26C8008AC197 /* Images.xcassets */; };
 		EDDD7FE2D3AB99CB978F588E /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E5634A1703946A95732063B /* libPods-XamoomSDK.a */; };
 /* End PBXBuildFile section */
@@ -779,7 +778,6 @@
 		886C706A1C0EDAD1008AC197 /* XMMEnduserApiIntegrationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMEnduserApiIntegrationTest.m; path = TestsUITests/IntegrationTest/XMMEnduserApiIntegrationTest.m; sourceTree = "<group>"; };
 		886C706F1C0EEE39008AC197 /* TestingIDs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestingIDs.plist; sourceTree = "<group>"; };
 		886C70771C0F1EA8008AC197 /* xamoom-ios-sdk.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "xamoom-ios-sdk.podspec"; sourceTree = "<group>"; };
-		886C70781C0F2083008AC197 /* XMMImagesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMImagesTest.m; sourceTree = "<group>"; };
 		886C707D1C0F26C8008AC197 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8E6168CBA4BCA9E467BBFFB1 /* Pods-xamoom-ios-sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xamoom-ios-sdk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-xamoom-ios-sdk/Pods-xamoom-ios-sdk.debug.xcconfig"; sourceTree = "<group>"; };
 		B1C7E9E72E0F088E1C200DE3 /* Pods-xamoom-ios-sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-xamoom-ios-sdk.release.xcconfig"; path = "Pods/Target Support Files/Pods-xamoom-ios-sdk/Pods-xamoom-ios-sdk.release.xcconfig"; sourceTree = "<group>"; };
@@ -843,7 +841,6 @@
 				880BDFFF1C03522200E97A74 /* XMMEnduserApiTest.m */,
 				880BE0011C03522200E97A74 /* Info.plist */,
 				886C706F1C0EEE39008AC197 /* TestingIDs.plist */,
-				886C70781C0F2083008AC197 /* XMMImagesTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1947,7 +1944,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				886C70791C0F2083008AC197 /* XMMImagesTest.m in Sources */,
 				880BE0001C03522200E97A74 /* XMMEnduserApiTest.m in Sources */,
 				886C706B1C0EDAD1008AC197 /* XMMEnduserApiIntegrationTest.m in Sources */,
 			);
@@ -2396,6 +2392,7 @@
 				88468A1D1C1F036300548DE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8866F4BB1C02FA77003C3363 /* Build configuration list for PBXProject "xamoom-ios-sdk" */ = {
 			isa = XCConfigurationList;

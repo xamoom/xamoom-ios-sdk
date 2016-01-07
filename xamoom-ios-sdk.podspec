@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   s.dependency 'RestKit', '~> 0.25.0'
   s.dependency 'QRCodeReaderViewController', '~> 2.0.0'
   s.dependency 'SMCalloutView'
-  s.dependency 'youtube-ios-player-helper', '~> 0.1.5'
+  s.dependency 'youtube-ios-player-helper', '= 0.1.4'
   s.dependency 'SDWebImage', '~>3.7'
 
 end
