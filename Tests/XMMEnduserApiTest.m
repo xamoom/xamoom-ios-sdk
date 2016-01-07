@@ -351,9 +351,10 @@
   
   [self.mockedApi spotMapWithMapTags:@[@"Tag1", @"Tag2"] withLanguage:@"de" includeContent:YES completion:^(XMMSpotMap *result) {
     XCTAssertNotNil(result);
+     OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:[OCMArg isEqual:checkDict] completion:[OCMArg any] error:[OCMArg any]]);
   } error:nil];
   
-  OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:[OCMArg isNotEqual:checkDict] completion:[OCMArg any] error:[OCMArg any]]);
+ 
 }
 
 - (void)testThatSpotMapWithTagsHandlesUmlautsInTags {
@@ -367,7 +368,7 @@
   [self.mockedApi spotMapWithMapTags:@[@"Täg1", @"Täg2"] withLanguage:@"de" includeContent:YES completion:^(XMMSpotMap *result) {
     XCTAssertNotNil(result);
     
-    OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:[OCMArg isNotEqual:checkDict] completion:[OCMArg any] error:[OCMArg any]]);
+    OCMVerify([self.mockedApi apiGetWithPath:[OCMArg isEqual:checkPath] andDescriptor:[OCMArg any] andParams:[OCMArg isEqual:checkDict] completion:[OCMArg any] error:[OCMArg any]]);
     
   } error:nil];
   
