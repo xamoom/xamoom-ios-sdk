@@ -30,7 +30,7 @@ PODS:
   - SMCalloutView (2.1.2)
   - SOCKit (1.1)
   - TransitionKit (2.1.1)
-  - xamoom-ios-sdk (1.4.1):
+  - xamoom-ios-sdk (1.4.2):
     - QRCodeReaderViewController (~> 2.0.0)
     - RestKit (~> 0.25.0)
     - SDWebImage (~> 3.7)
@@ -62,7 +62,7 @@ SPEC CHECKSUMS:
   SMCalloutView: 4078d89b847731e514b1a919fed33b383a24a106
   SOCKit: c7376ac262bea9115b8f749358f762522a47d392
   TransitionKit: 3a14b6acc7cf2d1dd3e454e24dbad1cfab9a1ef1
-  xamoom-ios-sdk: ca8bfb1b9a89efce3257a88a76d0f6cd88141025
+  xamoom-ios-sdk: 4cbbc15a286141fbf4a905882337aa2abfcc2525
   youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
 
 COCOAPODS: 0.39.0
