@@ -30,6 +30,7 @@
 @property (nonatomic, strong) IBOutlet YTPlayerView *playerView;
 @property (nonatomic, strong) MPMoviePlayerController *videoPlayer;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playIconImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 
 - (void)initVideoWithUrl:(NSString*)videoUrl andWidth:(float)width;
 

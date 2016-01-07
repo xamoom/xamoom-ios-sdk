@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) NSString* videoUrl;
 @property (nonatomic) float screenWidth;
+@property (nonatomic) UITapGestureRecognizer *tappedVideoViewRecognize;
 
 @end
 
@@ -37,15 +38,21 @@
 }
 
 - (void)initVideoWithUrl:(NSString*)videoUrl andWidth:(float)width {
-  self.playIconImageView.hidden = YES;
+  self.tappedVideoViewRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
+  [self.thumbnailImageView addGestureRecognizer:self.tappedVideoViewRecognize];
+
   NSString* youtubeVideoId = [self youtubeVideoIdFromUrl:videoUrl];
-  
+
   if (youtubeVideoId != nil) {
     //load video inside playerView
+    self.playerView.hidden = NO;
+    self.playIconImageView.hidden = YES;
+    self.thumbnailImageView.hidden = YES;
     [self.playerView loadWithVideoId:youtubeVideoId];
   } else {
+    self.playerView.hidden = YES;
     self.playIconImageView.hidden = NO;
-    
+    self.thumbnailImageView.hidden = NO;
     self.videoUrl = videoUrl;
     self.screenWidth = width-16;
     
@@ -83,9 +90,6 @@
  *  a imagethumbnail for the video.
  */
 - (void)initVideoPlayer {
-  UITapGestureRecognizer *tappedVideoView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
-  [self.playerView addGestureRecognizer:tappedVideoView];
-  
   self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL URLWithString:self.videoUrl]];
   
   [[NSNotificationCenter defaultCenter] addObserver:self
@@ -132,10 +136,7 @@
   NSDictionary *userInfo = [notification userInfo];
   UIImage *image = [userInfo valueForKey:MPMoviePlayerThumbnailImageKey];
   
-  UIImageView *thumbnailImageView = [[UIImageView alloc]initWithImage: image];
-  [thumbnailImageView setFrame: CGRectMake(0, 0, self.screenWidth, 201)];
-  
-  [self.playerView addSubview: thumbnailImageView];
+  self.thumbnailImageView.image = image;
 }
 
 @end
