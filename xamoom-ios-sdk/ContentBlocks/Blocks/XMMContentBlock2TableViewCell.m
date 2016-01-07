@@ -38,6 +38,7 @@
 }
 
 - (void)initVideoWithUrl:(NSString*)videoUrl andWidth:(float)width {
+  self.videoPlayer = nil;
   self.tappedVideoViewRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
   [self.thumbnailImageView addGestureRecognizer:self.tappedVideoViewRecognize];
 
@@ -91,6 +92,7 @@
  */
 - (void)initVideoPlayer {
   self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL URLWithString:self.videoUrl]];
+  self.videoPlayer.shouldAutoplay = NO;
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(didReceiveImage:)
@@ -135,7 +137,6 @@
 - (void)didReceiveImage:(NSNotification*)notification {
   NSDictionary *userInfo = [notification userInfo];
   UIImage *image = [userInfo valueForKey:MPMoviePlayerThumbnailImageKey];
-  
   self.thumbnailImageView.image = image;
 }
 
