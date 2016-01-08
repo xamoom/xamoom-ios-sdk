@@ -2061,6 +2061,7 @@
 			baseConfigurationReference = 662175CB374C08697D6A38DB /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"\"${PODS_ROOT}/Headers/Public\"/**",
@@ -2130,6 +2131,7 @@
 			baseConfigurationReference = F2EDEC5F2FB5B9E6A02E6D54 /* Pods-XamoomSDK.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2238,6 +2240,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2307,6 +2310,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8E6168CBA4BCA9E467BBFFB1 /* Pods-xamoom-ios-sdk.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bruno Hautzenberger (L86QBJXNW2)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)/**",
 					"\"${PODS_ROOT}/Headers/Public\"/**",
