@@ -22,7 +22,7 @@ Download the xamoom-ios-sdk and add it to your project. Don't forget to install 
 
 Add in your podfile
 
-    pod 'xamoom-ios-sdk', '~> 1.4.1'
+    pod 'xamoom-ios-sdk', '~> 1.4.2'
 
 Install pods via terminal
 
@@ -73,7 +73,7 @@ How to use it is in our [Step by Step Guide](https://github.com/xamoom/xamoom-io
 
 * ARC
 * Minimum iOS Target: iOS 8
-* [RestKit 0.24.1](https://github.com/RestKit/RestKit)
+* [RestKit](https://github.com/RestKit/RestKit)
 * [QRCodeReaderViewController 2.0.0](https://github.com/dlazaro66/QRCodeReaderView)
 * [SMCalloutView](https://github.com/nfarina/calloutview)
 * [SVGKit](https://github.com/SVGKit/SVGKit)
