@@ -22,7 +22,7 @@
 #import <dispatch/dispatch.h>
 
 NSString * const kApiBaseURLString =
-@"https://19-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
+@"https://21-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_ah/api/";
 
 static XMMEnduserApi *sharedInstance;
 
