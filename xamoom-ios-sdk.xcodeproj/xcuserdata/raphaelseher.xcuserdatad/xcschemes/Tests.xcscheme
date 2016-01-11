@@ -22,6 +22,11 @@
                BlueprintName = "Tests"
                ReferencedContainer = "container:xamoom-ios-sdk.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "XMMEnduserApiIntegrationTest">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <AdditionalOptions>
