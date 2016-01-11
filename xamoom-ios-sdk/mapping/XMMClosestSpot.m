@@ -29,12 +29,6 @@
                                                 }];
 
   RKObjectMapping* responseItemMapping = [XMMSpot mapping];
-  RKObjectMapping* responseStyleMapping = [XMMStyle mapping];
-  
-  // Create relationships
-  [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"style"
-                                                                                  toKeyPath:@"style"
-                                                                                withMapping:responseStyleMapping]];
   
   [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"items"
                                                                                   toKeyPath:@"items"

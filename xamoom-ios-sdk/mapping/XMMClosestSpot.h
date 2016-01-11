@@ -31,10 +31,6 @@
  */
 @property (nonatomic, copy) NSArray* items;
 /**
- * The style of the system as XMMStyle.
- */
-@property (nonatomic, copy) XMMStyle* style;
-/**
  * The requested radius in meter.
  */
 @property (nonatomic) int radius;
