@@ -1,1 +1,0 @@
-../../../../xamoom-ios-sdk/ContentBlocks/UIImage+animatedGIF.h

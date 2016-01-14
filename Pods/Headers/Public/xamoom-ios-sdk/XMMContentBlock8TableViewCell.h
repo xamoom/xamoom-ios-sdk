@@ -1,1 +1,0 @@
-../../../../xamoom-ios-sdk/ContentBlocks/Blocks/XMMContentBlock8TableViewCell.h
