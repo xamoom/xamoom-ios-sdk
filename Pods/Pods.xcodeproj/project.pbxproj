@@ -1,0 +1,1977 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0376660535C35513904321A0F388164B /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B9503B9CB079C911E3EFD67FA86197BC /* UIImageView+HighlightedWebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		03EF931564978791D4ABC400F3FDDBED /* OCMVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B7C1818B1C000E11390A8F33E084BDCF /* OCMVerifier.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		046937EA1C4859D4D96EFA7B7687E441 /* OCMBlockCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = C53D554438FBF81F5634B4E8DED7D090 /* OCMBlockCaller.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		091E5CE74D2C72F4D8AD44DB7412BA21 /* SMClassicCalloutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 59FE776BC48B0BA281B9900454FB29C3 /* SMClassicCalloutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0934D3DAC27331C1569A357A677B2206 /* NSMethodSignature+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = F14DD4AC7275EDC7A1FDFAD34EB58CB3 /* NSMethodSignature+OCMAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0A7C4089DBD8BD40374AFA8EEAB7CA3C /* OCMPassByRefSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1750C1C5527E359179AF00A911906C54 /* OCMPassByRefSetter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0AF7B2E7FBF18743FA3FB04C1EE1B71F /* XMMEnduserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 26444150FCB1368E0F36466301332E83 /* XMMEnduserApi.m */; };
+		0ED0CF96B64E746297A9077C0C2840D2 /* Pods-XamoomSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F65BEEA71DDEE5F1AA2FDCA3D8100CC /* Pods-XamoomSDK-dummy.m */; };
+		0EE98780873CB1A29EE8B4A36BA7E14A /* OCMFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = AB9D350F3D5237294AB8079C7A83653C /* OCMFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10AEAD2136880EEE7E771F533331F250 /* OCMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 57F4790F0F9E07A7E85BB6AE229092CB /* OCMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		149DE9C6DB74B12EFF07D185484D946F /* NSInvocation+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B59BBD8990748DD2EF8DD14EC3A6CC5B /* NSInvocation+OCMAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1583737E3363AEE587A71432B1F55E3C /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6EA421D2DB449B2A5CEAE6BFF53F63 /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1586CD3BDB1E92D87A0E423AAC313FD4 /* OCMObserverRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1450267277BC82EDFC02032DF3B0E /* OCMObserverRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1B7E21160BEF08CC76BA8C17E94E455A /* OCMLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A27EE1DB9C5DD56E169BE96747ECCA4 /* OCMLocation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1FA6CB28E290DEF3655FF5303C66653C /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = C7FDB28AA1B45F53B6E549DEA4761E97 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20C39DB909C33B491D60F23FA1D415C2 /* OCMRealObjectForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = FC54FC0096C5DEB0440231DDD1E0137A /* OCMRealObjectForwarder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		210DA71024E6E85FBC06B2AAA62E1753 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 77CF7D1D0DB1BC37B76F667DC432B4E7 /* Assets */; };
+		21296AD33490BF6C966F7FE354752766 /* QRCodeReaderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FA1A276EDCEA76206E580B7CFD7C8C5 /* QRCodeReaderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		258BF5592A711073E3F43C6F091514B6 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = E591586430EB08DA133F3D98119AD8FF /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AD6347BC7D2340AEFA07CA4B92BB56A /* SMCalloutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 16608B1EC9A3B8C7253DBF4C1288B6BE /* SMCalloutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D90DF2FBDE2078215CFC6749BC653F9 /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = C7F5652AE83F7D7EF5130A206C9E813F /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		301F7C934ECF434A84B8076221A08405 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B5229A13356C14EAB6CD3F74F0C5A5 /* UIImage+GIF.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		306BC8CDDA6102D49C4D69E130AAB8A0 /* SMClassicCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B6E24A4D8D542996C36C39CC5628121 /* SMClassicCalloutView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3152811CD17686AA726713BFE3612206 /* OCMConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = DCEFE0FF8CDC2D08A5C91532E62CFAD9 /* OCMConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33C4E9CA4B43CD4C468B338E2ED06860 /* OCMVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = C440BC6B40A8E9F4A045075BDD568D18 /* OCMVerifier.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3838EE82609F3FF58AF4667600280BFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */; };
+		385331156911D065E33061DC379146EC /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D499A54CC5778BD3B18062510D29E7 /* Pods-Example-dummy.m */; };
+		39377A3EA69804829504A4855F10F6AF /* QRCodeReaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = C894E05805DDF4FE77B7DBFE2551CF90 /* QRCodeReaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3A769EE15211B7EBBAF4B1C8AD542502 /* OCMFunctionsPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C9778271C83B01B053C51F6A54A255 /* OCMFunctionsPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3EEE56426C5838CA2F13E8F95B594401 /* OCMRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BA4569D7085237B2B6668A3CE6BD5A /* OCMRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		40B2ABF25812A14D83A05D8937FBDB7B /* OCProtocolMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7957AAC3FAD9F83F7527A6ED6D3A6B4C /* OCProtocolMockObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		42A90AAFA6FD5D714C2A44FC83ED76D7 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 013CE5A9F2F2E1B428A99EB7D48CD6DE /* QRCodeReaderView.m */; };
+		474B37EFDF96094DE5EB0298E8A4E02A /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D7AFB71D19A9DB1ABFE1E28E4B484213 /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AF9B8D7D3E7011BCBE43553515A9D06 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = D8E36E3649BDC3D417E4E8A0AB89529B /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4CF0A4AD04F2F3CF7465991A5E76AD47 /* OCMStubRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AD6FF98CE8F563FCCEB114561891B1 /* OCMStubRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4E663F57B8F4A8DA7EFAA15A76175013 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A66CF23E2F520FDE8137E8B5B26CAF7 /* SDWebImagePrefetcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		5046C90AFA4472F53065B879C62F785F /* SMCalloutView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F0AA57C81FC020D5203201B4A13D7E /* SMCalloutView-dummy.m */; };
+		504FF52E61CC719AD18EEFDB8F69F3D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */; };
+		54067AB3267F0C3A709A123EEAA51B28 /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9840D9813FCCB959A899C8D30998025 /* youtube-ios-player-helper-dummy.m */; };
+		559CE0008B87C8DDECE684C92CE0B9EF /* SDWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CDAAF774E92F2C02189EA47C7F76A45 /* SDWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55EA7FCA2F507BCC25959CE95D295A8C /* OCMConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 404193134CA6BDBFEC6D398F5BD2D4F1 /* OCMConstraint.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		55F2C7C98AB5E300663D064AAA64B80B /* OCMArgAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3D686858F39C337A4802AAF9CEC679 /* OCMArgAction.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		562C4A7A171B6F0000B132E22372C3DA /* OCPartialMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 00A3B9F4914A66941E57DF8C334C03CC /* OCPartialMockObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		59BC54DA90AD2433D20358F9853622CA /* OCMMacroState.m in Sources */ = {isa = PBXBuildFile; fileRef = 98585E122F08082E90120E0DDF6CA56B /* OCMMacroState.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5BB246B2587EBC3E5597DBD6CD33777F /* NSMethodSignature+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3619DEFDCC2F0E7798D246886EC57BDD /* NSMethodSignature+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5DC9074A05660BD269827A3BF210FBCB /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 42A4CFD943D45E5579B4C88C6C2EA657 /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5E279FED57021E3C50468564F86AA8A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */; };
+		5F04262019BBB326960E643861626099 /* OCMExceptionReturnValueProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D8DF2E26C6D409F5C2621E3219E0606 /* OCMExceptionReturnValueProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		651F3096B56BFF131C5F956001D7BAAB /* OCMArg.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B8EDA5482CEAF0701D648C779E22BF /* OCMArg.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		659547118E91A9F2E21FEF1B6B9BB1EC /* Pods-XamoomSDKTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41CF8BE1A6AE6CA26F11655F6D80C92A /* Pods-XamoomSDKTests-dummy.m */; };
+		65C81124CCD9B59B5F7309CF792F91A6 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = EF71CC0290148B09734584EC158D2EDF /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65FCAFA17AA78A2693CBCB1E59BC927A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */; };
+		672FE514B7C1EB583AF6CEB2538025A7 /* OCMBoxedReturnValueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9919B2F952AE826A9F792229BC9AAA39 /* OCMBoxedReturnValueProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6A2F82E51C02CEE59AD40F0C814CE3C7 /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = E8985B1CE8B17F124274A3F2B4673018 /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D2AD1DFA8F27BA0EBB3365A5AF7AC1B /* OCMExpectationRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5C289928A836E34F4607B6D6894821 /* OCMExpectationRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		70AC31D0736F568C0386716176361D09 /* OCMInvocationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BCD191D955DF8E83528A53A9BD805E6 /* OCMInvocationMatcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		71899DFD8094C412FFC39669279B4533 /* OCMBlockArgCaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BBECD62B343024415A5523AE57C5AC9 /* OCMBlockArgCaller.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7202314421C001C0AFA99EA69C11B496 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4331B3830E843CFDCF5FFAACF9BBC79F /* SDWebImageDownloader.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7703A4B63CB42A4BF7A6A3E12E05998E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B278737E9F8477C6D26003E71D535C /* AVFoundation.framework */; };
+		7EE0FD33AB30006545874DEF02F9243E /* OCMNotificationPoster.m in Sources */ = {isa = PBXBuildFile; fileRef = 580E63B7C73EADD32C497DBFE094A00B /* OCMNotificationPoster.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7FFCEEC0036EC9E7A5D3BAD719B28D4A /* NSNotificationCenter+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F7AA2E55FEEA5137B0C7DC79CA088C /* NSNotificationCenter+OCMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		830B3A29668D59C62571A4CE4D3BAFCA /* OCMIndirectReturnValueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C7485C9BB2F7790A97F10B567DCE38 /* OCMIndirectReturnValueProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		83F45BA6CA0D1275C1E3D08E62CB474D /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0040ED08DA08165ACD189ACC27FB3A84 /* SDWebImageCompat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		853D485B6A9D8FC87DADBC4B6E8592F2 /* SMCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3419E03892755C108A835326F6471734 /* SMCalloutView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		87AA263FA688A8E92C2B8ADEE72C98C6 /* OCMObserverRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = B131722750A60BDB5562B50FCD79496A /* OCMObserverRecorder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		89C4D809D31F9ACBE828E2EB60EFB6F1 /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = DEBBDE75E56AF6D121C310FA497F729A /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A1370FF0DD475F945954535A988ED4B /* OCMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA988E52FD4323691D2E85EFC25AC2B /* OCMockObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C27A92374D3E33B05F61268CC49BD15 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97FC20E5AF00CDC22A1DE5A5E5DC130C /* ImageIO.framework */; };
+		8C75AB12539CB3DA57C1E16B113C60BF /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 710249E95CEBD6A20A67E7C6C0FF08B0 /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8CB6964DDBFD04D96FDDA6F7E81A0D49 /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DD777F656A3613619EB3F7CD94170DA /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D40AF80800C0D4A691F4A0656E53D98 /* OCMRealObjectForwarder.h in Headers */ = {isa = PBXBuildFile; fileRef = 74A1F03ECA1AF75905CA5C70B5E6278C /* OCMRealObjectForwarder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		94216C983E91F2BA503920465DE1972A /* OCClassMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 164AA36DCB205F5995E8A3F7BE97C0D2 /* OCClassMockObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		950C209E1D004EBDCD43D6C2136B5AA2 /* OCMStubRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = A60BBB5177B2160A172CFF019B93CBF4 /* OCMStubRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95EE99536A12DFF0EDA3D610542AF982 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA58D5CE80A79B9B8399C7FD56B76BBD /* YTPlayerView.m */; };
+		99D8E081BBDAAB3E486B6005D3EC3C86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */; };
+		9C195CB2280DCD3183057794B4504B22 /* OCMRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B31F51D28835B98DE5C534F37527901 /* OCMRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9ED6B48F0C000C83C89249483D3398A6 /* OCMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = A46804746D5FBF72B022DE0E5699CE86 /* OCMFunctions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9EFF231139874814ED1D570A736A53C5 /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DCFF534780A7D42722BE4DE9631807 /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A425B4C6EAA79B2C9BB4F374180DC194 /* NSValue+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E46611946CBF61460701EBD8FFAE9FA /* NSValue+OCMAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A516CB608A827C4FEA550CB372854AF7 /* OCMReturnValueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 48798F0BEDA5F8FC181F3963C2C43060 /* OCMReturnValueProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AD672A92EF1A71CB35F77D51924A63D7 /* OCMInvocationStub.h in Headers */ = {isa = PBXBuildFile; fileRef = 36A02DBD488996719EEDD4C46C3A8A75 /* OCMInvocationStub.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AE123A906880E696210B850EE5338879 /* XamoomSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A0361E3E6E902E8A1319874AF95380 /* XamoomSDK-dummy.m */; };
+		AFD33EF9208B2D731D6524846CBD63B2 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0D7A628AC5C0EC2B1FFAA644EBCD80 /* UIView+WebCacheOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B214E38661DDEEFE310883264B6B2D2C /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA39F160EA7E1F2CBA98101359AFE7 /* UIImage+MultiFormat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B28B82281F2A75B1A27E9B1B289B179D /* OCClassMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFC7DCD746E9B847276FCD7B414828C /* OCClassMockObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B36995CF7E36CC57C8C118EC5EC049A6 /* OCMock-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB876C2FEAA2395E3CAD8C545B73E22B /* OCMock-dummy.m */; };
+		B4D6973B3F74EB04E719BFCFCBF04C0B /* OCMInvocationStub.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CD712DBC28A9DFC5572F91B1196DC9 /* OCMInvocationStub.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BB0407926CEEED89D7194B2A06D6BA4B /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A4B5606CDB46D1D499F526C663CEFDE /* SDWebImageDecoder.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BC7143B82E45DDE808B1D8E8F6970E41 /* OCMInvocationExpectation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A2F14E60FC51128ED5310A09B76C374 /* OCMInvocationExpectation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BDCCA27A20BDEC98F747685D5D2C29D2 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 053C536B64DA35ACB2A022B148119BD0 /* QRCodeReaderViewController.m */; };
+		C01520F21314A4A11E0BD5C9BE190A1A /* OCMExpectationRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = C7789BC912547AB1F2C661EDE3A96CC9 /* OCMExpectationRecorder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C08547E5CA5B54C8B9B5D874A5124B80 /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C066929823C9BA28A04065A134D1A6D /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4235F3704F471BAF74CB4482A99D340 /* OCMReturnValueProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B6074A34A0BA7B5EFA8B6F1C3A9700 /* OCMReturnValueProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C45791D2CDDE7656B015A2B32F29C239 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B4BAD2E2811A76312807CE4E3B17908 /* SDWebImageDownloaderOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C493A227513DAE0AC313E42B89414A24 /* XamoomSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 496E24EC87C3084770817BB6E0F982DC /* XamoomSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C508640C7607A5BE183916AC4202A026 /* OCMInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE70D31EBBADB0A6F807264747F0526 /* OCMInvocationMatcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C55C0B0594D26DE09DEC7F161910A211 /* OCObserverMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E03DB481A4C258EE6B2BDD886D2BAC7 /* OCObserverMockObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C59E1F2700CE54B42AB6A800257388E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */; };
+		C6DEDAD5B01946A2644F428020F881B6 /* OCObserverMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF47EE1FDCDC1CC13E6281669D42BBC /* OCObserverMockObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C796F27878B148315E4EB60535EEA4BE /* OCMLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 828013597CBDBB04FCF23A22A16E8382 /* OCMLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8C76B487CF73771E0F23367C3C558FF /* QRCodeReaderViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 612ADEFC88CB1F543B651F95DA2E6DC8 /* QRCodeReaderViewController-dummy.m */; };
+		CACD25DE3170225313C94FFCD87383FF /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B44C8D840986FB4FEA9A769925D0372 /* SDImageCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CB56538D4891DB3214F84762AAB4919D /* QRCodeReaderDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 57AEF514AD7313CFF50448D82FE2F0A0 /* QRCodeReaderDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CBEB8931AD01AAF183FA5FAC2CA7A35B /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D73D6C2C01B520A0BAB0CB27F80AD00 /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC40C17D2E01DDDF48A7A8D50B8E92F8 /* OCMMacroState.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C719B8BB280D10711FD246EE74FE837 /* OCMMacroState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC4F14C27B167A64F09A356652410909 /* OCMInvocationExpectation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CB6FAD9F0FD032BE5FB19061AF169AA /* OCMInvocationExpectation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CC5C84B30927F4CE48D7EC04BF652005 /* OCMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F2081CBE496F2D5460B81F517F8555 /* OCMockObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CE1D11A21BB0D710B640F31B18935BF3 /* NSObject+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 98605BE395F959AD02B11D4D3CE43B7A /* NSObject+OCMAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D470FD7FF206B100A7B79714E7FA0F4A /* OCMNotificationPoster.h in Headers */ = {isa = PBXBuildFile; fileRef = F5C67F0A1AA1E39B5776EB2277759EC2 /* OCMNotificationPoster.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D78D41AA2CEB6ED571503108CEC3DA15 /* OCMArg.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC75B7D8167A772DF809AA84BF150BF /* OCMArg.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D993321E387EBCA8C28C3E23C2BB5C2A /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18439658C8BF90B67A5D98D989362CC4 /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D9EA9C8052853B8962318FFD5A5551B6 /* OCMExceptionReturnValueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F203AC8530429822625783F0D66107 /* OCMExceptionReturnValueProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DADACF239B30C047FA9304E5FDDA8B2E /* NSObject+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CBFA36934A710D4ACE15DFC1ED94876F /* NSObject+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DBF023C58AFF96EEBE7BAC2F1B5708D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */; };
+		DE57384C891A85506CB91EA186D2D2B4 /* OCMArgAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9DB6A5BF370CB2DED12DC176F97FCF /* OCMArgAction.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DF0A3CB81B12C054F9C8258F680F7C9D /* OCPartialMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B04C3C7AF1BD000EAEBC8E2F91C33C /* OCPartialMockObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E00ABE7FC44CB9D1B511D96D47C16AD5 /* NSInvocation+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B47CDBCE0158929CC5D217E3E941 /* NSInvocation+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0D0C46A1645F7AEDD8792585D6F97E4 /* QRCameraSwitchButton.h in Headers */ = {isa = PBXBuildFile; fileRef = BB2B78D79A559D9EC74B7FAC8FD06CCE /* QRCameraSwitchButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2D2C2DEBBB651077ABC3710A423594F /* NSValue+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCA116DE02E5AFE0C8C6105DA447CF5 /* NSValue+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E45D617A6259C90DC54D6F22571998E8 /* OCMPassByRefSetter.h in Headers */ = {isa = PBXBuildFile; fileRef = D2A4C48F0645B718FDD05DF5FCC861DB /* OCMPassByRefSetter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E8CDCEDCDC0ADE51EBAFCC09F44EFF12 /* OCMBlockArgCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = AD840722EE621C557C4BA6B0A1B0FF1B /* OCMBlockArgCaller.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E9224E7497E34B6FBD102C3074F56915 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */; };
+		EA2A970253EA9B298F0BB63864AA18D1 /* OCProtocolMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A6254B770E4FC3CE786ACD1B0454F171 /* OCProtocolMockObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		EB9DB43264F98D4FBC81491675B4FF6F /* XMMEnduserApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 26D4005AE04CA7EEF3FE69D876FCC1CF /* XMMEnduserApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC56B83D7F438411E75FD68EF14EC637 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */; };
+		EEBEC3C68DD8C679511876B4610D582A /* OCMBoxedReturnValueProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B7C611CB990B4949A48D08217BEFD55 /* OCMBoxedReturnValueProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F0E9BE1709D8B3501A9E791E8D36FBED /* NSNotificationCenter+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 992150108B00A91E29074D5F1C55D1F8 /* NSNotificationCenter+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FA678310C772D50B6EAC3F54403904C1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1800155DDCB2941EBFB5D0D23B7D91 /* NSData+ImageContentType.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FB294C8C8DCC4EACB074C58C027C9723 /* OCMIndirectReturnValueProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 20A3A80543F4F9D6F50298F9D52B1246 /* OCMIndirectReturnValueProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FBF6F5F47A0219AF718E591ABD59BFFB /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A741D32CA97D306382A3254B050C392D /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FDFD77CF38AE5FDD235A02217B763809 /* OCMBlockCaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D56D27349B22EE4AE409F00B00161D2 /* OCMBlockCaller.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FEB6DF1A919287988D34068D10B797A8 /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB73AD5C2E31B36B240291F4910B71B /* QRCameraSwitchButton.m */; };
+		FED68C89D668DFECC5F088CF7B21B411 /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D1EB73DFA29A3A6223AE71D2B33AA61 /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFC14D99B0237EBB230622CBBE76D126 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 644D15A44B473FBF87F4624069B2458B /* SDWebImage-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2704D052942EFEEC7E9A104D583507D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7C9A399BD3A6309C4B1F45F54274546F;
+			remoteInfo = "youtube-ios-player-helper-Assets";
+		};
+		295493BAF7437B39128E809EB4C87594 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67A33FD56D224BE3B4C3248A8C99573D;
+			remoteInfo = SMCalloutView;
+		};
+		38FC4BAE307820DBB95C1EE8D5D46418 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA49DE67CE788AD6A6CE04DCDFFBCBD9;
+			remoteInfo = XamoomSDK;
+		};
+		3FA181630D137A20DEF671B873CE9275 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8246FD6BC541E26248D19C7459D98B60;
+			remoteInfo = QRCodeReaderViewController;
+		};
+		40C669B48AC5E71261FE1743A980FCEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8246FD6BC541E26248D19C7459D98B60;
+			remoteInfo = QRCodeReaderViewController;
+		};
+		5BA0149DE752D434A95BAA2A13698B04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 468F871D1134F982A87EF9A3A9DEAD21;
+			remoteInfo = "youtube-ios-player-helper";
+		};
+		89AD83962EECBBBA068D335A987ECA43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46F3E973AEA9D8C0CF64175162A369BB;
+			remoteInfo = SDWebImage;
+		};
+		8C6DD80D5AC300D8B74E48BD9C55FFC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46F3E973AEA9D8C0CF64175162A369BB;
+			remoteInfo = SDWebImage;
+		};
+		975866BA8CDD782699302AC7234BA624 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 468F871D1134F982A87EF9A3A9DEAD21;
+			remoteInfo = "youtube-ios-player-helper";
+		};
+		AF08618C785F797FABE01FFBD3D3D169 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46F3E973AEA9D8C0CF64175162A369BB;
+			remoteInfo = SDWebImage;
+		};
+		BBB92DE69D0D253A8C1F4A89F1335A97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67A33FD56D224BE3B4C3248A8C99573D;
+			remoteInfo = SMCalloutView;
+		};
+		C856533FE9E183B8D0B688E7FC705493 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8246FD6BC541E26248D19C7459D98B60;
+			remoteInfo = QRCodeReaderViewController;
+		};
+		C888EB19AAC90B079814B395A18B049A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A2CAA839F2722C796C6F1DFDC806B92;
+			remoteInfo = OCMock;
+		};
+		CD8FFEABE6A336FCE4D936E6C59F621D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67A33FD56D224BE3B4C3248A8C99573D;
+			remoteInfo = SMCalloutView;
+		};
+		CF99FBFC65CD26AD15C391D4BC662FED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 468F871D1134F982A87EF9A3A9DEAD21;
+			remoteInfo = "youtube-ios-player-helper";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0040ED08DA08165ACD189ACC27FB3A84 /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
+		00A3B9F4914A66941E57DF8C334C03CC /* OCPartialMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCPartialMockObject.h; path = Source/OCMock/OCPartialMockObject.h; sourceTree = "<group>"; };
+		013CE5A9F2F2E1B428A99EB7D48CD6DE /* QRCodeReaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderView.m; path = QRCodeReaderViewController/QRCodeReaderView.m; sourceTree = "<group>"; };
+		053C536B64DA35ACB2A022B148119BD0 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderViewController.m; path = QRCodeReaderViewController/QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		0B4BAD2E2811A76312807CE4E3B17908 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
+		0CD1863A8879D87A94D4590BFBC73941 /* Pods-XamoomSDK-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XamoomSDK-resources.sh"; sourceTree = "<group>"; };
+		0F65BEEA71DDEE5F1AA2FDCA3D8100CC /* Pods-XamoomSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XamoomSDK-dummy.m"; sourceTree = "<group>"; };
+		12C68B518CBDB2291ACFDF22816AD0BE /* XamoomSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XamoomSDK.xcconfig; sourceTree = "<group>"; };
+		164AA36DCB205F5995E8A3F7BE97C0D2 /* OCClassMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCClassMockObject.h; path = Source/OCMock/OCClassMockObject.h; sourceTree = "<group>"; };
+		16608B1EC9A3B8C7253DBF4C1288B6BE /* SMCalloutView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SMCalloutView.h; sourceTree = "<group>"; };
+		171EDB338B9611A6E7235C50BD159E69 /* youtube-ios-player-helper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.xcconfig"; sourceTree = "<group>"; };
+		1750C1C5527E359179AF00A911906C54 /* OCMPassByRefSetter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMPassByRefSetter.m; path = Source/OCMock/OCMPassByRefSetter.m; sourceTree = "<group>"; };
+		17CD712DBC28A9DFC5572F91B1196DC9 /* OCMInvocationStub.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMInvocationStub.m; path = Source/OCMock/OCMInvocationStub.m; sourceTree = "<group>"; };
+		17F7AA2E55FEEA5137B0C7DC79CA088C /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNotificationCenter+OCMAdditions.h"; path = "Source/OCMock/NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
+		18439658C8BF90B67A5D98D989362CC4 /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
+		1A30DB1876417CF4AC7E3FD77F62B8CD /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AE44954C087A28861BE23F55C9CE4B7 /* Pods-Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-resources.sh"; sourceTree = "<group>"; };
+		1B6E24A4D8D542996C36C39CC5628121 /* SMClassicCalloutView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SMClassicCalloutView.m; sourceTree = "<group>"; };
+		1B70088DC6C6B2ED67020BB2B47BC615 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
+		1C066929823C9BA28A04065A134D1A6D /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
+		1C719B8BB280D10711FD246EE74FE837 /* OCMMacroState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMMacroState.h; path = Source/OCMock/OCMMacroState.h; sourceTree = "<group>"; };
+		1C814AB962BABDC7CB8C2331AE0CE50A /* Assets.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Assets.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CB6FAD9F0FD032BE5FB19061AF169AA /* OCMInvocationExpectation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMInvocationExpectation.m; path = Source/OCMock/OCMInvocationExpectation.m; sourceTree = "<group>"; };
+		1CCA116DE02E5AFE0C8C6105DA447CF5 /* NSValue+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValue+OCMAdditions.m"; path = "Source/OCMock/NSValue+OCMAdditions.m"; sourceTree = "<group>"; };
+		1D3D686858F39C337A4802AAF9CEC679 /* OCMArgAction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMArgAction.m; path = Source/OCMock/OCMArgAction.m; sourceTree = "<group>"; };
+		1D8DF2E26C6D409F5C2621E3219E0606 /* OCMExceptionReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMExceptionReturnValueProvider.h; path = Source/OCMock/OCMExceptionReturnValueProvider.h; sourceTree = "<group>"; };
+		20A3A80543F4F9D6F50298F9D52B1246 /* OCMIndirectReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMIndirectReturnValueProvider.h; path = Source/OCMock/OCMIndirectReturnValueProvider.h; sourceTree = "<group>"; };
+		227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		22B6074A34A0BA7B5EFA8B6F1C3A9700 /* OCMReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMReturnValueProvider.h; path = Source/OCMock/OCMReturnValueProvider.h; sourceTree = "<group>"; };
+		233A39F12E3A8A550870CB3CF7DAE35F /* libXamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXamoomSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		24A0361E3E6E902E8A1319874AF95380 /* XamoomSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XamoomSDK-dummy.m"; sourceTree = "<group>"; };
+		26444150FCB1368E0F36466301332E83 /* XMMEnduserApi.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMEnduserApi.m; sourceTree = "<group>"; };
+		26D4005AE04CA7EEF3FE69D876FCC1CF /* XMMEnduserApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMEnduserApi.h; sourceTree = "<group>"; };
+		2A27EE1DB9C5DD56E169BE96747ECCA4 /* OCMLocation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMLocation.m; path = Source/OCMock/OCMLocation.m; sourceTree = "<group>"; };
+		2BC75B7D8167A772DF809AA84BF150BF /* OCMArg.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMArg.h; path = Source/OCMock/OCMArg.h; sourceTree = "<group>"; };
+		2C38F513951CEC6F47A63C185D8BDFA8 /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
+		2CDAAF774E92F2C02189EA47C7F76A45 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
+		2D73D6C2C01B520A0BAB0CB27F80AD00 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
+		2E03DB481A4C258EE6B2BDD886D2BAC7 /* OCObserverMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCObserverMockObject.m; path = Source/OCMock/OCObserverMockObject.m; sourceTree = "<group>"; };
+		2E103A0F5712E4ECD591B975BEE90410 /* libSMCalloutView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSMCalloutView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E7222145ACF476A3F5D8EE943833F3F /* youtube-ios-player-helper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-prefix.pch"; sourceTree = "<group>"; };
+		330B0B8F8936F48499A814A2470C1B31 /* XamoomSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XamoomSDK-prefix.pch"; sourceTree = "<group>"; };
+		3419E03892755C108A835326F6471734 /* SMCalloutView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SMCalloutView.m; sourceTree = "<group>"; };
+		3619DEFDCC2F0E7798D246886EC57BDD /* NSMethodSignature+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMethodSignature+OCMAdditions.m"; path = "Source/OCMock/NSMethodSignature+OCMAdditions.m"; sourceTree = "<group>"; };
+		36A02DBD488996719EEDD4C46C3A8A75 /* OCMInvocationStub.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMInvocationStub.h; path = Source/OCMock/OCMInvocationStub.h; sourceTree = "<group>"; };
+		37B5229A13356C14EAB6CD3F74F0C5A5 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
+		3DD777F656A3613619EB3F7CD94170DA /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		3E9DB6A5BF370CB2DED12DC176F97FCF /* OCMArgAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMArgAction.h; path = Source/OCMock/OCMArgAction.h; sourceTree = "<group>"; };
+		404193134CA6BDBFEC6D398F5BD2D4F1 /* OCMConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMConstraint.m; path = Source/OCMock/OCMConstraint.m; sourceTree = "<group>"; };
+		40788747C476DDDAC77C5527B0D45A11 /* SMCalloutView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SMCalloutView-prefix.pch"; sourceTree = "<group>"; };
+		41CF8BE1A6AE6CA26F11655F6D80C92A /* Pods-XamoomSDKTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XamoomSDKTests-dummy.m"; sourceTree = "<group>"; };
+		42614559E1F8BA0DC0D857E6CF872A46 /* Pods-XamoomSDKTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XamoomSDKTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		42A4CFD943D45E5579B4C88C6C2EA657 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
+		42AD6FF98CE8F563FCCEB114561891B1 /* OCMStubRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMStubRecorder.m; path = Source/OCMock/OCMStubRecorder.m; sourceTree = "<group>"; };
+		4331B3830E843CFDCF5FFAACF9BBC79F /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/SDWebImageDownloader.m; sourceTree = "<group>"; };
+		437C83107DE74112F3E54D1A6CAFC478 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		45B8EDA5482CEAF0701D648C779E22BF /* OCMArg.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMArg.m; path = Source/OCMock/OCMArg.m; sourceTree = "<group>"; };
+		45CFEB42FCBF2EE420BD6C1BA327BECB /* QRCodeReaderViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "QRCodeReaderViewController-prefix.pch"; sourceTree = "<group>"; };
+		45DD1BFC82C92E6862ACA0E600AA19BD /* QRCodeReaderViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = QRCodeReaderViewController.xcconfig; sourceTree = "<group>"; };
+		48798F0BEDA5F8FC181F3963C2C43060 /* OCMReturnValueProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMReturnValueProvider.m; path = Source/OCMock/OCMReturnValueProvider.m; sourceTree = "<group>"; };
+		496E24EC87C3084770817BB6E0F982DC /* XamoomSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XamoomSDK.h; sourceTree = "<group>"; };
+		4A66CF23E2F520FDE8137E8B5B26CAF7 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		4B31F51D28835B98DE5C534F37527901 /* OCMRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMRecorder.h; path = Source/OCMock/OCMRecorder.h; sourceTree = "<group>"; };
+		4C43F609E91C1F61E1103EBCB3ED2447 /* Pods-XamoomSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XamoomSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		4E46611946CBF61460701EBD8FFAE9FA /* NSValue+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValue+OCMAdditions.h"; path = "Source/OCMock/NSValue+OCMAdditions.h"; sourceTree = "<group>"; };
+		4FA1A276EDCEA76206E580B7CFD7C8C5 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderViewController.h; path = QRCodeReaderViewController/QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		503740A0EECBA9BC99AD5BFA99969317 /* Pods-XamoomSDKTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XamoomSDKTests-frameworks.sh"; sourceTree = "<group>"; };
+		52E1450267277BC82EDFC02032DF3B0E /* OCMObserverRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMObserverRecorder.m; path = Source/OCMock/OCMObserverRecorder.m; sourceTree = "<group>"; };
+		57AEF514AD7313CFF50448D82FE2F0A0 /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderDelegate.h; path = QRCodeReaderViewController/QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		57F4790F0F9E07A7E85BB6AE229092CB /* OCMock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMock.h; path = Source/OCMock/OCMock.h; sourceTree = "<group>"; };
+		580E63B7C73EADD32C497DBFE094A00B /* OCMNotificationPoster.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMNotificationPoster.m; path = Source/OCMock/OCMNotificationPoster.m; sourceTree = "<group>"; };
+		58BA4569D7085237B2B6668A3CE6BD5A /* OCMRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMRecorder.m; path = Source/OCMock/OCMRecorder.m; sourceTree = "<group>"; };
+		59FE776BC48B0BA281B9900454FB29C3 /* SMClassicCalloutView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SMClassicCalloutView.h; sourceTree = "<group>"; };
+		5D0D7A628AC5C0EC2B1FFAA644EBCD80 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		5FA988E52FD4323691D2E85EFC25AC2B /* OCMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMockObject.h; path = Source/OCMock/OCMockObject.h; sourceTree = "<group>"; };
+		612ADEFC88CB1F543B651F95DA2E6DC8 /* QRCodeReaderViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "QRCodeReaderViewController-dummy.m"; sourceTree = "<group>"; };
+		644D15A44B473FBF87F4624069B2458B /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
+		68BA39F160EA7E1F2CBA98101359AFE7 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
+		69D499A54CC5778BD3B18062510D29E7 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
+		6A2F14E60FC51128ED5310A09B76C374 /* OCMInvocationExpectation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMInvocationExpectation.h; path = Source/OCMock/OCMInvocationExpectation.h; sourceTree = "<group>"; };
+		6A4B5606CDB46D1D499F526C663CEFDE /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
+		6B41D559AB454B2179C072428B0BF7A6 /* OCMock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OCMock.xcconfig; sourceTree = "<group>"; };
+		6D5C289928A836E34F4607B6D6894821 /* OCMExpectationRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMExpectationRecorder.m; path = Source/OCMock/OCMExpectationRecorder.m; sourceTree = "<group>"; };
+		6DFB91796B5ACD79B7842C48D2778811 /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		710249E95CEBD6A20A67E7C6C0FF08B0 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		74A1F03ECA1AF75905CA5C70B5E6278C /* OCMRealObjectForwarder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMRealObjectForwarder.h; path = Source/OCMock/OCMRealObjectForwarder.h; sourceTree = "<group>"; };
+		77CF7D1D0DB1BC37B76F667DC432B4E7 /* Assets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		78662DAC26B5AA5DA48DD987167112C6 /* libOCMock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOCMock.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7957AAC3FAD9F83F7527A6ED6D3A6B4C /* OCProtocolMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCProtocolMockObject.h; path = Source/OCMock/OCProtocolMockObject.h; sourceTree = "<group>"; };
+		7B44C8D840986FB4FEA9A769925D0372 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
+		7BBECD62B343024415A5523AE57C5AC9 /* OCMBlockArgCaller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMBlockArgCaller.h; path = Source/OCMock/OCMBlockArgCaller.h; sourceTree = "<group>"; };
+		81078FAE1CBDD9369D051B93702DD35C /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		828013597CBDBB04FCF23A22A16E8382 /* OCMLocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMLocation.h; path = Source/OCMock/OCMLocation.h; sourceTree = "<group>"; };
+		85F2081CBE496F2D5460B81F517F8555 /* OCMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMockObject.m; path = Source/OCMock/OCMockObject.m; sourceTree = "<group>"; };
+		89DCFF534780A7D42722BE4DE9631807 /* YTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTPlayerView.h; path = Classes/YTPlayerView.h; sourceTree = "<group>"; };
+		8BCD191D955DF8E83528A53A9BD805E6 /* OCMInvocationMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMInvocationMatcher.h; path = Source/OCMock/OCMInvocationMatcher.h; sourceTree = "<group>"; };
+		8D1EB73DFA29A3A6223AE71D2B33AA61 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		8D56D27349B22EE4AE409F00B00161D2 /* OCMBlockCaller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMBlockCaller.h; path = Source/OCMock/OCMBlockCaller.h; sourceTree = "<group>"; };
+		8DB73AD5C2E31B36B240291F4910B71B /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QRCameraSwitchButton.m; path = QRCodeReaderViewController/QRCameraSwitchButton.m; sourceTree = "<group>"; };
+		97FC20E5AF00CDC22A1DE5A5E5DC130C /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		98585E122F08082E90120E0DDF6CA56B /* OCMMacroState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMMacroState.m; path = Source/OCMock/OCMMacroState.m; sourceTree = "<group>"; };
+		98605BE395F959AD02B11D4D3CE43B7A /* NSObject+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+OCMAdditions.h"; path = "Source/OCMock/NSObject+OCMAdditions.h"; sourceTree = "<group>"; };
+		9919B2F952AE826A9F792229BC9AAA39 /* OCMBoxedReturnValueProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBoxedReturnValueProvider.m; path = Source/OCMock/OCMBoxedReturnValueProvider.m; sourceTree = "<group>"; };
+		992150108B00A91E29074D5F1C55D1F8 /* NSNotificationCenter+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNotificationCenter+OCMAdditions.m"; path = "Source/OCMock/NSNotificationCenter+OCMAdditions.m"; sourceTree = "<group>"; };
+		9A6EA421D2DB449B2A5CEAE6BFF53F63 /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
+		9B7C611CB990B4949A48D08217BEFD55 /* OCMBoxedReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMBoxedReturnValueProvider.h; path = Source/OCMock/OCMBoxedReturnValueProvider.h; sourceTree = "<group>"; };
+		9BFC7DCD746E9B847276FCD7B414828C /* OCClassMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCClassMockObject.m; path = Source/OCMock/OCClassMockObject.m; sourceTree = "<group>"; };
+		9C95B47CDBCE0158929CC5D217E3E941 /* NSInvocation+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+OCMAdditions.m"; path = "Source/OCMock/NSInvocation+OCMAdditions.m"; sourceTree = "<group>"; };
+		A46804746D5FBF72B022DE0E5699CE86 /* OCMFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMFunctions.m; path = Source/OCMock/OCMFunctions.m; sourceTree = "<group>"; };
+		A60BBB5177B2160A172CFF019B93CBF4 /* OCMStubRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMStubRecorder.h; path = Source/OCMock/OCMStubRecorder.h; sourceTree = "<group>"; };
+		A6254B770E4FC3CE786ACD1B0454F171 /* OCProtocolMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCProtocolMockObject.m; path = Source/OCMock/OCProtocolMockObject.m; sourceTree = "<group>"; };
+		A741D32CA97D306382A3254B050C392D /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		A7C7485C9BB2F7790A97F10B567DCE38 /* OCMIndirectReturnValueProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMIndirectReturnValueProvider.m; path = Source/OCMock/OCMIndirectReturnValueProvider.m; sourceTree = "<group>"; };
+		A90663D284B66520E118886795B025A1 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		A9F1C6A537F94F4E68F9E859137D5B47 /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB1800155DDCB2941EBFB5D0D23B7D91 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
+		AB9D350F3D5237294AB8079C7A83653C /* OCMFunctions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMFunctions.h; path = Source/OCMock/OCMFunctions.h; sourceTree = "<group>"; };
+		ABE63B64FE141E0B297DCA2EC4B956D9 /* Pods-XamoomSDK-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XamoomSDK-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ACC98331F0195754542096B8F1D57EFD /* Pods-XamoomSDK-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XamoomSDK-frameworks.sh"; sourceTree = "<group>"; };
+		AD840722EE621C557C4BA6B0A1B0FF1B /* OCMBlockArgCaller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBlockArgCaller.m; path = Source/OCMock/OCMBlockArgCaller.m; sourceTree = "<group>"; };
+		B131722750A60BDB5562B50FCD79496A /* OCMObserverRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMObserverRecorder.h; path = Source/OCMock/OCMObserverRecorder.h; sourceTree = "<group>"; };
+		B3A081DD4E88097CE9C0996A6BA7B2C3 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B59BBD8990748DD2EF8DD14EC3A6CC5B /* NSInvocation+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+OCMAdditions.h"; path = "Source/OCMock/NSInvocation+OCMAdditions.h"; sourceTree = "<group>"; };
+		B7C1818B1C000E11390A8F33E084BDCF /* OCMVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMVerifier.m; path = Source/OCMock/OCMVerifier.m; sourceTree = "<group>"; };
+		B9503B9CB079C911E3EFD67FA86197BC /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
+		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BB2B78D79A559D9EC74B7FAC8FD06CCE /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCameraSwitchButton.h; path = QRCodeReaderViewController/QRCameraSwitchButton.h; sourceTree = "<group>"; };
+		BB876C2FEAA2395E3CAD8C545B73E22B /* OCMock-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "OCMock-dummy.m"; sourceTree = "<group>"; };
+		BC5AB3BC1A956E9317D5A489FF6AC4FA /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		BEE70D31EBBADB0A6F807264747F0526 /* OCMInvocationMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMInvocationMatcher.m; path = Source/OCMock/OCMInvocationMatcher.m; sourceTree = "<group>"; };
+		C440BC6B40A8E9F4A045075BDD568D18 /* OCMVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMVerifier.h; path = Source/OCMock/OCMVerifier.h; sourceTree = "<group>"; };
+		C4B04C3C7AF1BD000EAEBC8E2F91C33C /* OCPartialMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCPartialMockObject.m; path = Source/OCMock/OCPartialMockObject.m; sourceTree = "<group>"; };
+		C53D554438FBF81F5634B4E8DED7D090 /* OCMBlockCaller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBlockCaller.m; path = Source/OCMock/OCMBlockCaller.m; sourceTree = "<group>"; };
+		C65811DE874208E147842C48EBF9D8D1 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
+		C7789BC912547AB1F2C661EDE3A96CC9 /* OCMExpectationRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMExpectationRecorder.h; path = Source/OCMock/OCMExpectationRecorder.h; sourceTree = "<group>"; };
+		C7F5652AE83F7D7EF5130A206C9E813F /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
+		C7FDB28AA1B45F53B6E549DEA4761E97 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		C894E05805DDF4FE77B7DBFE2551CF90 /* QRCodeReaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderView.h; path = QRCodeReaderViewController/QRCodeReaderView.h; sourceTree = "<group>"; };
+		CBFA36934A710D4ACE15DFC1ED94876F /* NSObject+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+OCMAdditions.m"; path = "Source/OCMock/NSObject+OCMAdditions.m"; sourceTree = "<group>"; };
+		CDF47EE1FDCDC1CC13E6281669D42BBC /* OCObserverMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCObserverMockObject.h; path = Source/OCMock/OCObserverMockObject.h; sourceTree = "<group>"; };
+		CFFD3CB5E6D8290860E8EE69FE28626D /* Pods-XamoomSDKTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XamoomSDKTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D2A4C48F0645B718FDD05DF5FCC861DB /* OCMPassByRefSetter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMPassByRefSetter.h; path = Source/OCMock/OCMPassByRefSetter.h; sourceTree = "<group>"; };
+		D4F203AC8530429822625783F0D66107 /* OCMExceptionReturnValueProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMExceptionReturnValueProvider.m; path = Source/OCMock/OCMExceptionReturnValueProvider.m; sourceTree = "<group>"; };
+		D7AFB71D19A9DB1ABFE1E28E4B484213 /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
+		D84A65D08A73B4F90E3AB7F402E030B6 /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D8D6D2F2330C014234A22349D583845E /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
+		D8E36E3649BDC3D417E4E8A0AB89529B /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
+		D9E17C21886F3DDC8CA150E2CD2746D7 /* libQRCodeReaderViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQRCodeReaderViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC73C0FDC106A91ABA0DD866D5EABC50 /* Pods-XamoomSDK-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XamoomSDK-acknowledgements.plist"; sourceTree = "<group>"; };
+		DC74C41FF6E8B80E24378C4D12DB1B42 /* Pods-XamoomSDKTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XamoomSDKTests-resources.sh"; sourceTree = "<group>"; };
+		DCEFE0FF8CDC2D08A5C91532E62CFAD9 /* OCMConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMConstraint.h; path = Source/OCMock/OCMConstraint.h; sourceTree = "<group>"; };
+		DCF2A73BCEDD5EB665490E688DCD266D /* OCMock-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OCMock-prefix.pch"; sourceTree = "<group>"; };
+		DEBBDE75E56AF6D121C310FA497F729A /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		E591586430EB08DA133F3D98119AD8FF /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
+		E7F0AA57C81FC020D5203201B4A13D7E /* SMCalloutView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SMCalloutView-dummy.m"; sourceTree = "<group>"; };
+		E8985B1CE8B17F124274A3F2B4673018 /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
+		E9840D9813FCCB959A899C8D30998025 /* youtube-ios-player-helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube-ios-player-helper-dummy.m"; sourceTree = "<group>"; };
+		EEF074D11FD92C4D46773DD7BCF12616 /* libyoutube-ios-player-helper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libyoutube-ios-player-helper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF71CC0290148B09734584EC158D2EDF /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
+		F14DD4AC7275EDC7A1FDFAD34EB58CB3 /* NSMethodSignature+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMethodSignature+OCMAdditions.h"; path = "Source/OCMock/NSMethodSignature+OCMAdditions.h"; sourceTree = "<group>"; };
+		F1B278737E9F8477C6D26003E71D535C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		F3B44741F4B7F5E6DF66EDD30B4FDE88 /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5C67F0A1AA1E39B5776EB2277759EC2 /* OCMNotificationPoster.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMNotificationPoster.h; path = Source/OCMock/OCMNotificationPoster.h; sourceTree = "<group>"; };
+		F9C9778271C83B01B053C51F6A54A255 /* OCMFunctionsPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMFunctionsPrivate.h; path = Source/OCMock/OCMFunctionsPrivate.h; sourceTree = "<group>"; };
+		FA58D5CE80A79B9B8399C7FD56B76BBD /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
+		FC54FC0096C5DEB0440231DDD1E0137A /* OCMRealObjectForwarder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMRealObjectForwarder.m; path = Source/OCMock/OCMRealObjectForwarder.m; sourceTree = "<group>"; };
+		FD8FE21D56F3B4EC301D5BEB0BA1FEB0 /* SMCalloutView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SMCalloutView.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0610F3CFA73AD682BED8EDD22C978312 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9224E7497E34B6FBD102C3074F56915 /* Foundation.framework in Frameworks */,
+				8C27A92374D3E33B05F61268CC49BD15 /* ImageIO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22AB22E305D5CD47257C874DA76F3247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7703A4B63CB42A4BF7A6A3E12E05998E /* AVFoundation.framework in Frameworks */,
+				C59E1F2700CE54B42AB6A800257388E4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C2602132A1D207DB135342BF83AB581 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E279FED57021E3C50468564F86AA8A0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		633A796C692C59AACC53F3BBC524D2D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3838EE82609F3FF58AF4667600280BFC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76B2437130936DDAB9219764B47C1464 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65FCAFA17AA78A2693CBCB1E59BC927A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8427C02A8E670BE7BD0059A96D44B91E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				504FF52E61CC719AD18EEFDB8F69F3D9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9267C8B39F0FFB7344E212D6E9FFE606 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99D8E081BBDAAB3E486B6005D3EC3C86 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F2BD0A453F42FBA1F525255F36E5035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC56B83D7F438411E75FD68EF14EC637 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D97663CD32ADFBDAD7CE8EC314AD38A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBF023C58AFF96EEBE7BAC2F1B5708D5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF4557A3CA2F448FB88E18C4B2834EC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1051DB6F3A1437B548099A05ADF8C1A7 /* youtube-ios-player-helper */ = {
+			isa = PBXGroup;
+			children = (
+				89DCFF534780A7D42722BE4DE9631807 /* YTPlayerView.h */,
+				FA58D5CE80A79B9B8399C7FD56B76BBD /* YTPlayerView.m */,
+				6531BAFDC7118F696DC142AD6912670D /* Resources */,
+				511D0B49A89025952A5D21DAB624AF24 /* Support Files */,
+			);
+			path = "youtube-ios-player-helper";
+			sourceTree = "<group>";
+		};
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBB0FDD2207D27A5591D7EF3DB29DF11 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2000E65B56B0772FD8D80FD912EBE4AD /* Pods-XamoomSDK */ = {
+			isa = PBXGroup;
+			children = (
+				ABE63B64FE141E0B297DCA2EC4B956D9 /* Pods-XamoomSDK-acknowledgements.markdown */,
+				DC73C0FDC106A91ABA0DD866D5EABC50 /* Pods-XamoomSDK-acknowledgements.plist */,
+				0F65BEEA71DDEE5F1AA2FDCA3D8100CC /* Pods-XamoomSDK-dummy.m */,
+				ACC98331F0195754542096B8F1D57EFD /* Pods-XamoomSDK-frameworks.sh */,
+				0CD1863A8879D87A94D4590BFBC73941 /* Pods-XamoomSDK-resources.sh */,
+				6DFB91796B5ACD79B7842C48D2778811 /* Pods-XamoomSDK.debug.xcconfig */,
+				D8D6D2F2330C014234A22349D583845E /* Pods-XamoomSDK.release.xcconfig */,
+			);
+			name = "Pods-XamoomSDK";
+			path = "Target Support Files/Pods-XamoomSDK";
+			sourceTree = "<group>";
+		};
+		231E33A7C0EAF8A77A1185BB941650DE /* XamoomSDK */ = {
+			isa = PBXGroup;
+			children = (
+				4ADF977ECB2D8DE99C0DC49D60797D92 /* classes */,
+			);
+			path = XamoomSDK;
+			sourceTree = "<group>";
+		};
+		3C4533C3E2814EEE07C8999ADE42641E /* OCMock */ = {
+			isa = PBXGroup;
+			children = (
+				B59BBD8990748DD2EF8DD14EC3A6CC5B /* NSInvocation+OCMAdditions.h */,
+				9C95B47CDBCE0158929CC5D217E3E941 /* NSInvocation+OCMAdditions.m */,
+				F14DD4AC7275EDC7A1FDFAD34EB58CB3 /* NSMethodSignature+OCMAdditions.h */,
+				3619DEFDCC2F0E7798D246886EC57BDD /* NSMethodSignature+OCMAdditions.m */,
+				17F7AA2E55FEEA5137B0C7DC79CA088C /* NSNotificationCenter+OCMAdditions.h */,
+				992150108B00A91E29074D5F1C55D1F8 /* NSNotificationCenter+OCMAdditions.m */,
+				98605BE395F959AD02B11D4D3CE43B7A /* NSObject+OCMAdditions.h */,
+				CBFA36934A710D4ACE15DFC1ED94876F /* NSObject+OCMAdditions.m */,
+				4E46611946CBF61460701EBD8FFAE9FA /* NSValue+OCMAdditions.h */,
+				1CCA116DE02E5AFE0C8C6105DA447CF5 /* NSValue+OCMAdditions.m */,
+				164AA36DCB205F5995E8A3F7BE97C0D2 /* OCClassMockObject.h */,
+				9BFC7DCD746E9B847276FCD7B414828C /* OCClassMockObject.m */,
+				2BC75B7D8167A772DF809AA84BF150BF /* OCMArg.h */,
+				45B8EDA5482CEAF0701D648C779E22BF /* OCMArg.m */,
+				3E9DB6A5BF370CB2DED12DC176F97FCF /* OCMArgAction.h */,
+				1D3D686858F39C337A4802AAF9CEC679 /* OCMArgAction.m */,
+				7BBECD62B343024415A5523AE57C5AC9 /* OCMBlockArgCaller.h */,
+				AD840722EE621C557C4BA6B0A1B0FF1B /* OCMBlockArgCaller.m */,
+				8D56D27349B22EE4AE409F00B00161D2 /* OCMBlockCaller.h */,
+				C53D554438FBF81F5634B4E8DED7D090 /* OCMBlockCaller.m */,
+				9B7C611CB990B4949A48D08217BEFD55 /* OCMBoxedReturnValueProvider.h */,
+				9919B2F952AE826A9F792229BC9AAA39 /* OCMBoxedReturnValueProvider.m */,
+				DCEFE0FF8CDC2D08A5C91532E62CFAD9 /* OCMConstraint.h */,
+				404193134CA6BDBFEC6D398F5BD2D4F1 /* OCMConstraint.m */,
+				1D8DF2E26C6D409F5C2621E3219E0606 /* OCMExceptionReturnValueProvider.h */,
+				D4F203AC8530429822625783F0D66107 /* OCMExceptionReturnValueProvider.m */,
+				C7789BC912547AB1F2C661EDE3A96CC9 /* OCMExpectationRecorder.h */,
+				6D5C289928A836E34F4607B6D6894821 /* OCMExpectationRecorder.m */,
+				AB9D350F3D5237294AB8079C7A83653C /* OCMFunctions.h */,
+				A46804746D5FBF72B022DE0E5699CE86 /* OCMFunctions.m */,
+				F9C9778271C83B01B053C51F6A54A255 /* OCMFunctionsPrivate.h */,
+				20A3A80543F4F9D6F50298F9D52B1246 /* OCMIndirectReturnValueProvider.h */,
+				A7C7485C9BB2F7790A97F10B567DCE38 /* OCMIndirectReturnValueProvider.m */,
+				6A2F14E60FC51128ED5310A09B76C374 /* OCMInvocationExpectation.h */,
+				1CB6FAD9F0FD032BE5FB19061AF169AA /* OCMInvocationExpectation.m */,
+				8BCD191D955DF8E83528A53A9BD805E6 /* OCMInvocationMatcher.h */,
+				BEE70D31EBBADB0A6F807264747F0526 /* OCMInvocationMatcher.m */,
+				36A02DBD488996719EEDD4C46C3A8A75 /* OCMInvocationStub.h */,
+				17CD712DBC28A9DFC5572F91B1196DC9 /* OCMInvocationStub.m */,
+				828013597CBDBB04FCF23A22A16E8382 /* OCMLocation.h */,
+				2A27EE1DB9C5DD56E169BE96747ECCA4 /* OCMLocation.m */,
+				1C719B8BB280D10711FD246EE74FE837 /* OCMMacroState.h */,
+				98585E122F08082E90120E0DDF6CA56B /* OCMMacroState.m */,
+				F5C67F0A1AA1E39B5776EB2277759EC2 /* OCMNotificationPoster.h */,
+				580E63B7C73EADD32C497DBFE094A00B /* OCMNotificationPoster.m */,
+				B131722750A60BDB5562B50FCD79496A /* OCMObserverRecorder.h */,
+				52E1450267277BC82EDFC02032DF3B0E /* OCMObserverRecorder.m */,
+				57F4790F0F9E07A7E85BB6AE229092CB /* OCMock.h */,
+				5FA988E52FD4323691D2E85EFC25AC2B /* OCMockObject.h */,
+				85F2081CBE496F2D5460B81F517F8555 /* OCMockObject.m */,
+				D2A4C48F0645B718FDD05DF5FCC861DB /* OCMPassByRefSetter.h */,
+				1750C1C5527E359179AF00A911906C54 /* OCMPassByRefSetter.m */,
+				74A1F03ECA1AF75905CA5C70B5E6278C /* OCMRealObjectForwarder.h */,
+				FC54FC0096C5DEB0440231DDD1E0137A /* OCMRealObjectForwarder.m */,
+				4B31F51D28835B98DE5C534F37527901 /* OCMRecorder.h */,
+				58BA4569D7085237B2B6668A3CE6BD5A /* OCMRecorder.m */,
+				22B6074A34A0BA7B5EFA8B6F1C3A9700 /* OCMReturnValueProvider.h */,
+				48798F0BEDA5F8FC181F3963C2C43060 /* OCMReturnValueProvider.m */,
+				A60BBB5177B2160A172CFF019B93CBF4 /* OCMStubRecorder.h */,
+				42AD6FF98CE8F563FCCEB114561891B1 /* OCMStubRecorder.m */,
+				C440BC6B40A8E9F4A045075BDD568D18 /* OCMVerifier.h */,
+				B7C1818B1C000E11390A8F33E084BDCF /* OCMVerifier.m */,
+				CDF47EE1FDCDC1CC13E6281669D42BBC /* OCObserverMockObject.h */,
+				2E03DB481A4C258EE6B2BDD886D2BAC7 /* OCObserverMockObject.m */,
+				00A3B9F4914A66941E57DF8C334C03CC /* OCPartialMockObject.h */,
+				C4B04C3C7AF1BD000EAEBC8E2F91C33C /* OCPartialMockObject.m */,
+				7957AAC3FAD9F83F7527A6ED6D3A6B4C /* OCProtocolMockObject.h */,
+				A6254B770E4FC3CE786ACD1B0454F171 /* OCProtocolMockObject.m */,
+				B5C6E1C0F57E3F9CB757B9DE6AC55F0D /* Support Files */,
+			);
+			path = OCMock;
+			sourceTree = "<group>";
+		};
+		424A726898EF9DF9CB4A96892AED4A19 /* QRCodeReaderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BB2B78D79A559D9EC74B7FAC8FD06CCE /* QRCameraSwitchButton.h */,
+				8DB73AD5C2E31B36B240291F4910B71B /* QRCameraSwitchButton.m */,
+				57AEF514AD7313CFF50448D82FE2F0A0 /* QRCodeReaderDelegate.h */,
+				C894E05805DDF4FE77B7DBFE2551CF90 /* QRCodeReaderView.h */,
+				013CE5A9F2F2E1B428A99EB7D48CD6DE /* QRCodeReaderView.m */,
+				4FA1A276EDCEA76206E580B7CFD7C8C5 /* QRCodeReaderViewController.h */,
+				053C536B64DA35ACB2A022B148119BD0 /* QRCodeReaderViewController.m */,
+				E2900DF7357B345899AD2A6B812BD7D4 /* Support Files */,
+			);
+			path = QRCodeReaderViewController;
+			sourceTree = "<group>";
+		};
+		4A32C283B976038CDBC278EA3A3C4CC5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C4533C3E2814EEE07C8999ADE42641E /* OCMock */,
+				424A726898EF9DF9CB4A96892AED4A19 /* QRCodeReaderViewController */,
+				D7D5AD96162811A663E43F4EBF124ECA /* SDWebImage */,
+				5D85D54E53A0929DD1D85D3B9B5DA0BB /* SMCalloutView */,
+				1051DB6F3A1437B548099A05ADF8C1A7 /* youtube-ios-player-helper */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4ADF977ECB2D8DE99C0DC49D60797D92 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				496E24EC87C3084770817BB6E0F982DC /* XamoomSDK.h */,
+				26D4005AE04CA7EEF3FE69D876FCC1CF /* XMMEnduserApi.h */,
+				26444150FCB1368E0F36466301332E83 /* XMMEnduserApi.m */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		511D0B49A89025952A5D21DAB624AF24 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				171EDB338B9611A6E7235C50BD159E69 /* youtube-ios-player-helper.xcconfig */,
+				E9840D9813FCCB959A899C8D30998025 /* youtube-ios-player-helper-dummy.m */,
+				2E7222145ACF476A3F5D8EE943833F3F /* youtube-ios-player-helper-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/youtube-ios-player-helper";
+			sourceTree = "<group>";
+		};
+		5CB3525F42D1078737FBCA97AC404872 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				12C68B518CBDB2291ACFDF22816AD0BE /* XamoomSDK.xcconfig */,
+				24A0361E3E6E902E8A1319874AF95380 /* XamoomSDK-dummy.m */,
+				330B0B8F8936F48499A814A2470C1B31 /* XamoomSDK-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "Pods/Target Support Files/XamoomSDK";
+			sourceTree = "<group>";
+		};
+		5D85D54E53A0929DD1D85D3B9B5DA0BB /* SMCalloutView */ = {
+			isa = PBXGroup;
+			children = (
+				16608B1EC9A3B8C7253DBF4C1288B6BE /* SMCalloutView.h */,
+				3419E03892755C108A835326F6471734 /* SMCalloutView.m */,
+				59FE776BC48B0BA281B9900454FB29C3 /* SMClassicCalloutView.h */,
+				1B6E24A4D8D542996C36C39CC5628121 /* SMClassicCalloutView.m */,
+				DF93BDEC0B75689EFC35AAF485779E68 /* Support Files */,
+			);
+			path = SMCalloutView;
+			sourceTree = "<group>";
+		};
+		6531BAFDC7118F696DC142AD6912670D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				77CF7D1D0DB1BC37B76F667DC432B4E7 /* Assets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		6D230A26F6346E5C261D5C0CBAC23EE4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D61F37C69488CE692C0FCA54D7D7A5F4 /* Pods-Example */,
+				2000E65B56B0772FD8D80FD912EBE4AD /* Pods-XamoomSDK */,
+				C09FA57A1A0CB5A54DD8D63505F21836 /* Pods-XamoomSDKTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				9A8AB0147F4756A21FC965EAF035D48F /* Development Pods */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				4A32C283B976038CDBC278EA3A3C4CC5 /* Pods */,
+				B2888087CB97702B05EFDF1AA4A9AFA0 /* Products */,
+				6D230A26F6346E5C261D5C0CBAC23EE4 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		88DD4C2B970B4916682169665D008BC0 /* XamoomSDK */ = {
+			isa = PBXGroup;
+			children = (
+				5CB3525F42D1078737FBCA97AC404872 /* Support Files */,
+				231E33A7C0EAF8A77A1185BB941650DE /* XamoomSDK */,
+			);
+			name = XamoomSDK;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		9A8AB0147F4756A21FC965EAF035D48F /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88DD4C2B970B4916682169665D008BC0 /* XamoomSDK */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		A542396515DE9ABB63ADD97A56FDDB2B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				C7FDB28AA1B45F53B6E549DEA4761E97 /* NSData+ImageContentType.h */,
+				AB1800155DDCB2941EBFB5D0D23B7D91 /* NSData+ImageContentType.m */,
+				D7AFB71D19A9DB1ABFE1E28E4B484213 /* SDImageCache.h */,
+				7B44C8D840986FB4FEA9A769925D0372 /* SDImageCache.m */,
+				2D73D6C2C01B520A0BAB0CB27F80AD00 /* SDWebImageCompat.h */,
+				0040ED08DA08165ACD189ACC27FB3A84 /* SDWebImageCompat.m */,
+				2CDAAF774E92F2C02189EA47C7F76A45 /* SDWebImageDecoder.h */,
+				6A4B5606CDB46D1D499F526C663CEFDE /* SDWebImageDecoder.m */,
+				42A4CFD943D45E5579B4C88C6C2EA657 /* SDWebImageDownloader.h */,
+				4331B3830E843CFDCF5FFAACF9BBC79F /* SDWebImageDownloader.m */,
+				8D1EB73DFA29A3A6223AE71D2B33AA61 /* SDWebImageDownloaderOperation.h */,
+				0B4BAD2E2811A76312807CE4E3B17908 /* SDWebImageDownloaderOperation.m */,
+				1C066929823C9BA28A04065A134D1A6D /* SDWebImageManager.h */,
+				18439658C8BF90B67A5D98D989362CC4 /* SDWebImageManager.m */,
+				EF71CC0290148B09734584EC158D2EDF /* SDWebImageOperation.h */,
+				710249E95CEBD6A20A67E7C6C0FF08B0 /* SDWebImagePrefetcher.h */,
+				4A66CF23E2F520FDE8137E8B5B26CAF7 /* SDWebImagePrefetcher.m */,
+				E8985B1CE8B17F124274A3F2B4673018 /* UIButton+WebCache.h */,
+				9A6EA421D2DB449B2A5CEAE6BFF53F63 /* UIButton+WebCache.m */,
+				E591586430EB08DA133F3D98119AD8FF /* UIImage+GIF.h */,
+				37B5229A13356C14EAB6CD3F74F0C5A5 /* UIImage+GIF.m */,
+				C7F5652AE83F7D7EF5130A206C9E813F /* UIImage+MultiFormat.h */,
+				68BA39F160EA7E1F2CBA98101359AFE7 /* UIImage+MultiFormat.m */,
+				DEBBDE75E56AF6D121C310FA497F729A /* UIImageView+HighlightedWebCache.h */,
+				B9503B9CB079C911E3EFD67FA86197BC /* UIImageView+HighlightedWebCache.m */,
+				3DD777F656A3613619EB3F7CD94170DA /* UIImageView+WebCache.h */,
+				A741D32CA97D306382A3254B050C392D /* UIImageView+WebCache.m */,
+				D8E36E3649BDC3D417E4E8A0AB89529B /* UIView+WebCacheOperation.h */,
+				5D0D7A628AC5C0EC2B1FFAA644EBCD80 /* UIView+WebCacheOperation.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		B2888087CB97702B05EFDF1AA4A9AFA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C814AB962BABDC7CB8C2331AE0CE50A /* Assets.bundle */,
+				78662DAC26B5AA5DA48DD987167112C6 /* libOCMock.a */,
+				F3B44741F4B7F5E6DF66EDD30B4FDE88 /* libPods-Example.a */,
+				1A30DB1876417CF4AC7E3FD77F62B8CD /* libPods-XamoomSDK.a */,
+				A9F1C6A537F94F4E68F9E859137D5B47 /* libPods-XamoomSDKTests.a */,
+				D9E17C21886F3DDC8CA150E2CD2746D7 /* libQRCodeReaderViewController.a */,
+				81078FAE1CBDD9369D051B93702DD35C /* libSDWebImage.a */,
+				2E103A0F5712E4ECD591B975BEE90410 /* libSMCalloutView.a */,
+				233A39F12E3A8A550870CB3CF7DAE35F /* libXamoomSDK.a */,
+				EEF074D11FD92C4D46773DD7BCF12616 /* libyoutube-ios-player-helper.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5C6E1C0F57E3F9CB757B9DE6AC55F0D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6B41D559AB454B2179C072428B0BF7A6 /* OCMock.xcconfig */,
+				BB876C2FEAA2395E3CAD8C545B73E22B /* OCMock-dummy.m */,
+				DCF2A73BCEDD5EB665490E688DCD266D /* OCMock-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/OCMock";
+			sourceTree = "<group>";
+		};
+		C09FA57A1A0CB5A54DD8D63505F21836 /* Pods-XamoomSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFFD3CB5E6D8290860E8EE69FE28626D /* Pods-XamoomSDKTests-acknowledgements.markdown */,
+				42614559E1F8BA0DC0D857E6CF872A46 /* Pods-XamoomSDKTests-acknowledgements.plist */,
+				41CF8BE1A6AE6CA26F11655F6D80C92A /* Pods-XamoomSDKTests-dummy.m */,
+				503740A0EECBA9BC99AD5BFA99969317 /* Pods-XamoomSDKTests-frameworks.sh */,
+				DC74C41FF6E8B80E24378C4D12DB1B42 /* Pods-XamoomSDKTests-resources.sh */,
+				437C83107DE74112F3E54D1A6CAFC478 /* Pods-XamoomSDKTests.debug.xcconfig */,
+				4C43F609E91C1F61E1103EBCB3ED2447 /* Pods-XamoomSDKTests.release.xcconfig */,
+			);
+			name = "Pods-XamoomSDKTests";
+			path = "Target Support Files/Pods-XamoomSDKTests";
+			sourceTree = "<group>";
+		};
+		C83A476D28228AC426439FF1B9EEE851 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C38F513951CEC6F47A63C185D8BDFA8 /* SDWebImage.xcconfig */,
+				644D15A44B473FBF87F4624069B2458B /* SDWebImage-dummy.m */,
+				1B70088DC6C6B2ED67020BB2B47BC615 /* SDWebImage-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SDWebImage";
+			sourceTree = "<group>";
+		};
+		D61F37C69488CE692C0FCA54D7D7A5F4 /* Pods-Example */ = {
+			isa = PBXGroup;
+			children = (
+				D84A65D08A73B4F90E3AB7F402E030B6 /* Pods-Example-acknowledgements.markdown */,
+				BC5AB3BC1A956E9317D5A489FF6AC4FA /* Pods-Example-acknowledgements.plist */,
+				69D499A54CC5778BD3B18062510D29E7 /* Pods-Example-dummy.m */,
+				C65811DE874208E147842C48EBF9D8D1 /* Pods-Example-frameworks.sh */,
+				1AE44954C087A28861BE23F55C9CE4B7 /* Pods-Example-resources.sh */,
+				B3A081DD4E88097CE9C0996A6BA7B2C3 /* Pods-Example.debug.xcconfig */,
+				A90663D284B66520E118886795B025A1 /* Pods-Example.release.xcconfig */,
+			);
+			name = "Pods-Example";
+			path = "Target Support Files/Pods-Example";
+			sourceTree = "<group>";
+		};
+		D7D5AD96162811A663E43F4EBF124ECA /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				A542396515DE9ABB63ADD97A56FDDB2B /* Core */,
+				C83A476D28228AC426439FF1B9EEE851 /* Support Files */,
+			);
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		DF93BDEC0B75689EFC35AAF485779E68 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD8FE21D56F3B4EC301D5BEB0BA1FEB0 /* SMCalloutView.xcconfig */,
+				E7F0AA57C81FC020D5203201B4A13D7E /* SMCalloutView-dummy.m */,
+				40788747C476DDDAC77C5527B0D45A11 /* SMCalloutView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SMCalloutView";
+			sourceTree = "<group>";
+		};
+		E2900DF7357B345899AD2A6B812BD7D4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				45DD1BFC82C92E6862ACA0E600AA19BD /* QRCodeReaderViewController.xcconfig */,
+				612ADEFC88CB1F543B651F95DA2E6DC8 /* QRCodeReaderViewController-dummy.m */,
+				45CFEB42FCBF2EE420BD6C1BA327BECB /* QRCodeReaderViewController-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/QRCodeReaderViewController";
+			sourceTree = "<group>";
+		};
+		EBB0FDD2207D27A5591D7EF3DB29DF11 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				F1B278737E9F8477C6D26003E71D535C /* AVFoundation.framework */,
+				227A5D3D5AE3D320673172C29210CBFF /* Foundation.framework */,
+				97FC20E5AF00CDC22A1DE5A5E5DC130C /* ImageIO.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		5AFF86D43561748E7227622A6EDDA92B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149DE9C6DB74B12EFF07D185484D946F /* NSInvocation+OCMAdditions.h in Headers */,
+				0934D3DAC27331C1569A357A677B2206 /* NSMethodSignature+OCMAdditions.h in Headers */,
+				7FFCEEC0036EC9E7A5D3BAD719B28D4A /* NSNotificationCenter+OCMAdditions.h in Headers */,
+				CE1D11A21BB0D710B640F31B18935BF3 /* NSObject+OCMAdditions.h in Headers */,
+				A425B4C6EAA79B2C9BB4F374180DC194 /* NSValue+OCMAdditions.h in Headers */,
+				94216C983E91F2BA503920465DE1972A /* OCClassMockObject.h in Headers */,
+				D78D41AA2CEB6ED571503108CEC3DA15 /* OCMArg.h in Headers */,
+				DE57384C891A85506CB91EA186D2D2B4 /* OCMArgAction.h in Headers */,
+				71899DFD8094C412FFC39669279B4533 /* OCMBlockArgCaller.h in Headers */,
+				FDFD77CF38AE5FDD235A02217B763809 /* OCMBlockCaller.h in Headers */,
+				EEBEC3C68DD8C679511876B4610D582A /* OCMBoxedReturnValueProvider.h in Headers */,
+				3152811CD17686AA726713BFE3612206 /* OCMConstraint.h in Headers */,
+				5F04262019BBB326960E643861626099 /* OCMExceptionReturnValueProvider.h in Headers */,
+				C01520F21314A4A11E0BD5C9BE190A1A /* OCMExpectationRecorder.h in Headers */,
+				0EE98780873CB1A29EE8B4A36BA7E14A /* OCMFunctions.h in Headers */,
+				3A769EE15211B7EBBAF4B1C8AD542502 /* OCMFunctionsPrivate.h in Headers */,
+				FB294C8C8DCC4EACB074C58C027C9723 /* OCMIndirectReturnValueProvider.h in Headers */,
+				BC7143B82E45DDE808B1D8E8F6970E41 /* OCMInvocationExpectation.h in Headers */,
+				70AC31D0736F568C0386716176361D09 /* OCMInvocationMatcher.h in Headers */,
+				AD672A92EF1A71CB35F77D51924A63D7 /* OCMInvocationStub.h in Headers */,
+				C796F27878B148315E4EB60535EEA4BE /* OCMLocation.h in Headers */,
+				CC40C17D2E01DDDF48A7A8D50B8E92F8 /* OCMMacroState.h in Headers */,
+				D470FD7FF206B100A7B79714E7FA0F4A /* OCMNotificationPoster.h in Headers */,
+				87AA263FA688A8E92C2B8ADEE72C98C6 /* OCMObserverRecorder.h in Headers */,
+				10AEAD2136880EEE7E771F533331F250 /* OCMock.h in Headers */,
+				8A1370FF0DD475F945954535A988ED4B /* OCMockObject.h in Headers */,
+				E45D617A6259C90DC54D6F22571998E8 /* OCMPassByRefSetter.h in Headers */,
+				8D40AF80800C0D4A691F4A0656E53D98 /* OCMRealObjectForwarder.h in Headers */,
+				9C195CB2280DCD3183057794B4504B22 /* OCMRecorder.h in Headers */,
+				C4235F3704F471BAF74CB4482A99D340 /* OCMReturnValueProvider.h in Headers */,
+				950C209E1D004EBDCD43D6C2136B5AA2 /* OCMStubRecorder.h in Headers */,
+				33C4E9CA4B43CD4C468B338E2ED06860 /* OCMVerifier.h in Headers */,
+				C6DEDAD5B01946A2644F428020F881B6 /* OCObserverMockObject.h in Headers */,
+				562C4A7A171B6F0000B132E22372C3DA /* OCPartialMockObject.h in Headers */,
+				40B2ABF25812A14D83A05D8937FBDB7B /* OCProtocolMockObject.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78A26483347498C08904508A267DBD60 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EFF231139874814ED1D570A736A53C5 /* YTPlayerView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AA3663EA8586CCD7EDB4845E2853FD2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AD6347BC7D2340AEFA07CA4B92BB56A /* SMCalloutView.h in Headers */,
+				091E5CE74D2C72F4D8AD44DB7412BA21 /* SMClassicCalloutView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3F41F3FA0F8F989C76794295F9C672C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C493A227513DAE0AC313E42B89414A24 /* XamoomSDK.h in Headers */,
+				EB9DB43264F98D4FBC81491675B4FF6F /* XMMEnduserApi.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3FF3C35954CA2B5DB6A9F57ECDB3634 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0D0C46A1645F7AEDD8792585D6F97E4 /* QRCameraSwitchButton.h in Headers */,
+				CB56538D4891DB3214F84762AAB4919D /* QRCodeReaderDelegate.h in Headers */,
+				39377A3EA69804829504A4855F10F6AF /* QRCodeReaderView.h in Headers */,
+				21296AD33490BF6C966F7FE354752766 /* QRCodeReaderViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C401479377B2BD3C8F310E8364CE0AEF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FA6CB28E290DEF3655FF5303C66653C /* NSData+ImageContentType.h in Headers */,
+				474B37EFDF96094DE5EB0298E8A4E02A /* SDImageCache.h in Headers */,
+				CBEB8931AD01AAF183FA5FAC2CA7A35B /* SDWebImageCompat.h in Headers */,
+				559CE0008B87C8DDECE684C92CE0B9EF /* SDWebImageDecoder.h in Headers */,
+				5DC9074A05660BD269827A3BF210FBCB /* SDWebImageDownloader.h in Headers */,
+				FED68C89D668DFECC5F088CF7B21B411 /* SDWebImageDownloaderOperation.h in Headers */,
+				C08547E5CA5B54C8B9B5D874A5124B80 /* SDWebImageManager.h in Headers */,
+				65C81124CCD9B59B5F7309CF792F91A6 /* SDWebImageOperation.h in Headers */,
+				8C75AB12539CB3DA57C1E16B113C60BF /* SDWebImagePrefetcher.h in Headers */,
+				6A2F82E51C02CEE59AD40F0C814CE3C7 /* UIButton+WebCache.h in Headers */,
+				258BF5592A711073E3F43C6F091514B6 /* UIImage+GIF.h in Headers */,
+				2D90DF2FBDE2078215CFC6749BC653F9 /* UIImage+MultiFormat.h in Headers */,
+				89C4D809D31F9ACBE828E2EB60EFB6F1 /* UIImageView+HighlightedWebCache.h in Headers */,
+				8CB6964DDBFD04D96FDDA6F7E81A0D49 /* UIImageView+WebCache.h in Headers */,
+				4AF9B8D7D3E7011BCBE43553515A9D06 /* UIView+WebCacheOperation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		468F871D1134F982A87EF9A3A9DEAD21 /* youtube-ios-player-helper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85D19E439F804CAF3E0CEE106814566A /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper" */;
+			buildPhases = (
+				D522B46E50029053F179BAE0E417EFDE /* Sources */,
+				633A796C692C59AACC53F3BBC524D2D9 /* Frameworks */,
+				78A26483347498C08904508A267DBD60 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3240D64264EDDE7578315644EF69FB3F /* PBXTargetDependency */,
+			);
+			name = "youtube-ios-player-helper";
+			productName = "youtube-ios-player-helper";
+			productReference = EEF074D11FD92C4D46773DD7BCF12616 /* libyoutube-ios-player-helper.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		46F3E973AEA9D8C0CF64175162A369BB /* SDWebImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6D164274246104BD6979E181AC9BD40 /* Build configuration list for PBXNativeTarget "SDWebImage" */;
+			buildPhases = (
+				3E86D5E859F5BCB04AAB53E62FC3BBB0 /* Sources */,
+				0610F3CFA73AD682BED8EDD22C978312 /* Frameworks */,
+				C401479377B2BD3C8F310E8364CE0AEF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SDWebImage;
+			productName = SDWebImage;
+			productReference = 81078FAE1CBDD9369D051B93702DD35C /* libSDWebImage.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		4A2CAA839F2722C796C6F1DFDC806B92 /* OCMock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10542776D8ACCA3DA970BD708ACC2AF4 /* Build configuration list for PBXNativeTarget "OCMock" */;
+			buildPhases = (
+				33CF95FAFC48226F1A54C85AA1529B40 /* Sources */,
+				4C2602132A1D207DB135342BF83AB581 /* Frameworks */,
+				5AFF86D43561748E7227622A6EDDA92B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OCMock;
+			productName = OCMock;
+			productReference = 78662DAC26B5AA5DA48DD987167112C6 /* libOCMock.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		4AF0E91F2613F295A5BD8B5E68762167 /* Pods-XamoomSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C14C59AF874B98ED6FB370EF505F67B6 /* Build configuration list for PBXNativeTarget "Pods-XamoomSDK" */;
+			buildPhases = (
+				EC0FF91FE12FD0DA180B240FED7B321B /* Sources */,
+				9267C8B39F0FFB7344E212D6E9FFE606 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB7D0A38BB193C931DB3FC8C97894D01 /* PBXTargetDependency */,
+				20D2747E4068A7B7E6BEFB568A22225A /* PBXTargetDependency */,
+				D3E2C8555DC805079A328A3464909F19 /* PBXTargetDependency */,
+				D6561EF691E721451B6B0B20A2A96AC1 /* PBXTargetDependency */,
+			);
+			name = "Pods-XamoomSDK";
+			productName = "Pods-XamoomSDK";
+			productReference = 1A30DB1876417CF4AC7E3FD77F62B8CD /* libPods-XamoomSDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		67A33FD56D224BE3B4C3248A8C99573D /* SMCalloutView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D3E26FFCDD0A52277040AF5C45CCCBF /* Build configuration list for PBXNativeTarget "SMCalloutView" */;
+			buildPhases = (
+				F8F2C6AD07B37470947070270AD58E0A /* Sources */,
+				9F2BD0A453F42FBA1F525255F36E5035 /* Frameworks */,
+				8AA3663EA8586CCD7EDB4845E2853FD2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SMCalloutView;
+			productName = SMCalloutView;
+			productReference = 2E103A0F5712E4ECD591B975BEE90410 /* libSMCalloutView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7C9A399BD3A6309C4B1F45F54274546F /* youtube-ios-player-helper-Assets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5086F041B1A410F87AC4CED94685E026 /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper-Assets" */;
+			buildPhases = (
+				B8E05D7ACD629876F407848EEE2A1132 /* Sources */,
+				FF4557A3CA2F448FB88E18C4B2834EC7 /* Frameworks */,
+				B5409C10BA5839C4CCE2E3CE860D4F07 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "youtube-ios-player-helper-Assets";
+			productName = "youtube-ios-player-helper-Assets";
+			productReference = 1C814AB962BABDC7CB8C2331AE0CE50A /* Assets.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		8246FD6BC541E26248D19C7459D98B60 /* QRCodeReaderViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39D9208E503333F21F771337D4CE3697 /* Build configuration list for PBXNativeTarget "QRCodeReaderViewController" */;
+			buildPhases = (
+				26494AFE7C91C7C5CD32F133DD4F2971 /* Sources */,
+				22AB22E305D5CD47257C874DA76F3247 /* Frameworks */,
+				C3FF3C35954CA2B5DB6A9F57ECDB3634 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRCodeReaderViewController;
+			productName = QRCodeReaderViewController;
+			productReference = D9E17C21886F3DDC8CA150E2CD2746D7 /* libQRCodeReaderViewController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D0586426710DC436EAE4CFEF275F451F /* Pods-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCFDF2F0317503E95CE9F9959D0DA433 /* Build configuration list for PBXNativeTarget "Pods-Example" */;
+			buildPhases = (
+				EB140D48598B00D9D8D13284A3D915E4 /* Sources */,
+				8427C02A8E670BE7BD0059A96D44B91E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1EB67101A1FC83F88ABCDD598CFB962 /* PBXTargetDependency */,
+				354E049B1DC14A37BFA469066C448EAA /* PBXTargetDependency */,
+				E0A3564E3D59231BFF459A6830C3601A /* PBXTargetDependency */,
+				13E4DF1F8EAEF54279712378ACD413E9 /* PBXTargetDependency */,
+				960CEE8923AC17E7BEAED0AB9E1C306F /* PBXTargetDependency */,
+			);
+			name = "Pods-Example";
+			productName = "Pods-Example";
+			productReference = F3B44741F4B7F5E6DF66EDD30B4FDE88 /* libPods-Example.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D7D2C3CDF08797D3B984E8A0D8325DDC /* Pods-XamoomSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A5DE838E7FA5D9A3B4E63CB70B6862F /* Build configuration list for PBXNativeTarget "Pods-XamoomSDKTests" */;
+			buildPhases = (
+				E90DCAC4F5ED11CE51930F0343976ED3 /* Sources */,
+				76B2437130936DDAB9219764B47C1464 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				32E6E3B292ED71913FDA87F7B422AA30 /* PBXTargetDependency */,
+			);
+			name = "Pods-XamoomSDKTests";
+			productName = "Pods-XamoomSDKTests";
+			productReference = A9F1C6A537F94F4E68F9E859137D5B47 /* libPods-XamoomSDKTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FA49DE67CE788AD6A6CE04DCDFFBCBD9 /* XamoomSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFAFC68929E7FDCAF269A9EE781D5A0B /* Build configuration list for PBXNativeTarget "XamoomSDK" */;
+			buildPhases = (
+				374AE49ECDB2165F7251908C36631FC8 /* Sources */,
+				D97663CD32ADFBDAD7CE8EC314AD38A5 /* Frameworks */,
+				C3F41F3FA0F8F989C76794295F9C672C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8E266933E7F7A152BA565D925ED082D /* PBXTargetDependency */,
+				F2E4BE63C77EFB15B19CA61B774BA351 /* PBXTargetDependency */,
+				7897348B0DDBE325B1C6DB3FEC45D5FE /* PBXTargetDependency */,
+				F2269FA08F9241E1EEA855BD0AA50591 /* PBXTargetDependency */,
+			);
+			name = XamoomSDK;
+			productName = XamoomSDK;
+			productReference = 233A39F12E3A8A550870CB3CF7DAE35F /* libXamoomSDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = B2888087CB97702B05EFDF1AA4A9AFA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A2CAA839F2722C796C6F1DFDC806B92 /* OCMock */,
+				D0586426710DC436EAE4CFEF275F451F /* Pods-Example */,
+				4AF0E91F2613F295A5BD8B5E68762167 /* Pods-XamoomSDK */,
+				D7D2C3CDF08797D3B984E8A0D8325DDC /* Pods-XamoomSDKTests */,
+				8246FD6BC541E26248D19C7459D98B60 /* QRCodeReaderViewController */,
+				46F3E973AEA9D8C0CF64175162A369BB /* SDWebImage */,
+				67A33FD56D224BE3B4C3248A8C99573D /* SMCalloutView */,
+				FA49DE67CE788AD6A6CE04DCDFFBCBD9 /* XamoomSDK */,
+				468F871D1134F982A87EF9A3A9DEAD21 /* youtube-ios-player-helper */,
+				7C9A399BD3A6309C4B1F45F54274546F /* youtube-ios-player-helper-Assets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B5409C10BA5839C4CCE2E3CE860D4F07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				210DA71024E6E85FBC06B2AAA62E1753 /* Assets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		26494AFE7C91C7C5CD32F133DD4F2971 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEB6DF1A919287988D34068D10B797A8 /* QRCameraSwitchButton.m in Sources */,
+				42A90AAFA6FD5D714C2A44FC83ED76D7 /* QRCodeReaderView.m in Sources */,
+				C8C76B487CF73771E0F23367C3C558FF /* QRCodeReaderViewController-dummy.m in Sources */,
+				BDCCA27A20BDEC98F747685D5D2C29D2 /* QRCodeReaderViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33CF95FAFC48226F1A54C85AA1529B40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E00ABE7FC44CB9D1B511D96D47C16AD5 /* NSInvocation+OCMAdditions.m in Sources */,
+				5BB246B2587EBC3E5597DBD6CD33777F /* NSMethodSignature+OCMAdditions.m in Sources */,
+				F0E9BE1709D8B3501A9E791E8D36FBED /* NSNotificationCenter+OCMAdditions.m in Sources */,
+				DADACF239B30C047FA9304E5FDDA8B2E /* NSObject+OCMAdditions.m in Sources */,
+				E2D2C2DEBBB651077ABC3710A423594F /* NSValue+OCMAdditions.m in Sources */,
+				B28B82281F2A75B1A27E9B1B289B179D /* OCClassMockObject.m in Sources */,
+				651F3096B56BFF131C5F956001D7BAAB /* OCMArg.m in Sources */,
+				55F2C7C98AB5E300663D064AAA64B80B /* OCMArgAction.m in Sources */,
+				E8CDCEDCDC0ADE51EBAFCC09F44EFF12 /* OCMBlockArgCaller.m in Sources */,
+				046937EA1C4859D4D96EFA7B7687E441 /* OCMBlockCaller.m in Sources */,
+				672FE514B7C1EB583AF6CEB2538025A7 /* OCMBoxedReturnValueProvider.m in Sources */,
+				55EA7FCA2F507BCC25959CE95D295A8C /* OCMConstraint.m in Sources */,
+				D9EA9C8052853B8962318FFD5A5551B6 /* OCMExceptionReturnValueProvider.m in Sources */,
+				6D2AD1DFA8F27BA0EBB3365A5AF7AC1B /* OCMExpectationRecorder.m in Sources */,
+				9ED6B48F0C000C83C89249483D3398A6 /* OCMFunctions.m in Sources */,
+				830B3A29668D59C62571A4CE4D3BAFCA /* OCMIndirectReturnValueProvider.m in Sources */,
+				CC4F14C27B167A64F09A356652410909 /* OCMInvocationExpectation.m in Sources */,
+				C508640C7607A5BE183916AC4202A026 /* OCMInvocationMatcher.m in Sources */,
+				B4D6973B3F74EB04E719BFCFCBF04C0B /* OCMInvocationStub.m in Sources */,
+				1B7E21160BEF08CC76BA8C17E94E455A /* OCMLocation.m in Sources */,
+				59BC54DA90AD2433D20358F9853622CA /* OCMMacroState.m in Sources */,
+				7EE0FD33AB30006545874DEF02F9243E /* OCMNotificationPoster.m in Sources */,
+				1586CD3BDB1E92D87A0E423AAC313FD4 /* OCMObserverRecorder.m in Sources */,
+				B36995CF7E36CC57C8C118EC5EC049A6 /* OCMock-dummy.m in Sources */,
+				CC5C84B30927F4CE48D7EC04BF652005 /* OCMockObject.m in Sources */,
+				0A7C4089DBD8BD40374AFA8EEAB7CA3C /* OCMPassByRefSetter.m in Sources */,
+				20C39DB909C33B491D60F23FA1D415C2 /* OCMRealObjectForwarder.m in Sources */,
+				3EEE56426C5838CA2F13E8F95B594401 /* OCMRecorder.m in Sources */,
+				A516CB608A827C4FEA550CB372854AF7 /* OCMReturnValueProvider.m in Sources */,
+				4CF0A4AD04F2F3CF7465991A5E76AD47 /* OCMStubRecorder.m in Sources */,
+				03EF931564978791D4ABC400F3FDDBED /* OCMVerifier.m in Sources */,
+				C55C0B0594D26DE09DEC7F161910A211 /* OCObserverMockObject.m in Sources */,
+				DF0A3CB81B12C054F9C8258F680F7C9D /* OCPartialMockObject.m in Sources */,
+				EA2A970253EA9B298F0BB63864AA18D1 /* OCProtocolMockObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		374AE49ECDB2165F7251908C36631FC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE123A906880E696210B850EE5338879 /* XamoomSDK-dummy.m in Sources */,
+				0AF7B2E7FBF18743FA3FB04C1EE1B71F /* XMMEnduserApi.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E86D5E859F5BCB04AAB53E62FC3BBB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA678310C772D50B6EAC3F54403904C1 /* NSData+ImageContentType.m in Sources */,
+				CACD25DE3170225313C94FFCD87383FF /* SDImageCache.m in Sources */,
+				FFC14D99B0237EBB230622CBBE76D126 /* SDWebImage-dummy.m in Sources */,
+				83F45BA6CA0D1275C1E3D08E62CB474D /* SDWebImageCompat.m in Sources */,
+				BB0407926CEEED89D7194B2A06D6BA4B /* SDWebImageDecoder.m in Sources */,
+				7202314421C001C0AFA99EA69C11B496 /* SDWebImageDownloader.m in Sources */,
+				C45791D2CDDE7656B015A2B32F29C239 /* SDWebImageDownloaderOperation.m in Sources */,
+				D993321E387EBCA8C28C3E23C2BB5C2A /* SDWebImageManager.m in Sources */,
+				4E663F57B8F4A8DA7EFAA15A76175013 /* SDWebImagePrefetcher.m in Sources */,
+				1583737E3363AEE587A71432B1F55E3C /* UIButton+WebCache.m in Sources */,
+				301F7C934ECF434A84B8076221A08405 /* UIImage+GIF.m in Sources */,
+				B214E38661DDEEFE310883264B6B2D2C /* UIImage+MultiFormat.m in Sources */,
+				0376660535C35513904321A0F388164B /* UIImageView+HighlightedWebCache.m in Sources */,
+				FBF6F5F47A0219AF718E591ABD59BFFB /* UIImageView+WebCache.m in Sources */,
+				AFD33EF9208B2D731D6524846CBD63B2 /* UIView+WebCacheOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8E05D7ACD629876F407848EEE2A1132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D522B46E50029053F179BAE0E417EFDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54067AB3267F0C3A709A123EEAA51B28 /* youtube-ios-player-helper-dummy.m in Sources */,
+				95EE99536A12DFF0EDA3D610542AF982 /* YTPlayerView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E90DCAC4F5ED11CE51930F0343976ED3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				659547118E91A9F2E21FEF1B6B9BB1EC /* Pods-XamoomSDKTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB140D48598B00D9D8D13284A3D915E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				385331156911D065E33061DC379146EC /* Pods-Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC0FF91FE12FD0DA180B240FED7B321B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ED0CF96B64E746297A9077C0C2840D2 /* Pods-XamoomSDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8F2C6AD07B37470947070270AD58E0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5046C90AFA4472F53065B879C62F785F /* SMCalloutView-dummy.m in Sources */,
+				853D485B6A9D8FC87DADBC4B6E8592F2 /* SMCalloutView.m in Sources */,
+				306BC8CDDA6102D49C4D69E130AAB8A0 /* SMClassicCalloutView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		13E4DF1F8EAEF54279712378ACD413E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XamoomSDK;
+			target = FA49DE67CE788AD6A6CE04DCDFFBCBD9 /* XamoomSDK */;
+			targetProxy = 38FC4BAE307820DBB95C1EE8D5D46418 /* PBXContainerItemProxy */;
+		};
+		20D2747E4068A7B7E6BEFB568A22225A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			target = 46F3E973AEA9D8C0CF64175162A369BB /* SDWebImage */;
+			targetProxy = 8C6DD80D5AC300D8B74E48BD9C55FFC0 /* PBXContainerItemProxy */;
+		};
+		3240D64264EDDE7578315644EF69FB3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "youtube-ios-player-helper-Assets";
+			target = 7C9A399BD3A6309C4B1F45F54274546F /* youtube-ios-player-helper-Assets */;
+			targetProxy = 2704D052942EFEEC7E9A104D583507D2 /* PBXContainerItemProxy */;
+		};
+		32E6E3B292ED71913FDA87F7B422AA30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OCMock;
+			target = 4A2CAA839F2722C796C6F1DFDC806B92 /* OCMock */;
+			targetProxy = C888EB19AAC90B079814B395A18B049A /* PBXContainerItemProxy */;
+		};
+		354E049B1DC14A37BFA469066C448EAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			target = 46F3E973AEA9D8C0CF64175162A369BB /* SDWebImage */;
+			targetProxy = AF08618C785F797FABE01FFBD3D3D169 /* PBXContainerItemProxy */;
+		};
+		7897348B0DDBE325B1C6DB3FEC45D5FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SMCalloutView;
+			target = 67A33FD56D224BE3B4C3248A8C99573D /* SMCalloutView */;
+			targetProxy = BBB92DE69D0D253A8C1F4A89F1335A97 /* PBXContainerItemProxy */;
+		};
+		960CEE8923AC17E7BEAED0AB9E1C306F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "youtube-ios-player-helper";
+			target = 468F871D1134F982A87EF9A3A9DEAD21 /* youtube-ios-player-helper */;
+			targetProxy = CF99FBFC65CD26AD15C391D4BC662FED /* PBXContainerItemProxy */;
+		};
+		B8E266933E7F7A152BA565D925ED082D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QRCodeReaderViewController;
+			target = 8246FD6BC541E26248D19C7459D98B60 /* QRCodeReaderViewController */;
+			targetProxy = 40C669B48AC5E71261FE1743A980FCEB /* PBXContainerItemProxy */;
+		};
+		C1EB67101A1FC83F88ABCDD598CFB962 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QRCodeReaderViewController;
+			target = 8246FD6BC541E26248D19C7459D98B60 /* QRCodeReaderViewController */;
+			targetProxy = C856533FE9E183B8D0B688E7FC705493 /* PBXContainerItemProxy */;
+		};
+		D3E2C8555DC805079A328A3464909F19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SMCalloutView;
+			target = 67A33FD56D224BE3B4C3248A8C99573D /* SMCalloutView */;
+			targetProxy = 295493BAF7437B39128E809EB4C87594 /* PBXContainerItemProxy */;
+		};
+		D6561EF691E721451B6B0B20A2A96AC1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "youtube-ios-player-helper";
+			target = 468F871D1134F982A87EF9A3A9DEAD21 /* youtube-ios-player-helper */;
+			targetProxy = 5BA0149DE752D434A95BAA2A13698B04 /* PBXContainerItemProxy */;
+		};
+		E0A3564E3D59231BFF459A6830C3601A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SMCalloutView;
+			target = 67A33FD56D224BE3B4C3248A8C99573D /* SMCalloutView */;
+			targetProxy = CD8FFEABE6A336FCE4D936E6C59F621D /* PBXContainerItemProxy */;
+		};
+		F2269FA08F9241E1EEA855BD0AA50591 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "youtube-ios-player-helper";
+			target = 468F871D1134F982A87EF9A3A9DEAD21 /* youtube-ios-player-helper */;
+			targetProxy = 975866BA8CDD782699302AC7234BA624 /* PBXContainerItemProxy */;
+		};
+		F2E4BE63C77EFB15B19CA61B774BA351 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			target = 46F3E973AEA9D8C0CF64175162A369BB /* SDWebImage */;
+			targetProxy = 89AD83962EECBBBA068D335A987ECA43 /* PBXContainerItemProxy */;
+		};
+		FB7D0A38BB193C931DB3FC8C97894D01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = QRCodeReaderViewController;
+			target = 8246FD6BC541E26248D19C7459D98B60 /* QRCodeReaderViewController */;
+			targetProxy = 3FA181630D137A20DEF671B873CE9275 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0ADBBE343F0B4FB4FA438FA857F5CFFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45DD1BFC82C92E6862ACA0E600AA19BD /* QRCodeReaderViewController.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/QRCodeReaderViewController/QRCodeReaderViewController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		14ABC8A95EA11DA85F3B22DDD013B7F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C38F513951CEC6F47A63C185D8BDFA8 /* SDWebImage.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		20961AC530B06A0887EACCB54A2A8FED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12C68B518CBDB2291ACFDF22816AD0BE /* XamoomSDK.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/XamoomSDK/XamoomSDK-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		251121609363F57B20CE1485900386DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B41D559AB454B2179C072428B0BF7A6 /* OCMock.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OCMock/OCMock-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		315DEA599802F10FA4B80B12104A3F75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45DD1BFC82C92E6862ACA0E600AA19BD /* QRCodeReaderViewController.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/QRCodeReaderViewController/QRCodeReaderViewController-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4B7DA9CAE9B68DF62EE01178E37710FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD8FE21D56F3B4EC301D5BEB0BA1FEB0 /* SMCalloutView.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SMCalloutView/SMCalloutView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4C44115BA7114FAE2AF26A68DF5710EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 171EDB338B9611A6E7235C50BD159E69 /* youtube-ios-player-helper.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4C9BF8BE527CB6692397FF22D498FB8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DFB91796B5ACD79B7842C48D2778811 /* Pods-XamoomSDK.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5B676D7BF9FE9DA3B5135606934CC98F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD8FE21D56F3B4EC301D5BEB0BA1FEB0 /* SMCalloutView.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SMCalloutView/SMCalloutView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		68672C51C711C5E16AC79EA5141170EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B41D559AB454B2179C072428B0BF7A6 /* OCMock.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/OCMock/OCMock-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		94A1FBE3664990D473A200C3645CF4EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3A081DD4E88097CE9C0996A6BA7B2C3 /* Pods-Example.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		AA32CE6FA8B3433C3AFE18754D1A55E1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A90663D284B66520E118886795B025A1 /* Pods-Example.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AD1DB03EAE444830BC767C532EC952C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 171EDB338B9611A6E7235C50BD159E69 /* youtube-ios-player-helper.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = Assets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		BB2608C3579113E0432A2699E8B20601 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12C68B518CBDB2291ACFDF22816AD0BE /* XamoomSDK.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/XamoomSDK/XamoomSDK-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BE8CB08947B06F069FD1FF5C4C68BFE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 437C83107DE74112F3E54D1A6CAFC478 /* Pods-XamoomSDKTests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C3BEC1BC0633D4FB0BA9E089DB4BE62A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 171EDB338B9611A6E7235C50BD159E69 /* youtube-ios-player-helper.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				PRODUCT_NAME = Assets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		E05CF1494B9A895162F69A8754DC4D95 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C38F513951CEC6F47A63C185D8BDFA8 /* SDWebImage.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F5718BBFC9DA695DBDE7552E3D10CCFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C43F609E91C1F61E1103EBCB3ED2447 /* Pods-XamoomSDKTests.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F7D12D70BDD8546A86E84F49B70D3A72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8D6D2F2330C014234A22349D583845E /* Pods-XamoomSDK.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FEC19761492EFB795265DA5EFD5FDC18 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 171EDB338B9611A6E7235C50BD159E69 /* youtube-ios-player-helper.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/youtube-ios-player-helper/youtube-ios-player-helper-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10542776D8ACCA3DA970BD708ACC2AF4 /* Build configuration list for PBXNativeTarget "OCMock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				251121609363F57B20CE1485900386DF /* Debug */,
+				68672C51C711C5E16AC79EA5141170EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
+				FB45FFD90572718D82AB9092B750F0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39D9208E503333F21F771337D4CE3697 /* Build configuration list for PBXNativeTarget "QRCodeReaderViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ADBBE343F0B4FB4FA438FA857F5CFFA /* Debug */,
+				315DEA599802F10FA4B80B12104A3F75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5086F041B1A410F87AC4CED94685E026 /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper-Assets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3BEC1BC0633D4FB0BA9E089DB4BE62A /* Debug */,
+				AD1DB03EAE444830BC767C532EC952C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D3E26FFCDD0A52277040AF5C45CCCBF /* Build configuration list for PBXNativeTarget "SMCalloutView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B7DA9CAE9B68DF62EE01178E37710FB /* Debug */,
+				5B676D7BF9FE9DA3B5135606934CC98F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A5DE838E7FA5D9A3B4E63CB70B6862F /* Build configuration list for PBXNativeTarget "Pods-XamoomSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE8CB08947B06F069FD1FF5C4C68BFE8 /* Debug */,
+				F5718BBFC9DA695DBDE7552E3D10CCFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85D19E439F804CAF3E0CEE106814566A /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEC19761492EFB795265DA5EFD5FDC18 /* Debug */,
+				4C44115BA7114FAE2AF26A68DF5710EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C14C59AF874B98ED6FB370EF505F67B6 /* Build configuration list for PBXNativeTarget "Pods-XamoomSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C9BF8BE527CB6692397FF22D498FB8E /* Debug */,
+				F7D12D70BDD8546A86E84F49B70D3A72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCFDF2F0317503E95CE9F9959D0DA433 /* Build configuration list for PBXNativeTarget "Pods-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94A1FBE3664990D473A200C3645CF4EC /* Debug */,
+				AA32CE6FA8B3433C3AFE18754D1A55E1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6D164274246104BD6979E181AC9BD40 /* Build configuration list for PBXNativeTarget "SDWebImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E05CF1494B9A895162F69A8754DC4D95 /* Debug */,
+				14ABC8A95EA11DA85F3B22DDD013B7F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFAFC68929E7FDCAF269A9EE781D5A0B /* Build configuration list for PBXNativeTarget "XamoomSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB2608C3579113E0432A2699E8B20601 /* Debug */,
+				20961AC530B06A0887EACCB54A2A8FED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
