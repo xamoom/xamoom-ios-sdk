@@ -1,1 +1,1 @@
-../../../../XamoomSDK/classes/XMMEnduserApi.h
+../../../../XamoomSDK/Classes/XMMEnduserApi.h

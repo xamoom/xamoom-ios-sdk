@@ -1,1 +1,1 @@
-../../../../XamoomSDK/classes/XamoomSDK.h
+../../../../XamoomSDK/Classes/XamoomSDK.h

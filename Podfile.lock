@@ -1,4 +1,5 @@
 PODS:
+  - JSONAPI (1.0.4)
   - OCMock (3.2)
   - QRCodeReaderViewController (2.0.0)
   - SDWebImage (3.7.4):
@@ -13,6 +14,7 @@ PODS:
   - youtube-ios-player-helper (0.1.4)
 
 DEPENDENCIES:
+  - JSONAPI (~> 1.0.0)
   - OCMock (~> 3.2)
   - QRCodeReaderViewController (~> 2.0.0)
   - SDWebImage (~> 3.7)
@@ -25,11 +27,12 @@ EXTERNAL SOURCES:
     :path: ./
 
 SPEC CHECKSUMS:
+  JSONAPI: fe9ea0fd01c25c7c55a313d27c94bf732ba20ea1
   OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
   QRCodeReaderViewController: bc35f1b48ec5231904ca9347c02423ddb76b7b40
   SDWebImage: 247edd7dd80dd6124197b0d6a17846fe9d1df968
   SMCalloutView: acee64c093fe04721fee640b42ed25d8265cc010
-  XamoomSDK: f820225a012522e373a696b43f704fa4af4ea22d
+  XamoomSDK: b89ec1d75efa1b6862de77fc0f3863ac965c72d1
   youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
 
 COCOAPODS: 0.39.0

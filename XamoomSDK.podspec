@@ -22,7 +22,10 @@ Pod::Spec.new do |s|
 
   s.source_files = 'XamoomSDK/classes/**/*.{h,m}'
   s.public_header_files = 'XamoomSDK/classes/**/*.h'
-  s.resources = 'XamoomSDK/Assets/**/**.*'
+  s.resources = 'XamoomSDK/assets/**/**.*'
+
+  #s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics', 'UIKit'
+  #s.vendored_frameworks = 'XamoomSDK/lib/SVGKit.framework'
 
   s.dependency 'SMCalloutView', '~> 2.0.0'
 	s.dependency 'QRCodeReaderViewController', '~> 2.0.0'

@@ -6,6 +6,7 @@ platform :ios, '8.0'
 workspace 'XamoomSDK'
 
 target 'XamoomSDK' do
+	pod 'JSONAPI', '~> 1.0.0'
 	pod 'SMCalloutView', '~> 2.0.0'
 	pod 'QRCodeReaderViewController', '~> 2.0.0'
 	pod 'youtube-ios-player-helper', '= 0.1.4'

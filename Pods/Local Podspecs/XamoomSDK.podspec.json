@@ -18,7 +18,7 @@
   "requires_arc": true,
   "source_files": "XamoomSDK/classes/**/*.{h,m}",
   "public_header_files": "XamoomSDK/classes/**/*.h",
-  "resources": "XamoomSDK/Assets/**/**.*",
+  "resources": "XamoomSDK/assets/**/**.*",
   "dependencies": {
     "SMCalloutView": [
       "~> 2.0.0"
