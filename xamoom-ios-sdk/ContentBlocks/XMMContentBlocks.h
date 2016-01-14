@@ -78,6 +78,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 /**
  * Initializes the XMMContentBlock.
  *
+ * @param tableView UITableView you implement to show the content
  * @param language The preferred language, can be @"" for systemLanguage
  * @param showContentLinks Yes to show contentLinks when displaying a spotMap
  */
