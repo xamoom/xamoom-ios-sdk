@@ -44,6 +44,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>XamoomSDK-XamoomSDKNibs.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>XamoomSDK-XamoomSDKXCAssets.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>XamoomSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,6 +72,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>1148A955FA424BC7715C05FE3F40CA71</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>452A53F18F8298881B1A580A6648DFF5</key>
 		<dict>
 			<key>primary</key>
@@ -78,6 +93,11 @@
 			<true/>
 		</dict>
 		<key>4A2CAA839F2722C796C6F1DFDC806B92</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5676A02B405F7898424824AE4235A573</key>
 		<dict>
 			<key>primary</key>
 			<true/>

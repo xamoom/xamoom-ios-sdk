@@ -10,4 +10,10 @@
 
 @implementation XMMQuery
 
+- (instancetype)initWithBaseUrl:(NSURL *)url {
+  self = [super init];
+  self.baseUrl = url;
+  return self;
+}
+
 @end

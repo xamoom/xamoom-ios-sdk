@@ -7,8 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "XMMQuery.h"
 
 @interface XMMQueryTest : XCTestCase
+
+@property XMMQuery *query;
+@property NSString *devApiUrl;
 
 @end
 
@@ -16,7 +20,7 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.devApiUrl = @"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer";
 }
 
 - (void)tearDown {
@@ -24,16 +28,11 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testInitWithBaseUrl {
+  self.query = [[XMMQuery alloc] initWithBaseUrl:[NSURL URLWithString:self.devApiUrl]];
+  
+  XCTAssertNotNil(self.query);
+  XCTAssertTrue([self.devApiUrl isEqualToString:self.query.baseUrl.absoluteString]);
 }
 
 @end

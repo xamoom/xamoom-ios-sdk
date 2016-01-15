@@ -20,9 +20,13 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'XamoomSDK/classes/**/*.{h,m}'
-  s.public_header_files = 'XamoomSDK/classes/**/*.h'
-  s.resources = 'XamoomSDK/assets/**/**.*'
+  s.source_files = 'XamoomSDK/Classes/**/*.{h,m}'
+  s.public_header_files = 'XamoomSDK/Classes/**/*.h'
+
+  s.resource_bundles = {
+    'XamoomSDKXCAssets' => ['XamoomSDK/Assets/*.xcassets'],
+    'XamoomSDKNibs' => ['XamoomSDK/Assets/Nibs/*.xib']
+  }
 
   #s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics', 'UIKit'
   #s.vendored_frameworks = 'XamoomSDK/lib/SVGKit.framework'

@@ -10,4 +10,14 @@
 
 @interface XMMQuery : NSObject
 
+@property (strong, nonatomic) NSURL *baseUrl;
+
+- (instancetype)initWithBaseUrl:(NSURL *)url;
+
+- (NSURL *)urlWithResource:(Class)resourceClass;
+
+- (NSURL *)urlWithResource:(Class)resourceClass id:(NSString *)resourceId;
+
+- (NSURL *)extendUrl:(NSURL *)url message:(NSString *)message;
+
 @end

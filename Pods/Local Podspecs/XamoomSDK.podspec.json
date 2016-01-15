@@ -16,9 +16,16 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "XamoomSDK/classes/**/*.{h,m}",
-  "public_header_files": "XamoomSDK/classes/**/*.h",
-  "resources": "XamoomSDK/assets/**/**.*",
+  "source_files": "XamoomSDK/Classes/**/*.{h,m}",
+  "public_header_files": "XamoomSDK/Classes/**/*.h",
+  "resource_bundles": {
+    "XamoomSDKXCAssets": [
+      "XamoomSDK/Assets/*.xcassets"
+    ],
+    "XamoomSDKNibs": [
+      "XamoomSDK/Assets/Nibs/*.xib"
+    ]
+  },
   "dependencies": {
     "SMCalloutView": [
       "~> 2.0.0"
