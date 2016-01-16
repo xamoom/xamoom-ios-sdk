@@ -10,4 +10,8 @@
 
 @implementation XMMSystem
 
++ (NSString *)resourceName {
+  return @"systems";
+}
+
 @end

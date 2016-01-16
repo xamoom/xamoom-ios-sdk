@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMMResource.h"
 
-@interface XMMSystem : XMMResource
+@interface XMMSystem : XMMResource  <XMMRestResource>
 
 @end

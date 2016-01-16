@@ -10,6 +10,10 @@
 
 @interface XMMResource : NSObject
 
+@end
+
+@protocol XMMRestResource <NSObject>
+
 + (NSString *)resourceName;
 
 @end
