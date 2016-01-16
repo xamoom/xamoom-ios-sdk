@@ -10,4 +10,14 @@
 
 @implementation XMMRestClient
 
+- (instancetype)initWithBaseUrl:(NSString *)baseUrl {
+  self = [super init];
+  self.query = [[XMMQuery alloc] initWithBaseUrl:baseUrl];
+  return self;
+}
+
+- (void)fetchResource:(Class)resourceClass {
+  NSURL *requestUrl = [self.query urlWithResource:resourceClass];
+}
+
 @end

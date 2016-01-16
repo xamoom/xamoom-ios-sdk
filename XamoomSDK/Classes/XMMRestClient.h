@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMMQuery.h"
 
 @interface XMMRestClient : NSObject
+
+@property (strong, nonatomic) XMMQuery *query;
+
+- (instancetype)initWithBaseUrl:(NSString *)baseUrl;
+
+- (void)fetchResource;
 
 @end
