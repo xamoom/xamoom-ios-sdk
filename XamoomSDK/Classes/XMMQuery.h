@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMMResource.h"
 
 @interface XMMQuery : NSObject
 
@@ -14,7 +15,7 @@
 
 - (instancetype)initWithBaseUrl:(NSURL *)url;
 
-- (NSURL *)urlWithResource:(Class)resourceClass;
+- (NSURL *)urlWithResource:(Class <XMMRestResource>)resourceClass;
 
 - (NSURL *)urlWithResource:(Class)resourceClass id:(NSString *)resourceId;
 

@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "XMMQuery.h"
+#import "XMMSystem.h"
 
 @interface XMMQueryTest : XCTestCase
 
@@ -19,20 +20,29 @@
 @implementation XMMQueryTest
 
 - (void)setUp {
-    [super setUp];
-    self.devApiUrl = @"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer";
+  [super setUp];
+  self.devApiUrl = @"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer";
+  self.query = [[XMMQuery alloc] initWithBaseUrl:[NSURL URLWithString:self.devApiUrl]];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+  // Put teardown code here. This method is called after the invocation of each test method in the class.
+  [super tearDown];
 }
 
 - (void)testInitWithBaseUrl {
-  self.query = [[XMMQuery alloc] initWithBaseUrl:[NSURL URLWithString:self.devApiUrl]];
+  XMMQuery *query = [[XMMQuery alloc] initWithBaseUrl:[NSURL URLWithString:self.devApiUrl]];
   
-  XCTAssertNotNil(self.query);
-  XCTAssertTrue([self.devApiUrl isEqualToString:self.query.baseUrl.absoluteString]);
+  XCTAssertNotNil(query);
+  XCTAssertTrue([self.devApiUrl isEqualToString:query.baseUrl.absoluteString]);
+}
+
+- (void)testUrlWithResource {
+  NSString *testString = @"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems";
+  
+  NSURL *result = [self.query urlWithResource:[XMMSystem class]];
+  
+  XCTAssertTrue([testString isEqualToString:result.absoluteString]);
 }
 
 @end

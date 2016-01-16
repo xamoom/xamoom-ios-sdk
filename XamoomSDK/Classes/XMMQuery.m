@@ -16,4 +16,9 @@
   return self;
 }
 
+- (NSURL *)urlWithResource:(Class <XMMRestResource>)resourceClass {
+  NSString *resourceName = [resourceClass resourceName];
+  return [self.baseUrl URLByAppendingPathComponent:resourceName];
+}
+
 @end
