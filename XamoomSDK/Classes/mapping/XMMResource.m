@@ -10,4 +10,8 @@
 
 @implementation XMMResource
 
++ (NSString *)resourceName {
+  return nil;
+}
+
 @end

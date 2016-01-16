@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XMMSystem : NSObject
+@interface XMMSystem : XMMResource
 
 @end
