@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6C2433CCAFE30B9FF7CB6E1F /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EE8CEC29991FFB2D3F62ED /* libPods-XamoomSDKTests.a */; };
+		883E554F1C4A2B66000C4D09 /* XMMSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 883E554D1C4A2B66000C4D09 /* XMMSystem.h */; };
+		883E55501C4A2B66000C4D09 /* XMMSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E554E1C4A2B66000C4D09 /* XMMSystem.m */; };
 		8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */; };
 		8888DDD21C47B0FA0050A84C /* XamoomSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DDD11C47B0FA0050A84C /* XamoomSDKTests.m */; };
 		88E46DE61C47E117004D8AC3 /* XamoomSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46DE31C47E117004D8AC3 /* XamoomSDK.h */; };
@@ -86,6 +88,8 @@
 		3DC5AD2ABD9CD734188F70AD /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		40505271F3087BE9AB3D782E /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		78EB5D1E7CCEA2A615EAD316 /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
+		883E554D1C4A2B66000C4D09 /* XMMSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMSystem.h; path = XamoomSDK/Classes/mapping/XMMSystem.h; sourceTree = SOURCE_ROOT; };
+		883E554E1C4A2B66000C4D09 /* XMMSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMSystem.m; path = XamoomSDK/Classes/mapping/XMMSystem.m; sourceTree = SOURCE_ROOT; };
 		8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XamoomSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDC71C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8888DDCC1C47B0FA0050A84C /* XamoomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +234,8 @@
 			children = (
 				88E46F231C4933D8004D8AC3 /* XMMResource.h */,
 				88E46F241C4933D8004D8AC3 /* XMMResource.m */,
+				883E554D1C4A2B66000C4D09 /* XMMSystem.h */,
+				883E554E1C4A2B66000C4D09 /* XMMSystem.m */,
 				88E46E191C47E348004D8AC3 /* XMMClosestSpot.h */,
 				88E46E1A1C47E348004D8AC3 /* XMMClosestSpot.m */,
 				88E46E1B1C47E348004D8AC3 /* XMMContent.h */,
@@ -330,6 +336,7 @@
 				88E46E861C47E348004D8AC3 /* XMMContentBlockType5.h in Headers */,
 				88E46E8E1C47E348004D8AC3 /* XMMContentBlockType9.h in Headers */,
 				88E46E901C47E348004D8AC3 /* XMMContentById.h in Headers */,
+				883E554F1C4A2B66000C4D09 /* XMMSystem.h in Headers */,
 				88E46F251C4933D8004D8AC3 /* XMMResource.h in Headers */,
 				88E46E961C47E348004D8AC3 /* XMMContentByLocationItem.h in Headers */,
 				88E46DE61C47E117004D8AC3 /* XamoomSDK.h in Headers */,
@@ -537,6 +544,7 @@
 				88E46E8B1C47E348004D8AC3 /* XMMContentBlockType7.m in Sources */,
 				88E46E791C47E348004D8AC3 /* XMMContent.m in Sources */,
 				88E46E931C47E348004D8AC3 /* XMMContentByLocation.m in Sources */,
+				883E55501C4A2B66000C4D09 /* XMMSystem.m in Sources */,
 				88E46E771C47E348004D8AC3 /* XMMClosestSpot.m in Sources */,
 				88E46E8F1C47E348004D8AC3 /* XMMContentBlockType9.m in Sources */,
 				88E46E9B1C47E348004D8AC3 /* XMMError.m in Sources */,
