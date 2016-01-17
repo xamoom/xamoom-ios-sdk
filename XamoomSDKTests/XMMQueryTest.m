@@ -45,4 +45,40 @@
   XCTAssertTrue([testString isEqualToString:result.absoluteString]);
 }
 
+- (void)testUrlWithResourceId {
+  NSString *testString = @"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056";
+  
+  NSURL *result = [self.query urlWithResource:[XMMSystem class] id:@"5755996320301056"];
+  
+  XCTAssertTrue([testString isEqualToString:result.absoluteString]);
+}
+
+- (void)testAddQueryParameterToUrl {
+  NSURL *url = [NSURL URLWithString:@"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
+  NSString *testString = [@"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056?lang=\"de\""  stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+  
+  NSURL *result = [self.query addQueryParameterToUrl:url name:@"lang" value:@"de"];
+  
+  XCTAssertTrue([testString isEqualToString:result.absoluteString]);
+}
+
+- (void)testAddQueryParameterToUrlWithUmlaut {
+  NSURL *url = [NSURL URLWithString:@"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
+  NSString *testString = [@"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056?lang=\"ö\""  stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+  
+  NSURL *result = [self.query addQueryParameterToUrl:url name:@"lang" value:@"ö"];
+  
+  XCTAssertTrue([testString isEqualToString:result.absoluteString]);
+}
+
+- (void)testAddQueryParametersToUrl {
+  NSURL *url = [NSURL URLWithString:@"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
+  NSString *testString = [@"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056?lang=\"de\"&filter[sort]=\"asc\""  stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
+  
+  NSURL *result = [self.query addQueryParametersToUrl:url parameters:@{@"lang":@"de",@"filter[sort]":@"asc"}];
+  
+  XCTAssertTrue([testString isEqualToString:result.absoluteString]);
+}
+
+
 @end

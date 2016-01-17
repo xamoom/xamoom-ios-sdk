@@ -21,4 +21,27 @@
   return [self.baseUrl URLByAppendingPathComponent:resourceName];
 }
 
+- (NSURL *)urlWithResource:(Class)resourceClass id:(NSString *)resourceId {
+  NSURL *urlWithResourceName = [self urlWithResource:resourceClass];
+  return [urlWithResourceName URLByAppendingPathComponent:resourceId];
+}
+
+- (NSURL *)addQueryParametersToUrl:(NSURL *)url parameters:(NSDictionary *)parameters {
+  NSMutableArray *parameterArray = [[NSMutableArray alloc] init];
+  for(id key in parameters) {
+    [parameterArray addObject:[NSString stringWithFormat:@"%@=\"%@\"", key, [parameters valueForKey:key]]];
+  }
+  return [self addQueryStringToUrl:url queryString:[parameterArray componentsJoinedByString:@"&"]];
+}
+
+- (NSURL *)addQueryParameterToUrl:(NSURL *)url name:(NSString *)name value:(NSString *)value {
+  return [self addQueryParametersToUrl:url parameters:@{name:value}];
+}
+
+- (NSURL *)addQueryStringToUrl:(NSURL *)url queryString:(NSString *)queryString {
+  NSString *urlString = url.absoluteString;
+  urlString = [NSString stringWithFormat:@"%@?%@", urlString, queryString];
+  return [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+}
+
 @end

@@ -19,10 +19,8 @@
 
 - (NSURL *)urlWithResource:(Class)resourceClass id:(NSString *)resourceId;
 
-- (NSURL *)addQueryParamtersToUrl:(NSURL *)url name:(NSString *)name value:(NSString *)value;
+- (NSURL *)addQueryParameterToUrl:(NSURL *)url name:(NSString *)name value:(NSString *)value;
 
-- (NSURL *)addQueryParamtersToUrl:(NSURL *)url paramters:(NSDictionary *)paramters;
-
-- (NSURL *)extendUrl:(NSURL *)url message:(NSString *)message;
+- (NSURL *)addQueryParametersToUrl:(NSURL *)url parameters:(NSDictionary *)parameters;
 
 @end
