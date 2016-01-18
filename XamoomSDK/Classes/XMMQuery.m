@@ -29,19 +29,19 @@
 - (NSURL *)addQueryParametersToUrl:(NSURL *)url parameters:(NSDictionary *)parameters {
   NSMutableArray *parameterArray = [[NSMutableArray alloc] init];
   for(id key in parameters) {
-    [parameterArray addObject:[NSString stringWithFormat:@"%@=\"%@\"", key, [parameters valueForKey:key]]];
+    [parameterArray addObject:[[NSURLQueryItem alloc] initWithName:key value:[parameters valueForKey:key]]];
   }
-  return [self addQueryStringToUrl:url queryString:[parameterArray componentsJoinedByString:@"&"]];
+  return [self addQueryStringToUrl:url query:parameterArray];
 }
 
 - (NSURL *)addQueryParameterToUrl:(NSURL *)url name:(NSString *)name value:(NSString *)value {
   return [self addQueryParametersToUrl:url parameters:@{name:value}];
 }
 
-- (NSURL *)addQueryStringToUrl:(NSURL *)url queryString:(NSString *)queryString {
-  NSString *urlString = url.absoluteString;
-  urlString = [NSString stringWithFormat:@"%@?%@", urlString, queryString];
-  return [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+- (NSURL *)addQueryStringToUrl:(NSURL *)url query:(NSArray *)queryItems {
+  NSURLComponents *components = [[NSURLComponents alloc] initWithURL:url resolvingAgainstBaseURL:NO];
+  components.queryItems = queryItems;
+  return components.URL;
 }
 
 @end
