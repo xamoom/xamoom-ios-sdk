@@ -27,6 +27,9 @@
     ]
   },
   "dependencies": {
+    "JSONAPI": [
+      "~> 1.0.0"
+    ],
     "SMCalloutView": [
       "~> 2.0.0"
     ],
