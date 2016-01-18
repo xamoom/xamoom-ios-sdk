@@ -31,6 +31,7 @@ Pod::Spec.new do |s|
   #s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics', 'UIKit'
   #s.vendored_frameworks = 'XamoomSDK/lib/SVGKit.framework'
 
+  s.dependency 'JSONAPI', '~> 1.0.0'
   s.dependency 'SMCalloutView', '~> 2.0.0'
 	s.dependency 'QRCodeReaderViewController', '~> 2.0.0'
 	s.dependency 'youtube-ios-player-helper', '= 0.1.4'
