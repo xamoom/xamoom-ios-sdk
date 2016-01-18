@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONAPI/JSONAPIResourceBase.h>
+#import <JSONAPI/JSONAPIResourceDescriptor.h>
+#import <JSONAPI/JSONAPIPropertyDescriptor.h>
+#import "XMMRestResource.h"
 
-@interface XMMSystemSettings : NSObject
+@interface XMMSystemSettings : JSONAPIResourceBase  <XMMRestResource>
+
+@property (strong, nonatomic) NSString *googlePlayAppId;
+@property (strong, nonatomic) NSString *itunesAppId;
 
 @end

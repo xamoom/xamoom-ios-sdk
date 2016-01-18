@@ -10,4 +10,24 @@
 
 @implementation XMMSystemSettings
 
+static JSONAPIResourceDescriptor *__descriptor = nil;
+
++ (NSString *)resourceName {
+  return @"settings";
+}
+
++ (JSONAPIResourceDescriptor *)descriptor {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    __descriptor = [[JSONAPIResourceDescriptor alloc] initWithClass:[self class] forLinkedType:@"settings"];
+    
+    [__descriptor setIdProperty:@"ID"];
+    
+    [__descriptor addProperty:@"googlePlayAppId" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"appid-google-play"]];
+    [__descriptor addProperty:@"itunesAppId" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"appid-itunes"]];
+  });
+  
+  return __descriptor;
+}
+
 @end
