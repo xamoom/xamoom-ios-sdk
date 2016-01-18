@@ -14,4 +14,23 @@
   return @"systems";
 }
 
+static JSONAPIResourceDescriptor *__descriptor = nil;
+
++ (JSONAPIResourceDescriptor *)descriptor {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    __descriptor = [[JSONAPIResourceDescriptor alloc] initWithClass:[self class] forLinkedType:@"systems"];
+    
+    [__descriptor setIdProperty:@"ID"];
+    
+    
+    [__descriptor addProperty:@"name" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"display-name"]];
+    [__descriptor addProperty:@"url"];
+    [__descriptor addProperty:@"demo" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-demo"]];
+    [__descriptor hasOne:[XMMSystemSettings class] withName:@"settings"];
+  });
+  
+  return __descriptor;
+}
+
 @end

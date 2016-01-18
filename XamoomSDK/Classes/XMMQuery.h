@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMMResource.h"
+#import "XMMRestResource.h"
 
 @interface XMMQuery : NSObject
 

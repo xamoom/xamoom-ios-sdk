@@ -7,8 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMMResource.h"
+#import <JSONAPI/JSONAPIResourceBase.h>
+#import <JSONAPI/JSONAPIResourceDescriptor.h>
+#import <JSONAPI/JSONAPIPropertyDescriptor.h>
+#import "XMMRestResource.h"
+#import "XMMSystemSettings.h"
 
-@interface XMMSystem : XMMResource  <XMMRestResource>
+@interface XMMSystem : JSONAPIResourceBase  <XMMRestResource>
+
+@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *url;
+@property (nonatomic, getter=isDemo) BOOL demo;
+@property (strong, nonatomic) XMMSystemSettings *settings;
+//TODO style, settings, menu
 
 @end

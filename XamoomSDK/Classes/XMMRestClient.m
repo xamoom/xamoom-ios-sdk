@@ -12,7 +12,7 @@
 - (instancetype)initWithBaseUrl:(NSURL *)baseUrl session:(NSURLSession *)session {
   self = [super init];
   self.query = [[XMMQuery alloc] initWithBaseUrl:baseUrl];
-  self.session = session;
+  self.session = session; 
   return self;
 }
 
