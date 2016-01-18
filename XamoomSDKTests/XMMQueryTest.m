@@ -80,5 +80,13 @@
   XCTAssertTrue([testString isEqualToString:result.absoluteString]);
 }
 
+- (void)testAddQueryParametersWithNil {
+  NSURL *url = [NSURL URLWithString:@"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
+  NSString *testString = @"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056?";
+  
+  NSURL *result = [self.query addQueryParametersToUrl:url parameters:nil];
+  
+  XCTAssertTrue([testString isEqualToString:result.absoluteString]);
+}
 
 @end
