@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XMMResource : NSObject
-
-@end
-
 @protocol XMMRestResource <NSObject>
 
 + (NSString *)resourceName;
