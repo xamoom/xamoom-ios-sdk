@@ -21,5 +21,32 @@
 
 @implementation XMMSpot
 
++ (NSString *)resourceName {
+  return @"spots";
+}
+
+static JSONAPIResourceDescriptor *__descriptor = nil;
+
++ (JSONAPIResourceDescriptor *)descriptor {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    __descriptor = [[JSONAPIResourceDescriptor alloc] initWithClass:[self class] forLinkedType:@"spots"];
+    
+    [__descriptor setIdProperty:@"ID"];
+ 
+    [__descriptor addProperty:@"name" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"name"]];
+    [__descriptor addProperty:@"spotDescription" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"description"]];
+    [__descriptor addProperty:@"lat" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"position-latitude"]];
+    [__descriptor addProperty:@"lon" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"position-longitude"]];
+    [__descriptor addProperty:@"image" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"image"]];
+    [__descriptor addProperty:@"category"];
+    [__descriptor addProperty:@"tags"];
+    [__descriptor hasOne:[XMMContent class] withName:@"content"];
+    [__descriptor hasOne:[XMMSystem class] withName:@"system"];
+    [__descriptor hasOne:[XMMMarker class] withName:@"markers"];
+  });
+  
+  return __descriptor;
+}
 
 @end
