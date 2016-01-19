@@ -13,6 +13,7 @@
 #import "XMMRestResource.h"
 #import "XMMSystemSettings.h"
 #import "XMMStyle.h"
+#import "XMMMenu.h"
 
 @interface XMMSystem : JSONAPIResourceBase  <XMMRestResource>
 
@@ -21,7 +22,6 @@
 @property (nonatomic, getter=isDemo) BOOL demo;
 @property (strong, nonatomic) XMMSystemSettings *settings;
 @property (strong, nonatomic) XMMStyle *style;
-
-//TODO style, settings, menu
+@property (strong, nonatomic) XMMMenu *menu;
 
 @end
