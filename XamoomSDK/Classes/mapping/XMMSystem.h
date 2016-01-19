@@ -12,6 +12,7 @@
 #import <JSONAPI/JSONAPIPropertyDescriptor.h>
 #import "XMMRestResource.h"
 #import "XMMSystemSettings.h"
+#import "XMMStyle.h"
 
 @interface XMMSystem : JSONAPIResourceBase  <XMMRestResource>
 
@@ -19,6 +20,8 @@
 @property (strong, nonatomic) NSString *url;
 @property (nonatomic, getter=isDemo) BOOL demo;
 @property (strong, nonatomic) XMMSystemSettings *settings;
+@property (strong, nonatomic) XMMStyle *style;
+
 //TODO style, settings, menu
 
 @end

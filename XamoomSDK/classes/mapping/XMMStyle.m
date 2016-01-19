@@ -21,4 +21,28 @@
 
 @implementation XMMStyle
 
+static JSONAPIResourceDescriptor *__descriptor = nil;
+
++ (NSString *)resourceName {
+  return @"styles";
+}
+
++ (JSONAPIResourceDescriptor *)descriptor {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    __descriptor = [[JSONAPIResourceDescriptor alloc] initWithClass:[self class] forLinkedType:@"styles"];
+    
+    [__descriptor setIdProperty:@"ID"];
+    
+    [__descriptor addProperty:@"backgroundColor" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"background-color"]];
+    [__descriptor addProperty:@"highlightFontColor" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"highlight-color"]];
+    [__descriptor addProperty:@"foregroundFontColor" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"foreground-color"]];
+    [__descriptor addProperty:@"chromeHeaderColor" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"chrome-header-color"]];
+    [__descriptor addProperty:@"customMarker" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"map-pin"]];
+    [__descriptor addProperty:@"icon"];
+  });
+  
+  return __descriptor;
+}
+
 @end

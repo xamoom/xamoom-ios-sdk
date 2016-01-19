@@ -28,6 +28,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"url"];
     [__descriptor addProperty:@"demo" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-demo"]];
     [__descriptor hasOne:[XMMSystemSettings class] withName:@"settings"];
+    [__descriptor hasOne:[XMMStyle class] withName:@"style"];
   });
   
   return __descriptor;

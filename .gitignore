@@ -19,6 +19,6 @@ DerivedData
 *.xcuserstate
 
 
-Pods/*
-Podfile.lock
+Pods/
+*Podfile.lock
 *TestingIDs.plist

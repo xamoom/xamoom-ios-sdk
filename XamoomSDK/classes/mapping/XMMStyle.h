@@ -18,12 +18,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMMEnduserApi.h"
+#import <JSONAPI/JSONAPIResourceBase.h>
+#import <JSONAPI/JSONAPIResourceDescriptor.h>
+#import <JSONAPI/JSONAPIPropertyDescriptor.h>
+#import "XMMRestResource.h"
 
 /**
  * `XMMStyle` is used for mapping the JSON sended by the api.
  */
-@interface XMMStyle : NSObject
+@interface XMMStyle : JSONAPIResourceBase  <XMMRestResource>
 
 /**
  * The background color defined on our system. (E.g. #f5f5f5)
