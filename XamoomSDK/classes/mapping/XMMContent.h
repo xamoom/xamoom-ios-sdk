@@ -19,19 +19,24 @@
 
 
 #import <Foundation/Foundation.h>
-#import "XMMEnduserApi.h"
+#import <JSONAPI/JSONAPIResourceBase.h>
+#import <JSONAPI/JSONAPIResourceDescriptor.h>
+#import <JSONAPI/JSONAPIPropertyDescriptor.h>
+#import "XMMRestResource.h"
+#import "XMMSystem.h"
+#import "XMMSpot.h"
+
+@class XMMSpot;
 
 /**
  * `XMMContent` is used for mapping the JSON sended by the api.
  */
-@interface XMMContent : NSObject
+@interface XMMContent : JSONAPIResourceBase  <XMMRestResource>
 
 #pragma mark Properties
 /// @name Properties
-/**
- * The unique contentId on our system.
- */
-@property (nonatomic, copy) NSString *contentId;
+
+@property (nonatomic, copy) NSString *title;
 /**
  * Public url pointing to an image on our system.
  */
@@ -39,24 +44,25 @@
 /**
  * Description (Excerpt) of the content.
  */
-@property (nonatomic, copy) NSString *descriptionOfContent;
+@property (nonatomic, copy) NSString *contentDescription;
 /**
  * The language of the content
  */
 @property (nonatomic, copy) NSString *language;
 /**
- * The title of the content.
- */
-@property (nonatomic, copy) NSString *title;
-/**
  * Array containing items of XMMContentBlock.
- * Display all different contentBlocks.
  */
 @property (nonatomic) NSArray *contentBlocks;
 /**
  *  Category as an number to specify an icon.
  */
-@property (nonatomic) NSNumber *category;
+@property (nonatomic) int category;
+
+@property (nonatomic) NSArray *tags;
+
+@property (nonatomic) XMMSystem *system;
+
+@property (nonatomic) XMMSpot *spot;
 
 /**
  * Returns the `XMMCoreDataContentBlocks` in the right order.
@@ -64,7 +70,5 @@
  * @return NSArray*
  */
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks;
-
-/// @name Mapping
 
 @end

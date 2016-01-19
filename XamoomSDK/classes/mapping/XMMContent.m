@@ -22,7 +22,33 @@
 
 @implementation XMMContent
 
--(NSArray *)sortedContentBlocks {
++ (NSString *)resourceName {
+  return @"contents";
+}
+
+static JSONAPIResourceDescriptor *__descriptor = nil;
+
++ (JSONAPIResourceDescriptor *)descriptor {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    __descriptor = [[JSONAPIResourceDescriptor alloc] initWithClass:[self class] forLinkedType:@"contents"];
+    
+    [__descriptor setIdProperty:@"ID"];
+    [__descriptor addProperty:@"title" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"display-name"]];
+    [__descriptor addProperty:@"contentDescription" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"description"]];
+    [__descriptor addProperty:@"imagePublicUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"cover-image-url"]];
+    [__descriptor addProperty:@"language"];
+    [__descriptor addProperty:@"category"];
+    [__descriptor addProperty:@"tags"];
+    [__descriptor hasOne:[XMMSystem class] withName:@"system"];
+    [__descriptor hasOne:[XMMSpot class] withName:@"spot"];
+
+  });
+  
+  return __descriptor;
+}
+
+- (NSArray *)sortedContentBlocks {
   NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
   NSArray *sorting = @[descriptor];
   
