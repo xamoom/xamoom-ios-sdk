@@ -21,4 +21,25 @@
 
 @implementation XMMMenuItem
 
+
++ (NSString *)resourceName {
+  return @"content";
+}
+
+static JSONAPIResourceDescriptor *__descriptor = nil;
+
++ (JSONAPIResourceDescriptor *)descriptor {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    __descriptor = [[JSONAPIResourceDescriptor alloc] initWithClass:[self class] forLinkedType:@"content"];
+    
+    [__descriptor setIdProperty:@"ID"];
+    
+    [__descriptor addProperty:@"contentTitle" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"display-name"]];
+    [__descriptor addProperty:@"category"];
+  });
+  
+  return __descriptor;
+}
+
 @end

@@ -18,21 +18,24 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMMEnduserApi.h"
+#import <JSONAPI/JSONAPIResourceBase.h>
+#import <JSONAPI/JSONAPIResourceDescriptor.h>
+#import <JSONAPI/JSONAPIPropertyDescriptor.h>
+#import "XMMRestResource.h"
 
 /**
  * `XMMMenuItem` is used for mapping the JSON sended by the api.
  */
-@interface XMMMenuItem : NSObject
+@interface XMMMenuItem : JSONAPIResourceBase  <XMMRestResource>
 
 /**
  * Name of the menu item.
  */
-@property (nonatomic, copy) NSString* itemLabel;
+@property (nonatomic, copy) NSString* contentTitle;
 /**
  * ContentId of the item.
  */
-@property (nonatomic, copy) NSString* contentId;
+@property (nonatomic) int category;
 
 /// @name Mapping
 
