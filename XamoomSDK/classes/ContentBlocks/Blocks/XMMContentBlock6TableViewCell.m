@@ -63,7 +63,7 @@ static NSString *contentLanguage;
   
   //set title and excerpt
   self.contentTitleLabel.text = self.content.title;
-  self.contentExcerptLabel.text = self.content.descriptionOfContent;
+  self.contentExcerptLabel.text = self.content.contentDescription;
   [self.contentExcerptLabel sizeToFit];
   
   [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.content.imagePublicUrl]];

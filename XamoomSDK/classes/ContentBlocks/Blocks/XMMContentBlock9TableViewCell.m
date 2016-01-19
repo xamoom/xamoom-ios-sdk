@@ -300,14 +300,14 @@ static bool showContentLinks;
 - (XMMCalloutView*)createMapCalloutFrom:(MKAnnotationView *)annotationView {
   XMMAnnotationView* xamoomAnnotationView = (XMMAnnotationView *)annotationView;
   XMMCalloutView* xamoomCalloutView = [[XMMCalloutView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 300.0f, 35.0f)];
-  xamoomCalloutView.nameOfSpot = xamoomAnnotationView.data.displayName;
+  xamoomCalloutView.nameOfSpot = xamoomAnnotationView.data.name;
   
   //create titleLabel
   //CGRectMake(10.0f, 10.0f, 280.0f, 25.0f)
   UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 255.0f, 25.0f)];
   titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
   titleLabel.numberOfLines = 0;
-  titleLabel.text = xamoomAnnotationView.data.displayName;
+  titleLabel.text = xamoomAnnotationView.data.name;
   
   //size label to fit content
   CGRect titleLabelRect = titleLabel.frame;
@@ -355,7 +355,7 @@ static bool showContentLinks;
   }
   
   //insert spotdescription
-  if (![xamoomAnnotationView.data.descriptionOfSpot isEqualToString:@""]) {
+  if (![xamoomAnnotationView.data.spotDescription isEqualToString:@""]) {
     UILabel *spotDescriptionLabel;
     if ([xamoomCalloutView.subviews count] >= 3) {
       spotDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(10.0f, spotImageView.frame.size.height + spotImageView.frame.origin.y + 5.0f, 280.0f, 25.0f)];
@@ -367,7 +367,7 @@ static bool showContentLinks;
     spotDescriptionLabel.numberOfLines = 0;
     spotDescriptionLabel.font = [UIFont systemFontOfSize:12];
     spotDescriptionLabel.textColor = [UIColor darkGrayColor];
-    spotDescriptionLabel.text = xamoomAnnotationView.data.descriptionOfSpot;
+    spotDescriptionLabel.text = xamoomAnnotationView.data.spotDescription;
     
     //resize label depending on content
     CGRect spotDescriptionLabelRect = spotDescriptionLabel.frame;
@@ -410,7 +410,7 @@ static bool showContentLinks;
     
     [xamoomCalloutView addSubview:openExternalButton];
     
-    self.currentContentId = xamoomAnnotationView.data.contentId;
+    self.currentContentId = xamoomAnnotationView.data.content.ID;
   }
   
   return xamoomCalloutView;
