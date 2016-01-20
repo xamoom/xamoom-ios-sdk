@@ -42,7 +42,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"tags"];
     [__descriptor hasOne:[XMMSystem class] withName:@"system"];
     [__descriptor hasOne:[XMMSpot class] withName:@"spot"];
-
+    [__descriptor hasMany:[XMMContentBlock class] withName:@"contentBlocks" withJsonName:@"blocks"];
   });
   
   return __descriptor;

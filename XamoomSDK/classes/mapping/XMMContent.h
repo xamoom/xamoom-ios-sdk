@@ -25,6 +25,7 @@
 #import "XMMRestResource.h"
 #import "XMMSystem.h"
 #import "XMMSpot.h"
+#import "XMMContentBlock.h"
 
 @class XMMSpot;
 

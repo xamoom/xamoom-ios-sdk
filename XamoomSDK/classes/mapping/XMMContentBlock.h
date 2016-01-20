@@ -18,13 +18,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONAPI/JSONAPIResourceBase.h>
+#import <JSONAPI/JSONAPIResourceDescriptor.h>
+#import <JSONAPI/JSONAPIPropertyDescriptor.h>
+#import "XMMRestResource.h"
 
 /**
  * `XMMContentBlock` is used for mapping the JSON sended by the api.
  *
  * If you don't know how to handle contentBlocks look at our sample app "pingeb.org".
  */
-@interface XMMContentBlock : NSObject
+@interface XMMContentBlock : JSONAPIResourceBase  <XMMRestResource>
 
 /**
  * The title of this contentBlock.
@@ -38,8 +42,32 @@
 /**
  * The contentBlockType (0-9) determining the type of the contentBlock.
  */
-@property (nonatomic) int contentBlockType;
+@property (nonatomic) int blockType;
 
-/// @name Mapping
+@property (nonatomic) NSString *text;
+
+@property (nonatomic) NSString *artists;
+
+@property (nonatomic) NSString *fileId;
+
+@property (nonatomic) NSString *soundcloudUrl;
+
+@property (nonatomic) int linkType;
+
+@property (nonatomic) NSString *linkUrl;
+
+@property (nonatomic) NSString *contentId;
+
+@property (nonatomic) int downloadType;
+
+@property (nonatomic) NSArray *spotMapTags;
+
+@property (nonatomic) double scaleX;
+
+@property (nonatomic) NSString *videoUrl;
+
+@property (nonatomic) BOOL showContent;
+
+@property (nonatomic) NSString *altText;
 
 @end

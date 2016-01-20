@@ -21,4 +21,37 @@
 
 @implementation XMMContentBlock
 
++ (NSString *)resourceName {
+  return @"contentblocks";
+}
+
+static JSONAPIResourceDescriptor *__descriptor = nil;
+
++ (JSONAPIResourceDescriptor *)descriptor {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    __descriptor = [[JSONAPIResourceDescriptor alloc] initWithClass:[self class] forLinkedType:@"contentblocks"];
+    
+    [__descriptor setIdProperty:@"ID"];
+    [__descriptor addProperty:@"title" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"title"]];
+    [__descriptor addProperty:@"blockType" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"block-type"]];
+    [__descriptor addProperty:@"publicStatus" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-public"]];
+    [__descriptor addProperty:@"text"];
+    [__descriptor addProperty:@"artists"];
+    [__descriptor addProperty:@"fileId" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"file-id"]];
+    [__descriptor addProperty:@"soundcloudUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"soundcloud-url"]];
+    [__descriptor addProperty:@"linkType" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"link-type"]];
+    [__descriptor addProperty:@"linkUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"link-url"]];
+    [__descriptor addProperty:@"contentId" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"content-id"]];
+    [__descriptor addProperty:@"downloadType" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"download-type"]];
+    [__descriptor addProperty:@"spotMapTags" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"spot-map-tags"]];
+    [__descriptor addProperty:@"scaleX" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"scale-x"]];
+    [__descriptor addProperty:@"videoUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"video-url"]];
+    [__descriptor addProperty:@"showContent" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"show-content-on-spotmap"]];
+    [__descriptor addProperty:@"altText" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"alt-text"]];
+  });
+  
+  return __descriptor;
+}
+
 @end
