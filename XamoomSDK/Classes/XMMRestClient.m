@@ -21,10 +21,15 @@
   [self makeRestCall:requestUrl completion:completion];
 }
 
+- (void)fetchResource:(Class)resourceClass parameters:(NSDictionary *)parameters completion:(void (^)(JSONAPI *result, NSError *error))completion {
+  NSURL *requestUrl = [self.query urlWithResource:resourceClass];
+  requestUrl = [self.query addQueryParametersToUrl:requestUrl parameters:parameters];
+  [self makeRestCall:requestUrl completion:completion];
+}
+
 - (void)fetchResource:(Class)resourceClass id:(NSString *)resourceId parameters:(NSDictionary *)parameters completion:(void (^)(JSONAPI *result, NSError *error))completion {
   NSURL *requestUrl = [self.query urlWithResource:resourceClass id:resourceId];
   requestUrl = [self.query addQueryParametersToUrl:requestUrl parameters:parameters];
-  
   [self makeRestCall:requestUrl completion:completion];
 }
 

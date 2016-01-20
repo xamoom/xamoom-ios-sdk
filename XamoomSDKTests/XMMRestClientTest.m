@@ -58,6 +58,29 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testFetchResourceParamaterCallsCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id session = OCMPartialMock([NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]);
+  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:self.devApiUrl]
+                                                             session:session];
+  
+  void (^proxyBlock)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(NSData *data, NSURLResponse *response, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 3];
+    passedBlock([NSData new], nil, nil);
+  };
+  
+  [[[session stub] andDo:proxyBlock] dataTaskWithURL:[OCMArg any] completionHandler:[OCMArg any]];
+  
+  [restClient fetchResource:[XMMSystem class] parameters:@{@"lang":@"de"} completion:^(JSONAPI *result, NSError *error) {
+    XCTAssertNotNil(result);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testFetchResourceSessionIdCallsCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id session = OCMPartialMock([NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]);
