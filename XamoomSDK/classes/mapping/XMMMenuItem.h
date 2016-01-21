@@ -28,15 +28,9 @@
  */
 @interface XMMMenuItem : JSONAPIResourceBase  <XMMRestResource>
 
-/**
- * Name of the menu item.
- */
-@property (nonatomic, copy) NSString* contentTitle;
-/**
- * ContentId of the item.
- */
-@property (nonatomic) int category;
 
-/// @name Mapping
+@property (nonatomic, copy) NSString* contentTitle;
+
+@property (nonatomic) int category;
 
 @end

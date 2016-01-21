@@ -28,16 +28,16 @@
  *
  * *Default behavior*
  *
- * 1. Load via [XMMEnduserApi contentWithContentId:includeStyle:includeMenu:withLanguage:full:completion:error:]
+ * 1. Load via [XMMEnduserApi contentWithContentID:includeStyle:includeMenu:withLanguage:full:completion:error:]
  * 2. Display tile, image and descriptionOfContent
  * 3. Open new content on user interaction
  */
 @interface XMMContentBlockType6 : XMMContentBlock
 
 /*
- * The unique contentId on our system.
+ * The unique contentID on our system.
  **/
-@property (nonatomic, copy) NSString *contentId;
+@property (nonatomic, copy) NSString *contentID;
 
 /// @name Mapping
 

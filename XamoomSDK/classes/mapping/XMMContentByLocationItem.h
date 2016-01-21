@@ -38,9 +38,9 @@
  */
 @property (nonatomic, copy) NSString *systemId;
 /**
- * The unique contentId on our system.
+ * The unique contentID on our system.
  */
-@property (nonatomic, copy) NSString *contentId;
+@property (nonatomic, copy) NSString *contentID;
 /**
  * Description (Excerpt) of the content.
  */

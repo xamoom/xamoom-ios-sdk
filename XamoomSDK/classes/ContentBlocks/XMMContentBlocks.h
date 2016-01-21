@@ -55,7 +55,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 
 @protocol XMMContentBlocksDelegate <NSObject>
 
-- (void)didClickContentBlock:(NSString *)contentId;
+- (void)didClickContentBlock:(NSString *)contentID;
 
 @end
 

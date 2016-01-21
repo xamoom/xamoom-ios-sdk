@@ -32,7 +32,7 @@
 
 @interface XMMContentBlock9TableViewCell()
 
-@property (nonatomic, strong) NSString *currentContentId;
+@property (nonatomic, strong) NSString *currentContentID;
 
 @end
 
@@ -98,7 +98,7 @@ static bool showContentLinks;
     [self showSpotMap:spotMap];
     return;
   }
-  
+  /*
   [[XMMEnduserApi sharedInstance] spotMapWithMapTags:self.spotMapTags withLanguage:contentLanguage includeContent:YES
                                            completion:^(XMMSpotMap *result) {
                                              
@@ -110,6 +110,7 @@ static bool showContentLinks;
                                            } error:^(XMMError *error) {
                                              NSLog(@"Error: %@", error.message);
                                            }];
+   */
 }
 
 - (void)setupLocationManager {
@@ -410,7 +411,7 @@ static bool showContentLinks;
     
     [xamoomCalloutView addSubview:openExternalButton];
     
-    self.currentContentId = xamoomAnnotationView.data.content.ID;
+    self.currentContentID = xamoomAnnotationView.data.content.ID;
   }
   
   return xamoomCalloutView;
@@ -432,7 +433,7 @@ static bool showContentLinks;
 }
 
 - (void)openContentTapped {
-  NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.currentContentId forKey:@"contentId"];
+  NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.currentContentID forKey:@"contentID"];
   [[NSNotificationCenter defaultCenter] postNotificationName:[XMMContentBlocks kContentBlock9MapContentLinkNotification] object:nil userInfo:userInfo];
 }
 

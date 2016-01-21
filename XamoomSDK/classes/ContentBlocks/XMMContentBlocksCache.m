@@ -36,8 +36,8 @@ static XMMContentBlocksCache *sharedInstance;
   return [self.spotMapCache objectForKey:key];
 }
 
-- (void)saveContent:(XMMContent *)content key:(NSString *)contentId {
-  [self.contentCache setObject:content forKey:contentId];
+- (void)saveContent:(XMMContent *)content key:(NSString *)contentID {
+  [self.contentCache setObject:content forKey:contentID];
 }
 
 - (XMMContent *)cachedContent:(NSString *)key {

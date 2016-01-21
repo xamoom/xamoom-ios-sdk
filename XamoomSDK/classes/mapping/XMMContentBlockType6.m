@@ -32,7 +32,7 @@
   }
   
   //set content
-  cell.contentId = self.contentId;
+  cell.contentID = self.contentID;
   
   //init contentBlock
   [cell initContentBlockWithLanguage:[XMMContentBlock6TableViewCell language]];

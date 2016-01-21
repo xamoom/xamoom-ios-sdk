@@ -26,6 +26,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <JSONAPI/JSONAPIResourceDescriptor.h>
+
+#import "XMMRestClient.h"
 #import "XMMError.h"
 #import "XMMContentById.h"
 #import "XMMContentByLocationIdentifier.h"
@@ -34,6 +37,8 @@
 #import "XMMSpotMap.h"
 #import "XMMSpot.h"
 #import "XMMStyle.h"
+#import "XMMSystem.h"
+#import "XMMMenu.h"
 #import "XMMMenuItem.h"
 #import "XMMContent.h"
 #import "XMMContentBlock.h"
@@ -49,6 +54,7 @@
 #import "XMMContentBlockType9.h"
 #import "XMMContentList.h"
 #import "XMMClosestSpot.h"
+#import "XMMMarker.h"
 
 @class XMMContentById;
 @class XMMContentByLocation;
@@ -77,29 +83,39 @@ extern NSString * const kApiBaseURLString;
  * The preferred language of the user.
  */
 @property (strong, nonatomic) NSString *systemLanguage;
-/**
- * A shared instance from XMMEnduserApi.
- */
-+ (XMMEnduserApi *)sharedInstance;
+
+@property (strong, nonatomic) NSString *language;
+
+@property (strong, nonatomic) XMMRestClient *restClient;
 
 /// @name Inits
 
+/**
+ * Initializes with a apikey. You find your apikey in your xamoom system under
+ * xamoom.net - Settings.
+ * 
+ * @param apikey Your xamoom api key
+ */
 - (instancetype)initWithApiKey:(NSString *)apikey;
 
-- (instancetype)initWithApiKey:(NSString *)apikey baseUrl:(NSURL* )url;
+/**
+ * Initializes with a custom base url and custom configuration for NSURLSession.
+ * 
+ * @param url Custom url to xamoom system
+ * @param config Custom NSURLConfiguration
+ */
+- (instancetype)initWithBaseUrl:(NSURL* )url config:(NSURLSessionConfiguration *)config;
 
 #pragma mark - public methods
 
-- (NSString *)systemLanguageWithoutRegionCode;
-
 #pragma mark - deprecated public methods
 
-/// @name API Calls
+/// @name Deprecated API Calls
 
 /**
- * Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
+ * Makes an api call to xamoom with a unique contentID. If the selected language is not available the default language will be returned.
  *
- * @param contentId   The id of the content from xamoom backend
+ * @param contentID   The id of the content from xamoom backend
  * @param style       True or False for returning the style from xamoom backend as XMMStyle
  * @param menu        True or False for returning the menu from xamoom backend as Array of XMMMenuItem
  * @param language    The requested language of the content from xamoom backend
@@ -113,7 +129,7 @@ extern NSString * const kApiBaseURLString;
  * - *param1* error A XMMError with error informations
  * @return void
  */
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler __deprecated;
+- (void)contentWithContentID:(NSString*)contentID includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler __deprecated;
 
 /**
  * Makes an api call to xamoom with a unique locationIdentifier (code saved on NFC or QR). If the selected language is not available the
@@ -138,7 +154,7 @@ extern NSString * const kApiBaseURLString;
  * Makes an api call to xamoom with a location (lat & lon). If the selected language is not available the
  * default language will be returned.
  *
- * After the user interacts with a geofence call geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentId:withContentName:withSpotId:withSpotName:
+ * After the user interacts with a geofence call geofenceAnalyticsMessageWithRequestedLanguage:withDeliveredLanguage:withSystemId:withSystemName:withContentID:withContentName:withSpotId:withSpotName:
  *
  * @param lat         The latitude of a location
  * @param lon         The longitude of a location
@@ -158,7 +174,7 @@ extern NSString * const kApiBaseURLString;
  *
  * @param mapTags     The tags of the wanted spots
  * @param language    The requested language of the content from xamoom backend
- * @param includeContent Will return contentId of spots with assigned content if YES
+ * @param includeContent Will return contentID of spots with assigned content if YES
  * @param completionHandler CompletionHandler returns the result
  *
  * - *param1* result The result from xamoom backend as XMMSpotMap
@@ -170,7 +186,7 @@ extern NSString * const kApiBaseURLString;
 - (void)spotMapWithMapTags:(NSArray*)mapTags withLanguage:(NSString*)language includeContent:(BOOL)includeContent completion:(void(^)(XMMSpotMap *result))completionHandler error:(void(^)(XMMError *error))errorHandler __deprecated;
 
 /**
- * Makes an api call to xamoom with a unique contentId. If the selected language is not available the default language will be returned.
+ * Makes an api call to xamoom with a unique contentID. If the selected language is not available the default language will be returned.
  *
  * @param language   The requested language of the content from xamoom backend
  * @param pageSize   Number of items you will get returned
@@ -204,19 +220,5 @@ extern NSString * const kApiBaseURLString;
  * @return void
  */
 - (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language completion:(void(^)(XMMClosestSpot *result))completionHandler error:(void(^)(XMMError *error))errorHandler __deprecated;
-
-/**
- * Makes an api call to xamoom when a user clicks a geofenced content for analytics.
- *
- * @param requestedLanguage The language you requested from the xamoom system
- * @param deliveredLanguage The language you got from the xamoom system
- * @param systemId The systemId you got from the xamoom system
- * @param systemName The systemName you got from the xamoom system
- * @param contentId The contentId you got from the xamoom system
- * @param contentName The contentName you got from the xamoom system
- * @param spotId The spotId you got from the system
- * @param spotName The spotName you got from the system
- */
-- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)systemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName __deprecated;
 
 @end

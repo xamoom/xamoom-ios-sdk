@@ -22,8 +22,25 @@
 
 NSString * const kApiBaseURLString =
 @"https://22-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_api/v2/consumer";
+NSString * const kHTTPContentType = @"application/vnd.api+json";
+NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 
-static XMMEnduserApi *sharedInstance;
+typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
+  XMMContentOptionsPreview = 1 << 0,
+  XMMContentOptionsPrivate = 1 << 1,
+};
+
+typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
+  XMMSpotOptionsIncludeContent = 1 << 0,
+  XMMSpotOptionsIncludeMarker = 1 << 1,
+};
+
+typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
+  XMMSortOptionsName = 1 << 0,
+  XMMSortOptionsNameDesc = 1 << 1,
+  XMMSortOptionsDistance = 1 << 2,
+  XMMSortOptionsDistanceDesc = 1 << 3,
+};
 
 @interface XMMEnduserApi ()
 
@@ -33,24 +50,27 @@ static XMMEnduserApi *sharedInstance;
 
 @implementation XMMEnduserApi : NSObject
 
-+ (XMMEnduserApi *)sharedInstance {
-  if (!sharedInstance) {
-    sharedInstance = [[XMMEnduserApi alloc] init];
-  }
-  
-  return sharedInstance;
-}
-
 - (instancetype)initWithApiKey:(NSString *)apikey {
   self = [super init];
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
+  
+  NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+  [config setHTTPAdditionalHeaders:@{@"Content-Type":kHTTPContentType,
+                                     @"User-Agent":kHTTPUserAgent,
+                                     @"APIKEY":apikey,}];
+  
+  self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString: kApiBaseURLString] session:[NSURLSession sessionWithConfiguration:config]];
+  
+  [self setupResources];
   return self;
 }
 
-- (instancetype)initWithApiKey:(NSString *)apikey baseUrl:(NSURL *)url {
+- (instancetype)initWithBaseUrl:(NSURL* )url config:(NSURLSessionConfiguration *)config {
   self = [super init];
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
   
+  self.restClient = [[XMMRestClient alloc] initWithBaseUrl:url session:[NSURLSession sessionWithConfiguration:config]];
+  [self setupResources];
   return self;
 }
 
@@ -59,16 +79,25 @@ static XMMEnduserApi *sharedInstance;
   return [preferredLanguage substringWithRange:NSMakeRange(0, 2)];
 }
 
+- (void)setupResources {
+  [JSONAPIResourceDescriptor addResource:[XMMSystem class]];
+  [JSONAPIResourceDescriptor addResource:[XMMSystemSettings class]];
+  [JSONAPIResourceDescriptor addResource:[XMMStyle class]];
+  [JSONAPIResourceDescriptor addResource:[XMMMenu class]];
+  [JSONAPIResourceDescriptor addResource:[XMMMenuItem class]];
+  [JSONAPIResourceDescriptor addResource:[XMMContent class]];
+  [JSONAPIResourceDescriptor addResource:[XMMContentBlock class]];
+  [JSONAPIResourceDescriptor addResource:[XMMSpot class]];
+  [JSONAPIResourceDescriptor addResource:[XMMMarker class]];
+}
+
 #pragma mark public methods
 
-- (void)test {
-  
-}
 
 #pragma deprecated API calls
 
-- (void)contentWithContentId:(NSString*)contentId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
- 
+- (void)contentWithContentID:(NSString*)contentID includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
+  
 }
 
 - (void)contentWithLocationIdentifier:(NSString*)locationIdentifier majorId:(NSString*)majorId includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language completion:(void(^)(XMMContentByLocationIdentifier *result))completionHandler error:(void(^)(XMMError *error))errorHandler{
@@ -87,10 +116,6 @@ static XMMEnduserApi *sharedInstance;
 
 - (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language completion:(void(^)(XMMClosestSpot *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   
-}
-
-- (void)geofenceAnalyticsMessageWithRequestedLanguage:(NSString*)requestedLanguage withDeliveredLanguage:(NSString*)deliveredLanguage withSystemId:(NSString*)systemId withSystemName:(NSString*)systemName withContentId:(NSString*)contentId withContentName:(NSString*)contentName withSpotId:(NSString*)spotId withSpotName:(NSString*)spotName {
- 
 }
 
 @end

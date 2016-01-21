@@ -17,7 +17,7 @@
 
 - (void)saveSpotMap:(XMMSpotMap *)spotMap key:(NSString *)key;
 - (XMMSpotMap *)cachedSpotMap:(NSString *)key;
-- (void)saveContent:(XMMContent *)content key:(NSString *)contentId;
+- (void)saveContent:(XMMContent *)content key:(NSString *)contentID;
 - (XMMContent *)cachedContent:(NSString *)key;
 
 @end

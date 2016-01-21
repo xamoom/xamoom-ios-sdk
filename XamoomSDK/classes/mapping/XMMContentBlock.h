@@ -48,7 +48,7 @@
 
 @property (nonatomic) NSString *artists;
 
-@property (nonatomic) NSString *fileId;
+@property (nonatomic) NSString *fileID;
 
 @property (nonatomic) NSString *soundcloudUrl;
 
@@ -56,7 +56,7 @@
 
 @property (nonatomic) NSString *linkUrl;
 
-@property (nonatomic) NSString *contentId;
+@property (nonatomic) NSString *contentID;
 
 @property (nonatomic) int downloadType;
 

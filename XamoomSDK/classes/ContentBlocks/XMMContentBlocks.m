@@ -118,13 +118,13 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 
 - (void)receiveContentBlock9MapContentLinkNotification:(NSNotification *)notification {
   NSDictionary *userInfo = notification.userInfo;
-  NSString *contentId = [userInfo objectForKey:@"contentId"];
-  [self sendDidClickContentBlockWithContentId:contentId];
+  NSString *contentID = [userInfo objectForKey:@"contentID"];
+  [self sendDidClickContentBlockWithContentID:contentID];
 }
 
-- (void)sendDidClickContentBlockWithContentId:(NSString *)contentId {
+- (void)sendDidClickContentBlockWithContentID:(NSString *)contentID {
   if ([self.delegate respondsToSelector:@selector(didClickContentBlock:)]) {
-    [self.delegate didClickContentBlock:contentId];
+    [self.delegate didClickContentBlock:contentID];
   }
 }
 
@@ -176,7 +176,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
     XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self sendDidClickContentBlockWithContentId:cell.contentId];
+    [self sendDidClickContentBlockWithContentID:cell.contentID];
   }
 }
 

@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentExcerptLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
-@property (strong, nonatomic) NSString *contentId;
+@property (strong, nonatomic) NSString *contentID;
 @property (strong, nonatomic) XMMContent *content;
 
 + (NSString *)language;
