@@ -65,11 +65,11 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
   return self;
 }
 
-- (instancetype)initWithBaseUrl:(NSURL* )url config:(NSURLSessionConfiguration *)config {
+- (instancetype)initWithRestClient:(XMMRestClient *)restClient {
   self = [super init];
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
   
-  self.restClient = [[XMMRestClient alloc] initWithBaseUrl:url session:[NSURLSession sessionWithConfiguration:config]];
+  self.restClient = restClient;
   [self setupResources];
   return self;
 }
@@ -93,6 +93,10 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
 
 #pragma mark public methods
 
+- (void)contentWithID:(NSString *)contentId completion:(void(^)(XMMContent *content, NSError *error))completion {
+
+  completion(nil, nil);
+}
 
 #pragma deprecated API calls
 

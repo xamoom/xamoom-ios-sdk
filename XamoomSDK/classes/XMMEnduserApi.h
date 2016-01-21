@@ -94,19 +94,30 @@ extern NSString * const kApiBaseURLString;
  * Initializes with a apikey. You find your apikey in your xamoom system under
  * xamoom.net - Settings.
  * 
- * @param apikey Your xamoom api key
+ * @param apikey  Your xamoom api key
  */
 - (instancetype)initWithApiKey:(NSString *)apikey;
 
 /**
  * Initializes with a custom base url and custom configuration for NSURLSession.
  * 
- * @param url Custom url to xamoom system
- * @param config Custom NSURLConfiguration
+ * @param url     Custom url to xamoom system
+ * @param config  Custom NSURLConfiguration
  */
-- (instancetype)initWithBaseUrl:(NSURL* )url config:(NSURLSessionConfiguration *)config;
+- (instancetype)initWithRestClient:(XMMRestClient *)restClient;
 
 #pragma mark - public methods
+
+/**
+ * API call to get content with specific ID.
+ *
+ * @param contentID     ContentID of xamoom content
+ * @param completion    Completion block called after finishing network request
+ * - *param1* content   Content from xamoom system
+ * - *param2* error     NSError, can be null
+ */
+- (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion;
+
 
 #pragma mark - deprecated public methods
 

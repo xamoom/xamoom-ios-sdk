@@ -40,14 +40,15 @@
   XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
 }
 
-- (void)testInitWithApiKeyBaseUrlConfig {
+- (void)testInitWithApiKeyBaseUrlRestClient {
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
                                 @"User-Agent":@"XamoomSDK iOS",
                                 @"APIKEY":@"apikey",};
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:httpHeaders];
+  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"http://xamoom.test"] session:[NSURLSession sessionWithConfiguration:config]];
   
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithBaseUrl:[NSURL URLWithString:@"http://xamoom.test"] config:config];
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
   
   XCTAssertNotNil(api);
   XCTAssertNotNil(api.restClient);
@@ -56,7 +57,16 @@
 }
 
 - (void)testContentWithId {
+  //XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  XMMEnduserApi *api = OCMPartialMock([[XMMEnduserApi alloc] initWithApiKey:@""]);
+  NSString *contentID = @"asdfghjkl";
   
+  [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
+    
+    //[expectation fulfill];
+  }];
+  
+  //[self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 #pragma mark - Deprecated API Calls
