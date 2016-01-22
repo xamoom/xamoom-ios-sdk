@@ -31,12 +31,13 @@
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:httpHeaders];
-  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"https://22-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_api/v2/consumer/"] session:[NSURLSession sessionWithConfiguration:config]];
+  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/"] session:[NSURLSession sessionWithConfiguration:config]];
   
   self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
   
   
   [self contentWithID];
+  [self contentWithIDOptions];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,6 +47,20 @@
 
 - (void)contentWithID {
   [self.api contentWithID:@"28d13571a9614cc19d624528ed7c2bb8" completion:^(XMMContent *content, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"Content: %@", content.title);
+    for (XMMContentBlock *block in content.contentBlocks) {
+      NSLog(@"Block %@", block.title);
+    }
+  }];
+}
+
+- (void)contentWithIDOptions {
+  [self.api contentWithID:@"28d13571a9614cc19d624528ed7c2bb8" options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;

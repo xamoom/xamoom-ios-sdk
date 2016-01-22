@@ -61,13 +61,12 @@
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   
   [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
-    //
+    
+    OCMVerify([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                                         id:[OCMArg isEqual:contentID]
+                                 parameters:[OCMArg isEqual:@{@"lang":@"en"}]
+                                 completion:[OCMArg any]]);
   }];
-  
-  OCMVerify([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
-                                       id:[OCMArg isEqual:contentID]
-                               parameters:[OCMArg isEqual:@{@"lang":@"en"}]
-                               completion:[OCMArg any]]);
 }
 
 - (void)testThatContentWithIdReturnsContentViaCallback {
@@ -88,10 +87,55 @@
     XCTAssertNotNil(content);
     XCTAssertTrue([content.ID isEqualToString:contentID]);
     XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
-    XCTAssertNotNil(content.imagePublicUrl);
+    XCTAssertNil(content.imagePublicUrl);
     XCTAssertNotNil(content.contentDescription);
-    XCTAssertTrue(content.contentBlocks.count == 7);
-    XCTAssertNil(content.spot);
+    XCTAssertTrue(content.contentBlocks.count == 10);
+    XCTAssertTrue(content.tags.count == 3);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithIdOptionsCallsFetchResourceWithParamaters {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"preview":@"true",
+                                                                                  @"public-only":@"false"}];
+  
+  [api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+    
+    OCMVerify(([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                                          id:[OCMArg isEqual:contentID]
+                                  parameters:[OCMArg isEqual:params]
+                                  completion:[OCMArg any]]));
+  }];
+}
+
+- (void)testThatContentWithIdOptionsReturnsContentViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNotNil(content);
+    XCTAssertTrue([content.ID isEqualToString:contentID]);
+    XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
+    XCTAssertNil(content.imagePublicUrl);
+    XCTAssertNotNil(content.contentDescription);
+    XCTAssertTrue(content.contentBlocks.count == 9);
     XCTAssertNil(error);
     [expectation fulfill];
   }];
@@ -159,6 +203,13 @@
 
 - (NSDictionary *)contentJson {
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"content" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+  return json;
+}
+
+- (NSDictionary *)contentPublicOnlyJson {
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"contentPublicOnly" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:filePath];
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
   return json;

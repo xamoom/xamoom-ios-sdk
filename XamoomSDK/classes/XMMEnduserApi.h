@@ -67,6 +67,30 @@
 
 extern NSString * const kApiBaseURLString;
 
+typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
+  XMMContentOptionsNone = 1 << 0,
+  /**
+   * Will not save statistics.
+   */
+  XMMContentOptionsPreview = 1 << 0,
+  /**
+   * Wont return ContentBlocks with "Hide Online" flag.
+   */
+  XMMContentOptionsPrivate = 1 << 1,
+};
+
+typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
+  XMMSpotOptionsIncludeContent = 1 << 0,
+  XMMSpotOptionsIncludeMarker = 1 << 1,
+};
+
+typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
+  XMMSortOptionsName = 1 << 0,
+  XMMSortOptionsNameDesc = 1 << 1,
+  XMMSortOptionsDistance = 1 << 2,
+  XMMSortOptionsDistanceDesc = 1 << 3,
+};
+
 /**
  *`XMMEnduserApi` is the main part of the xamoom-ios-sdk. You can use it to send api request to the xamoom-api.
  *
@@ -121,6 +145,17 @@ extern NSString * const kApiBaseURLString;
  * - *param2* error     NSError, can be null
  */
 - (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion;
+
+/**
+ * API call to get content with specific ID and options.
+ *
+ * @param contentID     ContentID of xamoom content
+ * @param options       XMMContentOptions for call
+ * @param completion    Completion block called after finishing network request
+ * - *param1* content   Content from xamoom system
+ * - *param2* error     NSError, can be null
+ */
+- (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 #pragma mark - deprecated public methods
 

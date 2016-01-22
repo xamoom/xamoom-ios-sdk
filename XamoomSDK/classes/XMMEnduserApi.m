@@ -25,23 +25,6 @@ NSString * const kApiBaseURLString =
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 
-typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
-  XMMContentOptionsPreview = 1 << 0,
-  XMMContentOptionsPrivate = 1 << 1,
-};
-
-typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
-  XMMSpotOptionsIncludeContent = 1 << 0,
-  XMMSpotOptionsIncludeMarker = 1 << 1,
-};
-
-typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
-  XMMSortOptionsName = 1 << 0,
-  XMMSortOptionsNameDesc = 1 << 1,
-  XMMSortOptionsDistance = 1 << 2,
-  XMMSortOptionsDistanceDesc = 1 << 3,
-};
-
 @interface XMMEnduserApi ()
 
 @end
@@ -103,6 +86,28 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
       completion(nil, error);
     }
     
+    XMMContent *content = result.resource;
+    
+    completion(content, error);
+  }];
+}
+
+- (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+  [params setObject:self.language forKey:@"lang"];
+  
+  if (options & XMMContentOptionsPreview) {
+    [params setObject:@"true" forKey:@"preview"];
+  }
+  if (options & XMMContentOptionsPrivate) {
+    [params setObject:@"true" forKey:@"public-only"];
+  }
+  
+  [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, error);
+    }
+
     XMMContent *content = result.resource;
     
     completion(content, error);
