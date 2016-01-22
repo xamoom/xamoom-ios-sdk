@@ -53,6 +53,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
 - (instancetype)initWithApiKey:(NSString *)apikey {
   self = [super init];
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
+  self.language = self.systemLanguage;
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:@{@"Content-Type":kHTTPContentType,
@@ -68,6 +69,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
 - (instancetype)initWithRestClient:(XMMRestClient *)restClient {
   self = [super init];
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
+  self.language = self.systemLanguage;
   
   self.restClient = restClient;
   [self setupResources];
@@ -93,9 +95,18 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
 
 #pragma mark public methods
 
-- (void)contentWithID:(NSString *)contentId completion:(void(^)(XMMContent *content, NSError *error))completion {
-
-  completion(nil, nil);
+- (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion {
+  NSDictionary *params = @{@"lang":self.language};
+  
+  [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, error);
+    }
+    
+    XMMContent *content = result.resource;
+    
+    completion(content, error);
+  }];
 }
 
 #pragma deprecated API calls

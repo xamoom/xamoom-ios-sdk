@@ -12,6 +12,8 @@
 
 @interface XMMEnduserApiTest : XCTestCase
 
+@property XMMRestClient *restClient;
+
 @end
 
 @implementation XMMEnduserApiTest
@@ -19,7 +21,12 @@
 - (void)setUp {
   [super setUp];
   // Put setup code here. This method is called before the invocation of each test method in the class.
-  
+  NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
+                                @"User-Agent":@"XamoomSDK iOS",
+                                @"APIKEY":@"apikey",};
+  NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+  [config setHTTPAdditionalHeaders:httpHeaders];
+  self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"http://xamoom.test"] session:[NSURLSession sessionWithConfiguration:config]];
 }
 
 - (void)tearDown {
@@ -41,32 +48,55 @@
 }
 
 - (void)testInitWithApiKeyBaseUrlRestClient {
-  NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"XamoomSDK iOS",
-                                @"APIKEY":@"apikey",};
-  NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-  [config setHTTPAdditionalHeaders:httpHeaders];
-  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"http://xamoom.test"] session:[NSURLSession sessionWithConfiguration:config]];
-  
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:self.restClient];
   
   XCTAssertNotNil(api);
   XCTAssertNotNil(api.restClient);
-  XCTAssertTrue([api.restClient.session.configuration.HTTPAdditionalHeaders isEqualToDictionary:httpHeaders]);
   XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
 }
 
-- (void)testContentWithId {
-  //XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  XMMEnduserApi *api = OCMPartialMock([[XMMEnduserApi alloc] initWithApiKey:@""]);
-  NSString *contentID = @"asdfghjkl";
+- (void)testThatContentWithIdCallsFetchResourceWithParamaters {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   
   [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
-    
-    //[expectation fulfill];
+    //
   }];
   
-  //[self waitForExpectationsWithTimeout:1.0 handler:nil];
+  OCMVerify([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                                       id:[OCMArg isEqual:contentID]
+                               parameters:[OCMArg isEqual:@{@"lang":@"en"}]
+                               completion:[OCMArg any]]);
+}
+
+- (void)testThatContentWithIdReturnsContentViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self contentJson]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNotNil(content);
+    XCTAssertTrue([content.ID isEqualToString:contentID]);
+    XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
+    XCTAssertNotNil(content.imagePublicUrl);
+    XCTAssertNotNil(content.contentDescription);
+    XCTAssertTrue(content.contentBlocks.count == 7);
+    XCTAssertNil(content.spot);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 #pragma mark - Deprecated API Calls
@@ -123,6 +153,15 @@
   } error:^(XMMError *error) {
     //
   }];
+}
+
+#pragma mark - Load json
+
+- (NSDictionary *)contentJson {
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"content" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+  return json;
 }
 
 @end

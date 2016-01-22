@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <XamoomSDK/XamoomSDK.h>
 
 @interface ViewController : UIViewController
 

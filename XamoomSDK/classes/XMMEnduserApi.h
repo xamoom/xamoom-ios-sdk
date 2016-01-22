@@ -83,9 +83,13 @@ extern NSString * const kApiBaseURLString;
  * The preferred language of the user.
  */
 @property (strong, nonatomic) NSString *systemLanguage;
-
+/**
+ * Language used in api calls.
+ */
 @property (strong, nonatomic) NSString *language;
-
+/**
+ * XMMRestClient used to call rest api.
+ */
 @property (strong, nonatomic) XMMRestClient *restClient;
 
 /// @name Inits
@@ -117,7 +121,6 @@ extern NSString * const kApiBaseURLString;
  * - *param2* error     NSError, can be null
  */
 - (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion;
-
 
 #pragma mark - deprecated public methods
 
