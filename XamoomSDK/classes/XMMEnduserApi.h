@@ -157,6 +157,9 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
  */
 - (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
 
+// TODO
+- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion;
+
 #pragma mark - deprecated public methods
 
 /// @name Deprecated API Calls

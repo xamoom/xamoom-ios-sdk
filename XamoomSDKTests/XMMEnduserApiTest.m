@@ -60,13 +60,15 @@
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                                       id:[OCMArg isEqual:contentID]
+                               parameters:[OCMArg isEqual:@{@"lang":@"en"}]
+                               completion:[OCMArg any]]);
+  
   [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
-    
-    OCMVerify([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
-                                         id:[OCMArg isEqual:contentID]
-                                 parameters:[OCMArg isEqual:@{@"lang":@"en"}]
-                                 completion:[OCMArg any]]);
   }];
+  
+  OCMVerifyAll(mockRestClient);
 }
 
 - (void)testThatContentWithIdReturnsContentViaCallback {
@@ -104,15 +106,17 @@
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"preview":@"true",
-                                                                                  @"public-only":@"false"}];
+                                                                                  @"public-only":@"true"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                                       id:[OCMArg isEqual:contentID]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
   
   [api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
-    
-    OCMVerify(([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
-                                          id:[OCMArg isEqual:contentID]
-                                  parameters:[OCMArg isEqual:params]
-                                  completion:[OCMArg any]]));
   }];
+  
+  OCMVerifyAll(mockRestClient);
 }
 
 - (void)testThatContentWithIdOptionsReturnsContentViaCallback {
@@ -132,6 +136,51 @@
   [api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
     XCTAssertTrue([content.ID isEqualToString:contentID]);
+    XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
+    XCTAssertNil(content.imagePublicUrl);
+    XCTAssertNotNil(content.contentDescription);
+    XCTAssertTrue(content.contentBlocks.count == 9);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithLocationIdentifierCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"filter[location-identifier]":@"7qpqr"}];
+  NSString *qrMarker = @"7qpqr";
+
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                                parameters:[OCMArg isEqual:params]
+                                completion:[OCMArg any]]);
+  
+  [api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatContentWithLocationIdentifierReturnsContentViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *qrMarker = @"7qpqr";
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNotNil(content);
+    XCTAssertNotNil(content.ID);
     XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
     XCTAssertNil(content.imagePublicUrl);
     XCTAssertNotNil(content.contentDescription);

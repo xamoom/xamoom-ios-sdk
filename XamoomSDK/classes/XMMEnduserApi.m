@@ -21,7 +21,7 @@
 #import <dispatch/dispatch.h>
 
 NSString * const kApiBaseURLString =
-@"https://22-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_api/v2/consumer";
+@"https://23-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_api/v2/consumer";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 
@@ -108,6 +108,21 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
       completion(nil, error);
     }
 
+    XMMContent *content = result.resource;
+    
+    completion(content, error);
+  }];
+}
+
+- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion {
+  NSDictionary *params = @{@"lang":self.language,
+                           @"filter[location-identifier]":locationIdentifier};
+  
+  [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, error);
+    }
+    
     XMMContent *content = result.resource;
     
     completion(content, error);

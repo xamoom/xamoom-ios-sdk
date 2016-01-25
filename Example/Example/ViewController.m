@@ -38,6 +38,7 @@
   
   [self contentWithID];
   [self contentWithIDOptions];
+  [self contentWithLocationIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +53,7 @@
       return;
     }
     
-    NSLog(@"Content: %@", content.title);
+    NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
       NSLog(@"Block %@", block.title);
     }
@@ -66,7 +67,21 @@
       return;
     }
     
-    NSLog(@"Content: %@", content.title);
+    NSLog(@"ContentWithIdOptions: %@", content.title);
+    for (XMMContentBlock *block in content.contentBlocks) {
+      NSLog(@"Block %@", block.title);
+    }
+  }];
+}
+
+- (void)contentWithLocationIdentifier {
+  [self.api contentWithLocationIdentifier:@"7qpqr" completion:^(XMMContent *content, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"ContentWithLocationIdentifier: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
       NSLog(@"Block %@", block.title);
     }
