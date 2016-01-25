@@ -85,6 +85,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
 };
 
 typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
+  XMMSortOptionsNone = 0 << 0,
   XMMSortOptionsName = 1 << 0,
   XMMSortOptionsNameDesc = 1 << 1,
   XMMSortOptionsDistance = 1 << 2,
@@ -170,13 +171,28 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
 /**
  * API call to get content with beacon.
  *
- * @param major Major of the beacon
- * @param minor Minor of the beacon
+ * @param major         Major of the beacon
+ * @param minor         Minor of the beacon
  * @param completion    Completion block called after finishing network request
  * - *param1* content   Content from xamoom system
  * - *param2* error     NSError, can be null
  */
 - (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion;
+
+/**
+ * API call to get contents around location (40m).
+ *
+ * @param location  Location of the user
+ * @param pageSize  PageSize you want to get from xamoom cloud
+ * @param cursor    Needed when paging, can be null
+ * @param sort      XMMSortOptions to sort result
+ * @param completion    Completion block called after finishing network request
+ * - *param1* content   Content from xamoom system
+ * - *param2* hasMore   True if more items on xamoom cloud
+ * - *param3* cursor    Cursor for paging
+ * - *param4* error     NSError, can be null
+ */
+- (void)contentWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
 #pragma mark - deprecated public methods
 

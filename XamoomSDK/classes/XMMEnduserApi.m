@@ -133,7 +133,39 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] completion:completion];
 }
 
-#pragma deprecated API calls
+- (void)contentWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+  NSNumberFormatter* cordinateFormatter = [[NSNumberFormatter alloc] init];
+  cordinateFormatter.positiveFormat = @"0.#######";
+  NSString *lat = [cordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.latitude]];
+  NSString *lon = [cordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.longitude]];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":self.language,
+                                                                                  @"filter[lat]":lat,
+                                                                                  @"filter[lon]":lon,
+                                                                                  @"pageSize":[NSString stringWithFormat:@"%d", pageSize]}];
+  
+  if (cursor != nil && ![cursor isEqualToString:@""]) {
+    [params setObject:cursor forKey:@"cursor"];
+  }
+  
+  if (sortOptions & !XMMSortOptionsNone) {
+    NSArray *sortParameter = [self sortOptionsToArray:sortOptions];
+    [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
+  }
+  
+  [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, NO, nil, error);
+    }
+    
+    NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
+    bool hasMore = [hasMoreValue boolValue];
+    NSString *cursor = [result.meta objectForKey:@"cursor"];
+    
+    completion(result.resources, hasMore, cursor, error);
+  }];
+}
+
+#pragma mark - deprecated API calls
 
 - (void)contentWithContentID:(NSString*)contentID includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   
@@ -155,6 +187,29 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 
 - (void)closestSpotsWithLat:(float)lat withLon:(float)lon withRadius:(int)radius withLimit:(int)limit withLanguage:(NSString*)language completion:(void(^)(XMMClosestSpot *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
   
+}
+
+#pragma mark - private helpers 
+
+- (NSArray *)sortOptionsToArray:(XMMSortOptions)sortOptions {
+  NSMutableArray *sortParameters = [[NSMutableArray alloc] init];
+  if (sortOptions & XMMSortOptionsDistance) {
+    [sortParameters addObject:@"distance"];
+  }
+  
+  if (sortOptions & XMMSortOptionsDistanceDesc) {
+    [sortParameters addObject:@"-distance"];
+  }
+  
+  if (sortOptions & XMMSortOptionsName) {
+    [sortParameters addObject:@"name"];
+  }
+  
+  if (sortOptions & XMMSortOptionsNameDesc) {
+    [sortParameters addObject:@"-name"];
+  }
+  
+  return sortParameters;
 }
 
 @end
