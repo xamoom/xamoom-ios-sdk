@@ -157,8 +157,26 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
  */
 - (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
 
-// TODO
+/**
+ * API call to get content with specific location-identifier.
+ *
+ * @param locationIdentifier Locationidentifier from xamoom marker
+ * @param completion    Completion block called after finishing network request
+ * - *param1* content   Content from xamoom system
+ * - *param2* error     NSError, can be null
+ */
 - (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion;
+
+/**
+ * API call to get content with beacon.
+ *
+ * @param major Major of the beacon
+ * @param minor Minor of the beacon
+ * @param completion    Completion block called after finishing network request
+ * - *param1* content   Content from xamoom system
+ * - *param2* error     NSError, can be null
+ */
+- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 #pragma mark - deprecated public methods
 

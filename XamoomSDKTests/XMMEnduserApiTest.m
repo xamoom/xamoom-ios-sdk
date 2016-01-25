@@ -192,6 +192,53 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatContentWithBeaconMajorCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSNumber *minor = @54222;
+  NSNumber *major = @24265;
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"filter[location-identifier]":@"54222|24265"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api contentWithBeaconMajor:minor minor:major completion:^(XMMContent *content, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatContentWithBeaconMajorReturnsContentViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSNumber *minor = @54222;
+  NSNumber *major = @24265;
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNotNil(content);
+    XCTAssertNotNil(content.ID);
+    XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
+    XCTAssertNil(content.imagePublicUrl);
+    XCTAssertNotNil(content.contentDescription);
+    XCTAssertTrue(content.contentBlocks.count == 9);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 #pragma mark - Deprecated API Calls
 
 - (void)testContentWithContentID {

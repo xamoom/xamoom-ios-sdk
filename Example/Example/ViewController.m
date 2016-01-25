@@ -27,11 +27,11 @@
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
                                 @"User-Agent":@"XamoomSDK iOS",
                                 @"APIKEY":apikey,
-                                @"X-DEVAPIKEY":devkey};
+                                @"X-DEVKEY":devkey};
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:httpHeaders];
-  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"https://22-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/"] session:[NSURLSession sessionWithConfiguration:config]];
+  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/"] session:[NSURLSession sessionWithConfiguration:config]];
   
   self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
   
@@ -39,6 +39,7 @@
   [self contentWithID];
   [self contentWithIDOptions];
   [self contentWithLocationIdentifier];
+  [self contentWithBeaconMajor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,6 +83,20 @@
     }
     
     NSLog(@"ContentWithLocationIdentifier: %@", content.title);
+    for (XMMContentBlock *block in content.contentBlocks) {
+      NSLog(@"Block %@", block.title);
+    }
+  }];
+}
+
+- (void)contentWithBeaconMajor {
+  [self.api contentWithBeaconMajor:@54222 minor:@24265 completion:^(XMMContent *content, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"ContentWithBeaconMajor: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
       NSLog(@"Block %@", block.title);
     }

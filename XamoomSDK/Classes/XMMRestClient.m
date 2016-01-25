@@ -34,6 +34,7 @@
 }
 
 - (void)makeRestCall:(NSURL *)url completion:(void (^)(JSONAPI *result, NSError *error))completion {
+  NSLog(@"RestCall with url: %@", url.absoluteString);
   [[self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
     JSONAPI *jsonApi;
     
