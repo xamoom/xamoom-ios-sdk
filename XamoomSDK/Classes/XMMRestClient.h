@@ -19,7 +19,7 @@
 
 - (void)fetchResource:(Class)resourceClass completion:(void (^)(JSONAPI *result, NSError *error))completion;
 
-- (void)fetchResource:(Class)resourceClass parameters:(NSDictionary *)parameters completion:(void (^)(JSONAPI *, NSError *))completion;
+- (void)fetchResource:(Class)resourceClass parameters:(NSDictionary *)parameters completion:(void (^)(JSONAPI *result, NSError *error))completion;
 
 - (void)fetchResource:(Class)resourceClass id:(NSString *)resourceId parameters:(NSDictionary *)parameters completion:(void (^)(JSONAPI *result, NSError *error))completion;
 

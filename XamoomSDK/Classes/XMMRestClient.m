@@ -16,7 +16,7 @@
   return self;
 }
 
-- (void)fetchResource:(Class)resourceClass completion:(void (^)(JSONAPI *, NSError *))completion {
+- (void)fetchResource:(Class)resourceClass completion:(void (^)(JSONAPI *result, NSError *error))completion {
   NSURL *requestUrl = [self.query urlWithResource:resourceClass];
   [self makeRestCall:requestUrl completion:completion];
 }
