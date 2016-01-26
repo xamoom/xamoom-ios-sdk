@@ -118,7 +118,6 @@
 		88E46F341C49345C004D8AC3 /* XMMQueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46F331C49345C004D8AC3 /* XMMQueryTest.m */; };
 		88E46F361C49374A004D8AC3 /* XamoomSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 88E46F351C49374A004D8AC3 /* XamoomSDK.podspec */; };
 		88F581FD1C5213D3003D7C49 /* contentPublicOnly.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F581FC1C5213D3003D7C49 /* contentPublicOnly.json */; };
-		88F581FF1C521920003D7C49 /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F581FE1C521920003D7C49 /* TestingIDs.plist */; };
 		88F582041C522AA0003D7C49 /* content.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F582031C522AA0003D7C49 /* content.json */; };
 		88FE68C11C4E380300E9A32A /* XMMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FE68BF1C4E380300E9A32A /* XMMMenu.h */; };
 		88FE68C21C4E380300E9A32A /* XMMMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE68C01C4E380300E9A32A /* XMMMenu.m */; };
@@ -255,7 +254,6 @@
 		88E46F331C49345C004D8AC3 /* XMMQueryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMQueryTest.m; sourceTree = "<group>"; };
 		88E46F351C49374A004D8AC3 /* XamoomSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XamoomSDK.podspec; sourceTree = "<group>"; };
 		88F581FC1C5213D3003D7C49 /* contentPublicOnly.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentPublicOnly.json; sourceTree = "<group>"; };
-		88F581FE1C521920003D7C49 /* TestingIDs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestingIDs.plist; sourceTree = "<group>"; };
 		88F582031C522AA0003D7C49 /* content.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = content.json; sourceTree = "<group>"; };
 		88FE68BF1C4E380300E9A32A /* XMMMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMMenu.h; path = XamoomSDK/Classes/mapping/XMMMenu.h; sourceTree = SOURCE_ROOT; };
 		88FE68C01C4E380300E9A32A /* XMMMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMMenu.m; path = XamoomSDK/Classes/mapping/XMMMenu.m; sourceTree = SOURCE_ROOT; };
@@ -434,7 +432,6 @@
 		8888DDD01C47B0FA0050A84C /* XamoomSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				88F581FE1C521920003D7C49 /* TestingIDs.plist */,
 				8888DDD11C47B0FA0050A84C /* XamoomSDKTests.m */,
 				8888DDD31C47B0FA0050A84C /* Info.plist */,
 				88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */,
@@ -723,7 +720,6 @@
 				88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */,
 				88F581FD1C5213D3003D7C49 /* contentPublicOnly.json in Resources */,
 				88F582041C522AA0003D7C49 /* content.json in Resources */,
-				88F581FF1C521920003D7C49 /* TestingIDs.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

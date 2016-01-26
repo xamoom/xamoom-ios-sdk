@@ -41,6 +41,7 @@
   [self contentWithLocationIdentifier];
   [self contentWithBeaconMajor];
   [self contentWithLocation];
+  [self contentWithTags];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,13 +107,24 @@
 
 - (void)contentWithLocation {
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-  [self.api contentWithLocation:location pageSize:1 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString* cursor, NSError *error) {
+  [self.api contentsWithLocation:location pageSize:1 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString* cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
     NSLog(@"ContentWithLocation: %@", contents);
+  }];
+}
+
+- (void)contentWithTags {
+  [self.api contentsWithTags:@[@"tag1",@"tag2"] pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"ContentWithTags: %@", contents);
   }];
 }
 

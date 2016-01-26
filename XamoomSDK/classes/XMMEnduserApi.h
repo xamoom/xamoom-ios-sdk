@@ -84,12 +84,18 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
   XMMSpotOptionsIncludeMarker = 1 << 1,
 };
 
-typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
-  XMMSortOptionsNone = 0 << 0,
-  XMMSortOptionsName = 1 << 0,
-  XMMSortOptionsNameDesc = 1 << 1,
-  XMMSortOptionsDistance = 1 << 2,
-  XMMSortOptionsDistanceDesc = 1 << 3,
+typedef NS_OPTIONS(NSUInteger, XMMContentSortOptions) {
+  XMMContentSortOptionsNone = 0 << 0,
+  XMMContentSortOptionsName = 1 << 0,
+  XMMContentSortOptionsNameDesc = 1 << 1,
+};
+
+typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
+  XMMSpotSortOptionsNone = 0 << 0,
+  XMMSpotSortOptionsName = 1 << 0,
+  XMMSpotSortOptionsNameDesc = 1 << 1,
+  XMMSpotSortOptionsDistance = 1 << 2,
+  XMMSpotSortOptionsDistanceDesc = 1 << 3,
 };
 
 /**
@@ -192,7 +198,12 @@ typedef NS_OPTIONS(NSUInteger, XMMSortOptions) {
  * - *param3* cursor    Cursor for paging
  * - *param4* error     NSError, can be null
  */
-- (void)contentWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+
+/**
+ * TODO
+ */
+- (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
 #pragma mark - deprecated public methods
 

@@ -239,7 +239,7 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
-- (void)testThatContentWithLocationCallsFetchResources {
+- (void)testThatContentsWithLocationCallsFetchResources {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
@@ -252,13 +252,55 @@
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api contentWithLocation:location pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [api contentsWithLocation:location pageSize:10 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);
 }
 
-- (void)testThatContentWithLocationReturnsContentHasMoreCursorViaCallback {
+- (void)testThatContentsWithLocationCallsFetchResourcesWithCursorAndSortName {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"filter[lat]":@"46.6150102",
+                                                                                  @"filter[lon]":@"14.2628843",
+                                                                                  @"pageSize":@"10",
+                                                                                  @"cursor":@"1234",
+                                                                                  @"sort":@"name"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsName completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatContentsWithLocationCallsFetchResourcesWithCursorAndSortNameDesc {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"filter[lat]":@"46.6150102",
+                                                                                  @"filter[lon]":@"14.2628843",
+                                                                                  @"pageSize":@"10",
+                                                                                  @"cursor":@"1234",
+                                                                                  @"sort":@"-name"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatContentsWithLocationReturnsContentHasMoreCursorViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id mockRestClient = OCMPartialMock(self.restClient);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -272,7 +314,67 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api contentWithLocation:location pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [api contentsWithLocation:location pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertFalse(hasMore);
+    XCTAssertTrue([cursor isEqualToString:@""]);
+    XCTAssertTrue(contents.count == 4);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithTagsCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"filter[tags]":@"[\"tag1\",\"tag2\"]",
+                                                                                  @"pageSize":@"10"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatContentWithTagsWithCursorSortCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"filter[tags]":@"[\"tag1\",\"tag2\"]",
+                                                                                  @"pageSize":@"10",
+                                                                                  @"cursor":@"1234",
+                                                                                  @"sort":@"name"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsName completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatContentsWithTagsReturnsContentHasMoreCursorViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSArray *tags = @[@"tag1", @"tag2"];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self contentLocation]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentsWithTags:tags pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertFalse(hasMore);
     XCTAssertTrue([cursor isEqualToString:@""]);
     XCTAssertTrue(contents.count == 4);
