@@ -19,3 +19,5 @@ DerivedData
 *.xcuserstate
 
 *TestingIDs.plist
+
+test-reports/
