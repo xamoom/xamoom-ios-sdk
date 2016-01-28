@@ -246,7 +246,7 @@
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[lat]":@"46.6150102",
                                                                                   @"filter[lon]":@"14.2628843",
-                                                                                  @"pageSize":@"10"}];
+                                                                                  @"page[size]":@"10"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
@@ -265,8 +265,8 @@
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[lat]":@"46.6150102",
                                                                                   @"filter[lon]":@"14.2628843",
-                                                                                  @"pageSize":@"10",
-                                                                                  @"cursor":@"1234",
+                                                                                  @"page[size]":@"10",
+                                                                                  @"page[cursor]":@"1234",
                                                                                   @"sort":@"name"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -286,8 +286,8 @@
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[lat]":@"46.6150102",
                                                                                   @"filter[lon]":@"14.2628843",
-                                                                                  @"pageSize":@"10",
-                                                                                  @"cursor":@"1234",
+                                                                                  @"page[size]":@"10",
+                                                                                  @"page[cursor]":@"1234",
                                                                                   @"sort":@"-name"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -329,7 +329,7 @@
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[tags]":@"[\"tag1\",\"tag2\"]",
-                                                                                  @"pageSize":@"10"}];
+                                                                                  @"page[size]":@"10"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
@@ -346,8 +346,8 @@
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[tags]":@"[\"tag1\",\"tag2\"]",
-                                                                                  @"pageSize":@"10",
-                                                                                  @"cursor":@"1234",
+                                                                                  @"page[size]":@"10",
+                                                                                  @"page[cursor]":@"1234",
                                                                                   @"sort":@"name"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -378,6 +378,68 @@
     XCTAssertFalse(hasMore);
     XCTAssertTrue([cursor isEqualToString:@""]);
     XCTAssertTrue(contents.count == 4);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatSpotWithLocationRadiusCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"filter[lat]":@"46.6150102",
+                                                                                  @"filter[lon]":@"14.2628843",
+                                                                                  @"filter[radius]":@"100"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsNone completion:^(NSArray *contents, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatSpotWithLocationRadiusOptionCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"filter[lat]":@"46.6150102",
+                                                                                  @"filter[lon]":@"14.2628843",
+                                                                                  @"filter[radius]":@"100",
+                                                                                  @"include_marker":@"true",
+                                                                                  @"include_content":@"true"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent completion:^(NSArray *spots, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatSpotsWithLocationReturnsSpotsViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self spotLocation]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api spotsWithLocation:location radius:100 options:0 completion:^(NSArray *spots, NSError *error) {
+    XCTAssertTrue(spots.count == 7);
     [expectation fulfill];
   }];
   
@@ -458,6 +520,13 @@
 
 - (NSDictionary *)contentLocation {
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"contentLocation" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+  return json;
+}
+
+- (NSDictionary *)spotLocation {
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"spotLocation" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:filePath];
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
   return json;

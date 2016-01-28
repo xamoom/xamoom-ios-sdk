@@ -80,6 +80,7 @@ typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
 };
 
 typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
+  XMMSpotOptionsNone = 0 << 0,
   XMMSpotOptionsIncludeContent = 1 << 0,
   XMMSpotOptionsIncludeMarker = 1 << 1,
 };
@@ -191,9 +192,9 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * @param location  Location of the user
  * @param pageSize  PageSize you want to get from xamoom cloud
  * @param cursor    Needed when paging, can be null
- * @param sort      XMMSortOptions to sort result
+ * @param sort      XMMContentSortOptions to sort result
  * @param completion    Completion block called after finishing network request
- * - *param1* content   Content from xamoom system
+ * - *param1* contents  Contents from xamoom system
  * - *param2* hasMore   True if more items on xamoom cloud
  * - *param3* cursor    Cursor for paging
  * - *param4* error     NSError, can be null
@@ -201,9 +202,24 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
 - (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
- * TODO
+ * API call to get contents with specific tags.
+ * 
+ * @param tags      Array of tags
+ * @param pageSize  PageSize you want to get from xamoom cloud
+ * @param cursor    Needed when paging, can be null
+ * @param sort      XMMContentSortOptions to sort result
+ * @param completion    Completion block called after finishing network request
+ * - *param1* contents  Contents from xamoom system
+ * - *param2* hasMore   True if more items on xamoom cloud
+ * - *param3* cursor    Cursor for paging
+ * - *param4* error     NSError, can be null
  */
 - (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+
+/**
+ *
+ */
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion;
 
 #pragma mark - deprecated public methods
 

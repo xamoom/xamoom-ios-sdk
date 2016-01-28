@@ -42,6 +42,7 @@
   [self contentWithBeaconMajor];
   [self contentWithLocation];
   [self contentWithTags];
+  [self spotsWithLocation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -125,6 +126,18 @@
     }
     
     NSLog(@"ContentWithTags: %@", contents);
+  }];
+}
+
+- (void)spotsWithLocation {
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+  [self.api spotsWithLocation:location radius:1000 options:0 completion:^(NSArray *spots, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"spotsWithLocation: %@", spots);
   }];
 }
 

@@ -134,17 +134,17 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 }
 
 - (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
-  NSNumberFormatter* cordinateFormatter = [[NSNumberFormatter alloc] init];
-  cordinateFormatter.positiveFormat = @"0.#######";
-  NSString *lat = [cordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.latitude]];
-  NSString *lon = [cordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.longitude]];
+  NSNumberFormatter *coordinateFormatter = [[NSNumberFormatter alloc] init];
+  coordinateFormatter.positiveFormat = @"0.#######";
+  NSString *lat = [coordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.latitude]];
+  NSString *lon = [coordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.longitude]];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":self.language,
                                                                                   @"filter[lat]":lat,
                                                                                   @"filter[lon]":lon,
-                                                                                  @"pageSize":[NSString stringWithFormat:@"%d", pageSize]}];
+                                                                                  @"page[size]":[NSString stringWithFormat:@"%d", pageSize]}];
   
   if (cursor != nil && ![cursor isEqualToString:@""]) {
-    [params setObject:cursor forKey:@"cursor"];
+    [params setObject:cursor forKey:@"page[cursor]"];
   }
   
   if (sortOptions != XMMContentSortOptionsNone) {
@@ -169,9 +169,9 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   NSString *tagsAsParamter = [NSString stringWithFormat:@"[\"%@\"]", [tags componentsJoinedByString:@"\",\""]];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[tags]":tagsAsParamter,
-                                                                                  @"pageSize":[NSString stringWithFormat:@"%d", pageSize]}];
+                                                                                  @"page[size]":[NSString stringWithFormat:@"%d", pageSize]}];
   if (cursor != nil && ![cursor isEqualToString:@""]) {
-    [params setObject:cursor forKey:@"cursor"];
+    [params setObject:cursor forKey:@"page[cursor]"];
   }
   
   if (sortOptions != XMMContentSortOptionsNone) {
@@ -192,6 +192,32 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   }];
 }
 
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion {
+  NSNumberFormatter *coordinateFormatter = [[NSNumberFormatter alloc] init];
+  coordinateFormatter.positiveFormat = @"0.#######";
+  NSString *lat = [coordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.latitude]];
+  NSString *lon = [coordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.longitude]];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":self.language,
+                                                                                  @"filter[lat]":lat,
+                                                                                  @"filter[lon]":lon,
+                                                                                  @"filter[radius]":[NSString stringWithFormat:@"%d", radius]}];
+  
+  if (options & XMMSpotOptionsIncludeMarker) {
+    [params setObject:@"true" forKey:@"include_marker"];
+  }
+  
+  if (options & XMMSpotOptionsIncludeContent) {
+    [params setObject:@"true" forKey:@"include_content"];
+  }
+  
+  [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, error);
+    }
+    
+    completion(result.resources, error);
+  }];
+}
 
 #pragma mark - deprecated API calls
 
