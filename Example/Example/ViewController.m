@@ -44,6 +44,7 @@
   [self contentWithTags];
   [self spotsWithLocation];
   [self spotsWithTags];
+  [self system];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -150,6 +151,17 @@
     }
     
     NSLog(@"spotsWithTags: %@", spots);
+  }];
+}
+
+- (void)system {
+  [self.api systemWithCompletion:^(XMMSystem *system, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"system: %@", system);
   }];
 }
 

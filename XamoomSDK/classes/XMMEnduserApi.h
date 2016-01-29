@@ -260,6 +260,14 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  */
 - (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
+/**
+ * API call that returns your system.
+ * 
+ * @param completion Completion block called after finishing network request
+ * - *param1* system System from xamoom system
+ * - *param2* error NSError, can be null */
+- (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion;
+
 #pragma mark - deprecated public methods
 
 /// @name Deprecated API Calls

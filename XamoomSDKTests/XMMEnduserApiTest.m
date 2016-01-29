@@ -520,7 +520,7 @@
   OCMVerifyAll(mockRestClient);
 }
 
-- (void)testThatSpotsWithTagsOptionsPageSizeCursorReturnsSpotsViaCallback {
+- (void)testThatSpotsWithTagsOptionsPageSizeCursorReturnsSpotsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -538,6 +538,49 @@
     XCTAssertTrue(spots.count == 7);
     XCTAssertTrue([cursor isEqualToString:@""]);
     XCTAssertFalse(hasMore);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatSystemCallsFetchResource {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSystem class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api systemWithCompletion:^(XMMSystem *system, NSError *error) {
+    //
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatSystemReturnsSystemViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self system]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api systemWithCompletion:^(XMMSystem *system, NSError *error) {
+    XCTAssertTrue([system.url isEqualToString:@"http://testpavol.at"]);
+    XCTAssertTrue(system.isDemo);
+    XCTAssertTrue([system.name isEqualToString:@"Dev xamoom testing environment"]);
+    XCTAssertNotNil(system.menu);
+    XCTAssertNotNil(system.style);
+    XCTAssertNotNil(system.settings);
     [expectation fulfill];
   }];
   
@@ -625,6 +668,13 @@
 
 - (NSDictionary *)spotLocation {
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"spotLocation" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+  return json;
+}
+
+- (NSDictionary *)system {
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"system" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:filePath];
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
   return json;
