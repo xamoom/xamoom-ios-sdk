@@ -137,7 +137,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":self.language,
                                                                                   @"filter[lat]":[@(location.coordinate.latitude) stringValue],
                                                                                   @"filter[lon]":[@(location.coordinate.longitude) stringValue],
-                                                                                  @"page[size]":[NSString stringWithFormat:@"%d", pageSize]}];
+                                                                                  @"page[size]":[@(pageSize) stringValue]}];
   
   if (cursor != nil && ![cursor isEqualToString:@""]) {
     [params setObject:cursor forKey:@"page[cursor]"];
@@ -165,7 +165,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   NSString *tagsAsParamter = [NSString stringWithFormat:@"[\"%@\"]", [tags componentsJoinedByString:@"\",\""]];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[tags]":tagsAsParamter,
-                                                                                  @"page[size]":[NSString stringWithFormat:@"%d", pageSize]}];
+                                                                                  @"page[size]":[@(pageSize) stringValue]}];
   if (cursor != nil && ![cursor isEqualToString:@""]) {
     [params setObject:cursor forKey:@"page[cursor]"];
   }
@@ -193,7 +193,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
                                  initWithDictionary:@{@"lang":self.language,
                                                       @"filter[lat]":[@(location.coordinate.latitude) stringValue],
                                                       @"filter[lon]":[@(location.coordinate.longitude) stringValue],
-                                                      @"filter[radius]":[NSString stringWithFormat:@"%d", radius]}];
+                                                      @"filter[radius]":[@(radius) stringValue]}];
   
   if (options & XMMSpotOptionsIncludeMarker) {
     [params setObject:@"true" forKey:@"include_marker"];
@@ -217,7 +217,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
                                  initWithDictionary:@{@"lang":self.language,
                                                       @"filter[lat]":[@(location.coordinate.latitude) stringValue],
                                                       @"filter[lon]":[@(location.coordinate.longitude) stringValue],
-                                                      @"filter[radius]":[NSString stringWithFormat:@"%d", radius],
+                                                      @"filter[radius]":[@(radius) stringValue],
                                                       @"page[size]":[@(pageSize) stringValue]}];
   
   if (cursor != nil && ![cursor isEqualToString:@""]) {
