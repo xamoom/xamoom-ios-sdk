@@ -297,6 +297,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 
 - (void)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion {
   NSDictionary *params = @{@"lang":self.language};
+  
   [self.restClient fetchResource:[XMMSystemSettings class] id:settingsID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
@@ -305,6 +306,20 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
     XMMSystemSettings *settings = result.resource;
     
     completion(settings, error);
+  }];
+}
+
+- (void)styleWithID:(NSString *)styleID completion:(void (^)(XMMStyle *style, NSError *error))completion {
+  NSDictionary *params = @{@"lang":self.language};
+  
+  [self.restClient fetchResource:[XMMStyle class] id:styleID parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, error);
+    }
+    
+    XMMStyle *style = result.resource;
+    
+    completion(style, error);
   }];
 }
 

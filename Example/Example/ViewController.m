@@ -163,6 +163,7 @@
     
     NSLog(@"system: %@", system);
     [self systemSettingsWithID:system.settings.ID];
+    [self styleWithID:system.style.ID];
   }];
 }
 
@@ -174,6 +175,17 @@
     }
     
     NSLog(@"Settings: %@", settings);
+  }];
+}
+
+- (void)styleWithID:(NSString *)styleID {
+  [self.api styleWithID:styleID completion:^(XMMStyle *style, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"Style: %@", style);
   }];
 }
 
