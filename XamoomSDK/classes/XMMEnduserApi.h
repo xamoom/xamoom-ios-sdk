@@ -130,15 +130,15 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * Initializes with a apikey. You find your apikey in your xamoom system under
  * xamoom.net - Settings.
  * 
- * @param apikey  Your xamoom api key
+ * @param apikey Your xamoom api key
  */
 - (instancetype)initWithApiKey:(NSString *)apikey;
 
 /**
  * Initializes with a custom base url and custom configuration for NSURLSession.
  * 
- * @param url     Custom url to xamoom system
- * @param config  Custom NSURLConfiguration
+ * @param url Custom url to xamoom system
+ * @param config Custom NSURLConfiguration
  */
 - (instancetype)initWithRestClient:(XMMRestClient *)restClient;
 
@@ -147,21 +147,21 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
 /**
  * API call to get content with specific ID.
  *
- * @param contentID     ContentID of xamoom content
- * @param completion    Completion block called after finishing network request
- * - *param1* content   Content from xamoom system
- * - *param2* error     NSError, can be null
+ * @param contentID ContentID of xamoom content
+ * @param completion Completion block called after finishing network request
+ * - *param1* content Content from xamoom system
+ * - *param2* error NSError, can be null
  */
 - (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get content with specific ID and options.
  *
- * @param contentID     ContentID of xamoom content
- * @param options       XMMContentOptions for call
- * @param completion    Completion block called after finishing network request
- * - *param1* content   Content from xamoom system
- * - *param2* error     NSError, can be null
+ * @param contentID ContentID of xamoom content
+ * @param options XMMContentOptions for call
+ * @param completion Completion block called after finishing network request
+ * - *param1* content Content from xamoom system
+ * - *param2* error NSError, can be null
  */
 - (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
 
@@ -169,57 +169,80 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * API call to get content with specific location-identifier.
  *
  * @param locationIdentifier Locationidentifier from xamoom marker
- * @param completion    Completion block called after finishing network request
- * - *param1* content   Content from xamoom system
- * - *param2* error     NSError, can be null
+ * @param completion Completion block called after finishing network request
+ * - *param1* content Content from xamoom system
+ * - *param2* error NSError, can be null
  */
 - (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get content with beacon.
  *
- * @param major         Major of the beacon
- * @param minor         Minor of the beacon
- * @param completion    Completion block called after finishing network request
- * - *param1* content   Content from xamoom system
- * - *param2* error     NSError, can be null
+ * @param major Major of the beacon
+ * @param minor Minor of the beacon
+ * @param completion Completion block called after finishing network request
+ * - *param1* content Content from xamoom system
+ * - *param2* error NSError, can be null
  */
 - (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get contents around location (40m).
  *
- * @param location  Location of the user
- * @param pageSize  PageSize you want to get from xamoom cloud
- * @param cursor    Needed when paging, can be null
- * @param sort      XMMContentSortOptions to sort result
- * @param completion    Completion block called after finishing network request
- * - *param1* contents  Contents from xamoom system
- * - *param2* hasMore   True if more items on xamoom cloud
- * - *param3* cursor    Cursor for paging
- * - *param4* error     NSError, can be null
+ * @param location Location of the user
+ * @param pageSize PageSize you want to get from xamoom cloud
+ * @param cursor Needed when paging, can be null
+ * @param sort XMMContentSortOptions to sort result
+ * @param completion Completion block called after finishing network request
+ * - *param1* contents Contents from xamoom system
+ * - *param2* hasMore True if more items on xamoom cloud
+ * - *param3* cursor Cursor for paging
+ * - *param4* error NSError, can be null
  */
 - (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get contents with specific tags.
  * 
- * @param tags      Array of tags
- * @param pageSize  PageSize you want to get from xamoom cloud
- * @param cursor    Needed when paging, can be null
- * @param sort      XMMContentSortOptions to sort result
- * @param completion    Completion block called after finishing network request
- * - *param1* contents  Contents from xamoom system
- * - *param2* hasMore   True if more items on xamoom cloud
- * - *param3* cursor    Cursor for paging
- * - *param4* error     NSError, can be null
+ * @param tags Array of tags
+ * @param pageSize PageSize you want to get from xamoom cloud
+ * @param cursor Needed when paging, can be null
+ * @param sort XMMContentSortOptions to sort result
+ * @param completion Completion block called after finishing network request
+ * - *param1* contents Contents from xamoom system
+ * - *param2* hasMore True if more items on xamoom cloud
+ * - *param3* cursor Cursor for paging
+ * - *param4* error NSError, can be null
  */
 - (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
- *
+ * API call to get spots inside radius of a location.
+ * 
+ * @param location Location of the user
+ * @param radius Radius in meter
+ * @param options XMMSpotOptions to get markers or content
+ * @param completion Completion block called after finishing network request
+ * - *param1* contents Contents from xamoom system
+ * - *param2* error NSError, can be null
  */
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion;
+
+/**
+ * API call to get spots inside radius of a location.
+ *
+ * @param location Location of the user
+ * @param radius Radius in meter
+ * @param options XMMSpotOptions to get markers or content
+ * @param completion Completion block called after finishing network request
+ * @param pageSize PageSize you want to get from xamoom cloud
+ * @param cursor Needed when paging, can be null
+ * - *param1* contents Contents from xamoom system
+ * - *param2* hasMore True if more items on xamoom cloud
+ * - *param3* cursor Cursor for paging
+ * - *param4* error NSError, can be null
+ */
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 #pragma mark - deprecated public methods
 

@@ -448,6 +448,55 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatSpotWithLocationRadiusOptionPageSizeCursor {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102000001 longitude:14.2628843];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en",
+                                                      @"filter[lat]":[@(location.coordinate.latitude) stringValue],
+                                                      @"filter[lon]":[@(location.coordinate.longitude) stringValue],
+                                                      @"filter[radius]":@"100",
+                                                      @"include_marker":@"true",
+                                                      @"include_content":@"true",
+                                                      @"page[size]":@"20",
+                                                      @"page[cursor]":@"2"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent pageSize:20 cursor:@"2" completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    //
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatSpotsWithLocationPageSizeCursorReturnsSpotsViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self spotLocation]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api spotsWithLocation:location radius:10 options:0 pageSize:10 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertTrue(spots.count == 7);
+    XCTAssertTrue([cursor isEqualToString:@""]);
+    XCTAssertFalse(hasMore);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 #pragma mark - Deprecated API Calls
 
 - (void)testContentWithContentID {

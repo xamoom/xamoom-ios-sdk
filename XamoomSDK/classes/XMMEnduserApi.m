@@ -212,6 +212,39 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   }];
 }
 
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":self.language,
+                                                      @"filter[lat]":[@(location.coordinate.latitude) stringValue],
+                                                      @"filter[lon]":[@(location.coordinate.longitude) stringValue],
+                                                      @"filter[radius]":[NSString stringWithFormat:@"%d", radius],
+                                                      @"page[size]":[@(pageSize) stringValue]}];
+  
+  if (cursor != nil && ![cursor isEqualToString:@""]) {
+    [params setObject:cursor forKey:@"page[cursor]"];
+  }
+  
+  if (options & XMMSpotOptionsIncludeMarker) {
+    [params setObject:@"true" forKey:@"include_marker"];
+  }
+  
+  if (options & XMMSpotOptionsIncludeContent) {
+    [params setObject:@"true" forKey:@"include_content"];
+  }
+  
+  [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, false, nil, error);
+    }
+    
+    NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
+    bool hasMore = [hasMoreValue boolValue];
+    NSString *cursor = [result.meta objectForKey:@"cursor"];
+    
+    completion(result.resources, hasMore, cursor, error);
+  }];
+}
+
 #pragma mark - deprecated API calls
 
 - (void)contentWithContentID:(NSString*)contentID includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
