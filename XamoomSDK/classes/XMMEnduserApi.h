@@ -223,7 +223,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * @param radius Radius in meter
  * @param options XMMSpotOptions to get markers or content
  * @param completion Completion block called after finishing network request
- * - *param1* contents Contents from xamoom system
+ * - *param1* spots Spots from xamoom system
  * - *param2* error NSError, can be null
  */
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion;
@@ -237,12 +237,28 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * @param completion Completion block called after finishing network request
  * @param pageSize PageSize you want to get from xamoom cloud
  * @param cursor Needed when paging, can be null
- * - *param1* contents Contents from xamoom system
+ * - *param1* spots Spots from xamoom system
  * - *param2* hasMore True if more items on xamoom cloud
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+
+/**
+ * API call to get spots with specific tags.
+ *
+ * @param tags Array of tags
+ * @param pageSize PageSize you want to get from xamoom cloud
+ * @param cursor Needed when paging, can be null
+ * @param options XMMSpotOptions to get markers or content
+ * @param sort XMMSpotSortOptions to sort results
+ * @param completion Completion block called after finishing network request
+ * - *param1* spots Spots from xamoom system
+ * - *param2* hasMore True if more items on xamoom cloud
+ * - *param3* cursor Cursor for paging
+ * - *param4* error NSError, can be null
+ */
+- (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 #pragma mark - deprecated public methods
 

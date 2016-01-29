@@ -144,7 +144,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   }
   
   if (sortOptions != XMMContentSortOptionsNone) {
-    NSArray *sortParameter = [self sortOptionsToArray:sortOptions];
+    NSArray *sortParameter = [self contentSortOptionsToArray:sortOptions];
     [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
   }
   
@@ -171,7 +171,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   }
   
   if (sortOptions != XMMContentSortOptionsNone) {
-    NSArray *sortParameter = [self sortOptionsToArray:sortOptions];
+    NSArray *sortParameter = [self contentSortOptionsToArray:sortOptions];
     [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
   }
   
@@ -245,6 +245,43 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   }];
 }
 
+- (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  NSString *tagsAsParamter = [NSString stringWithFormat:@"[\"%@\"]", [tags componentsJoinedByString:@"\",\""]];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":self.language,
+                                                      @"filter[tags]":tagsAsParamter,
+                                                      @"page[size]":[@(pageSize) stringValue]}];
+  
+  if (cursor != nil && ![cursor isEqualToString:@""]) {
+    [params setObject:cursor forKey:@"page[cursor]"];
+  }
+  
+  if (options & XMMSpotOptionsIncludeMarker) {
+    [params setObject:@"true" forKey:@"include_marker"];
+  }
+  
+  if (options & XMMSpotOptionsIncludeContent) {
+    [params setObject:@"true" forKey:@"include_content"];
+  }
+  
+  if (sortOptions != XMMSpotOptionsNone) {
+    NSArray *sortParameter = [self spotSortOptionsToArray:sortOptions];
+    [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
+  }
+  
+  [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, false, nil, error);
+    }
+    
+    NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
+    bool hasMore = [hasMoreValue boolValue];
+    NSString *cursor = [result.meta objectForKey:@"cursor"];
+    
+    completion(result.resources, hasMore, cursor, error);
+  }];
+}
+
 #pragma mark - deprecated API calls
 
 - (void)contentWithContentID:(NSString*)contentID includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {
@@ -271,7 +308,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 
 #pragma mark - private helpers
 
-- (NSArray *)sortOptionsToArray:(XMMContentSortOptions)sortOptions {
+- (NSArray *)contentSortOptionsToArray:(XMMContentSortOptions)sortOptions {
   NSMutableArray *sortParameters = [[NSMutableArray alloc] init];
   
   if (sortOptions & XMMContentSortOptionsName) {
@@ -280,6 +317,28 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   
   if (sortOptions & XMMContentSortOptionsNameDesc) {
     [sortParameters addObject:@"-name"];
+  }
+  
+  return sortParameters;
+}
+
+- (NSArray *)spotSortOptionsToArray:(XMMSpotSortOptions)sortOptions {
+  NSMutableArray *sortParameters = [[NSMutableArray alloc] init];
+  
+  if (sortOptions & XMMSpotSortOptionsName) {
+    [sortParameters addObject:@"name"];
+  }
+  
+  if (sortOptions & XMMSpotSortOptionsNameDesc) {
+    [sortParameters addObject:@"-name"];
+  }
+  
+  if (sortOptions & XMMSpotSortOptionsDistance) {
+    [sortParameters addObject:@"distance"];
+  }
+  
+  if (sortOptions & XMMSpotSortOptionsDistanceDesc) {
+    [sortParameters addObject:@"-distance"];
   }
   
   return sortParameters;

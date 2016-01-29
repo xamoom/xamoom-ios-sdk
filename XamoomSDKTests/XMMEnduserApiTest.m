@@ -497,6 +497,53 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatSpotsWithTagsOptionPageSizeCursor {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSArray *tags = @[@"tag1", @"tag2"];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en",
+                                                      @"filter[tags]":@"[\"tag1\",\"tag2\"]",
+                                                      @"include_marker":@"true",
+                                                      @"include_content":@"true",
+                                                      @"page[size]":@"20",
+                                                      @"sort":@"name"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api spotsWithTags:tags pageSize:20 cursor:nil options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsName completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    //
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatSpotsWithTagsOptionsPageSizeCursorReturnsSpotsViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSArray *tags = @[@"tag1", @"tag2"];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self spotLocation]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+
+  [api spotsWithTags:tags pageSize:20 cursor:nil options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsName completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertTrue(spots.count == 7);
+    XCTAssertTrue([cursor isEqualToString:@""]);
+    XCTAssertFalse(hasMore);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 #pragma mark - Deprecated API Calls
 
 - (void)testContentWithContentID {

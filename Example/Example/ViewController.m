@@ -43,6 +43,7 @@
   [self contentWithLocation];
   [self contentWithTags];
   [self spotsWithLocation];
+  [self spotsWithTags];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -138,6 +139,17 @@
     }
     
     NSLog(@"spotsWithLocation: %@", spots);
+  }];
+}
+
+- (void)spotsWithTags {
+  [self.api spotsWithTags:@[@"tag1"] pageSize:10 cursor:nil options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"spotsWithTags: %@", spots);
   }];
 }
 
