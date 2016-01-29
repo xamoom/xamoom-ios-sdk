@@ -153,10 +153,10 @@
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[location-identifier]":@"7qpqr"}];
   NSString *qrMarker = @"7qpqr";
-
+  
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
-                                parameters:[OCMArg isEqual:params]
-                                completion:[OCMArg any]]);
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
   
   [api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
   }];
@@ -244,8 +244,8 @@
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[lat]":@"46.6150102",
-                                                                                  @"filter[lon]":@"14.2628843",
+                                                                                  @"filter[lat]":[@(location.coordinate.latitude) stringValue],
+                                                                                  @"filter[lon]":[@(location.coordinate.longitude) stringValue],
                                                                                   @"page[size]":@"10"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -263,8 +263,8 @@
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[lat]":@"46.6150102",
-                                                                                  @"filter[lon]":@"14.2628843",
+                                                                                  @"filter[lat]":[@(location.coordinate.latitude) stringValue],
+                                                                                  @"filter[lon]":[@(location.coordinate.longitude) stringValue],
                                                                                   @"page[size]":@"10",
                                                                                   @"page[cursor]":@"1234",
                                                                                   @"sort":@"name"}];
@@ -284,8 +284,8 @@
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[lat]":@"46.6150102",
-                                                                                  @"filter[lon]":@"14.2628843",
+                                                                                  @"filter[lat]":[@(location.coordinate.latitude) stringValue],
+                                                                                  @"filter[lon]":[@(location.coordinate.longitude) stringValue],
                                                                                   @"page[size]":@"10",
                                                                                   @"page[cursor]":@"1234",
                                                                                   @"sort":@"-name"}];
@@ -388,10 +388,11 @@
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[lat]":@"46.6150102",
-                                                                                  @"filter[lon]":@"14.2628843",
-                                                                                  @"filter[radius]":@"100"}];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en",
+                                                      @"filter[lat]":[@(location.coordinate.latitude) stringValue],
+                                                      @"filter[lon]":[@(location.coordinate.longitude) stringValue],
+                                                      @"filter[radius]":@"100"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
@@ -406,13 +407,14 @@
 - (void)testThatSpotWithLocationRadiusOptionCallsFetchResources {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
-  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[lat]":@"46.6150102",
-                                                                                  @"filter[lon]":@"14.2628843",
-                                                                                  @"filter[radius]":@"100",
-                                                                                  @"include_marker":@"true",
-                                                                                  @"include_content":@"true"}];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102000001 longitude:14.2628843];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en",
+                                                      @"filter[lat]":[@(location.coordinate.latitude) stringValue],
+                                                      @"filter[lon]":[@(location.coordinate.longitude) stringValue],
+                                                      @"filter[radius]":@"100",
+                                                      @"include_marker":@"true",
+                                                      @"include_content":@"true"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
@@ -429,7 +431,7 @@
   id mockRestClient = OCMPartialMock(self.restClient);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-
+  
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 4];

@@ -134,13 +134,9 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 }
 
 - (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
-  NSNumberFormatter *coordinateFormatter = [[NSNumberFormatter alloc] init];
-  coordinateFormatter.positiveFormat = @"0.#######";
-  NSString *lat = [coordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.latitude]];
-  NSString *lon = [coordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.longitude]];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":self.language,
-                                                                                  @"filter[lat]":lat,
-                                                                                  @"filter[lon]":lon,
+                                                                                  @"filter[lat]":[@(location.coordinate.latitude) stringValue],
+                                                                                  @"filter[lon]":[@(location.coordinate.longitude) stringValue],
                                                                                   @"page[size]":[NSString stringWithFormat:@"%d", pageSize]}];
   
   if (cursor != nil && ![cursor isEqualToString:@""]) {
@@ -193,14 +189,11 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 }
 
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion {
-  NSNumberFormatter *coordinateFormatter = [[NSNumberFormatter alloc] init];
-  coordinateFormatter.positiveFormat = @"0.#######";
-  NSString *lat = [coordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.latitude]];
-  NSString *lon = [coordinateFormatter stringFromNumber: [NSNumber numberWithDouble: location.coordinate.longitude]];
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":self.language,
-                                                                                  @"filter[lat]":lat,
-                                                                                  @"filter[lon]":lon,
-                                                                                  @"filter[radius]":[NSString stringWithFormat:@"%d", radius]}];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":self.language,
+                                                      @"filter[lat]":[@(location.coordinate.latitude) stringValue],
+                                                      @"filter[lon]":[@(location.coordinate.longitude) stringValue],
+                                                      @"filter[radius]":[NSString stringWithFormat:@"%d", radius]}];
   
   if (options & XMMSpotOptionsIncludeMarker) {
     [params setObject:@"true" forKey:@"include_marker"];
