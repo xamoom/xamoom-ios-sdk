@@ -533,7 +533,7 @@
   };
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
-
+  
   [api spotsWithTags:tags pageSize:20 cursor:nil options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsName completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
     XCTAssertTrue([cursor isEqualToString:@""]);
@@ -581,6 +581,44 @@
     XCTAssertNotNil(system.menu);
     XCTAssertNotNil(system.style);
     XCTAssertNotNil(system.settings);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatSystemSettingsCallsFetchResource {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSystemSettings class]]
+                                       id:@"5755996320301056"
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api systemSettingsWithID:@"5755996320301056" completion:^(XMMSystemSettings *settings, NSError *error) {
+    //
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatSystemSettingsReturnsSettingsViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self systemSettings]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api systemSettingsWithID:@"5755996320301056" completion:^(XMMSystemSettings *settings, NSError *error) {
     [expectation fulfill];
   }];
   
@@ -675,6 +713,13 @@
 
 - (NSDictionary *)system {
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"system" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+  return json;
+}
+
+- (NSDictionary *)systemSettings {
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"systemSettings" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:filePath];
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
   return json;

@@ -295,6 +295,19 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   }];
 }
 
+- (void)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion {
+  NSDictionary *params = @{@"lang":self.language};
+  [self.restClient fetchResource:[XMMSystemSettings class] id:settingsID parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, error);
+    }
+    
+    XMMSystemSettings *settings = result.resource;
+    
+    completion(settings, error);
+  }];
+}
+
 #pragma mark - deprecated API calls
 
 - (void)contentWithContentID:(NSString*)contentID includeStyle:(BOOL)style includeMenu:(BOOL)menu withLanguage:(NSString*)language full:(BOOL)full preview:(BOOL)preview completion:(void(^)(XMMContentById *result))completionHandler error:(void(^)(XMMError *error))errorHandler {

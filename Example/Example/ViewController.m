@@ -162,6 +162,18 @@
     }
     
     NSLog(@"system: %@", system);
+    [self systemSettingsWithID:system.settings.ID];
+  }];
+}
+
+- (void)systemSettingsWithID:(NSString *)settingsID {
+  [self.api systemSettingsWithID:settingsID completion:^(XMMSystemSettings *settings, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"Settings: %@", settings);
   }];
 }
 

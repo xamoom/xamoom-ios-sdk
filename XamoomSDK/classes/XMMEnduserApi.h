@@ -265,8 +265,19 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * 
  * @param completion Completion block called after finishing network request
  * - *param1* system System from xamoom system
- * - *param2* error NSError, can be null */
+ * - *param2* error NSError, can be null
+ */
 - (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion;
+
+/**
+ * API call that returns your system settings.
+ *
+ * @param ID ID you get from systemWithCompletion:
+ * @param completion Completion block called after finishing network request
+ * - *param1* settings System settings from xamoom system
+ * - *param2* error NSError, can be null
+ */
+- (void)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion;
 
 #pragma mark - deprecated public methods
 
