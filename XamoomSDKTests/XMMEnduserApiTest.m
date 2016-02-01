@@ -645,7 +645,6 @@
   OCMVerifyAll(mockRestClient);
 }
 
-
 - (void)testThatStyleWithIDReturnsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id mockRestClient = OCMClassMock([XMMRestClient class]);
@@ -666,6 +665,44 @@
     XCTAssertTrue([style.backgroundColor isEqualToString:@"#f2f2f2"]);
     XCTAssertTrue([style.foregroundFontColor isEqualToString:@"#222222"]);
     XCTAssertTrue([style.highlightFontColor isEqualToString:@"#d6220c"]);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatMenuWithIDCallsFetchResource {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMMenu class]]
+                                       id:@"12345"
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api menuWithID:@"12345" completion:^(XMMMenu *menu, NSError *error) {
+    //
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatMenuWithIDReturnsViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self style]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api styleWithID:@"12345" completion:^(XMMStyle *style, NSError *error) {
     [expectation fulfill];
   }];
   

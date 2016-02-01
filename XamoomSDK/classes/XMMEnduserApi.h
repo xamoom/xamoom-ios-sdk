@@ -272,7 +272,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
 /**
  * API call that returns your system settings.
  *
- * @param ID ID you get from systemWithCompletion:
+ * @param settingsID ID you get from systemWithCompletion:
  * @param completion Completion block called after finishing network request
  * - *param1* settings System settings from your xamoom system
  * - *param2* error NSError, can be null
@@ -282,12 +282,22 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
 /**
  * API call that returns your system style.
  *
- * @param ID ID you get from systemWithCompletion:
+ * @param styleID ID you get from systemWithCompletion:
  * @param completion Completion block called after finishing network request
  * - *param1* style System style from your xamoom system
  * - *param2* error NSError, can be null
  */
 - (void)styleWithID:(NSString *)styleID completion:(void (^)(XMMStyle *style, NSError *error))completion;
+
+/**
+ * API call that returns your menu.
+ *
+ * @param menuID ID you get from systemWithCompletion:
+ * @param completion Completion block called after finishing network request
+ * - *param1* style System style from your xamoom system
+ * - *param2* error NSError, can be null
+ */
+- (void)menuWithID:(NSString *)menuID completion:(void (^)(XMMMenu *menu, NSError *error))completion;
 
 #pragma mark - deprecated public methods
 

@@ -164,6 +164,7 @@
     NSLog(@"system: %@", system);
     [self systemSettingsWithID:system.settings.ID];
     [self styleWithID:system.style.ID];
+    [self menuWithID:system.menu.ID];
   }];
 }
 
@@ -186,6 +187,21 @@
     }
     
     NSLog(@"Style: %@", style);
+  }];
+}
+
+- (void)menuWithID:(NSString *)menuID {
+  [self.api menuWithID:menuID completion:^(XMMMenu *menu, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"Menu: %@", menu);
+    
+    for (XMMMenuItem *item in menu.items) {
+      NSLog(@"MenuItem: %@", item.contentTitle);
+    }
   }];
 }
 
