@@ -697,15 +697,15 @@
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 5];
-    passedBlock([[JSONAPI alloc] initWithDictionary:[self menu]], nil);
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self style]], nil);
   };
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api menuWithID:@"12345" completion:^(XMMMenu *menu, NSError *error) {
-    XCTAssertTrue(menu.items.count == 2);
+  [api styleWithID:@"12345" completion:^(XMMStyle *style, NSError *error) {
     [expectation fulfill];
   }];
+  
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
@@ -759,13 +759,5 @@
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
   return json;
 }
-
-- (NSDictionary *)menu {
-  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"menu" ofType:@"json"];
-  NSData *data = [NSData dataWithContentsOfFile:filePath];
-  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-  return json;
-}
-
 
 @end
