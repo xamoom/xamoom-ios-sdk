@@ -697,12 +697,14 @@
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 5];
-    passedBlock([[JSONAPI alloc] initWithDictionary:[self style]], nil);
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self menu]], nil);
   };
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api styleWithID:@"12345" completion:^(XMMStyle *style, NSError *error) {
+  [api menuWithID:@"12345" completion:^(XMMMenu *menu, NSError *error) {
+    XCTAssertNotNil(menu);
+    XCTAssertTrue(menu.items.count == 2);
     [expectation fulfill];
   }];
   
@@ -755,6 +757,13 @@
 
 - (NSDictionary *)style {
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"style" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+  return json;
+}
+
+- (NSDictionary *)menu {
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"menu" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:filePath];
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
   return json;
