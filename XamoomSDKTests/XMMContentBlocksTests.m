@@ -7,33 +7,62 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
+#import "XMMEnduserApi.h"
 
 @interface XMMContentBlocksTests : XCTestCase
+
+@property id mockedApi;
+@property id mockedTableView;
 
 @end
 
 @implementation XMMContentBlocksTests
 
 - (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+  [super setUp];
+  self.mockedApi = OCMClassMock([XMMEnduserApi class]);
+  self.mockedTableView = OCMClassMock([UITableView class]);
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+  // Put teardown code here. This method is called after the invocation of each test method in the class.
+  [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testContentBlockInitWithTableView {
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:self.mockedTableView api:self.mockedApi];
+  
+  XCTAssertNotNil(contentBlocks);
+  XCTAssertNotNil(contentBlocks.api);
+  XCTAssertNotNil(contentBlocks.tableView);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testDisplayContent {
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:self.mockedTableView api:self.mockedApi];
+  [contentBlocks displayContent:[self xamoomContent]];
+  
+  XCTAssertTrue(contentBlocks.items.count == 1);
+}
+
+#pragma mark - Helpers
+
+- (XMMContent *)xamoomContent {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.title = @"Block Title";
+  block1.text = @"";
+  block1.publicStatus = YES;
+  block1.blockType = 0;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, nil];
+  
+  return content;
 }
 
 @end

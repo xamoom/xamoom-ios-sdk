@@ -23,7 +23,7 @@
       "XamoomSDK/Assets/*.xcassets"
     ],
     "XamoomSDKNibs": [
-      "XamoomSDK/Assets/Nibs/*.xib"
+      "XamoomSDK/Classes/ContentBlocks/Blocks/*.xib"
     ]
   },
   "dependencies": {

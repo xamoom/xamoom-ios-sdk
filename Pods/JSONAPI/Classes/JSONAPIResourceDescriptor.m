@@ -44,6 +44,9 @@ static NSMutableDictionary *linkedTypeToResource = nil;
         _type = linkedType;
         _resourceClass = resource;
         _properties = [[NSMutableDictionary alloc] init];
+		
+        [self setIdProperty:@"ID"];
+        [self setSelfLinkProperty:@"selfLink"];
     }
     
     return self;
@@ -51,6 +54,11 @@ static NSMutableDictionary *linkedTypeToResource = nil;
 
 - (void)addProperty:(NSString*)name {
     [self addProperty:name withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:name]];
+}
+
+- (void)addProperty:(NSString*)name withJsonName:(NSString *)json
+{
+    [self addProperty:name withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:json]];
 }
 
 - (void)addProperty:(NSString*)name withDescription:(JSONAPIPropertyDescriptor*)description {
