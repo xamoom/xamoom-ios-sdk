@@ -18,6 +18,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMMContentBlock.h"
+#import "XMMEnduserApi.h"
 #import "XMMContentBlock0TableViewCell.h"
 #import "XMMContentBlock1TableViewCell.h"
 #import "XMMContentBlock2TableViewCell.h"
@@ -29,6 +31,8 @@
 #import "XMMContentBlock8TableViewCell.h"
 #import "XMMContentBlock9TableViewCell.h"
 #import "UIImage+animatedGIF.h"
+
+@class XMMEnduserApi;
 
 extern int const kHorizontalSpaceToSubview;
 extern NSString* const kContentBlock9MapContentLinkNotification;
@@ -68,20 +72,15 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @interface XMMContentBlocks : NSObject <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 
 @property (nonatomic, retain) id<XMMContentBlocksDelegate> delegate;
-@property (nonatomic, strong) XMMContent *content;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) XMMEnduserApi *api;
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) UIColor *linkColor;
-@property (nonatomic, strong) NSString *language;
 @property (nonatomic) BOOL showAllStoreLinks;
 
-/**
- * Initializes the XMMContentBlock.
- *
- * @param tableView UITableView you implement to show the content
- * @param language The preferred language, can be @"" for systemLanguage
- * @param showContentLinks Yes to show contentLinks when displaying a spotMap
- */
-- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString*)language showContentLinks:(BOOL)showContentLinks;
+- (instancetype)initWithTableView:(UITableView *)tableView api:(XMMEnduserApi *)api;
+
+- (void)displayContent:(XMMContent *)content;
 
 /**
  * Can be used to change the fontSize of the text contentBlock

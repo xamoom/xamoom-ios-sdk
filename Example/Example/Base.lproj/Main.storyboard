@@ -16,11 +16,27 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ukt-K8-tKI">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ukt-K8-tKI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="OXR-G9-goE"/>
+                            <constraint firstAttribute="trailing" secondItem="Ukt-K8-tKI" secondAttribute="trailing" id="lbM-Wh-8QK"/>
+                            <constraint firstItem="Ukt-K8-tKI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pS6-X5-OKR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ukt-K8-tKI" secondAttribute="bottom" id="yz4-zM-I9l"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ukt-K8-tKI" id="Wfe-WG-zw8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="216" y="474"/>
         </scene>
     </scenes>
 </document>

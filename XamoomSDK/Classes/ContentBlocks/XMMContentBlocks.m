@@ -27,7 +27,6 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 
 @interface XMMContentBlocks ()
 
-@property (nonatomic) UITableView *tableView;
 @property (nonatomic) BOOL isContentHeaderAdded;
 
 @end
@@ -36,115 +35,79 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 
 @implementation XMMContentBlocks
 
-- (instancetype)initWithTableView:(UITableView *)tableView language:(NSString *)language showContentLinks:(BOOL)showContentLinks {
+- (instancetype)initWithTableView:(UITableView *)tableView api:(XMMEnduserApi *)api {
   self = [super init];
   
-  if(self) {
+  if (self) {
+    self.api = api;
     self.tableView = tableView;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 150.0;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
-    self.linkColor = [UIColor blueColor];
-    self.language = language;
-    self.showAllStoreLinks = NO;
-    self.isContentHeaderAdded = NO;
+    [self setupTableView];
     
-    [XMMContentBlock0TableViewCell setFontSize: NormalFontSize];
-    [XMMContentBlock6TableViewCell setLanguage: language];
-    [XMMContentBlock9TableViewCell setLanguage: language];
-    [XMMContentBlock9TableViewCell setLinkColor: self.linkColor];
-    [XMMContentBlock9TableViewCell setShowContentLinks: showContentLinks];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveContentBlock9MapContentLinkNotification:)
-                                                 name:kContentBlock9MapContentLinkNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(removeCustomObserver:)
-                                                 name:@"pauseAllSounds"
-                                               object:nil];
-}
+    [XMMContentBlock0TableViewCell setFontSize:NormalFontSize];
+    [XMMContentBlock0TableViewCell setLinkColor:[UIColor blueColor]];
+  }
   
   return self;
 }
 
-- (void)removeCustomObserver:(NSNotification *)notification {
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
+- (void)setupTableView {
+  //[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  self.tableView.rowHeight = UITableViewAutomaticDimension;
+  self.tableView.estimatedRowHeight = 50.0;
+  
+  [self registerNibs];
 }
 
-- (void)contentBlocksFromContent {
-  self.items = (NSMutableArray *)self.content.contentBlocks;
+- (void)registerNibs {
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
+  NSBundle *nibBundle = [NSBundle bundleWithURL:url];
   
-  [self addContentHeader];
+  UINib *nib = [UINib nibWithNibName:@"XMMContentBlock0TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock0TableViewCell"];
   
-  if (self.showAllStoreLinks) {
-    return;
-  }
+  nib = [UINib nibWithNibName:@"XMMContentBlock1TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock1TableViewCell"];
   
-  NSMutableArray *contentBlocks = [(NSMutableArray *)self.content.contentBlocks copy];
-  for (XMMContentBlock *contentBlock in contentBlocks) {
-    if ([contentBlock isKindOfClass:[XMMContentBlockType4 class]]) {
-      XMMContentBlockType4 *linkBlock = (XMMContentBlockType4 *)contentBlock;
-      if (linkBlock.linkType == 16 || linkBlock.linkType == 17) {
-        [self.items removeObject:contentBlock];
-      }
-    }
-  }
+  nib = [UINib nibWithNibName:@"XMMContentBlock2TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock2TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock3TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock3TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock4TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock4TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock5TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock5TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock6TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock6TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock7TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock7TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock8TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock8TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock9TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock9TableViewCell"];
 }
 
-- (void)addContentHeader {
-  if (self.isContentHeaderAdded) {
-    return;
-  }
+- (void)displayContent:(XMMContent *)content {
+  self.items = [content.contentBlocks mutableCopy];
   
-  XMMContentBlockType0 *cb0 = [[XMMContentBlockType0 alloc] init];
-  cb0.blockType = 0;
-  cb0.publicStatus = true;
-  cb0.title = self.content.title;
-  //cb0.text = self.content.descriptionOfContent;
-  
-  XMMContentBlockType3 *cb3 = [[XMMContentBlockType3 alloc] init];
-  cb3.blockType = 3;
-  cb3.publicStatus = true;
-  cb3.fileId = self.content.imagePublicUrl;
-  
-  [self.items insertObject:cb3 atIndex:0];
-  [self.items insertObject:cb0 atIndex:0];
-  
-  self.isContentHeaderAdded = true;
-}
-
-- (void)receiveContentBlock9MapContentLinkNotification:(NSNotification *)notification {
-  NSDictionary *userInfo = notification.userInfo;
-  NSString *contentID = [userInfo objectForKey:@"contentID"];
-  [self sendDidClickContentBlockWithContentID:contentID];
-}
-
-- (void)sendDidClickContentBlockWithContentID:(NSString *)contentID {
-  if ([self.delegate respondsToSelector:@selector(didClickContentBlock:)]) {
-    [self.delegate didClickContentBlock:contentID];
-  }
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadData];
+  });
 }
 
 #pragma mark - Setters
 
-- (void)setContent:(XMMContent *)content {
-  _content = content;
-  [self contentBlocksFromContent];
-  
-  [self.tableView reloadData];
-  [self.tableView setNeedsLayout];
-  [self.tableView layoutIfNeeded];
-  [self.tableView reloadData];
-}
 
-- (void)setLinkColor:(UIColor *)linkColor {
-  _linkColor = linkColor;
-  [XMMContentBlock0TableViewCell setLinkColor:self.linkColor];
-  [XMMContentBlock9TableViewCell setLinkColor: self.linkColor];
-}
 
 #pragma mark - Getters
 
@@ -165,8 +128,16 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  id object = [self.items objectAtIndex:indexPath.row];
-  return [object tableView:tableView representationAsCellForRowAtIndexPath:indexPath];
+  XMMContentBlock *block = [self.items objectAtIndex:indexPath.row];
+  NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
+  
+  id cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+  if ([cell respondsToSelector:@selector(configureForCell:)]) {
+    [cell configureForCell:block];
+    return cell;
+  }
+  
+  return [[UITableViewCell alloc] initWithFrame:CGRectZero];
 }
 
 #pragma mark - UITableViewDelegate
@@ -175,8 +146,6 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
     XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self sendDidClickContentBlockWithContentID:cell.contentID];
   }
 }
 

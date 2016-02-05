@@ -11,6 +11,8 @@
 @interface ViewController ()
 
 @property XMMEnduserApi *api;
+@property XMMContentBlocks *blocks;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -36,6 +38,18 @@
   self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
   
   
+  
+  self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
+  
+  [self displayContent];
+}
+
+- (void)didReceiveMemoryWarning {
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
+}
+
+- (void)displayContent {
   [self contentWithID];
   [self contentWithIDOptions];
   [self contentWithLocationIdentifier];
@@ -47,17 +61,14 @@
   [self system];
 }
 
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
-}
-
 - (void)contentWithID {
   [self.api contentWithID:@"28d13571a9614cc19d624528ed7c2bb8" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
+    
+    [self.blocks displayContent:content];
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -162,7 +173,7 @@
     }
     
     NSLog(@"system: %@", system);
-    [self systemSettingsWithID:system.settings.ID];
+    [self systemSettingsWithID:system.setting.ID];
     [self styleWithID:system.style.ID];
     [self menuWithID:system.menu.ID];
   }];

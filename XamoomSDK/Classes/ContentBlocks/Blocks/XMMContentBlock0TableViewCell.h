@@ -18,6 +18,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMMContentBlock.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display text contentBlocks from the xamoom cloud.
@@ -36,5 +37,11 @@
 + (void)setFontSize:(int)fontSize;
 + (UIColor *)linkColor;
 + (void)setLinkColor:(UIColor *)linkColor;
+
+@end
+
+@interface XMMContentBlock0TableViewCell (XMMTableViewRepresentation)
+
+- (void)configureForCell:(XMMContentBlock *)block;
 
 @end

@@ -44,6 +44,52 @@ static UIColor *contentLinkColor;
   contentLinkColor = linkColor;
 }
 
+- (void)configureForCell:(XMMContentBlock *)block {
+  //set title
+  if(block.title != nil && ![block.title isEqualToString:@""]) {
+    self.titleLabel.text = block.title;
+    [self.titleLabel setFont:[UIFont systemFontOfSize:[XMMContentBlock0TableViewCell fontSize]+5 weight:UIFontWeightMedium]];
+  }
+  
+  //set content
+  if (block.text != nil && ![block.text isEqualToString:@""]) {
+    self.contentTextView.attributedText = [self attributedStringFromHTML:block.text fontSize:[XMMContentBlock0TableViewCell fontSize]];
+    [self.contentTextView sizeToFit];
+  } else {
+    //make uitextview "disappear"
+    [self.contentTextView setFont:[UIFont systemFontOfSize:0.0f]];
+    self.contentTextView.textContainerInset = UIEdgeInsetsZero;
+    self.contentTextView.textContainer.lineFragmentPadding = 0;
+  }
+  
+  //set the linkcolor to a specific color
+  if ([XMMContentBlock0TableViewCell linkColor] != nil) {
+    [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [XMMContentBlock0TableViewCell linkColor], }];
+  } else {
+    [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor blueColor], }];
+  }
+
+}
+
+- (NSMutableAttributedString*)attributedStringFromHTML:(NSString*)html fontSize:(int)fontSize {
+  NSError *err = nil;
+  
+  NSString *style = [NSString stringWithFormat:@"<style>body{font-family: -apple-system, \"Helvetica Neue Light\", \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif; font-size:%d; margin:0 !important;} p:last-child, p:last-of-type{margin:1px !important;} </style>", fontSize];
+  
+  html = [html stringByReplacingOccurrencesOfString:@"<br></p>" withString:@"</p>"];
+  html = [NSString stringWithFormat:@"%@%@", style, html];
+  
+  NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithData: [html dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                        options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                                                                                                    NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
+                                                                             documentAttributes: nil
+                                                                                          error: &err];
+  if(err)
+    NSLog(@"Unable to parse label text: %@", err);
+  
+  return attributedString;
+}
+
 /*
  - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
  [super setSelected:selected animated:animated];
