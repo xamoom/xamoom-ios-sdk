@@ -10,6 +10,7 @@
 		6C2433CCAFE30B9FF7CB6E1F /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EE8CEC29991FFB2D3F62ED /* libPods-XamoomSDKTests.a */; };
 		881945971C620E2100E4524F /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 881945961C620E2100E4524F /* menu.json */; };
 		881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 881945981C625B5000E4524F /* XMMContentBlocksTests.m */; };
+		882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E55571C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.m */; };
 		882ED6851C63741000FC8BDB /* XMMContentBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E557B1C4A37FE000C4D09 /* XMMContentBlocks.m */; };
 		883B95F91C4D32FF00DB8A6B /* XMMSystemSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 883B95F71C4D32FF00DB8A6B /* XMMSystemSettings.h */; };
 		883B95FA1C4D32FF00DB8A6B /* XMMSystemSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 883B95F81C4D32FF00DB8A6B /* XMMSystemSettings.m */; };
@@ -19,7 +20,6 @@
 		883E55811C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E55541C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.m */; };
 		883E55821C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883E55551C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.xib */; };
 		883E55831C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 883E55561C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.h */; };
-		883E55841C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E55571C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.m */; };
 		883E55851C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 883E55581C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.xib */; };
 		883E55861C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 883E55591C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.h */; };
 		883E55871C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E555A1C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.m */; };
@@ -866,6 +866,7 @@
 				883E559C1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.m in Sources */,
 				88FE68C21C4E380300E9A32A /* XMMMenu.m in Sources */,
 				88E46E8F1C47E348004D8AC3 /* XMMContentBlockType9.m in Sources */,
+				882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */,
 				883E55961C4A37FE000C4D09 /* XMMContentBlock7TableViewCell.m in Sources */,
 				88E46E9B1C47E348004D8AC3 /* XMMError.m in Sources */,
 				88E46E971C47E348004D8AC3 /* XMMContentByLocationItem.m in Sources */,
@@ -874,7 +875,6 @@
 				88E46EA11C47E348004D8AC3 /* XMMSpotMap.m in Sources */,
 				88E46EA61C47E348004D8AC3 /* XMMEnduserApi.m in Sources */,
 				88E46E851C47E348004D8AC3 /* XMMContentBlockType4.m in Sources */,
-				883E55841C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.m in Sources */,
 				883E55931C4A37FE000C4D09 /* XMMContentBlock6TableViewCell.m in Sources */,
 				883E55871C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.m in Sources */,
 				88E46E951C47E348004D8AC3 /* XMMContentByLocationIdentifier.m in Sources */,

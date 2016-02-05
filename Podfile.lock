@@ -33,7 +33,7 @@ SPEC CHECKSUMS:
   QRCodeReaderViewController: bc35f1b48ec5231904ca9347c02423ddb76b7b40
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SMCalloutView: acee64c093fe04721fee640b42ed25d8265cc010
-  XamoomSDK: b025e31aa422eb2df7e5330d5bc347780c7d3b8a
+  XamoomSDK: 9feff885914e7a6e9d64b90469ca6c39355f98fa
   youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
 
 COCOAPODS: 0.39.0
