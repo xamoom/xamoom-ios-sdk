@@ -32,10 +32,32 @@
                                            selector:@selector(pauseAllXMMMusicPlayer)
                                                name:@"pauseAllSounds"
                                              object:nil];
+  
+  [self.audioControlButton setImage:[UIImage imageNamed:@"playbutton"] forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
   [super setSelected:selected animated:animated];
+}
+
+- (void)configureForCell:(XMMContentBlock *)block {
+  //set audioPlayerControl delegate and initialize
+  self.audioPlayerControl.delegate = self;
+  [self.audioPlayerControl initAudioPlayerWithUrlString:block.fileID];
+  
+  //set title & artist
+  if (block.title != nil && ![block.title isEqualToString:@""]) {
+    self.titleLabel.text = block.title;
+  }
+  
+  if (block.artists != nil && ![block.artists isEqualToString:@""]) {
+    self.artistLabel.text = block.artists;
+  }
+  
+  //set songDuration
+  float songDurationInSeconds = CMTimeGetSeconds(self.audioPlayerControl.audioPlayer.currentItem.asset.duration);
+  self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
+  
 }
 
 - (IBAction)playButtonTouched:(id)sender {

@@ -62,7 +62,7 @@
 }
 
 - (void)contentWithID {
-  [self.api contentWithID:@"28d13571a9614cc19d624528ed7c2bb8" completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"e5be72be162d44b189893a406aff5227" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;

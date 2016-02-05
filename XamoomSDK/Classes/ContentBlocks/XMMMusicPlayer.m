@@ -40,6 +40,7 @@ IB_DESIGNABLE
   return self;
 }
 
+
 - (void)initAudioPlayerWithUrlString:(NSString*)mediaUrlString {
   if (self.audioPlayer) {
     return;

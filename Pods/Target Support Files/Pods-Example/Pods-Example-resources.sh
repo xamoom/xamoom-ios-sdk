@@ -58,12 +58,16 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "../XamoomSDK/Assets/Images.xcassets"
   install_resource "${BUILT_PRODUCTS_DIR}/Assets.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/XamoomSDKXCAssets.bundle"
+  install_resource "${BUILT_PRODUCTS_DIR}/XamoomSDKNibs.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "../XamoomSDK/Assets/Images.xcassets"
   install_resource "${BUILT_PRODUCTS_DIR}/Assets.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/XamoomSDKXCAssets.bundle"
+  install_resource "${BUILT_PRODUCTS_DIR}/XamoomSDKNibs.bundle"
 fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

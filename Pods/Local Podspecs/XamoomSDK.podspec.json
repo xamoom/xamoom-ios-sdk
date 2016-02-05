@@ -18,9 +18,12 @@
   "requires_arc": true,
   "source_files": "XamoomSDK/Classes/**/*.{h,m}",
   "public_header_files": "XamoomSDK/Classes/**/*.h",
+  "resources": "XamoomSDK/Assets/Images.xcassets",
   "resource_bundles": {
     "XamoomSDKXCAssets": [
-      "XamoomSDK/Assets/*.xcassets",
+      "XamoomSDK/Assets/*.xcassets"
+    ],
+    "XamoomSDKNibs": [
       "XamoomSDK/Classes/ContentBlocks/Blocks/*.xib"
     ]
   },

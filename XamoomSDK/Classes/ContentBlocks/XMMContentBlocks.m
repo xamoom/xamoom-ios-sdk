@@ -63,7 +63,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 
 - (void)registerNibs {
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-  NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
+  NSURL *url = [bundle URLForResource:@"XamoomSDKXCAssets" withExtension:@"bundle"];
   NSBundle *nibBundle = [NSBundle bundleWithURL:url];
   
   UINib *nib = [UINib nibWithNibName:@"XMMContentBlock0TableViewCell" bundle:nibBundle];
