@@ -20,6 +20,7 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "YTPlayerView.h"
+#import "XMMContentBlock.h"
 
 /**
  * XMMContentBlock2TableViewCell is used to display video contentBlocks from the xamoom cloud.
@@ -32,6 +33,10 @@
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playIconImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 
-- (void)initVideoWithUrl:(NSString*)videoUrl andWidth:(float)width;
+@end
+
+@interface XMMContentBlock2TableViewCell (XMMTableViewRepresentation)
+
+- (void)configureForCell:(XMMContentBlock *)block;
 
 @end

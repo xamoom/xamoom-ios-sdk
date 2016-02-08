@@ -57,7 +57,6 @@
   //set songDuration
   float songDurationInSeconds = CMTimeGetSeconds(self.audioPlayerControl.audioPlayer.currentItem.asset.duration);
   self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
-  
 }
 
 - (IBAction)playButtonTouched:(id)sender {

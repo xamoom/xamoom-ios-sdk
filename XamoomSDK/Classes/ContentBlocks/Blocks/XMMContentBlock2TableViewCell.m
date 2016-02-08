@@ -37,7 +37,7 @@
   [super setSelected:selected animated:animated];
 }
 
-- (void)initVideoWithUrl:(NSString*)videoUrl andWidth:(float)width {
+- (void)initVideoWithUrl:(NSString*)videoUrl {
   self.videoPlayer = nil;
   self.tappedVideoViewRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
   [self.thumbnailImageView addGestureRecognizer:self.tappedVideoViewRecognize];
@@ -55,8 +55,7 @@
     self.playIconImageView.hidden = NO;
     self.thumbnailImageView.hidden = NO;
     self.videoUrl = videoUrl;
-    self.screenWidth = width-16;
-    
+
     [self initVideoPlayer];
   }
 }
@@ -138,6 +137,13 @@
   NSDictionary *userInfo = [notification userInfo];
   UIImage *image = [userInfo valueForKey:MPMoviePlayerThumbnailImageKey];
   self.thumbnailImageView.image = image;
+}
+
+- (void)configureForCell:(XMMContentBlock *)block {
+  if(block.title != nil && ![block.title isEqualToString:@""])
+    self.titleLabel.text = block.title;
+  
+  [self initVideoWithUrl:block.videoUrl];
 }
 
 @end
