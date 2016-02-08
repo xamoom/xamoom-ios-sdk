@@ -60,7 +60,6 @@
   }
 }
 
-
 /**
  *  Returns the videoId from a youtubeUrl.
  *
