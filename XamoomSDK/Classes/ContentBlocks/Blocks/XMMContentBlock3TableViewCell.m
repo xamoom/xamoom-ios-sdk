@@ -19,6 +19,16 @@
 
 #import "XMMContentBlock3TableViewCell.h"
 
+@interface XMMContentBlock3TableViewCell()
+
+@property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageLeftHorizontalSpaceConstraint;
+@property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageRightHorizontalSpaceConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *oldImageAspectRatioConstraint;
+@property (nonatomic) NSLayoutConstraint *imageRatioConstraint;
+
+@end
+
 @implementation XMMContentBlock3TableViewCell
 
 - (void)awakeFromNib {
@@ -53,7 +63,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
   if(buttonIndex == 0) {
     //save image to camera roll
-    UIImageWriteToSavedPhotosAlbum(self.image.image, nil, nil, nil);
+    UIImageWriteToSavedPhotosAlbum(self.blockImageView.image, nil, nil, nil);
   }
 }
 
@@ -62,6 +72,105 @@
     NSURL *url = [NSURL URLWithString:self.linkUrl];
     [[UIApplication sharedApplication] openURL:url];
   }
+}
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+  
+  self.titleLabel.text = nil;
+  [self.blockImageView setIsAccessibilityElement:YES];
+  self.linkUrl = self.linkUrl;
+  self.imageLeftHorizontalSpaceConstraint.constant = 0;
+  self.imageRightHorizontalSpaceConstraint.constant = 0;
+  
+  //set title
+  if (block.title != nil && ![block.title isEqualToString:@""]) {
+    self.titleLabel.text = block.title;
+    self.blockImageView.accessibilityHint = block.title;
+  }
+  
+  if (block.altText != nil || [block.altText isEqualToString:@""]){
+    self.blockImageView.accessibilityHint = block.altText;
+  }
+  
+  //scale the imageView
+  float scalingFactor = 1;
+  if (block.scaleX < 1) {
+    scalingFactor = block.scaleX / 100;
+    float newImageWidth = self.bounds.size.width * scalingFactor;
+    float sizeDiff = self.bounds.size.width - newImageWidth;
+    
+    self.imageLeftHorizontalSpaceConstraint.constant = sizeDiff/2;
+    self.imageRightHorizontalSpaceConstraint.constant = (sizeDiff/2)*(-1);
+  }
+  
+  if (block.fileID != nil) {
+    [self.imageLoadingIndicator startAnimating];
+    /*
+     if ([self.fileId containsString:@".svg"]) {
+     SVGKImage* newImage;
+     newImage = [SVGKImage imageWithContentsOfURL:[NSURL URLWithString:self.fileId]];
+     cell.image.image = newImage.UIImage;
+     
+     [cell.image removeConstraint:cell.imageRatioConstraint];
+     cell.imageRatioConstraint =[NSLayoutConstraint
+     constraintWithItem:cell.image
+     attribute:NSLayoutAttributeWidth
+     relatedBy:NSLayoutRelationEqual
+     toItem:cell.image
+     attribute:NSLayoutAttributeHeight
+     multiplier:(newImage.size.width/newImage.size.height)
+     constant:0.0f];
+     
+     [cell.image addConstraint:cell.imageRatioConstraint];
+     [cell needsUpdateConstraints];
+     if (cell.image.frame.size.height == 0 && cell.image.frame.size.width > 0) {
+     [tableView reloadData];
+     }
+     
+     [cell.imageLoadingIndicator stopAnimating];
+     } else {*/
+    
+    self.blockImageView.backgroundColor = [UIColor blueColor];
+    
+    [self.blockImageView sd_setImageWithURL:[NSURL URLWithString:block.fileID]
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                               
+                               self.imageRatioConstraint =[NSLayoutConstraint
+                                                           constraintWithItem:self.blockImageView
+                                                           attribute:NSLayoutAttributeHeight
+                                                           relatedBy:NSLayoutRelationEqual
+                                                           toItem:self.blockImageView
+                                                           attribute:NSLayoutAttributeWidth
+                                                           multiplier:1/(image.size.width/image.size.height)
+                                                           constant:0.0f];
+                               self.imageRatioConstraint.priority = UILayoutPriorityDefaultHigh;
+                               
+                               [self setNeedsUpdateConstraints];
+                               
+                               if ([tableView.visibleCells containsObject:self]) {
+                                 [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject: indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                               }
+                               
+                               [self.imageLoadingIndicator stopAnimating];
+                             }];
+  }
+}
+
+- (void)updateConstraints {
+  if (self.imageRatioConstraint) {
+    [self updateImageRatioConstraint];
+  }
+  
+  [super updateConstraints];
+}
+
+- (void)updateImageRatioConstraint {
+  [self.blockImageView removeConstraint:self.oldImageAspectRatioConstraint];
+  [self.blockImageView addConstraint:self.imageRatioConstraint];
+}
+
+- (void)prepareForReuse {
+  [self.blockImageView removeConstraint:self.imageRatioConstraint];
 }
 
 @end

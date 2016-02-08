@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '087F6785BB173B8F4B3072C3'
+               BlueprintIdentifier = '53BDA66C7546B1CE990EE015'
                BlueprintName = 'SMCalloutView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libSMCalloutView.a'>

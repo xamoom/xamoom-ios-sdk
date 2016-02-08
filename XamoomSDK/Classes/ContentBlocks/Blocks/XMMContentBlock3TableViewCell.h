@@ -18,6 +18,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "XMMContentBlock.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display image contentBlocks from the xamoom cloud.
@@ -25,14 +27,15 @@
 @interface XMMContentBlock3TableViewCell : UITableViewCell <UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *image;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint* imageHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIImageView *blockImageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *imageLoadingIndicator;
 
-@property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageLeftHorizontalSpaceConstraint;
-@property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageRightHorizontalSpaceConstraint;
-@property (nonatomic) NSLayoutConstraint *imageRatioConstraint;
-
 @property (strong, nonatomic) NSString *linkUrl;
+
+@end
+
+@interface XMMContentBlock3TableViewCell (XMMTableViewRepresentation)
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
 @end

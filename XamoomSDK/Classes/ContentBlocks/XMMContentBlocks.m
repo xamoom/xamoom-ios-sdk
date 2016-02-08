@@ -56,7 +56,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 - (void)setupTableView {
   //[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   self.tableView.rowHeight = UITableViewAutomaticDimension;
-  self.tableView.estimatedRowHeight = 50.0;
+  self.tableView.estimatedRowHeight = 20.0;
   
   [self registerNibs];
 }
@@ -132,8 +132,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
   
   id cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-  if ([cell respondsToSelector:@selector(configureForCell:)]) {
-    [cell configureForCell:block];
+  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:)]) {
+    [cell configureForCell:block tableView:tableView indexPath:indexPath];
     return cell;
   }
   
@@ -149,5 +149,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  return UITableViewAutomaticDimension;
+}
 
 @end

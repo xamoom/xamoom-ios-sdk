@@ -40,6 +40,6 @@
 
 @interface XMMContentBlock1TableViewCell (XMMTableViewRepresentation)
 
-- (void)configureForCell:(XMMContentBlock *)block;
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
 @end

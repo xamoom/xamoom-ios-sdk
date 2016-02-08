@@ -72,8 +72,6 @@
 		88E46E791C47E348004D8AC3 /* XMMContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E1C1C47E348004D8AC3 /* XMMContent.m */; };
 		88E46E7A1C47E348004D8AC3 /* XMMContentBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E1D1C47E348004D8AC3 /* XMMContentBlock.h */; };
 		88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E1E1C47E348004D8AC3 /* XMMContentBlock.m */; };
-		88E46E821C47E348004D8AC3 /* XMMContentBlockType3.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E251C47E348004D8AC3 /* XMMContentBlockType3.h */; };
-		88E46E831C47E348004D8AC3 /* XMMContentBlockType3.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E261C47E348004D8AC3 /* XMMContentBlockType3.m */; };
 		88E46E841C47E348004D8AC3 /* XMMContentBlockType4.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E271C47E348004D8AC3 /* XMMContentBlockType4.h */; };
 		88E46E851C47E348004D8AC3 /* XMMContentBlockType4.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E281C47E348004D8AC3 /* XMMContentBlockType4.m */; };
 		88E46E861C47E348004D8AC3 /* XMMContentBlockType5.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E291C47E348004D8AC3 /* XMMContentBlockType5.h */; };
@@ -208,8 +206,6 @@
 		88E46E1C1C47E348004D8AC3 /* XMMContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContent.m; sourceTree = "<group>"; };
 		88E46E1D1C47E348004D8AC3 /* XMMContentBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock.h; sourceTree = "<group>"; };
 		88E46E1E1C47E348004D8AC3 /* XMMContentBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock.m; sourceTree = "<group>"; };
-		88E46E251C47E348004D8AC3 /* XMMContentBlockType3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType3.h; sourceTree = "<group>"; };
-		88E46E261C47E348004D8AC3 /* XMMContentBlockType3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType3.m; sourceTree = "<group>"; };
 		88E46E271C47E348004D8AC3 /* XMMContentBlockType4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType4.h; sourceTree = "<group>"; };
 		88E46E281C47E348004D8AC3 /* XMMContentBlockType4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType4.m; sourceTree = "<group>"; };
 		88E46E291C47E348004D8AC3 /* XMMContentBlockType5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType5.h; sourceTree = "<group>"; };
@@ -449,8 +445,6 @@
 				883B95F51C4D32D100DB8A6B /* Resources */,
 				88E46E191C47E348004D8AC3 /* XMMClosestSpot.h */,
 				88E46E1A1C47E348004D8AC3 /* XMMClosestSpot.m */,
-				88E46E251C47E348004D8AC3 /* XMMContentBlockType3.h */,
-				88E46E261C47E348004D8AC3 /* XMMContentBlockType3.m */,
 				88E46E271C47E348004D8AC3 /* XMMContentBlockType4.h */,
 				88E46E281C47E348004D8AC3 /* XMMContentBlockType4.m */,
 				88E46E291C47E348004D8AC3 /* XMMContentBlockType5.h */,
@@ -573,7 +567,6 @@
 				88E46E9C1C47E348004D8AC3 /* XMMMenuItem.h in Headers */,
 				88E46E7A1C47E348004D8AC3 /* XMMContentBlock.h in Headers */,
 				88E46E9A1C47E348004D8AC3 /* XMMError.h in Headers */,
-				88E46E821C47E348004D8AC3 /* XMMContentBlockType3.h in Headers */,
 				88E46E9E1C47E348004D8AC3 /* XMMSpot.h in Headers */,
 				883E559E1C4A37FE000C4D09 /* XMMAnnotation.h in Headers */,
 				88FE68C71C4E6F3500E9A32A /* XMMMarker.h in Headers */,
@@ -814,7 +807,6 @@
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,
 				88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */,
 				88E46E871C47E348004D8AC3 /* XMMContentBlockType5.m in Sources */,
-				88E46E831C47E348004D8AC3 /* XMMContentBlockType3.m in Sources */,
 				883E558D1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.m in Sources */,
 				88E46E9D1C47E348004D8AC3 /* XMMMenuItem.m in Sources */,
 				883E55901C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.m in Sources */,
