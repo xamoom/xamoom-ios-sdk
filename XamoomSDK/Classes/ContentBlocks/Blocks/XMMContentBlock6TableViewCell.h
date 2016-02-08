@@ -19,6 +19,7 @@
 
 #import <UIKit/UIKit.h>
 #import "XMMEnduserApi.h"
+#import "XMMContentBlocksCache.h"
 
 /**
  * XMMContentBlock6TableViewCell is used to display content contentBlocks from the xamoom cloud.

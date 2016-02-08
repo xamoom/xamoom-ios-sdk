@@ -19,6 +19,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XMMEnduserApi.h"
+#import "XMMStyle.h"
 
 /**
  * `XMMSpotMap` is used for mapping the JSON sended by the api.

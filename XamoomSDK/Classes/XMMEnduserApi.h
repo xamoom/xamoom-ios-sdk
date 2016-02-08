@@ -26,14 +26,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import <JSONAPI/JSONAPIResourceDescriptor.h>
-
 #import "XMMRestClient.h"
 #import "XMMError.h"
-#import "XMMContentById.h"
-#import "XMMContentByLocationIdentifier.h"
-#import "XMMContentByLocation.h"
-#import "XMMContentByLocationItem.h"
 #import "XMMSpotMap.h"
 #import "XMMSpot.h"
 #import "XMMStyle.h"
@@ -42,18 +38,6 @@
 #import "XMMMenuItem.h"
 #import "XMMContent.h"
 #import "XMMContentBlock.h"
-#import "XMMContentBlockType0.h"
-#import "XMMContentBlockType1.h"
-#import "XMMContentBlockType2.h"
-#import "XMMContentBlockType3.h"
-#import "XMMContentBlockType4.h"
-#import "XMMContentBlockType5.h"
-#import "XMMContentBlockType6.h"
-#import "XMMContentBlockType7.h"
-#import "XMMContentBlockType8.h"
-#import "XMMContentBlockType9.h"
-#import "XMMContentList.h"
-#import "XMMClosestSpot.h"
 #import "XMMMarker.h"
 
 @class XMMContentById;

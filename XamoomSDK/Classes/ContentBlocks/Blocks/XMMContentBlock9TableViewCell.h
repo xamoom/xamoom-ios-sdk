@@ -19,13 +19,13 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <SMCalloutView/SMCalloutView.h>
 #import "XMMEnduserApi.h"
+#import "XMMContentBlocks.h"
+#import "XMMContentBlocksCache.h"
 #import "XMMAnnotation.h"
 #import "XMMAnnotationView.h"
 #import "XMMCalloutView.h"
-#import <SMCalloutView/SMCalloutView.h>
-#import "XMMContentBlocks.h"
-#import "XMMContentBlocksCache.h"
 
 @class XamoomMapView;
 

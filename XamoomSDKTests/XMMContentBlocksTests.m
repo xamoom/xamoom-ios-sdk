@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 #import "XMMEnduserApi.h"
+#import "XMMContentBlocks.h"
 
 @interface XMMContentBlocksTests : XCTestCase
 
