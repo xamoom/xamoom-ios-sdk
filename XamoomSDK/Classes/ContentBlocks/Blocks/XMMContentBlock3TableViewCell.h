@@ -19,6 +19,8 @@
 
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <JAMSVGImage/JAMSVGImage.h>
+#import <JAMSVGImage/JAMSVGImageView.h>
 #import "XMMContentBlock.h"
 
 /**

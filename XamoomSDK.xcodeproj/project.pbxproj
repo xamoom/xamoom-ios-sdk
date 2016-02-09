@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C2433CCAFE30B9FF7CB6E1F /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EE8CEC29991FFB2D3F62ED /* libPods-XamoomSDKTests.a */; };
+		48A360C8C2EE552214A3057A /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31ED17D8836ABB8816847C9D /* libPods-XamoomSDK.a */; };
+		7E4793BC6F5ED8E5716A7801 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EE7DB2562BB31B1900318F8 /* libPods-XamoomSDKTests.a */; };
 		881945971C620E2100E4524F /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 881945961C620E2100E4524F /* menu.json */; };
 		881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 881945981C625B5000E4524F /* XMMContentBlocksTests.m */; };
 		882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E55571C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.m */; };
@@ -122,7 +123,6 @@
 		88FE68C71C4E6F3500E9A32A /* XMMMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FE68C51C4E6F3500E9A32A /* XMMMarker.h */; };
 		88FE68C81C4E6F3500E9A32A /* XMMMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE68C61C4E6F3500E9A32A /* XMMMarker.m */; };
 		88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */; };
-		9D6A9EF2741A17ABE7C3EAFB /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD6F31F3DA7D420D7B33734C /* libPods-XamoomSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +136,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		31ED17D8836ABB8816847C9D /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC5AD2ABD9CD734188F70AD /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		40505271F3087BE9AB3D782E /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		78EB5D1E7CCEA2A615EAD316 /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
@@ -256,9 +257,8 @@
 		88FE68C51C4E6F3500E9A32A /* XMMMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMMarker.h; path = XamoomSDK/Classes/mapping/XMMMarker.h; sourceTree = SOURCE_ROOT; };
 		88FE68C61C4E6F3500E9A32A /* XMMMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMMarker.m; path = XamoomSDK/Classes/mapping/XMMMarker.m; sourceTree = SOURCE_ROOT; };
 		88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMEnduserApiTest.m; sourceTree = "<group>"; };
+		8EE7DB2562BB31B1900318F8 /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBFF99335319971868078EC /* Pods-XamoomSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.release.xcconfig"; sourceTree = "<group>"; };
-		CD6F31F3DA7D420D7B33734C /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1EE8CEC29991FFB2D3F62ED /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D6A9EF2741A17ABE7C3EAFB /* libPods-XamoomSDK.a in Frameworks */,
+				48A360C8C2EE552214A3057A /* libPods-XamoomSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */,
-				6C2433CCAFE30B9FF7CB6E1F /* libPods-XamoomSDKTests.a in Frameworks */,
+				7E4793BC6F5ED8E5716A7801 /* libPods-XamoomSDKTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,8 +543,8 @@
 		E78609FFBE06C415020D12B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CD6F31F3DA7D420D7B33734C /* libPods-XamoomSDK.a */,
-				D1EE8CEC29991FFB2D3F62ED /* libPods-XamoomSDKTests.a */,
+				31ED17D8836ABB8816847C9D /* libPods-XamoomSDK.a */,
+				8EE7DB2562BB31B1900318F8 /* libPods-XamoomSDKTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -968,6 +968,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/XamoomSDK/lib",
+				);
 				INFOPLIST_FILE = XamoomSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -985,6 +990,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/XamoomSDK/lib",
+				);
 				INFOPLIST_FILE = XamoomSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -998,6 +1008,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3DC5AD2ABD9CD734188F70AD /* Pods-XamoomSDKTests.debug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XamoomSDK/lib",
+				);
 				INFOPLIST_FILE = XamoomSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.XamoomSDKTests;
@@ -1009,6 +1023,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BFBFF99335319971868078EC /* Pods-XamoomSDKTests.release.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XamoomSDK/lib",
+				);
 				INFOPLIST_FILE = XamoomSDKTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.XamoomSDKTests;

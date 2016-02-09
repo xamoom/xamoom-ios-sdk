@@ -15,7 +15,7 @@
 		8888DDF81C47B16C0050A84C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8888DDF61C47B16C0050A84C /* LaunchScreen.storyboard */; };
 		8888DE031C47B16C0050A84C /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DE021C47B16C0050A84C /* ExampleTests.m */; };
 		88F582011C52197E003D7C49 /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F582001C52197E003D7C49 /* TestingIDs.plist */; };
-		A9041B2883ABC975219F0D6D /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF205C96956C754DC81460B0 /* libPods-Example.a */; };
+		A2B363EACE71BDA361BDB7FE /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2530B1CA8761210DC43B61BE /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +29,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2530B1CA8761210DC43B61BE /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4A59B5ECE0655ADD75139F /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		884DC2891C6A008D00E11E0A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		884DC28B1C6A009300E11E0A /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		884DC28D1C6A00AA00E11E0A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		884DC28F1C6A00B000E11E0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		884DC2911C6A00B700E11E0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		884DC2931C6A00F400E11E0A /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		8888DDE51C47B16C0050A84C /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDE91C47B16C0050A84C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8888DDEB1C47B16C0050A84C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,7 +52,6 @@
 		8888DE041C47B16C0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88F582001C52197E003D7C49 /* TestingIDs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestingIDs.plist; sourceTree = "<group>"; };
 		BF84ED9500E8E5CC18C12CD9 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
-		CF205C96956C754DC81460B0 /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9041B2883ABC975219F0D6D /* libPods-Example.a in Frameworks */,
+				A2B363EACE71BDA361BDB7FE /* libPods-Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +139,13 @@
 		FAD4F0CB5257250FC7B3BBA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CF205C96956C754DC81460B0 /* libPods-Example.a */,
+				884DC2931C6A00F400E11E0A /* libxml2.tbd */,
+				884DC2911C6A00B700E11E0A /* UIKit.framework */,
+				884DC28F1C6A00B000E11E0A /* CoreGraphics.framework */,
+				884DC28D1C6A00AA00E11E0A /* QuartzCore.framework */,
+				884DC28B1C6A009300E11E0A /* CoreImage.framework */,
+				884DC2891C6A008D00E11E0A /* CoreText.framework */,
+				2530B1CA8761210DC43B61BE /* libPods-Example.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -421,6 +433,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"JSONAPI\"",
+					"-l\"QRCodeReaderViewController\"",
+					"-l\"SDWebImage\"",
+					"-l\"SMCalloutView\"",
+					"-l\"XamoomSDK\"",
+					"-l\"youtube-ios-player-helper\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"ImageIO\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -433,6 +460,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"JSONAPI\"",
+					"-l\"QRCodeReaderViewController\"",
+					"-l\"SDWebImage\"",
+					"-l\"SMCalloutView\"",
+					"-l\"XamoomSDK\"",
+					"-l\"youtube-ios-player-helper\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"ImageIO\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

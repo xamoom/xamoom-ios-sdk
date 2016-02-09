@@ -126,27 +126,47 @@
 }
 
 - (void)displayImageFromURL:(NSURL *)fileURL tableView:(UITableView *)tableView indexPath:(NSIndexPath *) indexPath {
-  [self.imageLoadingIndicator startAnimating];
-  [self.blockImageView sd_setImageWithURL:fileURL
-                                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                  [self.imageLoadingIndicator stopAnimating];
-                                  [self createAspectConstraintFromImage:image];
-                                  [self setNeedsUpdateConstraints];
-                                  
-                                  if ([tableView.visibleCells containsObject:self]) {
-                                    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject: indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                                  }
-                                }];
+  if ([fileURL.absoluteString containsString:@".svg"]) {
+    [self displaySVGFromURL:fileURL tableView:tableView indexPath:indexPath];
+  } else {
+    [self.imageLoadingIndicator startAnimating];
+    [self.blockImageView sd_setImageWithURL:fileURL
+                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                    [self.imageLoadingIndicator stopAnimating];
+                                    [self createAspectConstraintFromImage:image.size];
+                                    [self setNeedsUpdateConstraints];
+                                    
+                                    if ([tableView.visibleCells containsObject:self]) {
+                                      [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject: indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                                    }
+                                  }];
+  }
 }
 
-- (void)createAspectConstraintFromImage:(UIImage *)image {
+- (void)displaySVGFromURL:(NSURL *)fileURL tableView:(UITableView *)tableView indexPath:(NSIndexPath *) indexPath {
+  [self.imageLoadingIndicator startAnimating];
+  self.blockImageView.image = nil;
+  [[[NSURLSession sharedSession] dataTaskWithURL:fileURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    JAMSVGImage *svgImage = [JAMSVGImage imageWithSVGData:data];
+    UIImage *image = [svgImage image];
+    
+    self.blockImageView.image = image;
+    NSLog(@"SVG: %f, %f", svgImage.size.width, svgImage.size.height);
+    [self.imageLoadingIndicator stopAnimating];
+    [self createAspectConstraintFromImage:image.size];
+    [self setNeedsUpdateConstraints];
+  }] resume];
+  
+}
+
+- (void)createAspectConstraintFromImage:(CGSize)size {
   self.imageRatioConstraint =[NSLayoutConstraint
                               constraintWithItem:self.blockImageView
                               attribute:NSLayoutAttributeHeight
                               relatedBy:NSLayoutRelationEqual
                               toItem:self.blockImageView
                               attribute:NSLayoutAttributeWidth
-                              multiplier:1/(image.size.width/image.size.height)
+                              multiplier:1/(size.width/size.height)
                               constant:0.0f];
   self.imageRatioConstraint.priority = UILayoutPriorityRequired;
 }

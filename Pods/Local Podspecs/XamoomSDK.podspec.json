@@ -42,6 +42,9 @@
     ],
     "SDWebImage": [
       "~>3.7"
+    ],
+    "JAMSVGImage": [
+
     ]
   }
 }
