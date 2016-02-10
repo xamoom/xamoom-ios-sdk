@@ -17,6 +17,7 @@ PODS:
   - youtube-ios-player-helper (0.1.4)
 
 DEPENDENCIES:
+  - JAMSVGImage
   - JSONAPI (~> 1.0.0)
   - OCMock (~> 3.2)
   - QRCodeReaderViewController (~> 2.0.0)

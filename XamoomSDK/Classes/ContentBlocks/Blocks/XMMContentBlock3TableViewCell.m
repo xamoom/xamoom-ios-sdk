@@ -51,7 +51,6 @@
   
   self.titleLabel.text = nil;
 
-
   [self setNeedsUpdateConstraints];
 }
 
@@ -144,17 +143,24 @@
 }
 
 - (void)displaySVGFromURL:(NSURL *)fileURL tableView:(UITableView *)tableView indexPath:(NSIndexPath *) indexPath {
-  [self.imageLoadingIndicator startAnimating];
   self.blockImageView.image = nil;
+  [self.imageLoadingIndicator startAnimating];
+  
   [[[NSURLSession sharedSession] dataTaskWithURL:fileURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
     JAMSVGImage *svgImage = [JAMSVGImage imageWithSVGData:data];
-    UIImage *image = [svgImage image];
     
-    self.blockImageView.image = image;
-    NSLog(@"SVG: %f, %f", svgImage.size.width, svgImage.size.height);
-    [self.imageLoadingIndicator stopAnimating];
-    [self createAspectConstraintFromImage:image.size];
-    [self setNeedsUpdateConstraints];
+    float ratio = svgImage.size.width/svgImage.size.height;
+    UIImage *image = [svgImage imageAtSize:CGSizeMake(self.bounds.size.width, self.bounds.size.width*ratio)];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+      XMMContentBlock3TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+      cell.blockImageView.image = image;
+      
+      [self.imageLoadingIndicator stopAnimating];
+      [self createAspectConstraintFromImage:image.size];
+      [self setNeedsUpdateConstraints];
+    });
+    
   }] resume];
   
 }
@@ -169,17 +175,18 @@
                               multiplier:1/(size.width/size.height)
                               constant:0.0f];
   self.imageRatioConstraint.priority = UILayoutPriorityRequired;
+  self.imageRatioConstraint.identifier = @"Die da, die Freitags nie kann.";
 }
 
 - (void)updateConstraints {
   if (self.imageRatioConstraint) {
-    [self updateImageRatioConstraint];
+    [self addImageRatioConstraint];
   }
   
   [super updateConstraints];
 }
 
-- (void)updateImageRatioConstraint {
+- (void)addImageRatioConstraint {
   [self.blockImageView addConstraint:self.imageRatioConstraint];
 }
 
