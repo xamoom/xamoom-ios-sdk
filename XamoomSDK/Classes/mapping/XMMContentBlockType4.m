@@ -41,7 +41,7 @@
   cell.linkType = self.linkType;
   
   //change style of the cell according to the linktype
-  [cell changeStyleAccordingToLinkType];
+  //[cell changeStyleAccordingToLinkType];
   
   return cell;
 }

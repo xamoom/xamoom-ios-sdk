@@ -18,6 +18,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMMContentBlock.h"
 
 /**
  * LinkBlockTableViewCell is used to display link contentBlocks from the xamoom cloud.
@@ -32,9 +33,10 @@
 @property (strong, nonatomic) NSString *linkUrl;
 @property (nonatomic) int linkType;
 
-/**
- * Change the style and image of the tableViewCell to look like on http://xm.gl scanned page
- */
-- (void)changeStyleAccordingToLinkType;
+@end
+
+@interface XMMContentBlock4TableViewCell (XMMTableViewRepresentation)
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
 @end

@@ -34,9 +34,28 @@
   // Configure the view for the selected state
 }
 
+- (void)prepareForReuse {
+  self.linkTextLabel.text = @"";
+  self.titleLabel.text = @"";
+}
+
 - (void)openInBrowser:(id)sender {
   //open link in safari
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
+}
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+  //set title, text, linkUrl and linkType
+  if(block.title != nil && ![block.title isEqualToString:@""]) {
+    self.titleLabel.text = block.title;
+  }
+  
+  self.linkTextLabel.text = block.text;
+  self.linkUrl = block.linkUrl;
+  self.linkType = block.linkType;
+  
+  //change style of the cell according to the linktype
+  [self changeStyleAccordingToLinkType];
 }
 
 - (void)changeStyleAccordingToLinkType {
