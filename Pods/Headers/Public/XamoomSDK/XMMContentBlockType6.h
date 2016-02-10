@@ -1,1 +1,0 @@
-../../../../XamoomSDK/Classes/mapping/XMMContentBlockType6.h

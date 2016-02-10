@@ -36,10 +36,22 @@ static NSString *contentLanguage;
   // Configure the view for the selected state
 }
 
-- (void)initContentBlockWithLanguage:(NSString*)language {
+- (void)prepareForReuse {
+  self.contentID = @"";
   self.contentImageView.image = nil;
   self.contentTitleLabel.text = nil;
   self.contentExcerptLabel.text = nil;
+}
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath api:(XMMEnduserApi *)api{
+  //set content
+  self.contentID = block.contentID;
+  
+  //init contentBlock
+  [self showContentBlock:api];
+}
+
+- (void)showContentBlock:(XMMEnduserApi *)api {
   [self.loadingIndicator startAnimating];
   
   XMMContent *content = [[XMMContentBlocksCache sharedInstance] cachedContent:self.contentID];
@@ -48,15 +60,12 @@ static NSString *contentLanguage;
     [self showBlockData:content];
     return;
   }
-  /*
-  [[XMMEnduserApi sharedInstance] contentWithContentId:self.contentId includeStyle:NO includeMenu:NO withLanguage:language full:NO preview:YES
-                                            completion:^(XMMContentById *result) {
-                                              [self.loadingIndicator stopAnimating];
-                                              [[XMMContentBlocksCache sharedInstance] saveContent:result.content key:self.contentId];
-                                              [self showBlockData:result.content];
-                                            } error:^(XMMError *error) {
-                                            }];
-   */
+  
+  [api contentWithID:self.contentID completion:^(XMMContent *content, NSError *error) {
+    [self.loadingIndicator stopAnimating];
+    [[XMMContentBlocksCache sharedInstance] saveContent:content key:content.ID];
+    [self showBlockData:content];
+  }];
 }
 
 - (void)showBlockData:(XMMContent *)content {

@@ -71,10 +71,6 @@
 		88E46E791C47E348004D8AC3 /* XMMContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E1C1C47E348004D8AC3 /* XMMContent.m */; };
 		88E46E7A1C47E348004D8AC3 /* XMMContentBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E1D1C47E348004D8AC3 /* XMMContentBlock.h */; };
 		88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E1E1C47E348004D8AC3 /* XMMContentBlock.m */; };
-		88E46E861C47E348004D8AC3 /* XMMContentBlockType5.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E291C47E348004D8AC3 /* XMMContentBlockType5.h */; };
-		88E46E871C47E348004D8AC3 /* XMMContentBlockType5.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E2A1C47E348004D8AC3 /* XMMContentBlockType5.m */; };
-		88E46E881C47E348004D8AC3 /* XMMContentBlockType6.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E2B1C47E348004D8AC3 /* XMMContentBlockType6.h */; };
-		88E46E891C47E348004D8AC3 /* XMMContentBlockType6.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E2C1C47E348004D8AC3 /* XMMContentBlockType6.m */; };
 		88E46E8A1C47E348004D8AC3 /* XMMContentBlockType7.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E2D1C47E348004D8AC3 /* XMMContentBlockType7.h */; };
 		88E46E8B1C47E348004D8AC3 /* XMMContentBlockType7.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E2E1C47E348004D8AC3 /* XMMContentBlockType7.m */; };
 		88E46E8C1C47E348004D8AC3 /* XMMContentBlockType8.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E2F1C47E348004D8AC3 /* XMMContentBlockType8.h */; };
@@ -205,10 +201,6 @@
 		88E46E1C1C47E348004D8AC3 /* XMMContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContent.m; sourceTree = "<group>"; };
 		88E46E1D1C47E348004D8AC3 /* XMMContentBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock.h; sourceTree = "<group>"; };
 		88E46E1E1C47E348004D8AC3 /* XMMContentBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock.m; sourceTree = "<group>"; };
-		88E46E291C47E348004D8AC3 /* XMMContentBlockType5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType5.h; sourceTree = "<group>"; };
-		88E46E2A1C47E348004D8AC3 /* XMMContentBlockType5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType5.m; sourceTree = "<group>"; };
-		88E46E2B1C47E348004D8AC3 /* XMMContentBlockType6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType6.h; sourceTree = "<group>"; };
-		88E46E2C1C47E348004D8AC3 /* XMMContentBlockType6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType6.m; sourceTree = "<group>"; };
 		88E46E2D1C47E348004D8AC3 /* XMMContentBlockType7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType7.h; sourceTree = "<group>"; };
 		88E46E2E1C47E348004D8AC3 /* XMMContentBlockType7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockType7.m; sourceTree = "<group>"; };
 		88E46E2F1C47E348004D8AC3 /* XMMContentBlockType8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockType8.h; sourceTree = "<group>"; };
@@ -441,10 +433,6 @@
 				883B95F51C4D32D100DB8A6B /* Resources */,
 				88E46E191C47E348004D8AC3 /* XMMClosestSpot.h */,
 				88E46E1A1C47E348004D8AC3 /* XMMClosestSpot.m */,
-				88E46E291C47E348004D8AC3 /* XMMContentBlockType5.h */,
-				88E46E2A1C47E348004D8AC3 /* XMMContentBlockType5.m */,
-				88E46E2B1C47E348004D8AC3 /* XMMContentBlockType6.h */,
-				88E46E2C1C47E348004D8AC3 /* XMMContentBlockType6.m */,
 				88E46E2D1C47E348004D8AC3 /* XMMContentBlockType7.h */,
 				88E46E2E1C47E348004D8AC3 /* XMMContentBlockType7.m */,
 				88E46E2F1C47E348004D8AC3 /* XMMContentBlockType8.h */,
@@ -572,7 +560,6 @@
 				883E55891C4A37FE000C4D09 /* XMMContentBlock3TableViewCell.h in Headers */,
 				883E558C1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.h in Headers */,
 				88E46F211C4933CA004D8AC3 /* XMMQuery.h in Headers */,
-				88E46E881C47E348004D8AC3 /* XMMContentBlockType6.h in Headers */,
 				883E55A61C4A37FE000C4D09 /* XMMContentBlocks.h in Headers */,
 				883E55801C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.h in Headers */,
 				88E46EA41C47E348004D8AC3 /* XamoomSDK.h in Headers */,
@@ -580,7 +567,6 @@
 				883E55951C4A37FE000C4D09 /* XMMContentBlock7TableViewCell.h in Headers */,
 				883E55861C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.h in Headers */,
 				88E46EA21C47E348004D8AC3 /* XMMStyle.h in Headers */,
-				88E46E861C47E348004D8AC3 /* XMMContentBlockType5.h in Headers */,
 				88E46E8E1C47E348004D8AC3 /* XMMContentBlockType9.h in Headers */,
 				883E55AA1C4A37FE000C4D09 /* XMMMusicPlayer.h in Headers */,
 				883E55921C4A37FE000C4D09 /* XMMContentBlock6TableViewCell.h in Headers */,
@@ -799,11 +785,9 @@
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,
 				88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */,
-				88E46E871C47E348004D8AC3 /* XMMContentBlockType5.m in Sources */,
 				883E558D1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.m in Sources */,
 				88E46E9D1C47E348004D8AC3 /* XMMMenuItem.m in Sources */,
 				883E55901C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.m in Sources */,
-				88E46E891C47E348004D8AC3 /* XMMContentBlockType6.m in Sources */,
 				883E55811C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.m in Sources */,
 				88E46F221C4933CA004D8AC3 /* XMMQuery.m in Sources */,
 				883E558A1C4A37FE000C4D09 /* XMMContentBlock3TableViewCell.m in Sources */,

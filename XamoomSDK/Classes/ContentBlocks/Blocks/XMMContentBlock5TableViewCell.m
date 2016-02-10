@@ -36,6 +36,11 @@
   // Configure the view for the selected state
 }
 
+- (void)prepareForReuse {
+  self.titleLabel.text = @"";
+  self.artistLabel.text = @"";
+}
+
 - (void)openInBrowser:(id)sender {
   //open url in safari
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downloadUrl]];

@@ -136,6 +136,11 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     [cell configureForCell:block tableView:tableView indexPath:indexPath];
     return cell;
   }
+  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:api:)]) {
+    [cell configureForCell:block tableView:tableView indexPath:indexPath api:self.api];
+    return cell;
+  }
+
   
   return [[UITableViewCell alloc] initWithFrame:CGRectZero];
 }

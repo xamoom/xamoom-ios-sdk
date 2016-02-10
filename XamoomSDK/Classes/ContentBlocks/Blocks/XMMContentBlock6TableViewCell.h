@@ -18,7 +18,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XMMEnduserApi.h"
+#import "XMMContentBlocks.h"
 #import "XMMContentBlocksCache.h"
 
 /**
@@ -27,6 +27,7 @@
 @interface XMMContentBlock6TableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *angleImageView;
 @property (weak, nonatomic) IBOutlet UILabel *contentTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentExcerptLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
@@ -34,9 +35,10 @@
 @property (strong, nonatomic) NSString *contentID;
 @property (strong, nonatomic) XMMContent *content;
 
-+ (NSString *)language;
-+ (void)setLanguage:(NSString *)language;
+@end
 
-- (void)initContentBlockWithLanguage:(NSString*)language;
+@interface XMMContentBlock6TableViewCell (XMMTableViewRepresentation)
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath api:(XMMEnduserApi *)api;
 
 @end
