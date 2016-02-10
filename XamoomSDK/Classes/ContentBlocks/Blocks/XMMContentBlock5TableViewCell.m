@@ -41,5 +41,14 @@
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downloadUrl]];
 }
 
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+  //set title, artist and downloadUrl
+  if(block.title != nil && ![block.title isEqualToString:@""]) {
+    self.titleLabel.text = block.title;
+  }
+  
+  self.artistLabel.text = block.artists;
+  self.downloadUrl = block.fileID;
+}
 
 @end

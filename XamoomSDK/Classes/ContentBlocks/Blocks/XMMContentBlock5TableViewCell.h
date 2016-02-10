@@ -18,6 +18,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <XMMContentBlocks.h>
 
 /**
  * XMMContentBlock5TableViewCell is used to display ebook contentBlocks from the xamoom cloud.
@@ -29,5 +30,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ebookImageView;
 
 @property (strong, nonatomic) NSString *downloadUrl;
+
+@end
+
+@interface XMMContentBlock5TableViewCell (XMMTableViewRepresentation)
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
 @end
