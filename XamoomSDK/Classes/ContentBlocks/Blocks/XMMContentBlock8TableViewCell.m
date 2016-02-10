@@ -22,21 +22,28 @@
 @implementation XMMContentBlock8TableViewCell
 
 - (void)awakeFromNib {
+  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
+  [self addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
   [super setSelected:selected animated:animated];
 }
 
-- (void)initCellData {
-  [self.icon setImage:[self selectRightIcon]];
+- (void)prepareForReuse {
   
-  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
-  [self addGestureRecognizer:tapGestureRecognizer];
 }
 
-- (UIImage*)selectRightIcon {
-  //choose the right image according to the downloadType
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+  self.titleLabel.text = block.title;
+  self.contentTextLabel.text = block.text;
+  self.fileId = block.fileID;
+  self.downloadType = block.downloadType;
+  
+  [self.icon setImage:[self changeIconAccordingToDownloadType]];
+}
+
+- (UIImage*)changeIconAccordingToDownloadType {
   switch (self.downloadType) {
     case 0: {
       return [UIImage imageNamed:@"contact"];

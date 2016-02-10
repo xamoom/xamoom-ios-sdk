@@ -53,14 +53,6 @@ static bool showContentLinks;
   // Configure the view for the selected state
 }
 
-+ (NSString *)language {
-  return contentLanguage;
-}
-
-+ (void)setLanguage:(NSString *)language {
-  contentLanguage = language;
-}
-
 + (UIColor *)linkColor {
   return contentLinkColor;
 }
@@ -77,6 +69,12 @@ static bool showContentLinks;
   showContentLinks = showLinks;
 }
 
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath api:(XMMEnduserApi *)api {
+  self.titleLabel.text = block.title;
+  self.spotMapTags = [block.spotMapTags componentsJoinedByString:@","];
+  [self getSpotMap:api];
+}
+
 - (void)setupMapView {
   //init map
   if (!self.mapKitWithSMCalloutView) {
@@ -90,27 +88,23 @@ static bool showContentLinks;
   }
 }
 
-- (void)getSpotMap {
-  XMMSpotMap *spotMap = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[self.spotMapTags componentsJoinedByString:@","]];
+- (void)getSpotMap:(XMMEnduserApi *)api {
+  XMMSpotMap *spotMap = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:self.spotMapTags];
   if (spotMap) {
     [self.loadingIndicator stopAnimating];
     [self setupMapView];
     [self showSpotMap:spotMap];
     return;
   }
-  /*
-  [[XMMEnduserApi sharedInstance] spotMapWithMapTags:self.spotMapTags withLanguage:contentLanguage includeContent:YES
-                                           completion:^(XMMSpotMap *result) {
-                                             
-                                             [[XMMContentBlocksCache sharedInstance] saveSpotMap:result key:[self.spotMapTags componentsJoinedByString:@","]];
-                                             
-                                             [self.loadingIndicator stopAnimating];
-                                             [self setupMapView];
-                                             [self showSpotMap:result];
-                                           } error:^(XMMError *error) {
-                                             NSLog(@"Error: %@", error.message);
-                                           }];
-   */
+  
+  [api spotsWithTags:[self.spotMapTags componentsSeparatedByString:@","] pageSize:10 cursor:nil options:XMMSpotOptionsNone sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    //
+    [[XMMContentBlocksCache sharedInstance] saveSpotMap:spots key:self.spotMapTags];
+    
+    [self.loadingIndicator stopAnimating];
+    [self setupMapView];
+    [self showSpotMap:spots];
+  }];
 }
 
 - (void)setupLocationManager {
@@ -129,14 +123,16 @@ static bool showContentLinks;
 
 #pragma mark - XMMEnduser Delegate
 
-- (void)showSpotMap:(XMMSpotMap *)result {
+- (void)showSpotMap:(NSArray *)spots {
   //get the customMarker for the map
+  /*
   if (result.style.customMarker != nil) {
     [self mapMarkerFromBase64:result.style.customMarker];
   }
-  
+  */
+   
   // Add annotations
-  for (XMMSpot *item in result.items) {
+  for (XMMSpot *item in spots) {
     XMMAnnotation *point = [[XMMAnnotation alloc] initWithLocation: CLLocationCoordinate2DMake(item.lat, item.lon)];
     point.data = item;
 

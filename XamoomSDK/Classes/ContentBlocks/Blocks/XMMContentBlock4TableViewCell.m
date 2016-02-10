@@ -59,7 +59,6 @@
 }
 
 - (void)changeStyleAccordingToLinkType {
-  
   switch (self.linkType) {
     case 0: {
       [self.viewForBackgroundColor setBackgroundColor:[UIColor colorWithRed:59/255.0f green:89/255.0f blue:152/255.0f alpha:1.0f]];

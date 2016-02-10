@@ -28,11 +28,11 @@ static XMMContentBlocksCache *sharedInstance;
   return sharedInstance;
 }
 
-- (void)saveSpotMap:(XMMSpotMap *)spotMap key:(NSString *)key {
+- (void)saveSpotMap:(NSArray *)spotMap key:(NSString *)key {
   [self.spotMapCache setObject:spotMap forKey:key];
 }
 
-- (XMMSpotMap *)cachedSpotMap:(NSString *)key {
+- (NSArray *)cachedSpotMap:(NSString *)key {
   return [self.spotMapCache objectForKey:key];
 }
 

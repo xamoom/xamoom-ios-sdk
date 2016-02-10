@@ -7,16 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XMMSpotMap.h"
-
-@class XMMSpotMap;
+#import <XMMContent.h>
 
 @interface XMMContentBlocksCache : NSObject
 
 + (XMMContentBlocksCache *)sharedInstance;
 
-- (void)saveSpotMap:(XMMSpotMap *)spotMap key:(NSString *)key;
-- (XMMSpotMap *)cachedSpotMap:(NSString *)key;
+- (void)saveSpotMap:(NSArray *)spotMap key:(NSString *)key;
+- (NSArray *)cachedSpotMap:(NSString *)key;
 - (void)saveContent:(XMMContent *)content key:(NSString *)contentID;
 - (XMMContent *)cachedContent:(NSString *)key;
 

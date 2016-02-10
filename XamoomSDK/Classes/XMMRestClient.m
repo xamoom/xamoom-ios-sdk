@@ -45,7 +45,10 @@
     }
     
     jsonApi = [self jsonApiFromData:data];
-    completion(jsonApi, error);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+      completion(jsonApi, error);
+    });
   }] resume];
 }
 

@@ -29,8 +29,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import <JSONAPI/JSONAPIResourceDescriptor.h>
 #import "XMMRestClient.h"
-#import "XMMError.h"
-#import "XMMSpotMap.h"
 #import "XMMSpot.h"
 #import "XMMStyle.h"
 #import "XMMSystem.h"

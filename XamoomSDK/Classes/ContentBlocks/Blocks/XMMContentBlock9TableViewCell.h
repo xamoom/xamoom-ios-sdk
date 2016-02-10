@@ -39,17 +39,19 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @property (strong, nonatomic) XamoomMapView *mapKitWithSMCalloutView;
-@property (strong, nonatomic) NSArray *spotMapTags;
+@property (strong, nonatomic) NSString *spotMapTags;
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
-+ (NSString *)language;
-+ (void)setLanguage:(NSString *)language;
 + (UIColor *)linkColor;
 + (void)setLinkColor:(UIColor *)linkColor;
 + (BOOL)showContentLinks;
 + (void)setShowContentLinks:(BOOL)showContentLinks;
 
-- (void)getSpotMap;
+@end
+
+@interface XMMContentBlock9TableViewCell (XMMTableViewRepresentation)
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath api:(XMMEnduserApi *)api;
 
 @end

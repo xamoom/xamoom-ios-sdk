@@ -18,6 +18,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMMContentBlock.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display download contentBlocks from the xamoom cloud.
@@ -31,6 +32,10 @@
 @property (nonatomic) int downloadType;
 @property (strong, nonatomic) NSString *fileId;
 
-- (void)initCellData;
+@end
+
+@interface XMMContentBlock8TableViewCell (XMMTableViewRepresentation)
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
 @end
