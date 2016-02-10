@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>JAMSVGImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JSONAPI.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,27 +72,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04E2450601BB0ED840EB1A345F222F14</key>
+		<key>0D398B3D05E2522C837FAAC3FA9CE07F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>055DBC632FBF07CF57FAC977983F05AD</key>
+		<key>1CA398FAE159784EF131D264C5099B24</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>334DA99E0C106D3CC29FF40BD5EA56C6</key>
+		<key>32B865B00579B0FC64E1AFCC8BE5E2BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>359B6BBC01D52B12053ECD3901B29F4B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3D1EEB95C951117B8CBD4C6ECD57F079</key>
+		<key>452A53F18F8298881B1A580A6648DFF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,27 +97,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5DFE47B7E2EC97BF6229CDFFF49AB992</key>
+		<key>A08DCF64111AF4DD6C2057FB1ABBD1FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74E36E324B2DB47C434CF05F74BE060F</key>
+		<key>AC5C7574BFD1F97BFB65E4800E68C4A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7665715307C11DB5E5C62C134633DDEB</key>
+		<key>B7EEACC02D98ED77348F18FBDCE7F5EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF3D1E11B42EA864D6DBCE5DABAD71AE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C76B1B91569F1E6508FAFE54DD31EFAB</key>
+		<key>BEEDDD3E389AB2CF0C2BBD1B5DC7E320</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,12 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2449C491E02E71F6B118735A2B0EFC5</key>
+		<key>E80573AEC8E44672208785BE7269A4E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA9CD79478058B0759AB5A7F9E5E45E3</key>
+		<key>F519EB308DFEB5C4793718ACFEF4A92F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC74C2B91FECA6BF32143207A533ABA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
