@@ -145,7 +145,7 @@
 - (void)displaySVGFromURL:(NSURL *)fileURL tableView:(UITableView *)tableView indexPath:(NSIndexPath *) indexPath {
   self.blockImageView.image = nil;
   [self.imageLoadingIndicator startAnimating];
-  /*
+  
   [[[NSURLSession sharedSession] dataTaskWithURL:fileURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
     JAMSVGImage *svgImage = [JAMSVGImage imageWithSVGData:data];
     
@@ -162,7 +162,7 @@
     });
     
   }] resume];
-  */
+  
 }
 
 - (void)createAspectConstraintFromImage:(CGSize)size {
