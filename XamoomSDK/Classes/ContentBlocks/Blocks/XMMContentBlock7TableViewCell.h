@@ -18,6 +18,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMMContentBlock.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display soundcloud contentBlocks from the xamoom cloud.
@@ -26,5 +27,11 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@end
+
+@interface XMMContentBlock7TableViewCell (XMMTableViewRepresentation)
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 
 @end

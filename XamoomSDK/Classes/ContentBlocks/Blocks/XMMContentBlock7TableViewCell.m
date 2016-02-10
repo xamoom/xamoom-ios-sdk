@@ -39,4 +39,19 @@
   [self.webView reload];
 }
 
+- (void)prepareForReuse {
+  self.titleLabel.text = @"";
+}
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+  [self.webView.scrollView setScrollEnabled:NO];
+  [self.webView.scrollView setBounces:NO];
+  
+  self.titleLabel.text = block.title;
+  
+  NSString *soundcloudHTML = [NSString stringWithFormat:@"<iframe width='100%%' height='%f' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=%@&auto_play=false&hide_related=true&show_comments=false&show_comments=false&show_user=false&show_reposts=false&sharing=false&download=false&buying=false&visual=true'></iframe> <script src=\"https://w.soundcloud.com/player/api.js\" type=\"text/javascript\"></script>",self.webView.frame.size.height, block.soundcloudUrl];
+  
+  [self.webView loadHTMLString:soundcloudHTML baseURL:nil];
+}
+
 @end
