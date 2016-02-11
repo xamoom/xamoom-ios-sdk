@@ -19,7 +19,6 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import <SMCalloutView/SMCalloutView.h>
 #import "XMMEnduserApi.h"
 #import "XMMContentBlocks.h"
 #import "XMMContentBlocksCache.h"
@@ -27,18 +26,16 @@
 #import "XMMAnnotationView.h"
 #import "XMMCalloutView.h"
 
-@class XamoomMapView;
-
 /**
  * XMMContentBlock0TableViewCell is used to display spotMap contentBlocks from the xamoom cloud.
  */
-@interface XMMContentBlock9TableViewCell : UITableViewCell <MKMapViewDelegate, SMCalloutViewDelegate, CLLocationManagerDelegate>
+@interface XMMContentBlock9TableViewCell : UITableViewCell <MKMapViewDelegate, CLLocationManagerDelegate>
 
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIView *viewForMap;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (weak, nonatomic) IBOutlet UIView *mapAdditionView;
 
-@property (strong, nonatomic) XamoomMapView *mapKitWithSMCalloutView;
 @property (strong, nonatomic) NSString *spotMapTags;
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;

@@ -5,12 +5,10 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
-  - SMCalloutView (2.0.3)
   - XamoomSDK (2.0.0):
     - JAMSVGImage
     - JSONAPI (~> 1.0.0)
     - SDWebImage (~> 3.7)
-    - SMCalloutView (~> 2.0.0)
     - youtube-ios-player-helper (= 0.1.4)
   - youtube-ios-player-helper (0.1.4)
 
@@ -19,7 +17,6 @@ DEPENDENCIES:
   - JSONAPI (~> 1.0.0)
   - OCMock (~> 3.2)
   - SDWebImage (~> 3.7)
-  - SMCalloutView (~> 2.0.0)
   - XamoomSDK (from `./`)
   - youtube-ios-player-helper (= 0.1.4)
 
@@ -32,8 +29,7 @@ SPEC CHECKSUMS:
   JSONAPI: 9b32b11cb196ede8bf22489879fb4003c3e5e8f3
   OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
-  SMCalloutView: acee64c093fe04721fee640b42ed25d8265cc010
-  XamoomSDK: 5ef84026466d852bae673b0e7dac88bfc0096f52
+  XamoomSDK: 19561e1f1a070fafc49ff35ae0fc7668e9b60cf8
   youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
 
 COCOAPODS: 0.39.0

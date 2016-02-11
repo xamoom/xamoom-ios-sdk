@@ -33,7 +33,6 @@ Pod::Spec.new do |s|
 #s.vendored_frameworks = 'XamoomSDK/lib/SVGKit.framework', 'XamoomSDK/lib/CocoaLumberjack.framework'
 
   s.dependency 'JSONAPI', '~> 1.0.0'
-  s.dependency 'SMCalloutView', '~> 2.0.0'
 	s.dependency 'youtube-ios-player-helper', '= 0.1.4'
 	s.dependency 'SDWebImage', '~>3.7'
   s.dependency 'JAMSVGImage'

@@ -7,7 +7,6 @@ workspace 'XamoomSDK'
 
 target 'XamoomSDK' do
 	pod 'JSONAPI', '~> 1.0.0'
-	pod 'SMCalloutView', '~> 2.0.0'
 	pod 'youtube-ios-player-helper', '= 0.1.4'
 	pod 'SDWebImage', '~>3.7'
   pod 'JAMSVGImage'

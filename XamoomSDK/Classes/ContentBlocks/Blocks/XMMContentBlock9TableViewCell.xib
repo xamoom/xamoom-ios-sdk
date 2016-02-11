@@ -14,18 +14,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="399"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hk4-tD-Bjj">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titel und so" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hk4-tD-Bjj">
                         <rect key="frame" x="8" y="8" width="304" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbq-ej-AT0">
-                        <rect key="frame" x="8" y="37" width="304" height="354"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="354" id="xQs-el-AtM"/>
-                        </constraints>
-                    </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DWs-nj-B0z">
                         <rect key="frame" x="150" y="205" width="20" height="20"/>
                         <constraints>
@@ -33,23 +27,64 @@
                             <constraint firstAttribute="width" constant="20" id="eJM-1W-6rU"/>
                         </constraints>
                     </activityIndicatorView>
+                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Yc2-J7-ehg">
+                        <rect key="frame" x="0.0" y="37" width="320" height="354"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="354" id="aDD-rz-8Lx"/>
+                        </constraints>
+                    </mapView>
+                    <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apn-fv-sPi">
+                        <rect key="frame" x="0.0" y="141" width="320" height="250"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OWc-in-3kw">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="app-LI-bMG">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="phg-iR-8rh">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </view>
+                                    <vibrancyEffect>
+                                        <blurEffect style="light"/>
+                                    </vibrancyEffect>
+                                </visualEffectView>
+                            </subviews>
+                        </view>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="JDb-qc-HZx"/>
+                        </constraints>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="DWs-nj-B0z" secondAttribute="centerY" constant="-15" id="0BE-94-RaT"/>
-                    <constraint firstItem="xbq-ej-AT0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4y5-gf-jjE"/>
+                    <constraint firstAttribute="trailing" secondItem="Yc2-J7-ehg" secondAttribute="trailing" id="2mO-Jc-a8B"/>
                     <constraint firstItem="Hk4-tD-Bjj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="7lL-jK-1d8"/>
-                    <constraint firstItem="xbq-ej-AT0" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="NXW-fT-cfT"/>
-                    <constraint firstItem="xbq-ej-AT0" firstAttribute="top" secondItem="Hk4-tD-Bjj" secondAttribute="bottom" constant="8" id="Ut1-jI-FKH"/>
+                    <constraint firstItem="Yc2-J7-ehg" firstAttribute="top" secondItem="Hk4-tD-Bjj" secondAttribute="bottom" constant="8" id="BnW-0t-u6Y"/>
+                    <constraint firstItem="Yc2-J7-ehg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cy8-7X-iov"/>
+                    <constraint firstItem="apn-fv-sPi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="DcX-e6-IqE"/>
+                    <constraint firstAttribute="bottom" secondItem="Yc2-J7-ehg" secondAttribute="bottom" constant="8" id="Iry-cl-yze"/>
                     <constraint firstAttribute="centerX" secondItem="DWs-nj-B0z" secondAttribute="centerX" id="Wpz-0W-vPu"/>
-                    <constraint firstItem="xbq-ej-AT0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hKd-l4-XLV"/>
+                    <constraint firstAttribute="trailing" secondItem="apn-fv-sPi" secondAttribute="trailing" id="ccD-b4-tp9"/>
                     <constraint firstItem="Hk4-tD-Bjj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="oPE-rF-wg7"/>
                     <constraint firstItem="Hk4-tD-Bjj" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ocB-hT-T8Z"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="apn-fv-sPi" secondAttribute="trailing" id="suD-J4-zlR"/>
+                    <constraint firstItem="apn-fv-sPi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uYm-4f-FR4"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="apn-fv-sPi" secondAttribute="bottom" id="yro-QY-HrU"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="DcX-e6-IqE"/>
+                        <exclude reference="suD-J4-zlR"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="loadingIndicator" destination="DWs-nj-B0z" id="hVM-HR-qPh"/>
+                <outlet property="mapAdditionView" destination="apn-fv-sPi" id="yAf-9c-3dR"/>
+                <outlet property="mapView" destination="Yc2-J7-ehg" id="g6l-sn-LFn"/>
                 <outlet property="titleLabel" destination="Hk4-tD-Bjj" id="hWE-PI-VOd"/>
-                <outlet property="viewForMap" destination="xbq-ej-AT0" id="4ZO-3q-I8u"/>
             </connections>
             <point key="canvasLocation" x="392" y="634"/>
         </tableViewCell>

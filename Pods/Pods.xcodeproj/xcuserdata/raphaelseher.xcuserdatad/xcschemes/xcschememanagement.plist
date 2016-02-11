@@ -39,11 +39,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SMCalloutView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>XamoomSDK-XamoomSDKNibs.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,52 +67,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>23C0931836ED1604D3B8DDA49EC2FF52</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>25C826EC522ECD800DC2589DB225B7BD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>36AA5FDDBC04C0F5A05F278D58340D63</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4A2CAA839F2722C796C6F1DFDC806B92</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5FB410509EDDFA1170934C0AA4DD6172</key>
+		<key>518B945263BA246683C7029D0722651B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>75869A346721353AFAF05852F0474271</key>
+		<key>52D1F02CCC4BE25234FD7AD9F0ACB9F3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8913E5D3901660B5E4642B5CD9F79CB9</key>
+		<key>700A8CA80DE754BC06BE36D11821F976</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C6FF2AB1E8BCCAB348D2B01F8DC7893</key>
+		<key>74909E696CAB511AF773E43B5E676E3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C041531B951D6464A6D4D9F879FB5913</key>
+		<key>A818ECD4F4D87CFED31C222C783048FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C5A554CC3B52F6CAB26478693BC3D979</key>
+		<key>AD15C0FA716BD768916458E6AFA899FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5A8FFE76B7D8180AF51E82F0847309B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,12 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D5DF82BFD37BCC69B2C159B8B655AA3F</key>
+		<key>CCE039DE49F118BEFF52FB49B263640A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E37A60A3CEB4B7137EFAA66E53FAD5A6</key>
+		<key>CD22189F296688E8DE2AF8BF37BFCBD7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D5DF82BFD37BCC69B2C159B8B655AA3F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
