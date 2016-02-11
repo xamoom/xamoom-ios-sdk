@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>QRCodeReaderViewController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,27 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>04E2450601BB0ED840EB1A345F222F14</key>
+		<key>23C0931836ED1604D3B8DDA49EC2FF52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>055DBC632FBF07CF57FAC977983F05AD</key>
+		<key>25C826EC522ECD800DC2589DB225B7BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>334DA99E0C106D3CC29FF40BD5EA56C6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>359B6BBC01D52B12053ECD3901B29F4B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3D1EEB95C951117B8CBD4C6ECD57F079</key>
+		<key>36AA5FDDBC04C0F5A05F278D58340D63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +92,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5DFE47B7E2EC97BF6229CDFFF49AB992</key>
+		<key>5FB410509EDDFA1170934C0AA4DD6172</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74E36E324B2DB47C434CF05F74BE060F</key>
+		<key>75869A346721353AFAF05852F0474271</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7665715307C11DB5E5C62C134633DDEB</key>
+		<key>8913E5D3901660B5E4642B5CD9F79CB9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF3D1E11B42EA864D6DBCE5DABAD71AE</key>
+		<key>9C6FF2AB1E8BCCAB348D2B01F8DC7893</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C041531B951D6464A6D4D9F879FB5913</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5A554CC3B52F6CAB26478693BC3D979</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,12 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2449C491E02E71F6B118735A2B0EFC5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA9CD79478058B0759AB5A7F9E5E45E3</key>
+		<key>E37A60A3CEB4B7137EFAA66E53FAD5A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

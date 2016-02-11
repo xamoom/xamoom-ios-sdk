@@ -2,7 +2,6 @@ PODS:
   - JAMSVGImage (1.6.1)
   - JSONAPI (1.0.6)
   - OCMock (3.2)
-  - QRCodeReaderViewController (2.0.0)
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
@@ -10,7 +9,6 @@ PODS:
   - XamoomSDK (2.0.0):
     - JAMSVGImage
     - JSONAPI (~> 1.0.0)
-    - QRCodeReaderViewController (~> 2.0.0)
     - SDWebImage (~> 3.7)
     - SMCalloutView (~> 2.0.0)
     - youtube-ios-player-helper (= 0.1.4)
@@ -20,7 +18,6 @@ DEPENDENCIES:
   - JAMSVGImage
   - JSONAPI (~> 1.0.0)
   - OCMock (~> 3.2)
-  - QRCodeReaderViewController (~> 2.0.0)
   - SDWebImage (~> 3.7)
   - SMCalloutView (~> 2.0.0)
   - XamoomSDK (from `./`)
@@ -34,10 +31,9 @@ SPEC CHECKSUMS:
   JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2
   JSONAPI: 9b32b11cb196ede8bf22489879fb4003c3e5e8f3
   OCMock: 28def049ef47f996b515a8eeea958be7ccab2dbb
-  QRCodeReaderViewController: bc35f1b48ec5231904ca9347c02423ddb76b7b40
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   SMCalloutView: acee64c093fe04721fee640b42ed25d8265cc010
-  XamoomSDK: 0ec1cfb935bba3fa96fa8938182ed77b1f12ae5a
+  XamoomSDK: 5ef84026466d852bae673b0e7dac88bfc0096f52
   youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
 
 COCOAPODS: 0.39.0
