@@ -53,6 +53,7 @@ static UIColor *contentLinkColor;
   
   //set content
   if (block.text != nil && ![block.text isEqualToString:@""]) {
+    self.contentTextView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);
     self.contentTextView.attributedText = [self attributedStringFromHTML:block.text fontSize:[XMMContentBlock0TableViewCell fontSize]];
     [self.contentTextView sizeToFit];
   } else {
@@ -74,9 +75,10 @@ static UIColor *contentLinkColor;
 - (NSMutableAttributedString*)attributedStringFromHTML:(NSString*)html fontSize:(int)fontSize {
   NSError *err = nil;
   
-  NSString *style = [NSString stringWithFormat:@"<style>body{font-family: -apple-system, \"Helvetica Neue Light\", \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif; font-size:%d; margin:0 !important;} p:last-child, p:last-of-type{margin:1px !important;} </style>", fontSize];
+  NSString *style = [NSString stringWithFormat:@"<style>body{font-family: -apple-system, \"Helvetica Neue Light\", \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif; font-size:%d; margin:0 !important;} p:last-child, p:last-of-type{margin:0px !important;} </style>", fontSize];
   
   html = [html stringByReplacingOccurrencesOfString:@"<br></p>" withString:@"</p>"];
+  html = [html stringByReplacingOccurrencesOfString:@"<p></p>" withString:@""];
   html = [NSString stringWithFormat:@"%@%@", style, html];
   
   NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithData: [html dataUsingEncoding:NSUTF8StringEncoding]
@@ -84,8 +86,9 @@ static UIColor *contentLinkColor;
                                                                                                     NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
                                                                              documentAttributes: nil
                                                                                           error: &err];
-  if(err)
+  if(err) {
     NSLog(@"Unable to parse label text: %@", err);
+  }
   
   return attributedString;
 }
