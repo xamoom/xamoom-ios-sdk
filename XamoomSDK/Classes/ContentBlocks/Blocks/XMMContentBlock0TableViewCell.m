@@ -26,6 +26,8 @@ static UIColor *contentLinkColor;
 
 - (void)awakeFromNib {
   // Initialization code
+  self.titleLabel.text = @"";
+  self.contentTextView.text = @"";
 }
 
 + (int)fontSize {
@@ -42,6 +44,11 @@ static UIColor *contentLinkColor;
 
 + (void)setLinkColor:(UIColor *)linkColor {
   contentLinkColor = linkColor;
+}
+
+- (void)prepareForReuse {
+  self.titleLabel.text = @"";
+  self.contentTextView.text = @"";
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
