@@ -136,9 +136,6 @@
                                     [self setNeedsUpdateConstraints];
                                     
                                     if ([tableView.visibleCells containsObject:self]) {
-                                      NSLog(@"Visible cells: %lu", (unsigned long)tableView.visibleCells.count);
-                                      NSLog(@"self: %ld", (long)indexPath.row);
-                                      
                                       [tableView reloadData];
                                     }
                                   }];
