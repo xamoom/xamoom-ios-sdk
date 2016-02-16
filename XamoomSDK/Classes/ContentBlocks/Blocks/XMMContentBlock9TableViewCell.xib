@@ -10,7 +10,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="XMMContentBlock9TableViewCell" rowHeight="400" id="KGk-i7-Jjw" customClass="XMMContentBlock9TableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="399"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -33,29 +33,6 @@
                             <constraint firstAttribute="height" constant="354" id="aDD-rz-8Lx"/>
                         </constraints>
                     </mapView>
-                    <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apn-fv-sPi">
-                        <rect key="frame" x="0.0" y="141" width="320" height="250"/>
-                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OWc-in-3kw">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="app-LI-bMG">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="phg-iR-8rh">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    </view>
-                                    <vibrancyEffect>
-                                        <blurEffect style="light"/>
-                                    </vibrancyEffect>
-                                </visualEffectView>
-                            </subviews>
-                        </view>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="250" id="JDb-qc-HZx"/>
-                        </constraints>
-                        <blurEffect style="light"/>
-                    </visualEffectView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="DWs-nj-B0z" secondAttribute="centerY" constant="-15" id="0BE-94-RaT"/>
@@ -63,26 +40,15 @@
                     <constraint firstItem="Hk4-tD-Bjj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="7lL-jK-1d8"/>
                     <constraint firstItem="Yc2-J7-ehg" firstAttribute="top" secondItem="Hk4-tD-Bjj" secondAttribute="bottom" constant="8" id="BnW-0t-u6Y"/>
                     <constraint firstItem="Yc2-J7-ehg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cy8-7X-iov"/>
-                    <constraint firstItem="apn-fv-sPi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="DcX-e6-IqE"/>
                     <constraint firstAttribute="bottom" secondItem="Yc2-J7-ehg" secondAttribute="bottom" constant="8" id="Iry-cl-yze"/>
                     <constraint firstAttribute="centerX" secondItem="DWs-nj-B0z" secondAttribute="centerX" id="Wpz-0W-vPu"/>
-                    <constraint firstAttribute="trailing" secondItem="apn-fv-sPi" secondAttribute="trailing" id="ccD-b4-tp9"/>
                     <constraint firstItem="Hk4-tD-Bjj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="oPE-rF-wg7"/>
                     <constraint firstItem="Hk4-tD-Bjj" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ocB-hT-T8Z"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="apn-fv-sPi" secondAttribute="trailing" id="suD-J4-zlR"/>
-                    <constraint firstItem="apn-fv-sPi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uYm-4f-FR4"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="apn-fv-sPi" secondAttribute="bottom" id="yro-QY-HrU"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="DcX-e6-IqE"/>
-                        <exclude reference="suD-J4-zlR"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="contentView" destination="H2p-sc-9uM" id="voa-Z8-u7D"/>
                 <outlet property="loadingIndicator" destination="DWs-nj-B0z" id="hVM-HR-qPh"/>
-                <outlet property="mapAdditionView" destination="apn-fv-sPi" id="yAf-9c-3dR"/>
                 <outlet property="mapView" destination="Yc2-J7-ehg" id="g6l-sn-LFn"/>
                 <outlet property="titleLabel" destination="Hk4-tD-Bjj" id="hWE-PI-VOd"/>
             </connections>

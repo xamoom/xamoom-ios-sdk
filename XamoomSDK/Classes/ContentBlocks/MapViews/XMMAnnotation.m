@@ -29,6 +29,7 @@
   self = [super init];
   if (self) {
     coordinate = coord;
+    title = @"YO";
   }
   
   return self;

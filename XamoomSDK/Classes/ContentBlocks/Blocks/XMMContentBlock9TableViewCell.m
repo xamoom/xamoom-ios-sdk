@@ -26,7 +26,12 @@
 
 @interface XMMContentBlock9TableViewCell()
 
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (nonatomic, strong) NSString *currentContentID;
+@property (nonatomic) XMMMapOverlayView *mapAdditionView;
+@property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
+@property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;
+
 
 @end
 
@@ -38,6 +43,7 @@ static bool showContentLinks;
 
 - (void)awakeFromNib {
   // Initialization code
+  self.clipsToBounds = YES;
   [self setupLocationManager];
 }
 
@@ -67,6 +73,74 @@ static bool showContentLinks;
   self.titleLabel.text = block.title;
   self.spotMapTags = [block.spotMapTags componentsJoinedByString:@","];
   [self getSpotMap:api];
+  [self setupMapOverlayView];
+}
+
+- (void)setupMapView {
+  self.mapView.delegate = self;
+  self.mapView.showsUserLocation = YES;
+  
+}
+
+- (void)setupLocationManager {
+  //init up locationManager
+  self.locationManager = [[CLLocationManager alloc] init];
+  self.locationManager.delegate = self;
+  self.locationManager.distanceFilter = 100.0f; //meter
+  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+  self.locationManager.activityType = CLActivityTypeOther;
+  
+  // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+  if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+    [self.locationManager requestWhenInUseAuthorization];
+  }
+}
+
+- (void)setupMapOverlayView {
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
+  NSBundle *nibBundle = [NSBundle bundleWithURL:url];
+  self.mapAdditionView = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
+  
+  self.mapAdditionView.translatesAutoresizingMaskIntoConstraints = NO;
+  [self.contentView addSubview:self.mapAdditionView];
+  
+  [self.contentView addConstraint:
+   [NSLayoutConstraint constraintWithItem:self.mapAdditionView
+                                attribute:NSLayoutAttributeLeading
+                                relatedBy:NSLayoutRelationEqual
+                                   toItem:self.contentView
+                                attribute:NSLayoutAttributeLeading
+                               multiplier:1
+                                 constant:0]];
+  
+  [self.contentView addConstraint:
+   [NSLayoutConstraint constraintWithItem:self.mapAdditionView
+                                attribute:NSLayoutAttributeTrailing
+                                relatedBy:NSLayoutRelationEqual
+                                   toItem:self.mapView
+                                attribute:NSLayoutAttributeTrailing
+                               multiplier:1
+                                 constant:0]];
+  
+  self.mapAdditionViewBottomConstraint = [NSLayoutConstraint constraintWithItem:self.mapAdditionView
+                                                                      attribute:NSLayoutAttributeBottom
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:self.mapView
+                                                                      attribute:NSLayoutAttributeBottom
+                                                                     multiplier:1
+                                                                       constant:210];
+  [self.contentView addConstraint:self.mapAdditionViewBottomConstraint];
+  
+  self.mapAdditionViewHeightConstraint = [NSLayoutConstraint constraintWithItem:self.mapAdditionView
+                                                                   attribute:NSLayoutAttributeHeight
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:nil
+                                                                   attribute:NSLayoutAttributeNotAnAttribute
+                                                                  multiplier:1
+                                                                    constant:200];
+  
+  [self.mapAdditionView addConstraint:self.mapAdditionViewHeightConstraint];
 }
 
 - (void)getSpotMap:(XMMEnduserApi *)api {
@@ -87,45 +161,27 @@ static bool showContentLinks;
   }];
 }
 
-- (void)setupMapView {
-  self.mapView.delegate = self;
-  self.mapView.showsUserLocation = YES;
-}
-
-- (void)setupLocationManager {
-  //init up locationManager
-  self.locationManager = [[CLLocationManager alloc] init];
-  self.locationManager.delegate = self;
-  self.locationManager.distanceFilter = 100.0f; //meter
-  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-  self.locationManager.activityType = CLActivityTypeOther;
-  
-  // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-  if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-    [self.locationManager requestWhenInUseAuthorization];
-  }
-}
-
 #pragma mark - XMMEnduser Delegate
 
 - (void)showSpotMap:(NSArray *)spots {
   //get the customMarker for the map
   /*
-  if (result.style.customMarker != nil) {
-    [self mapMarkerFromBase64:result.style.customMarker];
-  }
-  */
-   
+   if (result.style.customMarker != nil) {
+   [self mapMarkerFromBase64:result.style.customMarker];
+   }
+   */
+  
   // Add annotations
   for (XMMSpot *item in spots) {
-    XMMAnnotation *point = [[XMMAnnotation alloc] initWithLocation: CLLocationCoordinate2DMake(item.lat, item.lon)];
-    point.data = item;
-
-    CLLocation *pointLocation = [[CLLocation alloc] initWithLatitude:point.coordinate.latitude longitude:point.coordinate.longitude];
-    CLLocationDistance distance = [self.locationManager.location distanceFromLocation:pointLocation];
-    point.distance = [NSString stringWithFormat:@"Entfernung: %d Meter", (int)distance];
+    XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithLocation: CLLocationCoordinate2DMake(item.lat, item.lon)];
+    annotation.data = item;
     
-    [self.mapView addAnnotation:point];
+    //calculate
+    CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
+    CLLocationDistance distance = [self.locationManager.location distanceFromLocation:annotationLocation];
+    annotation.distance = [NSString stringWithFormat:@"Entfernung: %d Meter", (int)distance];
+    
+    [self.mapView addAnnotation:annotation];
   }
   
   [self zoomMapViewToFitAnnotations:self.mapView animated:YES];
@@ -147,21 +203,7 @@ static bool showContentLinks;
     self.customMapMarker = [UIImage imageWithData:imageData];
   }
   
-   //self.customMapMarker = [self imageWithImage:self.customMapMarker scaledToMaxWidth:30.0f maxHeight:30.0f];
-}
-
-- (void)mapNavigationTapped {
-  //navigate to the coordinates of the xamoomCalloutView
-  //XMMCalloutView *xamoomCalloutView = (XMMCalloutView* )self.mapKitWithSMCalloutView.calloutView.contentView;
-  /*
-   MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:xamoomCalloutView.coordinate addressDictionary:nil];
-   
-   MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
-   mapItem.name = xamoomCalloutView.nameOfSpot;
-   
-   NSDictionary *launchOptions = @{MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving};
-   [mapItem openInMapsWithLaunchOptions:launchOptions];
-   */
+  //self.customMapMarker = [self imageWithImage:self.customMapMarker scaledToMaxWidth:30.0f maxHeight:30.0f];
 }
 
 - (void)openContentTapped {
@@ -179,11 +221,11 @@ static bool showContentLinks;
   
   if ([annotation isKindOfClass:[XMMAnnotation class]]) {
     static NSString *identifier = @"xamoomAnnotation";
-    XMMAnnotationView *annotationView;
+    MKAnnotationView *annotationView;
     if (annotationView == nil) {
-      annotationView = [[XMMAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+      annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
       annotationView.enabled = YES;
-      annotationView.canShowCallout = NO;
+      annotationView.canShowCallout = YES;
       
       //set mapmarker
       if(self.customMapMarker) {
@@ -191,24 +233,6 @@ static bool showContentLinks;
       } else {
         annotationView.image = [UIImage imageNamed:@"mappoint"];
       }
-      
-      //save data in annotationView
-      XMMAnnotation *xamoomAnnotation = (XMMAnnotation*)annotation;
-      annotationView.data = xamoomAnnotation.data;
-      annotationView.distance = xamoomAnnotation.distance;
-      annotationView.coordinate = xamoomAnnotation.coordinate;
-      
-      SDWebImageManager *manager = [SDWebImageManager sharedManager];
-      [manager downloadImageWithURL:[NSURL URLWithString: xamoomAnnotation.data.image]
-                            options:0
-                           progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                             // progression tracking code
-                           }
-                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-                            if (image) {
-                              annotationView.spotImage = image;
-                            }
-                          }];
     } else {
       annotationView.annotation = annotation;
     }
@@ -219,16 +243,37 @@ static bool showContentLinks;
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)annotationView {
-  if ([annotationView isKindOfClass:[XMMAnnotationView class]]) {
-    self.mapAdditionView.hidden = !self.mapAdditionView.hidden;
+  if ([annotationView isKindOfClass:[MKAnnotationView class]]) {
+    XMMAnnotation *annotation =  annotationView.annotation;
+    [self openMapAdditionView:annotation];
   }
 }
 
--(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
-  
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)annotationView {
+  if ([annotationView isKindOfClass:[MKAnnotationView class]]) {
+    [self closeMapAdditionView];
+  }
 }
 
 #pragma mark - Custom Methods
+
+- (void)openMapAdditionView:(XMMAnnotation *)annotation {
+  [self.mapAdditionView displayAnnotation:annotation];
+  
+  [self.contentView layoutIfNeeded];
+  self.mapAdditionViewBottomConstraint.constant = 0;
+  [UIView animateWithDuration:0.3 animations:^{
+    [self.contentView layoutIfNeeded];
+  }];
+}
+
+- (void)closeMapAdditionView {
+  [self.contentView layoutIfNeeded];
+  self.mapAdditionViewBottomConstraint.constant = 210;
+  [UIView animateWithDuration:0.3 animations:^{
+    [self.contentView layoutIfNeeded];
+  }];
+}
 
 //size the mapView region to fit its annotations
 - (void)zoomMapViewToFitAnnotations:(MKMapView *)mapView animated:(BOOL)animated {

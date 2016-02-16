@@ -24,7 +24,7 @@
 #import "XMMContentBlocksCache.h"
 #import "XMMAnnotation.h"
 #import "XMMAnnotationView.h"
-#import "XMMCalloutView.h"
+#import "XMMMapOverlayView.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display spotMap contentBlocks from the xamoom cloud.
@@ -34,7 +34,6 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
-@property (weak, nonatomic) IBOutlet UIView *mapAdditionView;
 
 @property (strong, nonatomic) NSString *spotMapTags;
 @property (strong, nonatomic) UIImage *customMapMarker;
