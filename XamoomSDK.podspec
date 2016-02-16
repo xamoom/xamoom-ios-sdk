@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.resource = 'XamoomSDK/Assets/Images.xcassets'
   s.resource_bundles = {
     'XamoomSDKXCAssets' => ['XamoomSDK/Assets/*.xcassets'],
-    'XamoomSDKNibs' => ['XamoomSDK/Classes/ContentBlocks/Blocks/*.xib']
+    'XamoomSDKNibs' => ['XamoomSDK/Classes/ContentBlocks/**/*.xib']
   }
 
 #s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics', 'UIKit'
