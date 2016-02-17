@@ -57,6 +57,7 @@
 		883E55AA1C4A37FE000C4D09 /* XMMMusicPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 883E557E1C4A37FE000C4D09 /* XMMMusicPlayer.h */; };
 		883E55AB1C4A37FE000C4D09 /* XMMMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E557F1C4A37FE000C4D09 /* XMMMusicPlayer.m */; };
 		8849374D1C731FB500C53520 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8849374C1C731FB500C53520 /* Images.xcassets */; };
+		884937501C74B1C600C53520 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 884937521C74B1C600C53520 /* Localizable.strings */; };
 		8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */; };
 		8888DDD21C47B0FA0050A84C /* XamoomSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DDD11C47B0FA0050A84C /* XamoomSDKTests.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
@@ -165,6 +166,8 @@
 		883E557E1C4A37FE000C4D09 /* XMMMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMMusicPlayer.h; sourceTree = "<group>"; };
 		883E557F1C4A37FE000C4D09 /* XMMMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMusicPlayer.m; sourceTree = "<group>"; };
 		8849374C1C731FB500C53520 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Assets/Images.xcassets; sourceTree = "<group>"; };
+		884937511C74B1C600C53520 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		884937531C74B1E900C53520 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XamoomSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDC71C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8888DDCC1C47B0FA0050A84C /* XamoomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -344,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				88E46F351C49374A004D8AC3 /* XamoomSDK.podspec */,
+				884937521C74B1C600C53520 /* Localizable.strings */,
 				8888DDC41C47B0FA0050A84C /* XamoomSDK */,
 				8888DDD01C47B0FA0050A84C /* XamoomSDKTests */,
 				8888DDC31C47B0FA0050A84C /* Products */,
@@ -577,6 +581,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = 8888DDB81C47B0FA0050A84C;
 			productRefGroup = 8888DDC31C47B0FA0050A84C /* Products */;
@@ -603,6 +608,7 @@
 				883E55851C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.xib in Resources */,
 				883E55971C4A37FE000C4D09 /* XMMContentBlock7TableViewCell.xib in Resources */,
 				883E55821C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.xib in Resources */,
+				884937501C74B1C600C53520 /* Localizable.strings in Resources */,
 				8849374D1C731FB500C53520 /* Images.xcassets in Resources */,
 				883E55941C4A37FE000C4D09 /* XMMContentBlock6TableViewCell.xib in Resources */,
 				883E558E1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.xib in Resources */,
@@ -763,6 +769,19 @@
 			targetProxy = 8888DDCE1C47B0FA0050A84C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		884937521C74B1C600C53520 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				884937511C74B1C600C53520 /* en */,
+				884937531C74B1E900C53520 /* de */,
+			);
+			name = Localizable.strings;
+			path = XamoomSDK/Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8888DDD41C47B0FA0050A84C /* Debug */ = {
