@@ -10,26 +10,18 @@
 
 @interface XMMMapOverlayView()
 
-@property (nonatomic) UIImage *angleDownImage;
+@property (nonatomic) NSString *contentID;
+@property (nonatomic) CLLocationCoordinate2D locationCoordinate;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *spotImageAspectConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *spotImageWidthConstraint;
 
 @end
 
 @implementation XMMMapOverlayView
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  if (self) {
-    [self loadAngleImage];
-  }
-  return self;
-}
-
-- (void)loadAngleImage {
-  self.angleDownImage = [UIImage imageNamed:@"angleDown"];
-}
-
 - (void)displayAnnotation:(XMMAnnotation *)annotation {
-  self.angleDownImageView.image = self.angleDownImage;
+  self.contentID = annotation.data.content.ID;
+  self.locationCoordinate = annotation.coordinate;
   
   self.spotTitleLabel.text = annotation.data.name;
   
@@ -38,17 +30,39 @@
   
   self.spotDistanceLabel.text = annotation.distance;
   
+  self.spotImageAspectConstraint.active = YES;
+  self.spotImageWidthConstraint.constant = 153;
+  if (annotation.data.image == nil) {
+    self.spotImageAspectConstraint.active = NO;
+    self.spotImageWidthConstraint.constant = 0;
+  }
+  [self needsUpdateConstraints];
+
   [self.spotImageView sd_setImageWithURL:[NSURL URLWithString:annotation.data.image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
     //
   }];
+  
+  self.openContentButton.hidden = NO;
+  if (self.contentID == nil || [self.contentID isEqualToString:@""]) {
+    self.openContentButton.hidden = YES;
+  }
 }
 
 - (IBAction)routeAction:(id)sender {
-  NSLog(@"Route!");
+  MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:self.locationCoordinate addressDictionary:nil];
+  
+  MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+  mapItem.name = self.spotTitleLabel.text;
+  
+  NSDictionary *launchOptions = @{MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving};
+  [mapItem openInMapsWithLaunchOptions:launchOptions];
 }
 
 - (IBAction)openAction:(id)sender {
-  NSLog(@"Action!");
+  NSDictionary *userInfo = @{@"contentID":self.contentID};
+  [[NSNotificationCenter defaultCenter]
+   postNotificationName:XMMContentBlocks.kContentBlock9MapContentLinkNotification
+   object:self userInfo:userInfo];
 }
 
 @end

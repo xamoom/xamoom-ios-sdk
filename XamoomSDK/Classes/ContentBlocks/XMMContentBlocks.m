@@ -48,6 +48,11 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     
     [XMMContentBlock0TableViewCell setFontSize:NormalFontSize];
     [XMMContentBlock0TableViewCell setLinkColor:[UIColor blueColor]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(clickContentNotification:)
+                                                 name:kContentBlock9MapContentLinkNotification
+                                               object:nil];
   }
   
   return self;
@@ -121,6 +126,14 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   [XMMContentBlock0TableViewCell setFontSize:newFontSize];
 }
 
+- (void)clickContentNotification:(NSNotification *)notification {
+  if ([notification.name isEqualToString:kContentBlock9MapContentLinkNotification]) {
+    NSDictionary *userInfo = notification.userInfo;
+    NSString *contentID = [userInfo objectForKey:@"contentID"];
+    [self.delegate didClickContentBlock:contentID];
+  }
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -140,7 +153,6 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     [cell configureForCell:block tableView:tableView indexPath:indexPath api:self.api];
     return cell;
   }
-
   
   return [[UITableViewCell alloc] initWithFrame:CGRectZero];
 }
@@ -151,6 +163,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
   if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
     XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self.delegate didClickContentBlock:cell.contentID];
   }
 }
 

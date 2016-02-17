@@ -32,7 +32,6 @@
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;
 
-
 @end
 
 @implementation XMMContentBlock9TableViewCell
@@ -79,7 +78,6 @@ static bool showContentLinks;
 - (void)setupMapView {
   self.mapView.delegate = self;
   self.mapView.showsUserLocation = YES;
-  
 }
 
 - (void)setupLocationManager {
@@ -152,7 +150,7 @@ static bool showContentLinks;
     return;
   }
   
-  [api spotsWithTags:[self.spotMapTags componentsSeparatedByString:@","] pageSize:10 cursor:nil options:XMMSpotOptionsNone sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithTags:[self.spotMapTags componentsSeparatedByString:@","] pageSize:10 cursor:nil options:XMMSpotOptionsIncludeContent sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     [[XMMContentBlocksCache sharedInstance] saveSpotMap:spots key:self.spotMapTags];
     
     [self.loadingIndicator stopAnimating];
@@ -179,7 +177,11 @@ static bool showContentLinks;
     //calculate
     CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
     CLLocationDistance distance = [self.locationManager.location distanceFromLocation:annotationLocation];
-    annotation.distance = [NSString stringWithFormat:@"Entfernung: %d Meter", (int)distance];
+    if (distance < 1000) {
+      annotation.distance = [NSString stringWithFormat:@"%@: %d m", NSLocalizedString(@"Distance", nil), (int)distance];
+    } else {
+      annotation.distance = [NSString stringWithFormat:@"%@: %0.1f km", NSLocalizedString(@"Distance", nil), distance/1000];
+    }
     
     [self.mapView addAnnotation:annotation];
   }

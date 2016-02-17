@@ -37,9 +37,8 @@
   
   self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
   
-  
-  
   self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
+  self.blocks.delegate = self;
   
   [self displayContent];
 }
@@ -59,6 +58,10 @@
   [self spotsWithLocation];
   [self spotsWithTags];
   [self system];
+}
+
+- (void)didClickContentBlock:(NSString *)contentID {
+  NSLog(@"DidClockContentBlock: %@", contentID);
 }
 
 - (void)contentWithID {
@@ -155,7 +158,7 @@
 }
 
 - (void)spotsWithTags {
-  [self.api spotsWithTags:@[@"tag1"] pageSize:10 cursor:nil options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [self.api spotsWithTags:@[@"tag1"] pageSize:10 cursor:nil options:XMMSpotOptionsIncludeContent sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
