@@ -59,7 +59,7 @@
 		460D310613F099F656548C54D47F7A37 /* XMMMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AEE32446F36F1BDDB6D331FD4A91E7 /* XMMMenu.m */; };
 		48E0DD3D828294E791765BF70A811247 /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D499A54CC5778BD3B18062510D29E7 /* Pods-Example-dummy.m */; };
 		495C3D417DB2E8CC8ABEE0F7F36C561D /* XMMMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 91939CFEFD01738044F7F0B5182960BF /* XMMMarker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49EA75D25DC22642DC1CECD7A7F3FA60 /* XMMContentBlock8TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8EE9E0FB3208E98ACE7532B50734FE /* XMMContentBlock8TableViewCell.xib */; };
+		49EA75D25DC22642DC1CECD7A7F3FA60 /* XMMContentBlock8TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F02C99037FB0E3A1AF6971CBCFCFB8C /* XMMContentBlock8TableViewCell.xib */; };
 		4CF0A4AD04F2F3CF7465991A5E76AD47 /* OCMStubRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = C881627A50528B02D5B9756CD7410592 /* OCMStubRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4EAE2FC2C4B93ADC467493CA176EC20F /* XMMMapOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E00C7E502DEC468B298631E7CEAC86 /* XMMMapOverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		508AF026F89D77B25EFD27806D68897D /* JAMStyledBezierPathFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 53E7AC864A862E9F62FD797026168E07 /* JAMStyledBezierPathFactory.m */; };
@@ -97,7 +97,7 @@
 		706A6D317331794ED797F2EA3EBEA469 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 32CD06D8A09B38BB6DF8FC291E662EC4 /* UIView+WebCacheOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		70AC31D0736F568C0386716176361D09 /* OCMInvocationMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = FCB7D988347ED0BE2F426B1DAAC64182 /* OCMInvocationMatcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		71899DFD8094C412FFC39669279B4533 /* OCMBlockArgCaller.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B3D6F5EEC3B11512894B7B8BC5E34D /* OCMBlockArgCaller.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		72B07D71DB58C07F7DCE333828124342 /* XMMContentBlock3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B30BD8DFC6E7C698A41F01D58E778D8 /* XMMContentBlock3TableViewCell.xib */; };
+		72B07D71DB58C07F7DCE333828124342 /* XMMContentBlock3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE96989CA8181433BFE8A25B6C4DAB2 /* XMMContentBlock3TableViewCell.xib */; };
 		751F5F0175D684FCA28EA1D28E930E13 /* XMMEnduserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC783AE711A4FE17368DAD24FC76F04 /* XMMEnduserApi.m */; };
 		7707F60A2B0509E8005696ACB9428B64 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = EE92B0434FCDA468AB8B0B3AC8C3D977 /* UIImage+animatedGIF.m */; };
 		78A5A0D1A988510C4A550C4EE57C6251 /* XMMSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8364181BEDCCA528C23FC63C3903FBF3 /* XMMSystem.m */; };
@@ -111,7 +111,7 @@
 		87AA263FA688A8E92C2B8ADEE72C98C6 /* OCMObserverRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 77C4536794DB38D994DB713890A0A54E /* OCMObserverRecorder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8829EE2BF26F04C73411540A1D4EB2D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4630A6644E76AADF263AE66897C3F8DF /* Foundation.framework */; };
 		88A18E9980B327B4EBEE5351A88D2469 /* XMMStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = D46545CE525D83F63CFB74DC75A9C020 /* XMMStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		89EAFC90C317D99EE9E8E2BACAEADA54 /* XMMContentBlock0TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2929E136DD14F86711DFD388FAE928C8 /* XMMContentBlock0TableViewCell.xib */; };
+		89EAFC90C317D99EE9E8E2BACAEADA54 /* XMMContentBlock0TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AB27907312F0925B063020797631A45 /* XMMContentBlock0TableViewCell.xib */; };
 		8A1370FF0DD475F945954535A988ED4B /* OCMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD7C8FDFF8B44D5AE270A4915455BCC /* OCMockObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D228361016085B70E0FF3456A54F9DB /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 05ABFD22630BCF3E088B64997E1D480B /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D40AF80800C0D4A691F4A0656E53D98 /* OCMRealObjectForwarder.h in Headers */ = {isa = PBXBuildFile; fileRef = D66B5A47D438030EC6F815394DE2E731 /* OCMRealObjectForwarder.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -122,7 +122,7 @@
 		91CA79A694DD6B3B236C62942D153571 /* JSONAPIResourceParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B24068B043E4A737095ADF7BB4FB041A /* JSONAPIResourceParser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		9275471FDBED18F0739683E702726CCF /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB0C0F728CA8FC28135264837CF9137 /* SDWebImageDownloader.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		937B6B966483042EB1337233E3F4B9DC /* JAMSVGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF7E9277806B976EA665D4D47C78919 /* JAMSVGImageView.m */; };
-		939976484B4A21E3568B24E88715468F /* XMMContentBlock2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EED7C06D417887F990F3F06F3353EDE /* XMMContentBlock2TableViewCell.xib */; };
+		939976484B4A21E3568B24E88715468F /* XMMContentBlock2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C157A28873970945AFC76A973538A5BF /* XMMContentBlock2TableViewCell.xib */; };
 		94216C983E91F2BA503920465DE1972A /* OCClassMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 074B1108E114C53CECA66C27BFFCF59C /* OCClassMockObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		950C209E1D004EBDCD43D6C2136B5AA2 /* OCMStubRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = D4D516379B8A5DF9DB193DB906694090 /* OCMStubRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95B07D834F155B91EA7F1EF70E05FDEA /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD9BB7D684B9F675151A8285002B63F6 /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -146,16 +146,16 @@
 		B28B82281F2A75B1A27E9B1B289B179D /* OCClassMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F794EE452AFBD656D65FE546BA3EA /* OCClassMockObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B2A2073824E597F6534A5BB87932BE3D /* JSONAPIPropertyDescriptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 941A6A2367983F6F23E071AE5C2A90E9 /* JSONAPIPropertyDescriptor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B36995CF7E36CC57C8C118EC5EC049A6 /* OCMock-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D30B60C5299BEE2ED00B73E6FA57F7 /* OCMock-dummy.m */; };
-		B3B012D2353210E24BECE7FDE15DB862 /* XMMContentBlock6TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67330C4143FA06B89D9BDC13F90B0655 /* XMMContentBlock6TableViewCell.xib */; };
+		B3B012D2353210E24BECE7FDE15DB862 /* XMMContentBlock6TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CFCD7AC061C4EE0D9EB204295701A4C /* XMMContentBlock6TableViewCell.xib */; };
 		B4D6973B3F74EB04E719BFCFCBF04C0B /* OCMInvocationStub.m in Sources */ = {isa = PBXBuildFile; fileRef = FB71D8CDF50E20EA9D0AFD3C0059199A /* OCMInvocationStub.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B545A4ABAB40A7F1A08BC1B41B3CC423 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 944CAFF1589E534AD6C7E12F318A34C8 /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B621A8EB3D2BF114849945DCE59F418E /* XMMMapOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF6E125721520D81F152EF3B7181B151 /* XMMMapOverlayView.xib */; };
+		B621A8EB3D2BF114849945DCE59F418E /* XMMMapOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB78E6616AF3168162DACF534B7EA7A0 /* XMMMapOverlayView.xib */; };
 		B7234CB00F56E86827179A8C145F6ECA /* UIImage+animatedGIF.h in Headers */ = {isa = PBXBuildFile; fileRef = EF0691183A70C0FBBD36F4ECB7D085D7 /* UIImage+animatedGIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B75BBFD6D5433618E73FADC2A43C5347 /* XMMContentBlock3TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A236CE1CA5832342E59535765BA9603D /* XMMContentBlock3TableViewCell.m */; };
 		B79D2BD2F128086FDB3943D007F943CE /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD7F0017BECB5283F1F23C86870A3A2 /* YTPlayerView.m */; };
 		B86D24B9FC5BB06D3FDC6C3446243CE0 /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 913942FF2C8E9B9D1241CADD452F0C47 /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC7143B82E45DDE808B1D8E8F6970E41 /* OCMInvocationExpectation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CB8561E93CB216E5108114C38A8ED21 /* OCMInvocationExpectation.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BD0E21EC31981F6680980EF5BC519903 /* XMMContentBlock1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47896309D5AE36DAAB4F9D51C8E21C17 /* XMMContentBlock1TableViewCell.xib */; };
+		BD0E21EC31981F6680980EF5BC519903 /* XMMContentBlock1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8CC5ECBB9A4216AA2B4AFE422AAA41 /* XMMContentBlock1TableViewCell.xib */; };
 		BE12F6DE0FC1EA8B5A518067CDB660B1 /* XMMContentBlock0TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C40156A022EB6C712B34346053CF805A /* XMMContentBlock0TableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C01520F21314A4A11E0BD5C9BE190A1A /* OCMExpectationRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5515AB98D14963071774E1307279E5C4 /* OCMExpectationRecorder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C1420B880D2314DC6E87A3205FA95C76 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA5093B75073A4A2BF7CB46F801CAC1 /* NSData+ImageContentType.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -169,7 +169,7 @@
 		C6DEDAD5B01946A2644F428020F881B6 /* OCObserverMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1079AD2DE0E7B7126BCDB0DC5664E2 /* OCObserverMockObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C739C3954D2939A591DD9C8E5E47B533 /* XMMContentBlock2TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AF3B2A3F5D645C5087080BDAC41905E /* XMMContentBlock2TableViewCell.m */; };
 		C796F27878B148315E4EB60535EEA4BE /* OCMLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ABD03577D55A14F3592922D3825474F /* OCMLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C83F20CA572CE7FF4E0BE7EA10EE73C2 /* XMMContentBlock7TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDFE7D240430992927E35581B2AF68F /* XMMContentBlock7TableViewCell.xib */; };
+		C83F20CA572CE7FF4E0BE7EA10EE73C2 /* XMMContentBlock7TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B941210A6223AF3F45D8B9B43297F7 /* XMMContentBlock7TableViewCell.xib */; };
 		C942F2BD68F9121E854A12412FE5EA7D /* XMMContentBlock7TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F34CAEC5695808010D7BD3DCD742BB /* XMMContentBlock7TableViewCell.m */; };
 		CA4A91829D93055FAB5EDCEE36F017DE /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC5F40430CE7666A670959905029FBD /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		CBFC5CA803FF3A612CB0DC2BF5E7B59C /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 90435C238558795086ABEFF825876A76 /* UIButton+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -193,8 +193,8 @@
 		D84521E814B9D11C99312E39BFAEDE8A /* JSONAPIResource.h in Headers */ = {isa = PBXBuildFile; fileRef = EA40A610C7C6C7E0FDBF64F36F9F53B1 /* JSONAPIResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D89139562D36B8ECA26BE8F9987BD117 /* XMMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E0789155CA1BB3B1C7745496348243 /* XMMMenuItem.m */; };
 		D9EA9C8052853B8962318FFD5A5551B6 /* OCMExceptionReturnValueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = AE6712126A24505D4758C5CAA99204B1 /* OCMExceptionReturnValueProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DA44374738123577D401D35AF6146294 /* XMMContentBlock9TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 372D879C55FCA501AD951521736E63B3 /* XMMContentBlock9TableViewCell.xib */; };
-		DA853319C6F72FCFB350D180E89CE3B7 /* XMMContentBlock4TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09FE56620E450C2B0800D27040FCCF2C /* XMMContentBlock4TableViewCell.xib */; };
+		DA44374738123577D401D35AF6146294 /* XMMContentBlock9TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7904317C5F36BF73A83296E10958437B /* XMMContentBlock9TableViewCell.xib */; };
+		DA853319C6F72FCFB350D180E89CE3B7 /* XMMContentBlock4TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 762875DDD5E14AE3E6DDD57FC9F3F049 /* XMMContentBlock4TableViewCell.xib */; };
 		DADACF239B30C047FA9304E5FDDA8B2E /* NSObject+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D338DA100E27A9F16114630049A2907 /* NSObject+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DC5DF4EB8B15EDD1E4C7483A49C5F71D /* XMMMusicPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 18924C4010CD752BF7AADAAB9764D073 /* XMMMusicPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DCAF7E7898E3579994B59BB93831EFDC /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D891CC68716D746141E31C726B806ED8 /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -204,7 +204,7 @@
 		E00ABE7FC44CB9D1B511D96D47C16AD5 /* NSInvocation+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 792E86C85FB6F8D81F8E3A53F3D0E9F8 /* NSInvocation+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E00E9D76B2084E39F319D7FDEA4E0E82 /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1A7619FE67EB2BFD487EAA13AE7058 /* youtube-ios-player-helper-dummy.m */; };
 		E030BBCE1A529A4280D01EFB23F85EA6 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C02B64FC676839DCD76072A2CEEBB6D7 /* SDWebImagePrefetcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		E12603AD5857739D50863BA3DDDD091F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25FECD5085759BAED3EF61F44ACA20A0 /* Images.xcassets */; };
+		E12603AD5857739D50863BA3DDDD091F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4226AA31493865A9864A14D95F05FEA3 /* Images.xcassets */; };
 		E199BEE38AD3AB273FE3BE57FAB24573 /* XMMContentBlock1TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 1767A29EEB88CCFA1AFE65135B3A3F7E /* XMMContentBlock1TableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1AD5AAF1798317E08867A2DAB5ED356 /* JAMSVGGradientParts.m in Sources */ = {isa = PBXBuildFile; fileRef = 7824DD019B5AC656674CAEDFC17EED24 /* JAMSVGGradientParts.m */; };
 		E2D2C2DEBBB651077ABC3710A423594F /* NSValue+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A35010EF16D0D45D4FDECB1AED021309 /* NSValue+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -220,7 +220,7 @@
 		ED17F1980F0FADBEDB12DB3B0AF1EEB9 /* JAMSVGButton.h in Headers */ = {isa = PBXBuildFile; fileRef = EB0001012421923F6277642E440D11D4 /* JAMSVGButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE9D8C37BF01B20346DFCD54F18095A0 /* XMMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ED1B49D89F7C86EAB2A4753531EE649 /* XMMMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EEBEC3C68DD8C679511876B4610D582A /* OCMBoxedReturnValueProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2E139439D4C7EAFA927494B5C3CEF5 /* OCMBoxedReturnValueProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		EF43F2F3D9DDABB9A7C370926B1BFE5D /* XMMContentBlock5TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE05112C21A2C066C95D523BE6601271 /* XMMContentBlock5TableViewCell.xib */; };
+		EF43F2F3D9DDABB9A7C370926B1BFE5D /* XMMContentBlock5TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7184F3AB0CA18EDE5E83B95C0479C533 /* XMMContentBlock5TableViewCell.xib */; };
 		F0E9BE1709D8B3501A9E791E8D36FBED /* NSNotificationCenter+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E13947E778EF3EA9A2AE0527C86F50 /* NSNotificationCenter+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F1A11863722D9C5696F9F81615B74FE1 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = B5891AF096E3D9BA2B3BAED888233602 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F2C0AB05BAEFAE9FDBC62BC778A4D0C1 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 74BB9CC3363F078DEA5DC3BEEA1324BD /* UIImageView+HighlightedWebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -399,12 +399,12 @@
 		074B1108E114C53CECA66C27BFFCF59C /* OCClassMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCClassMockObject.h; path = Source/OCMock/OCClassMockObject.h; sourceTree = "<group>"; };
 		07B3D6F5EEC3B11512894B7B8BC5E34D /* OCMBlockArgCaller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMBlockArgCaller.h; path = Source/OCMock/OCMBlockArgCaller.h; sourceTree = "<group>"; };
 		08F7A0DC3A2C9816C4600F33D5136A1B /* OCMInvocationStub.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMInvocationStub.h; path = Source/OCMock/OCMInvocationStub.h; sourceTree = "<group>"; };
-		09FE56620E450C2B0800D27040FCCF2C /* XMMContentBlock4TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock4TableViewCell.xib; sourceTree = "<group>"; };
 		0B08981569828FDD254A43206AAE056B /* XMMQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMQuery.m; sourceTree = "<group>"; };
 		0B84648C49024F525116D10A7A24FACD /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
 		0C1079AD2DE0E7B7126BCDB0DC5664E2 /* OCObserverMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCObserverMockObject.h; path = Source/OCMock/OCObserverMockObject.h; sourceTree = "<group>"; };
 		0C942A5197B1A17989B5909C59C66A6D /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		0CD1863A8879D87A94D4590BFBC73941 /* Pods-XamoomSDK-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XamoomSDK-resources.sh"; sourceTree = "<group>"; };
+		0CFCD7AC061C4EE0D9EB204295701A4C /* XMMContentBlock6TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock6TableViewCell.xib; sourceTree = "<group>"; };
 		0EB4BECD4F63A01ACABD21DC20D73031 /* XMMMapOverlayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMMapOverlayView.m; sourceTree = "<group>"; };
 		0F65BEEA71DDEE5F1AA2FDCA3D8100CC /* Pods-XamoomSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XamoomSDK-dummy.m"; sourceTree = "<group>"; };
 		1226B05AA6AFF73078E476B622B5ED2B /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
@@ -431,13 +431,11 @@
 		230E5C82651489CA98DCD0C3ABCFFCED /* JAMSVGParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JAMSVGParser.m; path = "Classes/JAMSVGImage/Path and Parser/JAMSVGParser.m"; sourceTree = "<group>"; };
 		2411CB984889384447C060E8BB91ECAB /* XMMContentBlock4TableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock4TableViewCell.h; sourceTree = "<group>"; };
 		24382B5BDF85EE923107DA2611857195 /* XMMContentBlock3TableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock3TableViewCell.h; sourceTree = "<group>"; };
-		25FECD5085759BAED3EF61F44ACA20A0 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		260B61E8F78C4062AE9362F931E3ACD2 /* NSDateFormatter+JSONAPIDateFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+JSONAPIDateFormatter.m"; path = "Classes/NSDateFormatter+JSONAPIDateFormatter.m"; sourceTree = "<group>"; };
 		26FCB71B39A8CDA79A5009C88908DBF5 /* NSMethodSignature+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMethodSignature+OCMAdditions.h"; path = "Source/OCMock/NSMethodSignature+OCMAdditions.h"; sourceTree = "<group>"; };
 		2707CB4BDCEB07B3D982EB891437AB91 /* libJSONAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJSONAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		289BE5B4666E8D51CA038A7B6E270986 /* JAMSVGUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JAMSVGUtilities.m; path = Classes/JAMSVGImage/Utilities/JAMSVGUtilities.m; sourceTree = "<group>"; };
 		28A148B57A8E31788054B0F755CFF0E2 /* JSONAPIErrorResource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONAPIErrorResource.h; path = Classes/JSONAPIErrorResource.h; sourceTree = "<group>"; };
-		2929E136DD14F86711DFD388FAE928C8 /* XMMContentBlock0TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock0TableViewCell.xib; sourceTree = "<group>"; };
 		29BB92211FAD7749D7111367D759CD05 /* XMMContentBlock0TableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock0TableViewCell.m; sourceTree = "<group>"; };
 		2ADDF593C5D8BC95B588C4126F8178C7 /* XMMAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMAnnotation.m; sourceTree = "<group>"; };
 		2B85D6F24C42453B1655A93BC0B2F36A /* JAMStyledBezierPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JAMStyledBezierPath.m; path = "Classes/JAMSVGImage/Path and Parser/JAMStyledBezierPath.m"; sourceTree = "<group>"; };
@@ -454,21 +452,21 @@
 		34282FEFA99D99C748E716C134C71069 /* XMMContentBlock6TableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock6TableViewCell.m; sourceTree = "<group>"; };
 		34D49D78E740683A2AB53AD0F0520C85 /* XMMRestClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMRestClient.m; sourceTree = "<group>"; };
 		35492E5567A5F1D3CD53112271263C9C /* XamoomSDKNibs.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKNibs.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		372D879C55FCA501AD951521736E63B3 /* XMMContentBlock9TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock9TableViewCell.xib; sourceTree = "<group>"; };
 		38AA06B1E28AFDA94E98C1A0AC2B4B7D /* OCMMacroState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMMacroState.m; path = Source/OCMock/OCMMacroState.m; sourceTree = "<group>"; };
 		3AFA12938B6F761DC4C9590313EFE04A /* JSONAPIResourceDescriptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONAPIResourceDescriptor.m; path = Classes/JSONAPIResourceDescriptor.m; sourceTree = "<group>"; };
 		3BCD2CAF1062CF55BE118519A5C47125 /* OCPartialMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCPartialMockObject.h; path = Source/OCMock/OCPartialMockObject.h; sourceTree = "<group>"; };
+		3CE96989CA8181433BFE8A25B6C4DAB2 /* XMMContentBlock3TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock3TableViewCell.xib; sourceTree = "<group>"; };
 		3E7A22EABF0675CCC03674CC373272D3 /* JAMSVGImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JAMSVGImage.m; path = "Classes/JAMSVGImage/SVG Image/JAMSVGImage.m"; sourceTree = "<group>"; };
 		3EB9F018117DEEBDF8A03131C488E669 /* OCMArgAction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMArgAction.m; path = Source/OCMock/OCMArgAction.m; sourceTree = "<group>"; };
 		3F6D3C9775492DF521E4FF352B010A96 /* NSInvocation+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+OCMAdditions.h"; path = "Source/OCMock/NSInvocation+OCMAdditions.h"; sourceTree = "<group>"; };
 		41CF8BE1A6AE6CA26F11655F6D80C92A /* Pods-XamoomSDKTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XamoomSDKTests-dummy.m"; sourceTree = "<group>"; };
+		4226AA31493865A9864A14D95F05FEA3 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		42614559E1F8BA0DC0D857E6CF872A46 /* Pods-XamoomSDKTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XamoomSDKTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		437C83107DE74112F3E54D1A6CAFC478 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4543AC4A44100F7F18ED30475EAD84C9 /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4611341B66F5AD1AB8F48CFE33247961 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
 		4630A6644E76AADF263AE66897C3F8DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4728C32FC5E18BCE9628CE2AD7AF351E /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
-		47896309D5AE36DAAB4F9D51C8E21C17 /* XMMContentBlock1TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock1TableViewCell.xib; sourceTree = "<group>"; };
 		484DDC490311870DCC5BF71606012850 /* JAMStyledBezierPathFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JAMStyledBezierPathFactory.h; path = "Classes/JAMSVGImage/Path and Parser/JAMStyledBezierPathFactory.h"; sourceTree = "<group>"; };
 		49C75571ECF24AA6DAC3AB6A2ECABE8B /* OCMPassByRefSetter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMPassByRefSetter.h; path = Source/OCMock/OCMPassByRefSetter.h; sourceTree = "<group>"; };
 		4AF3B2A3F5D645C5087080BDAC41905E /* XMMContentBlock2TableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock2TableViewCell.m; sourceTree = "<group>"; };
@@ -484,6 +482,7 @@
 		50BCD502255E4F5C216D1527C155BEA3 /* OCMMacroState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMMacroState.h; path = Source/OCMock/OCMMacroState.h; sourceTree = "<group>"; };
 		51816B61F405CD362184B1CBF0359B6A /* XMMStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMStyle.m; sourceTree = "<group>"; };
 		51A736640AD1187092AEA5B9E8F7C88D /* JSONAPIErrorResource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONAPIErrorResource.m; path = Classes/JSONAPIErrorResource.m; sourceTree = "<group>"; };
+		51B941210A6223AF3F45D8B9B43297F7 /* XMMContentBlock7TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock7TableViewCell.xib; sourceTree = "<group>"; };
 		523AA5F63D811E66AF2FD230C3AC6D17 /* JSONAPI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JSONAPI-prefix.pch"; sourceTree = "<group>"; };
 		533D8236E70BC15A1C31051A21BBBA15 /* OCMBlockArgCaller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBlockArgCaller.m; path = Source/OCMock/OCMBlockArgCaller.m; sourceTree = "<group>"; };
 		53410477B3D77B151CE924C4FACA26C6 /* JAMSVGImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JAMSVGImage-prefix.pch"; sourceTree = "<group>"; };
@@ -505,18 +504,21 @@
 		62A1007513B625A86AC2C21C0E3229DD /* OCMConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMConstraint.h; path = Source/OCMock/OCMConstraint.h; sourceTree = "<group>"; };
 		62E00C7E502DEC468B298631E7CEAC86 /* XMMMapOverlayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMMapOverlayView.h; sourceTree = "<group>"; };
 		65E6EBD0D04C234EA8B392E0E22469D6 /* OCMBlockCaller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBlockCaller.m; path = Source/OCMock/OCMBlockCaller.m; sourceTree = "<group>"; };
-		67330C4143FA06B89D9BDC13F90B0655 /* XMMContentBlock6TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock6TableViewCell.xib; sourceTree = "<group>"; };
 		68BFF0B6F1AB7E4D7E38D01FEAF39D52 /* XMMContentBlock8TableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock8TableViewCell.m; sourceTree = "<group>"; };
 		69C68821D3BEAB83C2C0E0799C182FB1 /* OCMBlockCaller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMBlockCaller.h; path = Source/OCMock/OCMBlockCaller.h; sourceTree = "<group>"; };
 		69D499A54CC5778BD3B18062510D29E7 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
 		69F34CAEC5695808010D7BD3DCD742BB /* XMMContentBlock7TableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock7TableViewCell.m; sourceTree = "<group>"; };
 		6B0573C8825CA9217BB4229441DBA6D0 /* OCMVerifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMVerifier.h; path = Source/OCMock/OCMVerifier.h; sourceTree = "<group>"; };
 		6DFB91796B5ACD79B7842C48D2778811 /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		6F02C99037FB0E3A1AF6971CBCFCFB8C /* XMMContentBlock8TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock8TableViewCell.xib; sourceTree = "<group>"; };
 		7000E6EE8F9A0C4F257145B49520BA95 /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
+		7184F3AB0CA18EDE5E83B95C0479C533 /* XMMContentBlock5TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock5TableViewCell.xib; sourceTree = "<group>"; };
 		74BB9CC3363F078DEA5DC3BEEA1324BD /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
+		762875DDD5E14AE3E6DDD57FC9F3F049 /* XMMContentBlock4TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock4TableViewCell.xib; sourceTree = "<group>"; };
 		77C4536794DB38D994DB713890A0A54E /* OCMObserverRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMObserverRecorder.h; path = Source/OCMock/OCMObserverRecorder.h; sourceTree = "<group>"; };
 		7824DD019B5AC656674CAEDFC17EED24 /* JAMSVGGradientParts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JAMSVGGradientParts.m; path = "Classes/JAMSVGImage/Path and Parser/JAMSVGGradientParts.m"; sourceTree = "<group>"; };
 		78C9E5431CE357FDB2A34249DB7E75F0 /* XMMEnduserApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMEnduserApi.h; sourceTree = "<group>"; };
+		7904317C5F36BF73A83296E10958437B /* XMMContentBlock9TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock9TableViewCell.xib; sourceTree = "<group>"; };
 		792E86C85FB6F8D81F8E3A53F3D0E9F8 /* NSInvocation+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+OCMAdditions.m"; path = "Source/OCMock/NSInvocation+OCMAdditions.m"; sourceTree = "<group>"; };
 		7A30095599A6D6549F9C7944CA724953 /* OCMock-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OCMock-prefix.pch"; sourceTree = "<group>"; };
 		7AD7C8FDFF8B44D5AE270A4915455BCC /* OCMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMockObject.h; path = Source/OCMock/OCMockObject.h; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 		840EF9C190D38E29A58B78D717772697 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		8483CFB3123634F50849AE399B6303C9 /* OCMIndirectReturnValueProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMIndirectReturnValueProvider.m; path = Source/OCMock/OCMIndirectReturnValueProvider.m; sourceTree = "<group>"; };
 		874F043072BF17A0BC25F4C0E5A6FA2C /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		8AB27907312F0925B063020797631A45 /* XMMContentBlock0TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock0TableViewCell.xib; sourceTree = "<group>"; };
 		8ABD03577D55A14F3592922D3825474F /* OCMLocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMLocation.h; path = Source/OCMock/OCMLocation.h; sourceTree = "<group>"; };
 		8B8D17B62323CFBC549A521CB0FB2A89 /* OCMFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMFunctions.m; path = Source/OCMock/OCMFunctions.m; sourceTree = "<group>"; };
 		8BB785B10E13406EEB7B9F32FD129483 /* XMMContentBlock2TableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock2TableViewCell.h; sourceTree = "<group>"; };
@@ -549,11 +552,10 @@
 		941A6A2367983F6F23E071AE5C2A90E9 /* JSONAPIPropertyDescriptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONAPIPropertyDescriptor.h; path = Classes/JSONAPIPropertyDescriptor.h; sourceTree = "<group>"; };
 		944CAFF1589E534AD6C7E12F318A34C8 /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
 		967AE9B4C8088DA7574B0AD8971D8407 /* XMMContentBlock5TableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock5TableViewCell.m; sourceTree = "<group>"; };
-		9B30BD8DFC6E7C698A41F01D58E778D8 /* XMMContentBlock3TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock3TableViewCell.xib; sourceTree = "<group>"; };
 		9BD3567FF291E947007C7285418B0065 /* JAMSVGImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JAMSVGImage.xcconfig; sourceTree = "<group>"; };
 		9C2E139439D4C7EAFA927494B5C3CEF5 /* OCMBoxedReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMBoxedReturnValueProvider.h; path = Source/OCMock/OCMBoxedReturnValueProvider.h; sourceTree = "<group>"; };
 		9D000A0EC9CDA08029F0A248C7F8BDCB /* OCMock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OCMock.xcconfig; sourceTree = "<group>"; };
-		9EED7C06D417887F990F3F06F3353EDE /* XMMContentBlock2TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock2TableViewCell.xib; sourceTree = "<group>"; };
+		9D8CC5ECBB9A4216AA2B4AFE422AAA41 /* XMMContentBlock1TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock1TableViewCell.xib; sourceTree = "<group>"; };
 		9F46C8DFF60C291B453BA20AFC8C326C /* youtube-ios-player-helper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.xcconfig"; sourceTree = "<group>"; };
 		9F977E4FF7E2A0BB2D5D7E255CF0AB95 /* XMMContentBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMContentBlocks.h; sourceTree = "<group>"; };
 		A236CE1CA5832342E59535765BA9603D /* XMMContentBlock3TableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock3TableViewCell.m; sourceTree = "<group>"; };
@@ -568,9 +570,7 @@
 		ABE63B64FE141E0B297DCA2EC4B956D9 /* Pods-XamoomSDK-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XamoomSDK-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ACC98331F0195754542096B8F1D57EFD /* Pods-XamoomSDK-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XamoomSDK-frameworks.sh"; sourceTree = "<group>"; };
 		AD9BB7D684B9F675151A8285002B63F6 /* YTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTPlayerView.h; path = Classes/YTPlayerView.h; sourceTree = "<group>"; };
-		AE05112C21A2C066C95D523BE6601271 /* XMMContentBlock5TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock5TableViewCell.xib; sourceTree = "<group>"; };
 		AE6712126A24505D4758C5CAA99204B1 /* OCMExceptionReturnValueProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMExceptionReturnValueProvider.m; path = Source/OCMock/OCMExceptionReturnValueProvider.m; sourceTree = "<group>"; };
-		AEDFE7D240430992927E35581B2AF68F /* XMMContentBlock7TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock7TableViewCell.xib; sourceTree = "<group>"; };
 		B00D288058245BF409B980BF49D6A7A2 /* XMMContentBlock.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock.m; sourceTree = "<group>"; };
 		B090B9D04189EC94B0FD3AA085842862 /* JAMStyledBezierPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JAMStyledBezierPath.h; path = "Classes/JAMSVGImage/Path and Parser/JAMStyledBezierPath.h"; sourceTree = "<group>"; };
 		B24068B043E4A737095ADF7BB4FB041A /* JSONAPIResourceParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONAPIResourceParser.m; path = Classes/JSONAPIResourceParser.m; sourceTree = "<group>"; };
@@ -583,7 +583,9 @@
 		BCA31A5D720E153E65C73127D0AF5925 /* XMMContentBlocksCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksCache.m; sourceTree = "<group>"; };
 		BCD5C954D940C17CB28177FFC43864F5 /* JSONAPIResourceBase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONAPIResourceBase.m; path = Classes/JSONAPIResourceBase.m; sourceTree = "<group>"; };
 		C02B64FC676839DCD76072A2CEEBB6D7 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		C157A28873970945AFC76A973538A5BF /* XMMContentBlock2TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock2TableViewCell.xib; sourceTree = "<group>"; };
 		C2AAFDB767AC1584C99B9E88BB803338 /* XMMAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMAnnotation.h; sourceTree = "<group>"; };
+		C302BFAFA101E31292129926BDC85A6A /* de.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = de.lproj; sourceTree = "<group>"; };
 		C40156A022EB6C712B34346053CF805A /* XMMContentBlock0TableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock0TableViewCell.h; sourceTree = "<group>"; };
 		C45792E1AE3E097CCD2AB838C2DC4F6C /* Assets.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Assets.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		C544E6683883BDABA5C2AD1F57C9CF02 /* XMMContentBlock9TableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock9TableViewCell.h; sourceTree = "<group>"; };
@@ -596,14 +598,13 @@
 		CBD7F0017BECB5283F1F23C86870A3A2 /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
 		CBF9091AF1123BC6C3C87D4CF8129555 /* JSONAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONAPI.h; path = Classes/JSONAPI.h; sourceTree = "<group>"; };
 		CC1CBD2E89081C3D35C10B859E4FDDA1 /* XamoomSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XamoomSDK.xcconfig; sourceTree = "<group>"; };
-		CE8EE9E0FB3208E98ACE7532B50734FE /* XMMContentBlock8TableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMContentBlock8TableViewCell.xib; sourceTree = "<group>"; };
-		CF6E125721520D81F152EF3B7181B151 /* XMMMapOverlayView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMMapOverlayView.xib; sourceTree = "<group>"; };
 		CFFD3CB5E6D8290860E8EE69FE28626D /* Pods-XamoomSDKTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XamoomSDKTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D1FF1E2F6B41D621C6CE87508675C066 /* OCMBoxedReturnValueProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBoxedReturnValueProvider.m; path = Source/OCMock/OCMBoxedReturnValueProvider.m; sourceTree = "<group>"; };
 		D34D72C4E80108E67D539BC7F3BAB7F8 /* JAMSVGUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JAMSVGUtilities.h; path = Classes/JAMSVGImage/Utilities/JAMSVGUtilities.h; sourceTree = "<group>"; };
 		D46545CE525D83F63CFB74DC75A9C020 /* XMMStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMStyle.h; sourceTree = "<group>"; };
 		D4D516379B8A5DF9DB193DB906694090 /* OCMStubRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMStubRecorder.h; path = Source/OCMock/OCMStubRecorder.h; sourceTree = "<group>"; };
 		D5FB2C20A30836A420E7B1E080B2C5ED /* XMMContentBlock6TableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock6TableViewCell.h; sourceTree = "<group>"; };
+		D62B68D9EC3C9D2B235896D895142103 /* en.lproj */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		D66B5A47D438030EC6F815394DE2E731 /* OCMRealObjectForwarder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMRealObjectForwarder.h; path = Source/OCMock/OCMRealObjectForwarder.h; sourceTree = "<group>"; };
 		D68BC1EB5721FA8C03533BF5F25725D0 /* NSDateFormatter+JSONAPIDateFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+JSONAPIDateFormatter.h"; path = "Classes/NSDateFormatter+JSONAPIDateFormatter.h"; sourceTree = "<group>"; };
 		D6CEC37BA5B594BCE0EB19E1AD84716F /* XMMSpot.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XMMSpot.h; sourceTree = "<group>"; };
@@ -612,6 +613,7 @@
 		D8D6D2F2330C014234A22349D583845E /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
 		D9E7A1645265D23978412DC8BE7BDA1D /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		DB1ABD1A59C7CF40770AF0427F24B27F /* UIImage+SVG.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SVG.m"; path = "Classes/JAMSVGImage/SVG Image/UIImage+SVG.m"; sourceTree = "<group>"; };
+		DB78E6616AF3168162DACF534B7EA7A0 /* XMMMapOverlayView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = XMMMapOverlayView.xib; sourceTree = "<group>"; };
 		DC5CC67E7BDD363DBD8EE4C8574DD9F2 /* JAMSVGButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JAMSVGButton.m; path = "Classes/JAMSVGImage/UI and View/JAMSVGButton.m"; sourceTree = "<group>"; };
 		DC73C0FDC106A91ABA0DD866D5EABC50 /* Pods-XamoomSDK-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XamoomSDK-acknowledgements.plist"; sourceTree = "<group>"; };
 		DC74C41FF6E8B80E24378C4D12DB1B42 /* Pods-XamoomSDKTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XamoomSDKTests-resources.sh"; sourceTree = "<group>"; };
@@ -820,6 +822,15 @@
 			path = mapping;
 			sourceTree = "<group>";
 		};
+		0F89BB4937E7A4CA38CDEFBCA097AB7C /* ContentBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				6464D9F96287326D96884D210C59EB9B /* Blocks */,
+				9A3EDA3EF1279EAA03C61BAF2B238CC4 /* MapViews */,
+			);
+			path = ContentBlocks;
+			sourceTree = "<group>";
+		};
 		1A7C23B6C26509BD8822731BB335ED5C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -873,23 +884,6 @@
 			path = "Pods/Target Support Files/XamoomSDK";
 			sourceTree = "<group>";
 		};
-		311D1401732726CE556A87F5CD57D363 /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				2929E136DD14F86711DFD388FAE928C8 /* XMMContentBlock0TableViewCell.xib */,
-				47896309D5AE36DAAB4F9D51C8E21C17 /* XMMContentBlock1TableViewCell.xib */,
-				9EED7C06D417887F990F3F06F3353EDE /* XMMContentBlock2TableViewCell.xib */,
-				9B30BD8DFC6E7C698A41F01D58E778D8 /* XMMContentBlock3TableViewCell.xib */,
-				09FE56620E450C2B0800D27040FCCF2C /* XMMContentBlock4TableViewCell.xib */,
-				AE05112C21A2C066C95D523BE6601271 /* XMMContentBlock5TableViewCell.xib */,
-				67330C4143FA06B89D9BDC13F90B0655 /* XMMContentBlock6TableViewCell.xib */,
-				AEDFE7D240430992927E35581B2AF68F /* XMMContentBlock7TableViewCell.xib */,
-				CE8EE9E0FB3208E98ACE7532B50734FE /* XMMContentBlock8TableViewCell.xib */,
-				372D879C55FCA501AD951521736E63B3 /* XMMContentBlock9TableViewCell.xib */,
-			);
-			path = Blocks;
-			sourceTree = "<group>";
-		};
 		372A80CEC75B3A5C79043A370C6BF8A5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,21 +903,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		48B92996A1C029C0E3E2B1067D1A612D /* ContentBlocks */ = {
+		52EACC524326F333D17313EFC80A2591 /* XamoomSDK */ = {
 			isa = PBXGroup;
 			children = (
-				311D1401732726CE556A87F5CD57D363 /* Blocks */,
-				C0A00CCAE99BBE67E876C6E9749F659A /* MapViews */,
+				A4035B76DE49FA1D6E890C900606533C /* Assets */,
+				B410D79A80E3B31B3693878E3EB29179 /* Classes */,
 			);
-			path = ContentBlocks;
+			path = XamoomSDK;
 			sourceTree = "<group>";
 		};
-		496EE8AC5452B0B28011E57A51C10610 /* Classes */ = {
+		6464D9F96287326D96884D210C59EB9B /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				48B92996A1C029C0E3E2B1067D1A612D /* ContentBlocks */,
+				8AB27907312F0925B063020797631A45 /* XMMContentBlock0TableViewCell.xib */,
+				9D8CC5ECBB9A4216AA2B4AFE422AAA41 /* XMMContentBlock1TableViewCell.xib */,
+				C157A28873970945AFC76A973538A5BF /* XMMContentBlock2TableViewCell.xib */,
+				3CE96989CA8181433BFE8A25B6C4DAB2 /* XMMContentBlock3TableViewCell.xib */,
+				762875DDD5E14AE3E6DDD57FC9F3F049 /* XMMContentBlock4TableViewCell.xib */,
+				7184F3AB0CA18EDE5E83B95C0479C533 /* XMMContentBlock5TableViewCell.xib */,
+				0CFCD7AC061C4EE0D9EB204295701A4C /* XMMContentBlock6TableViewCell.xib */,
+				51B941210A6223AF3F45D8B9B43297F7 /* XMMContentBlock7TableViewCell.xib */,
+				6F02C99037FB0E3A1AF6971CBCFCFB8C /* XMMContentBlock8TableViewCell.xib */,
+				7904317C5F36BF73A83296E10958437B /* XMMContentBlock9TableViewCell.xib */,
 			);
-			path = Classes;
+			path = Blocks;
 			sourceTree = "<group>";
 		};
 		6D230A26F6346E5C261D5C0CBAC23EE4 /* Targets Support Files */ = {
@@ -991,6 +994,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9A3EDA3EF1279EAA03C61BAF2B238CC4 /* MapViews */ = {
+			isa = PBXGroup;
+			children = (
+				DB78E6616AF3168162DACF534B7EA7A0 /* XMMMapOverlayView.xib */,
+			);
+			path = MapViews;
+			sourceTree = "<group>";
+		};
 		9DA8C97A3F4CF3699636BD18F364D804 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -998,6 +1009,16 @@
 				84EC9F59E2059560683775BF3B900A53 /* Support Files */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		A4035B76DE49FA1D6E890C900606533C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C302BFAFA101E31292129926BDC85A6A /* de.lproj */,
+				D62B68D9EC3C9D2B235896D895142103 /* en.lproj */,
+				4226AA31493865A9864A14D95F05FEA3 /* Images.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		B3DCCDAD4355BD64B3E913EDC149FCA1 /* XamoomSDK */ = {
@@ -1008,13 +1029,12 @@
 			path = XamoomSDK;
 			sourceTree = "<group>";
 		};
-		BE0C69B7EBDAEE203A86EBFDE7C287A4 /* XamoomSDK */ = {
+		B410D79A80E3B31B3693878E3EB29179 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FC3A4E4DDA3D7EAFC42F380C7BC59A01 /* Assets */,
-				496EE8AC5452B0B28011E57A51C10610 /* Classes */,
+				0F89BB4937E7A4CA38CDEFBCA097AB7C /* ContentBlocks */,
 			);
-			path = XamoomSDK;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		BFAC7079A2905DD7CC997068423D931B /* Blocks */ = {
@@ -1057,14 +1077,6 @@
 			);
 			name = "Pods-XamoomSDKTests";
 			path = "Target Support Files/Pods-XamoomSDKTests";
-			sourceTree = "<group>";
-		};
-		C0A00CCAE99BBE67E876C6E9749F659A /* MapViews */ = {
-			isa = PBXGroup;
-			children = (
-				CF6E125721520D81F152EF3B7181B151 /* XMMMapOverlayView.xib */,
-			);
-			path = MapViews;
 			sourceTree = "<group>";
 		};
 		C131DC849CFD53D75468D010C9A44226 /* XamoomSDK */ = {
@@ -1152,7 +1164,7 @@
 		D78A92352E0FAFDFB25DB1A30C66A90A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BE0C69B7EBDAEE203A86EBFDE7C287A4 /* XamoomSDK */,
+				52EACC524326F333D17313EFC80A2591 /* XamoomSDK */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1283,14 +1295,6 @@
 				FE70A014AFCF492C7AEBACE2D835518A /* youtube-ios-player-helper */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		FC3A4E4DDA3D7EAFC42F380C7BC59A01 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				25FECD5085759BAED3EF61F44ACA20A0 /* Images.xcassets */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		FE70A014AFCF492C7AEBACE2D835518A /* youtube-ios-player-helper */ = {

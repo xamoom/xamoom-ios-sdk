@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '509B0B3A59D2629E84B424F0'
+               BlueprintIdentifier = '08445C30325416357EF88F90'
                BlueprintName = 'Pods-XamoomSDKTests'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-XamoomSDKTests.a'>
