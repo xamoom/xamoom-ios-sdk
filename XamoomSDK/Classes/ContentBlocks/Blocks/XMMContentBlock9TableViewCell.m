@@ -172,9 +172,9 @@ static bool showContentLinks;
    */
   
   // Add annotations
-  for (XMMSpot *item in spots) {
-    XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithLocation: CLLocationCoordinate2DMake(item.lat, item.lon)];
-    annotation.data = item;
+  for (XMMSpot *spot in spots) {
+    XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithName:spot.name withLocation:CLLocationCoordinate2DMake(spot.lat, spot.lon)];
+    annotation.data = spot;
     
     //calculate
     CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
@@ -226,6 +226,7 @@ static bool showContentLinks;
       annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
       annotationView.enabled = YES;
       annotationView.canShowCallout = YES;
+      annotationView.calloutOffset = CGPointMake(0, -1);
       
       //set mapmarker
       if(self.customMapMarker) {
@@ -245,6 +246,7 @@ static bool showContentLinks;
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)annotationView {
   if ([annotationView isKindOfClass:[MKAnnotationView class]]) {
     XMMAnnotation *annotation =  annotationView.annotation;
+    [self zoomToAnnotationWithAdditionView:annotation];
     [self openMapAdditionView:annotation];
   }
 }
@@ -256,6 +258,19 @@ static bool showContentLinks;
 }
 
 #pragma mark - Custom Methods
+
+- (void)zoomToAnnotationWithAdditionView:(XMMAnnotation *)annotation {
+  MKCoordinateRegion region;
+  
+  region.span.latitudeDelta = MINIMUM_ZOOM_ARC;
+  region.span.longitudeDelta = MINIMUM_ZOOM_ARC;
+  
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude-0.003 longitude:annotation.coordinate.longitude];
+  region.center=location.coordinate;
+  
+  [self.mapView setRegion:region animated:TRUE];
+  //[self.mapView regionThatFits:region];
+}
 
 - (void)openMapAdditionView:(XMMAnnotation *)annotation {
   [self.mapAdditionView displayAnnotation:annotation];
@@ -279,37 +294,43 @@ static bool showContentLinks;
 - (void)zoomMapViewToFitAnnotations:(MKMapView *)mapView animated:(BOOL)animated {
   NSArray *annotations = mapView.annotations;
   int count = (int)[self.mapView.annotations count];
-  if ( count == 0) { return; } //bail if no annotations
+  if (count == 0) {
+    return;
+  }
   
-  //convert NSArray of id <MKAnnotation> into an MKCoordinateRegion that can be used to set the map size
-  //can't use NSArray with MKMapPoint because MKMapPoint is not an id
-  MKMapPoint points[count]; //C array of MKMapPoint struct
-  for( int i=0; i<count; i++ ) //load points C array by converting coordinates to points
-  {
+  MKMapPoint points[count];
+  for (int i=0; i<count; i++) {
     CLLocationCoordinate2D coordinate = [(id <MKAnnotation>)annotations[i] coordinate];
     points[i] = MKMapPointForCoordinate(coordinate);
   }
-  //create MKMapRect from array of MKMapPoint
+
   MKMapRect mapRect = [[MKPolygon polygonWithPoints:points count:count] boundingMapRect];
-  //convert MKCoordinateRegion from MKMapRect
   MKCoordinateRegion region = MKCoordinateRegionForMapRect(mapRect);
   
-  //add padding so pins aren't scrunched on the edges
   region.span.latitudeDelta  *= ANNOTATION_REGION_PAD_FACTOR;
   region.span.longitudeDelta *= ANNOTATION_REGION_PAD_FACTOR;
+  
   //but padding can't be bigger than the world
-  if( region.span.latitudeDelta > MAX_DEGREES_ARC ) { region.span.latitudeDelta  = MAX_DEGREES_ARC; }
-  if( region.span.longitudeDelta > MAX_DEGREES_ARC ){ region.span.longitudeDelta = MAX_DEGREES_ARC; }
+  if (region.span.latitudeDelta > MAX_DEGREES_ARC) {
+    region.span.latitudeDelta  = MAX_DEGREES_ARC;
+  }
+  if (region.span.longitudeDelta > MAX_DEGREES_ARC) {
+    region.span.longitudeDelta = MAX_DEGREES_ARC;
+  }
   
   //and don't zoom in stupid-close on small samples
-  if( region.span.latitudeDelta  < MINIMUM_ZOOM_ARC ) { region.span.latitudeDelta  = MINIMUM_ZOOM_ARC; }
-  if( region.span.longitudeDelta < MINIMUM_ZOOM_ARC ) { region.span.longitudeDelta = MINIMUM_ZOOM_ARC; }
+  if (region.span.latitudeDelta  < MINIMUM_ZOOM_ARC) {
+    region.span.latitudeDelta  = MINIMUM_ZOOM_ARC;
+  }
+  if (region.span.longitudeDelta < MINIMUM_ZOOM_ARC) {
+    region.span.longitudeDelta = MINIMUM_ZOOM_ARC;
+  }
   //and if there is a sample of 1 we want the max zoom-in instead of max zoom-out
-  if( count == 1 )
-  {
+  if (count == 1) {
     region.span.latitudeDelta = MINIMUM_ZOOM_ARC;
     region.span.longitudeDelta = MINIMUM_ZOOM_ARC;
   }
+  
   [mapView setRegion:region animated:animated];
 }
 
