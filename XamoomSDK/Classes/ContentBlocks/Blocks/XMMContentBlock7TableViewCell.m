@@ -19,9 +19,19 @@
 
 #import "XMMContentBlock7TableViewCell.h"
 
+static int kWebViewSoundcloudPadding = 8;
+
+@interface XMMContentBlock7TableViewCell()
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *webViewTopConstraint;
+
+@end
+
 @implementation XMMContentBlock7TableViewCell
 
 - (void)awakeFromNib {
+  self.titleLabel.text = @"";
+  
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(pauseAllSounds)
                                                name:@"pauseAllSounds"
@@ -47,9 +57,14 @@
   [self.webView.scrollView setScrollEnabled:NO];
   [self.webView.scrollView setBounces:NO];
   
-  self.titleLabel.text = block.title;
+  if (block.title != nil) {
+    self.webViewTopConstraint.constant = 8;
+    self.titleLabel.text = block.title;
+  } else {
+    self.webViewTopConstraint.constant = 0;
+  }
   
-  NSString *soundcloudHTML = [NSString stringWithFormat:@"<iframe width='100%%' height='%f' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=%@&auto_play=false&hide_related=true&show_comments=false&show_comments=false&show_user=false&show_reposts=false&sharing=false&download=false&buying=false&visual=true'></iframe> <script src=\"https://w.soundcloud.com/player/api.js\" type=\"text/javascript\"></script>",self.webView.frame.size.height, block.soundcloudUrl];
+  NSString *soundcloudHTML = [NSString stringWithFormat:@"<style>body{margin:0 !important;}</style><iframe width='100%%' height='%f' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=%@&auto_play=false&hide_related=true&show_comments=false&show_comments=false&show_user=false&show_reposts=false&sharing=false&download=false&buying=false&visual=true'></iframe> <script src=\"https://w.soundcloud.com/player/api.js\" type=\"text/javascript\"></script>",self.webView.frame.size.height-kWebViewSoundcloudPadding, block.soundcloudUrl];
   
   [self.webView loadHTMLString:soundcloudHTML baseURL:nil];
 }
