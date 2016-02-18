@@ -20,6 +20,14 @@
 #import "XMMContentBlock6TableViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+@interface XMMContentBlock6TableViewCell()
+
+@property (nonatomic) UIImage *angleImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentImageWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTitleLeadingConstraint;
+
+@end
+
 @implementation XMMContentBlock6TableViewCell
 
 static NSString *contentLanguage;
@@ -28,6 +36,7 @@ static NSString *contentLanguage;
   // Initialization code
   self.contentTitleLabel.text = @"";
   self.contentExcerptLabel.text = @"";
+  self.angleImage = [UIImage imageNamed:@"angleRight"];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -48,12 +57,13 @@ static NSString *contentLanguage;
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath api:(XMMEnduserApi *)api{
   //set content
   self.contentID = block.contentID;
+  self.angleImageView.image = self.angleImage;
   
   //init contentBlock
-  [self showContentBlock:api];
+  [self downloadContentBlock:api];
 }
 
-- (void)showContentBlock:(XMMEnduserApi *)api {
+- (void)downloadContentBlock:(XMMEnduserApi *)api {
   [self.loadingIndicator startAnimating];
   
   XMMContent *content = [[XMMContentBlocksCache sharedInstance] cachedContent:self.contentID];
@@ -78,7 +88,14 @@ static NSString *contentLanguage;
   self.contentExcerptLabel.text = self.content.contentDescription;
   [self.contentExcerptLabel sizeToFit];
   
-  [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.content.imagePublicUrl]];
+  if (self.content.imagePublicUrl == nil) {
+    self.contentImageWidthConstraint.constant = 0;
+    self.contentTitleLeadingConstraint.constant = 0;
+  } else {
+    self.contentImageWidthConstraint.constant = 100;
+    self.contentTitleLeadingConstraint.constant = 8;
+    [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.content.imagePublicUrl]];
+  }
 }
 
 + (NSString *)language {
