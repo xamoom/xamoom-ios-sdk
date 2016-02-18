@@ -238,7 +238,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get spots with specific tags.

@@ -506,14 +506,13 @@
                                                       @"filter[tags]":@"[\"tag1\",\"tag2\"]",
                                                       @"include_marker":@"true",
                                                       @"include_content":@"true",
-                                                      @"page[size]":@"100",
-                                                      @"sort":@"name"}];
+                                                      @"page[size]":@"100"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsName completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     //
   }];
   
@@ -534,7 +533,7 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsName completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
     XCTAssertTrue([cursor isEqualToString:@""]);
     XCTAssertFalse(hasMore);

@@ -245,8 +245,8 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   }];
 }
 
-- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
-  [self spotsWithTags:tags pageSize:100 cursor:nil options:options sort:sortOptions completion:completion];
+- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  [self spotsWithTags:tags pageSize:100 cursor:nil options:options sort:XMMSpotSortOptionsNone completion:completion];
 }
 
 - (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
