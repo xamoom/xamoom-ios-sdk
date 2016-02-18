@@ -150,7 +150,7 @@ static bool showContentLinks;
     return;
   }
   
-  [api spotsWithTags:[self.spotMapTags componentsSeparatedByString:@","] pageSize:10 cursor:nil options:XMMSpotOptionsIncludeContent sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithTags:[self.spotMapTags componentsSeparatedByString:@","] options:XMMSpotOptionsIncludeContent completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     [[XMMContentBlocksCache sharedInstance] saveSpotMap:spots key:self.spotMapTags];
     
     [self.loadingIndicator stopAnimating];
