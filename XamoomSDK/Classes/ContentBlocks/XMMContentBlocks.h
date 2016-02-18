@@ -31,6 +31,7 @@
 #import "XMMContentBlock8TableViewCell.h"
 #import "XMMContentBlock9TableViewCell.h"
 #import "UIImage+animatedGIF.h"
+#import "UIColor+HexString.h"
 
 @class XMMEnduserApi;
 

@@ -23,6 +23,7 @@
 #import <JAMSVGImage/JAMSVGImageView.h>
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
+#import "UIColor+HexString.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display image contentBlocks from the xamoom cloud.

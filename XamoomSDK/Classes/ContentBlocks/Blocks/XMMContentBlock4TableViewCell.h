@@ -20,6 +20,7 @@
 #import <UIKit/UIKit.h>
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
+#import "UIColor+HexString.h"
 
 /**
  * LinkBlockTableViewCell is used to display link contentBlocks from the xamoom cloud.

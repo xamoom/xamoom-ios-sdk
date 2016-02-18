@@ -20,6 +20,7 @@
 #import <UIKit/UIKit.h>
 #import <XMMContentBlocks.h>
 #import "XMMStyle.h"
+#import "UIColor+HexString.h"
 
 /**
  * XMMContentBlock5TableViewCell is used to display ebook contentBlocks from the xamoom cloud.

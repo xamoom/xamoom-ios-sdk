@@ -41,12 +41,7 @@
   self.artistLabel.text = @"";
 }
 
-- (void)openInBrowser:(id)sender {
-  //open url in safari
-  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downloadUrl]];
-}
-
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {  
   //set title, artist and downloadUrl
   if(block.title != nil && ![block.title isEqualToString:@""]) {
     self.titleLabel.text = block.title;
@@ -55,5 +50,12 @@
   self.artistLabel.text = block.artists;
   self.downloadUrl = block.fileID;
 }
+
+- (void)openInBrowser:(id)sender {
+  //open url in safari
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downloadUrl]];
+}
+
+
 
 @end

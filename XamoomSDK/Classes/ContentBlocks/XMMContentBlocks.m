@@ -47,8 +47,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     [self setupTableView];
     [self defaultStyle];
     
+    self.tableView.backgroundColor = [UIColor colorWithHexString:self.style.backgroundColor];
+    
     [XMMContentBlock0TableViewCell setFontSize:NormalFontSize];
-    [XMMContentBlock0TableViewCell setLinkColor:[UIColor blueColor]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(clickContentNotification:)
@@ -68,8 +69,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 }
 
 - (void)defaultStyle {
-  self.style = [[XMMStyle alloc] init];
+  _style = [[XMMStyle alloc] init];
   self.style.backgroundColor = @"#FFFFFF";
+  self.style.highlightFontColor = @"#0000FF";
   self.style.foregroundFontColor = @"#000000";
 }
 
@@ -117,6 +119,13 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   });
 }
 
+#pragma mark - Setters
+
+- (void)setStyle:(XMMStyle *)style {
+  _style = style;
+  self.tableView.backgroundColor = [UIColor colorWithHexString:style.backgroundColor];
+}
+
 #pragma mark - Getters
 
 + (NSString *)kContentBlock9MapContentLinkNotification {
@@ -148,10 +157,16 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
   
   id cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+  if (cell) {
+    UITableViewCell *tableViewCell = (UITableViewCell *)cell;
+    tableViewCell.backgroundColor = [UIColor colorWithHexString:self.style.backgroundColor];
+  }
+  
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style];
     return cell;
   }
+  
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:api:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style api:self.api];
     return cell;

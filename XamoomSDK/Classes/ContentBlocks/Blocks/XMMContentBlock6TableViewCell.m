@@ -54,7 +54,10 @@ static NSString *contentLanguage;
   [self.loadingIndicator stopAnimating];
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api{
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api {
+  self.contentTitleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  self.contentExcerptLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  
   //set content
   self.contentID = block.contentID;
   self.angleImageView.image = self.angleImage;

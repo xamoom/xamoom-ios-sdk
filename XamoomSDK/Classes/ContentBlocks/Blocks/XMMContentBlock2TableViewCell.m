@@ -37,6 +37,15 @@
   [super setSelected:selected animated:animated];
 }
 
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  
+  if(block.title != nil && ![block.title isEqualToString:@""])
+    self.titleLabel.text = block.title;
+  
+  [self initVideoWithUrl:block.videoUrl];
+}
+
 - (void)initVideoWithUrl:(NSString*)videoUrl {
   self.videoPlayer = nil;
   self.tappedVideoViewRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
@@ -136,13 +145,6 @@
   NSDictionary *userInfo = [notification userInfo];
   UIImage *image = [userInfo valueForKey:MPMoviePlayerThumbnailImageKey];
   self.thumbnailImageView.image = image;
-}
-
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
-  if(block.title != nil && ![block.title isEqualToString:@""])
-    self.titleLabel.text = block.title;
-  
-  [self initVideoWithUrl:block.videoUrl];
 }
 
 @end

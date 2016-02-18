@@ -36,6 +36,17 @@
   [self.blockImageView setIsAccessibilityElement:YES];
 }
 
+- (void)setupGestureRecognizers {
+  UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImageToPhotoLibary:)];
+  longPressGestureRecognizer.delegate = self;
+  [self addGestureRecognizer:longPressGestureRecognizer];
+  
+  //tapGesture for opening links
+  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openLink:)];
+  tapGestureRecognizer.delegate = self;
+  [self addGestureRecognizer:tapGestureRecognizer];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
   [super setSelected:selected animated:animated];
   
@@ -54,47 +65,13 @@
   [self setNeedsUpdateConstraints];
 }
 
-- (void)setupGestureRecognizers {
-  UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveImageToPhotoLibary:)];
-  longPressGestureRecognizer.delegate = self;
-  [self addGestureRecognizer:longPressGestureRecognizer];
-  
-  //tapGesture for opening links
-  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openLink:)];
-  tapGestureRecognizer.delegate = self;
-  [self addGestureRecognizer:tapGestureRecognizer];
-}
-
-- (void)saveImageToPhotoLibary:(UILongPressGestureRecognizer*)sender {
-  if (sender.state == UIGestureRecognizerStateBegan) {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bild speichern"
-                                                    message:@"Willst du das Bild in dein Fotoalbum speichern?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Ja"
-                                          otherButtonTitles:@"Abbrechen", nil];
-    [alert show];
-  }
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  if(buttonIndex == 0) {
-    //save image to camera roll
-    UIImageWriteToSavedPhotosAlbum(self.blockImageView.image, nil, nil, nil);
-  }
-}
-
-- (void)openLink:(UITapGestureRecognizer*)sender {
-  if (self.linkUrl != nil) {
-    NSURL *url = [NSURL URLWithString:self.linkUrl];
-    [[UIApplication sharedApplication] openURL:url];
-  }
-}
-
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  
   if (![block.linkUrl isEqualToString:@""]) {
     self.linkUrl = block.linkUrl;
   }
-
+  
   if (block.title != nil && ![block.title isEqualToString:@""]) {
     self.titleLabel.text = block.title;
     self.blockImageView.accessibilityHint = block.title;
@@ -188,6 +165,31 @@
 
 - (void)addImageRatioConstraint {
   [self.blockImageView addConstraint:self.imageRatioConstraint];
+}
+
+- (void)saveImageToPhotoLibary:(UILongPressGestureRecognizer*)sender {
+  if (sender.state == UIGestureRecognizerStateBegan) {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bild speichern"
+                                                    message:@"Willst du das Bild in dein Fotoalbum speichern?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Ja"
+                                          otherButtonTitles:@"Abbrechen", nil];
+    [alert show];
+  }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+  if(buttonIndex == 0) {
+    //save image to camera roll
+    UIImageWriteToSavedPhotosAlbum(self.blockImageView.image, nil, nil, nil);
+  }
+}
+
+- (void)openLink:(UITapGestureRecognizer*)sender {
+  if (self.linkUrl != nil) {
+    NSURL *url = [NSURL URLWithString:self.linkUrl];
+    [[UIApplication sharedApplication] openURL:url];
+  }
 }
 
 @end

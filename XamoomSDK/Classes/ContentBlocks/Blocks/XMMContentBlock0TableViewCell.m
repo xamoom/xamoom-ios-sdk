@@ -38,20 +38,15 @@ static UIColor *contentLinkColor;
   contentFontSize = fontSize;
 }
 
-+ (UIColor *)linkColor {
-  return contentLinkColor;
-}
-
-+ (void)setLinkColor:(UIColor *)linkColor {
-  contentLinkColor = linkColor;
-}
-
 - (void)prepareForReuse {
   self.titleLabel.text = @"";
   self.contentTextView.text = @"";
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  self.contentTextView.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  
   //set title
   if(block.title != nil && ![block.title isEqualToString:@""]) {
     self.titleLabel.text = block.title;
@@ -61,7 +56,7 @@ static UIColor *contentLinkColor;
   //set content
   if (block.text != nil && ![block.text isEqualToString:@""]) {
     self.contentTextView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);
-    self.contentTextView.attributedText = [self attributedStringFromHTML:block.text fontSize:[XMMContentBlock0TableViewCell fontSize]];
+    self.contentTextView.attributedText = [self attributedStringFromHTML:block.text fontSize:[XMMContentBlock0TableViewCell fontSize] fontColor:[UIColor colorWithHexString:style.foregroundFontColor]];
     [self.contentTextView sizeToFit];
   } else {
     //make uitextview "disappear"
@@ -70,16 +65,10 @@ static UIColor *contentLinkColor;
     self.contentTextView.textContainer.lineFragmentPadding = 0;
   }
   
-  //set the linkcolor to a specific color
-  if ([XMMContentBlock0TableViewCell linkColor] != nil) {
-    [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [XMMContentBlock0TableViewCell linkColor], }];
-  } else {
-    [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor blueColor], }];
-  }
-
+  [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
 }
 
-- (NSMutableAttributedString*)attributedStringFromHTML:(NSString*)html fontSize:(int)fontSize {
+- (NSMutableAttributedString*)attributedStringFromHTML:(NSString*)html fontSize:(int)fontSize fontColor:(UIColor *)color {
   NSError *err = nil;
   
   NSString *style = [NSString stringWithFormat:@"<style>body{font-family: -apple-system, \"Helvetica Neue Light\", \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif; font-size:%d; margin:0 !important;} p:last-child, p:last-of-type{margin:0px !important;} </style>", fontSize];
@@ -96,6 +85,8 @@ static UIColor *contentLinkColor;
   if(err) {
     NSLog(@"Unable to parse label text: %@", err);
   }
+  
+  [attributedString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, attributedString.length)];
   
   return attributedString;
 }

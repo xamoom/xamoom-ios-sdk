@@ -23,6 +23,7 @@
 #import "XMMMusicPlayer.h"
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
+#import "UIColor+HexString.h"
 
 /**
  * XMMContentBlock1TableViewCell is used to display the XMMMusicPlayer for audio contentBlocks form the xamoom system.

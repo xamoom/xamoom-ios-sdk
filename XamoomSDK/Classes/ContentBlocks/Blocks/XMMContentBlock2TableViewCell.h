@@ -22,6 +22,7 @@
 #import "YTPlayerView.h"
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
+#import "UIColor+HexString.h"
 
 /**
  * XMMContentBlock2TableViewCell is used to display video contentBlocks from the xamoom cloud.

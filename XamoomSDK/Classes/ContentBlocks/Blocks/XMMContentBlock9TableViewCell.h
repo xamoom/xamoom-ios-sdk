@@ -27,6 +27,7 @@
 #import "XMMAnnotationView.h"
 #import "XMMMapOverlayView.h"
 #import "XMMStyle.h"
+#import "UIColor+HexString.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display spotMap contentBlocks from the xamoom cloud.

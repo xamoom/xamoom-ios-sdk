@@ -21,6 +21,7 @@
 #import "XMMContentBlocks.h"
 #import "XMMContentBlocksCache.h"
 #import "XMMStyle.h"
+#import "UIColor+HexString.h"
 
 /**
  * XMMContentBlock6TableViewCell is used to display content contentBlocks from the xamoom cloud.

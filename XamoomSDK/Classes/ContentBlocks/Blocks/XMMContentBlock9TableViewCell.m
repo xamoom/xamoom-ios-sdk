@@ -69,6 +69,8 @@ static bool showContentLinks;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api {
+  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  
   self.titleLabel.text = block.title;
   self.spotMapTags = [block.spotMapTags componentsJoinedByString:@","];
   [self getSpotMap:api];

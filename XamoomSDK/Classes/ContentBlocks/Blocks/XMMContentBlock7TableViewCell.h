@@ -20,6 +20,7 @@
 #import <UIKit/UIKit.h>
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
+#import "UIColor+HexString.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display soundcloud contentBlocks from the xamoom cloud.
