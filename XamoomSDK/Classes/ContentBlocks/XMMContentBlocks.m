@@ -61,7 +61,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 }
 
 - (void)setupTableView {
-  //[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   self.tableView.rowHeight = UITableViewAutomaticDimension;
   self.tableView.estimatedRowHeight = 20.0;
   

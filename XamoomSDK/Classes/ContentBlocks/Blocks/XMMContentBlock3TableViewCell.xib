@@ -21,7 +21,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fvj-ka-sv0">
-                        <rect key="frame" x="8" y="37" width="304" height="131"/>
+                        <rect key="frame" x="0.0" y="37" width="320" height="131"/>
                         <gestureRecognizers/>
                     </imageView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3na-Wc-qZL">
@@ -35,11 +35,11 @@
                     <constraint firstItem="Fvj-ka-sv0" firstAttribute="top" secondItem="NfP-Ht-jrX" secondAttribute="bottom" constant="8" id="Mac-Sw-XsJ"/>
                     <constraint firstItem="3na-Wc-qZL" firstAttribute="top" secondItem="NfP-Ht-jrX" secondAttribute="bottom" constant="9" id="Pps-xK-h2l"/>
                     <constraint firstItem="NfP-Ht-jrX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="RgF-Pv-5ZS"/>
-                    <constraint firstItem="Fvj-ka-sv0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Rzk-49-ohI"/>
+                    <constraint firstItem="Fvj-ka-sv0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rzk-49-ohI"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Fvj-ka-sv0" secondAttribute="bottom" priority="999" id="X2x-1v-uYX"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3na-Wc-qZL" secondAttribute="trailing" constant="142" id="tpH-X5-atq"/>
                     <constraint firstAttribute="topMargin" secondItem="NfP-Ht-jrX" secondAttribute="top" id="vcl-5z-WaN"/>
-                    <constraint firstItem="Fvj-ka-sv0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="xl5-do-CiW"/>
+                    <constraint firstItem="Fvj-ka-sv0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" id="xl5-do-CiW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

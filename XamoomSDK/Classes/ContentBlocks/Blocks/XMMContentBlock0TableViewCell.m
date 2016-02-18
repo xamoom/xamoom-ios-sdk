@@ -19,6 +19,12 @@
 
 #import "XMMContentBlock0TableViewCell.h"
 
+@interface XMMContentBlock0TableViewCell()
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTopConstraint;
+
+@end
+
 @implementation XMMContentBlock0TableViewCell
 
 static int contentFontSize;
@@ -49,8 +55,11 @@ static UIColor *contentLinkColor;
   
   //set title
   if(block.title != nil && ![block.title isEqualToString:@""]) {
+     self.contentTextViewTopConstraint.constant = 8;
     self.titleLabel.text = block.title;
     [self.titleLabel setFont:[UIFont systemFontOfSize:[XMMContentBlock0TableViewCell fontSize]+5 weight:UIFontWeightMedium]];
+  } else {
+    self.contentTextViewTopConstraint.constant = 0;
   }
   
   //set content
