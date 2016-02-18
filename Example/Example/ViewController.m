@@ -13,6 +13,7 @@
 @property XMMEnduserApi *api;
 @property XMMContentBlocks *blocks;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property XMMContent *content;
 
 @end
 
@@ -71,7 +72,7 @@
       return;
     }
     
-    [self.blocks displayContent:content];
+    self.content = content;
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -199,6 +200,8 @@
       NSLog(@"Error: %@", error);
       return;
     }
+    self.blocks.style = style;
+    [self.blocks displayContent:self.content];
     
     NSLog(@"Style: %@", style);
   }];

@@ -72,6 +72,11 @@ static bool showContentLinks;
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   
   self.titleLabel.text = block.title;
+  
+  if (style.customMarker != nil) {
+    [self mapMarkerFromBase64:style.customMarker];
+  }
+  
   self.spotMapTags = [block.spotMapTags componentsJoinedByString:@","];
   [self getSpotMap:api];
   [self setupMapOverlayView];
@@ -164,13 +169,6 @@ static bool showContentLinks;
 #pragma mark - XMMEnduser Delegate
 
 - (void)showSpotMap:(NSArray *)spots {
-  //get the customMarker for the map
-  /*
-   if (result.style.customMarker != nil) {
-   [self mapMarkerFromBase64:result.style.customMarker];
-   }
-   */
-  
   // Add annotations
   for (XMMSpot *spot in spots) {
     XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithName:spot.name withLocation:CLLocationCoordinate2DMake(spot.lat, spot.lon)];
@@ -192,22 +190,17 @@ static bool showContentLinks;
 }
 
 - (void)mapMarkerFromBase64:(NSString*)base64String {
-  NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:base64String options:0];
-  NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
-  
-  if ([decodedString containsString:@"data:image/svg"]) {
-    //create svg need to DECODE TWO TIMES!
-    decodedString = [decodedString stringByReplacingOccurrencesOfString:@"data:image/svg+xml;base64," withString:@""];
-    NSData *decodedData2 = [[NSData alloc] initWithBase64EncodedString:decodedString options:0];
-    NSString *decodedString2 = [[NSString alloc] initWithData:decodedData2 encoding:NSUTF8StringEncoding];
-    //self.customMapMarker= [SVGKImage imageWithSource:[SVGKSourceString sourceFromContentsOfString:decodedString2]].UIImage; //TODO
+  if ([base64String containsString:@"data:image/svg"]) {
+    base64String = [base64String stringByReplacingOccurrencesOfString:@"data:image/svg+xml;base64," withString:@""];
+    NSData *decodedData2 = [[NSData alloc] initWithBase64EncodedString:base64String options:0];
+    self.customMapMarker= [JAMSVGImage imageWithSVGData:decodedData2].image;
   } else {
     //create UIImage
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:decodedString]];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:base64String]];
     self.customMapMarker = [UIImage imageWithData:imageData];
   }
   
-  //self.customMapMarker = [self imageWithImage:self.customMapMarker scaledToMaxWidth:30.0f maxHeight:30.0f];
+  self.customMapMarker = [UIImage imageWithImage:self.customMapMarker scaledToMaxWidth:30.0f maxHeight:30.0f];
 }
 
 - (void)openContentTapped {

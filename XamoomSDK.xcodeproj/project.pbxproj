@@ -60,6 +60,8 @@
 		884937501C74B1C600C53520 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 884937521C74B1C600C53520 /* Localizable.strings */; };
 		884937561C75C82100C53520 /* UIColor+HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = 884937541C75C82100C53520 /* UIColor+HexString.h */; };
 		884937571C75C82100C53520 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 884937551C75C82100C53520 /* UIColor+HexString.m */; };
+		884937611C75F7E600C53520 /* UIImage+Scaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 8849375F1C75F7E600C53520 /* UIImage+Scaling.h */; };
+		884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 884937601C75F7E600C53520 /* UIImage+Scaling.m */; };
 		8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */; };
 		8888DDD21C47B0FA0050A84C /* XamoomSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DDD11C47B0FA0050A84C /* XamoomSDKTests.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
@@ -172,6 +174,8 @@
 		884937531C74B1E900C53520 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		884937541C75C82100C53520 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
 		884937551C75C82100C53520 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		8849375F1C75F7E600C53520 /* UIImage+Scaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Scaling.h"; sourceTree = "<group>"; };
+		884937601C75F7E600C53520 /* UIImage+Scaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Scaling.m"; sourceTree = "<group>"; };
 		8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XamoomSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDC71C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8888DDCC1C47B0FA0050A84C /* XamoomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,6 +288,8 @@
 				883E55711C4A37FE000C4D09 /* MapViews */,
 				883E55781C4A37FE000C4D09 /* UIImage+animatedGIF.h */,
 				883E55791C4A37FE000C4D09 /* UIImage+animatedGIF.m */,
+				8849375F1C75F7E600C53520 /* UIImage+Scaling.h */,
+				884937601C75F7E600C53520 /* UIImage+Scaling.m */,
 				884937541C75C82100C53520 /* UIColor+HexString.h */,
 				884937551C75C82100C53520 /* UIColor+HexString.m */,
 				883E557A1C4A37FE000C4D09 /* XMMContentBlocks.h */,
@@ -487,6 +493,7 @@
 			files = (
 				88E46EA51C47E348004D8AC3 /* XMMEnduserApi.h in Headers */,
 				883B95F91C4D32FF00DB8A6B /* XMMSystemSettings.h in Headers */,
+				884937611C75F7E600C53520 /* UIImage+Scaling.h in Headers */,
 				883E558F1C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.h in Headers */,
 				883E55831C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.h in Headers */,
 				883E55A81C4A37FE000C4D09 /* XMMContentBlocksCache.h in Headers */,
@@ -724,6 +731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				884937571C75C82100C53520 /* UIColor+HexString.m in Sources */,
+				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,
 				88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */,
