@@ -40,7 +40,7 @@
   [super setSelected:selected animated:animated];
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath{
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
   //set audioPlayerControl delegate and initialize
   self.audioPlayerControl.delegate = self;
   [self.audioPlayerControl initAudioPlayerWithUrlString:block.fileID];

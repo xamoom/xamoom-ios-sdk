@@ -53,7 +53,7 @@ static int kWebViewSoundcloudPadding = 8;
   self.titleLabel.text = @"";
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
   [self.webView.scrollView setScrollEnabled:NO];
   [self.webView.scrollView setBounces:NO];
   

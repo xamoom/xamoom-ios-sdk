@@ -20,6 +20,7 @@
 #import <UIKit/UIKit.h>
 #import "XMMContentBlocks.h"
 #import "XMMContentBlocksCache.h"
+#import "XMMStyle.h"
 
 /**
  * XMMContentBlock6TableViewCell is used to display content contentBlocks from the xamoom cloud.
@@ -39,6 +40,6 @@
 
 @interface XMMContentBlock6TableViewCell (XMMTableViewRepresentation)
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath api:(XMMEnduserApi *)api;
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api;
 
 @end

@@ -19,6 +19,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XMMContentBlocks.h>
+#import "XMMStyle.h"
 
 /**
  * XMMContentBlock5TableViewCell is used to display ebook contentBlocks from the xamoom cloud.
@@ -35,6 +36,6 @@
 
 @interface XMMContentBlock5TableViewCell (XMMTableViewRepresentation)
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style;
 
 @end

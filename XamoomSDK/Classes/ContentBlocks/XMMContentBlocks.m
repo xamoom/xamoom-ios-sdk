@@ -45,6 +45,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     self.tableView.dataSource = self;
     
     [self setupTableView];
+    [self defaultStyle];
     
     [XMMContentBlock0TableViewCell setFontSize:NormalFontSize];
     [XMMContentBlock0TableViewCell setLinkColor:[UIColor blueColor]];
@@ -64,6 +65,12 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   self.tableView.estimatedRowHeight = 20.0;
   
   [self registerNibs];
+}
+
+- (void)defaultStyle {
+  self.style = [[XMMStyle alloc] init];
+  self.style.backgroundColor = @"#FFFFFF";
+  self.style.foregroundFontColor = @"#000000";
 }
 
 - (void)registerNibs {
@@ -110,10 +117,6 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   });
 }
 
-#pragma mark - Setters
-
-
-
 #pragma mark - Getters
 
 + (NSString *)kContentBlock9MapContentLinkNotification {
@@ -145,12 +148,12 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
   
   id cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:)]) {
-    [cell configureForCell:block tableView:tableView indexPath:indexPath];
+  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:)]) {
+    [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style];
     return cell;
   }
-  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:api:)]) {
-    [cell configureForCell:block tableView:tableView indexPath:indexPath api:self.api];
+  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:api:)]) {
+    [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style api:self.api];
     return cell;
   }
   

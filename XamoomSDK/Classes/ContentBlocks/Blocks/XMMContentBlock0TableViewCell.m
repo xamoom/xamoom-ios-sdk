@@ -51,7 +51,7 @@ static UIColor *contentLinkColor;
   self.contentTextView.text = @"";
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
   //set title
   if(block.title != nil && ![block.title isEqualToString:@""]) {
     self.titleLabel.text = block.title;

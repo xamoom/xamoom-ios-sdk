@@ -34,7 +34,7 @@
   
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
   self.titleLabel.text = block.title;
   self.contentTextLabel.text = block.text;
   self.fileId = block.fileID;

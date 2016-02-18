@@ -72,8 +72,9 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @interface XMMContentBlocks : NSObject <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 
 @property (nonatomic, retain) id<XMMContentBlocksDelegate> delegate;
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) XMMEnduserApi *api;
+@property (nonatomic, strong) XMMStyle *style;
+@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) UIColor *linkColor;
 @property (nonatomic) BOOL showAllStoreLinks;

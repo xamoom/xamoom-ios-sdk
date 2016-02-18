@@ -90,7 +90,7 @@
   }
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
   if (![block.linkUrl isEqualToString:@""]) {
     self.linkUrl = block.linkUrl;
   }

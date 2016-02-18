@@ -22,6 +22,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "XMMMusicPlayer.h"
 #import "XMMContentBlock.h"
+#import "XMMStyle.h"
 
 /**
  * XMMContentBlock1TableViewCell is used to display the XMMMusicPlayer for audio contentBlocks form the xamoom system.
@@ -40,6 +41,6 @@
 
 @interface XMMContentBlock1TableViewCell (XMMTableViewRepresentation)
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style;
 
 @end

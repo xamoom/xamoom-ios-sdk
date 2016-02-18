@@ -138,7 +138,7 @@
   self.thumbnailImageView.image = image;
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
   if(block.title != nil && ![block.title isEqualToString:@""])
     self.titleLabel.text = block.title;
   

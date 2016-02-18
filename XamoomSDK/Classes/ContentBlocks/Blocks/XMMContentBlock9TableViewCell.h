@@ -19,12 +19,14 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <JAMSVGImage/JAMSVGImage.h>
 #import "XMMEnduserApi.h"
 #import "XMMContentBlocks.h"
 #import "XMMContentBlocksCache.h"
 #import "XMMAnnotation.h"
 #import "XMMAnnotationView.h"
 #import "XMMMapOverlayView.h"
+#import "XMMStyle.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display spotMap contentBlocks from the xamoom cloud.
@@ -48,6 +50,6 @@
 
 @interface XMMContentBlock9TableViewCell (XMMTableViewRepresentation)
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath api:(XMMEnduserApi *)api;
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api;
 
 @end

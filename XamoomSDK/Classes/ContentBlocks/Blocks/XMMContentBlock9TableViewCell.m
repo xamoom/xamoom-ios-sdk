@@ -68,7 +68,7 @@ static bool showContentLinks;
   showContentLinks = showLinks;
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath api:(XMMEnduserApi *)api {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api {
   self.titleLabel.text = block.title;
   self.spotMapTags = [block.spotMapTags componentsJoinedByString:@","];
   [self getSpotMap:api];
