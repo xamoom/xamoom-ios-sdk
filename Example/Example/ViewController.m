@@ -72,7 +72,6 @@
       return;
     }
     
-    self.content = content;
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -82,11 +81,14 @@
 }
 
 - (void)contentWithIDOptions {
-  [self.api contentWithID:@"28d13571a9614cc19d624528ed7c2bb8" options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"e5be72be162d44b189893a406aff5227" options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
+    
+    self.content = content;
+    [self.blocks displayContent:self.content];
     
     NSLog(@"ContentWithIdOptions: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -200,8 +202,9 @@
       NSLog(@"Error: %@", error);
       return;
     }
-    self.blocks.style = style;
-    [self.blocks displayContent:self.content];
+    
+    //self.blocks.style = style;
+    //[self.blocks.tableView reloadData];
     
     NSLog(@"Style: %@", style);
   }];

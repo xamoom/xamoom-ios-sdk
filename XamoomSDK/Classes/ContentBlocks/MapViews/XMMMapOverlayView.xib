@@ -73,7 +73,7 @@
                                 <rect key="frame" x="8" y="164" width="138" height="28"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1955528846" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="GjP-kx-KXX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="GjP-kx-KXX"/>
                                     <constraint firstAttribute="height" constant="28" id="iyP-oJ-mKl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
