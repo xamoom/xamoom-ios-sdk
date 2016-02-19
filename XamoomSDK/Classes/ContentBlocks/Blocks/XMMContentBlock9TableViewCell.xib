@@ -21,8 +21,8 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DWs-nj-B0z">
-                        <rect key="frame" x="150" y="205" width="20" height="20"/>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DWs-nj-B0z">
+                        <rect key="frame" x="150" y="188" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="P9t-hK-MLO"/>
                             <constraint firstAttribute="width" constant="20" id="eJM-1W-6rU"/>
@@ -50,6 +50,7 @@
             <connections>
                 <outlet property="contentView" destination="H2p-sc-9uM" id="voa-Z8-u7D"/>
                 <outlet property="loadingIndicator" destination="DWs-nj-B0z" id="hVM-HR-qPh"/>
+                <outlet property="mapRatioConstraint" destination="iel-mP-zau" id="BLO-ud-Gwy"/>
                 <outlet property="mapView" destination="Yc2-J7-ehg" id="g6l-sn-LFn"/>
                 <outlet property="titleLabel" destination="Hk4-tD-Bjj" id="hWE-PI-VOd"/>
             </connections>

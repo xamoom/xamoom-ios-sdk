@@ -18,20 +18,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="240" verticalHuggingPriority="240" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="fsm-YU-gpI">
-                                <rect key="frame" x="239" y="39" width="153" height="153"/>
+                                <rect key="frame" x="303" y="103" width="89" height="89"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fsm-YU-gpI" secondAttribute="height" multiplier="1:1" id="7mp-3I-oV6"/>
-                                    <constraint firstAttribute="width" constant="153" id="x7G-WV-JTV"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="153" id="x7G-WV-JTV"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="261" text="STW | Haltestelle und so" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3l-C9-bSd">
-                                <rect key="frame" x="8" y="8" width="384" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="261" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="STW | Haltestelle und so" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3l-C9-bSd">
+                                <rect key="frame" x="8" y="8" width="384" height="87"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="260" text="Distance: 1000 Meter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lug-wc-YVi">
-                                <rect key="frame" x="8" y="37" width="223" height="18"/>
+                                <rect key="frame" x="8" y="101" width="287" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="151" id="1lh-gq-sUh"/>
                                 </constraints>
@@ -45,13 +45,13 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc8-VD-Ib0">
-                                <rect key="frame" x="8" y="59" width="223" height="63"/>
+                                <rect key="frame" x="8" y="123" width="287" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmm-BX-bUr">
-                                <rect key="frame" x="125" y="164" width="106" height="28"/>
+                                <rect key="frame" x="157" y="164" width="138" height="28"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1955528846" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="AFv-Ch-fda"/>
@@ -70,7 +70,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrm-CS-DP1">
-                                <rect key="frame" x="8" y="164" width="106" height="28"/>
+                                <rect key="frame" x="8" y="164" width="138" height="28"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1955528846" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="GjP-kx-KXX"/>

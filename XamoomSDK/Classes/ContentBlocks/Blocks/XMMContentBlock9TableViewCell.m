@@ -29,9 +29,10 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (nonatomic, strong) NSString *currentContentID;
 @property (nonatomic) XMMMapOverlayView *mapAdditionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapRatioConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;
-
+@property (nonatomic) int halfTableViewHeight;
 @end
 
 @implementation XMMContentBlock9TableViewCell
@@ -68,23 +69,8 @@ static bool showContentLinks;
   showContentLinks = showLinks;
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api {
-  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
-  
-  self.titleLabel.text = block.title;
-  
-  if (style.customMarker != nil) {
-    [self mapMarkerFromBase64:style.customMarker];
-  }
-  
-  self.spotMapTags = [block.spotMapTags componentsJoinedByString:@","];
-  [self getSpotMap:api];
-  [self setupMapOverlayView];
-}
-
 - (void)setupMapView {
   self.mapView.delegate = self;
-  self.mapView.showsUserLocation = YES;
 }
 
 - (void)setupLocationManager {
@@ -102,6 +88,10 @@ static bool showContentLinks;
 }
 
 - (void)setupMapOverlayView {
+  if (self.contentView.subviews.count > 3) {
+    return;
+  }
+  
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
   NSBundle *nibBundle = [NSBundle bundleWithURL:url];
@@ -134,7 +124,7 @@ static bool showContentLinks;
                                                                          toItem:self.mapView
                                                                       attribute:NSLayoutAttributeBottom
                                                                      multiplier:1
-                                                                       constant:210];
+                                                                       constant:self.mapView.bounds.size.height/2 + 10];
   [self.contentView addConstraint:self.mapAdditionViewBottomConstraint];
   
   self.mapAdditionViewHeightConstraint = [NSLayoutConstraint constraintWithItem:self.mapAdditionView
@@ -143,9 +133,29 @@ static bool showContentLinks;
                                                                       toItem:nil
                                                                    attribute:NSLayoutAttributeNotAnAttribute
                                                                   multiplier:1
-                                                                    constant:200];
+                                                                    constant:self.mapView.bounds.size.height/2];
   
   [self.mapAdditionView addConstraint:self.mapAdditionViewHeightConstraint];
+}
+
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api {
+  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  
+  self.titleLabel.text = block.title;
+  
+  if (style.customMarker != nil) {
+    [self mapMarkerFromBase64:style.customMarker];
+  }
+  
+  self.spotMapTags = [block.spotMapTags componentsJoinedByString:@","];
+  [self getSpotMap:api];
+  [self setupMapOverlayView];
+  
+  if (tableView.bounds.size.width < tableView.bounds.size.height) {
+    self.mapRatioConstraint.constant = 0;
+  } else {
+    self.mapRatioConstraint.constant = tableView.bounds.size.width/2;
+  }
 }
 
 - (void)getSpotMap:(XMMEnduserApi *)api {
@@ -244,6 +254,8 @@ static bool showContentLinks;
   if ([annotationView isKindOfClass:[MKAnnotationView class]]) {
     XMMAnnotation *annotation =  annotationView.annotation;
     [self zoomToAnnotationWithAdditionView:annotation];
+    self.mapAdditionViewBottomConstraint.constant = mapView.bounds.size.height/2 + 10;
+    self.mapAdditionViewHeightConstraint.constant = mapView.bounds.size.height/2;
     [self openMapAdditionView:annotation];
   }
 }
@@ -281,7 +293,7 @@ static bool showContentLinks;
 
 - (void)closeMapAdditionView {
   [self.contentView layoutIfNeeded];
-  self.mapAdditionViewBottomConstraint.constant = 210;
+  self.mapAdditionViewBottomConstraint.constant = self.mapAdditionViewHeightConstraint.constant + 10;
   [UIView animateWithDuration:0.3 animations:^{
     [self.contentView layoutIfNeeded];
   }];
