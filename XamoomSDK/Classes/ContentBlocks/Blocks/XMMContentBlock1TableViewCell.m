@@ -53,10 +53,6 @@
   if (block.artists != nil && ![block.artists isEqualToString:@""]) {
     self.artistLabel.text = block.artists;
   }
-  
-  //set songDuration
-  float songDurationInSeconds = CMTimeGetSeconds(self.audioPlayerControl.audioPlayer.currentItem.asset.duration);
-  self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
 }
 
 - (IBAction)playButtonTouched:(id)sender {
@@ -73,6 +69,15 @@
 }
 
 #pragma mark - XMMMMusicPlayer delegate
+
+- (void)didLoadAsset:(AVURLAsset *)asset {
+  NSLog(@"Hellyeah? %@", asset);
+  //set songDuration
+  float songDurationInSeconds = CMTimeGetSeconds(asset.duration);
+  self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
+  NSLog(@"Hellyeah? %@", self.remainingTimeLabel.text);
+
+}
 
 -(void)didUpdateRemainingSongTime:(NSString *)remainingSongTime {
   self.remainingTimeLabel.text = remainingSongTime;

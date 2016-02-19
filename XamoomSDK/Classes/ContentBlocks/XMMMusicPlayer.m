@@ -55,6 +55,10 @@ IB_DESIGNABLE
   [asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
     self.audioPlayer = [[AVPlayer alloc] initWithPlayerItem:[[AVPlayerItem alloc] initWithAsset:asset automaticallyLoadedAssetKeys:keys]];
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self.delegate didLoadAsset:asset];
+    });
+    
     //addPeriodicTimeObserver for remainingTime and progressBar
     __block XMMMusicPlayer *weakSelf = self;
     [self.audioPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:NULL usingBlock:^(CMTime time) {

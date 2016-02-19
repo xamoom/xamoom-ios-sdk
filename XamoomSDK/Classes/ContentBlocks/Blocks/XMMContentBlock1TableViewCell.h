@@ -28,7 +28,7 @@
 /**
  * XMMContentBlock1TableViewCell is used to display the XMMMusicPlayer for audio contentBlocks form the xamoom system.
  */
-@interface XMMContentBlock1TableViewCell : UITableViewCell <XMMMusicerPlayerDelegate>
+@interface XMMContentBlock1TableViewCell : UITableViewCell <XMMMusicPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *artistLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

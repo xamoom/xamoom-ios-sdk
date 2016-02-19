@@ -28,7 +28,9 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 /**
  * XMMMusicPlayerDelegate is used for messages between the XMMMusicPlayer and the UI.
  */
-@protocol XMMMusicerPlayerDelegate <NSObject>
+@protocol XMMMusicPlayerDelegate <NSObject>
+
+- (void)didLoadAsset:(AVURLAsset *)asset;
 
 /**
  * Notify delegate with the actual remaining song time.
@@ -54,7 +56,7 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable int lineWidth;
 @property (nonatomic, strong) AVPlayer *audioPlayer;
 @property (nonatomic, strong) NSString *remainingSongTime;
-@property (nonatomic, weak) id<XMMMusicerPlayerDelegate> delegate;
+@property (nonatomic, weak) id<XMMMusicPlayerDelegate> delegate;
 
 /**
  * Initialize the avplayer and also add the periodicTimeObserver.
