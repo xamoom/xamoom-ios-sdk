@@ -28,8 +28,8 @@
                             <constraint firstAttribute="width" secondItem="UEd-kr-uJh" secondAttribute="height" multiplier="16:9" id="VZr-q6-T8c"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="videoPlay" translatesAutoresizingMaskIntoConstraints="NO" id="Q9G-2x-vhn">
-                        <rect key="frame" x="135" y="123" width="50" height="50"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videoPlay" translatesAutoresizingMaskIntoConstraints="NO" id="Q9G-2x-vhn">
+                        <rect key="frame" x="135" y="134" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="TvN-oB-UaG"/>
                             <constraint firstAttribute="width" constant="50" id="pZU-hH-9Nh"/>
@@ -59,9 +59,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="playIconImageView" destination="Q9G-2x-vhn" id="naG-T0-Own"/>
-                <outlet property="playerView" destination="UEd-kr-uJh" id="niO-qa-Qp9"/>
                 <outlet property="thumbnailImageView" destination="7Yr-fK-bFp" id="aNi-BU-WIw"/>
                 <outlet property="titleLabel" destination="e6b-DR-Gwh" id="hsc-c8-a2T"/>
+                <outlet property="youtubePlayerView" destination="UEd-kr-uJh" id="YFa-CX-YSO"/>
             </connections>
             <point key="canvasLocation" x="411" y="467.5"/>
         </tableViewCell>

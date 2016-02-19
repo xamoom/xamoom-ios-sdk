@@ -18,7 +18,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "YTPlayerView.h"
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
@@ -30,8 +31,8 @@
 @interface XMMContentBlock2TableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet YTPlayerView *playerView;
-@property (nonatomic, strong) MPMoviePlayerController *videoPlayer;
+@property (nonatomic, strong) IBOutlet YTPlayerView *youtubePlayerView;
+@property (nonatomic, strong) AVPlayer *videoPlayer;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playIconImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
 

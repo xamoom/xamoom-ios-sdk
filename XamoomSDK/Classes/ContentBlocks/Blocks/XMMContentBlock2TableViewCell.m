@@ -55,17 +55,17 @@
 
   if (youtubeVideoId != nil) {
     //load video inside playerView
-    self.playerView.hidden = NO;
+    self.youtubePlayerView.hidden = NO;
     self.playIconImageView.hidden = YES;
     self.thumbnailImageView.hidden = YES;
-    [self.playerView loadWithVideoId:youtubeVideoId];
+    [self.youtubePlayerView loadWithVideoId:youtubeVideoId];
   } else {
-    self.playerView.hidden = YES;
+    self.youtubePlayerView.hidden = YES;
     self.playIconImageView.hidden = NO;
     self.thumbnailImageView.hidden = NO;
     self.videoUrl = videoUrl;
 
-    [self initVideoPlayer];
+    [self initVideoPlayerWithUrl:[NSURL URLWithString:videoUrl]];
   }
 }
 
@@ -92,59 +92,18 @@
   }
 }
 
-/**
- *  Creates and inits the videoplayer.
- *  Adds a gesture recognizer when tapping on the playerView, adds a notificication, and downloads
- *  a imagethumbnail for the video.
- */
-- (void)initVideoPlayer {
-  self.videoPlayer = [[MPMoviePlayerController alloc] initWithContentURL: [NSURL URLWithString:self.videoUrl]];
-  self.videoPlayer.shouldAutoplay = NO;
-  
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(didReceiveImage:)
-                                               name:MPMoviePlayerThumbnailImageRequestDidFinishNotification
-                                             object:self.videoPlayer];
-  
-  NSArray *timeArray = [[NSArray alloc] initWithObjects:[NSNumber numberWithDouble:0.0], nil];
-  [self.videoPlayer requestThumbnailImagesAtTimes:timeArray timeOption:MPMovieTimeOptionNearestKeyFrame];
+- (void)initVideoPlayerWithUrl:(NSURL *)videoUrl {
+  self.videoPlayer = [[AVPlayer alloc] initWithURL:videoUrl];
+
 }
 
 - (void)tappedVideoView:(UITapGestureRecognizer*)sender {
-  MPMoviePlayerViewController *mpvc = [[MPMoviePlayerViewController alloc] initWithContentURL:  self.videoPlayer.contentURL];
-  [self.window.rootViewController presentMoviePlayerViewControllerAnimated:mpvc];
+  AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
+  playerViewController.player = self.videoPlayer;
   
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(handleMoviePlayerFinish:)
-                                               name:MPMoviePlayerWillExitFullscreenNotification
-                                             object:nil];
-}
-
-- (void)handleMoviePlayerFinish:(NSNotification*)notification{
-  NSDictionary *notificationUserInfo = [notification userInfo];
-  NSNumber *resultValue = [notificationUserInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
-  MPMovieFinishReason reason = [resultValue intValue];
-  if (reason == MPMovieFinishReasonPlaybackError)
-  {
-    NSError *mediaPlayerError = [notificationUserInfo objectForKey:@"error"];
-    if (mediaPlayerError)
-    {
-      NSLog(@"playback failed with error description: %@", [mediaPlayerError localizedDescription]);
-    }
-    else
-    {
-      NSLog(@"playback failed without any given reason");
-    }
-  }
-  
-  [self.videoPlayer.view removeFromSuperview];
-  [[NSNotificationCenter defaultCenter] removeObserver:MPMoviePlayerPlaybackDidFinishNotification];
-}
-
-- (void)didReceiveImage:(NSNotification*)notification {
-  NSDictionary *userInfo = [notification userInfo];
-  UIImage *image = [userInfo valueForKey:MPMoviePlayerThumbnailImageKey];
-  self.thumbnailImageView.image = image;
+  [self.window.rootViewController presentViewController:playerViewController animated:YES completion:^{
+    //
+  }];
 }
 
 @end
