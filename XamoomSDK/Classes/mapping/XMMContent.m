@@ -48,11 +48,4 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   return __descriptor;
 }
 
-- (NSArray *)sortedContentBlocks {
-  NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
-  NSArray *sorting = @[descriptor];
-  
-  return [self.contentBlocks sortedArrayUsingDescriptors:sorting];
-}
-
 @end

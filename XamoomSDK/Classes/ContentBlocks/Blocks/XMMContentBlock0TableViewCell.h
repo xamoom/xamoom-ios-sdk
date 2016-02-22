@@ -25,22 +25,17 @@
 /**
  * XMMContentBlock0TableViewCell is used to display text contentBlocks from the xamoom cloud.
  */
-@interface XMMContentBlock0TableViewCellTests : UITableViewCell
+@interface XMMContentBlock0TableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
-
-@property (strong, nonatomic) NSString *titleText;
-@property (strong, nonatomic) NSString *contentText;
-@property (nonatomic) int contentBlockType;
 
 + (int)fontSize;
 + (void)setFontSize:(int)fontSize;
 
 @end
 
-@interface XMMContentBlock0TableViewCellTests (XMMTableViewRepresentation)
+@interface XMMContentBlock0TableViewCell (XMMTableViewRepresentation)
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style;
 

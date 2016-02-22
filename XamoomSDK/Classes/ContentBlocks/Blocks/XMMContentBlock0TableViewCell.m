@@ -17,9 +17,9 @@
 // along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "XMMContentBlock0TableViewCellTests.h"
+#import "XMMContentBlock0TableViewCell.h"
 
-@interface XMMContentBlock0TableViewCellTests()
+@interface XMMContentBlock0TableViewCell()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTopConstraint;
 
@@ -53,31 +53,31 @@ static UIColor *contentLinkColor;
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   self.contentTextView.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   
-  //set title
-  
-  
-  //set content
-  if (block.text != nil && ![block.text isEqualToString:@""]) {
-    self.contentTextView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);
-    self.contentTextView.attributedText = [self attributedStringFromHTML:block.text fontSize:[XMMContentBlock0TableViewCell fontSize] fontColor:[UIColor colorWithHexString:style.foregroundFontColor]];
-    [self.contentTextView sizeToFit];
-  } else {
-    //make uitextview "disappear"
-    [self.contentTextView setFont:[UIFont systemFontOfSize:0.0f]];
-    self.contentTextView.textContainerInset = UIEdgeInsetsZero;
-    self.contentTextView.textContainer.lineFragmentPadding = 0;
-  }
+  [self displayTitle:block.title];
+  [self displayContent:block.text style:style];
   
   [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
 }
 
 - (void)displayTitle:(NSString *)title {
-  if(title != nil && ![title isEqualToString:@""]) {
+  if(title != nil) {
     self.contentTextViewTopConstraint.constant = 8;
     self.titleLabel.text = title;
     [self.titleLabel setFont:[UIFont systemFontOfSize:[XMMContentBlock0TableViewCell fontSize]+5 weight:UIFontWeightMedium]];
   } else {
     self.contentTextViewTopConstraint.constant = 0;
+  }
+}
+
+- (void)displayContent:(NSString *)text style:(XMMStyle *)style {
+  if (text != nil) {
+    self.contentTextView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);
+    self.contentTextView.attributedText = [self attributedStringFromHTML:text fontSize:[XMMContentBlock0TableViewCell fontSize] fontColor:[UIColor colorWithHexString:style.foregroundFontColor]];
+    [self.contentTextView sizeToFit];
+  } else {
+    [self.contentTextView setFont:[UIFont systemFontOfSize:0.0f]];
+    self.contentTextView.textContainerInset = UIEdgeInsetsZero;
+    self.contentTextView.textContainer.lineFragmentPadding = 0;
   }
 }
 

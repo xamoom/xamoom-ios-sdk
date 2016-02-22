@@ -159,7 +159,7 @@ static bool showContentLinks;
   }
   
   [api spotsWithTags:[self.spotMapTags componentsSeparatedByString:@","] options:XMMSpotOptionsIncludeContent completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
-    [[XMMContentBlocksCache sharedInstance] saveSpotMap:spots key:self.spotMapTags];
+    [[XMMContentBlocksCache sharedInstance] saveSpots:spots key:self.spotMapTags];
     
     [self.loadingIndicator stopAnimating];
     [self setupMapView];

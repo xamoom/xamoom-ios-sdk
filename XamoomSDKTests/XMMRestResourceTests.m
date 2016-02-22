@@ -7,6 +7,9 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "XMMMenu.h"
+#import "XMMSystem.h"
+#import "XMMContent.h"
 
 @interface XMMRestResourceTests : XCTestCase
 
@@ -24,16 +27,40 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testMenuResourceName {
+  XCTAssertTrue([[XMMMenu resourceName] isEqualToString:@"menus"]);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testMenuItemResourceName {
+  XCTAssertTrue([[XMMMenuItem resourceName] isEqualToString:@"content"]);
+}
+
+- (void)testSystemResourceName {
+  XCTAssertTrue([[XMMSystem resourceName] isEqualToString:@"systems"]);
+}
+
+- (void)testSystemSettingsResourceName {
+  XCTAssertTrue([[XMMSystemSettings resourceName] isEqualToString:@"settings"]);
+}
+
+- (void)testStyleResourceName {
+  XCTAssertTrue([[XMMStyle resourceName] isEqualToString:@"styles"]);
+}
+
+- (void)testContentResourceName {
+  XCTAssertTrue([[XMMContent resourceName] isEqualToString:@"contents"]);
+}
+
+- (void)testContentBlocksResourceName {
+  XCTAssertTrue([[XMMContentBlock resourceName] isEqualToString:@"contentblocks"]);
+}
+
+- (void)testSpotBlocksResourceName {
+  XCTAssertTrue([[XMMSpot resourceName] isEqualToString:@"spots"]);
+}
+
+- (void)testMarkerBlocksResourceName {
+  XCTAssertTrue([[XMMMarker resourceName] isEqualToString:@"markers"]);
 }
 
 @end

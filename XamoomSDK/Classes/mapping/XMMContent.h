@@ -65,11 +65,4 @@
 
 @property (nonatomic) XMMSpot *spot;
 
-/**
- * Returns the `XMMCoreDataContentBlocks` in the right order.
- *
- * @return NSArray*
- */
-@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray *sortedContentBlocks;
-
 @end

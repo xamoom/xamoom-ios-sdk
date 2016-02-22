@@ -21,7 +21,7 @@
 #import <dispatch/dispatch.h>
 
 NSString * const kApiBaseURLString =
-@"https://23-dot-xamoom-api-dot-xamoom-cloud.appspot.com/_api/v2/consumer";
+@"https://xamoom-cloud-dev.appspot.com/_api/v2/consumer";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 

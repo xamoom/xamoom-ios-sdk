@@ -12,9 +12,6 @@ static XMMContentBlocksCache *sharedInstance;
 
 @interface XMMContentBlocksCache()
 
-@property (nonatomic, strong) NSCache *spotMapCache;
-@property (nonatomic, strong) NSCache *contentCache;
-
 @end
 
 @implementation XMMContentBlocksCache
@@ -28,7 +25,7 @@ static XMMContentBlocksCache *sharedInstance;
   return sharedInstance;
 }
 
-- (void)saveSpotMap:(NSArray *)spotMap key:(NSString *)key {
+- (void)saveSpots:(NSArray *)spotMap key:(NSString *)key {
   [self.spotMapCache setObject:spotMap forKey:key];
 }
 

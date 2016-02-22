@@ -11,9 +11,12 @@
 
 @interface XMMContentBlocksCache : NSObject
 
+@property (nonatomic, strong) NSCache *spotMapCache;
+@property (nonatomic, strong) NSCache *contentCache;
+
 + (XMMContentBlocksCache *)sharedInstance;
 
-- (void)saveSpotMap:(NSArray *)spotMap key:(NSString *)key;
+- (void)saveSpots:(NSArray *)spotMap key:(NSString *)key;
 - (NSArray *)cachedSpotMap:(NSString *)key;
 - (void)saveContent:(XMMContent *)content key:(NSString *)contentID;
 - (XMMContent *)cachedContent:(NSString *)key;

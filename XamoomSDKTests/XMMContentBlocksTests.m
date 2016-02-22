@@ -44,7 +44,7 @@
   
   [contentBlocks displayContent:[self xamoomContent]];
 
-  XCTAssertTrue(contentBlocks.items.count == 1);
+  XCTAssertTrue(contentBlocks.items.count == 2);
 }
 
 - (void)testkContentBlock9MapContentLinkNotification {
@@ -64,7 +64,7 @@
   
   [contentBlocks displayContent:[self xamoomContent]];
   
-  XCTAssertTrue([contentBlocks tableView:self.mockedTableView numberOfRowsInSection:0] == 1);
+  XCTAssertTrue([contentBlocks tableView:self.mockedTableView numberOfRowsInSection:0] == 2);
 }
 
 - (void)testThatCellForRowAtIndexPathReturnsContentBlock0Cell {
@@ -80,6 +80,19 @@
   XCTAssertTrue([cell.titleLabel.text isEqualToString:@"Block Title"]);
 }
 
+- (void)testThatCellForRowAtIndexPathReturnsContentBlock6Cell {
+  UITableView *tableView = [[UITableView alloc] init];
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  
+  [contentBlocks displayContent:[self xamoomContent]];
+  
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  
+  XMMContentBlock6TableViewCell *cell = (XMMContentBlock6TableViewCell *)[contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
+  
+  XCTAssertTrue([cell.contentID isEqualToString:@"123456"]);
+}
+
 - (void)testThatCellForRowAtIndexPathReturnsBlankCell {
   UITableView *tableView = [[UITableView alloc] init];
   XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
@@ -91,6 +104,46 @@
   XMMContentBlock0TableViewCell *cell = (XMMContentBlock0TableViewCell *)[contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
   
   XCTAssertNotNil(cell);
+}
+
+- (void)testThatSetStyleSetsColor {
+  UITableView *tableView = [[UITableView alloc] init];
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  
+  XMMStyle *style = [[XMMStyle alloc] init];
+  style.backgroundColor = @"#000000";
+  
+  contentBlocks.style = style;
+  
+  XCTAssertTrue([contentBlocks.style.backgroundColor isEqualToString:@"#000000"]);
+  XCTAssertEqual(contentBlocks.style, style);
+}
+
+- (void)testThatClickContentNotificationCallsDelegate {
+  NSString *contentID = @"12314";
+  UITableView *tableView = [[UITableView alloc] init];
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  id delegateMock = OCMProtocolMock(@protocol(XMMContentBlocksDelegate));
+  contentBlocks.delegate = delegateMock;
+  
+  OCMExpect([delegateMock didClickContentBlock:[OCMArg isEqual:contentID]]);
+  
+  NSDictionary *userInfo = @{@"contentID":contentID};
+  [[NSNotificationCenter defaultCenter]
+   postNotificationName:XMMContentBlocks.kContentBlock9MapContentLinkNotification
+   object:self userInfo:userInfo];
+  
+  OCMVerifyAll(delegateMock);
+}
+
+- (void)testAutomaticDimension {
+  UITableView *tableView = [[UITableView alloc] init];
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+
+  CGFloat height = [contentBlocks tableView:tableView heightForRowAtIndexPath:indexPath];
+  
+  XCTAssertEqual(height, UITableViewAutomaticDimension);
 }
 
 #pragma mark - Helpers
@@ -108,7 +161,13 @@
   block1.publicStatus = YES;
   block1.blockType = 0;
   
-  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, nil];
+  XMMContentBlock *block6 = [[XMMContentBlock alloc] init];
+  block6.title = @"ContentBlock Title";
+  block6.contentID = @"123456";
+  block6.publicStatus = YES;
+  block6.blockType = 6;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block6, nil];
   
   return content;
 }

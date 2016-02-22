@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "XMMContentBlocksCache.h"
 
 @interface XMMContentBlocksCacheTests : XCTestCase
 
@@ -24,16 +25,28 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testSharedInstance {
+  XMMContentBlocksCache *cache = [XMMContentBlocksCache sharedInstance];
+  XCTAssertNotNil(cache);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testSaveSpots {
+  XMMSpot *spot = [[XMMSpot alloc] init];
+  spot.name = @"Test";
+  NSArray *spots = [NSArray arrayWithObject:spot];
+
+  [[XMMContentBlocksCache sharedInstance] saveSpots:spots key:@"tag1,tag2"];
+  
+  XCTAssertTrue([[XMMContentBlocksCache sharedInstance] cachedSpotMap:@"tag1,tag2"]);
+}
+
+- (void)testSaveContent {
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"123456";
+  
+  [[XMMContentBlocksCache sharedInstance] saveContent:content key:content.ID];
+  
+  XCTAssertTrue([[XMMContentBlocksCache sharedInstance] cachedContent:content.ID]);
 }
 
 @end
