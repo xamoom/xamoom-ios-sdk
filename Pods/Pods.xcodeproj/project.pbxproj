@@ -29,11 +29,11 @@
 		10AEAD2136880EEE7E771F533331F250 /* OCMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 81A4480F375831B7AAD1D515B490FC10 /* OCMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		117D256E38755BCE0DC116B7A09BF5B9 /* XMMContentBlock9TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C4E8FAD623260D7C7E79678512AFE75 /* XMMContentBlock9TableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		128754355695CF7D2CA18D91568F423E /* XMMContentBlock7TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E755901259277A094D6C4185726FD840 /* XMMContentBlock7TableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1343CED289AE2F42CE2FB15935BEE3A8 /* Pods-XamoomSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F65BEEA71DDEE5F1AA2FDCA3D8100CC /* Pods-XamoomSDK-dummy.m */; };
 		13A6EF6D68C4CA349EF9C3303D9F4111 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A2F4BF140769948B965550ED031A4320 /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13B27EB3D4F5C181506A29E04C87CFD4 /* XMMAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CC1F0829FD0DB872783858D866A735D /* XMMAnnotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		149DE9C6DB74B12EFF07D185484D946F /* NSInvocation+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D8603A226F31936A56F7532686A881C /* NSInvocation+OCMAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1586CD3BDB1E92D87A0E423AAC313FD4 /* OCMObserverRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A299CEAA701563BE6A387B1B1F9B41EF /* OCMObserverRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		164805D7A0F92161FCD0A729970A3B35 /* Pods-XamoomSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F65BEEA71DDEE5F1AA2FDCA3D8100CC /* Pods-XamoomSDK-dummy.m */; };
 		167BB21C46EF89BF667A71DAD8E14C82 /* XMMSystemSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6FFB7B15916C498425EAC9F69C8C51 /* XMMSystemSettings.m */; };
 		175753664B0460A65546A9205FFA9EFF /* XMMContentBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D78B16A921E1A5AF6426B199497D1EC /* XMMContentBlocks.m */; };
 		194850DE384B4D27D52D3B61EC822471 /* XamoomSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1942134744C113E5D9F180B0AF911B3D /* XamoomSDK-dummy.m */; };
@@ -201,7 +201,6 @@
 		CE6EB7FA31C45AE7D2A06FCF1F47D039 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D9118300F04D87A3C2356B430B5C42 /* SDWebImageDownloaderOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D0D3C773B2BB40BA01392B1FB1DA6F36 /* XMMContentBlock1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C15731010C109D1B14529A4A9E8DED /* XMMContentBlock1TableViewCell.m */; };
 		D0D73430A4025CD544019AE5C26E7525 /* JAMSVGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B98C9D686EDAD71662F950DDF390E9E9 /* JAMSVGImage.m */; };
-		D2C201528CC6902D5CFD285C9900CA6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4630A6644E76AADF263AE66897C3F8DF /* Foundation.framework */; };
 		D470FD7FF206B100A7B79714E7FA0F4A /* OCMNotificationPoster.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FB77D046BC6FBA6D343574A241ED5DE /* OCMNotificationPoster.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D4C55997E012D13C5AEBB714A212A687 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE06EA8E11C6CCC47ED2C08614551E7 /* UIImageView+WebCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		D50EF0E27DE24B69D79A96F8CB1D22BD /* XMMMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = C5425444D20577D63212B3724509CD38 /* XMMMenuItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -240,6 +239,7 @@
 		F00F4DCB7FE4EDABC05A1246C0F5BBE6 /* XMMContentBlock3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CE96989CA8181433BFE8A25B6C4DAB2 /* XMMContentBlock3TableViewCell.xib */; };
 		F0534F2A7E0EB14509019ED8461E7FBB /* XMMContentBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 4894FF5A4F961A513E94D75516BC73EE /* XMMContentBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0547C0C892966E2817B27D6988EA04D /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4B67B0D6DF73A6CD3EE98623742A86 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F065163C6756FE14653816B676239E0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4630A6644E76AADF263AE66897C3F8DF /* Foundation.framework */; };
 		F0E9BE1709D8B3501A9E791E8D36FBED /* NSNotificationCenter+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381FB777AFB50728ECE00AAF3307D9E /* NSNotificationCenter+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F74CF8FFA6A48E22F3F9B3FF0C6E6153 /* JSONAPIPropertyDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = B5B0441555D19D6D23BEA5404669F9F8 /* JSONAPIPropertyDescriptor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F9A301B9B30FBEEE5BCEA783363BF1B5 /* UIImage+SVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA493953017D205AEB2C1CAE1ACB65F /* UIImage+SVG.m */; };
@@ -270,7 +270,28 @@
 			remoteGlobalIDString = B3D50C67B1FEC90D770E0D12E682B8C8;
 			remoteInfo = "youtube-ios-player-helper-Assets";
 		};
+		29BB5CD45F9304B9844BF135202143EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5DF82BFD37BCC69B2C159B8B655AA3F;
+			remoteInfo = JSONAPI;
+		};
 		2A5AC4FB020E7AA25BD558E0515EFF60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DED765449E8734B90469D9E244B28221;
+			remoteInfo = YTVimeoExtractor;
+		};
+		2C9CA5D658E129F5372C17FBD277E1F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07AA2447FB415EB76E7A1C6773E552EE;
+			remoteInfo = SDWebImage;
+		};
+		2DB786AF14A5EE5342944396C6910AA9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -285,13 +306,6 @@
 			remoteInfo = SDWebImage;
 		};
 		4A9B281D359DCEADE670F5CDB9F9462E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C76B1B91569F1E6508FAFE54DD31EFAB;
-			remoteInfo = JAMSVGImage;
-		};
-		5331D2CEADA35FE7D4CAD0FBF9A2C13B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -361,12 +375,12 @@
 			remoteGlobalIDString = D8855FD8DEF981EBBE4BDF8B3BBED8C9;
 			remoteInfo = XamoomSDK;
 		};
-		A1B399156D0267A9F56BEEA04224ACF8 /* PBXContainerItemProxy */ = {
+		A4D506776326D12D6837EE69F61E3213 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 07AA2447FB415EB76E7A1C6773E552EE;
-			remoteInfo = SDWebImage;
+			remoteGlobalIDString = C76B1B91569F1E6508FAFE54DD31EFAB;
+			remoteInfo = JAMSVGImage;
 		};
 		AAF0D48CCDCC6AD6B5BEDDA2E2EF83B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -374,6 +388,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 07AA2447FB415EB76E7A1C6773E552EE;
 			remoteInfo = SDWebImage;
+		};
+		AD1C0A9DEE2609F4B6FEF573F87ED486 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F21831EB24A9CD2D6AEBC2B91C92D122;
+			remoteInfo = "youtube-ios-player-helper";
 		};
 		BA37FF76E2FE53D9D7ABD839261A26DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -402,20 +423,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D5DF82BFD37BCC69B2C159B8B655AA3F;
 			remoteInfo = JSONAPI;
-		};
-		E84F919C3821EAF608E189ABD684BD61 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D5DF82BFD37BCC69B2C159B8B655AA3F;
-			remoteInfo = JSONAPI;
-		};
-		FBF507C937BB99B5C3CE3DEF432B5111 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F21831EB24A9CD2D6AEBC2B91C92D122;
-			remoteInfo = "youtube-ios-player-helper";
 		};
 		FD7DFB28B4FA6398C138C5823DED0BFC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -716,14 +723,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		07007B161529C3478DE722BA33217A74 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D2C201528CC6902D5CFD285C9900CA6D /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		0CFE97B12A3CD12BC45AEAEE0F695652 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -753,6 +752,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E279FED57021E3C50468564F86AA8A0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		571213DA7F22944AF69C2EAB17226310 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F065163C6756FE14653816B676239E0F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1607,26 +1614,6 @@
 			productReference = 328D28649BD634657C533D57FF4C7BF1 /* libOCMock.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		52D1F02CCC4BE25234FD7AD9F0ACB9F3 /* Pods-XamoomSDK */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DF95876E68BD719EACA85943D2536F96 /* Build configuration list for PBXNativeTarget "Pods-XamoomSDK" */;
-			buildPhases = (
-				539CFE91BF06719A44430137E5C9A988 /* Sources */,
-				07007B161529C3478DE722BA33217A74 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				99D72722A2A6161542572C09E15DB629 /* PBXTargetDependency */,
-				377EEA9C5E4D6E598E2EBED9948F330D /* PBXTargetDependency */,
-				A4F407B9A1C7DEA750D6A4CC1607E19B /* PBXTargetDependency */,
-				83AB14F359DAA739B2874EFF52B46078 /* PBXTargetDependency */,
-			);
-			name = "Pods-XamoomSDK";
-			productName = "Pods-XamoomSDK";
-			productReference = BD6B177A1F9CC81A9AE0A3F1396B399F /* libPods-XamoomSDK.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		532AEB8666B2C2057A5A516995A393AE /* XamoomSDK-XamoomSDKXCAssets */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2123AACCAE055508D930A5900E12914 /* Build configuration list for PBXNativeTarget "XamoomSDK-XamoomSDKXCAssets" */;
@@ -1660,6 +1647,27 @@
 			productName = "XamoomSDK-XamoomSDKNibs";
 			productReference = 3CA92177AA6487450278A59824945D60 /* XamoomSDKNibs.bundle */;
 			productType = "com.apple.product-type.bundle";
+		};
+		7331F1797645986591719B1CD39D33B0 /* Pods-XamoomSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B9DE1C5C8B1982BE450BB76E6666F72 /* Build configuration list for PBXNativeTarget "Pods-XamoomSDK" */;
+			buildPhases = (
+				8E2773F3276EAB33A61A0F3ADD9B03D4 /* Sources */,
+				571213DA7F22944AF69C2EAB17226310 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80FD0E6E7CCA1B5FFCE3CD57842BF3BA /* PBXTargetDependency */,
+				00CC6C4A6CF7BF8E62726F92E7D6B38F /* PBXTargetDependency */,
+				02C01CAD5CF4B11EB7AF7641766B4CAA /* PBXTargetDependency */,
+				FE1540DF9CC92AB66526C295274DCF02 /* PBXTargetDependency */,
+				370AB74409C608382E1A614A1464575F /* PBXTargetDependency */,
+			);
+			name = "Pods-XamoomSDK";
+			productName = "Pods-XamoomSDK";
+			productReference = BD6B177A1F9CC81A9AE0A3F1396B399F /* libPods-XamoomSDK.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 		82E2567ABD0A80797C0CC61E312A0862 /* Pods-Example */ = {
 			isa = PBXNativeTarget;
@@ -1841,7 +1849,7 @@
 				D5DF82BFD37BCC69B2C159B8B655AA3F /* JSONAPI */,
 				4A2CAA839F2722C796C6F1DFDC806B92 /* OCMock */,
 				82E2567ABD0A80797C0CC61E312A0862 /* Pods-Example */,
-				52D1F02CCC4BE25234FD7AD9F0ACB9F3 /* Pods-XamoomSDK */,
+				7331F1797645986591719B1CD39D33B0 /* Pods-XamoomSDK */,
 				E37CA201C7013463D7331305F6720C4C /* Pods-XamoomSDKTests */,
 				07AA2447FB415EB76E7A1C6773E552EE /* SDWebImage */,
 				D8855FD8DEF981EBBE4BDF8B3BBED8C9 /* XamoomSDK */,
@@ -1985,14 +1993,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		539CFE91BF06719A44430137E5C9A988 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				164805D7A0F92161FCD0A729970A3B35 /* Pods-XamoomSDK-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		584986EFC11C19914DC9B2C0E34DC704 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2071,6 +2071,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8E2773F3276EAB33A61A0F3ADD9B03D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1343CED289AE2F42CE2FB15935BEE3A8 /* Pods-XamoomSDK-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B4091239F9CDFC00119729580719706A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2095,6 +2103,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		00CC6C4A6CF7BF8E62726F92E7D6B38F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSONAPI;
+			target = D5DF82BFD37BCC69B2C159B8B655AA3F /* JSONAPI */;
+			targetProxy = 29BB5CD45F9304B9844BF135202143EC /* PBXContainerItemProxy */;
+		};
+		02C01CAD5CF4B11EB7AF7641766B4CAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			target = 07AA2447FB415EB76E7A1C6773E552EE /* SDWebImage */;
+			targetProxy = 2C9CA5D658E129F5372C17FBD277E1F8 /* PBXContainerItemProxy */;
+		};
 		079B51A754A11756EF2A200F1E6196FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "youtube-ios-player-helper";
@@ -2125,11 +2145,11 @@
 			target = D5DF82BFD37BCC69B2C159B8B655AA3F /* JSONAPI */;
 			targetProxy = E1F6674F653E786BE7C58B21AD1AD63D /* PBXContainerItemProxy */;
 		};
-		377EEA9C5E4D6E598E2EBED9948F330D /* PBXTargetDependency */ = {
+		370AB74409C608382E1A614A1464575F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = JSONAPI;
-			target = D5DF82BFD37BCC69B2C159B8B655AA3F /* JSONAPI */;
-			targetProxy = E84F919C3821EAF608E189ABD684BD61 /* PBXContainerItemProxy */;
+			name = "youtube-ios-player-helper";
+			target = F21831EB24A9CD2D6AEBC2B91C92D122 /* youtube-ios-player-helper */;
+			targetProxy = AD1C0A9DEE2609F4B6FEF573F87ED486 /* PBXContainerItemProxy */;
 		};
 		3C5DE1FA5C27AA27180FA3F87955DDD0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2155,11 +2175,11 @@
 			target = D5DF82BFD37BCC69B2C159B8B655AA3F /* JSONAPI */;
 			targetProxy = 91A72AC91DB99CAE86E1248331C73F25 /* PBXContainerItemProxy */;
 		};
-		83AB14F359DAA739B2874EFF52B46078 /* PBXTargetDependency */ = {
+		80FD0E6E7CCA1B5FFCE3CD57842BF3BA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "youtube-ios-player-helper";
-			target = F21831EB24A9CD2D6AEBC2B91C92D122 /* youtube-ios-player-helper */;
-			targetProxy = FBF507C937BB99B5C3CE3DEF432B5111 /* PBXContainerItemProxy */;
+			name = JAMSVGImage;
+			target = C76B1B91569F1E6508FAFE54DD31EFAB /* JAMSVGImage */;
+			targetProxy = A4D506776326D12D6837EE69F61E3213 /* PBXContainerItemProxy */;
 		};
 		84A107ADCC533E9B74D33CD45953102A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2190,18 +2210,6 @@
 			name = YTVimeoExtractor;
 			target = DED765449E8734B90469D9E244B28221 /* YTVimeoExtractor */;
 			targetProxy = 6AAFD7136607B70312318F11559EA10D /* PBXContainerItemProxy */;
-		};
-		99D72722A2A6161542572C09E15DB629 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = JAMSVGImage;
-			target = C76B1B91569F1E6508FAFE54DD31EFAB /* JAMSVGImage */;
-			targetProxy = 5331D2CEADA35FE7D4CAD0FBF9A2C13B /* PBXContainerItemProxy */;
-		};
-		A4F407B9A1C7DEA750D6A4CC1607E19B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SDWebImage;
-			target = 07AA2447FB415EB76E7A1C6773E552EE /* SDWebImage */;
-			targetProxy = A1B399156D0267A9F56BEEA04224ACF8 /* PBXContainerItemProxy */;
 		};
 		A65C965E586CD5728A8FF2677ED96EDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2244,6 +2252,12 @@
 			name = OCMock;
 			target = 4A2CAA839F2722C796C6F1DFDC806B92 /* OCMock */;
 			targetProxy = D55513425D18382C152812D89C3817B4 /* PBXContainerItemProxy */;
+		};
+		FE1540DF9CC92AB66526C295274DCF02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YTVimeoExtractor;
+			target = DED765449E8734B90469D9E244B28221 /* YTVimeoExtractor */;
+			targetProxy = 2DB786AF14A5EE5342944396C6910AA9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2331,6 +2345,23 @@
 			};
 			name = Release;
 		};
+		23590302ADF5F503B0663539BBAEC84D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8D6D2F2330C014234A22349D583845E /* Pods-XamoomSDK.release.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		251121609363F57B20CE1485900386DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5CCFCA197CDD08088713C8B6B0ECB203 /* OCMock.xcconfig */;
@@ -2362,6 +2393,23 @@
 				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		397BEF2532318E72EB18069D771F5B58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DFB91796B5ACD79B7842C48D2778811 /* Pods-XamoomSDK.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -2439,23 +2487,6 @@
 			};
 			name = Release;
 		};
-		7D97A2FBE6310D018207017AF262AD48 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DFB91796B5ACD79B7842C48D2778811 /* Pods-XamoomSDK.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
 		8B8634E8BB71E08CED40A01CD8ABC752 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F09373D915B307FB97E21783159F30AA /* YTVimeoExtractor.xcconfig */;
@@ -2527,23 +2558,6 @@
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
-		};
-		A38AAC983304C0CCEDABD2222C2D8C44 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8D6D2F2330C014234A22349D583845E /* Pods-XamoomSDK.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
 		};
 		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2813,6 +2827,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		9B9DE1C5C8B1982BE450BB76E6666F72 /* Build configuration list for PBXNativeTarget "Pods-XamoomSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				397BEF2532318E72EB18069D771F5B58 /* Debug */,
+				23590302ADF5F503B0663539BBAEC84D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9C68B736C9964B8C2156722828496843 /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper-Assets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2836,15 +2859,6 @@
 			buildConfigurations = (
 				8B8634E8BB71E08CED40A01CD8ABC752 /* Debug */,
 				3EB2D009F5046CFA42529D74BBFC613A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DF95876E68BD719EACA85943D2536F96 /* Build configuration list for PBXNativeTarget "Pods-XamoomSDK" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7D97A2FBE6310D018207017AF262AD48 /* Debug */,
-				A38AAC983304C0CCEDABD2222C2D8C44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
