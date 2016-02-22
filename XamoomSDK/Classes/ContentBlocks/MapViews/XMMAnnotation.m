@@ -25,11 +25,15 @@
 @synthesize coordinate;
 @synthesize title;
 
+- (instancetype)init {
+  self = [self initWithLocation:CLLocationCoordinate2DMake(0, 0)];
+  return self;
+}
+
 - (id)initWithLocation:(CLLocationCoordinate2D)coord {
   self = [super init];
   if (self) {
     coordinate = coord;
-    title = @"YO";
   }
   
   return self;

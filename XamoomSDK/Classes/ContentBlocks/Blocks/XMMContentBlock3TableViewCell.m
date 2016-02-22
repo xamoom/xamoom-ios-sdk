@@ -169,20 +169,28 @@
 
 - (void)saveImageToPhotoLibary:(UILongPressGestureRecognizer*)sender {
   if (sender.state == UIGestureRecognizerStateBegan) {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bild speichern"
-                                                    message:@"Willst du das Bild in dein Fotoalbum speichern?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Ja"
-                                          otherButtonTitles:@"Abbrechen", nil];
-    [alert show];
+    [self showAlertController];
   }
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  if(buttonIndex == 0) {
-    //save image to camera roll
-    UIImageWriteToSavedPhotosAlbum(self.blockImageView.image, nil, nil, nil);
-  }
+- (void)showAlertController {
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
+                                                                           message:NSLocalizedString(@"SaveImage", nil)
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+  
+  [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [self saveImageToPhotos];
+  }]];
+  
+  [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+  
+  UIViewController* activeVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+  [activeVC presentViewController:alertController animated:YES completion:nil];
+  
+}
+
+- (void)saveImageToPhotos {
+  UIImageWriteToSavedPhotosAlbum(self.blockImageView.image, nil, nil, nil);
 }
 
 - (void)openLink:(UITapGestureRecognizer*)sender {

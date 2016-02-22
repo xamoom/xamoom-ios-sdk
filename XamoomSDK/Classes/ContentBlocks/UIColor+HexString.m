@@ -6,13 +6,6 @@
 
 #import "UIColor+HexString.h"
 
-@interface UIColor()
-
-+ (CGFloat) colorComponentFrom: (NSString *) string start: (NSUInteger) start length: (NSUInteger) length;
-
-@end
-
-
 @implementation UIColor(HexString)
 
 + (UIColor *) colorWithHexString: (NSString *) hexString {
@@ -24,7 +17,7 @@
             red   = [self colorComponentFrom: colorString start: 0 length: 1];
             green = [self colorComponentFrom: colorString start: 1 length: 1];
             blue  = [self colorComponentFrom: colorString start: 2 length: 1];
-            break;
+        break;
         case 4: // #ARGB
             alpha = [self colorComponentFrom: colorString start: 0 length: 1];
             red   = [self colorComponentFrom: colorString start: 1 length: 1];
