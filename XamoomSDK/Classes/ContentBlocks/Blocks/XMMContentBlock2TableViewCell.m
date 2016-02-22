@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSString* videoUrl;
 @property (nonatomic) float screenWidth;
 @property (nonatomic) UITapGestureRecognizer *tappedVideoViewRecognize;
+@property (nonatomic) UIImage *playImage;
 
 @end
 
@@ -31,10 +32,18 @@
 
 - (void)awakeFromNib {
   // Initialization code
+  self.videoPlayer = nil;
+  self.playImage = [UIImage imageNamed:@"videoPlay"];
+  self.tappedVideoViewRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
+  [self.thumbnailImageView addGestureRecognizer:self.tappedVideoViewRecognize];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
   [super setSelected:selected animated:animated];
+}
+
+- (void)prepareForReuse {
+  self.videoPlayer = nil;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
@@ -43,14 +52,11 @@
   if(block.title != nil && ![block.title isEqualToString:@""])
     self.titleLabel.text = block.title;
   
+  self.playIconImageView.image = self.playImage;
   [self initVideoWithUrl:block.videoUrl];
 }
 
 - (void)initVideoWithUrl:(NSString*)videoUrl {
-  self.videoPlayer = nil;
-  self.tappedVideoViewRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
-  [self.thumbnailImageView addGestureRecognizer:self.tappedVideoViewRecognize];
-
   NSString* youtubeVideoId = [self youtubeVideoIdFromUrl:videoUrl];
 
   if (youtubeVideoId != nil) {
@@ -65,17 +71,13 @@
     self.thumbnailImageView.hidden = NO;
     self.videoUrl = videoUrl;
 
-    [self initVideoPlayerWithUrl:[NSURL URLWithString:videoUrl]];
+    [self videoPlayerWithUrl:[NSURL URLWithString:videoUrl]];
+    [self thumbnailFromUrl:[NSURL URLWithString:videoUrl] completion:^(UIImage *image) {
+      self.thumbnailImageView.image = image;
+    }];
   }
 }
 
-/**
- *  Returns the videoId from a youtubeUrl.
- *
- *  @param videoUrl youtube url.
- *
- *  @return String videoId
- */
 - (NSString*)youtubeVideoIdFromUrl:(NSString*)videoUrl {
   //get the youtube videoId from the string
   NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
@@ -92,9 +94,22 @@
   }
 }
 
-- (void)initVideoPlayerWithUrl:(NSURL *)videoUrl {
+- (void)videoPlayerWithUrl:(NSURL *)videoUrl {
   self.videoPlayer = [[AVPlayer alloc] initWithURL:videoUrl];
+}
 
+- (void)thumbnailFromUrl:(NSURL *)videoUrl completion:(void (^)(UIImage* image))completion {
+  dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:[AVAsset assetWithURL:videoUrl]];
+    CMTime time = CMTimeMake(1, 1);
+    CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
+    UIImage *thumbnail = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+
+    dispatch_async( dispatch_get_main_queue(), ^{
+      completion(thumbnail);
+    });
+  });
 }
 
 - (void)tappedVideoView:(UITapGestureRecognizer*)sender {
@@ -102,7 +117,7 @@
   playerViewController.player = self.videoPlayer;
   
   [self.window.rootViewController presentViewController:playerViewController animated:YES completion:^{
-    //
+    [playerViewController.player play];
   }];
 }
 

@@ -28,16 +28,16 @@
                             <constraint firstAttribute="width" secondItem="UEd-kr-uJh" secondAttribute="height" multiplier="16:9" id="VZr-q6-T8c"/>
                         </constraints>
                     </view>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Yr-fK-bFp">
+                        <rect key="frame" x="0.0" y="69" width="320" height="179"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videoPlay" translatesAutoresizingMaskIntoConstraints="NO" id="Q9G-2x-vhn">
                         <rect key="frame" x="135" y="134" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="TvN-oB-UaG"/>
                             <constraint firstAttribute="width" constant="50" id="pZU-hH-9Nh"/>
                         </constraints>
-                    </imageView>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Yr-fK-bFp">
-                        <rect key="frame" x="0.0" y="69" width="320" height="179"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </imageView>
                 </subviews>
                 <constraints>
