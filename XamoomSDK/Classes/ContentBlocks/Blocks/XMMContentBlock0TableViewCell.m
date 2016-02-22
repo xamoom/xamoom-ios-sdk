@@ -17,9 +17,9 @@
 // along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "XMMContentBlock0TableViewCell.h"
+#import "XMMContentBlock0TableViewCellTests.h"
 
-@interface XMMContentBlock0TableViewCell()
+@interface XMMContentBlock0TableViewCellTests()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTopConstraint;
 
@@ -54,13 +54,7 @@ static UIColor *contentLinkColor;
   self.contentTextView.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   
   //set title
-  if(block.title != nil && ![block.title isEqualToString:@""]) {
-     self.contentTextViewTopConstraint.constant = 8;
-    self.titleLabel.text = block.title;
-    [self.titleLabel setFont:[UIFont systemFontOfSize:[XMMContentBlock0TableViewCell fontSize]+5 weight:UIFontWeightMedium]];
-  } else {
-    self.contentTextViewTopConstraint.constant = 0;
-  }
+  
   
   //set content
   if (block.text != nil && ![block.text isEqualToString:@""]) {
@@ -75,6 +69,16 @@ static UIColor *contentLinkColor;
   }
   
   [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
+}
+
+- (void)displayTitle:(NSString *)title {
+  if(title != nil && ![title isEqualToString:@""]) {
+    self.contentTextViewTopConstraint.constant = 8;
+    self.titleLabel.text = title;
+    [self.titleLabel setFont:[UIFont systemFontOfSize:[XMMContentBlock0TableViewCell fontSize]+5 weight:UIFontWeightMedium]];
+  } else {
+    self.contentTextViewTopConstraint.constant = 0;
+  }
 }
 
 - (NSMutableAttributedString*)attributedStringFromHTML:(NSString*)html fontSize:(int)fontSize fontColor:(UIColor *)color {
@@ -99,13 +103,5 @@ static UIColor *contentLinkColor;
   
   return attributedString;
 }
-
-/*
- - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
- [super setSelected:selected animated:animated];
- 
- // Configure the view for the selected state
- }
- */
 
 @end
