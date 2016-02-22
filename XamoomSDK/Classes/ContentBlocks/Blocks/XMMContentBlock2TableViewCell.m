@@ -44,6 +44,7 @@
 
 - (void)prepareForReuse {
   self.videoPlayer = nil;
+  self.titleLabel.text = nil;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
@@ -53,32 +54,28 @@
     self.titleLabel.text = block.title;
   
   self.playIconImageView.image = self.playImage;
-  [self initVideoWithUrl:block.videoUrl];
+  [self determineVideoFromURLString:block.videoUrl];
 }
 
-- (void)initVideoWithUrl:(NSString*)videoUrl {
-  NSString* youtubeVideoId = [self youtubeVideoIdFromUrl:videoUrl];
+- (void)determineVideoFromURLString:(NSString*)videoURLString {
+  NSString *youtubeVideoID = [self youtubeVideoIdFromURL:videoURLString];
 
-  if (youtubeVideoId != nil) {
-    //load video inside playerView
-    self.youtubePlayerView.hidden = NO;
-    self.playIconImageView.hidden = YES;
-    self.thumbnailImageView.hidden = YES;
-    [self.youtubePlayerView loadWithVideoId:youtubeVideoId];
+  if (youtubeVideoID != nil) {
+    [self showYoutube];
+    [self.youtubePlayerView loadWithVideoId:youtubeVideoID];
+  } else if ([videoURLString containsString:@"vimeo"]) {
+    [self hideYoutube];
+    [self vimeoFromURLString:videoURLString];
   } else {
-    self.youtubePlayerView.hidden = YES;
-    self.playIconImageView.hidden = NO;
-    self.thumbnailImageView.hidden = NO;
-    self.videoUrl = videoUrl;
-
-    [self videoPlayerWithUrl:[NSURL URLWithString:videoUrl]];
-    [self thumbnailFromUrl:[NSURL URLWithString:videoUrl] completion:^(UIImage *image) {
+    [self hideYoutube];
+    [self videoPlayerWithURL:[NSURL URLWithString:videoURLString]];
+    [self thumbnailFromUrl:[NSURL URLWithString:videoURLString] completion:^(UIImage *image) {
       self.thumbnailImageView.image = image;
     }];
   }
 }
 
-- (NSString*)youtubeVideoIdFromUrl:(NSString*)videoUrl {
+- (NSString*)youtubeVideoIdFromURL:(NSString*)videoUrl {
   //get the youtube videoId from the string
   NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
   NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
@@ -94,7 +91,17 @@
   }
 }
 
-- (void)videoPlayerWithUrl:(NSURL *)videoUrl {
+- (void)vimeoFromURLString:(NSString *)URLString {
+  [[YTVimeoExtractor sharedExtractor]fetchVideoWithVimeoURL:URLString withReferer:@"https://www.xamoom.com" completionHandler:^(YTVimeoVideo * _Nullable video, NSError * _Nullable error) {
+    if (video) {
+      NSString *highQualityURLString = [[video streamURLs] objectForKey:@(YTVimeoVideoQualityHD720)];
+      self.videoPlayer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:highQualityURLString]];
+      [self.thumbnailImageView sd_setImageWithURL:[[video thumbnailURLs] objectForKey:@(YTVimeoVideoThumbnailQualityMedium)]];
+    }
+  }];
+}
+
+- (void)videoPlayerWithURL:(NSURL *)videoUrl {
   self.videoPlayer = [[AVPlayer alloc] initWithURL:videoUrl];
 }
 
@@ -119,6 +126,18 @@
   [self.window.rootViewController presentViewController:playerViewController animated:YES completion:^{
     [playerViewController.player play];
   }];
+}
+
+- (void)hideYoutube {
+  self.youtubePlayerView.hidden = YES;
+  self.playIconImageView.hidden = NO;
+  self.thumbnailImageView.hidden = NO;
+}
+
+- (void)showYoutube {
+  self.youtubePlayerView.hidden = NO;
+  self.playIconImageView.hidden = YES;
+  self.thumbnailImageView.hidden = YES;
 }
 
 @end

@@ -20,10 +20,13 @@
 #import <UIKit/UIKit.h>
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "YTPlayerView.h"
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
+#import "YTVimeoExtractor.h"
+#import "YTVimeoVideo.h"
 
 /**
  * XMMContentBlock2TableViewCell is used to display video contentBlocks from the xamoom cloud.

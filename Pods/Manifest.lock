@@ -10,7 +10,9 @@ PODS:
     - JSONAPI (~> 1.0.0)
     - SDWebImage (~> 3.7)
     - youtube-ios-player-helper (= 0.1.4)
+    - YTVimeoExtractor
   - youtube-ios-player-helper (0.1.4)
+  - YTVimeoExtractor (1.0.0)
 
 DEPENDENCIES:
   - JAMSVGImage
@@ -29,7 +31,8 @@ SPEC CHECKSUMS:
   JSONAPI: 9b32b11cb196ede8bf22489879fb4003c3e5e8f3
   OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
-  XamoomSDK: af4eb12bb0efcc306de8ab3649d5d01f5d593374
+  XamoomSDK: 0247f92ed9681d7d07a53917efd71a20c832791f
   youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
+  YTVimeoExtractor: fa329a7cc99fc3d0b4e1fa6fd9d1d5eab1835c7d
 
 COCOAPODS: 0.39.0
