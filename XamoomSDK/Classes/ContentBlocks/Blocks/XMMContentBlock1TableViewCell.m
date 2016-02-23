@@ -21,8 +21,6 @@
 
 @interface XMMContentBlock1TableViewCell ()
 
-@property (nonatomic, getter=isPlaying) BOOL playing;
-
 @end
 
 @implementation XMMContentBlock1TableViewCell
@@ -36,27 +34,15 @@
   [self.audioControlButton setImage:[UIImage imageNamed:@"playbutton"] forState:UIControlStateNormal];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-  [super setSelected:selected animated:animated];
-}
-
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
-  //set audioPlayerControl delegate and initialize
   self.audioPlayerControl.delegate = self;
   [self.audioPlayerControl initAudioPlayerWithUrlString:block.fileID];
   
-  //set title & artist
-  if (block.title != nil && ![block.title isEqualToString:@""]) {
-    self.titleLabel.text = block.title;
-  }
-  
-  if (block.artists != nil && ![block.artists isEqualToString:@""]) {
-    self.artistLabel.text = block.artists;
-  }
+  self.titleLabel.text = block.title;
+  self.artistLabel.text = block.artists;
 }
 
 - (IBAction)playButtonTouched:(id)sender {
-  //play or pause the audioplayer and change the buttonImage
   if (!self.isPlaying) {
     [self.audioPlayerControl play];
     self.playing = YES;
@@ -71,12 +57,13 @@
 #pragma mark - XMMMMusicPlayer delegate
 
 - (void)didLoadAsset:(AVURLAsset *)asset {
-  NSLog(@"Hellyeah? %@", asset);
-  //set songDuration
+  if (asset == nil) {
+    self.remainingTimeLabel.text = @"-";
+    return;
+  }
+  
   float songDurationInSeconds = CMTimeGetSeconds(asset.duration);
   self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
-  NSLog(@"Hellyeah? %@", self.remainingTimeLabel.text);
-
 }
 
 -(void)didUpdateRemainingSongTime:(NSString *)remainingSongTime {

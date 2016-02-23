@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *remainingTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *audioControlButton;
 @property (weak, nonatomic) IBOutlet XMMMusicPlayer *audioPlayerControl;
+@property (nonatomic, getter=isPlaying) BOOL playing;
 
 - (IBAction)playButtonTouched:(id)sender;
 

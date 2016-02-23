@@ -10,11 +10,13 @@
 #import <OCMock/OCMock.h>
 #import "XMMEnduserApi.h"
 #import "XMMContentBlocks.h"
+#import "XMMMusicPlayer.h"
 
 @interface XMMContentBlocksTests : XCTestCase
 
 @property id mockedApi;
 @property id mockedTableView;
+@property XMMContentBlocks *contentBlocks;
 @property XMMStyle *style;
 
 @end
@@ -30,6 +32,10 @@
   self.style.foregroundFontColor = @"#222222";
   self.style.highlightFontColor = @"#0000FF";
   self.style.backgroundColor = @"#FFFFFF";
+  
+  UITableView *tableView = [[UITableView alloc] init];
+  self.contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  self.contentBlocks.style = self.style;
 }
 
 - (void)tearDown {
@@ -128,27 +134,21 @@
 
 
 - (void)testThatCellForRowAtIndexPathReturnsContentBlock0Cell {
-  UITableView *tableView = [[UITableView alloc] init];
-  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
-  
-  [contentBlocks displayContent:[self xamoomStaticContent]];
+  [self.contentBlocks displayContent:[self xamoomStaticContent]];
   
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
   
-  XMMContentBlock0TableViewCell *cell = (XMMContentBlock0TableViewCell *)[contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock0TableViewCell *cell = (XMMContentBlock0TableViewCell *)[self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   
   XCTAssertTrue([cell.titleLabel.text isEqualToString:@"Block Title"]);
 }
 
 - (void)testThatCellForRowAtIndexPathReturnsContentBlock6Cell {
-  UITableView *tableView = [[UITableView alloc] init];
-  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
-  
-  [contentBlocks displayContent:[self xamoomStaticContentType6]];
+  [self.contentBlocks displayContent:[self xamoomStaticContentType6]];
   
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
   
-  XMMContentBlock6TableViewCell *cell = (XMMContentBlock6TableViewCell *)[contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock6TableViewCell *cell = (XMMContentBlock6TableViewCell *)[self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   
   XCTAssertTrue([cell.contentID isEqualToString:@"123456"]);
 }
@@ -156,13 +156,10 @@
 #pragma mark - ContentBlock0TableViewCellTests
 
 - (void)testThatContentBlock0CellConfigures {
-  UITableView *tableView = [[UITableView alloc] init];
-  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
-  contentBlocks.style = self.style;
-  [contentBlocks displayContent:[self contentWithBlockType0]];
+  [self.contentBlocks displayContent:[self contentWithBlockType0]];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
   
-  UITableViewCell *cell = [contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock0TableViewCell *testCell = (XMMContentBlock0TableViewCell *)cell;
   
   XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
@@ -172,13 +169,10 @@
 }
 
 - (void)testThatContentBlock0CellConfigureForNoText {
-  UITableView *tableView = [[UITableView alloc] init];
-  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
-  contentBlocks.style = self.style;
-  [contentBlocks displayContent:[self contentWithBlockType0]];
+  [self.contentBlocks displayContent:[self contentWithBlockType0]];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   
-  UITableViewCell *cell = [contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock0TableViewCell *testCell = (XMMContentBlock0TableViewCell *)cell;
   
   XCTAssertTrue([testCell.titleLabel.text isEqualToString:@""]);
@@ -187,6 +181,86 @@
   XCTAssertTrue(UIEdgeInsetsEqualToEdgeInsets(testCell.contentTextView.textContainerInset, UIEdgeInsetsZero));
 }
 
+- (void)testThatContentBlock1CellConfigures{
+  [self.contentBlocks displayContent:[self contentWithBlockType1]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock1TableViewCell *testCell = (XMMContentBlock1TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssertTrue([testCell.titleLabel.text isEqualToString:@"Content Title"]);
+  XCTAssertTrue([testCell.artistLabel.text isEqualToString:@"Artists Text"]);
+}
+
+- (void)testThatContentBlock1CellConfigureForNoText{
+  [self.contentBlocks displayContent:[self contentWithBlockType1]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock1TableViewCell *testCell = (XMMContentBlock1TableViewCell *)cell;
+
+  XCTAssertNotNil(testCell);
+  XCTAssertNil(testCell.titleLabel.text);
+  XCTAssertNil(testCell.artistLabel.text);
+}
+
+- (void)testThatContentBlock1CellTriggersMusicPlayer {
+  [self.contentBlocks displayContent:[self contentWithBlockType1]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  XMMMusicPlayer *mockedMusicPlayer = OCMPartialMock([[XMMMusicPlayer alloc] init]);
+  
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock1TableViewCell *testCell = (XMMContentBlock1TableViewCell *)cell;
+  testCell.audioPlayerControl = mockedMusicPlayer;
+  
+  OCMExpect([mockedMusicPlayer play]);
+  OCMExpect([mockedMusicPlayer pause]);
+  
+  [testCell playButtonTouched:nil];
+  XCTAssertTrue(testCell.isPlaying);
+  [testCell playButtonTouched:nil];
+  XCTAssertFalse(testCell.isPlaying);
+  
+  OCMVerify(mockedMusicPlayer);
+}
+
+- (void)testThatContentBlock1CellMusicPlayerDelegateWorks {
+  [self.contentBlocks displayContent:[self contentWithBlockType1]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock1TableViewCell *testCell = (XMMContentBlock1TableViewCell *)cell;
+  AVURLAsset *asset = OCMPartialMock([[AVURLAsset alloc] initWithURL:[NSURL URLWithString:@"www.xamoom.com"] options:nil]);
+  Float64 seconds = 5;
+  int32_t preferredTimeScale = 600;
+  CMTime inTime = CMTimeMakeWithSeconds(seconds, preferredTimeScale);
+  OCMStub(asset.duration).andReturn(inTime);
+  
+  [testCell.audioPlayerControl.delegate didLoadAsset:nil];
+  XCTAssert([testCell.remainingTimeLabel.text isEqualToString:@"-"]);
+  
+  [testCell.audioPlayerControl.delegate didLoadAsset:asset];
+  XCTAssert([testCell.remainingTimeLabel.text isEqualToString:@"0:05"]);
+  
+  [testCell.audioPlayerControl.delegate didUpdateRemainingSongTime:@"0:01"];
+  XCTAssert([testCell.remainingTimeLabel.text isEqualToString:@"0:01"]);
+}
+
+- (void)testThatContentBlock1CellPausesOnNotification {
+  [self.contentBlocks displayContent:[self contentWithBlockType1]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  XMMMusicPlayer *mockedMusicPlayer = OCMPartialMock([[XMMMusicPlayer alloc] init]);
+  
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock1TableViewCell *testCell = (XMMContentBlock1TableViewCell *)cell;
+  testCell.audioPlayerControl = mockedMusicPlayer;
+  
+  OCMExpect([mockedMusicPlayer pause]);
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"pauseAllSounds" object:nil];
+  
+  OCMVerify(mockedMusicPlayer);
+}
 
 #pragma mark - Helpers
 
@@ -267,5 +341,30 @@
   
   return content;
 }
+
+- (XMMContent *)contentWithBlockType1 {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.title = @"Content Title";
+  block1.artists = @"Artists Text";
+  block1.publicStatus = YES;
+  block1.blockType = 1;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.title = nil;
+  block2.text = nil;
+  block2.publicStatus = YES;
+  block2.blockType = 1;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block2, nil];
+  
+  return content;
+}
+
 
 @end
