@@ -38,10 +38,6 @@
   [self.thumbnailImageView addGestureRecognizer:self.tappedVideoViewRecognize];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-  [super setSelected:selected animated:animated];
-}
-
 - (void)prepareForReuse {
   self.videoPlayer = nil;
   self.titleLabel.text = nil;
@@ -49,9 +45,7 @@
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
-  
-  if(block.title != nil && ![block.title isEqualToString:@""])
-    self.titleLabel.text = block.title;
+  self.titleLabel.text = block.title;
   
   self.playIconImageView.image = self.playImage;
   [self determineVideoFromURLString:block.videoUrl];

@@ -262,6 +262,60 @@
   OCMVerify(mockedMusicPlayer);
 }
 
+- (void)testThatContentBlock2CellConfigureYoutube {
+  [self.contentBlocks displayContent:[self contentWithBlockType2]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock2TableViewCell *testCell = (XMMContentBlock2TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title"]);
+  XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
+  XCTAssertFalse(testCell.youtubePlayerView.hidden);
+  XCTAssertTrue(testCell.playIconImageView.hidden);
+  XCTAssertTrue(testCell.thumbnailImageView.hidden);
+}
+
+- (void)testThatContentBlock2CellConfigureVimeo {
+  [self.contentBlocks displayContent:[self contentWithBlockType2]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock2TableViewCell *testCell = (XMMContentBlock2TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssertNil(testCell.titleLabel.text);
+  XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
+  XCTAssertTrue(testCell.youtubePlayerView.hidden);
+  XCTAssertFalse(testCell.playIconImageView.hidden);
+  XCTAssertFalse(testCell.thumbnailImageView.hidden);
+}
+
+- (void)testThatContentBlock2CellConfigureWebVideo {
+  [self.contentBlocks displayContent:[self contentWithBlockType2]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock2TableViewCell *testCell = (XMMContentBlock2TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssertNil(testCell.titleLabel.text);
+  XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
+  XCTAssertTrue(testCell.youtubePlayerView.hidden);
+  XCTAssertFalse(testCell.playIconImageView.hidden);
+  XCTAssertFalse(testCell.thumbnailImageView.hidden);
+}
+
+- (void)disable_testThatContentBlock2CellConfigureTap { //ugly test
+  [self.contentBlocks displayContent:[self contentWithBlockType2]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock2TableViewCell *testCell = (XMMContentBlock2TableViewCell *)cell;
+  testCell = (XMMContentBlock2TableViewCell *)OCMPartialMock(testCell);
+  
+  [testCell tappedVideoView:nil];
+  
+  OCMVerify([testCell tappedVideoView:[OCMArg any]]);
+}
+
 #pragma mark - Helpers
 
 - (XMMContent *)xamoomStaticContent {
@@ -366,5 +420,34 @@
   return content;
 }
 
+- (XMMContent *)contentWithBlockType2 {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.title = @"Content Title";
+  block1.videoUrl = @"https://www.youtube.com/watch?v=mVju1coG_6Q&list=WL&index=8";
+  block1.publicStatus = YES;
+  block1.blockType = 2;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.title = nil;
+  block2.videoUrl = @"https://vimeo.com/149123295";
+  block2.publicStatus = YES;
+  block2.blockType = 2;
+  
+  XMMContentBlock *block3 = [[XMMContentBlock alloc] init];
+  block3.title = nil;
+  block3.videoUrl = @"https://storage.googleapis.com/xamoom-public-resources/testing_pingeborg.mp4";
+  block3.publicStatus = YES;
+  block3.blockType = 2;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block2, block3, nil];
+  
+  return content;
+}
 
 @end
