@@ -20,9 +20,6 @@
 #import "XMMContentBlock0TableViewCell.h"
 
 @interface XMMContentBlock0TableViewCell()
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTopConstraint;
-
 @end
 
 @implementation XMMContentBlock0TableViewCell
@@ -51,12 +48,10 @@ static UIColor *contentLinkColor;
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
-  self.contentTextView.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
   
   [self displayTitle:block.title];
   [self displayContent:block.text style:style];
-  
-  [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
 }
 
 - (void)displayTitle:(NSString *)title {
@@ -71,14 +66,21 @@ static UIColor *contentLinkColor;
 
 - (void)displayContent:(NSString *)text style:(XMMStyle *)style {
   if (text != nil) {
-    self.contentTextView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);
+    [self resetTextViewInsets:self.contentTextView];
     self.contentTextView.attributedText = [self attributedStringFromHTML:text fontSize:[XMMContentBlock0TableViewCell fontSize] fontColor:[UIColor colorWithHexString:style.foregroundFontColor]];
     [self.contentTextView sizeToFit];
   } else {
-    [self.contentTextView setFont:[UIFont systemFontOfSize:0.0f]];
-    self.contentTextView.textContainerInset = UIEdgeInsetsZero;
-    self.contentTextView.textContainer.lineFragmentPadding = 0;
+    [self disappearTextView:self.contentTextView];
   }
+}
+
+- (void)resetTextViewInsets:(UITextView *)textView {
+  textView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);
+}
+
+- (void)disappearTextView:(UITextView *)textView {
+  [textView setFont:[UIFont systemFontOfSize:0.0f]];
+  textView.textContainerInset = UIEdgeInsetsZero;
 }
 
 - (NSMutableAttributedString*)attributedStringFromHTML:(NSString*)html fontSize:(int)fontSize fontColor:(UIColor *)color {

@@ -15,6 +15,7 @@
 
 @property id mockedApi;
 @property id mockedTableView;
+@property XMMStyle *style;
 
 @end
 
@@ -24,6 +25,11 @@
   [super setUp];
   self.mockedApi = OCMClassMock([XMMEnduserApi class]);
   self.mockedTableView = OCMClassMock([UITableView class]);
+
+  self.style = [[XMMStyle alloc] init];
+  self.style.foregroundFontColor = @"#222222";
+  self.style.highlightFontColor = @"#0000FF";
+  self.style.backgroundColor = @"#FFFFFF";
 }
 
 - (void)tearDown {
@@ -42,9 +48,9 @@
 - (void)testDisplayContentSetsItems {
   XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:self.mockedTableView api:self.mockedApi];
   
-  [contentBlocks displayContent:[self xamoomContent]];
+  [contentBlocks displayContent:[self xamoomStaticContent]];
 
-  XCTAssertTrue(contentBlocks.items.count == 2);
+  XCTAssertTrue(contentBlocks.items.count == 1);
 }
 
 - (void)testkContentBlock9MapContentLinkNotification {
@@ -62,35 +68,9 @@
 - (void)testThatItemsCountIsSet {
   XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:self.mockedTableView api:self.mockedApi];
   
-  [contentBlocks displayContent:[self xamoomContent]];
+  [contentBlocks displayContent:[self xamoomStaticContent]];
   
-  XCTAssertTrue([contentBlocks tableView:self.mockedTableView numberOfRowsInSection:0] == 2);
-}
-
-- (void)testThatCellForRowAtIndexPathReturnsContentBlock0Cell {
-  UITableView *tableView = [[UITableView alloc] init];
-  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
-  
-  [contentBlocks displayContent:[self xamoomContent]];
-  
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-  
-  XMMContentBlock0TableViewCell *cell = (XMMContentBlock0TableViewCell *)[contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
-  
-  XCTAssertTrue([cell.titleLabel.text isEqualToString:@"Block Title"]);
-}
-
-- (void)testThatCellForRowAtIndexPathReturnsContentBlock6Cell {
-  UITableView *tableView = [[UITableView alloc] init];
-  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
-  
-  [contentBlocks displayContent:[self xamoomContent]];
-  
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-  
-  XMMContentBlock6TableViewCell *cell = (XMMContentBlock6TableViewCell *)[contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
-  
-  XCTAssertTrue([cell.contentID isEqualToString:@"123456"]);
+  XCTAssertTrue([contentBlocks tableView:self.mockedTableView numberOfRowsInSection:0] == 1);
 }
 
 - (void)testThatCellForRowAtIndexPathReturnsBlankCell {
@@ -146,9 +126,71 @@
   XCTAssertEqual(height, UITableViewAutomaticDimension);
 }
 
+
+- (void)testThatCellForRowAtIndexPathReturnsContentBlock0Cell {
+  UITableView *tableView = [[UITableView alloc] init];
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  
+  [contentBlocks displayContent:[self xamoomStaticContent]];
+  
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  
+  XMMContentBlock0TableViewCell *cell = (XMMContentBlock0TableViewCell *)[contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
+  
+  XCTAssertTrue([cell.titleLabel.text isEqualToString:@"Block Title"]);
+}
+
+- (void)testThatCellForRowAtIndexPathReturnsContentBlock6Cell {
+  UITableView *tableView = [[UITableView alloc] init];
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  
+  [contentBlocks displayContent:[self xamoomStaticContentType6]];
+  
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  
+  XMMContentBlock6TableViewCell *cell = (XMMContentBlock6TableViewCell *)[contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
+  
+  XCTAssertTrue([cell.contentID isEqualToString:@"123456"]);
+}
+
+#pragma mark - ContentBlock0TableViewCellTests
+
+- (void)testThatContentBlock0CellConfigures {
+  UITableView *tableView = [[UITableView alloc] init];
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  contentBlocks.style = self.style;
+  [contentBlocks displayContent:[self contentWithBlockType0]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  
+  UITableViewCell *cell = [contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock0TableViewCell *testCell = (XMMContentBlock0TableViewCell *)cell;
+  
+  XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
+  XCTAssertTrue([[testCell.contentTextView.linkTextAttributes objectForKey:NSForegroundColorAttributeName] isEqual:[UIColor colorWithHexString: self.style.highlightFontColor]]);
+  XCTAssertTrue([testCell.titleLabel.text isEqualToString:@"Content Title"]);
+  XCTAssertNotNil(testCell.contentTextView.attributedText);
+}
+
+- (void)testThatContentBlock0CellConfigureForNoText {
+  UITableView *tableView = [[UITableView alloc] init];
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  contentBlocks.style = self.style;
+  [contentBlocks displayContent:[self contentWithBlockType0]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  
+  UITableViewCell *cell = [contentBlocks tableView:tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock0TableViewCell *testCell = (XMMContentBlock0TableViewCell *)cell;
+  
+  XCTAssertTrue([testCell.titleLabel.text isEqualToString:@""]);
+  XCTAssertTrue([testCell.contentTextView.text isEqualToString:@""]);
+  XCTAssertTrue(testCell.contentTextViewTopConstraint.constant == 0);
+  XCTAssertTrue(UIEdgeInsetsEqualToEdgeInsets(testCell.contentTextView.textContainerInset, UIEdgeInsetsZero));
+}
+
+
 #pragma mark - Helpers
 
-- (XMMContent *)xamoomContent {
+- (XMMContent *)xamoomStaticContent {
   XMMContent *content = [[XMMContent alloc] init];
   
   content.title = @"Content Title";
@@ -161,13 +203,25 @@
   block1.publicStatus = YES;
   block1.blockType = 0;
   
-  XMMContentBlock *block6 = [[XMMContentBlock alloc] init];
-  block6.title = @"ContentBlock Title";
-  block6.contentID = @"123456";
-  block6.publicStatus = YES;
-  block6.blockType = 6;
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, nil];
   
-  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block6, nil];
+  return content;
+}
+
+- (XMMContent *)xamoomStaticContentType6 {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.title = @"Block Title";
+  block1.publicStatus = YES;
+  block1.blockType = 6;
+  block1.contentID = @"123456";
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, nil];
   
   return content;
 }
@@ -186,6 +240,30 @@
   block1.blockType = 10;
   
   content.contentBlocks = [[NSArray alloc] initWithObjects:block1, nil];
+  
+  return content;
+}
+
+- (XMMContent *)contentWithBlockType0 {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.title = @"Content Title";
+  block1.text = @"Content Text";
+  block1.publicStatus = YES;
+  block1.blockType = 0;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.title = nil;
+  block2.text = nil;
+  block2.publicStatus = YES;
+  block2.blockType = 0;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block2, nil];
   
   return content;
 }
