@@ -23,6 +23,22 @@
 
 static JSONAPIResourceDescriptor *__descriptor = nil;
 
+- (instancetype)init {
+  return [self initWithBackgroundColor:@"#FFFFFF"
+                highlightTextColor:@"#0000FF"
+                textColor:@"#000000"];
+}
+
+- (instancetype)initWithBackgroundColor:(NSString *)backgroundHexColor highlightTextColor:(NSString *)highlightFontHexColor textColor:(NSString *)foregroundFontHexColor {
+  self = [super init];
+  if (self) {
+    self.backgroundColor = backgroundHexColor;
+    self.highlightFontColor = highlightFontHexColor;
+    self.foregroundFontColor = foregroundFontHexColor;
+  }
+  return self;
+}
+
 + (NSString *)resourceName {
   return @"styles";
 }

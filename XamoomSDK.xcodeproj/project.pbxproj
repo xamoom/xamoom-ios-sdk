@@ -64,6 +64,7 @@
 		884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 884937601C75F7E600C53520 /* UIImage+Scaling.m */; };
 		8886E2931C7B55B000B6AEAE /* XMMRestResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2921C7B55B000B6AEAE /* XMMRestResourceTests.m */; };
 		8886E2951C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */; };
+		8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */; };
 		8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */; };
 		8888DDD21C47B0FA0050A84C /* XamoomSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DDD11C47B0FA0050A84C /* XamoomSDKTests.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
@@ -180,6 +181,7 @@
 		884937601C75F7E600C53520 /* UIImage+Scaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Scaling.m"; sourceTree = "<group>"; };
 		8886E2921C7B55B000B6AEAE /* XMMRestResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMRestResourceTests.m; sourceTree = "<group>"; };
 		8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksCacheTests.m; sourceTree = "<group>"; };
+		8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMStyleTests.m; sourceTree = "<group>"; };
 		8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XamoomSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDC71C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8888DDCC1C47B0FA0050A84C /* XamoomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -412,6 +414,7 @@
 				881945981C625B5000E4524F /* XMMContentBlocksTests.m */,
 				8886E2921C7B55B000B6AEAE /* XMMRestResourceTests.m */,
 				8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */,
+				8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */,
 			);
 			path = XamoomSDKTests;
 			sourceTree = "<group>";
@@ -774,6 +777,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */,
 				881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */,
 				88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */,
 				8886E2931C7B55B000B6AEAE /* XMMRestResourceTests.m in Sources */,

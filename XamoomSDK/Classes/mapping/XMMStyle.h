@@ -54,6 +54,13 @@
  */
 @property (nonatomic, copy) NSString* icon;
 
-/// @name Mapping
+/**
+ * Create style instance with defined colors;
+ *
+ * @param backgroundHexColor Hex of backgroundColor;
+ * @param highlightFontHexColor Hex of hightlightColor (used for e.g. links)
+ * @param foregroundFontHexColor Hex of textColor
+ */
+- (instancetype)initWithBackgroundColor:(NSString *)backgroundHexColor highlightTextColor:(NSString *)highlightFontHexColor textColor:(NSString *)foregroundFontHexColor;
 
 @end
