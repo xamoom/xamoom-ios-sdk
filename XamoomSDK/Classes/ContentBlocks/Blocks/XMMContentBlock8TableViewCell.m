@@ -23,36 +23,38 @@
 
 - (void)awakeFromNib {
   self.titleLabel.text = nil;
+  self.contentTextLabel.text = nil;
+  self.fileID = nil;
+  
+  self.calendarImage = [UIImage imageNamed:@"cal"];
+  self.contactImage = [UIImage imageNamed:@"contact"];
   
   UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
   [self addGestureRecognizer:tapGestureRecognizer];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-  [super setSelected:selected animated:animated];
-}
-
 - (void)prepareForReuse {
   self.titleLabel.text = nil;
+  self.contentTextLabel.text = nil;
+  self.fileID = nil;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
   self.titleLabel.text = block.title;
   self.contentTextLabel.text = block.text;
-  self.fileId = block.fileID;
-  self.downloadType = block.downloadType;
+  self.fileID = block.fileID;
   
-  [self.icon setImage:[self changeIconAccordingToDownloadType]];
+  [self.icon setImage:[self iconForDownloadType:block.downloadType]];
 }
 
-- (UIImage*)changeIconAccordingToDownloadType {
-  switch (self.downloadType) {
+- (UIImage *)iconForDownloadType:(int)downloadType {
+  switch (downloadType) {
     case 0: {
-      return [UIImage imageNamed:@"contact"];
+      return self.contactImage;
       break;
     }
     case 1: {
-      return [UIImage imageNamed:@"cal"];
+      return self.calendarImage;
       break;
     }
     default:
@@ -64,7 +66,7 @@
 
 - (void)openInBrowser:(id)sender {
   //open url in safari
-  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.fileId]];
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.fileID]];
 }
 
 

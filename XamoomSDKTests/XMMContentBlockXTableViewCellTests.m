@@ -671,7 +671,53 @@
   OCMVerifyAll(mockedWebView);
 }
 
+- (void)testThatContentBlock8CellConfigureType0 {
+  [self.contentBlocks displayContent:[self contentWithBlockType8]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock8TableViewCell *testCell = (XMMContentBlock8TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssert([testCell.titleLabel.text isEqualToString:@"Block Title"]);
+  XCTAssert([testCell.contentTextLabel.text isEqualToString:@"Block text"]);
+  XCTAssert([testCell.fileID isEqualToString:@"www.xamoom.com"]);
+}
+
+- (void)testThatContentBlock8CellConfigureType1NoText {
+  [self.contentBlocks displayContent:[self contentWithBlockType8]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock8TableViewCell *testCell = (XMMContentBlock8TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssertNil(testCell.titleLabel.text);
+  XCTAssertNil(testCell.contentTextLabel.text
+               );
+  XCTAssertNil(testCell.fileID);
+}
+
+- (void)testThatContentBlock8CellIconForDownloadType {
+  [self.contentBlocks displayContent:[self contentWithBlockType8]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock8TableViewCell *testCell = (XMMContentBlock8TableViewCell *)cell;
+  
+  testCell.contactImage = [self testImageNamed:@"contact"];
+  testCell.calendarImage = [self testImageNamed:@"cal"];
+  
+  XCTAssertNotNil(testCell.contactImage);
+  XCTAssertNotNil(testCell.calendarImage);
+
+  XCTAssertEqual([testCell iconForDownloadType:0], testCell.contactImage);
+  XCTAssertEqual([testCell iconForDownloadType:1], testCell.calendarImage);
+}
+
 #pragma mark - Helpers
+
+- (UIImage *)testImageNamed:(NSString *)name {
+  NSBundle *bundle = [NSBundle bundleForClass:[XMMContent class]];
+  return [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:nil];
+}
 
 - (XMMContent *)contentWithBlockType0 {
   XMMContent *content = [[XMMContent alloc] init];
@@ -1027,6 +1073,7 @@
   XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
   block1.title = @"Block Title";
   block1.text = @"Block text";
+  block1.fileID = @"www.xamoom.com";
   block1.downloadType = 0;
   block1.publicStatus = YES;
   block1.blockType = 8;
@@ -1036,6 +1083,28 @@
   block1.downloadType = 1;
   block2.publicStatus = YES;
   block2.blockType = 8;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block2, nil];
+  
+  return content;
+}
+
+- (XMMContent *)contentWithBlockType9 {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.title = @"Block Title";
+  block1.publicStatus = YES;
+  block1.blockType = 9;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.title = nil;
+  block2.publicStatus = YES;
+  block2.blockType = 9;
   
   content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block2, nil];
   

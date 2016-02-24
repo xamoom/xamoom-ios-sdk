@@ -36,12 +36,6 @@ static int kWebViewSoundcloudPadding = 8;
                                              object:nil];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-  [super setSelected:selected animated:animated];
-  
-  // Configure the view for the selected state
-}
-
 - (void)pauseAllSounds {
   //reload the webView so the soundcloud don't play anymore
   [self.webView reload];

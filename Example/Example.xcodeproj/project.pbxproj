@@ -14,7 +14,6 @@
 		8888DDF51C47B16C0050A84C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8888DDF41C47B16C0050A84C /* Assets.xcassets */; };
 		8888DDF81C47B16C0050A84C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8888DDF61C47B16C0050A84C /* LaunchScreen.storyboard */; };
 		8888DE031C47B16C0050A84C /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DE021C47B16C0050A84C /* ExampleTests.m */; };
-		88F582011C52197E003D7C49 /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F582001C52197E003D7C49 /* TestingIDs.plist */; };
 		B3A1EE8E9E4CB499DB7180F5 /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8E44678C55FF141D079D6E0 /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +48,6 @@
 		8888DDFE1C47B16C0050A84C /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DE021C47B16C0050A84C /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
 		8888DE041C47B16C0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88F582001C52197E003D7C49 /* TestingIDs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestingIDs.plist; sourceTree = "<group>"; };
 		A8E44678C55FF141D079D6E0 /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF84ED9500E8E5CC18C12CD9 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +94,6 @@
 		8888DDE71C47B16C0050A84C /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				88F582001C52197E003D7C49 /* TestingIDs.plist */,
 				8888DDEB1C47B16C0050A84C /* AppDelegate.h */,
 				8888DDEC1C47B16C0050A84C /* AppDelegate.m */,
 				8888DDEE1C47B16C0050A84C /* ViewController.h */,
@@ -233,7 +230,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88F582011C52197E003D7C49 /* TestingIDs.plist in Resources */,
 				8888DDF81C47B16C0050A84C /* LaunchScreen.storyboard in Resources */,
 				8888DDF51C47B16C0050A84C /* Assets.xcassets in Resources */,
 				8888DDF31C47B16C0050A84C /* Main.storyboard in Resources */,

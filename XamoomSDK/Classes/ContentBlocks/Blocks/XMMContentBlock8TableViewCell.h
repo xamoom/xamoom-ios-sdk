@@ -31,8 +31,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
-@property (nonatomic) int downloadType;
-@property (strong, nonatomic) NSString *fileId;
+@property (strong, nonatomic) NSString *fileID;
+@property (strong, nonatomic) UIImage *contactImage;
+@property (strong, nonatomic) UIImage *calendarImage;
+
+- (UIImage *)iconForDownloadType:(int)downloadType;
 
 @end
 
