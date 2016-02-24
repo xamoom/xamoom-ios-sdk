@@ -712,6 +712,15 @@
   XCTAssertEqual([testCell iconForDownloadType:1], testCell.calendarImage);
 }
 
+- (void)disable_testThatContentBlock9CellConfigures {
+  [self.contentBlocks displayContent:[self contentWithBlockType9]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock9TableViewCell *testCell = (XMMContentBlock9TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+}
+
 #pragma mark - Helpers
 
 - (UIImage *)testImageNamed:(NSString *)name {
@@ -1098,11 +1107,13 @@
   
   XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
   block1.title = @"Block Title";
+  block1.spotMapTags = @[@"tag1"];
   block1.publicStatus = YES;
   block1.blockType = 9;
   
   XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
   block2.title = nil;
+  block1.spotMapTags = nil;
   block2.publicStatus = YES;
   block2.blockType = 9;
   

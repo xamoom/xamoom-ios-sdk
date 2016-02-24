@@ -25,7 +25,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   XamoomSDK:
-    :path: ./
+    :path: "./"
 
 SPEC CHECKSUMS:
   JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2

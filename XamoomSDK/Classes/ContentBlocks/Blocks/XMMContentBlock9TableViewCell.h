@@ -43,11 +43,6 @@
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
-+ (UIColor *)linkColor;
-+ (void)setLinkColor:(UIColor *)linkColor;
-+ (BOOL)showContentLinks;
-+ (void)setShowContentLinks:(BOOL)showContentLinks;
-
 @end
 
 @interface XMMContentBlock9TableViewCell (XMMTableViewRepresentation)

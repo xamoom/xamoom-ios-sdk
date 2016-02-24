@@ -38,7 +38,6 @@
 
 static UIColor *contentLinkColor;
 static NSString *contentLanguage;
-static bool showContentLinks;
 
 - (void)awakeFromNib {
   // Initialization code
@@ -48,34 +47,11 @@ static bool showContentLinks;
   self.mapHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-  [super setSelected:selected animated:animated];
-  
-  // Configure the view for the selected state
-}
-
-+ (UIColor *)linkColor {
-  return contentLinkColor;
-}
-
-+ (void)setLinkColor:(UIColor *)linkColor {
-  contentLinkColor = linkColor;
-}
-
-+ (BOOL)showContentLinks {
-  return showContentLinks;
-}
-
-+ (void)setShowContentLinks:(BOOL)showLinks {
-  showContentLinks = showLinks;
-}
-
 - (void)setupMapView {
   self.mapView.delegate = self;
 }
 
 - (void)setupLocationManager {
-  //init up locationManager
   self.locationManager = [[CLLocationManager alloc] init];
   self.locationManager.delegate = self;
   self.locationManager.distanceFilter = 100.0f; //meter

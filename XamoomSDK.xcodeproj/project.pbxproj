@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070B35DFFC3B16F1AB160F20 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2004D3F683DC6100065634F /* libPods-XamoomSDKTests.a */; };
 		881945971C620E2100E4524F /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 881945961C620E2100E4524F /* menu.json */; };
 		881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 881945981C625B5000E4524F /* XMMContentBlocksTests.m */; };
 		881CB3061C72124D00AD3AE3 /* XMMMapOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */; };
@@ -237,6 +238,7 @@
 			files = (
 				88D4C6E11C6CC39E00615147 /* MapKit.framework in Frameworks */,
 				A9988EB8C164D75784BE277D /* libPods-XamoomSDK.a in Frameworks */,
+				070B35DFFC3B16F1AB160F20 /* libPods-XamoomSDKTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
