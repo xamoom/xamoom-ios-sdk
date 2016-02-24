@@ -23,8 +23,6 @@
 @interface XMMContentBlock6TableViewCell()
 
 @property (nonatomic) UIImage *angleImage;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentImageWidthConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTitleLeadingConstraint;
 
 @end
 
@@ -34,19 +32,15 @@ static NSString *contentLanguage;
 
 - (void)awakeFromNib {
   // Initialization code
-  self.contentTitleLabel.text = @"";
-  self.contentExcerptLabel.text = @"";
+  self.contentID = nil;
+  self.contentImageView.image = nil;
+  self.contentTitleLabel.text = nil;
+  self.contentExcerptLabel.text = nil;
   self.angleImage = [UIImage imageNamed:@"angleRight"];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-  [super setSelected:selected animated:animated];
-  
-  // Configure the view for the selected state
-}
-
 - (void)prepareForReuse {
-  self.contentID = @"";
+  self.contentID = nil;
   self.contentImageView.image = nil;
   self.contentTitleLabel.text = nil;
   self.contentExcerptLabel.text = nil;
@@ -76,7 +70,7 @@ static NSString *contentLanguage;
     return;
   }
   
-  [api contentWithID:self.contentID completion:^(XMMContent *content, NSError *error) {
+  [api contentWithID:self.contentID options:XMMContentOptionsPreview completion:^(XMMContent *content, NSError *error) {
     [self.loadingIndicator stopAnimating];
     [[XMMContentBlocksCache sharedInstance] saveContent:content key:content.ID];
     [self showBlockData:content];
@@ -99,14 +93,6 @@ static NSString *contentLanguage;
     self.contentTitleLeadingConstraint.constant = 8;
     [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.content.imagePublicUrl]];
   }
-}
-
-+ (NSString *)language {
-  return contentLanguage;
-}
-
-+ (void)setLanguage:(NSString *)language {
-  contentLanguage = language;
 }
 
 @end

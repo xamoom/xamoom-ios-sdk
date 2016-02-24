@@ -554,6 +554,122 @@
   XCTAssertEqual(testCell.titleLabel.textColor, testCell.standardTextColor);
 }
 
+- (void)testThatContentBlock5CellConfigureCell {
+  [self.contentBlocks displayContent:[self contentWithBlockType5]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock5TableViewCell *testCell = (XMMContentBlock5TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title"]);
+  XCTAssert([testCell.artistLabel.text isEqualToString:@"Artists Text"]);
+  XCTAssert([testCell.downloadUrl isEqualToString:@"www.xamoom.com"]);
+}
+
+- (void)testThatContentBlock5CellConfigureWithNoText {
+  [self.contentBlocks displayContent:[self contentWithBlockType5]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock5TableViewCell *testCell = (XMMContentBlock5TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssertNil(testCell.titleLabel.text);
+  XCTAssertNil(testCell.artistLabel.text);
+  XCTAssertNil(testCell.downloadUrl);
+}
+
+- (void)testThatContentBlock6CellConfigureCell {
+  [self.contentBlocks displayContent:[self contentWithBlockType6]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(XMMContent *content, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    XMMContent *content = [[XMMContent alloc] init];
+    content.title = @"Content Title check";
+    content.imagePublicUrl = @"www.xamoom.com";
+    content.contentDescription = @"check";
+    passedBlock(content, nil);
+  };
+  
+  [[[self.mockedApi stub] andDo:completion] contentWithID:[OCMArg any] options:XMMContentOptionsPreview completion:[OCMArg any]];
+  
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock6TableViewCell *testCell = (XMMContentBlock6TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssert([testCell.contentID isEqualToString:@"123456"]);
+  XCTAssert([testCell.contentTitleLabel.text isEqualToString:@"Content Title check"]);
+  XCTAssert([testCell.contentExcerptLabel.text isEqualToString:@"check"]);
+  XCTAssertTrue(testCell.loadingIndicator.hidden);
+  XCTAssert(testCell.contentImageWidthConstraint.constant == 100);
+  XCTAssert(testCell.contentTitleLeadingConstraint.constant == 8);
+}
+
+- (void)testThatContentBlock6CellConfigureWithoutText {
+  [self.contentBlocks displayContent:[self contentWithBlockType6]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(XMMContent *content, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    XMMContent *content = [[XMMContent alloc] init];
+    passedBlock(content, nil);
+  };
+  
+  [[[self.mockedApi stub] andDo:completion] contentWithID:[OCMArg any] options:XMMContentOptionsPreview completion:[OCMArg any]];
+  
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock6TableViewCell *testCell = (XMMContentBlock6TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssert([testCell.contentID isEqualToString:@"123456"]);
+  XCTAssertNil(testCell.contentTitleLabel.text);
+  XCTAssertTrue(testCell.loadingIndicator.hidden);
+  XCTAssert(testCell.contentImageWidthConstraint.constant == 0);
+  XCTAssert(testCell.contentTitleLeadingConstraint.constant == 0);
+}
+
+- (void)testThatContentBlock7CellConfigureCell {
+  [self.contentBlocks displayContent:[self contentWithBlockType7]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock7TableViewCell *testCell = (XMMContentBlock7TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssert([testCell.titleLabel.text isEqualToString:@"Block Title"]);
+  XCTAssert(testCell.webViewTopConstraint.constant = 8);
+}
+
+- (void)testThatContentBlock7CellConfigureNoText {
+  [self.contentBlocks displayContent:[self contentWithBlockType7]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock7TableViewCell *testCell = (XMMContentBlock7TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  XCTAssertNil(testCell.titleLabel.text);
+  XCTAssert(testCell.webViewTopConstraint.constant == 0);
+}
+
+- (void)testThatContentBlock7CellWebviewPause {
+  [self.contentBlocks displayContent:[self contentWithBlockType7]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock7TableViewCell *testCell = (XMMContentBlock7TableViewCell *)cell;
+  
+  id mockedWebView = OCMClassMock([UIWebView class]);
+  testCell.webView = mockedWebView;
+  
+  OCMExpect([mockedWebView reload]);
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"pauseAllSounds" object:nil];
+  
+  XCTAssertNotNil(testCell);
+  XCTAssert([testCell.titleLabel.text isEqualToString:@"Block Title"]);
+  XCTAssert(testCell.webViewTopConstraint.constant = 8);
+  OCMVerifyAll(mockedWebView);
+}
 
 #pragma mark - Helpers
 
@@ -827,6 +943,101 @@
   block19.blockType = 4;
   
   content.contentBlocks = [[NSArray alloc] initWithObjects:block2, block1, block3, block4, block5, block6, block7, block8, block9, block10, block11, block12, block13, block14, block15, block16, block17, block18, block19, nil];
+  
+  return content;
+}
+
+- (XMMContent *)contentWithBlockType5 {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.title = @"Content Title";
+  block1.artists = @"Artists Text";
+  block1.fileID = @"www.xamoom.com";
+  block1.publicStatus = YES;
+  block1.blockType = 5;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.title = nil;
+  block2.text = nil;
+  block2.publicStatus = YES;
+  block2.blockType = 5;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block2, nil];
+  
+  return content;
+}
+
+- (XMMContent *)contentWithBlockType6 {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.contentID = @"123456";
+  block1.publicStatus = YES;
+  block1.blockType = 6;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.contentID = @"123456";
+  block2.publicStatus = YES;
+  block2.blockType = 6;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block2, nil];
+  
+  return content;
+}
+
+- (XMMContent *)contentWithBlockType7 {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.title = @"Block Title";
+  block1.soundcloudUrl = @"www.xamoom.com";
+  block1.publicStatus = YES;
+  block1.blockType = 7;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.title = nil;
+  block2.publicStatus = YES;
+  block2.blockType = 7;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block2, nil];
+  
+  return content;
+}
+
+- (XMMContent *)contentWithBlockType8 {
+  XMMContent *content = [[XMMContent alloc] init];
+  
+  content.title = @"Content Title";
+  content.contentDescription = @"Some content description";
+  content.language = @"de";
+  
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.title = @"Block Title";
+  block1.text = @"Block text";
+  block1.downloadType = 0;
+  block1.publicStatus = YES;
+  block1.blockType = 8;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.title = nil;
+  block1.downloadType = 1;
+  block2.publicStatus = YES;
+  block2.blockType = 8;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block1, block2, nil];
   
   return content;
 }

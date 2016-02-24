@@ -26,24 +26,21 @@
   self.ebookImageView.image = [[UIImage imageNamed:@"ebook"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   self.ebookImageView.tintColor = [UIColor whiteColor];
   
+  self.titleLabel.text = nil;
+  self.artistLabel.text = nil;
+  
   UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
   [self addGestureRecognizer:tapGestureRecognizer];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-  [super setSelected:selected animated:animated];
-  
-  // Configure the view for the selected state
-}
-
 - (void)prepareForReuse {
-  self.titleLabel.text = @"";
-  self.artistLabel.text = @"";
+  self.titleLabel.text = nil;
+  self.artistLabel.text = nil;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {  
   //set title, artist and downloadUrl
-  if(block.title != nil && ![block.title isEqualToString:@""]) {
+  if(block.title != nil) {
     self.titleLabel.text = block.title;
   }
   
@@ -55,7 +52,5 @@
   //open url in safari
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downloadUrl]];
 }
-
-
 
 @end

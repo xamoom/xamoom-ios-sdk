@@ -33,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentExcerptLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentImageWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTitleLeadingConstraint;
 
 @property (strong, nonatomic) NSString *contentID;
 @property (strong, nonatomic) XMMContent *content;

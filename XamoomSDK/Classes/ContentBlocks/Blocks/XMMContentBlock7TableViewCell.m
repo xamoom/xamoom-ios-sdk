@@ -23,14 +23,12 @@ static int kWebViewSoundcloudPadding = 8;
 
 @interface XMMContentBlock7TableViewCell()
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *webViewTopConstraint;
-
 @end
 
 @implementation XMMContentBlock7TableViewCell
 
 - (void)awakeFromNib {
-  self.titleLabel.text = @"";
+  self.titleLabel.text = nil;
   
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(pauseAllSounds)
@@ -50,7 +48,7 @@ static int kWebViewSoundcloudPadding = 8;
 }
 
 - (void)prepareForReuse {
-  self.titleLabel.text = @"";
+  self.titleLabel.text = nil;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {

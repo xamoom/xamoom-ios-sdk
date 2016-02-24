@@ -22,6 +22,8 @@
 @implementation XMMContentBlock8TableViewCell
 
 - (void)awakeFromNib {
+  self.titleLabel.text = nil;
+  
   UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
   [self addGestureRecognizer:tapGestureRecognizer];
 }
@@ -31,7 +33,7 @@
 }
 
 - (void)prepareForReuse {
-  
+  self.titleLabel.text = nil;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
