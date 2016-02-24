@@ -21,12 +21,6 @@
 
 @interface XMMContentBlock3TableViewCell()
 
-@property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageLeftHorizontalSpaceConstraint;
-@property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageRightHorizontalSpaceConstraint;
-
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpacingImageTitleConstraint;
-@property (nonatomic) NSLayoutConstraint *imageRatioConstraint;
-
 @end
 
 @implementation XMMContentBlock3TableViewCell
@@ -34,6 +28,8 @@
 - (void)awakeFromNib {
   [self setupGestureRecognizers];
   [self.blockImageView setIsAccessibilityElement:YES];
+  
+  self.titleLabel.text = nil;
 }
 
 - (void)setupGestureRecognizers {
@@ -72,18 +68,20 @@
     self.linkUrl = block.linkUrl;
   }
   
-  if (block.title != nil && ![block.title isEqualToString:@""]) {
+  if (block.title != nil) {
     self.titleLabel.text = block.title;
-    self.blockImageView.accessibilityHint = block.title;
+    self.horizontalSpacingImageTitleConstraint.constant = 8;
   } else {
     self.horizontalSpacingImageTitleConstraint.constant = 0;
   }
   
-  if (block.altText != nil || [block.altText isEqualToString:@""]){
+  if (block.altText != nil){
     self.blockImageView.accessibilityHint = block.altText;
+  } else {
+    self.blockImageView.accessibilityHint = block.title;
   }
   
-  if (block.scaleX < 100) {
+  if (block.scaleX > 0) {
     [self calculateImageScaling:block.scaleX];
   }
   
@@ -152,7 +150,6 @@
                               multiplier:1/(size.width/size.height)
                               constant:0.0f];
   self.imageRatioConstraint.priority = UILayoutPriorityRequired;
-  self.imageRatioConstraint.identifier = @"Die da, die Freitags nie kann.";
 }
 
 - (void)updateConstraints {
@@ -186,7 +183,6 @@
   
   UIViewController* activeVC = [UIApplication sharedApplication].keyWindow.rootViewController;
   [activeVC presentViewController:alertController animated:YES completion:nil];
-  
 }
 
 - (void)saveImageToPhotos {

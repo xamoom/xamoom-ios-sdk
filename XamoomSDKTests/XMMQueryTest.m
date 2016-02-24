@@ -21,7 +21,7 @@
 
 - (void)setUp {
   [super setUp];
-  self.devApiUrl = @"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer";
+  self.devApiUrl = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer";
   self.query = [[XMMQuery alloc] initWithBaseUrl:[NSURL URLWithString:self.devApiUrl]];
 }
 
@@ -38,7 +38,7 @@
 }
 
 - (void)testUrlWithResource {
-  NSString *testString = @"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems";
+  NSString *testString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems";
   
   NSURL *result = [self.query urlWithResource:[XMMSystem class]];
   
@@ -46,7 +46,7 @@
 }
 
 - (void)testUrlWithResourceId {
-  NSString *testString = @"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056";
+  NSString *testString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056";
   
   NSURL *result = [self.query urlWithResource:[XMMSystem class] id:@"5755996320301056"];
   
@@ -54,8 +54,8 @@
 }
 
 - (void)testAddQueryParameterToUrl {
-  NSURL *url = [NSURL URLWithString:@"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
-  NSString *testString = [NSString stringWithFormat:@"%@?%@", @"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056", [@"lang=de" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+  NSURL *url = [NSURL URLWithString:@"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
+  NSString *testString = [NSString stringWithFormat:@"%@?%@", @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056", [@"lang=de" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
     
   NSURL *result = [self.query addQueryParameterToUrl:url name:@"lang" value:@"de"];
   
@@ -63,8 +63,8 @@
 }
 
 - (void)testAddQueryParameterToUrlWithUmlaut {
-  NSURL *url = [NSURL URLWithString:@"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
-  NSString *testString = [NSString stringWithFormat:@"%@?%@", @"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056", [@"lang=ö" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+  NSURL *url = [NSURL URLWithString:@"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
+  NSString *testString = [NSString stringWithFormat:@"%@?%@", @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056", [@"lang=ö" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
   
   NSURL *result = [self.query addQueryParameterToUrl:url name:@"lang" value:@"ö"];
   
@@ -72,8 +72,8 @@
 }
 
 - (void)testAddQueryParametersToUrl {
-  NSURL *url = [NSURL URLWithString:@"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
-  NSString *testString = [NSString stringWithFormat:@"%@?%@", @"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056", [@"lang=de&filter[sort]=asc" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
+  NSURL *url = [NSURL URLWithString:@"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
+  NSString *testString = [NSString stringWithFormat:@"%@?%@", @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056", [@"lang=de&filter[sort]=asc" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]];
   
   NSURL *result = [self.query addQueryParametersToUrl:url parameters:@{@"lang":@"de",@"filter[sort]":@"asc"}];
   
@@ -81,8 +81,8 @@
 }
 
 - (void)testAddQueryParametersWithNil {
-  NSURL *url = [NSURL URLWithString:@"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
-  NSString *testString = @"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056?";
+  NSURL *url = [NSURL URLWithString:@"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056"];
+  NSString *testString = @"https://xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer/systems/5755996320301056?";
   
   NSURL *result = [self.query addQueryParametersToUrl:url parameters:nil];
   

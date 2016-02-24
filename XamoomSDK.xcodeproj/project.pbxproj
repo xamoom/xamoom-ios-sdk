@@ -67,6 +67,7 @@
 		8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */; };
 		8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */; };
 		8888DDD21C47B0FA0050A84C /* XamoomSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DDD11C47B0FA0050A84C /* XamoomSDKTests.m */; };
+		88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
 		88D486DC1C5A7069003E252D /* spotLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D486DB1C5A7069003E252D /* spotLocation.json */; };
 		88D486DE1C5B9B6B003E252D /* system.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D486DD1C5B9B6B003E252D /* system.json */; };
@@ -187,6 +188,7 @@
 		8888DDCC1C47B0FA0050A84C /* XamoomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDD11C47B0FA0050A84C /* XamoomSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XamoomSDKTests.m; sourceTree = "<group>"; };
 		8888DDD31C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockXTableViewCellTests.m; sourceTree = "<group>"; };
 		88CC28B51C567832000ACDD0 /* contentLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentLocation.json; sourceTree = "<group>"; };
 		88D486DB1C5A7069003E252D /* spotLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spotLocation.json; sourceTree = "<group>"; };
 		88D486DD1C5B9B6B003E252D /* system.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = system.json; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				8886E2921C7B55B000B6AEAE /* XMMRestResourceTests.m */,
 				8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */,
 				8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */,
+				88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */,
 			);
 			path = XamoomSDKTests;
 			sourceTree = "<group>";
@@ -781,6 +784,7 @@
 				881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */,
 				88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */,
 				8886E2931C7B55B000B6AEAE /* XMMRestResourceTests.m in Sources */,
+				88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */,
 				88E46F341C49345C004D8AC3 /* XMMQueryTest.m in Sources */,
 				8888DDD21C47B0FA0050A84C /* XamoomSDKTests.m in Sources */,
 				88E46F321C493453004D8AC3 /* XMMRestClientTest.m in Sources */,
