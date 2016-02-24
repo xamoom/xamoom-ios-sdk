@@ -33,7 +33,21 @@
 @property (weak, nonatomic) IBOutlet UIView *viewForBackgroundColor;
 
 @property (strong, nonatomic) NSString *linkUrl;
-@property (nonatomic) int linkType;
+
+@property (nonatomic) UIColor *standardGreyColor;
+@property (nonatomic) UIColor *standardTextColor;
+@property (nonatomic) UIColor *facebookColor;
+@property (nonatomic) UIColor *twitterColor;
+@property (nonatomic) UIColor *shopColor;
+@property (nonatomic) UIColor *linkedInColor;
+@property (nonatomic) UIColor *flickrColor;
+@property (nonatomic) UIColor *soundcloudColor;
+@property (nonatomic) UIColor *youtubeColor;
+@property (nonatomic) UIColor *googleColor;
+@property (nonatomic) UIColor *spotifyColor;
+@property (nonatomic) UIColor *navigationColor;
+@property (nonatomic) UIColor *androidColor;
+@property (nonatomic) UIColor *windowsColor;
 
 @end
 
