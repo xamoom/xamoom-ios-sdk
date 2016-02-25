@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '844AA52251429136C09D2A09'
+               BlueprintIdentifier = '9A21353EA1EB7C9DA5CCCCC9'
                BlueprintName = 'OCMock'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libOCMock.a'>
