@@ -38,6 +38,11 @@
                BlueprintName = "XamoomSDKTests"
                ReferencedContainer = "container:XamoomSDK.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "APIIntegrationTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
