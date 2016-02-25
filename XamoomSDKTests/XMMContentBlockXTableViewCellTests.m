@@ -735,8 +735,8 @@
     XMMSpot *spot = [[XMMSpot alloc] init];
     spot.name = @"Spot";
     spot.spotDescription = @"Description";
-    spot.lat = 46.615472;
-    spot.lon = 14.2598533;
+    spot.latitude = 46.615472;
+    spot.longitude = 14.2598533;
     passedBlock(@[spot], false, @"1", nil);
   };
   
@@ -768,8 +768,8 @@
     XMMSpot *spot = [[XMMSpot alloc] init];
     spot.name = @"Spot";
     spot.spotDescription = @"Description";
-    spot.lat = 46.615472;
-    spot.lon = 14.2598533;
+    spot.latitude = 46.615472;
+    spot.longitude = 14.2598533;
     passedBlock(@[spot], false, @"1", nil);
   };
   
@@ -801,8 +801,8 @@
     XMMSpot *spot = [[XMMSpot alloc] init];
     spot.name = @"Spot";
     spot.spotDescription = @"Description";
-    spot.lat = 46.615472;
-    spot.lon = 14.2598533;
+    spot.latitude = 46.615472;
+    spot.longitude = 14.2598533;
     passedBlock(@[spot], false, @"1", nil);
   };
   
@@ -825,8 +825,8 @@
     XMMSpot *spot = [[XMMSpot alloc] init];
     spot.name = @"Spot";
     spot.spotDescription = @"Description";
-    spot.lat = 46.615472;
-    spot.lon = 14.2598533;
+    spot.latitude = 46.615472;
+    spot.longitude = 14.2598533;
     passedBlock(@[spot], false, @"1", nil);
   };
   

@@ -25,14 +25,28 @@
 
 @implementation XMMSpot
 
+- (instancetype)init {
+  self = [super init];
+  self.locationDictionary = [[NSMutableDictionary alloc] init];
+  return self;
+}
+
 - (double)latitude {
   NSNumber *latitude = (NSNumber *)[self.locationDictionary objectForKey:@"lat"];
   return latitude.doubleValue;
 }
 
+- (void)setLatitude:(double)latitude {
+  [self.locationDictionary setObject:[NSNumber numberWithDouble:latitude] forKey:@"lat"];
+}
+
 - (double)longitude {
   NSNumber *longitude = (NSNumber *)[self.locationDictionary objectForKey:@"lon"];
   return longitude.doubleValue;
+}
+
+- (void)setLongitude:(double)longitude {
+  [self.locationDictionary setObject:[NSNumber numberWithDouble:longitude] forKey:@"lon"];
 }
 
 + (NSString *)resourceName {

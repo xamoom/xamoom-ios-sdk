@@ -60,7 +60,7 @@
 /**
  *  Dictionary with keys "lat" and "lon".
  */
-@property (nonatomic) NSDictionary *locationDictionary;
+@property (nonatomic) NSMutableDictionary *locationDictionary;
 /**
  *  NSArray containing all tags of the spot.
  */
