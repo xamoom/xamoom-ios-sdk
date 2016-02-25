@@ -26,12 +26,12 @@
 @implementation XMMSpot
 
 - (double)latitude {
-  NSNumber *latitude = (NSNumber *)[self.location objectForKey:@"lat"];
+  NSNumber *latitude = (NSNumber *)[self.locationDictionary objectForKey:@"lat"];
   return latitude.doubleValue;
 }
 
 - (double)longitude {
-  NSNumber *longitude = (NSNumber *)[self.location objectForKey:@"lon"];
+  NSNumber *longitude = (NSNumber *)[self.locationDictionary objectForKey:@"lon"];
   return longitude.doubleValue;
 }
 
