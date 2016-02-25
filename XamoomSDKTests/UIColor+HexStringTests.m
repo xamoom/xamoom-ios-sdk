@@ -25,10 +25,28 @@
   [super tearDown];
 }
 
-- (void)disable_testExample {
+- (void)testRRGGBB {
   UIColor *result = [UIColor colorWithHexString:@"#000000"];
-  
-  XCTAssert([result isEqual:[UIColor blackColor]]);
+  XCTAssert([result isEqual:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]]);
+}
+
+- (void)testAARRGGBB {
+  UIColor *result = [UIColor colorWithHexString:@"#00000000"];
+  XCTAssert([result isEqual:[UIColor colorWithRed:0 green:0 blue:0 alpha:0]]);
+}
+
+- (void)testRGB {
+  UIColor *result = [UIColor colorWithHexString:@"#000"];
+  XCTAssert([result isEqual:[UIColor colorWithRed:0 green:0 blue:0 alpha:1]]);
+}
+
+- (void)testARGB {
+  UIColor *result = [UIColor colorWithHexString:@"#0000"];
+  XCTAssert([result isEqual:[UIColor colorWithRed:0 green:0 blue:0 alpha:0]]);
+}
+
+- (void)testException {
+  XCTAssertThrows([UIColor colorWithHexString:@"#000000000"]);
 }
 
 @end
