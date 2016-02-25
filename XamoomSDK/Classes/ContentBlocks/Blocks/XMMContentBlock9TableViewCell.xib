@@ -26,19 +26,25 @@
                             <constraint firstAttribute="height" constant="280" id="bDu-wi-hdO"/>
                         </constraints>
                     </mapView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iQH-Us-jU4">
+                        <rect key="frame" x="150" y="174" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Yc2-J7-ehg" secondAttribute="trailing" id="2mO-Jc-a8B"/>
                     <constraint firstItem="Hk4-tD-Bjj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="7lL-jK-1d8"/>
+                    <constraint firstItem="iQH-Us-jU4" firstAttribute="centerX" secondItem="Yc2-J7-ehg" secondAttribute="centerX" id="BTQ-cO-QET"/>
                     <constraint firstItem="Yc2-J7-ehg" firstAttribute="top" secondItem="Hk4-tD-Bjj" secondAttribute="bottom" constant="8" id="BnW-0t-u6Y"/>
                     <constraint firstItem="Yc2-J7-ehg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Cy8-7X-iov"/>
                     <constraint firstAttribute="bottom" secondItem="Yc2-J7-ehg" secondAttribute="bottom" constant="8" id="Iry-cl-yze"/>
                     <constraint firstItem="Hk4-tD-Bjj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="oPE-rF-wg7"/>
                     <constraint firstItem="Hk4-tD-Bjj" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ocB-hT-T8Z"/>
+                    <constraint firstItem="iQH-Us-jU4" firstAttribute="centerY" secondItem="Yc2-J7-ehg" secondAttribute="centerY" id="yfR-Di-q0h"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentView" destination="H2p-sc-9uM" id="voa-Z8-u7D"/>
+                <outlet property="loadingIndicator" destination="iQH-Us-jU4" id="cCx-7Z-1I9"/>
                 <outlet property="mapHeightConstraint" destination="bDu-wi-hdO" id="gsF-vo-qtZ"/>
                 <outlet property="mapView" destination="Yc2-J7-ehg" id="g6l-sn-LFn"/>
                 <outlet property="titleLabel" destination="Hk4-tD-Bjj" id="hWE-PI-VOd"/>

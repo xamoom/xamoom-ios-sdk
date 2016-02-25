@@ -18,7 +18,6 @@
 //
 
 #import "XMMContentBlock9TableViewCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 
 #define MINIMUM_ZOOM_ARC 0.014
 #define ANNOTATION_REGION_PAD_FACTOR 1.15
@@ -27,10 +26,6 @@
 @interface XMMContentBlock9TableViewCell()
 
 @property (nonatomic, strong) NSString *currentContentID;
-@property (nonatomic) XMMMapOverlayView *mapAdditionView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapHeightConstraint;
-@property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
-@property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;
 
 @end
 
@@ -67,8 +62,13 @@ static NSString *contentLanguage;
 - (void)setupMapOverlayView {
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
-  NSBundle *nibBundle = [NSBundle bundleWithURL:url];
-  self.mapAdditionView = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
+  if (url) {
+    NSBundle *nibBundle = [NSBundle bundleWithURL:url];
+    self.mapAdditionView = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
+  } else {
+    //nib found in another boundle when unit testing
+    self.mapAdditionView = [[bundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
+  }
   
   self.mapAdditionView.translatesAutoresizingMaskIntoConstraints = NO;
   [self.contentView addSubview:self.mapAdditionView];
@@ -120,13 +120,12 @@ static NSString *contentLanguage;
     [self mapMarkerFromBase64:style.customMarker];
   }
   
-  self.spotMapTags = [block.spotMapTags componentsJoinedByString:@","];
-  [self getSpotMap:api];
+  [self getSpotMap:api spotMapTags:block.spotMapTags];
   [self updateConstraints];
 }
 
-- (void)getSpotMap:(XMMEnduserApi *)api {
-  NSArray *spots = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:self.spotMapTags];
+- (void)getSpotMap:(XMMEnduserApi *)api spotMapTags:(NSArray *)spotMapTags {
+  NSArray *spots = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[spotMapTags componentsJoinedByString:@","]];
   if (spots) {
     [self.loadingIndicator stopAnimating];
     [self setupMapView];
@@ -134,16 +133,14 @@ static NSString *contentLanguage;
     return;
   }
   
-  [api spotsWithTags:[self.spotMapTags componentsSeparatedByString:@","] options:XMMSpotOptionsIncludeContent completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
-    [[XMMContentBlocksCache sharedInstance] saveSpots:spots key:self.spotMapTags];
+  [api spotsWithTags:spotMapTags options:XMMSpotOptionsIncludeContent completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    [[XMMContentBlocksCache sharedInstance] saveSpots:spots key:[spotMapTags componentsJoinedByString:@","]];
     
     [self.loadingIndicator stopAnimating];
     [self setupMapView];
     [self showSpotMap:spots];
   }];
 }
-
-#pragma mark - XMMEnduser Delegate
 
 - (void)showSpotMap:(NSArray *)spots {
   // Add annotations
@@ -178,11 +175,6 @@ static NSString *contentLanguage;
   }
   
   self.customMapMarker = [UIImage imageWithImage:self.customMapMarker scaledToMaxWidth:30.0f maxHeight:30.0f];
-}
-
-- (void)openContentTapped {
-  NSDictionary *userInfo = [NSDictionary dictionaryWithObject:self.currentContentID forKey:@"contentID"];
-  [[NSNotificationCenter defaultCenter] postNotificationName:[XMMContentBlocks kContentBlock9MapContentLinkNotification] object:nil userInfo:userInfo];
 }
 
 #pragma mark MKMapView delegate methods
@@ -245,7 +237,6 @@ static NSString *contentLanguage;
   region.center=location.coordinate;
   
   [self.mapView setRegion:region animated:TRUE];
-  //[self.mapView regionThatFits:region];
 }
 
 - (void)openMapAdditionView:(XMMAnnotation *)annotation {

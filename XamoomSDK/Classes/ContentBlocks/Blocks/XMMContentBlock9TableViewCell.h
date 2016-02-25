@@ -20,6 +20,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <JAMSVGImage/JAMSVGImage.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "XMMEnduserApi.h"
 #import "XMMContentBlocks.h"
 #import "XMMContentBlocksCache.h"
@@ -30,6 +31,8 @@
 #import "UIColor+HexString.h"
 #import "UIImage+Scaling.h"
 
+@class XMMMapOverlayView;
+
 /**
  * XMMContentBlock0TableViewCell is used to display spotMap contentBlocks from the xamoom cloud.
  */
@@ -38,8 +41,11 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapHeightConstraint;
+@property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
+@property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;
 
-@property (strong, nonatomic) NSString *spotMapTags;
+@property (nonatomic) XMMMapOverlayView *mapAdditionView;
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
