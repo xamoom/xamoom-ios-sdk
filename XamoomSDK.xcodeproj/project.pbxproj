@@ -58,7 +58,6 @@
 		883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */; };
 		883EA0661C7F05FC003FDF80 /* XMMMapOverlayViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */; };
 		883EA06A1C7F0DF7003FDF80 /* XMMMusicPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */; };
-		883EA06C1C7F23AA003FDF80 /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */; };
 		8849374D1C731FB500C53520 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8849374C1C731FB500C53520 /* Images.xcassets */; };
 		884937501C74B1C600C53520 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 884937521C74B1C600C53520 /* Localizable.strings */; };
 		884937561C75C82100C53520 /* UIColor+HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = 884937541C75C82100C53520 /* UIColor+HexString.h */; };
@@ -659,7 +658,6 @@
 			files = (
 				881945971C620E2100E4524F /* menu.json in Resources */,
 				88E46F361C49374A004D8AC3 /* XamoomSDK.podspec in Resources */,
-				883EA06C1C7F23AA003FDF80 /* TestingIDs.plist in Resources */,
 				88D486E01C5BA210003E252D /* systemSettings.json in Resources */,
 				88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */,
 				88D486DE1C5B9B6B003E252D /* system.json in Resources */,
