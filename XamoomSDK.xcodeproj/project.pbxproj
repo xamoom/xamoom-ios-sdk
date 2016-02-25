@@ -55,6 +55,8 @@
 		883E55A91C4A37FE000C4D09 /* XMMContentBlocksCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E557D1C4A37FE000C4D09 /* XMMContentBlocksCache.m */; };
 		883E55AA1C4A37FE000C4D09 /* XMMMusicPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 883E557E1C4A37FE000C4D09 /* XMMMusicPlayer.h */; };
 		883E55AB1C4A37FE000C4D09 /* XMMMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E557F1C4A37FE000C4D09 /* XMMMusicPlayer.m */; };
+		883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */; };
+		883EA0661C7F05FC003FDF80 /* XMMMapOverlayViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */; };
 		8849374D1C731FB500C53520 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8849374C1C731FB500C53520 /* Images.xcassets */; };
 		884937501C74B1C600C53520 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 884937521C74B1C600C53520 /* Localizable.strings */; };
 		884937561C75C82100C53520 /* UIColor+HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = 884937541C75C82100C53520 /* UIColor+HexString.h */; };
@@ -171,6 +173,8 @@
 		883E557D1C4A37FE000C4D09 /* XMMContentBlocksCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksCache.m; sourceTree = "<group>"; };
 		883E557E1C4A37FE000C4D09 /* XMMMusicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMMusicPlayer.h; sourceTree = "<group>"; };
 		883E557F1C4A37FE000C4D09 /* XMMMusicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMusicPlayer.m; sourceTree = "<group>"; };
+		883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMAnnotationTests.m; sourceTree = "<group>"; };
+		883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMapOverlayViewTests.m; sourceTree = "<group>"; };
 		8849374C1C731FB500C53520 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Assets/Images.xcassets; sourceTree = "<group>"; };
 		884937511C74B1C600C53520 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		884937531C74B1E900C53520 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -417,6 +421,8 @@
 				8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */,
 				88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */,
 				88B962901C7F00530096993D /* UIColor+HexStringTests.m */,
+				883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */,
+				883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */,
 			);
 			path = XamoomSDKTests;
 			sourceTree = "<group>";
@@ -777,6 +783,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */,
 				88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */,
 				8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */,
 				881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */,
@@ -787,6 +794,7 @@
 				8888DDD21C47B0FA0050A84C /* XamoomSDKTests.m in Sources */,
 				88E46F321C493453004D8AC3 /* XMMRestClientTest.m in Sources */,
 				8886E2951C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m in Sources */,
+				883EA0661C7F05FC003FDF80 /* XMMMapOverlayViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

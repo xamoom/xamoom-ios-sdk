@@ -20,30 +20,28 @@
 @implementation XMMMapOverlayView
 
 - (void)displayAnnotation:(XMMAnnotation *)annotation {
-  self.contentID = annotation.data.content.ID;
+  self.contentID = annotation.spot.content.ID;
   self.locationCoordinate = annotation.coordinate;
   
-  self.spotTitleLabel.text = annotation.data.name;
+  self.spotTitleLabel.text = annotation.spot.name;
   
-  self.spotDescriptionLabel.text = annotation.data.spotDescription;
+  self.spotDescriptionLabel.text = annotation.spot.spotDescription;
   [self.spotDistanceLabel sizeToFit];
   
   self.spotDistanceLabel.text = annotation.distance;
   
   self.spotImageAspectConstraint.active = YES;
   self.spotImageWidthConstraint.constant = 153;
-  if (annotation.data.image == nil) {
+  if (annotation.spot.image == nil) {
     self.spotImageAspectConstraint.active = NO;
     self.spotImageWidthConstraint.constant = 0;
   }
   [self needsUpdateConstraints];
 
-  [self.spotImageView sd_setImageWithURL:[NSURL URLWithString:annotation.data.image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-    //
-  }];
+  [self.spotImageView sd_setImageWithURL:[NSURL URLWithString:annotation.spot.image] completed:nil];
   
   self.openContentButton.hidden = NO;
-  if (self.contentID == nil || [self.contentID isEqualToString:@""]) {
+  if (self.contentID == nil) {
     self.openContentButton.hidden = YES;
   }
 }

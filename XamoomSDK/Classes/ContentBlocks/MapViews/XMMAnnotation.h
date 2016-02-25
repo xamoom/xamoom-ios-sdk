@@ -28,7 +28,7 @@
  */
 @interface XMMAnnotation : NSObject <MKAnnotation>
 
-@property XMMSpot *data;
+@property XMMSpot *spot;
 @property NSString *distance;
 
 - (instancetype)initWithLocation:(CLLocationCoordinate2D)coord NS_DESIGNATED_INITIALIZER;
