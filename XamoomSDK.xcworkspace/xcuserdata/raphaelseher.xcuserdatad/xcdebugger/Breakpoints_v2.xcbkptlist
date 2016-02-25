@@ -17,38 +17,22 @@
             endingLineNumber = "60"
             landmarkName = "-openAction:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[XMMMapOverlayView openAction:]"
-                  moduleName = "XamoomSDKTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raphaelseher/dev/xamoom-ios-sdk/XamoomSDK/Classes/ContentBlocks/MapViews/XMMMapOverlayView.m"
-                  timestampString = "478089149.665028"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "81">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[XMMMapOverlayView openAction:]"
-                  moduleName = "XamoomSDK"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/raphaelseher/dev/xamoom-ios-sdk/XamoomSDK/Classes/ContentBlocks/MapViews/XMMMapOverlayView.m"
-                  timestampString = "478089149.665856"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "60"
-                  endingLineNumber = "60"
-                  offsetFromSymbolStart = "81">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Example/Example/ViewController.m"
+            timestampString = "478102432.600811"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "-spotsWithTags"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

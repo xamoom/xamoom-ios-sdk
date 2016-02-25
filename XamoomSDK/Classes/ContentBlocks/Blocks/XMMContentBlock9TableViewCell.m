@@ -145,7 +145,7 @@ static NSString *contentLanguage;
 - (void)showSpotMap:(NSArray *)spots {
   // Add annotations
   for (XMMSpot *spot in spots) {
-    XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithName:spot.name withLocation:CLLocationCoordinate2DMake(spot.lat, spot.lon)];
+    XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithName:spot.name withLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
     annotation.spot = spot;
     
     //calculate

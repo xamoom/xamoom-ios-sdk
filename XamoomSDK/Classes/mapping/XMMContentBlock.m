@@ -47,7 +47,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"spotMapTags" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"spot-map-tags"]];
     [__descriptor addProperty:@"scaleX" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"scale-x"]];
     [__descriptor addProperty:@"videoUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"video-url"]];
-    [__descriptor addProperty:@"showContent" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"show-content-on-spotmap"]];
+    [__descriptor addProperty:@"showContent" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"should-show-content-on-spotmap"]];
     [__descriptor addProperty:@"altText" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"alt-text"]];
   });
   

@@ -19,7 +19,21 @@
 
 #import "XMMSpot.h"
 
+@interface XMMSpot()
+
+@end
+
 @implementation XMMSpot
+
+- (double)latitude {
+  NSNumber *latitude = (NSNumber *)[self.location objectForKey:@"lat"];
+  return latitude.doubleValue;
+}
+
+- (double)longitude {
+  NSNumber *longitude = (NSNumber *)[self.location objectForKey:@"lon"];
+  return longitude.doubleValue;
+}
 
 + (NSString *)resourceName {
   return @"spots";
@@ -36,8 +50,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
  
     [__descriptor addProperty:@"name" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"name"]];
     [__descriptor addProperty:@"spotDescription" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"description"]];
-    [__descriptor addProperty:@"lat" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"position-latitude"]];
-    [__descriptor addProperty:@"lon" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"position-longitude"]];
+    [__descriptor addProperty:@"locationDictionary" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"location"]];
     [__descriptor addProperty:@"image" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"image"]];
     [__descriptor addProperty:@"category"];
     [__descriptor addProperty:@"tags"];

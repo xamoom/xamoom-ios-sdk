@@ -42,13 +42,13 @@
  */
 @property (nonatomic, copy) NSString *spotDescription;
 /**
- * The latitude of the spot.
+ * The latitude of the spot
  */
-@property (nonatomic) double lat;
+@property (nonatomic) double latitude;
 /**
- * The longitude of the spot.
+ * The longitude of the spot
  */
-@property (nonatomic) double lon;
+@property (nonatomic) double longitude;
 /**
  * Public url pointing to an image on our system.
  */
@@ -57,13 +57,26 @@
  *  Category as an number to specify an icon.
  */
 @property (nonatomic) int category;
-
+/**
+ *  Dictionary with keys "lat" and "lon".
+ */
+@property (nonatomic) NSDictionary *locationDictionary;
+/**
+ *  NSArray containing all tags of the spot.
+ */
 @property (nonatomic) NSArray *tags;
-
+/**
+ *  Linked content to the spot.
+ */
 @property (nonatomic) XMMContent *content;
-
+/**
+ * Linked markers to the spot.
+ */
 @property (nonatomic) NSArray *markers;
-
+/**
+ *  System from the spot.
+ */
 @property (nonatomic) XMMSystem *system;
 
 @end
+
