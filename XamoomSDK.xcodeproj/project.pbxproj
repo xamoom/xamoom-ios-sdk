@@ -59,7 +59,6 @@
 		883EA0661C7F05FC003FDF80 /* XMMMapOverlayViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */; };
 		883EA06A1C7F0DF7003FDF80 /* XMMMusicPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */; };
 		883EA06C1C7F23AA003FDF80 /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */; };
-		883EA06E1C7F23EF003FDF80 /* APIIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA06D1C7F23EF003FDF80 /* APIIntegrationTests.m */; };
 		8849374D1C731FB500C53520 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8849374C1C731FB500C53520 /* Images.xcassets */; };
 		884937501C74B1C600C53520 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 884937521C74B1C600C53520 /* Localizable.strings */; };
 		884937561C75C82100C53520 /* UIColor+HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = 884937541C75C82100C53520 /* UIColor+HexString.h */; };
@@ -796,7 +795,6 @@
 				883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */,
 				883EA06A1C7F0DF7003FDF80 /* XMMMusicPlayerTests.m in Sources */,
 				88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */,
-				883EA06E1C7F23EF003FDF80 /* APIIntegrationTests.m in Sources */,
 				8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */,
 				881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */,
 				88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */,
