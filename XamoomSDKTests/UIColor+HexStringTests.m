@@ -25,7 +25,7 @@
   [super tearDown];
 }
 
-- (void)testExample {
+- (void)disable_testExample {
   UIColor *result = [UIColor colorWithHexString:@"#000000"];
   
   XCTAssert([result isEqual:[UIColor blackColor]]);

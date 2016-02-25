@@ -25,7 +25,6 @@
 #import "XMMContentBlocks.h"
 #import "XMMContentBlocksCache.h"
 #import "XMMAnnotation.h"
-#import "XMMAnnotationView.h"
 #import "XMMMapOverlayView.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
