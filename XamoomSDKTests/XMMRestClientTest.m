@@ -21,7 +21,7 @@
 
 - (void)setUp {
   [super setUp];
-  self.devApiUrl = @"https://23-dot-xamoom-api-dot-xamoom-cloud-dev.appspot.com/_api/v2/consumer";
+  self.devApiUrl = @"https://xamoom-cloud-dev.appspot.com/_api/v2/consumer";
 }
 
 - (void)tearDown {

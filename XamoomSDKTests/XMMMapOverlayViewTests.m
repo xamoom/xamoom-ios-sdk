@@ -71,7 +71,7 @@
   [view displayAnnotation:annotation showContent:YES];
   
   XCTAssertNotNil(view);
-  XCTAssertFalse(view.openContentButton.hidden);
+  XCTAssertTrue(view.openContentButton.hidden);
 }
 
 @end

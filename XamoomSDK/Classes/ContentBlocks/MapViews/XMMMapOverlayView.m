@@ -41,7 +41,7 @@
   [self.spotImageView sd_setImageWithURL:[NSURL URLWithString:annotation.spot.image] completed:nil];
   
   self.openContentButton.hidden = NO;
-  if (self.contentID == nil && !showContent) {
+  if (self.contentID == nil || !showContent) {
     self.openContentButton.hidden = YES;
   }
 }
