@@ -46,6 +46,7 @@
 
 - (void)tearDown {
   // Put teardown code here. This method is called after the invocation of each test method in the class.
+  self.api = nil;
   [super tearDown];
 }
 
@@ -183,7 +184,10 @@
   NSArray *tags = [NSArray arrayWithObjects:@"Spot1", @"tag1", @"donottouchspot", nil];
   
   [self.api spotsWithTags:@[@"donottouchspot"] options:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertFalse(hasMore);
+    XCTAssertTrue([cursor isEqualToString:@""]);
     XMMSpot *spot = [spots firstObject];
+    
     XCTAssertTrue([spot.name isEqualToString:@"DO NOT TOUCH | APP | Spot 1"]);
     XCTAssertTrue([spot.spotDescription isEqualToString:@"Test"]);
 
@@ -192,6 +196,7 @@
     XCTAssertTrue(spot.longitude == 14.2622709274292);
     XCTAssertTrue([spot.tags isEqualToArray:tags]);
     XCTAssertTrue([spot.system.ID isEqualToString:@"5755996320301056"]);
+    
     [expectation fulfill];
   }];
   
@@ -202,6 +207,12 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   
   [self.api systemWithCompletion:^(XMMSystem *system, NSError *error) {
+    XCTAssertTrue([system.name isEqualToString:@"Dev xamoom testing environment"]);
+    XCTAssertTrue([system.url isEqualToString:@"http://testpavol.at"]);
+    XCTAssertTrue(system.isDemo);
+    XCTAssertTrue([system.setting.ID isEqualToString:@"5755996320301056"]);
+    XCTAssertTrue([system.style.ID isEqualToString:@"5755996320301056"]);
+    XCTAssertTrue([system.menu.ID isEqualToString:@"5755996320301056"]);
     
     [expectation fulfill];
   }];
@@ -209,10 +220,24 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
+- (void)testSystemGerman {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  self.api.language = @"de";
+  [self.api systemWithCompletion:^(XMMSystem *system, NSError *error) {
+    XCTAssertTrue([system.name isEqualToString:@"Dev xamoom testing UMGEBUNG"]);
+    
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
 - (void)testSystemSettings {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   
   [self.api systemSettingsWithID:@"5755996320301056" completion:^(XMMSystemSettings *settings, NSError *error) {
+    XCTAssertNotNil(settings.googlePlayAppId);
+    XCTAssertNotNil(settings.itunesAppId);
     
     [expectation fulfill];
   }];
@@ -224,6 +249,12 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   
   [self.api styleWithID:@"5755996320301056" completion:^(XMMStyle *style, NSError *error) {
+    XCTAssertNotNil(style.chromeHeaderColor);
+    XCTAssertNotNil(style.customMarker);
+    XCTAssertNotNil(style.highlightFontColor);
+    XCTAssertNotNil(style.foregroundFontColor);
+    XCTAssertNotNil(style.backgroundColor);
+    XCTAssertNotNil(style.icon);
     
     [expectation fulfill];
   }];
@@ -235,6 +266,8 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   
   [self.api menuWithID:@"5755996320301056" completion:^(XMMMenu *menu, NSError *error) {
+    XCTAssertNotNil(menu.items);
+    XCTAssertTrue(menu.items.count > 0);
     
     [expectation fulfill];
   }];
