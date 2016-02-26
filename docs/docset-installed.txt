@@ -1,4 +1,0 @@
-Documentation set was installed to Xcode!
-
-Path: /Users/raphaelseher/Library/Developer/Shared/Documentation/DocSets/com.xamoom.XamoomSDK.docset
-Time: 2016-02-26 12:02:48 +0000
