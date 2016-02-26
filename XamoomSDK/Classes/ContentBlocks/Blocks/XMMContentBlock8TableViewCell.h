@@ -37,6 +37,8 @@
 
 - (UIImage *)iconForDownloadType:(int)downloadType;
 
+- (void)openLink;
+
 @end
 
 @interface XMMContentBlock8TableViewCell (XMMTableViewRepresentation)

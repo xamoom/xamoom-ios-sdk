@@ -184,17 +184,18 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
-  if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock2TableViewCell class]]) {
+  id cell = [tableView cellForRowAtIndexPath:indexPath];
+  if ([cell isKindOfClass:[XMMContentBlock2TableViewCell class]]) {
     XMMContentBlock2TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell openVideo];
   }
   
-  if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
+  if ([cell isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
     XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [self.delegate didClickContentBlock:cell.contentID];
   }
   
-  if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock3TableViewCell class]] || [[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock4TableViewCell class]]) {
+  if ([cell isKindOfClass:[XMMContentBlock3TableViewCell class]] || [cell isKindOfClass:[XMMContentBlock4TableViewCell class]] || [cell isKindOfClass:[XMMContentBlock8TableViewCell class]]) {
     id cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell openLink];
   }

@@ -28,9 +28,6 @@
   
   self.calendarImage = [UIImage imageNamed:@"cal"];
   self.contactImage = [UIImage imageNamed:@"contact"];
-  
-  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
-  [self addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)prepareForReuse {
@@ -64,8 +61,7 @@
   return nil;
 }
 
-- (void)openInBrowser:(id)sender {
-  //open url in safari
+- (void)openLink {
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.fileID]];
 }
 
