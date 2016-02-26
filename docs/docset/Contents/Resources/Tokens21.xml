@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/XMMMusicPlayerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/XMMMusicPlayerDelegate</TokenIdentifier>
+			<Abstract type="html">XMMMusicPlayerDelegate is used for messages between the XMMMusicPlayer and the UI.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
+            
+			
+			<NodeRef refid="21"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/XMMMusicPlayerDelegate/didUpdateRemainingSongTime:</TokenIdentifier>
+			<Abstract type="html">Notify delegate with the actual remaining song time.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
+			
+			<Declaration>- (void)didUpdateRemainingSongTime:(NSString *)remainingSongTime</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>remainingSongTime</Name>
+					<Abstract type="html">- Remaining song time as string with format 0:00</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/didUpdateRemainingSongTime:</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
