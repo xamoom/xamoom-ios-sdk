@@ -28,10 +28,8 @@
 }
 
 - (void)testNoContent {
-  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-  NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
-  NSBundle *nibBundle = [NSBundle bundleWithURL:url];
-  XMMMapOverlayView *view = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
+  NSBundle *bundle = [NSBundle bundleForClass:[XMMContentBlock9TableViewCell class]];
+  XMMMapOverlayView *view = [[bundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
   
   XMMAnnotation *annotation = [[XMMAnnotation alloc] init];
   annotation.spot = nil;
@@ -43,10 +41,8 @@
 }
 
 - (void)testDonotShowContent {
-  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-  NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
-  NSBundle *nibBundle = [NSBundle bundleWithURL:url];
-  XMMMapOverlayView *view = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
+  NSBundle *bundle = [NSBundle bundleForClass:[XMMContentBlock9TableViewCell class]];
+  XMMMapOverlayView *view = [[bundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
   
   XMMAnnotation *annotation = [[XMMAnnotation alloc] init];
   annotation.spot = [[XMMSpot alloc] init];
@@ -59,10 +55,8 @@
 }
 
 - (void)testShowContent {
-  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-  NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
-  NSBundle *nibBundle = [NSBundle bundleWithURL:url];
-  XMMMapOverlayView *view = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
+  NSBundle *bundle = [NSBundle bundleForClass:[XMMContentBlock9TableViewCell class]];
+  XMMMapOverlayView *view = [[bundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
   
   XMMAnnotation *annotation = [[XMMAnnotation alloc] init];
   annotation.spot = [[XMMSpot alloc] init];
