@@ -153,6 +153,36 @@
   XCTAssertTrue([cell.contentID isEqualToString:@"123456"]);
 }
 
+- (void)testThatDidSelectContentBlock6CallsDelegate {
+  NSString *contentID = @"123456";
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  UITableViewController *viewController = [[UITableViewController alloc] init];
+  UINavigationController *navController = [[UINavigationController alloc] init];
+  id navigationController = [OCMockObject partialMockForObject:navController];
+  
+  [navigationController pushViewController:viewController animated:NO];
+  XCTAssertNotNil(viewController.navigationController);
+
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:viewController.tableView api:self.mockedApi];
+  viewController.tableView.delegate = contentBlocks;
+  viewController.tableView.dataSource = contentBlocks;
+  [self.contentBlocks displayContent:[self xamoomStaticContentType6]];
+  
+  XCTAssertEqual(viewController.tableView.delegate, contentBlocks);
+  XCTAssertEqual(viewController.tableView.dataSource, contentBlocks);
+  
+  id delegateMock = OCMProtocolMock(@protocol(XMMContentBlocksDelegate));
+  self.contentBlocks.delegate = delegateMock;
+  
+  [self.contentBlocks.tableView reloadData];
+  
+  OCMExpect([delegateMock didClickContentBlock:[OCMArg isEqual:contentID]]);
+  
+  [self.contentBlocks tableView:self.contentBlocks.tableView didSelectRowAtIndexPath:indexPath];
+  
+  OCMVerifyAll(delegateMock);
+}
+
 #pragma mark - Helpers
 
 - (XMMContent *)xamoomStaticContent {

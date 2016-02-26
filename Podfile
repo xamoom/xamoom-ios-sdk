@@ -15,7 +15,6 @@ end
 
 target 'XamoomSDKTests', :exclusive => true do
 	pod 'OCMock', '~> 3.2'
-  pod 'XamoomSDK', :path => './'
 end
 
 target 'Example' do
