@@ -45,6 +45,6 @@
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style;
 
-- (void)tappedVideoView:(UITapGestureRecognizer*)sender;
+- (void)openVideo;
 
 @end

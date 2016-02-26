@@ -153,23 +153,34 @@
   XCTAssertTrue([cell.contentID isEqualToString:@"123456"]);
 }
 
+- (void)testThatDidSelectContentBlock2CallsOpenVideo {
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  UITableView *tableView = OCMClassMock([UITableView class]);
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  
+  XMMContentBlock* contentBlock = [[XMMContentBlock alloc] init];
+  contentBlock.videoUrl = @"www.xamoom.com/video.mp4";
+  contentBlock.blockType = 2;
+  XMMContent *content = [[XMMContent alloc] init];
+  content.contentBlocks = [NSArray arrayWithObject:contentBlock];
+  [contentBlocks displayContent:content];
+  [contentBlocks.tableView reloadData];
+  
+  id cell = OCMClassMock([XMMContentBlock2TableViewCell class]);
+  OCMStub([contentBlocks.tableView cellForRowAtIndexPath:[OCMArg any]]).andReturn(cell);
+  
+  OCMExpect([cell openVideo]);
+  
+  [contentBlocks tableView:contentBlocks.tableView didSelectRowAtIndexPath:indexPath];
+  
+  OCMVerify(cell);
+}
+
 - (void)testThatDidSelectContentBlock6CallsDelegate {
   NSString *contentID = @"123456";
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-  UITableViewController *viewController = [[UITableViewController alloc] init];
-  UINavigationController *navController = [[UINavigationController alloc] init];
-  id navigationController = [OCMockObject partialMockForObject:navController];
-  
-  [navigationController pushViewController:viewController animated:NO];
-  XCTAssertNotNil(viewController.navigationController);
 
-  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:viewController.tableView api:self.mockedApi];
-  viewController.tableView.delegate = contentBlocks;
-  viewController.tableView.dataSource = contentBlocks;
   [self.contentBlocks displayContent:[self xamoomStaticContentType6]];
-  
-  XCTAssertEqual(viewController.tableView.delegate, contentBlocks);
-  XCTAssertEqual(viewController.tableView.dataSource, contentBlocks);
   
   id delegateMock = OCMProtocolMock(@protocol(XMMContentBlocksDelegate));
   self.contentBlocks.delegate = delegateMock;

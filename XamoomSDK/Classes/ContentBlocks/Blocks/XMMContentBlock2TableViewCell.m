@@ -23,7 +23,6 @@
 
 @property (strong, nonatomic) NSString* videoUrl;
 @property (nonatomic) float screenWidth;
-@property (nonatomic) UITapGestureRecognizer *tappedVideoViewRecognize;
 @property (nonatomic) UIImage *playImage;
 
 @end
@@ -34,8 +33,6 @@
   // Initialization code
   self.videoPlayer = nil;
   self.playImage = [UIImage imageNamed:@"videoPlay"];
-  self.tappedVideoViewRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tappedVideoView:)];
-  [self.thumbnailImageView addGestureRecognizer:self.tappedVideoViewRecognize];
 }
 
 - (void)prepareForReuse {
@@ -53,7 +50,7 @@
 
 - (void)determineVideoFromURLString:(NSString*)videoURLString {
   NSString *youtubeVideoID = [self youtubeVideoIdFromURL:videoURLString];
-
+  
   if (youtubeVideoID != nil) {
     [self showYoutube];
     [self.youtubePlayerView loadWithVideoId:youtubeVideoID];
@@ -106,20 +103,22 @@
     CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];
     UIImage *thumbnail = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
-
+    
     dispatch_async( dispatch_get_main_queue(), ^{
       completion(thumbnail);
     });
   });
 }
 
-- (void)tappedVideoView:(UITapGestureRecognizer*)sender {
-  AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
-  playerViewController.player = self.videoPlayer;
-  
-  [self.window.rootViewController presentViewController:playerViewController animated:YES completion:^{
-    [playerViewController.player play];
-  }];
+- (void)openVideo {
+  if (self.videoPlayer) {
+    AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
+    playerViewController.player = self.videoPlayer;
+    
+    [self.window.rootViewController presentViewController:playerViewController animated:YES completion:^{
+      [playerViewController.player play];
+    }];
+  }
 }
 
 - (void)hideYoutube {

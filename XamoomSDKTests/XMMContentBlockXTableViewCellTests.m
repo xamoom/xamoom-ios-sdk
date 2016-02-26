@@ -194,18 +194,6 @@
   XCTAssertFalse(testCell.thumbnailImageView.hidden);
 }
 
-- (void)disable_testThatContentBlock2CellConfigureTap { //ugly test
-  [self.contentBlocks displayContent:[self contentWithBlockType2]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
-  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
-  XMMContentBlock2TableViewCell *testCell = (XMMContentBlock2TableViewCell *)cell;
-  testCell = (XMMContentBlock2TableViewCell *)OCMPartialMock(testCell);
-  
-  [testCell tappedVideoView:nil];
-  
-  OCMVerify([testCell tappedVideoView:[OCMArg any]]);
-}
-
 - (void)testThatContentBlock3CellConfigureForImage {
   [self.contentBlocks displayContent:[self contentWithBlockType3]];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];

@@ -184,10 +184,18 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView deselectRowAtIndexPath:indexPath animated:NO];
+  if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock2TableViewCell class]]) {
+    XMMContentBlock2TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell openVideo];
+  }
+  
   if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
     XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [self.delegate didClickContentBlock:cell.contentID];
   }
+  
+  
+  
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
