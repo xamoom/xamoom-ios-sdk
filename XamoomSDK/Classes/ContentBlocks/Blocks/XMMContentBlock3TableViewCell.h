@@ -40,6 +40,8 @@
 
 @property (strong, nonatomic) NSString *linkUrl;
 
+- (void)openLink;
+
 @end
 
 @interface XMMContentBlock3TableViewCell (XMMTableViewRepresentation)

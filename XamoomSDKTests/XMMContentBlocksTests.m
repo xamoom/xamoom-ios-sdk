@@ -176,6 +176,29 @@
   OCMVerify(cell);
 }
 
+- (void)testThatDidSelectContentBlock3CallsOpenLink {
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  UITableView *tableView = OCMClassMock([UITableView class]);
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
+  
+  XMMContentBlock* contentBlock = [[XMMContentBlock alloc] init];
+  contentBlock.linkUrl = @"www.xamoom.com/video.mp4";
+  contentBlock.blockType = 3;
+  XMMContent *content = [[XMMContent alloc] init];
+  content.contentBlocks = [NSArray arrayWithObject:contentBlock];
+  [contentBlocks displayContent:content];
+  [contentBlocks.tableView reloadData];
+  
+  id cell = OCMClassMock([XMMContentBlock3TableViewCell class]);
+  OCMStub([contentBlocks.tableView cellForRowAtIndexPath:[OCMArg any]]).andReturn(cell);
+  
+  OCMExpect([cell openLink]);
+  
+  [contentBlocks tableView:contentBlocks.tableView didSelectRowAtIndexPath:indexPath];
+  
+  OCMVerify(cell);
+}
+
 - (void)testThatDidSelectContentBlock6CallsDelegate {
   NSString *contentID = @"123456";
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
