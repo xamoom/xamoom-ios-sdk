@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		8893566A1C80691E0083724C /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 8893566D1C80691E0083724C /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				8893566E1C80692D0083724C /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		070B35DFFC3B16F1AB160F20 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F2004D3F683DC6100065634F /* libPods-XamoomSDKTests.a */; };
 		881945971C620E2100E4524F /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 881945961C620E2100E4524F /* menu.json */; };
@@ -609,6 +623,9 @@
 					8888DDCB1C47B0FA0050A84C = {
 						CreatedOnToolsVersion = 7.2;
 					};
+					8893566A1C80691E0083724C = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 				};
 			};
 			buildConfigurationList = 8888DDBC1C47B0FA0050A84C /* Build configuration list for PBXProject "XamoomSDK" */;
@@ -626,6 +643,7 @@
 			targets = (
 				8888DDC11C47B0FA0050A84C /* XamoomSDK */,
 				8888DDCB1C47B0FA0050A84C /* XamoomSDKTests */,
+				8893566A1C80691E0083724C /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -730,6 +748,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8893566E1C80692D0083724C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"xamoom\";\ncompanyID=\"com.xamoom\";\ncompanyURL=\"http://xamoom.com\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"./docs\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--ignore \"Pods\" \\\n--ignore \"XamoomSDKTests\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}/\" \\";
 		};
 		CC73B9A38DEBACF3FF92D588 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -992,6 +1023,20 @@
 			};
 			name = Release;
 		};
+		8893566B1C80691E0083724C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8893566C1C80691E0083724C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1021,6 +1066,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		8893566D1C80691E0083724C /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8893566B1C80691E0083724C /* Debug */,
+				8893566C1C80691E0083724C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
