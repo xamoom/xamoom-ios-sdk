@@ -19,7 +19,7 @@
 
 @implementation XMMMapOverlayView
 
-- (void)displayAnnotation:(XMMAnnotation *)annotation {
+- (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent {
   self.contentID = annotation.spot.content.ID;
   self.locationCoordinate = annotation.coordinate;
   
@@ -41,7 +41,7 @@
   [self.spotImageView sd_setImageWithURL:[NSURL URLWithString:annotation.spot.image] completed:nil];
   
   self.openContentButton.hidden = NO;
-  if (self.contentID == nil) {
+  if (self.contentID == nil && !showContent) {
     self.openContentButton.hidden = YES;
   }
 }

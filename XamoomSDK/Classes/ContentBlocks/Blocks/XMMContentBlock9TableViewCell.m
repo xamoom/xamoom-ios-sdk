@@ -26,6 +26,7 @@
 @interface XMMContentBlock9TableViewCell()
 
 @property (nonatomic, strong) NSString *currentContentID;
+@property (nonatomic) bool showContent;
 
 @end
 
@@ -119,6 +120,8 @@ static NSString *contentLanguage;
   if (style.customMarker != nil) {
     [self mapMarkerFromBase64:style.customMarker];
   }
+  
+  self.showContent = block.showContent;
   
   [self getSpotMap:api spotMapTags:block.spotMapTags];
   [self updateConstraints];
@@ -240,7 +243,7 @@ static NSString *contentLanguage;
 }
 
 - (void)openMapAdditionView:(XMMAnnotation *)annotation {
-  [self.mapAdditionView displayAnnotation:annotation];
+  [self.mapAdditionView displayAnnotation:annotation showContent:self.showContent];
   
   [self.contentView layoutIfNeeded];
   self.mapAdditionViewBottomConstraint.constant = 0;

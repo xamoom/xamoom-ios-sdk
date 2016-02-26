@@ -36,10 +36,42 @@
   XMMAnnotation *annotation = [[XMMAnnotation alloc] init];
   annotation.spot = nil;
   
-  [view displayAnnotation:annotation];
+  [view displayAnnotation:annotation showContent:YES];
   
   XCTAssertNotNil(view);
   XCTAssertTrue(view.openContentButton.hidden);
+}
+
+- (void)testDonotShowContent {
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
+  NSBundle *nibBundle = [NSBundle bundleWithURL:url];
+  XMMMapOverlayView *view = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
+  
+  XMMAnnotation *annotation = [[XMMAnnotation alloc] init];
+  annotation.spot = [[XMMSpot alloc] init];
+  annotation.spot.content.ID = @"123456";
+  
+  [view displayAnnotation:annotation showContent:NO];
+  
+  XCTAssertNotNil(view);
+  XCTAssertTrue(view.openContentButton.hidden);
+}
+
+- (void)testShowContent {
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
+  NSBundle *nibBundle = [NSBundle bundleWithURL:url];
+  XMMMapOverlayView *view = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
+  
+  XMMAnnotation *annotation = [[XMMAnnotation alloc] init];
+  annotation.spot = [[XMMSpot alloc] init];
+  annotation.spot.content.ID = @"123456";
+  
+  [view displayAnnotation:annotation showContent:YES];
+  
+  XCTAssertNotNil(view);
+  XCTAssertFalse(view.openContentButton.hidden);
 }
 
 @end

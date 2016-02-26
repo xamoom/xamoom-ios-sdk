@@ -20,6 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *openContentButton;
 @property (weak, nonatomic) IBOutlet UIButton *routeButton;
 
-- (void)displayAnnotation:(XMMAnnotation *)annotation;
+- (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent;
 
 @end
