@@ -69,6 +69,8 @@
 		8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */; };
 		8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */; };
 		8888DDD21C47B0FA0050A84C /* XamoomSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DDD11C47B0FA0050A84C /* XamoomSDKTests.m */; };
+		889356681C802CCF0083724C /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */; };
+		889356691C802CF40083724C /* APIIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA06D1C7F23EF003FDF80 /* APIIntegrationTests.m */; };
 		88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */; };
 		88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B962901C7F00530096993D /* UIColor+HexStringTests.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
@@ -656,6 +658,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				889356681C802CCF0083724C /* TestingIDs.plist in Resources */,
 				881945971C620E2100E4524F /* menu.json in Resources */,
 				88E46F361C49374A004D8AC3 /* XamoomSDK.podspec in Resources */,
 				88D486E01C5BA210003E252D /* systemSettings.json in Resources */,
@@ -793,6 +796,7 @@
 				883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */,
 				883EA06A1C7F0DF7003FDF80 /* XMMMusicPlayerTests.m in Sources */,
 				88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */,
+				889356691C802CF40083724C /* APIIntegrationTests.m in Sources */,
 				8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */,
 				881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */,
 				88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */,
