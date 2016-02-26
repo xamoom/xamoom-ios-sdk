@@ -194,8 +194,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     [self.delegate didClickContentBlock:cell.contentID];
   }
   
-  if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
-    XMMContentBlock3TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+  if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock3TableViewCell class]] || [[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[XMMContentBlock4TableViewCell class]]) {
+    id cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell openLink];
   }
   

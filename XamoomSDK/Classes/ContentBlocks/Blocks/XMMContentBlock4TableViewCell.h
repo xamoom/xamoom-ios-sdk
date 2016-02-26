@@ -49,6 +49,8 @@
 @property (nonatomic) UIColor *androidColor;
 @property (nonatomic) UIColor *windowsColor;
 
+- (void)openLink;
+
 @end
 
 @interface XMMContentBlock4TableViewCell (XMMTableViewRepresentation)

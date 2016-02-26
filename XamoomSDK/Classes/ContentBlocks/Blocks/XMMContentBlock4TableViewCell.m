@@ -31,9 +31,7 @@
   self.linkTextLabel.text = nil;
   self.titleLabel.text = nil;
   self.linkUrl = nil;
-  
-  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
-  [self addGestureRecognizer:tapGestureRecognizer];
+
   [self setupColors];
 }
 
@@ -60,7 +58,7 @@
   self.linkUrl = nil;
 }
 
-- (void)openInBrowser:(id)sender {
+- (void)openLink {
   //open link in safari
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
 }
