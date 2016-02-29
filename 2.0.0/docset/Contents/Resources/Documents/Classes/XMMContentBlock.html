@@ -56,6 +56,8 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/altText">altText</option>
+		
 		<option value="//api/name/blockType">blockType</option>
 		
 		<option value="//api/name/publicStatus">publicStatus</option>
@@ -103,9 +105,8 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><code>XMMContentBlock</code> is used for mapping the JSON sended by the api.</p>
-
-<p>If you don&rsquo;t know how to handle contentBlocks look at our sample app &ldquo;pingeb.org&rdquo;.</p>
+						<p>XMMContentBlock can have 9 different types (see <a href="#//api/name/blockType">blockType</a>).
+Every contentBlock are localized and only uses some of the properties.</p>
 					</div>
 					
 					
@@ -174,7 +175,7 @@
 			
 			<div class="method-subsection brief-description">
 				<p>The publicStatus of the content. Yes means public.
-Changed on our system when check &ldquo;Syncronisation&rdquo; on the contentBlock.</p>
+Changed on our system when check &ldquo;mobile-only&rdquo; on the contentBlock.</p>
 			</div>
 			
 		    
@@ -221,6 +222,47 @@ Changed on our system when check &ldquo;Syncronisation&rdquo; on the contentBloc
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic) int blockType</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">XMMContentBlock.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/altText" title="altText"></a>
+	<h3 class="method-title"><code><a href="#//api/name/altText">&nbsp;&nbsp;altText</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Alternative text for images.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic) NSString *altText</code></div>
 
 		    
 			

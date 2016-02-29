@@ -1,49 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Constants/XMMContentOptions.html">
+	<File path="Protocols/XMMMusicPlayerDelegate.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/c/tdef/XMMContentOptions</TokenIdentifier>
-			<Abstract type="html"></Abstract>
-			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/intf/XMMMusicPlayerDelegate</TokenIdentifier>
+			<Abstract type="html">XMMMusicPlayerDelegate is used for messages between the XMMMusicPlayer and the UI.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
             
 			
 			<NodeRef refid="23"/>
 		</Token>
 		
 		
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMContentOptionsNone</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>XMMContentOptionsNone</Declaration>
-            
-            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-            
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/XMMMusicPlayerDelegate/didUpdateRemainingSongTime:</TokenIdentifier>
+			<Abstract type="html">Notify delegate with the actual remaining song time.</Abstract>
+			<DeclaredIn>XMMMusicPlayer.h</DeclaredIn>
+			
+			<Declaration>- (void)didUpdateRemainingSongTime:(NSString *)remainingSongTime</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>remainingSongTime</Name>
+					<Abstract type="html">- Remaining song time as string with format 0:00</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">void</Abstract></ReturnValue>
+			<Anchor>//api/name/didUpdateRemainingSongTime:</Anchor>
             <NodeRef refid="23"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMContentOptionsPreview</TokenIdentifier>
-            <Abstract type="html">Will not save statistics.
-   </Abstract>
-            <Declaration>XMMContentOptionsPreview</Declaration>
-            
-            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-            
-            <NodeRef refid="23"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMContentOptionsPrivate</TokenIdentifier>
-            <Abstract type="html">Wont return ContentBlocks with &quot;Hide Online&quot; flag.
-   </Abstract>
-            <Declaration>XMMContentOptionsPrivate</Declaration>
-            
-            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-            
-            <NodeRef refid="23"/>
-        </Token>
+		</Token>
+		
         
         
 	</File>

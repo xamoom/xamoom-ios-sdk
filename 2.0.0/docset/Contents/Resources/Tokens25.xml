@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Constants/XMMSpotOptions.html">
+	<File path="Constants/XMMContentOptions.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/c/tdef/XMMSpotOptions</TokenIdentifier>
-			<Abstract type="html"></Abstract>
+			<TokenIdentifier>//apple_ref/c/tdef/XMMContentOptions</TokenIdentifier>
+			<Abstract type="html">XMMContent special options.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             
 			
@@ -14,9 +14,10 @@
 		
         
         <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMSpotOptionsNone</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>XMMSpotOptionsNone</Declaration>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentOptionsNone</TokenIdentifier>
+            <Abstract type="html">No options.
+   </Abstract>
+            <Declaration>XMMContentOptionsNone</Declaration>
             
             <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             
@@ -24,9 +25,10 @@
         </Token>
         
         <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMSpotOptionsIncludeContent</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>XMMSpotOptionsIncludeContent</Declaration>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentOptionsPreview</TokenIdentifier>
+            <Abstract type="html">Will not save statistics.
+   </Abstract>
+            <Declaration>XMMContentOptionsPreview</Declaration>
             
             <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             
@@ -34,9 +36,10 @@
         </Token>
         
         <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMSpotOptionsIncludeMarker</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>XMMSpotOptionsIncludeMarker</Declaration>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentOptionsPrivate</TokenIdentifier>
+            <Abstract type="html">Wont return ContentBlocks with &quot;Hide Online&quot; flag.
+   </Abstract>
+            <Declaration>XMMContentOptionsPrivate</Declaration>
             
             <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             

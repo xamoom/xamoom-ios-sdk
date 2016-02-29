@@ -4,7 +4,8 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/cl/XMMContent</TokenIdentifier>
-			<Abstract type="html">XMMContent is used for mapping the JSON sended by the api.</Abstract>
+			<Abstract type="html">XMMContent is localized and containts the different blocks saved
+in contentBlocks.</Abstract>
 			<DeclaredIn>XMMContent.h</DeclaredIn>
             
 			
@@ -189,6 +190,114 @@
 			
 			
 			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setTags:</TokenIdentifier>
+			<Abstract type="html">Tags set in backend.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/tags</TokenIdentifier>
+			<Abstract type="html">Tags set in backend.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/tags</TokenIdentifier>
+			<Abstract type="html">Tags set in backend.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setSystem:</TokenIdentifier>
+			<Abstract type="html">Connected XMMSystem.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMSystem *system</Declaration>
+			
+			
+			<Anchor>//api/name/system</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/system</TokenIdentifier>
+			<Abstract type="html">Connected XMMSystem.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMSystem *system</Declaration>
+			
+			
+			<Anchor>//api/name/system</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/system</TokenIdentifier>
+			<Abstract type="html">Connected XMMSystem.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMSystem *system</Declaration>
+			
+			
+			<Anchor>//api/name/system</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setSpot:</TokenIdentifier>
+			<Abstract type="html">Connected XMMSpot.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMSpot *spot</Declaration>
+			
+			
+			<Anchor>//api/name/spot</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/spot</TokenIdentifier>
+			<Abstract type="html">Connected XMMSpot.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMSpot *spot</Declaration>
+			
+			
+			<Anchor>//api/name/spot</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/spot</TokenIdentifier>
+			<Abstract type="html">Connected XMMSpot.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) XMMSpot *spot</Declaration>
+			
+			
+			<Anchor>//api/name/spot</Anchor>
             <NodeRef refid="2"/>
 		</Token>
 		

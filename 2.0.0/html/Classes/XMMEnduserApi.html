@@ -136,11 +136,12 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><code>XMMEnduserApi</code> is the main part of the xamoom-ios-sdk. You can use it to send api request to the xamoom-api.</p>
+						<p><code>XMMEnduserApi</code> is the main part of the XamoomSDK. You can use it to send api request to the xamoom-api.</p>
 
-<p>For everything just use the shared instance: [XMMEnduserApi sharedInstance].</p>
+<p>Use <a href="#//api/name/initWithApiKey:">initWithApiKey:</a> to initialize.</p>
 
-<p>Before you can start you have to set a API key: [[XMMEnduserApi sharedInstance] setApiKey:apiKey];</p>
+<p>Change the requested <a href="#//api/name/language">language</a> by setting the <a href="#//api/name/language">language</a>. The users <a href="#//api/name/language">language</a> is
+saved in <a href="#//api/name/systemLanguage">systemLanguage</a>.</p>
 					</div>
 					
 					
@@ -282,8 +283,8 @@
 						</div>
 						
 
-						<a title="Inits" name="task_Inits"></a>
-						<h2 class="task-title">Inits</h2>
+						<a title="Initializers" name="task_Initializers"></a>
+						<h2 class="task-title">Initializers</h2>
 
 						<div class="task-list">
 							<div class="section-method">
@@ -298,8 +299,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Initializes with a apikey. You find your apikey in your xamoom system under
-xamoom.net - Settings.</p>
+				<p>Initializes with a apikey. You find your apikey in your xamoom system in
+Settings.</p>
 			</div>
 			
 		    
@@ -352,7 +353,7 @@ xamoom.net - Settings.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Initializes with a custom base url and custom configuration for NSURLSession.</p>
+				<p>Initializes with a custom <a href="../Classes/XMMRestClient.html">XMMRestClient</a>.</p>
 			</div>
 			
 		    
@@ -366,13 +367,8 @@ xamoom.net - Settings.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>url</code></th>
-						<td><p>Custom url to xamoom system</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>config</code></th>
-						<td><p>Custom NSURLConfiguration</p></td>
+						<th scope="row" class="argument-name"><code>restClient</code></th>
+						<td><p>Custom <a href="../Classes/XMMRestClient.html">XMMRestClient</a></p></td>
 					</tr>
 				
 				</table>
@@ -689,17 +685,17 @@ xamoom.net - Settings.</p>
 					</tr>
 				
 					<tr>
+						<th scope="row" class="argument-name"><code>sortOptions</code></th>
+						<td><p><a href="../Constants/XMMContentSortOptions.html">XMMContentSortOptions</a> to sort result</p></td>
+					</tr>
+				
+					<tr>
 						<th scope="row" class="argument-name"><code>completion</code></th>
 						<td><p>Completion block called after finishing network request
 - <em>param1</em> contents Contents from xamoom system
 - <em>param2</em> hasMore True if more items on xamoom cloud
 - <em>param3</em> cursor Cursor for paging
 - <em>param4</em> error NSError, can be null</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>sort</code></th>
-						<td><p><a href="../Constants/XMMContentSortOptions.html">XMMContentSortOptions</a> to sort result</p></td>
 					</tr>
 				
 				</table>
@@ -766,17 +762,17 @@ xamoom.net - Settings.</p>
 					</tr>
 				
 					<tr>
+						<th scope="row" class="argument-name"><code>sortOptions</code></th>
+						<td><p><a href="../Constants/XMMContentSortOptions.html">XMMContentSortOptions</a> to sort result</p></td>
+					</tr>
+				
+					<tr>
 						<th scope="row" class="argument-name"><code>completion</code></th>
 						<td><p>Completion block called after finishing network request
 - <em>param1</em> contents Contents from xamoom system
 - <em>param2</em> hasMore True if more items on xamoom cloud
 - <em>param3</em> cursor Cursor for paging
 - <em>param4</em> error NSError, can be null</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>sort</code></th>
-						<td><p><a href="../Constants/XMMContentSortOptions.html">XMMContentSortOptions</a> to sort result</p></td>
 					</tr>
 				
 				</table>
@@ -998,11 +994,6 @@ xamoom.net - Settings.</p>
 - <em>param4</em> error NSError, can be null</p></td>
 					</tr>
 				
-					<tr>
-						<th scope="row" class="argument-name"><code>sort</code></th>
-						<td><p><a href="../Constants/XMMSpotSortOptions.html">XMMSpotSortOptions</a> to sort results</p></td>
-					</tr>
-				
 				</table>
 			</div>
 			
@@ -1072,17 +1063,17 @@ xamoom.net - Settings.</p>
 					</tr>
 				
 					<tr>
+						<th scope="row" class="argument-name"><code>sortOptions</code></th>
+						<td><p><a href="../Constants/XMMSpotSortOptions.html">XMMSpotSortOptions</a> to sort results</p></td>
+					</tr>
+				
+					<tr>
 						<th scope="row" class="argument-name"><code>completion</code></th>
 						<td><p>Completion block called after finishing network request
 - <em>param1</em> spots Spots from xamoom system
 - <em>param2</em> hasMore True if more items on xamoom cloud
 - <em>param3</em> cursor Cursor for paging
 - <em>param4</em> error NSError, can be null</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>sort</code></th>
-						<td><p><a href="../Constants/XMMSpotSortOptions.html">XMMSpotSortOptions</a> to sort results</p></td>
 					</tr>
 				
 				</table>

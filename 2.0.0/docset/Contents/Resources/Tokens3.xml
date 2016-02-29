@@ -4,7 +4,8 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlock</TokenIdentifier>
-			<Abstract type="html">XMMContentBlock is used for mapping the JSON sended by the api.</Abstract>
+			<Abstract type="html">XMMContentBlock can have 9 different types (see blockType.
+Every contentBlock are localized and only uses some of the properties.</Abstract>
 			<DeclaredIn>XMMContentBlock.h</DeclaredIn>
             
 			
@@ -51,7 +52,7 @@
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock/setPublicStatus:</TokenIdentifier>
 			<Abstract type="html">The publicStatus of the content. Yes means public.
-Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.</Abstract>
+Changed on our system when check &quot;mobile-only&quot; on the contentBlock.</Abstract>
 			<DeclaredIn>XMMContentBlock.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic) BOOL publicStatus</Declaration>
@@ -64,7 +65,7 @@ Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock/publicStatus</TokenIdentifier>
 			<Abstract type="html">The publicStatus of the content. Yes means public.
-Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.</Abstract>
+Changed on our system when check &quot;mobile-only&quot; on the contentBlock.</Abstract>
 			<DeclaredIn>XMMContentBlock.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic) BOOL publicStatus</Declaration>
@@ -77,7 +78,7 @@ Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlock/publicStatus</TokenIdentifier>
 			<Abstract type="html">The publicStatus of the content. Yes means public.
-Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.</Abstract>
+Changed on our system when check &quot;mobile-only&quot; on the contentBlock.</Abstract>
 			<DeclaredIn>XMMContentBlock.h</DeclaredIn>
 			
 			<Declaration>@property (nonatomic) BOOL publicStatus</Declaration>
@@ -120,6 +121,42 @@ Changed on our system when check &quot;Syncronisation&quot; on the contentBlock.
 			
 			
 			<Anchor>//api/name/blockType</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock/setAltText:</TokenIdentifier>
+			<Abstract type="html">Alternative text for images.</Abstract>
+			<DeclaredIn>XMMContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSString *altText</Declaration>
+			
+			
+			<Anchor>//api/name/altText</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlock/altText</TokenIdentifier>
+			<Abstract type="html">Alternative text for images.</Abstract>
+			<DeclaredIn>XMMContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSString *altText</Declaration>
+			
+			
+			<Anchor>//api/name/altText</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContentBlock/altText</TokenIdentifier>
+			<Abstract type="html">Alternative text for images.</Abstract>
+			<DeclaredIn>XMMContentBlock.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSString *altText</Declaration>
+			
+			
+			<Anchor>//api/name/altText</Anchor>
             <NodeRef refid="3"/>
 		</Token>
 		

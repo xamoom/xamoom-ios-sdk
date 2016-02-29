@@ -30,6 +30,8 @@
 						<NodeRef refid="17"/>
 						<NodeRef refid="18"/>
 						<NodeRef refid="19"/>
+						<NodeRef refid="20"/>
+						<NodeRef refid="21"/>
 						
 					</Subnodes>
 				</Node>
@@ -39,7 +41,7 @@
 					<Name>Categories</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="20"/>
+						<NodeRef refid="22"/>
 						
 					</Subnodes>
 				</Node>
@@ -49,7 +51,7 @@
 					<Name>Protocols</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="21"/>
+						<NodeRef refid="23"/>
 						
 					</Subnodes>
 				</Node>
@@ -59,11 +61,11 @@
 					<Name>Constants</Name>
 					<Path>index.html</Path>
 					<Subnodes>
-						<NodeRef refid="22"/>
-						<NodeRef refid="23"/>
 						<NodeRef refid="24"/>
 						<NodeRef refid="25"/>
 						<NodeRef refid="26"/>
+						<NodeRef refid="27"/>
+						<NodeRef refid="28"/>
 						
 					</Subnodes>
 				</Node>
@@ -266,11 +268,60 @@
             
         </Node>
 		<Node id="16" type="file" documentType="reference">
-            <Name>XMMMenuItem</Name>
-            <Path>Classes/XMMMenuItem.html</Path>
+            <Name>XMMMenu</Name>
+            <Path>Classes/XMMMenu.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Classes/XMMMenu.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Classes/XMMMenu.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMMenu.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
+                
+                
+            </Subnodes>
             
         </Node>
 		<Node id="17" type="file" documentType="reference">
+            <Name>XMMMenuItem</Name>
+            <Path>Classes/XMMMenuItem.html</Path>
+            
+                <Subnodes>
+                <Node type="section">
+                    <Path>Classes/XMMMenuItem.html</Path>
+                    <Name>Overview</Name>
+                    <Anchor>overview</Anchor>
+                </Node>
+                <Node type="section">
+                    <Path>Classes/XMMMenuItem.html</Path>
+                    <Name>Tasks</Name>
+                    <Anchor>tasks</Anchor>
+                </Node>
+                
+                <Node type="section">
+                    <Path>Classes/XMMMenuItem.html</Path>
+                    <Name>Properties</Name>
+                    <Anchor>properties</Anchor>
+                </Node>
+                
+                
+                
+            </Subnodes>
+            
+        </Node>
+		<Node id="18" type="file" documentType="reference">
             <Name>XMMMusicPlayer</Name>
             <Path>Classes/XMMMusicPlayer.html</Path>
             
@@ -297,7 +348,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="18" type="file" documentType="reference">
+		<Node id="19" type="file" documentType="reference">
             <Name>XMMSpot</Name>
             <Path>Classes/XMMSpot.html</Path>
             
@@ -324,7 +375,7 @@
             </Subnodes>
             
         </Node>
-		<Node id="19" type="file" documentType="reference">
+		<Node id="20" type="file" documentType="reference">
             <Name>XMMStyle</Name>
             <Path>Classes/XMMStyle.html</Path>
             
@@ -357,14 +408,19 @@
             </Subnodes>
             
         </Node>
+		<Node id="21" type="file" documentType="reference">
+            <Name>XMMSystem</Name>
+            <Path>Classes/XMMSystem.html</Path>
+            
+        </Node>
 		
-		<Node id="20" type="file" documentType="reference">
+		<Node id="22" type="file" documentType="reference">
             <Name>UIImage(animatedGIF)</Name>
             <Path>Categories/UIImage+animatedGIF.html</Path>
             
         </Node>
 		
-        <Node id="21" type="file" documentType="reference">
+        <Node id="23" type="file" documentType="reference">
             <Name>XMMMusicPlayerDelegate</Name>
             <Path>Protocols/XMMMusicPlayerDelegate.html</Path>
             
@@ -392,27 +448,27 @@
             
         </Node>
 		
-        <Node id="22" type="file" documentType="reference">
+        <Node id="24" type="file" documentType="reference">
             <Name>TextFontSize</Name>
             <Path>Constants/TextFontSize.html</Path>
             
         </Node>
-		<Node id="23" type="file" documentType="reference">
+		<Node id="25" type="file" documentType="reference">
             <Name>XMMContentOptions</Name>
             <Path>Constants/XMMContentOptions.html</Path>
             
         </Node>
-		<Node id="24" type="file" documentType="reference">
+		<Node id="26" type="file" documentType="reference">
             <Name>XMMContentSortOptions</Name>
             <Path>Constants/XMMContentSortOptions.html</Path>
             
         </Node>
-		<Node id="25" type="file" documentType="reference">
+		<Node id="27" type="file" documentType="reference">
             <Name>XMMSpotOptions</Name>
             <Path>Constants/XMMSpotOptions.html</Path>
             
         </Node>
-		<Node id="26" type="file" documentType="reference">
+		<Node id="28" type="file" documentType="reference">
             <Name>XMMSpotSortOptions</Name>
             <Path>Constants/XMMSpotSortOptions.html</Path>
             

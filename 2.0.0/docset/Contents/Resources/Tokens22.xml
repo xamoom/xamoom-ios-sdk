@@ -1,52 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Constants/TextFontSize.html">
+	<File path="Categories/UIImage+animatedGIF.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/c/tdef/TextFontSize</TokenIdentifier>
-			<Abstract type="html">Declaring different TextFontSizes.
-Can be used to provide 3 different fontSizes for
-the XMMContentBlocks.</Abstract>
-			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+			<TokenIdentifier>//apple_ref/occ/cat/UIImage(animatedGIF)</TokenIdentifier>
+			<Abstract type="html">UIImage (animatedGIF)</Abstract>
+			<DeclaredIn>UIImage+animatedGIF.h</DeclaredIn>
             
 			
 			<NodeRef refid="22"/>
 		</Token>
 		
 		
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/NormalFontSize</TokenIdentifier>
-            <Abstract type="html">NormalFontSize is the &quot;standard&quot; fontSize.
-   </Abstract>
-            <Declaration>NormalFontSize</Declaration>
-            
-            <DeclaredIn>XMMContentBlocks.h</DeclaredIn>
-            
-            <NodeRef refid="22"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/BigFontSize</TokenIdentifier>
-            <Abstract type="html">BigFontSize is the next &quot;bigger&quot; fontSize.
-   </Abstract>
-            <Declaration>BigFontSize</Declaration>
-            
-            <DeclaredIn>XMMContentBlocks.h</DeclaredIn>
-            
-            <NodeRef refid="22"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/BiggerFontSize</TokenIdentifier>
-            <Abstract type="html">BiggerFontSize is the &quot;biggest&quot; fontSize.
-   </Abstract>
-            <Declaration>BiggerFontSize</Declaration>
-            
-            <DeclaredIn>XMMContentBlocks.h</DeclaredIn>
-            
-            <NodeRef refid="22"/>
-        </Token>
         
         
 	</File>

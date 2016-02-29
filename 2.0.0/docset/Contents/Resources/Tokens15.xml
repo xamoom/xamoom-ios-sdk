@@ -4,7 +4,7 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/cl/XMMEnduserApi</TokenIdentifier>
-			<Abstract type="html">XMMEnduserApi is the main part of the xamoom-ios-sdk. You can use it to send api request to the xamoom-api.</Abstract>
+			<Abstract type="html">XMMEnduserApi is the main part of the XamoomSDK. You can use it to send api request to the xamoom-api.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             
 			
@@ -122,8 +122,8 @@
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/initWithApiKey:</TokenIdentifier>
-			<Abstract type="html">Initializes with a apikey. You find your apikey in your xamoom system under
-xamoom.net - Settings.</Abstract>
+			<Abstract type="html">Initializes with a apikey. You find your apikey in your xamoom system in
+Settings.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
 			<Declaration>- (instancetype)initWithApiKey:(NSString *)apikey</Declaration>
@@ -140,17 +140,14 @@ xamoom.net - Settings.</Abstract>
 		
 		<Token>
 			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/initWithRestClient:</TokenIdentifier>
-			<Abstract type="html">Initializes with a custom base url and custom configuration for NSURLSession.</Abstract>
+			<Abstract type="html">Initializes with a custom XMMRestClient.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
 			
 			<Declaration>- (instancetype)initWithRestClient:(XMMRestClient *)restClient</Declaration>
 			<Parameters>
 				<Parameter>
-					<Name>url</Name>
-					<Abstract type="html">Custom url to xamoom system</Abstract>
-				</Parameter><Parameter>
-					<Name>config</Name>
-					<Abstract type="html">Custom NSURLConfiguration</Abstract>
+					<Name>restClient</Name>
+					<Abstract type="html">Custom XMMRestClient</Abstract>
 				</Parameter>
 			</Parameters>
 			
@@ -269,15 +266,15 @@ xamoom.net - Settings.</Abstract>
 					<Name>cursor</Name>
 					<Abstract type="html">Needed when paging, can be null</Abstract>
 				</Parameter><Parameter>
+					<Name>sortOptions</Name>
+					<Abstract type="html">XMMContentSortOptions to sort result</Abstract>
+				</Parameter><Parameter>
 					<Name>completion</Name>
 					<Abstract type="html">Completion block called after finishing network request
 - param1 contents Contents from xamoom system
 - param2 hasMore True if more items on xamoom cloud
 - param3 cursor Cursor for paging
 - param4 error NSError, can be null</Abstract>
-				</Parameter><Parameter>
-					<Name>sort</Name>
-					<Abstract type="html">XMMContentSortOptions to sort result</Abstract>
 				</Parameter>
 			</Parameters>
 			
@@ -302,15 +299,15 @@ xamoom.net - Settings.</Abstract>
 					<Name>cursor</Name>
 					<Abstract type="html">Needed when paging, can be null</Abstract>
 				</Parameter><Parameter>
+					<Name>sortOptions</Name>
+					<Abstract type="html">XMMContentSortOptions to sort result</Abstract>
+				</Parameter><Parameter>
 					<Name>completion</Name>
 					<Abstract type="html">Completion block called after finishing network request
 - param1 contents Contents from xamoom system
 - param2 hasMore True if more items on xamoom cloud
 - param3 cursor Cursor for paging
 - param4 error NSError, can be null</Abstract>
-				</Parameter><Parameter>
-					<Name>sort</Name>
-					<Abstract type="html">XMMContentSortOptions to sort result</Abstract>
 				</Parameter>
 			</Parameters>
 			
@@ -402,9 +399,6 @@ xamoom.net - Settings.</Abstract>
 - param2 hasMore True if more items on xamoom cloud
 - param3 cursor Cursor for paging
 - param4 error NSError, can be null</Abstract>
-				</Parameter><Parameter>
-					<Name>sort</Name>
-					<Abstract type="html">XMMSpotSortOptions to sort results</Abstract>
 				</Parameter>
 			</Parameters>
 			
@@ -432,15 +426,15 @@ xamoom.net - Settings.</Abstract>
 					<Name>options</Name>
 					<Abstract type="html">XMMSpotOptions to get markers or content</Abstract>
 				</Parameter><Parameter>
+					<Name>sortOptions</Name>
+					<Abstract type="html">XMMSpotSortOptions to sort results</Abstract>
+				</Parameter><Parameter>
 					<Name>completion</Name>
 					<Abstract type="html">Completion block called after finishing network request
 - param1 spots Spots from xamoom system
 - param2 hasMore True if more items on xamoom cloud
 - param3 cursor Cursor for paging
 - param4 error NSError, can be null</Abstract>
-				</Parameter><Parameter>
-					<Name>sort</Name>
-					<Abstract type="html">XMMSpotSortOptions to sort results</Abstract>
 				</Parameter>
 			</Parameters>
 			

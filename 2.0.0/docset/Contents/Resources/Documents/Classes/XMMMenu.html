@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>XMMMenuItem Class Reference</title>
+	<title>XMMMenu Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -56,9 +56,7 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/category">category</option>
-		
-		<option value="//api/name/contentTitle">contentTitle</option>
+		<option value="//api/name/items">items</option>
 		
 	</optgroup>
 	
@@ -79,7 +77,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">XMMMenuItem Class Reference</h1>
+					<h1 class="title">XMMMenu Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -91,7 +89,7 @@
 	<td>XMMRestResource</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>XMMMenuItem.h<br />XMMMenuItem.m</td>
+	<td>XMMMenu.h<br />XMMMenu.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -101,7 +99,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>XMMMenuItem with <a href="#//api/name/contentTitle">contentTitle</a> and <a href="#//api/name/category">category</a>.</p>
+						<p>XMMMenu with the menuItems.</p>
 					</div>
 					
 					
@@ -117,8 +115,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/contentTitle" title="contentTitle"></a>
-	<h3 class="method-title"><code><a href="#//api/name/contentTitle">&nbsp;&nbsp;contentTitle</a></code>
+	<a name="//api/name/items" title="items"></a>
+	<h3 class="method-title"><code><a href="#//api/name/items">&nbsp;&nbsp;items</a></code>
 </h3>
 
 	<div class="method-info">
@@ -128,12 +126,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>ContentTitle of the content.</p>
+				<p><a href="../Classes/XMMMenuItem.html">XMMMenuItem</a> as array.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *contentTitle</code></div>
+			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic) NSArray *items</code></div>
 
 		    
 			
@@ -151,48 +149,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMMenuItem.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/category" title="category"></a>
-	<h3 class="method-title"><code><a href="#//api/name/category">&nbsp;&nbsp;category</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Category of the content.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic) int category</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">XMMMenuItem.h</code></p>
+				<p><code class="declared-in-ref">XMMMenu.h</code></p>
 			</div>
 			
 			

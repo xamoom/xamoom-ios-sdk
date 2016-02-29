@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Tokens version="1.0">
-	<File path="Constants/XMMSpotSortOptions.html">
+	<File path="Constants/XMMContentSortOptions.html">
 		
 		<Token>
-			<TokenIdentifier>//apple_ref/c/tdef/XMMSpotSortOptions</TokenIdentifier>
-			<Abstract type="html"></Abstract>
+			<TokenIdentifier>//apple_ref/c/tdef/XMMContentSortOptions</TokenIdentifier>
+			<Abstract type="html">XMMContent sorting options.</Abstract>
 			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             
 			
@@ -14,9 +14,10 @@
 		
         
         <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsNone</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>XMMSpotSortOptionsNone</Declaration>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentSortOptionsNone</TokenIdentifier>
+            <Abstract type="html">No sorting.
+   </Abstract>
+            <Declaration>XMMContentSortOptionsNone</Declaration>
             
             <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             
@@ -24,9 +25,10 @@
         </Token>
         
         <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsName</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>XMMSpotSortOptionsName</Declaration>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentSortOptionsName</TokenIdentifier>
+            <Abstract type="html">Sort by name ascending.
+   </Abstract>
+            <Declaration>XMMContentSortOptionsName</Declaration>
             
             <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             
@@ -34,29 +36,10 @@
         </Token>
         
         <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsNameDesc</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>XMMSpotSortOptionsNameDesc</Declaration>
-            
-            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-            
-            <NodeRef refid="26"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsDistance</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>XMMSpotSortOptionsDistance</Declaration>
-            
-            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
-            
-            <NodeRef refid="26"/>
-        </Token>
-        
-        <Token>
-            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsDistanceDesc</TokenIdentifier>
-            <Abstract type="html"></Abstract>
-            <Declaration>XMMSpotSortOptionsDistanceDesc</Declaration>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentSortOptionsNameDesc</TokenIdentifier>
+            <Abstract type="html">Sort by name descending.
+   </Abstract>
+            <Declaration>XMMContentSortOptionsNameDesc</Declaration>
             
             <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
             
