@@ -413,7 +413,7 @@
                                                       @"filter[lat]":[@(location.coordinate.latitude) stringValue],
                                                       @"filter[lon]":[@(location.coordinate.longitude) stringValue],
                                                       @"filter[radius]":@"100",
-                                                      @"include_marker":@"true",
+                                                      @"include_markers":@"true",
                                                       @"include_content":@"true"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
@@ -457,7 +457,7 @@
                                                       @"filter[lat]":[@(location.coordinate.latitude) stringValue],
                                                       @"filter[lon]":[@(location.coordinate.longitude) stringValue],
                                                       @"filter[radius]":@"100",
-                                                      @"include_marker":@"true",
+                                                      @"include_markers":@"true",
                                                       @"include_content":@"true",
                                                       @"page[size]":@"20",
                                                       @"page[cursor]":@"2"}];
@@ -504,7 +504,7 @@
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en",
                                                       @"filter[tags]":@"[\"tag1\",\"tag2\"]",
-                                                      @"include_marker":@"true",
+                                                      @"include_markers":@"true",
                                                       @"include_content":@"true",
                                                       @"page[size]":@"100"}];
   
@@ -550,7 +550,7 @@
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en",
                                                       @"filter[tags]":@"[\"tag1\",\"tag2\"]",
-                                                      @"include_marker":@"true",
+                                                      @"include_markers":@"true",
                                                       @"include_content":@"true",
                                                       @"page[size]":@"20",
                                                       @"page[cursor]":@"1",
