@@ -1,5 +1,5 @@
 //
-// Copyright 2015 by xamoom GmbH <apps@xamoom.com>
+// Copyright 2016 by xamoom GmbH <apps@xamoom.com>
 //
 // This file is part of some open source application.
 //
@@ -17,7 +17,6 @@
 // along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
-
 #import <Foundation/Foundation.h>
 #import <JSONAPI/JSONAPIResourceBase.h>
 #import <JSONAPI/JSONAPIResourceDescriptor.h>
@@ -30,12 +29,12 @@
 @class XMMSpot;
 
 /**
- * `XMMContent` is used for mapping the JSON sended by the api.
+ * XMMContent is localized and containts the different blocks saved
+ * in contentBlocks.
  */
 @interface XMMContent : JSONAPIResourceBase  <XMMRestResource>
 
 #pragma mark Properties
-/// @name Properties
 
 @property (nonatomic, copy) NSString *title;
 /**
@@ -58,11 +57,17 @@
  *  Category as an number to specify an icon.
  */
 @property (nonatomic) int category;
-
+/**
+ * Tags set in backend.
+ */
 @property (nonatomic) NSArray *tags;
-
+/**
+ * Connected XMMSystem.
+ */
 @property (nonatomic) XMMSystem *system;
-
+/**
+ * Connected XMMSpot.
+ */
 @property (nonatomic) XMMSpot *spot;
 
 @end

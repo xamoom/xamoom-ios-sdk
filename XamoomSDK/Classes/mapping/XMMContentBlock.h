@@ -1,5 +1,5 @@
 //
-// Copyright 2015 by xamoom GmbH <apps@xamoom.com>
+// Copyright 2016 by xamoom GmbH <apps@xamoom.com>
 //
 // This file is part of some open source application.
 //
@@ -24,9 +24,8 @@
 #import "XMMRestResource.h"
 
 /**
- * `XMMContentBlock` is used for mapping the JSON sended by the api.
- *
- * If you don't know how to handle contentBlocks look at our sample app "pingeb.org".
+ * XMMContentBlock can have 9 different types (see blockType).
+ * Every contentBlock are localized and only uses some of the properties.
  */
 @interface XMMContentBlock : JSONAPIResourceBase  <XMMRestResource>
 
@@ -36,7 +35,7 @@
 @property (nonatomic, copy) NSString *title;
 /**
  * The publicStatus of the content. Yes means public.
- * Changed on our system when check "Syncronisation" on the contentBlock.
+ * Changed on our system when check "mobile-only" on the contentBlock.
  */
 @property (nonatomic) BOOL publicStatus;
 /**
@@ -67,7 +66,9 @@
 @property (nonatomic) NSString *videoUrl;
 
 @property (nonatomic) BOOL showContent;
-
+/**
+ * Alternative text for images.
+ */
 @property (nonatomic) NSString *altText;
 
 @end

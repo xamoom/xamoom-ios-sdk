@@ -1,5 +1,5 @@
 //
-// Copyright 2015 by xamoom GmbH <apps@xamoom.com>
+// Copyright 2016 by xamoom GmbH <apps@xamoom.com>
 //
 // This file is part of some open source application.
 //
@@ -29,7 +29,7 @@
 @class XMMContent;
 
 /**
- * `XMMSpot` is used for mapping the JSON sended by the api.
+ * XMMSpot is localized.
  */
 @interface XMMSpot : JSONAPIResourceBase  <XMMRestResource>
 

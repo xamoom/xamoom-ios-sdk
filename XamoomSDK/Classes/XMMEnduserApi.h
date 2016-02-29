@@ -1,13 +1,5 @@
 //
-//  XMMEnduserApi.m
-//  XamoomSDK
-//
-//  Created by Raphael Seher on 14/01/16.
-//  Copyright © 2016 xamoom GmbH. All rights reserved.
-//
-
-//
-// Copyright 2015 by xamoom GmbH <apps@xamoom.com>
+// Copyright 2016 by xamoom GmbH <apps@xamoom.com>
 //
 // This file is part of some open source application.
 //
@@ -49,6 +41,9 @@
 
 extern NSString * const kApiBaseURLString;
 
+/**
+ * XMMContent special options.
+ */
 typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
   /**
    * No options.
@@ -64,6 +59,9 @@ typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
   XMMContentOptionsPrivate = 1 << 1,
 };
 
+/**
+ * XMMSpot special options.
+ */
 typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
   /**
    * No options.
@@ -79,29 +77,57 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
   XMMSpotOptionsIncludeMarker = 1 << 1,
 };
 
+/**
+ * XMMContent sorting options.
+ */
 typedef NS_OPTIONS(NSUInteger, XMMContentSortOptions) {
   /**
-   * 
+   * No sorting.
    */
   XMMContentSortOptionsNone = 0 << 0,
+  /**
+   * Sort by name ascending.
+   */
   XMMContentSortOptionsName = 1 << 0,
+  /**
+   * Sort by name descending.
+   */
   XMMContentSortOptionsNameDesc = 1 << 1,
 };
 
+/**
+ * XMMSpot sorting options.
+ */
 typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
+  /**
+   * No sorting.
+   */
   XMMSpotSortOptionsNone = 0 << 0,
+  /**
+   * Sort by name ascending.
+   */
   XMMSpotSortOptionsName = 1 << 0,
+  /**
+   * Sort by name descending.
+   */
   XMMSpotSortOptionsNameDesc = 1 << 1,
+  /**
+   * Sort by distance ascending.
+   */
   XMMSpotSortOptionsDistance = 1 << 2,
+  /**
+   * Sort by distance descending.
+   */
   XMMSpotSortOptionsDistanceDesc = 1 << 3,
 };
 
 /**
- *`XMMEnduserApi` is the main part of the xamoom-ios-sdk. You can use it to send api request to the xamoom-api.
+ * `XMMEnduserApi` is the main part of the XamoomSDK. You can use it to send api request to the xamoom-api.
  *
- * For everything just use the shared instance: [XMMEnduserApi sharedInstance].
- *
- * Before you can start you have to set a API key: [[XMMEnduserApi sharedInstance] setApiKey:apiKey];
+ * Use initWithApiKey: to initialize.
+ * 
+ * Change the requested language by setting the language. The users language is
+ * saved in systemLanguage.
  */
 @interface XMMEnduserApi : NSObject
 
@@ -121,11 +147,11 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  */
 @property (strong, nonatomic) XMMRestClient *restClient;
 
-/// @name Inits
+/// @name Initializers
 
 /**
- * Initializes with a apikey. You find your apikey in your xamoom system under
- * xamoom.net - Settings.
+ * Initializes with a apikey. You find your apikey in your xamoom system in
+ * Settings.
  * 
  * @param apikey Your xamoom api key
  */
@@ -137,6 +163,8 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * @param restClient Custom XMMRestClient
  */
 - (instancetype)initWithRestClient:(XMMRestClient *)restClient;
+
+/// @name API Calls
 
 #pragma mark - public methods
 

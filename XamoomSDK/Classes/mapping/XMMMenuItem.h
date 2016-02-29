@@ -1,5 +1,5 @@
 //
-// Copyright 2015 by xamoom GmbH <apps@xamoom.com>
+// Copyright 2016 by xamoom GmbH <apps@xamoom.com>
 //
 // This file is part of some open source application.
 //
@@ -24,13 +24,18 @@
 #import "XMMRestResource.h"
 
 /**
- * `XMMMenuItem` is used for mapping the JSON sended by the api.
+ * XMMMenuItem with contentTitle and category.
  */
 @interface XMMMenuItem : JSONAPIResourceBase  <XMMRestResource>
 
-
+/**
+ * ContentTitle of the content.
+ */
 @property (nonatomic, copy) NSString* contentTitle;
 
+/**
+ * Category of the content.
+ */
 @property (nonatomic) int category;
 
 @end

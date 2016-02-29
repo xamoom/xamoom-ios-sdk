@@ -1,5 +1,5 @@
 //
-// Copyright 2015 by xamoom GmbH <apps@xamoom.com>
+// Copyright 2016 by xamoom GmbH <apps@xamoom.com>
 //
 // This file is part of some open source application.
 //
@@ -20,8 +20,7 @@
 #import "XMMEnduserApi.h"
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString =
-@"https://xamoom-cloud-dev.appspot.com/_api/v2/consumer";
+NSString * const kApiBaseURLString = @"https://xamoom-cloud-dev.appspot.com/_api/v2/consumer";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 
@@ -43,7 +42,8 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
                                      @"User-Agent":kHTTPUserAgent,
                                      @"APIKEY":apikey,}];
   
-  self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString: kApiBaseURLString] session:[NSURLSession sessionWithConfiguration:config]];
+  self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString: kApiBaseURLString]
+                                                   session:[NSURLSession sessionWithConfiguration:config]];
   
   [self setupResources];
   return self;
