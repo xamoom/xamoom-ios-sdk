@@ -94,7 +94,6 @@
 		88D4C6E11C6CC39E00615147 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4C6E01C6CC39E00615147 /* MapKit.framework */; };
 		88D4C6EC1C6CD3AE00615147 /* XMMMapOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88D4C6EA1C6CD3AE00615147 /* XMMMapOverlayView.h */; };
 		88D4C6ED1C6CD3AE00615147 /* XMMMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D4C6EB1C6CD3AE00615147 /* XMMMapOverlayView.m */; };
-		88E46DE61C47E117004D8AC3 /* XamoomSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46DE31C47E117004D8AC3 /* XamoomSDK.h */; };
 		88E46E781C47E348004D8AC3 /* XMMContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E1B1C47E348004D8AC3 /* XMMContent.h */; };
 		88E46E791C47E348004D8AC3 /* XMMContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E1C1C47E348004D8AC3 /* XMMContent.m */; };
 		88E46E7A1C47E348004D8AC3 /* XMMContentBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E1D1C47E348004D8AC3 /* XMMContentBlock.h */; };
@@ -558,7 +557,6 @@
 				883E554F1C4A2B66000C4D09 /* XMMSystem.h in Headers */,
 				88E46F251C4933D8004D8AC3 /* XMMRestResource.h in Headers */,
 				883E559B1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.h in Headers */,
-				88E46DE61C47E117004D8AC3 /* XamoomSDK.h in Headers */,
 				883E55981C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.h in Headers */,
 				88E46E781C47E348004D8AC3 /* XMMContent.h in Headers */,
 			);

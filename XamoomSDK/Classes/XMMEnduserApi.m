@@ -196,7 +196,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
                                                       @"filter[radius]":[@(radius) stringValue]}];
   
   if (options & XMMSpotOptionsIncludeMarker) {
-    [params setObject:@"true" forKey:@"include_marker"];
+    [params setObject:@"true" forKey:@"include_markers"];
   }
   
   if (options & XMMSpotOptionsIncludeContent) {
@@ -225,7 +225,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   }
   
   if (options & XMMSpotOptionsIncludeMarker) {
-    [params setObject:@"true" forKey:@"include_marker"];
+    [params setObject:@"true" forKey:@"include_markers"];
   }
   
   if (options & XMMSpotOptionsIncludeContent) {
@@ -261,7 +261,7 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   }
   
   if (options & XMMSpotOptionsIncludeMarker) {
-    [params setObject:@"true" forKey:@"include_marker"];
+    [params setObject:@"true" forKey:@"include_markers"];
   }
   
   if (options & XMMSpotOptionsIncludeContent) {

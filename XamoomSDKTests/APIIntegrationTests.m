@@ -183,7 +183,7 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   NSArray *tags = [NSArray arrayWithObjects:@"Spot1", @"tag1", @"donottouchspot", nil];
   
-  [self.api spotsWithTags:@[@"donottouchspot"] options:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [self.api spotsWithTags:@[@"donottouchspot"] options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertFalse(hasMore);
     XCTAssertTrue([cursor isEqualToString:@""]);
     XMMSpot *spot = [spots firstObject];
@@ -196,6 +196,8 @@
     XCTAssertTrue(spot.longitude == 14.2622709274292);
     XCTAssertTrue([spot.tags isEqualToArray:tags]);
     XCTAssertTrue([spot.system.ID isEqualToString:@"5755996320301056"]);
+    XCTAssertTrue([spot.content.ID isEqualToString:@"e9c917086aca465eb454e38c0146428b"]);
+    XCTAssertNotNil(spot.markers);
     
     [expectation fulfill];
   }];

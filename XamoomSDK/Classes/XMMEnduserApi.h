@@ -50,6 +50,9 @@
 extern NSString * const kApiBaseURLString;
 
 typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
+  /**
+   * No options.
+   */
   XMMContentOptionsNone = 1 << 0,
   /**
    * Will not save statistics.
@@ -62,12 +65,24 @@ typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
 };
 
 typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
+  /**
+   * No options.
+   */
   XMMSpotOptionsNone = 0 << 0,
+  /**
+   * Will include contentID to spots.
+   */
   XMMSpotOptionsIncludeContent = 1 << 0,
+  /**
+   * Will include markers to spots
+   */
   XMMSpotOptionsIncludeMarker = 1 << 1,
 };
 
 typedef NS_OPTIONS(NSUInteger, XMMContentSortOptions) {
+  /**
+   * 
+   */
   XMMContentSortOptionsNone = 0 << 0,
   XMMContentSortOptionsName = 1 << 0,
   XMMContentSortOptionsNameDesc = 1 << 1,
@@ -117,10 +132,9 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
 - (instancetype)initWithApiKey:(NSString *)apikey;
 
 /**
- * Initializes with a custom base url and custom configuration for NSURLSession.
+ * Initializes with a custom XMMRestClient.
  * 
- * @param url Custom url to xamoom system
- * @param config Custom NSURLConfiguration
+ * @param restClient Custom XMMRestClient
  */
 - (instancetype)initWithRestClient:(XMMRestClient *)restClient;
 
@@ -174,7 +188,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * @param location Location of the user
  * @param pageSize PageSize you want to get from xamoom cloud
  * @param cursor Needed when paging, can be null
- * @param sort XMMContentSortOptions to sort result
+ * @param sortOptions XMMContentSortOptions to sort result
  * @param completion Completion block called after finishing network request
  * - *param1* contents Contents from xamoom system
  * - *param2* hasMore True if more items on xamoom cloud
@@ -189,7 +203,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * @param tags Array of tags
  * @param pageSize PageSize you want to get from xamoom cloud
  * @param cursor Needed when paging, can be null
- * @param sort XMMContentSortOptions to sort result
+ * @param sortOptions XMMContentSortOptions to sort result
  * @param completion Completion block called after finishing network request
  * - *param1* contents Contents from xamoom system
  * - *param2* hasMore True if more items on xamoom cloud
@@ -231,7 +245,6 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  *
  * @param tags Array of tags
  * @param options XMMSpotOptions to get markers or content
- * @param sort XMMSpotSortOptions to sort results
  * @param completion Completion block called after finishing network request
  * - *param1* spots Spots from xamoom system
  * - *param2* hasMore True if more items on xamoom cloud
@@ -247,7 +260,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * @param pageSize PageSize you want to get from xamoom cloud
  * @param cursor Needed when paging, can be null
  * @param options XMMSpotOptions to get markers or content
- * @param sort XMMSpotSortOptions to sort results
+ * @param sortOptions XMMSpotSortOptions to sort results
  * @param completion Completion block called after finishing network request
  * - *param1* spots Spots from xamoom system
  * - *param2* hasMore True if more items on xamoom cloud
