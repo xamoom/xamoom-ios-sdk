@@ -141,6 +141,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 
 - (void)updateFontSizeTo:(TextFontSize)newFontSize {
   [XMMContentBlock0TableViewCell setFontSize:newFontSize];
+  [self.tableView reloadData];
 }
 
 - (void)clickContentNotification:(NSNotification *)notification {
