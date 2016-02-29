@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMContent.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContent</TokenIdentifier>
+			<Abstract type="html">XMMContent is used for mapping the JSON sended by the api.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setImagePublicUrl:</TokenIdentifier>
+			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imagePublicUrl</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/imagePublicUrl</TokenIdentifier>
+			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imagePublicUrl</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/imagePublicUrl</TokenIdentifier>
+			<Abstract type="html">Public url pointing to an image on our system.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *imagePublicUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imagePublicUrl</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setContentDescription:</TokenIdentifier>
+			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *contentDescription</Declaration>
+			
+			
+			<Anchor>//api/name/contentDescription</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/contentDescription</TokenIdentifier>
+			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *contentDescription</Declaration>
+			
+			
+			<Anchor>//api/name/contentDescription</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/contentDescription</TokenIdentifier>
+			<Abstract type="html">Description (Excerpt) of the content.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *contentDescription</Declaration>
+			
+			
+			<Anchor>//api/name/contentDescription</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setLanguage:</TokenIdentifier>
+			<Abstract type="html">The language of the content</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
+			
+			
+			<Anchor>//api/name/language</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/language</TokenIdentifier>
+			<Abstract type="html">The language of the content</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
+			
+			
+			<Anchor>//api/name/language</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/language</TokenIdentifier>
+			<Abstract type="html">The language of the content</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) NSString *language</Declaration>
+			
+			
+			<Anchor>//api/name/language</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setContentBlocks:</TokenIdentifier>
+			<Abstract type="html">Array containing items of XMMContentBlock.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *contentBlocks</Declaration>
+			
+			
+			<Anchor>//api/name/contentBlocks</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/contentBlocks</TokenIdentifier>
+			<Abstract type="html">Array containing items of XMMContentBlock.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *contentBlocks</Declaration>
+			
+			
+			<Anchor>//api/name/contentBlocks</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/contentBlocks</TokenIdentifier>
+			<Abstract type="html">Array containing items of XMMContentBlock.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) NSArray *contentBlocks</Declaration>
+			
+			
+			<Anchor>//api/name/contentBlocks</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/setCategory:</TokenIdentifier>
+			<Abstract type="html">Category as an number to specify an icon.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContent/category</TokenIdentifier>
+			<Abstract type="html">Category as an number to specify an icon.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMContent/category</TokenIdentifier>
+			<Abstract type="html">Category as an number to specify an icon.</Abstract>
+			<DeclaredIn>XMMContent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) int category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

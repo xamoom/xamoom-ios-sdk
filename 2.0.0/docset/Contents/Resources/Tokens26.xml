@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/XMMSpotSortOptions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/XMMSpotSortOptions</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+			
+			<NodeRef refid="26"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsNone</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XMMSpotSortOptionsNone</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="26"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsName</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XMMSpotSortOptionsName</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="26"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsNameDesc</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XMMSpotSortOptionsNameDesc</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="26"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsDistance</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XMMSpotSortOptionsDistance</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="26"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMSpotSortOptionsDistanceDesc</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>XMMSpotSortOptionsDistanceDesc</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="26"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMEnduserApi.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMEnduserApi</TokenIdentifier>
+			<Abstract type="html">XMMEnduserApi is the main part of the xamoom-ios-sdk. You can use it to send api request to the xamoom-api.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+			
+			<NodeRef refid="15"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/setSystemLanguage:</TokenIdentifier>
+			<Abstract type="html">The preferred language of the user.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *systemLanguage</Declaration>
+			
+			
+			<Anchor>//api/name/systemLanguage</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/systemLanguage</TokenIdentifier>
+			<Abstract type="html">The preferred language of the user.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *systemLanguage</Declaration>
+			
+			
+			<Anchor>//api/name/systemLanguage</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMEnduserApi/systemLanguage</TokenIdentifier>
+			<Abstract type="html">The preferred language of the user.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *systemLanguage</Declaration>
+			
+			
+			<Anchor>//api/name/systemLanguage</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/setLanguage:</TokenIdentifier>
+			<Abstract type="html">Language used in api calls.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *language</Declaration>
+			
+			
+			<Anchor>//api/name/language</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/language</TokenIdentifier>
+			<Abstract type="html">Language used in api calls.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *language</Declaration>
+			
+			
+			<Anchor>//api/name/language</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMEnduserApi/language</TokenIdentifier>
+			<Abstract type="html">Language used in api calls.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSString *language</Declaration>
+			
+			
+			<Anchor>//api/name/language</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/setRestClient:</TokenIdentifier>
+			<Abstract type="html">XMMRestClient used to call rest api.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) XMMRestClient *restClient</Declaration>
+			
+			
+			<Anchor>//api/name/restClient</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/restClient</TokenIdentifier>
+			<Abstract type="html">XMMRestClient used to call rest api.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) XMMRestClient *restClient</Declaration>
+			
+			
+			<Anchor>//api/name/restClient</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMEnduserApi/restClient</TokenIdentifier>
+			<Abstract type="html">XMMRestClient used to call rest api.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) XMMRestClient *restClient</Declaration>
+			
+			
+			<Anchor>//api/name/restClient</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/initWithApiKey:</TokenIdentifier>
+			<Abstract type="html">Initializes with a apikey. You find your apikey in your xamoom system under
+xamoom.net - Settings.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithApiKey:(NSString *)apikey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>apikey</Name>
+					<Abstract type="html">Your xamoom api key</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithApiKey:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/initWithRestClient:</TokenIdentifier>
+			<Abstract type="html">Initializes with a custom base url and custom configuration for NSURLSession.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithRestClient:(XMMRestClient *)restClient</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>url</Name>
+					<Abstract type="html">Custom url to xamoom system</Abstract>
+				</Parameter><Parameter>
+					<Name>config</Name>
+					<Abstract type="html">Custom NSURLConfiguration</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithRestClient:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithID:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get content with specific ID.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)contentWithID:(NSString *)contentID completion:(void ( ^ ) ( XMMContent *content , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>contentID</Name>
+					<Abstract type="html">ContentID of xamoom content</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 content Content from xamoom system
+- param2 error NSError, can be null</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/contentWithID:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithID:options:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get content with specific ID and options.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void ( ^ ) ( XMMContent *content , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>contentID</Name>
+					<Abstract type="html">ContentID of xamoom content</Abstract>
+				</Parameter><Parameter>
+					<Name>options</Name>
+					<Abstract type="html">XMMContentOptions for call</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 content Content from xamoom system
+- param2 error NSError, can be null</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/contentWithID:options:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithLocationIdentifier:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get content with specific location-identifier.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void ( ^ ) ( XMMContent *content , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>locationIdentifier</Name>
+					<Abstract type="html">Locationidentifier from xamoom marker</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 content Content from xamoom system
+- param2 error NSError, can be null</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/contentWithLocationIdentifier:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentWithBeaconMajor:minor:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get content with beacon.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void ( ^ ) ( XMMContent *content , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>major</Name>
+					<Abstract type="html">Major of the beacon</Abstract>
+				</Parameter><Parameter>
+					<Name>minor</Name>
+					<Abstract type="html">Minor of the beacon</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 content Content from xamoom system
+- param2 error NSError, can be null</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/contentWithBeaconMajor:minor:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentsWithLocation:pageSize:cursor:sort:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get contents around location (40m).</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void ( ^ ) ( NSArray *contents , bool hasMore , NSString *cursor , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>location</Name>
+					<Abstract type="html">Location of the user</Abstract>
+				</Parameter><Parameter>
+					<Name>pageSize</Name>
+					<Abstract type="html">PageSize you want to get from xamoom cloud</Abstract>
+				</Parameter><Parameter>
+					<Name>cursor</Name>
+					<Abstract type="html">Needed when paging, can be null</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 contents Contents from xamoom system
+- param2 hasMore True if more items on xamoom cloud
+- param3 cursor Cursor for paging
+- param4 error NSError, can be null</Abstract>
+				</Parameter><Parameter>
+					<Name>sort</Name>
+					<Abstract type="html">XMMContentSortOptions to sort result</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/contentsWithLocation:pageSize:cursor:sort:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/contentsWithTags:pageSize:cursor:sort:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get contents with specific tags.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void ( ^ ) ( NSArray *contents , bool hasMore , NSString *cursor , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tags</Name>
+					<Abstract type="html">Array of tags</Abstract>
+				</Parameter><Parameter>
+					<Name>pageSize</Name>
+					<Abstract type="html">PageSize you want to get from xamoom cloud</Abstract>
+				</Parameter><Parameter>
+					<Name>cursor</Name>
+					<Abstract type="html">Needed when paging, can be null</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 contents Contents from xamoom system
+- param2 hasMore True if more items on xamoom cloud
+- param3 cursor Cursor for paging
+- param4 error NSError, can be null</Abstract>
+				</Parameter><Parameter>
+					<Name>sort</Name>
+					<Abstract type="html">XMMContentSortOptions to sort result</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/contentsWithTags:pageSize:cursor:sort:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/spotsWithLocation:radius:options:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get spots inside radius of a location.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void ( ^ ) ( NSArray *spots , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>location</Name>
+					<Abstract type="html">Location of the user</Abstract>
+				</Parameter><Parameter>
+					<Name>radius</Name>
+					<Abstract type="html">Radius in meter</Abstract>
+				</Parameter><Parameter>
+					<Name>options</Name>
+					<Abstract type="html">XMMSpotOptions to get markers or content</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 spots Spots from xamoom system
+- param2 error NSError, can be null</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/spotsWithLocation:radius:options:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/spotsWithLocation:radius:options:pageSize:cursor:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get spots inside radius of a location.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void ( ^ ) ( NSArray *spots , bool hasMore , NSString *cursor , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>location</Name>
+					<Abstract type="html">Location of the user</Abstract>
+				</Parameter><Parameter>
+					<Name>radius</Name>
+					<Abstract type="html">Radius in meter</Abstract>
+				</Parameter><Parameter>
+					<Name>options</Name>
+					<Abstract type="html">XMMSpotOptions to get markers or content</Abstract>
+				</Parameter><Parameter>
+					<Name>pageSize</Name>
+					<Abstract type="html">PageSize you want to get from xamoom cloud</Abstract>
+				</Parameter><Parameter>
+					<Name>cursor</Name>
+					<Abstract type="html">Needed when paging, can be null
+- param1 spots Spots from xamoom system
+- param2 hasMore True if more items on xamoom cloud
+- param3 cursor Cursor for paging
+- param4 error NSError, can be null</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/spotsWithLocation:radius:options:pageSize:cursor:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/spotsWithTags:options:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get spots with specific tags. Returns max. 100 spots.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options completion:(void ( ^ ) ( NSArray *spots , bool hasMore , NSString *cursor , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tags</Name>
+					<Abstract type="html">Array of tags</Abstract>
+				</Parameter><Parameter>
+					<Name>options</Name>
+					<Abstract type="html">XMMSpotOptions to get markers or content</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 spots Spots from xamoom system
+- param2 hasMore True if more items on xamoom cloud
+- param3 cursor Cursor for paging
+- param4 error NSError, can be null</Abstract>
+				</Parameter><Parameter>
+					<Name>sort</Name>
+					<Abstract type="html">XMMSpotSortOptions to sort results</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/spotsWithTags:options:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/spotsWithTags:pageSize:cursor:options:sort:completion:</TokenIdentifier>
+			<Abstract type="html">API call to get spots with specific tags.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void ( ^ ) ( NSArray *spots , bool hasMore , NSString *cursor , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tags</Name>
+					<Abstract type="html">Array of tags</Abstract>
+				</Parameter><Parameter>
+					<Name>pageSize</Name>
+					<Abstract type="html">PageSize you want to get from xamoom cloud</Abstract>
+				</Parameter><Parameter>
+					<Name>cursor</Name>
+					<Abstract type="html">Needed when paging, can be null</Abstract>
+				</Parameter><Parameter>
+					<Name>options</Name>
+					<Abstract type="html">XMMSpotOptions to get markers or content</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 spots Spots from xamoom system
+- param2 hasMore True if more items on xamoom cloud
+- param3 cursor Cursor for paging
+- param4 error NSError, can be null</Abstract>
+				</Parameter><Parameter>
+					<Name>sort</Name>
+					<Abstract type="html">XMMSpotSortOptions to sort results</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/spotsWithTags:pageSize:cursor:options:sort:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/systemWithCompletion:</TokenIdentifier>
+			<Abstract type="html">API call that returns your system.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)systemWithCompletion:(void ( ^ ) ( XMMSystem *system , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 system System from xamoom system
+- param2 error NSError, can be null</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/systemWithCompletion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/systemSettingsWithID:completion:</TokenIdentifier>
+			<Abstract type="html">API call that returns your system settings.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)systemSettingsWithID:(NSString *)settingsID completion:(void ( ^ ) ( XMMSystemSettings *settings , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>settingsID</Name>
+					<Abstract type="html">ID you get from systemWithCompletion:</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 settings System settings from your xamoom system
+- param2 error NSError, can be null</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/systemSettingsWithID:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/styleWithID:completion:</TokenIdentifier>
+			<Abstract type="html">API call that returns your system style.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)styleWithID:(NSString *)styleID completion:(void ( ^ ) ( XMMStyle *style , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>styleID</Name>
+					<Abstract type="html">ID you get from systemWithCompletion:</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 style System style from your xamoom system
+- param2 error NSError, can be null</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/styleWithID:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMEnduserApi/menuWithID:completion:</TokenIdentifier>
+			<Abstract type="html">API call that returns your menu.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+			
+			<Declaration>- (void)menuWithID:(NSString *)menuID completion:(void ( ^ ) ( XMMMenu *menu , NSError *error ))completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>menuID</Name>
+					<Abstract type="html">ID you get from systemWithCompletion:</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">Completion block called after finishing network request
+- param1 style System style from your xamoom system
+- param2 error NSError, can be null</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/menuWithID:completion:</Anchor>
+            <NodeRef refid="15"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

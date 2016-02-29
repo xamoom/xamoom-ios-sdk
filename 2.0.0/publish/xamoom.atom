@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:docset="http://developer.apple.com/rss/docset_extensions" xml:lang="en">
+    <id>http://xamoom.com/xamoom/xamoom.atom/20160229083512</id>
+    <title type="text">XamoomSDK Documentation</title>
+    <rights>Copyright © 2016 xamoom. All rights reserved.</rights>
+    <link rel="self" href="http://xamoom.com/xamoom/xamoom.atom"></link>
+    <docset:publisherName>xamoom</docset:publisherName>
+    <docset:publisherID>com.xamoom.documentation</docset:publisherID>
+    <updated>2016-02-29T08:35:12+01:00</updated>
+    <entry>
+        <id>tag:xamoom.com,2016-02-29:com.xamoom.XamoomSDK/1.0.0</id>
+        <title type="text">XamoomSDK Documentation</title>
+        <updated>2016-02-29T08:35:12+01:00</updated>
+        <content type="text">XamoomSDK Documentation (v1.0.0)</content>
+        <link rel="enclosure" type="application/octet-stream" href="http:/xamoom.com/xamoom/com.xamoom.XamoomSDK-1.0.xar" length="312212"></link>
+        <docset:identifier>com.xamoom.XamoomSDK</docset:identifier>
+        <docset:version>1.0.0</docset:version>
+        <docset:minimumXcodeVersion>3.0.0</docset:minimumXcodeVersion>
+    </entry>
+</feed>
