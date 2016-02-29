@@ -136,6 +136,10 @@
 }
 
 - (void)createAspectConstraintFromImage:(CGSize)size {
+  if (size.height <= 0 || size.width <= 0) {
+    return;
+  }
+  
   self.imageRatioConstraint =[NSLayoutConstraint
                               constraintWithItem:self.blockImageView
                               attribute:NSLayoutAttributeHeight
