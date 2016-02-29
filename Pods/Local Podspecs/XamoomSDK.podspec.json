@@ -3,7 +3,10 @@
   "version": "2.0.0",
   "summary": "Integrate your app with your xamoom system. More information at www.xamoom.com",
   "homepage": "http://xamoom.github.io/xamoom-ios-sdk/",
-  "license": "GPL",
+  "license": {
+    "type": "GPL",
+    "file": "LICENCE.md"
+  },
   "authors": {
     "Raphael Seher": "raphael@xamoom.com"
   },
