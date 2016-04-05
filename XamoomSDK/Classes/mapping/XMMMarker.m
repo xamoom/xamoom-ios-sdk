@@ -36,10 +36,10 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     
     [__descriptor addProperty:@"qr"];
     [__descriptor addProperty:@"nfc"];
-    [__descriptor addProperty:@"beaconMajor" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"ibacon-region-uid"]];
+    [__descriptor addProperty:@"beaconUUID" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"ibacon-region-uid"]];
     [__descriptor addProperty:@"beaconMajor" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"ibacon-major"]];
     [__descriptor addProperty:@"beaconMinor" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"ibacon-minor"]];
-    [__descriptor addProperty:@"beaconMinor" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"ibacon-minor"]];
+    [__descriptor addProperty:@"eddyStoneUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"ibacon-minor"]];
   });
   
   return __descriptor;
