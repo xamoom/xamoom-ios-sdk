@@ -199,6 +199,15 @@
     XCTAssertTrue([spot.content.ID isEqualToString:@"e9c917086aca465eb454e38c0146428b"]);
     XCTAssertNotNil(spot.markers);
     
+    XMMMarker *marker = [spot.markers firstObject];
+    XCTAssertNotNil(marker);
+    XCTAssertTrue([marker.nfc isEqualToString:@"nbt7qa4on0sy"]);
+    XCTAssertTrue([marker.qr isEqualToString:@"7qpqr"]);
+    XCTAssertTrue([marker.beaconMajor isEqualToString:@"54222"]);
+    XCTAssertTrue([marker.beaconMinor isEqualToString:@"24265"]);
+    XCTAssertTrue([marker.beaconUUID isEqualToString:@"de2b94ae-ed98-11e4-3432-78616d6f6f6d"]);
+    XCTAssertTrue([marker.eddyStoneUrl isEqualToString:@"dev.xm.gl/2134hs"]);
+    
     [expectation fulfill];
   }];
   
