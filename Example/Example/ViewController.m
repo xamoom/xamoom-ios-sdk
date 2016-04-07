@@ -81,7 +81,7 @@
 }
 
 - (void)contentWithIDOptions {
-  [self.api contentWithID:@"e5be72be162d44b189893a406aff5227" options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"e5be72be162d44b189893a406aff5227" options:XMMContentOptionsPreview completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
