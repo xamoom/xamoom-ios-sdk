@@ -75,12 +75,12 @@ static UIColor *contentLinkColor;
 }
 
 - (void)resetTextViewInsets:(UITextView *)textView {
-  textView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);
+  textView.textContainerInset = UIEdgeInsetsMake(0, -5, 0, -5);
 }
 
 - (void)disappearTextView:(UITextView *)textView {
   [textView setFont:[UIFont systemFontOfSize:0.0f]];
-  textView.textContainerInset = UIEdgeInsetsZero;
+  textView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);;
 }
 
 - (NSMutableAttributedString*)attributedStringFromHTML:(NSString*)html fontSize:(int)fontSize fontColor:(UIColor *)color {
