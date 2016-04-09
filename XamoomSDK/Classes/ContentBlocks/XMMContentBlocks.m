@@ -27,8 +27,6 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 
 @interface XMMContentBlocks ()
 
-@property (nonatomic) BOOL isContentHeaderAdded;
-
 @end
 
 #pragma mark - XMMContentBlocks Implementation
@@ -117,7 +115,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 }
 
 - (void)displayContent:(XMMContent *)content {
-  self.items = [content.contentBlocks mutableCopy];
+  self.items = [self addContentHeader:content];
   
   dispatch_async(dispatch_get_main_queue(), ^{
     [self.tableView reloadData];
@@ -138,6 +136,25 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 }
 
 #pragma mark - Custom Methods
+
+- (NSArray *)addContentHeader:(XMMContent *)content {
+  XMMContentBlock *title = [[XMMContentBlock alloc] init];
+  title.publicStatus = YES;
+  title.blockType = 0;
+  title.title = content.title;
+  title.text = content.contentDescription;
+  
+  XMMContentBlock *image = [[XMMContentBlock alloc] init];
+  image.publicStatus = YES;
+  image.blockType = 3;
+  image.fileID = content.imagePublicUrl;
+  
+  NSMutableArray *contentBlocks = [content.contentBlocks mutableCopy];
+  [contentBlocks insertObject:title atIndex:0];
+  [contentBlocks insertObject:image atIndex:1];
+  
+  return contentBlocks;
+}
 
 - (void)updateFontSizeTo:(TextFontSize)newFontSize {
   [XMMContentBlock0TableViewCell setFontSize:newFontSize];
