@@ -60,7 +60,7 @@
 
 - (void)testThatContentBlock0CellConfigureForNoText {
   [self.contentBlocks displayContent:[self contentWithBlockType0]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock0TableViewCell *testCell = (XMMContentBlock0TableViewCell *)cell;
@@ -68,12 +68,12 @@
   XCTAssertTrue([testCell.titleLabel.text isEqualToString:@""]);
   XCTAssertTrue([testCell.contentTextView.text isEqualToString:@""]);
   XCTAssertTrue(testCell.contentTextViewTopConstraint.constant == 0);
-  XCTAssertTrue(UIEdgeInsetsEqualToEdgeInsets(testCell.contentTextView.textContainerInset, UIEdgeInsetsZero));
+  XCTAssertTrue(UIEdgeInsetsEqualToEdgeInsets(testCell.contentTextView.textContainerInset, UIEdgeInsetsMake(0, -5, -20, -5)));
 }
 
 - (void)testThatContentBlock1CellConfigures{
   [self.contentBlocks displayContent:[self contentWithBlockType1]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock1TableViewCell *testCell = (XMMContentBlock1TableViewCell *)cell;
@@ -85,7 +85,7 @@
 
 - (void)testThatContentBlock1CellConfigureForNoText{
   [self.contentBlocks displayContent:[self contentWithBlockType1]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock1TableViewCell *testCell = (XMMContentBlock1TableViewCell *)cell;
@@ -154,7 +154,7 @@
 
 - (void)testThatContentBlock2CellConfigureYoutube {
   [self.contentBlocks displayContent:[self contentWithBlockType2]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock2TableViewCell *testCell = (XMMContentBlock2TableViewCell *)cell;
   
@@ -168,7 +168,7 @@
 
 - (void)testThatContentBlock2CellConfigureVimeo {
   [self.contentBlocks displayContent:[self contentWithBlockType2]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock2TableViewCell *testCell = (XMMContentBlock2TableViewCell *)cell;
   
@@ -196,7 +196,7 @@
 
 - (void)testThatContentBlock3CellConfigureForImage {
   [self.contentBlocks displayContent:[self contentWithBlockType3]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock3TableViewCell *testCell = (XMMContentBlock3TableViewCell *)cell;
   
@@ -211,7 +211,7 @@
 
 - (void)testThatContentBlock3CellConfigureWithoutParameters {
   [self.contentBlocks displayContent:[self contentWithBlockType3]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock3TableViewCell *testCell = (XMMContentBlock3TableViewCell *)cell;
   
@@ -226,7 +226,7 @@
 
 - (void)testThatContentBlock3CellConfigureSVG {
   [self.contentBlocks displayContent:[self contentWithBlockType3]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock3TableViewCell *testCell = (XMMContentBlock3TableViewCell *)cell;
   
@@ -240,7 +240,7 @@
 
 - (void)testThatContentBlock4CellConfigureNoTextType0 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -256,7 +256,7 @@
 
 - (void)testThatContentBlock4CellConfigureType1 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -272,7 +272,7 @@
 
 - (void)testThatContentBlock4CellConfigureType2 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -288,7 +288,7 @@
 
 - (void)testThatContentBlock4CellConfigureType3 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:4 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -304,7 +304,7 @@
 
 - (void)testThatContentBlock4CellConfigureType4 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:4 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -320,7 +320,7 @@
 
 - (void)testThatContentBlock4CellConfigureType5 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:5 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:6 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -336,7 +336,7 @@
 
 - (void)testThatContentBlock4CellConfigureType6 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:6 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:7 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -352,7 +352,7 @@
 
 - (void)testThatContentBlock4CellConfigureType7 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:7 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:8 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -368,7 +368,7 @@
 
 - (void)testThatContentBlock4CellConfigureType8 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:8 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:9 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -384,7 +384,7 @@
 
 - (void)testThatContentBlock4CellConfigureType9 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:9 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:10 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -400,7 +400,7 @@
 
 - (void)testThatContentBlock4CellConfigureType10 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:10 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:11 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -416,7 +416,7 @@
 
 - (void)testThatContentBlock4CellConfigureType11 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:11 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:12 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -432,7 +432,7 @@
 
 - (void)testThatContentBlock4CellConfigureType12 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:12 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:13 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -448,7 +448,7 @@
 
 - (void)testThatContentBlock4CellConfigureType13 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:13 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:14 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -464,7 +464,7 @@
 
 - (void)testThatContentBlock4CellConfigureType14 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:14 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:15 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -480,7 +480,7 @@
 
 - (void)testThatContentBlock4CellConfigureType15 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:15 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:16 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -496,7 +496,7 @@
 
 - (void)testThatContentBlock4CellConfigureType16 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:16 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:17 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -512,7 +512,7 @@
 
 - (void)testThatContentBlock4CellConfigureType17 {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:17 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:18 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -528,7 +528,7 @@
 
 - (void)testThatContentBlock4CellConfigureTypeFalse {
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:18 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:19 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
@@ -544,7 +544,7 @@
 
 - (void)testThatContentBlock5CellConfigureCell {
   [self.contentBlocks displayContent:[self contentWithBlockType5]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock5TableViewCell *testCell = (XMMContentBlock5TableViewCell *)cell;
   
@@ -556,7 +556,7 @@
 
 - (void)testThatContentBlock5CellConfigureWithNoText {
   [self.contentBlocks displayContent:[self contentWithBlockType5]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock5TableViewCell *testCell = (XMMContentBlock5TableViewCell *)cell;
   
@@ -568,7 +568,7 @@
 
 - (void)testThatContentBlock6CellConfigureCell {
   [self.contentBlocks displayContent:[self contentWithBlockType6]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(XMMContent *content, NSError *error);
@@ -596,7 +596,7 @@
 
 - (void)testThatContentBlock6CellConfigureWithoutText {
   [self.contentBlocks displayContent:[self contentWithBlockType6]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(XMMContent *content, NSError *error);
@@ -620,7 +620,7 @@
 
 - (void)testThatContentBlock7CellConfigureCell {
   [self.contentBlocks displayContent:[self contentWithBlockType7]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock7TableViewCell *testCell = (XMMContentBlock7TableViewCell *)cell;
   
@@ -631,7 +631,7 @@
 
 - (void)testThatContentBlock7CellConfigureNoText {
   [self.contentBlocks displayContent:[self contentWithBlockType7]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock7TableViewCell *testCell = (XMMContentBlock7TableViewCell *)cell;
   
@@ -642,7 +642,7 @@
 
 - (void)testThatContentBlock7CellWebviewPause {
   [self.contentBlocks displayContent:[self contentWithBlockType7]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock7TableViewCell *testCell = (XMMContentBlock7TableViewCell *)cell;
   
@@ -661,7 +661,7 @@
 
 - (void)testThatContentBlock8CellConfigureType0 {
   [self.contentBlocks displayContent:[self contentWithBlockType8]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock8TableViewCell *testCell = (XMMContentBlock8TableViewCell *)cell;
   
@@ -673,7 +673,7 @@
 
 - (void)testThatContentBlock8CellConfigureType1NoText {
   [self.contentBlocks displayContent:[self contentWithBlockType8]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock8TableViewCell *testCell = (XMMContentBlock8TableViewCell *)cell;
   
@@ -686,7 +686,7 @@
 
 - (void)testThatContentBlock8CellIconForDownloadType {
   [self.contentBlocks displayContent:[self contentWithBlockType8]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock8TableViewCell *testCell = (XMMContentBlock8TableViewCell *)cell;
   
@@ -702,7 +702,7 @@
 
 - (void)testThatContentBlock9CellConfigures {
   [self.contentBlocks displayContent:[self contentWithBlockType9]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock9TableViewCell *testCell = (XMMContentBlock9TableViewCell *)cell;
   
@@ -715,7 +715,7 @@
 
 - (void)testThatContentBlock9CellDisplayesSpotMap {
   [self.contentBlocks displayContent:[self contentWithBlockType9]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error);
@@ -748,7 +748,7 @@
 
 - (void)testThatContentBlock9CellAnnotationViewOpensAndCloses {
   [self.contentBlocks displayContent:[self contentWithBlockType9]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error);
@@ -781,7 +781,7 @@
 - (void)testThatContentBlock9CellAnnotationViewWithCustomMarker {
   [self.contentBlocks displayContent:[self contentWithBlockType9]];
   self.contentBlocks.style.customMarker = @"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAABuCAYAAAC0lERNAAAAAXNSR0IArs4c6QAAA51JREFUeAHt3b9u2lAcxXFjEwmWTCxZ2BO1S6Q+QdfmJSIixvRVGFHS5CHStU8QKVMEO0OzMLGABCa9P1RbJ3+aBp2qC18vPuB7LPmje21vzjK2fyLQeO0sl5eXH8qyPGs0GiePj48H6/W69dq4Xfkvz/NFsnhIFjdFUVz0er3759f+BHI4HO6lAYNUOu12u81Op1O02+0slZ/3dup3mlTZfD7PptNpOZlMVgn0KgGc9/v9ZQVRQwZiGvBjf3//0+HhYSsA2V4KLBaLbDQaLWaz2W2acJ8rzFyGDgLx+PgYREF5HlutVhZGYZWODarjG8i4J8ZyjplYHWD/tsDR0VErzMIuRm4g48ES90SW89t4ejRmZpiFXQ2ZZE/iwaIDyX8XCLOwqyHjFSeE2bYTCLOwqyHjPbHZbG53FkZnYVa9Y+tTGxpDAEgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpE3kHmeL1arlXGa3ayGWdjF1W8g06eNH+KT8GzbCYRZgvwZrQ1k+rTxzXQ6Lbc7DaPDLH3N+HsNWRTFxWQyWTEr3z855vN5FmZhV0P2er37NCuvRqMR6/udluPxOKy+hV0N+bt7PpvNbu/u7tLExPNPnmETRmGVJt/XalyjCrEfDod7aTdID5/Tbrfb7HQ6RbvdztL01WE7l8uyzGIpxz0xlnOs3oRw3u/3lxXGE8jqz+vr64/L5fIsgX5JN9OD6vPw1fFd28crTrzZxEM57onVct41h/9yvb8Ac8Xb13FwJIEAAAAASUVORK5CYII=";
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error);
@@ -805,7 +805,7 @@
 - (void)testThatContentBlock9CellAnnotationViewWithCustomMarkerSVG {
   [self.contentBlocks displayContent:[self contentWithBlockType9]];
   self.contentBlocks.style.customMarker = @"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE4LDIyQTIsMiAwIDAsMCAyMCwyMFY0QzIwLDIuODkgMTkuMSwyIDE4LDJIMTJWOUw5LjUsNy41TDcsOVYySDZBMiwyIDAgMCwwIDQsNFYyMEEyLDIgMCAwLDAgNiwyMkgxOFoiIC8+PC9zdmc+";
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error);

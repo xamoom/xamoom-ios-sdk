@@ -55,7 +55,7 @@ static UIColor *contentLinkColor;
 }
 
 - (void)displayTitle:(NSString *)title {
-  if(title != nil) {
+  if(title != nil && ![title isEqualToString:@""]) {
     self.contentTextViewTopConstraint.constant = 8;
     self.titleLabel.text = title;
     [self.titleLabel setFont:[UIFont systemFontOfSize:[XMMContentBlock0TableViewCell fontSize]+5 weight:UIFontWeightMedium]];
@@ -65,7 +65,7 @@ static UIColor *contentLinkColor;
 }
 
 - (void)displayContent:(NSString *)text style:(XMMStyle *)style {
-  if (text != nil) {
+  if (text != nil && ![text isEqualToString:@""]) {
     [self resetTextViewInsets:self.contentTextView];
     self.contentTextView.attributedText = [self attributedStringFromHTML:text fontSize:[XMMContentBlock0TableViewCell fontSize] fontColor:[UIColor colorWithHexString:style.foregroundFontColor]];
     [self.contentTextView sizeToFit];

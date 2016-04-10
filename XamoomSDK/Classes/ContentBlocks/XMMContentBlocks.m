@@ -138,20 +138,22 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 #pragma mark - Custom Methods
 
 - (NSArray *)addContentHeader:(XMMContent *)content {
+  NSMutableArray *contentBlocks = [content.contentBlocks mutableCopy];
+  
   XMMContentBlock *title = [[XMMContentBlock alloc] init];
   title.publicStatus = YES;
   title.blockType = 0;
   title.title = content.title;
   title.text = content.contentDescription;
-  
-  XMMContentBlock *image = [[XMMContentBlock alloc] init];
-  image.publicStatus = YES;
-  image.blockType = 3;
-  image.fileID = content.imagePublicUrl;
-  
-  NSMutableArray *contentBlocks = [content.contentBlocks mutableCopy];
   [contentBlocks insertObject:title atIndex:0];
-  [contentBlocks insertObject:image atIndex:1];
+  
+  if (content.imagePublicUrl != nil && ![content.imagePublicUrl isEqualToString:@""]) {
+    XMMContentBlock *image = [[XMMContentBlock alloc] init];
+    image.publicStatus = YES;
+    image.blockType = 3;
+    image.fileID = content.imagePublicUrl;
+    [contentBlocks insertObject:image atIndex:1];
+  }
   
   return contentBlocks;
 }
