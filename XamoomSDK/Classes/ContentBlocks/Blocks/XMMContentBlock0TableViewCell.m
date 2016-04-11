@@ -55,7 +55,7 @@ static UIColor *contentLinkColor;
 }
 
 - (void)displayTitle:(NSString *)title {
-  if(title != nil) {
+  if(title != nil && ![title isEqualToString:@""]) {
     self.contentTextViewTopConstraint.constant = 8;
     self.titleLabel.text = title;
     [self.titleLabel setFont:[UIFont systemFontOfSize:[XMMContentBlock0TableViewCell fontSize]+5 weight:UIFontWeightMedium]];
@@ -65,7 +65,7 @@ static UIColor *contentLinkColor;
 }
 
 - (void)displayContent:(NSString *)text style:(XMMStyle *)style {
-  if (text != nil) {
+  if (text != nil && ![text isEqualToString:@""]) {
     [self resetTextViewInsets:self.contentTextView];
     self.contentTextView.attributedText = [self attributedStringFromHTML:text fontSize:[XMMContentBlock0TableViewCell fontSize] fontColor:[UIColor colorWithHexString:style.foregroundFontColor]];
     [self.contentTextView sizeToFit];
@@ -75,12 +75,12 @@ static UIColor *contentLinkColor;
 }
 
 - (void)resetTextViewInsets:(UITextView *)textView {
-  textView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);
+  textView.textContainerInset = UIEdgeInsetsMake(0, -5, 0, -5);
 }
 
 - (void)disappearTextView:(UITextView *)textView {
   [textView setFont:[UIFont systemFontOfSize:0.0f]];
-  textView.textContainerInset = UIEdgeInsetsZero;
+  textView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);;
 }
 
 - (NSMutableAttributedString*)attributedStringFromHTML:(NSString*)html fontSize:(int)fontSize fontColor:(UIColor *)color {

@@ -63,14 +63,14 @@
     self.linkUrl = block.linkUrl;
   }
   
-  if (block.title != nil) {
+  if (block.title != nil && ![block.title isEqualToString:@""]) {
     self.titleLabel.text = block.title;
     self.horizontalSpacingImageTitleConstraint.constant = 8;
   } else {
     self.horizontalSpacingImageTitleConstraint.constant = 0;
   }
   
-  if (block.altText != nil){
+  if (block.altText != nil && ![block.title isEqualToString:@""]){
     self.blockImageView.accessibilityHint = block.altText;
   } else {
     self.blockImageView.accessibilityHint = block.title;
@@ -80,7 +80,7 @@
     [self calculateImageScaling:block.scaleX];
   }
   
-  if (block.fileID != nil) {
+  if (block.fileID != nil && ![block.fileID isEqualToString:@""]) {
     [self displayImageFromURL:[NSURL URLWithString:block.fileID] tableView:tableView indexPath:indexPath];
   }
 }
