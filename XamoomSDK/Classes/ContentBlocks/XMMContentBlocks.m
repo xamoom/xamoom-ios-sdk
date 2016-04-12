@@ -137,7 +137,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 
 #pragma mark - Custom Methods
 
-- (NSArray *)addContentHeader:(XMMContent *)content {
+- (NSMutableArray *)addContentHeader:(XMMContent *)content {
   NSMutableArray *contentBlocks = [content.contentBlocks mutableCopy];
   
   XMMContentBlock *title = [[XMMContentBlock alloc] init];
