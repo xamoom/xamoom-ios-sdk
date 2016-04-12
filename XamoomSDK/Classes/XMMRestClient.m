@@ -18,12 +18,14 @@
 //
 
 #import "XMMRestClient.h"
+#import "JSONAPIErrorResource.h"
+
 @implementation XMMRestClient
 
 - (instancetype)initWithBaseUrl:(NSURL *)baseUrl session:(NSURLSession *)session {
   self = [super init];
   self.query = [[XMMQuery alloc] initWithBaseUrl:baseUrl];
-  self.session = session; 
+  self.session = session;
   return self;
 }
 
@@ -51,11 +53,32 @@
     
     if (error) {
       NSLog(@"Error: %@", error);
-      completion(jsonApi, error);
+      dispatch_async(dispatch_get_main_queue(), ^{
+        completion(jsonApi, error);
+      });
+      
       return;
     }
     
     jsonApi = [self jsonApiFromData:data];
+    
+    if (jsonApi.errors != nil) {
+      NSLog(@"JSONAPI Error: %@", jsonApi.errors);
+      JSONAPIErrorResource *apierror = jsonApi.errors.firstObject;
+      
+      NSDictionary *userInfo = @{@"code":apierror.code,
+                                 @"status":apierror.status,
+                                 @"title":apierror.title,
+                                 @"detail":apierror.detail,};
+      NSError *error = [NSError errorWithDomain:@"com.xamoom"
+                                           code:[apierror.code intValue]
+                                       userInfo:userInfo];
+      
+      dispatch_async(dispatch_get_main_queue(), ^{
+        completion(jsonApi, error);
+        return;
+      });
+    }
     
     dispatch_async(dispatch_get_main_queue(), ^{
       completion(jsonApi, error);
