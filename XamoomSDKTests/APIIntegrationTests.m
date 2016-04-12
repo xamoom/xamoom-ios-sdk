@@ -64,7 +64,7 @@
     XCTAssertTrue([content.language isEqualToString:@"de"]);
     XCTAssertNotNil(content.imagePublicUrl);
     XCTAssertTrue([content.tags isEqualToArray:tags]);
-    XCTAssertTrue(content.category == 0);
+    XCTAssertTrue(content.category == 76);
     
     //system
     XCTAssertTrue([content.system.ID isEqualToString:@"5755996320301056"]);
