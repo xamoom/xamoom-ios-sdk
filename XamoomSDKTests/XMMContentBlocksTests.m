@@ -59,6 +59,22 @@
   XCTAssertTrue(contentBlocks.items.count == 2);
 }
 
+- (void)testDisplayContentSetsItemsWithoutHeader {
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:self.mockedTableView api:self.mockedApi];
+  
+  [contentBlocks displayContent:[self xamoomStaticContent] addHeader:YES];
+  
+  XCTAssertTrue(contentBlocks.items.count == 2);
+}
+
+- (void)testDisplayContentSetsItemsWithHeader {
+  XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:self.mockedTableView api:self.mockedApi];
+  
+  [contentBlocks displayContent:[self xamoomStaticContent] addHeader:NO];
+  
+  XCTAssertTrue(contentBlocks.items.count == 1);
+}
+
 - (void)testkContentBlock9MapContentLinkNotification {
   XCTAssertTrue([[XMMContentBlocks kContentBlock9MapContentLinkNotification] isEqualToString:@"com.xamoom.kContentBlock9MapContentLinkNotification"]);
 }

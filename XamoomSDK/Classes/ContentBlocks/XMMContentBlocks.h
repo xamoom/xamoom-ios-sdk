@@ -82,7 +82,20 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 
 - (instancetype)initWithTableView:(UITableView *)tableView api:(XMMEnduserApi *)api;
 
+/**
+ * Display contentBlocks
+ *
+ * @param content
+ */
 - (void)displayContent:(XMMContent *)content;
+
+/**
+ *
+ *
+ * @param content
+ * @param addHeader
+ */
+- (void)displayContent:(XMMContent *)content addHeader:(Boolean)addHeader;
 
 /**
  * Can be used to change the fontSize of the text contentBlock

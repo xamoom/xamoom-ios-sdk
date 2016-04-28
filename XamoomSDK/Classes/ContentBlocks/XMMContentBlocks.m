@@ -122,6 +122,19 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   });
 }
 
+- (void)displayContent:(XMMContent *)content addHeader:(Boolean)addHeader {
+  if (addHeader) {
+    self.items = [self addContentHeader:content];
+  } else {
+    self.items = [content.contentBlocks mutableCopy];
+  }
+  
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.tableView reloadData];
+  });
+}
+
+
 #pragma mark - Setters
 
 - (void)setStyle:(XMMStyle *)style {
