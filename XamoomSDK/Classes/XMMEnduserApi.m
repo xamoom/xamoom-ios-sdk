@@ -203,6 +203,10 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
     [params setObject:@"true" forKey:@"include_content"];
   }
   
+  if (options & XMMSpotOptionsWithLocation) {
+    [params setObject:@"true" forKey:@"filter[has-location]"];
+  }
+  
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
@@ -230,6 +234,10 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   
   if (options & XMMSpotOptionsIncludeContent) {
     [params setObject:@"true" forKey:@"include_content"];
+  }
+  
+  if (options & XMMSpotOptionsWithLocation) {
+    [params setObject:@"true" forKey:@"filter[has-location]"];
   }
   
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
@@ -266,6 +274,10 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
   
   if (options & XMMSpotOptionsIncludeContent) {
     [params setObject:@"true" forKey:@"include_content"];
+  }
+  
+  if (options & XMMSpotOptionsWithLocation) {
+    [params setObject:@"true" forKey:@"filter[has-location]"];
   }
   
   if (sortOptions != XMMSpotOptionsNone) {

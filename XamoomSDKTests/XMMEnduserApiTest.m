@@ -414,13 +414,14 @@
                                                       @"filter[lon]":[@(location.coordinate.longitude) stringValue],
                                                       @"filter[radius]":@"100",
                                                       @"include_markers":@"true",
-                                                      @"include_content":@"true"}];
+                                                      @"include_content":@"true",
+                                                      @"filter[has-location]":@"true"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent completion:^(NSArray *spots, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation completion:^(NSArray *spots, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);
@@ -460,13 +461,14 @@
                                                       @"include_markers":@"true",
                                                       @"include_content":@"true",
                                                       @"page[size]":@"20",
-                                                      @"page[cursor]":@"2"}];
+                                                      @"page[cursor]":@"2",
+                                                      @"filter[has-location]":@"true"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent pageSize:20 cursor:@"2" completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation pageSize:20 cursor:@"2" completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     //
   }];
   
@@ -506,13 +508,14 @@
                                                       @"filter[tags]":@"[\"tag1\",\"tag2\"]",
                                                       @"include_markers":@"true",
                                                       @"include_content":@"true",
-                                                      @"page[size]":@"100"}];
+                                                      @"page[size]":@"100",
+                                                      @"filter[has-location]":@"true"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker|XMMSpotOptionsWithLocation completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     //
   }];
   

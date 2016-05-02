@@ -136,7 +136,7 @@ static NSString *contentLanguage;
     return;
   }
   
-  [api spotsWithTags:spotMapTags options:XMMSpotOptionsIncludeContent completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithTags:spotMapTags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     [[XMMContentBlocksCache sharedInstance] saveSpots:spots key:[spotMapTags componentsJoinedByString:@","]];
     
     [self.loadingIndicator stopAnimating];

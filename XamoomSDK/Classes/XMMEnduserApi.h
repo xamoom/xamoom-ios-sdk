@@ -48,7 +48,7 @@ typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
   /**
    * No options.
    */
-  XMMContentOptionsNone = 1 << 0,
+  XMMContentOptionsNone = 0 << 0,
   /**
    * Will not save statistics.
    */
@@ -75,6 +75,10 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
    * Will include markers to spots
    */
   XMMSpotOptionsIncludeMarker = 1 << 1,
+  /**
+   * Will only return spots with a location.
+   */
+  XMMSpotOptionsWithLocation = 1 << 2,
 };
 
 /**
