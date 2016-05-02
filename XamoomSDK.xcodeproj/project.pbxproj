@@ -143,6 +143,7 @@
 		78EB5D1E7CCEA2A615EAD316 /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
 		881945961C620E2100E4524F /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
 		881945981C625B5000E4524F /* XMMContentBlocksTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksTests.m; sourceTree = "<group>"; };
+		881966DB1CD74F7100AC2007 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMMapOverlayView.xib; sourceTree = "<group>"; };
 		883B95F71C4D32FF00DB8A6B /* XMMSystemSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMSystemSettings.h; path = XamoomSDK/Classes/mapping/XMMSystemSettings.h; sourceTree = SOURCE_ROOT; };
 		883B95F81C4D32FF00DB8A6B /* XMMSystemSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMSystemSettings.m; path = XamoomSDK/Classes/mapping/XMMSystemSettings.m; sourceTree = SOURCE_ROOT; };
@@ -633,6 +634,7 @@
 			knownRegions = (
 				en,
 				de,
+				nl,
 			);
 			mainGroup = 8888DDB81C47B0FA0050A84C;
 			productRefGroup = 8888DDC31C47B0FA0050A84C /* Products */;
@@ -851,6 +853,7 @@
 			children = (
 				884937511C74B1C600C53520 /* en */,
 				884937531C74B1E900C53520 /* de */,
+				881966DB1CD74F7100AC2007 /* nl */,
 			);
 			name = Localizable.strings;
 			path = XamoomSDK/Assets;

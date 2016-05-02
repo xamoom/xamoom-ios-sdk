@@ -6,8 +6,8 @@
   Copyright © 2016 xamoom GmbH. All rights reserved.
 */
 
-"Distance" = "Entfernung";
+"Distance" = "Afstand";
 "OK" = "OK";
-"Cancel" = "Cancel";
-"SaveImage" = "Bild in Fotos speichern?";
-"Open" = "Öffnen";
+"Cancel" = "Afbreken";
+"SaveImage" = "Afbeelding opslaan?";
+"Open" = "Openen";

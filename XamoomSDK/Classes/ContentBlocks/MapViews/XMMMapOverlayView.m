@@ -31,6 +31,8 @@
 @implementation XMMMapOverlayView
 
 - (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent {
+  [self.openContentButton setTitle:NSLocalizedString(@"Open", nil) forState:UIControlStateNormal];
+  
   self.contentID = annotation.spot.content.ID;
   self.locationCoordinate = annotation.coordinate;
   
