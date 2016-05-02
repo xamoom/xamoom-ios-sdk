@@ -115,11 +115,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 }
 
 - (void)displayContent:(XMMContent *)content {
-  self.items = [self addContentHeader:content];
-  
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [self.tableView reloadData];
-  });
+  [self displayContent:content addHeader:YES];
 }
 
 - (void)displayContent:(XMMContent *)content addHeader:(Boolean)addHeader {
