@@ -1,4 +1,4 @@
-//
+ //
 // Copyright 2016 by xamoom GmbH <apps@xamoom.com>
 //
 // This file is part of some open source application.
@@ -147,6 +147,10 @@ static NSString *contentLanguage;
 
 - (void)showSpotMap:(NSArray *)spots {
   // Add annotations
+  if (self.mapView.annotations != nil) {
+    [self.mapView removeAnnotation:self.mapView.annotations];
+  }
+  
   for (XMMSpot *spot in spots) {
     XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithName:spot.name withLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
     annotation.spot = spot;
