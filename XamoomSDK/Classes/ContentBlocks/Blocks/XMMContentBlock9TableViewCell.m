@@ -148,7 +148,7 @@ static NSString *contentLanguage;
 - (void)showSpotMap:(NSArray *)spots {
   // Add annotations
   if (self.mapView.annotations != nil) {
-    [self.mapView removeAnnotation:self.mapView.annotations];
+    [self.mapView removeAnnotations:self.mapView.annotations];
   }
   
   for (XMMSpot *spot in spots) {

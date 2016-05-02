@@ -728,7 +728,7 @@
     passedBlock(@[spot], false, @"1", nil);
   };
   
-  [[[self.mockedApi stub] andDo:completion] spotsWithTags:[OCMArg any] options:XMMSpotOptionsIncludeContent completion:[OCMArg any]];
+  [[[self.mockedApi stub] andDo:completion] spotsWithTags:[OCMArg any] options:XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation completion:[OCMArg any]];
   
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock9TableViewCell *testCell = (XMMContentBlock9TableViewCell *)cell;
@@ -761,7 +761,7 @@
     passedBlock(@[spot], false, @"1", nil);
   };
   
-  [[[self.mockedApi stub] andDo:completion] spotsWithTags:[OCMArg any] options:XMMSpotOptionsIncludeContent completion:[OCMArg any]];
+  [[[self.mockedApi stub] andDo:completion] spotsWithTags:[OCMArg any] options:XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation completion:[OCMArg any]];
   
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock9TableViewCell *testCell = (XMMContentBlock9TableViewCell *)cell;
