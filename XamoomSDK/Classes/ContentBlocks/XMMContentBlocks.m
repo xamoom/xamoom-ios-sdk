@@ -58,6 +58,11 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   return self;
 }
 
+- (void)viewWillDisappear {
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"pauseAllSounds" object:self];
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)setupTableView {
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   self.tableView.rowHeight = UITableViewAutomaticDimension;

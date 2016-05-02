@@ -80,20 +80,34 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property (nonatomic, strong) UIColor *linkColor;
 @property (nonatomic) BOOL showAllStoreLinks;
 
+/**
+ * Initialize XMMContentBlocks with tableview and an api.
+ * TableView will get set up.
+ * XMMEnduserApi will be used to download other contentBlocks or map-pins.
+ *
+ * @param tableView Instance of an UITableView.
+ * @param api Instance of XMMEnduserApi.
+ */
 - (instancetype)initWithTableView:(UITableView *)tableView api:(XMMEnduserApi *)api;
 
 /**
- * Display contentBlocks
+ * Call this method, when you view will disappear.
+ * This will pause sounds and remove observer.
+ */
+- (void)viewWillDisappear;
+
+/**
+ * Display contentBlocks with header.
  *
- * @param content
+ * @param content XMMContent object.
  */
 - (void)displayContent:(XMMContent *)content;
 
 /**
+ * Display contentBlocks with or without header.
  *
- *
- * @param content
- * @param addHeader
+ * @param content XMMContent object.
+ * @param addHeader boolean for adding header or not.
  */
 - (void)displayContent:(XMMContent *)content addHeader:(Boolean)addHeader;
 
