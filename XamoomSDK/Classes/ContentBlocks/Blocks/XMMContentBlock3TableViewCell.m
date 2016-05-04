@@ -172,7 +172,12 @@
 - (void)showAlertController {
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-  NSBundle *libBundle = [NSBundle bundleWithURL:url];
+  NSBundle *libBundle;
+  if (url != nil) {
+    libBundle = [NSBundle bundleWithURL:url];
+  } else {
+    libBundle = bundle;
+  }
 
   UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
                                                                            message:NSLocalizedStringFromTableInBundle(@"SaveImage", @"Localizable", libBundle, nil)

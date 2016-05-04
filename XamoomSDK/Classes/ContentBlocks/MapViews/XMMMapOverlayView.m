@@ -33,7 +33,12 @@
 - (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent {
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-  NSBundle *libBundle = [NSBundle bundleWithURL:url];
+  NSBundle *libBundle;
+  if (url != nil) {
+    libBundle = [NSBundle bundleWithURL:url];
+  } else {
+    libBundle = bundle;
+  }
   
   [self.openContentButton setTitle:NSLocalizedStringFromTableInBundle(@"Open", @"Localizable", libBundle, nil) forState:UIControlStateNormal];
   

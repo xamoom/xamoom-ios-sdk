@@ -148,7 +148,12 @@ static NSString *contentLanguage;
 - (void)showSpotMap:(NSArray *)spots {
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-  NSBundle *libBundle = [NSBundle bundleWithURL:url];
+  NSBundle *libBundle;
+  if (url != nil) {
+    libBundle = [NSBundle bundleWithURL:url];
+  } else {
+    libBundle = bundle;
+  }
   
   // Add annotations
   if (self.mapView.annotations != nil) {
