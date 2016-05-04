@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "XamoomSDK"
-  s.version          = "2.0.3"
+  s.version          = "2.0.4"
   s.summary          = "Integrate your app with your xamoom system. More information at www.xamoom.com"
   s.homepage         = "http://xamoom.github.io/xamoom-ios-sdk/"
   s.license          = { :type => 'GPL', :file => 'LICENCE.md' }
@@ -14,10 +14,10 @@ Pod::Spec.new do |s|
   s.source_files = 'XamoomSDK/Classes/**/*.{h,m}'
   s.public_header_files = 'XamoomSDK/Classes/**/*.h'
 
-  s.resource = 'XamoomSDK/Assets/Images.xcassets', 'XamoomSDK/Assets/*.lproj'
+  s.resource = 'XamoomSDK/Assets/Images.xcassets'
   s.resource_bundles = {
-    'XamoomSDKXCAssets' => ['XamoomSDK/Assets/*.xcassets'],
-    'XamoomSDKNibs' => ['XamoomSDK/Classes/ContentBlocks/**/*.xib']
+    'XamoomSDK' => ['XamoomSDK/Assets/*.xcassets', 'XamoomSDK/Assets/*.lproj',
+    'XamoomSDK/Classes/ContentBlocks/**/*.xib']
   }
 
 #s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics', 'UIKit'

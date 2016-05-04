@@ -107,13 +107,6 @@
 			<key>targetProxy</key>
 			<string>2C9CA5D658E129F5372C17FBD277E1F8</string>
 		</dict>
-		<key>02EA63AD3437AF987FD5D2E4DBFDE7F1</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EF38CFD7CB8767B6F66CC826A85560B2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>03EF931564978791D4ABC400F3FDDBED</key>
 		<dict>
 			<key>fileRef</key>
@@ -125,13 +118,6 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-fno-objc-arc</string>
 			</dict>
-		</dict>
-		<key>043927D7BEB862329485AD33A9620693</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5CD38A98986E253FB0F8AB7E95C91306</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>044A1D74ED898201AA26E688BB77E96B</key>
 		<dict>
@@ -169,21 +155,6 @@
 			<string>youtube-ios-player-helper</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0635AAA44A003479CF98ABF60DEC0FD8</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-Example.a</string>
-			<key>path</key>
-			<string>libPods-Example.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>077F5DBB95EBAA5419F3AE563D0096F4</key>
 		<dict>
@@ -232,7 +203,7 @@
 			<key>productName</key>
 			<string>SDWebImage</string>
 			<key>productReference</key>
-			<string>4DA9A2D52DF433AC1C633AE6DBE5F0BC</string>
+			<string>7B9F64AACCDC3B4E8E37300B0F54FFE6</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -366,6 +337,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>0ADCF9C395957B512D01C59729A23149</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5E4EA86B1FD7D86C24B4990CFDFE70ED</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>0B31A5C9E42619E481B329FC9AB1D66C</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -400,19 +378,6 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>0B5498D0E2EB3740635B44E197940806</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>532AEB8666B2C2057A5A516995A393AE</string>
-			<key>remoteInfo</key>
-			<string>XamoomSDK-XamoomSDKXCAssets</string>
-		</dict>
 		<key>0BF4A2E3899BE87BAD71BDB1C34C4436</key>
 		<dict>
 			<key>fileRef</key>
@@ -427,18 +392,12 @@
 				</array>
 			</dict>
 		</dict>
-		<key>0C998A42EF2BD19C3E4F10702BEE5326</key>
+		<key>0C5A8DB5FE55ABC229FC4A73CA63DE00</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>043927D7BEB862329485AD33A9620693</string>
-			</array>
+			<key>fileRef</key>
+			<string>7FE0F74D6F307BCD85619E682D4FF729</string>
 			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>0CD1863A8879D87A94D4590BFBC73941</key>
 		<dict>
@@ -482,17 +441,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0D8622062DA3AC8551F7C7F1200D632D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>XamoomSDK-XamoomSDKXCAssets</string>
-			<key>target</key>
-			<string>532AEB8666B2C2057A5A516995A393AE</string>
-			<key>targetProxy</key>
-			<string>0B5498D0E2EB3740635B44E197940806</string>
-		</dict>
 		<key>0DB5DE4FAA2B4F00DD4E9FA822D34744</key>
 		<dict>
 			<key>children</key>
@@ -530,6 +478,13 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>0F14209174BFFF9F45AEAA640D978A9B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A993474B35B5DADD3093B78701ECC49B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>0F1A1169603714E82D95CCF8814DFAC6</key>
 		<dict>
@@ -1048,31 +1003,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1990EB08ACBD536BADBCA46737640C92</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>46C4BF79EBBE04AD3A0E274751B1D36F</string>
-				<string>5E43610EEF1D7EBF14137E2FD202F155</string>
-				<string>BE00AB36DF70EE6EDF714312A6456AB6</string>
-				<string>328D28649BD634657C533D57FF4C7BF1</string>
-				<string>0635AAA44A003479CF98ABF60DEC0FD8</string>
-				<string>BD6B177A1F9CC81A9AE0A3F1396B399F</string>
-				<string>3F623A3DA5EC5134283DF963E70B407B</string>
-				<string>4DA9A2D52DF433AC1C633AE6DBE5F0BC</string>
-				<string>5015ABBD3A7D5CEC623E7210C10AF11D</string>
-				<string>51E29E599DDE308E7F69C9C3D5B7D021</string>
-				<string>5F3C03A12688DDB653A0D675B98EFFFF</string>
-				<string>3CA92177AA6487450278A59824945D60</string>
-				<string>39747E5F86CDBF585DBDFB480C2E3B6B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>1A4144232FE439A0AA67FDC2EA77D6A0</key>
 		<dict>
 			<key>fileRef</key>
@@ -1089,6 +1019,13 @@
 		<dict>
 			<key>fileRef</key>
 			<string>59F38AB6E1892FC6488116BAEC5F8C35</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1A8F611A292CC22F8A768CE0B431E9F5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5CD38A98986E253FB0F8AB7E95C91306</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -1199,35 +1136,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>1E5A0D2A0230DE6227BC54DF3AED433B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C9925CA178FFE40F8FDBCBEB44AC732D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>1EF119D3B0575E3474707C99D816A221</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CC1CBD2E89081C3D35C10B859E4FDDA1</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>XamoomSDKNibs</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
 		<key>1FE9A16AF97B95CA86C2183712D0D8F5</key>
 		<dict>
 			<key>fileRef</key>
@@ -1335,6 +1243,28 @@
 				<string>-DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
 		</dict>
+		<key>2225C832743A13094D46E5F3AE78DD54</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>CC1CBD2E89081C3D35C10B859E4FDDA1</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>XamoomSDK</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>bundle</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
 		<key>2247DE27F5EC024C5DFADC1B3B25D70D</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -1368,6 +1298,13 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Release</string>
+		</dict>
+		<key>224CFE6AD59E1460E2F7AFE99744536C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C9925CA178FFE40F8FDBCBEB44AC732D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>234ADC708CE5F285FB24BF090CE3C7DA</key>
 		<dict>
@@ -1588,13 +1525,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>26ED0A06444AE4A0F8347BA9EC9DD132</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7B8824A2918AAD530EF4E24C847E3B98</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>274A0B3871C25E351C1613899487442B</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1743,12 +1673,16 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2BF3C7D91276B6B7621DD7F874C3CC90</key>
+		<key>2B29E82D07F5FF4A208D63683E9B4209</key>
 		<dict>
-			<key>fileRef</key>
-			<string>5E4EA86B1FD7D86C24B4990CFDFE70ED</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>2C9CA5D658E129F5372C17FBD277E1F8</key>
 		<dict>
@@ -1919,6 +1853,13 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>2F7CDEA2A14ECAF535FABB56152B71E5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>43C75690B7B01048FD9FC6F7B1E2468D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>2F9DB72461D620B655FE5BC715647411</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1933,17 +1874,6 @@
 			<string>SDWebImage/SDImageCache.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>30E4122735E8AEB08EC11B5723692CDF</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>30F09EC5C9A66E6CBA87D58275234DA7</key>
 		<dict>
@@ -2014,21 +1944,6 @@
 			<string>Source/OCMock/OCMLocation.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>328D28649BD634657C533D57FF4C7BF1</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libOCMock.a</string>
-			<key>path</key>
-			<string>libOCMock.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>32E6E3B292ED71913FDA87F7B422AA30</key>
 		<dict>
@@ -2307,21 +2222,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>39747E5F86CDBF585DBDFB480C2E3B6B</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>XamoomSDKXCAssets.bundle</string>
-			<key>path</key>
-			<string>XamoomSDKXCAssets.bundle</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
 		<key>397BEF2532318E72EB18069D771F5B58</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -2408,35 +2308,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>3CA92177AA6487450278A59824945D60</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>XamoomSDKNibs.bundle</string>
-			<key>path</key>
-			<string>XamoomSDKNibs.bundle</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>3CCD2B1DEE5B236F1EAB44F1015F2375</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>91CCF5FB8539FD0527ED6D72225B4225</string>
-				<string>1EF119D3B0575E3474707C99D816A221</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
 		<key>3D55033B7B95149B78DDD17735D7906A</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2451,29 +2322,6 @@
 			<string>Source/OCMock/OCMBlockArgCaller.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3DE2AD222A2A48ED1DF26ED5108F7C41</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>2BF3C7D91276B6B7621DD7F874C3CC90</string>
-				<string>4E36176A3841C88A17BCFBAC7C61B405</string>
-				<string>EDF2872B00A7C342535970C57F6AD650</string>
-				<string>F00F4DCB7FE4EDABC05A1246C0F5BBE6</string>
-				<string>6123680CBD92BA22E5FF0F1CA01C095E</string>
-				<string>C61B41FA6A850D367E3DA747CD1822B4</string>
-				<string>02EA63AD3437AF987FD5D2E4DBFDE7F1</string>
-				<string>D7D0903C120208D442224DDE648BD923</string>
-				<string>26ED0A06444AE4A0F8347BA9EC9DD132</string>
-				<string>497E65FD7A2292ADD66186D860C4ED9F</string>
-				<string>1E5A0D2A0230DE6227BC54DF3AED433B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>3E76D31E393750EE73162C6E765B5299</key>
 		<dict>
@@ -2542,21 +2390,6 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-fno-objc-arc</string>
 			</dict>
-		</dict>
-		<key>3F623A3DA5EC5134283DF963E70B407B</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-XamoomSDKTests.a</string>
-			<key>path</key>
-			<string>libPods-XamoomSDKTests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>3FB78F626CBD49C5DEA1081EB40A433D</key>
 		<dict>
@@ -2696,6 +2529,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>441859C4442AD8DF2F309BBB700E986B</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libyoutube-ios-player-helper.a</string>
+			<key>path</key>
+			<string>libyoutube-ios-player-helper.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>44895514274FC4C956915084699B9F3E</key>
 		<dict>
 			<key>children</key>
@@ -2776,18 +2624,18 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>46C4BF79EBBE04AD3A0E274751B1D36F</key>
+		<key>46C15389F6AB9A3AAD4DA15354569394</key>
 		<dict>
 			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
+			<string>archive.ar</string>
 			<key>includeInIndex</key>
 			<string>0</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>name</key>
-			<string>Assets.bundle</string>
+			<string>libYTVimeoExtractor.a</string>
 			<key>path</key>
-			<string>Assets.bundle</string>
+			<string>libYTVimeoExtractor.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
@@ -2818,13 +2666,6 @@
 			<string>Source/OCMock/NSMethodSignature+OCMAdditions.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>497E65FD7A2292ADD66186D860C4ED9F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2552D3AAA99B3428B0BBC3C5A2F8CCC6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>4A2848D7298972513EF575E78C210BD8</key>
 		<dict>
@@ -2861,7 +2702,7 @@
 			<key>productName</key>
 			<string>OCMock</string>
 			<key>productReference</key>
-			<string>328D28649BD634657C533D57FF4C7BF1</string>
+			<string>8C34FBACED47A29A222CA0FD485F10B8</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -2986,7 +2827,7 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>4DA9A2D52DF433AC1C633AE6DBE5F0BC</key>
+		<key>4EBD8E16B43A71E0F9A7F938831DE431</key>
 		<dict>
 			<key>explicitFileType</key>
 			<string>archive.ar</string>
@@ -2995,18 +2836,11 @@
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>name</key>
-			<string>libSDWebImage.a</string>
+			<string>libPods-XamoomSDK.a</string>
 			<key>path</key>
-			<string>libSDWebImage.a</string>
+			<string>libPods-XamoomSDK.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>4E36176A3841C88A17BCFBAC7C61B405</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A993474B35B5DADD3093B78701ECC49B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>4F2D9A43B02F7BD879C1A08E411C5CC7</key>
 		<dict>
@@ -3021,21 +2855,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>5015ABBD3A7D5CEC623E7210C10AF11D</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libXamoomSDK.a</string>
-			<key>path</key>
-			<string>libXamoomSDK.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>503740A0EECBA9BC99AD5BFA99969317</key>
 		<dict>
@@ -3070,21 +2889,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>51E29E599DDE308E7F69C9C3D5B7D021</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libyoutube-ios-player-helper.a</string>
-			<key>path</key>
-			<string>libyoutube-ios-player-helper.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>51F0065D9BD1E163C7EEAF56CF1B4CAB</key>
 		<dict>
@@ -3154,15 +2958,15 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>532AEB8666B2C2057A5A516995A393AE</key>
+		<key>52E034027153076B051E815818E0159F</key>
 		<dict>
 			<key>buildConfigurationList</key>
-			<string>E2123AACCAE055508D930A5900E12914</string>
+			<string>783B8582BA8187F5EE69013F5A850B90</string>
 			<key>buildPhases</key>
 			<array>
-				<string>584986EFC11C19914DC9B2C0E34DC704</string>
-				<string>93136C29859BA3F7F536631ADD7A2F60</string>
-				<string>0C998A42EF2BD19C3E4F10702BEE5326</string>
+				<string>2B29E82D07F5FF4A208D63683E9B4209</string>
+				<string>DAC53DA178FA8B79481D17F83526DF7C</string>
+				<string>FBEF16E6E7433AE1FF480B0CD2505BB1</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -3171,11 +2975,11 @@
 			<key>isa</key>
 			<string>PBXNativeTarget</string>
 			<key>name</key>
-			<string>XamoomSDK-XamoomSDKXCAssets</string>
+			<string>XamoomSDK-XamoomSDK</string>
 			<key>productName</key>
-			<string>XamoomSDK-XamoomSDKXCAssets</string>
+			<string>XamoomSDK-XamoomSDK</string>
 			<key>productReference</key>
-			<string>39747E5F86CDBF585DBDFB480C2E3B6B</string>
+			<string>9C807BBA6DCC23951E55689A7BF9D4BB</string>
 			<key>productType</key>
 			<string>com.apple.product-type.bundle</string>
 		</dict>
@@ -3455,17 +3259,6 @@
 			<string>XMMContentBlock9TableViewCell.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>584986EFC11C19914DC9B2C0E34DC704</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>585D1E448E2B7933355A40F57BCAFC53</key>
 		<dict>
@@ -3799,21 +3592,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>5E43610EEF1D7EBF14137E2FD202F155</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libJAMSVGImage.a</string>
-			<key>path</key>
-			<string>libJAMSVGImage.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
 		<key>5E4EA86B1FD7D86C24B4990CFDFE70ED</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3847,21 +3625,6 @@
 					<string>Project</string>
 				</array>
 			</dict>
-		</dict>
-		<key>5F3C03A12688DDB653A0D675B98EFFFF</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libYTVimeoExtractor.a</string>
-			<key>path</key>
-			<string>libYTVimeoExtractor.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>5F4372C0AF8D0B46DC16E18CDE2192AF</key>
 		<dict>
@@ -3989,13 +3752,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>6123680CBD92BA22E5FF0F1CA01C095E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B73EA4110ED5D7C9C19F0BD8AD3EE082</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>614E4F8EBA1D144C542D91800141B18E</key>
 		<dict>
 			<key>fileRef</key>
@@ -4096,6 +3852,21 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
+		<key>658CE93B656E1D331A028C036B02F6F1</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods-Example.a</string>
+			<key>path</key>
+			<string>libPods-Example.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>659547118E91A9F2E21FEF1B6B9BB1EC</key>
 		<dict>
 			<key>fileRef</key>
@@ -4140,6 +3911,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>66EC4CE4E40198A6D49E7A9D9EAE9679</key>
+		<dict>
+			<key>fileRef</key>
+			<string>283DA2E49F21F190E08FD74B3D8143A0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>672FE514B7C1EB583AF6CEB2538025A7</key>
 		<dict>
 			<key>fileRef</key>
@@ -4175,6 +3953,30 @@
 			<string>sourcecode.c.h</string>
 			<key>path</key>
 			<string>OCMock-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>67B933106F09713E1EE6F2A5B26A6D67</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D84B33684730762DF5A83480CD38F17D</string>
+				<string>DC01C2F2C70471A383CD0759D8FD1FBC</string>
+				<string>ACAC1B88CF55DA41A63259AD62EBC5C4</string>
+				<string>8C34FBACED47A29A222CA0FD485F10B8</string>
+				<string>658CE93B656E1D331A028C036B02F6F1</string>
+				<string>4EBD8E16B43A71E0F9A7F938831DE431</string>
+				<string>D32840E9A5CEA2BB7775541367448FC7</string>
+				<string>7B9F64AACCDC3B4E8E37300B0F54FFE6</string>
+				<string>A989A5D19C02BECEDA2365330EEAFC8A</string>
+				<string>441859C4442AD8DF2F309BBB700E986B</string>
+				<string>46C15389F6AB9A3AAD4DA15354569394</string>
+				<string>9C807BBA6DCC23951E55689A7BF9D4BB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -4418,31 +4220,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>6F40AA711A7221658090EF7036C8BBD7</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>3CCD2B1DEE5B236F1EAB44F1015F2375</string>
-			<key>buildPhases</key>
-			<array>
-				<string>30E4122735E8AEB08EC11B5723692CDF</string>
-				<string>F50E441E379CD74E76C67AF1DDD1860A</string>
-				<string>3DE2AD222A2A48ED1DF26ED5108F7C41</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>XamoomSDK-XamoomSDKNibs</string>
-			<key>productName</key>
-			<string>XamoomSDK-XamoomSDKNibs</string>
-			<key>productReference</key>
-			<string>3CA92177AA6487450278A59824945D60</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle</string>
-		</dict>
 		<key>70AC31D0736F568C0386716176361D09</key>
 		<dict>
 			<key>fileRef</key>
@@ -4526,7 +4303,7 @@
 			<key>productName</key>
 			<string>Pods-XamoomSDK</string>
 			<key>productReference</key>
-			<string>BD6B177A1F9CC81A9AE0A3F1396B399F</string>
+			<string>4EBD8E16B43A71E0F9A7F938831DE431</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -4672,6 +4449,20 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>783B8582BA8187F5EE69013F5A850B90</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>F2B9877DFAEDB36F1788684CAF129FC0</string>
+				<string>2225C832743A13094D46E5F3AE78DD54</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
 		<key>785A9EBEE0ACBCE09017C9D0155A946C</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4797,6 +4588,21 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>7B9F64AACCDC3B4E8E37300B0F54FFE6</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libSDWebImage.a</string>
+			<key>path</key>
+			<string>libSDWebImage.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>7BA84D76CEB2B57266BF2D5934D7BAA9</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -4854,7 +4660,7 @@
 				<string>0DB5DE4FAA2B4F00DD4E9FA822D34744</string>
 				<string>433CD3331B6C3787F473C941B61FC68F</string>
 				<string>A1D050FBB02AAEBD56315A8CB8944FB5</string>
-				<string>1990EB08ACBD536BADBCA46737640C92</string>
+				<string>67B933106F09713E1EE6F2A5B26A6D67</string>
 				<string>6D230A26F6346E5C261D5C0CBAC23EE4</string>
 			</array>
 			<key>isa</key>
@@ -5023,7 +4829,7 @@
 			<key>productName</key>
 			<string>Pods-Example</string>
 			<key>productReference</key>
-			<string>0635AAA44A003479CF98ABF60DEC0FD8</string>
+			<string>658CE93B656E1D331A028C036B02F6F1</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -5200,6 +5006,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>888C451F0D488B4F7E255611B276BD18</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7B8824A2918AAD530EF4E24C847E3B98</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>890940D661BE562FC150AC880498233C</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5241,17 +5054,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>8A1589A77AF33799B55EB128E2F75CA9</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>XamoomSDK-XamoomSDKNibs</string>
-			<key>target</key>
-			<string>6F40AA711A7221658090EF7036C8BBD7</string>
-			<key>targetProxy</key>
-			<string>FD7DFB28B4FA6398C138C5823DED0BFC</string>
 		</dict>
 		<key>8AC6D4DB7D6C5CFA508183F7F5636934</key>
 		<dict>
@@ -5335,6 +5137,21 @@
 			<string>PBXSourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>8C34FBACED47A29A222CA0FD485F10B8</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libOCMock.a</string>
+			<key>path</key>
+			<string>libOCMock.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>8D40AF80800C0D4A691F4A0656E53D98</key>
 		<dict>
@@ -5467,6 +5284,13 @@
 				<string>-DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
 		</dict>
+		<key>90F6CB5D134F5A212119AFC2E26079B2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E5A7F520F5A40DDA4F66F8101EABDD0C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>9176D4815E2025FCF1784735890766D6</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5506,39 +5330,6 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
-		</dict>
-		<key>91CCF5FB8539FD0527ED6D72225B4225</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CC1CBD2E89081C3D35C10B859E4FDDA1</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>XamoomSDKNibs</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>93136C29859BA3F7F536631ADD7A2F60</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>937B6B966483042EB1337233E3F4B9DC</key>
 		<dict>
@@ -5835,6 +5626,13 @@
 				</array>
 			</dict>
 		</dict>
+		<key>9C5753428806390F4726B986A2D10396</key>
+		<dict>
+			<key>fileRef</key>
+			<string>EF38CFD7CB8767B6F66CC826A85560B2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>9C68B736C9964B8C2156722828496843</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -5848,6 +5646,21 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
+		</dict>
+		<key>9C807BBA6DCC23951E55689A7BF9D4BB</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>XamoomSDK.bundle</string>
+			<key>path</key>
+			<string>XamoomSDK.bundle</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>9CA023286C3BF7328BA1F1BB2E09AF76</key>
 		<dict>
@@ -6074,6 +5887,17 @@
 			<string>SDWebImage/SDWebImageDownloader.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A2638E1F67BE279F3896552D974D8FDD</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>XamoomSDK-XamoomSDK</string>
+			<key>target</key>
+			<string>52E034027153076B051E815818E0159F</string>
+			<key>targetProxy</key>
+			<string>F7147501F6255C6D7DF9EE8D30FA37A0</string>
 		</dict>
 		<key>A299CEAA701563BE6A387B1B1F9B41EF</key>
 		<dict>
@@ -6440,6 +6264,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>A989A5D19C02BECEDA2365330EEAFC8A</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libXamoomSDK.a</string>
+			<key>path</key>
+			<string>libXamoomSDK.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>A993474B35B5DADD3093B78701ECC49B</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -6596,6 +6435,21 @@
 				</array>
 			</dict>
 		</dict>
+		<key>ACAC1B88CF55DA41A63259AD62EBC5C4</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libJSONAPI.a</string>
+			<key>path</key>
+			<string>libJSONAPI.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>ACADB5AAE2BA5AA364C9E73D50B4CC0D</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -6721,6 +6575,13 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>B1B30E44C2F0A03DAD2E4094F5C5498D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F2FC2E58CB243F8F8243A4FC7E216C26</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>B28B82281F2A75B1A27E9B1B289B179D</key>
 		<dict>
@@ -6854,7 +6715,7 @@
 			<key>productName</key>
 			<string>youtube-ios-player-helper-Assets</string>
 			<key>productReference</key>
-			<string>46C4BF79EBBE04AD3A0E274751B1D36F</string>
+			<string>D84B33684730762DF5A83480CD38F17D</string>
 			<key>productType</key>
 			<string>com.apple.product-type.bundle</string>
 		</dict>
@@ -6970,28 +6831,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>B7DAADDC7BDA7659ED0CEA95C464FBBF</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CC1CBD2E89081C3D35C10B859E4FDDA1</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>XamoomSDKXCAssets</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
 		</dict>
 		<key>B913D6FB1B5FCF26519DE8DC66582119</key>
 		<dict>
@@ -7248,42 +7087,12 @@
 				</array>
 			</dict>
 		</dict>
-		<key>BD6B177A1F9CC81A9AE0A3F1396B399F</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libPods-XamoomSDK.a</string>
-			<key>path</key>
-			<string>libPods-XamoomSDK.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
 		<key>BD7903BC0F0B9D750BABE94B80E918A2</key>
 		<dict>
 			<key>fileRef</key>
 			<string>A03EECC0189A038CA2F84170E4E611E0</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE00AB36DF70EE6EDF714312A6456AB6</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>name</key>
-			<string>libJSONAPI.a</string>
-			<key>path</key>
-			<string>libJSONAPI.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>BE0D3320FB624FD0950228C862877F7B</key>
 		<dict>
@@ -7621,6 +7430,13 @@
 				</array>
 			</dict>
 		</dict>
+		<key>C4936EA600AB12D68DD287F4321C7FA4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B73EA4110ED5D7C9C19F0BD8AD3EE082</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>C4D75E0D52336A511B8AE2B528C87CEA</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -7747,13 +7563,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C61B41FA6A850D367E3DA747CD1822B4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>785A9EBEE0ACBCE09017C9D0155A946C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>C65811DE874208E147842C48EBF9D8D1</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -7822,7 +7631,7 @@
 			<key>productName</key>
 			<string>JAMSVGImage</string>
 			<key>productReference</key>
-			<string>5E43610EEF1D7EBF14137E2FD202F155</string>
+			<string>DC01C2F2C70471A383CD0759D8FD1FBC</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -8209,6 +8018,13 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>CF12D177363ADE7470BD646A766CE24E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>785A9EBEE0ACBCE09017C9D0155A946C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>CFBDC22B3FE23FD318ED9445EAF4F8CC</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -8249,6 +8065,13 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>D1371BAA5102C5A8E118E833CDFB1298</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2552D3AAA99B3428B0BBC3C5A2F8CCC6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>D1CE206C3CBC39D6EA4B6BEDAF87F091</key>
 		<dict>
 			<key>fileRef</key>
@@ -8277,6 +8100,21 @@
 			<string>Classes</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D32840E9A5CEA2BB7775541367448FC7</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods-XamoomSDKTests.a</string>
+			<key>path</key>
+			<string>libPods-XamoomSDKTests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>D3826A4862B4A80A58081C566E1FA218</key>
 		<dict>
@@ -8319,7 +8157,7 @@
 			<key>mainGroup</key>
 			<string>7DB346D0F39D3F0E887471402A8071AB</string>
 			<key>productRefGroup</key>
-			<string>1990EB08ACBD536BADBCA46737640C92</string>
+			<string>67B933106F09713E1EE6F2A5B26A6D67</string>
 			<key>projectDirPath</key>
 			<string></string>
 			<key>projectReferences</key>
@@ -8336,8 +8174,7 @@
 				<string>D7D2C3CDF08797D3B984E8A0D8325DDC</string>
 				<string>07AA2447FB415EB76E7A1C6773E552EE</string>
 				<string>D8855FD8DEF981EBBE4BDF8B3BBED8C9</string>
-				<string>6F40AA711A7221658090EF7036C8BBD7</string>
-				<string>532AEB8666B2C2057A5A516995A393AE</string>
+				<string>52E034027153076B051E815818E0159F</string>
 				<string>F21831EB24A9CD2D6AEBC2B91C92D122</string>
 				<string>B3D50C67B1FEC90D770E0D12E682B8C8</string>
 				<string>DED765449E8734B90469D9E244B28221</string>
@@ -8447,7 +8284,7 @@
 			<key>productName</key>
 			<string>JSONAPI</string>
 			<key>productReference</key>
-			<string>BE00AB36DF70EE6EDF714312A6456AB6</string>
+			<string>ACAC1B88CF55DA41A63259AD62EBC5C4</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -8512,13 +8349,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>D7D0903C120208D442224DDE648BD923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4CC5BB670C280C78CE11D45CA7360530</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>D7D1855B79CC23A91C239CEAA504C3E2</key>
 		<dict>
 			<key>fileRef</key>
@@ -8555,7 +8385,7 @@
 			<key>productName</key>
 			<string>Pods-XamoomSDKTests</string>
 			<key>productReference</key>
-			<string>3F623A3DA5EC5134283DF963E70B407B</string>
+			<string>D32840E9A5CEA2BB7775541367448FC7</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -8607,6 +8437,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>D84B33684730762DF5A83480CD38F17D</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>Assets.bundle</string>
+			<key>path</key>
+			<string>Assets.bundle</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
 		<key>D86F2432269C04BB227B2B993ED7AE56</key>
 		<dict>
 			<key>fileRef</key>
@@ -8631,8 +8476,7 @@
 				<string>E535C7B61C7F6AE7912D8F8BDD50CFBF</string>
 				<string>296088CB32D7421D0936A6C83757C03F</string>
 				<string>BE5E21C9D4568186779FC1F16F9EF27A</string>
-				<string>8A1589A77AF33799B55EB128E2F75CA9</string>
-				<string>0D8622062DA3AC8551F7C7F1200D632D</string>
+				<string>A2638E1F67BE279F3896552D974D8FDD</string>
 				<string>A65C965E586CD5728A8FF2677ED96EDE</string>
 				<string>079B51A754A11756EF2A200F1E6196FB</string>
 			</array>
@@ -8643,7 +8487,7 @@
 			<key>productName</key>
 			<string>XamoomSDK</string>
 			<key>productReference</key>
-			<string>5015ABBD3A7D5CEC623E7210C10AF11D</string>
+			<string>A989A5D19C02BECEDA2365330EEAFC8A</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -8694,6 +8538,17 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
+		<key>DAC53DA178FA8B79481D17F83526DF7C</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>DADACF239B30C047FA9304E5FDDA8B2E</key>
 		<dict>
 			<key>fileRef</key>
@@ -8718,6 +8573,21 @@
 			<string>F21831EB24A9CD2D6AEBC2B91C92D122</string>
 			<key>remoteInfo</key>
 			<string>youtube-ios-player-helper</string>
+		</dict>
+		<key>DC01C2F2C70471A383CD0759D8FD1FBC</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libJAMSVGImage.a</string>
+			<key>path</key>
+			<string>libJAMSVGImage.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>DC3D2707E9894825E553E3F90307DFD6</key>
 		<dict>
@@ -8892,7 +8762,7 @@
 			<key>productName</key>
 			<string>YTVimeoExtractor</string>
 			<key>productReference</key>
-			<string>5F3C03A12688DDB653A0D675B98EFFFF</string>
+			<string>46C15389F6AB9A3AAD4DA15354569394</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
@@ -9007,20 +8877,6 @@
 			<string>D5DF82BFD37BCC69B2C159B8B655AA3F</string>
 			<key>remoteInfo</key>
 			<string>JSONAPI</string>
-		</dict>
-		<key>E2123AACCAE055508D930A5900E12914</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>FD5C772290979809472C2D1B423E12AC</string>
-				<string>B7DAADDC7BDA7659ED0CEA95C464FBBF</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
 		</dict>
 		<key>E2D2C2DEBBB651077ABC3710A423594F</key>
 		<dict>
@@ -9391,13 +9247,6 @@
 				<string>-DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
 		</dict>
-		<key>EDF2872B00A7C342535970C57F6AD650</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E5A7F520F5A40DDA4F66F8101EABDD0C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>EE3B10AE846E3B58EF69268C14D386F8</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -9499,13 +9348,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>F00F4DCB7FE4EDABC05A1246C0F5BBE6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43C75690B7B01048FD9FC6F7B1E2468D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>F0547C0C892966E2817B27D6988EA04D</key>
 		<dict>
 			<key>fileRef</key>
@@ -9589,9 +9431,31 @@
 			<key>productName</key>
 			<string>youtube-ios-player-helper</string>
 			<key>productReference</key>
-			<string>51E29E599DDE308E7F69C9C3D5B7D021</string>
+			<string>441859C4442AD8DF2F309BBB700E986B</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>F2B9877DFAEDB36F1788684CAF129FC0</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>CC1CBD2E89081C3D35C10B859E4FDDA1</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>PRODUCT_NAME</key>
+				<string>XamoomSDK</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>bundle</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
 		</dict>
 		<key>F2FC2E58CB243F8F8243A4FC7E216C26</key>
 		<dict>
@@ -9603,6 +9467,13 @@
 			<string>en.lproj</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F303E9B74A49160B49DF6A00316D2B4F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4CC5BB670C280C78CE11D45CA7360530</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>F36B13051E1314A7D891DDFB4F4CCD02</key>
 		<dict>
@@ -9618,17 +9489,6 @@
 			<string>SDWebImage/SDWebImageManager.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F50E441E379CD74E76C67AF1DDD1860A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>F5718BBFC9DA695DBDE7552E3D10CCFB</key>
 		<dict>
@@ -9705,6 +9565,19 @@
 			<string>Source/OCMock/OCMockObject.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F7147501F6255C6D7DF9EE8D30FA37A0</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>52E034027153076B051E815818E0159F</string>
+			<key>remoteInfo</key>
+			<string>XamoomSDK-XamoomSDK</string>
 		</dict>
 		<key>F74CF8FFA6A48E22F3F9B3FF0C6E6153</key>
 		<dict>
@@ -9876,6 +9749,33 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>FBEF16E6E7433AE1FF480B0CD2505BB1</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0C5A8DB5FE55ABC229FC4A73CA63DE00</string>
+				<string>B1B30E44C2F0A03DAD2E4094F5C5498D</string>
+				<string>1A8F611A292CC22F8A768CE0B431E9F5</string>
+				<string>66EC4CE4E40198A6D49E7A9D9EAE9679</string>
+				<string>0ADCF9C395957B512D01C59729A23149</string>
+				<string>0F14209174BFFF9F45AEAA640D978A9B</string>
+				<string>90F6CB5D134F5A212119AFC2E26079B2</string>
+				<string>2F7CDEA2A14ECAF535FABB56152B71E5</string>
+				<string>C4936EA600AB12D68DD287F4321C7FA4</string>
+				<string>CF12D177363ADE7470BD646A766CE24E</string>
+				<string>9C5753428806390F4726B986A2D10396</string>
+				<string>F303E9B74A49160B49DF6A00316D2B4F</string>
+				<string>888C451F0D488B4F7E255611B276BD18</string>
+				<string>D1371BAA5102C5A8E118E833CDFB1298</string>
+				<string>224CFE6AD59E1460E2F7AFE99744536C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
 		<key>FC017065788951D13C4312E4E9A2B07B</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -9934,41 +9834,6 @@
 			<string>Classes/JAMSVGImage/UI and View/JAMSVGImageView.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>FD5C772290979809472C2D1B423E12AC</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>CC1CBD2E89081C3D35C10B859E4FDDA1</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>PRODUCT_NAME</key>
-				<string>XamoomSDKXCAssets</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>SKIP_INSTALL</key>
-				<string>YES</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>bundle</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>FD7DFB28B4FA6398C138C5823DED0BFC</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D41D8CD98F00B204E9800998ECF8427E</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>6F40AA711A7221658090EF7036C8BBD7</string>
-			<key>remoteInfo</key>
-			<string>XamoomSDK-XamoomSDKNibs</string>
 		</dict>
 		<key>FD98EE45465C45DC00B5FF7B5CB120ED</key>
 		<dict>

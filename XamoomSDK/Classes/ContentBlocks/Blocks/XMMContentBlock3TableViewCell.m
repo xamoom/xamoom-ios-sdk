@@ -170,15 +170,19 @@
 }
 
 - (void)showAlertController {
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *libBundle = [NSBundle bundleWithURL:url];
+
   UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
-                                                                           message:NSLocalizedString(@"SaveImage", nil)
+                                                                           message:NSLocalizedStringFromTableInBundle(@"SaveImage", @"Localizable", libBundle, nil)
                                                                     preferredStyle:UIAlertControllerStyleAlert];
   
-  [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+  [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"OK", @"Localizable", libBundle, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
     [self saveImageToPhotos];
   }]];
   
-  [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+  [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"Cancel", @"Localizable", libBundle, nil) style:UIAlertActionStyleCancel handler:nil]];
   
   UIViewController* activeVC = [UIApplication sharedApplication].keyWindow.rootViewController;
   [activeVC presentViewController:alertController animated:YES completion:nil];

@@ -39,12 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>XamoomSDK-XamoomSDKNibs.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>XamoomSDK-XamoomSDKXCAssets.xcscheme</key>
+		<key>XamoomSDK-XamoomSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,12 +77,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>532AEB8666B2C2057A5A516995A393AE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6F40AA711A7221658090EF7036C8BBD7</key>
+		<key>52E034027153076B051E815818E0159F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

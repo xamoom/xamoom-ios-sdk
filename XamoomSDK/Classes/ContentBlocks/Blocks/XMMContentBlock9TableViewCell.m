@@ -62,7 +62,7 @@ static NSString *contentLanguage;
 
 - (void)setupMapOverlayView {
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-  NSURL *url = [bundle URLForResource:@"XamoomSDKNibs" withExtension:@"bundle"];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
   if (url) {
     NSBundle *nibBundle = [NSBundle bundleWithURL:url];
     self.mapAdditionView = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
@@ -146,6 +146,10 @@ static NSString *contentLanguage;
 }
 
 - (void)showSpotMap:(NSArray *)spots {
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *libBundle = [NSBundle bundleWithURL:url];
+  
   // Add annotations
   if (self.mapView.annotations != nil) {
     [self.mapView removeAnnotations:self.mapView.annotations];
@@ -159,9 +163,9 @@ static NSString *contentLanguage;
     CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
     CLLocationDistance distance = [self.locationManager.location distanceFromLocation:annotationLocation];
     if (distance < 1000) {
-      annotation.distance = [NSString stringWithFormat:@"%@: %d m", NSLocalizedString(@"Distance", nil), (int)distance];
+      annotation.distance = [NSString stringWithFormat:@"%@: %d m", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", libBundle, nil), (int)distance];
     } else {
-      annotation.distance = [NSString stringWithFormat:@"%@: %0.1f km", NSLocalizedString(@"Distance", nil), distance/1000];
+      annotation.distance = [NSString stringWithFormat:@"%@: %0.1f km", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", libBundle, nil), distance/1000];
     }
     
     [self.mapView addAnnotation:annotation];

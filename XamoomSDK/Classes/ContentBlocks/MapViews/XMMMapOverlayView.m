@@ -31,7 +31,11 @@
 @implementation XMMMapOverlayView
 
 - (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent {
-  [self.openContentButton setTitle:NSLocalizedString(@"Open", nil) forState:UIControlStateNormal];
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *libBundle = [NSBundle bundleWithURL:url];
+  
+  [self.openContentButton setTitle:NSLocalizedStringFromTableInBundle(@"Open", @"Localizable", libBundle, nil) forState:UIControlStateNormal];
   
   self.contentID = annotation.spot.content.ID;
   self.locationCoordinate = annotation.coordinate;
