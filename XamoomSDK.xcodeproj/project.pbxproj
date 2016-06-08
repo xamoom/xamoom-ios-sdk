@@ -201,6 +201,7 @@
 		884937551C75C82100C53520 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		8849375F1C75F7E600C53520 /* UIImage+Scaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Scaling.h"; sourceTree = "<group>"; };
 		884937601C75F7E600C53520 /* UIImage+Scaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Scaling.m"; sourceTree = "<group>"; };
+		886D676F1D00399F0001E288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8886E2921C7B55B000B6AEAE /* XMMRestResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMRestResourceTests.m; sourceTree = "<group>"; };
 		8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksCacheTests.m; sourceTree = "<group>"; };
 		8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMStyleTests.m; sourceTree = "<group>"; };
@@ -635,6 +636,7 @@
 				en,
 				de,
 				nl,
+				Base,
 			);
 			mainGroup = 8888DDB81C47B0FA0050A84C;
 			productRefGroup = 8888DDC31C47B0FA0050A84C /* Products */;
@@ -854,6 +856,7 @@
 				884937511C74B1C600C53520 /* en */,
 				884937531C74B1E900C53520 /* de */,
 				881966DB1CD74F7100AC2007 /* nl */,
+				886D676F1D00399F0001E288 /* Base */,
 			);
 			name = Localizable.strings;
 			path = XamoomSDK/Assets;
