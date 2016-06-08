@@ -30,7 +30,30 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 
 #pragma mark - XMMEnduserApi
 
+/**
+ * Shared instance.
+ */
+static XMMEnduserApi *sharedInstance;
+
 @implementation XMMEnduserApi : NSObject
+
++ (id)sharedInstanceWithKey:(NSString *)apikey {
+  NSAssert(apikey != nil, @"apikey is nil. Please use an apikey");
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    sharedInstance = [[self alloc] init];
+  });
+  return sharedInstance;
+}
+
++ (id)sharedInstance {
+  NSAssert(sharedInstance != nil, @"SharedInstance is nil. Use sharedInstanceWithKey:apikey or changeSharedInstance:instance");
+  return sharedInstance;
+}
+
++ (void)saveSharedInstance:(XMMEnduserApi *)instance {
+  sharedInstance = instance;
+}
 
 - (instancetype)initWithApiKey:(NSString *)apikey {
   self = [super init];

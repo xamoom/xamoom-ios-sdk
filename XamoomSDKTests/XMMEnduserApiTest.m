@@ -71,6 +71,27 @@
   OCMVerifyAll(mockRestClient);
 }
 
+- (void)testNewSharedInstanceWithKey {
+  XMMEnduserApi *api = [XMMEnduserApi sharedInstanceWithKey:@"apikey"];
+  
+  XCTAssertNotNil(api);
+}
+
+- (void)testSharedInstance {
+  XMMEnduserApi *api = [XMMEnduserApi sharedInstanceWithKey:@"apikey"];
+  api = [XMMEnduserApi sharedInstance];
+  
+  XCTAssertNotNil(api);
+}
+
+- (void)testSaveSharedInstance {
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
+  [XMMEnduserApi saveSharedInstance:api];
+  XMMEnduserApi *checkApi = [XMMEnduserApi sharedInstance];
+  
+  XCTAssertEqual(api, checkApi);
+}
+
 - (void)testThatContentWithIdReturnsContentViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id mockRestClient = OCMPartialMock(self.restClient);

@@ -151,6 +151,29 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  */
 @property (strong, nonatomic) XMMRestClient *restClient;
 
+/// @name Singleton
+
+/**
+ * Get the sharedInstance. Works only when you already have an instance
+ * created with sharedInstanceWithKey:apikey or set via
+ * saveSharedInstance:instance.
+ */
++ (id)sharedInstance;
+
+/**
+ * Get the sharedInstance, when there is none, creates a new one with apikey.
+ *
+ * @param apikey Your xamoom api key
+ */
++ (id)sharedInstanceWithKey:(NSString *)apikey;
+
+/**
+ * Change the saved sharedInstance.
+ *
+ * @warning will override old instance.
+ */
++ (void)saveSharedInstance:(XMMEnduserApi *)instance;
+
 /// @name Initializers
 
 /**
