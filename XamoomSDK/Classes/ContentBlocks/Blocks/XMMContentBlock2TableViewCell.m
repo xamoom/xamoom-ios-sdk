@@ -33,11 +33,14 @@
   // Initialization code
   self.videoPlayer = nil;
   self.playImage = [UIImage imageNamed:@"videoPlay"];
+  self.webView.scrollView.scrollEnabled = false;
 }
 
 - (void)prepareForReuse {
   self.videoPlayer = nil;
   self.titleLabel.text = nil;
+  self.webView.hidden = YES;
+  self.thumbnailImageView.hidden = NO;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
@@ -56,7 +59,9 @@
     [self.youtubePlayerView loadWithVideoId:youtubeVideoID];
   } else if ([videoURLString containsString:@"vimeo"]) {
     [self hideYoutube];
-    [self vimeoFromURLString:videoURLString];
+    self.webView.hidden = NO;
+    self.thumbnailImageView.hidden = YES;
+    [self showVimeoFromUrl:videoURLString];
   } else {
     [self hideYoutube];
     [self videoPlayerWithURL:[NSURL URLWithString:videoURLString]];
@@ -82,14 +87,16 @@
   }
 }
 
-- (void)vimeoFromURLString:(NSString *)URLString {
-  [[YTVimeoExtractor sharedExtractor]fetchVideoWithVimeoURL:URLString withReferer:@"https://www.xamoom.com" completionHandler:^(YTVimeoVideo * _Nullable video, NSError * _Nullable error) {
-    if (video) {
-      NSString *highQualityURLString = [[video streamURLs] objectForKey:@(YTVimeoVideoQualityHD720)];
-      self.videoPlayer = [[AVPlayer alloc] initWithURL:[NSURL URLWithString:highQualityURLString]];
-      [self.thumbnailImageView sd_setImageWithURL:[[video thumbnailURLs] objectForKey:@(YTVimeoVideoThumbnailQualityMedium)]];
-    }
-  }];
+- (void)showVimeoFromUrl:(NSString *)vimeoUrl {
+  NSString *regexString = @"(?<=vimeo\.com\/)([a-z0-9]*)";
+  NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
+                                                                          options:NSRegularExpressionCaseInsensitive
+                                                                            error:nil];
+  NSTextCheckingResult *array = [regExp firstMatchInString:vimeoUrl options:nil range:NSMakeRange(0, vimeoUrl.length)];
+  NSString *videoId =[vimeoUrl substringWithRange:array.range];
+  NSString *htmlString = [NSString stringWithFormat:@"<style>html,body{margin:0;padding:0;}</style><iframe src=\"https://player.vimeo.com/video/%@?color=ffffff&title=0&byline=0&portrait=0\" width=\"100%%\" height=\"100%%\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>", videoId];
+  
+  [self.webView loadHTMLString:htmlString baseURL:nil];
 }
 
 - (void)videoPlayerWithURL:(NSURL *)videoUrl {

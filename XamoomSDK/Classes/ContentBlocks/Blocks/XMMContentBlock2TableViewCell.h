@@ -35,6 +35,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet YTPlayerView *youtubePlayerView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (nonatomic, strong) AVPlayer *videoPlayer;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playIconImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;

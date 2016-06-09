@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -39,12 +39,18 @@
                             <constraint firstAttribute="width" constant="50" id="pZU-hH-9Nh"/>
                         </constraints>
                     </imageView>
+                    <webView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XAn-vb-LFy">
+                        <rect key="frame" x="0.0" y="69" width="320" height="179"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                        <dataDetectorType key="dataDetectorTypes"/>
+                    </webView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="e6b-DR-Gwh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="7zI-E4-2h0"/>
                     <constraint firstAttribute="bottomMargin" secondItem="UEd-kr-uJh" secondAttribute="bottom" id="89R-yG-pnC"/>
                     <constraint firstItem="UEd-kr-uJh" firstAttribute="top" secondItem="e6b-DR-Gwh" secondAttribute="bottom" constant="7" id="B3u-xC-kBQ"/>
                     <constraint firstItem="7Yr-fK-bFp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="EVe-Yb-7g6"/>
+                    <constraint firstAttribute="bottom" secondItem="XAn-vb-LFy" secondAttribute="bottom" constant="8" id="GBi-Fv-g29"/>
                     <constraint firstItem="7Yr-fK-bFp" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="GO5-I2-QsL"/>
                     <constraint firstItem="UEd-kr-uJh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="Hpv-Ux-Jpz"/>
                     <constraint firstItem="7Yr-fK-bFp" firstAttribute="top" secondItem="e6b-DR-Gwh" secondAttribute="bottom" constant="8" id="IHc-F9-Nd8"/>
@@ -52,15 +58,19 @@
                     <constraint firstItem="Q9G-2x-vhn" firstAttribute="centerX" secondItem="UEd-kr-uJh" secondAttribute="centerX" id="RY0-66-WtW"/>
                     <constraint firstItem="UEd-kr-uJh" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Syp-cK-1jk"/>
                     <constraint firstItem="e6b-DR-Gwh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="buH-Uf-ugk"/>
+                    <constraint firstItem="XAn-vb-LFy" firstAttribute="top" secondItem="e6b-DR-Gwh" secondAttribute="bottom" constant="8" id="dKb-K6-0eq"/>
                     <constraint firstItem="e6b-DR-Gwh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="djH-97-diJ"/>
+                    <constraint firstAttribute="trailing" secondItem="XAn-vb-LFy" secondAttribute="trailing" id="dk8-f9-Dev"/>
                     <constraint firstItem="7Yr-fK-bFp" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="hsE-e5-yVO"/>
                     <constraint firstItem="UEd-kr-uJh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="nZZ-kB-rkW"/>
+                    <constraint firstItem="XAn-vb-LFy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="y4c-d9-l85"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="playIconImageView" destination="Q9G-2x-vhn" id="naG-T0-Own"/>
                 <outlet property="thumbnailImageView" destination="7Yr-fK-bFp" id="aNi-BU-WIw"/>
                 <outlet property="titleLabel" destination="e6b-DR-Gwh" id="hsc-c8-a2T"/>
+                <outlet property="webView" destination="XAn-vb-LFy" id="U4P-yh-ulX"/>
                 <outlet property="youtubePlayerView" destination="UEd-kr-uJh" id="YFa-CX-YSO"/>
             </connections>
             <point key="canvasLocation" x="411" y="467.5"/>
