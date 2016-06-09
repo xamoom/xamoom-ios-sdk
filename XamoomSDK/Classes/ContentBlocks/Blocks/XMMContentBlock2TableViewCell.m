@@ -41,6 +41,7 @@
   self.titleLabel.text = nil;
   self.webView.hidden = YES;
   self.thumbnailImageView.hidden = NO;
+  self.playIconImageView.hidden = NO;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
@@ -61,6 +62,7 @@
     [self hideYoutube];
     self.webView.hidden = NO;
     self.thumbnailImageView.hidden = YES;
+    self.playIconImageView.hidden = YES;
     [self showVimeoFromUrl:videoURLString];
   } else {
     [self hideYoutube];

@@ -176,13 +176,14 @@
   XCTAssertNil(testCell.titleLabel.text);
   XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
   XCTAssertTrue(testCell.youtubePlayerView.hidden);
-  XCTAssertFalse(testCell.playIconImageView.hidden);
-  XCTAssertFalse(testCell.thumbnailImageView.hidden);
+  XCTAssertTrue(testCell.playIconImageView.hidden);
+  XCTAssertTrue(testCell.thumbnailImageView.hidden);
+  XCTAssertFalse(testCell.webView.hidden);
 }
 
 - (void)testThatContentBlock2CellConfigureWebVideo {
   [self.contentBlocks displayContent:[self contentWithBlockType2]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:3 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock2TableViewCell *testCell = (XMMContentBlock2TableViewCell *)cell;
   
