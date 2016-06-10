@@ -75,6 +75,8 @@
   XMMEnduserApi *api = [XMMEnduserApi sharedInstanceWithKey:@"apikey"];
   
   XCTAssertNotNil(api);
+  XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
+  XCTAssertTrue([api.language isEqualToString:@"en"]);
 }
 
 - (void)testSharedInstance {
@@ -82,6 +84,8 @@
   api = [XMMEnduserApi sharedInstance];
   
   XCTAssertNotNil(api);
+  XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
+  XCTAssertTrue([api.language isEqualToString:@"en"]);
 }
 
 - (void)testSaveSharedInstance {
@@ -90,6 +94,8 @@
   XMMEnduserApi *checkApi = [XMMEnduserApi sharedInstance];
   
   XCTAssertEqual(api, checkApi);
+  XCTAssertTrue([checkApi.systemLanguage isEqualToString:@"en"]);
+  XCTAssertTrue([checkApi.language isEqualToString:@"en"]);
 }
 
 - (void)testThatContentWithIdReturnsContentViaCallback {

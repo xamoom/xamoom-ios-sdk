@@ -41,7 +41,7 @@ static XMMEnduserApi *sharedInstance;
   NSAssert(apikey != nil, @"apikey is nil. Please use an apikey");
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    sharedInstance = [[self alloc] init];
+    sharedInstance = [[self alloc] initWithApiKey:apikey];
   });
   return sharedInstance;
 }
