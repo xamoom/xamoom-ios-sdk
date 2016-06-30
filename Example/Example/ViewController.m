@@ -149,7 +149,7 @@
 }
 
 - (void)spotWithId:(NSString *)spotID {
-  [self.api spotWithId:spotID completion:^(XMMSpot *spot, NSError *error) {
+  [self.api spotWithID:spotID completion:^(XMMSpot *spot, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
@@ -157,7 +157,18 @@
     
     NSLog(@"spotWithId: %@", spot);
   }];
-  
+}
+
+- (void)spotWithIdAndOptions:(NSString *)spotID {
+  [self.api spotWithID:spotID options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker
+            completion:^(XMMSpot *spot, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"spotWithIdAndOptions: %@", spot);
+  }];
 }
 
 - (void)spotsWithLocation {
@@ -171,6 +182,8 @@
     NSLog(@"spotsWithLocation: %@", spots);
     XMMSpot *spot = [spots objectAtIndex:0];
     [self spotWithId:spot.ID];
+    [self spotWithIdAndOptions:spot.ID];
+
   }];
 }
 

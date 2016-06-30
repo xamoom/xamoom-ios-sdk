@@ -425,14 +425,12 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotWithId:spotID completion:^(XMMSpot *spot, NSError *error) {
+  [api spotWithID:spotID completion:^(XMMSpot *spot, NSError *error) {
     XCTAssertTrue([spot.ID isEqualToString:spotID]);
     XCTAssertTrue([spot.name isEqualToString:@"DO NOT TOUCH | APP | Spot 1"]);
     XCTAssertTrue([spot.spotDescription isEqualToString:@"Test"]);
     XCTAssertTrue([spot.image isEqualToString:@"https://storage.googleapis.com/xamoom-files-dev/mobile/956eb377e35a469c996ce3eacf1b6909.jpg?v=822c6f2dfd6f3c1c0451cc26d25351ef744060e29dfeba1073ade84c6c88c2f7c7d31e613448839112195baf9eacd6854776f0be16bf461d29461dfa6acac6b4"]);
     XCTAssertTrue(spot.category == 0);
-    NSLog(@"Lat %f", spot.latitude);
-    NSLog(@"Lon %f", spot.longitude);
     XCTAssertTrue(spot.latitude == 46.615067896711807);
     XCTAssertTrue(spot.longitude == 14.262270927429199);
     XCTAssertTrue([[spot.tags objectAtIndex:0] isEqualToString:@"Spot1"]);
@@ -441,6 +439,65 @@
     XCTAssertTrue([spot.system.ID isEqualToString:@"5755996320301056"]);
     XCTAssertNil(spot.content);
     XCTAssertNil(spot.markers);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+
+- (void)testThatSpotWithIdAndOptionsCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *spotID = @"5755996320301056|5744440375246848";
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en",
+                                                      @"include_markers":@"true",
+                                                      @"include_content":@"true",
+                                                      @"filter[has-location]":@"true"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
+                                       id:spotID
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api spotWithID:spotID options:XMMSpotOptionsWithLocation|XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent completion:^(XMMSpot *spot, NSError *error) {
+    //nothing
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatSpotWithIdAndOptionsReturnsContentViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *spotID = @"5755996320301056|5744440375246848";
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self spotWithContentAndMarkerJson]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api spotWithID:spotID options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(XMMSpot *spot, NSError *error) {
+    XCTAssertTrue([spot.ID isEqualToString:spotID]);
+    XCTAssertTrue([spot.name isEqualToString:@"DO NOT TOUCH | APP | Spot 1"]);
+    XCTAssertTrue([spot.spotDescription isEqualToString:@"Test"]);
+    XCTAssertTrue([spot.image isEqualToString:@"https://storage.googleapis.com/xamoom-files-dev/mobile/956eb377e35a469c996ce3eacf1b6909.jpg?v=822c6f2dfd6f3c1c0451cc26d25351ef744060e29dfeba1073ade84c6c88c2f7c7d31e613448839112195baf9eacd6854776f0be16bf461d29461dfa6acac6b4"]);
+    XCTAssertTrue(spot.category == 0);
+    XCTAssertTrue(spot.latitude == 46.615067896711807);
+    XCTAssertTrue(spot.longitude == 14.262270927429199);
+    XCTAssertTrue([[spot.tags objectAtIndex:0] isEqualToString:@"Spot1"]);
+    XCTAssertTrue([[spot.tags objectAtIndex:1] isEqualToString:@"tag1"]);
+    XCTAssertTrue([[spot.tags objectAtIndex:2] isEqualToString:@"donottouchspot"]);
+    XCTAssertTrue([spot.system.ID isEqualToString:@"5755996320301056"]);
+    XCTAssertTrue([spot.content.ID isEqualToString:@"e9c917086aca465eb454e38c0146428b"]);
+    XMMMarker *marker = [spot.markers firstObject];
+    XCTAssertTrue([marker.ID isEqualToString:@"7qpqr"]);
+    XCTAssertTrue([marker.eddyStoneUrl isEqualToString:@"dev.xm.gl/2134hs"]);
     [expectation fulfill];
   }];
   
@@ -460,7 +517,7 @@
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotWithId:spotID completion:^(XMMSpot *spot, NSError *error) {
+  [api spotWithID:spotID completion:^(XMMSpot *spot, NSError *error) {
     //nothing
   }];
   
@@ -869,6 +926,13 @@
 
 - (NSDictionary *)spotJson {
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"spot" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+  return json;
+}
+
+- (NSDictionary *)spotWithContentAndMarkerJson {
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"spotWithContentAndMarker" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:filePath];
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
   return json;

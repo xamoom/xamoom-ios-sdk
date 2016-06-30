@@ -85,6 +85,7 @@
 		889356681C802CCF0083724C /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */; };
 		889356691C802CF40083724C /* APIIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA06D1C7F23EF003FDF80 /* APIIntegrationTests.m */; };
 		88A047C71D250D1900960D9F /* spot.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C61D250D1900960D9F /* spot.json */; };
+		88A047C91D25219200960D9F /* spotWithContentAndMarker.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C81D25219200960D9F /* spotWithContentAndMarker.json */; };
 		88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */; };
 		88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B962901C7F00530096993D /* UIColor+HexStringTests.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
@@ -211,6 +212,7 @@
 		8888DDCC1C47B0FA0050A84C /* XamoomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDD31C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88A047C61D250D1900960D9F /* spot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spot.json; sourceTree = "<group>"; };
+		88A047C81D25219200960D9F /* spotWithContentAndMarker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spotWithContentAndMarker.json; sourceTree = "<group>"; };
 		88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockXTableViewCellTests.m; sourceTree = "<group>"; };
 		88B962901C7F00530096993D /* UIColor+HexStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexStringTests.m"; sourceTree = "<group>"; };
 		88CC28B51C567832000ACDD0 /* contentLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentLocation.json; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				88D486E11C5BAABF003E252D /* style.json */,
 				881945961C620E2100E4524F /* menu.json */,
 				88A047C61D250D1900960D9F /* spot.json */,
+				88A047C81D25219200960D9F /* spotWithContentAndMarker.json */,
 			);
 			name = json;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				889356681C802CCF0083724C /* TestingIDs.plist in Resources */,
 				88A047C71D250D1900960D9F /* spot.json in Resources */,
 				881945971C620E2100E4524F /* menu.json in Resources */,
+				88A047C91D25219200960D9F /* spotWithContentAndMarker.json in Resources */,
 				88E46F361C49374A004D8AC3 /* XamoomSDK.podspec in Resources */,
 				88D486E01C5BA210003E252D /* systemSettings.json in Resources */,
 				88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */,
