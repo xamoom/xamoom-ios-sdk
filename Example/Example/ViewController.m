@@ -148,6 +148,18 @@
   }];
 }
 
+- (void)spotWithId:(NSString *)spotID {
+  [self.api spotWithId:spotID completion:^(XMMSpot *spot, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"spotWithId: %@", spot);
+  }];
+  
+}
+
 - (void)spotsWithLocation {
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   [self.api spotsWithLocation:location radius:1000 options:0 completion:^(NSArray *spots, NSError *error) {
@@ -157,6 +169,8 @@
     }
     
     NSLog(@"spotsWithLocation: %@", spots);
+    XMMSpot *spot = [spots objectAtIndex:0];
+    [self spotWithId:spot.ID];
   }];
 }
 

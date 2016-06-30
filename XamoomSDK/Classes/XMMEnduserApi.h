@@ -267,6 +267,17 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  */
 - (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
+
+/**
+ * API call to get a spot with specific id.
+ *
+ * @param spotID SpotId from your xamoom system
+ * @param completion Completion block called after finishing network request
+ * - *param1* spot The returned spot
+ * - *param2* error NSError, can be null
+ */
+- (void)spotWithId:(NSString *)spotID completion:(void(^)(XMMSpot *spot, NSError *error))completion;
+
 /**
  * API call to get spots inside radius of a location.
  * 

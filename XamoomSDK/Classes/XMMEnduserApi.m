@@ -211,6 +211,21 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
+- (void)spotWithId:(NSString *)spotID completion:(void (^)(XMMSpot *, NSError *))completion {
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+  [params setObject:self.language forKey:@"lang"];
+  
+  [self.restClient fetchResource:[XMMSpot class] id:spotID parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, error);
+    }
+    
+    XMMSpot *spot = result.resource;
+    
+    completion(spot, error);
+  }];
+}
+
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion {
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":self.language,
