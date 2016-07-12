@@ -81,6 +81,7 @@
 		8886E2931C7B55B000B6AEAE /* XMMRestResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2921C7B55B000B6AEAE /* XMMRestResourceTests.m */; };
 		8886E2951C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */; };
 		8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */; };
+		8887006B1D34EE190049CF7F /* contentWithName.json in Resources */ = {isa = PBXBuildFile; fileRef = 8887006A1D34EE190049CF7F /* contentWithName.json */; };
 		8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */; };
 		889356681C802CCF0083724C /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */; };
 		889356691C802CF40083724C /* APIIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA06D1C7F23EF003FDF80 /* APIIntegrationTests.m */; };
@@ -207,6 +208,7 @@
 		8886E2921C7B55B000B6AEAE /* XMMRestResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMRestResourceTests.m; sourceTree = "<group>"; };
 		8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksCacheTests.m; sourceTree = "<group>"; };
 		8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMStyleTests.m; sourceTree = "<group>"; };
+		8887006A1D34EE190049CF7F /* contentWithName.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentWithName.json; sourceTree = "<group>"; };
 		8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XamoomSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDC71C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8888DDCC1C47B0FA0050A84C /* XamoomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -465,6 +467,7 @@
 				881945961C620E2100E4524F /* menu.json */,
 				88A047C61D250D1900960D9F /* spot.json */,
 				88A047C81D25219200960D9F /* spotWithContentAndMarker.json */,
+				8887006A1D34EE190049CF7F /* contentWithName.json */,
 			);
 			name = json;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */,
 				88D486DE1C5B9B6B003E252D /* system.json in Resources */,
 				88D486E21C5BAABF003E252D /* style.json in Resources */,
+				8887006B1D34EE190049CF7F /* contentWithName.json in Resources */,
 				88F581FD1C5213D3003D7C49 /* contentPublicOnly.json in Resources */,
 				88F582041C522AA0003D7C49 /* content.json in Resources */,
 				88D486DC1C5A7069003E252D /* spotLocation.json in Resources */,

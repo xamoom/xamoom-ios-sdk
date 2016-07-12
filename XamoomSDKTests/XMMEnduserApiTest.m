@@ -411,6 +411,51 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatContentWithNameWithCursorSortCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"filter[name]":@"test",
+                                                                                  @"page[size]":@"10",
+                                                                                  @"page[cursor]":@"1234"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api contentsWithName:@"test" pageSize:10 cursor:@"1234" sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatContentsWithNameReturnsContentHasMoreCursorViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self contentWithName]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentsWithName:@"test" pageSize:20 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertFalse(hasMore);
+    XCTAssertTrue([cursor isEqualToString:@""]);
+    XCTAssertTrue(contents.count == 10);
+    XMMContent *content = [contents objectAtIndex:0];
+    XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
+    content = [contents objectAtIndex:9];
+    XCTAssertTrue([content.title isEqualToString:@"Vimeo Test"]);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testThatSpotWithIdReturnsContentViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id mockRestClient = OCMPartialMock(self.restClient);
@@ -919,6 +964,13 @@
 
 - (NSDictionary *)contentLocation {
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"contentLocation" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+  return json;
+}
+
+- (NSDictionary *)contentWithName {
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"contentWithName" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:filePath];
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
   return json;
