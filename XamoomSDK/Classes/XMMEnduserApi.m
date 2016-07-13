@@ -37,6 +37,8 @@ static XMMEnduserApi *sharedInstance;
 
 @implementation XMMEnduserApi : NSObject
 
+#pragma mark - shared instance
+
 + (id)sharedInstanceWithKey:(NSString *)apikey {
   NSAssert(apikey != nil, @"apikey is nil. Please use an apikey");
   static dispatch_once_t onceToken;
@@ -54,6 +56,9 @@ static XMMEnduserApi *sharedInstance;
 + (void)saveSharedInstance:(XMMEnduserApi *)instance {
   sharedInstance = instance;
 }
+
+#pragma mark - init
+
 
 - (instancetype)initWithApiKey:(NSString *)apikey {
   self = [super init];
@@ -99,7 +104,9 @@ static XMMEnduserApi *sharedInstance;
   [JSONAPIResourceDescriptor addResource:[XMMMarker class]];
 }
 
-#pragma mark public methods
+#pragma mark - public methods
+
+#pragma mark content calls
 
 - (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion {
   NSDictionary *params = @{@"lang":self.language};
@@ -163,6 +170,8 @@ static XMMEnduserApi *sharedInstance;
 - (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion {
   [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] completion:completion];
 }
+
+#pragma mark contents calls
 
 - (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":self.language,
@@ -247,6 +256,8 @@ static XMMEnduserApi *sharedInstance;
 
 }
 
+#pragma mark spot calls
+
 - (void)spotWithID:(NSString *)spotID completion:(void (^)(XMMSpot *, NSError *))completion {
   [self spotWithID:spotID options:XMMSpotOptionsNone completion:completion];
 }
@@ -270,6 +281,8 @@ static XMMEnduserApi *sharedInstance;
     completion(spot, error);
   }];
 }
+
+#pragma mark spots calls
 
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion {
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
@@ -392,6 +405,9 @@ static XMMEnduserApi *sharedInstance;
     completion(result.resources, hasMore, cursor, error);
   }];
 }
+
+#pragma mark system calls
+
 
 - (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion {
   NSDictionary *params = @{@"lang":self.language};
