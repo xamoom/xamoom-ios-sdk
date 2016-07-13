@@ -380,6 +380,46 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
+- (void)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":self.language,
+                                                      @"filter[name]":name,
+                                                      @"page[size]":[@(pageSize) stringValue]}];
+  
+  if (cursor != nil && ![cursor isEqualToString:@""]) {
+    [params setObject:cursor forKey:@"page[cursor]"];
+  }
+  
+  if (options & XMMSpotOptionsIncludeMarker) {
+    [params setObject:@"true" forKey:@"include_markers"];
+  }
+  
+  if (options & XMMSpotOptionsIncludeContent) {
+    [params setObject:@"true" forKey:@"include_content"];
+  }
+  
+  if (options & XMMSpotOptionsWithLocation) {
+    [params setObject:@"true" forKey:@"filter[has-location]"];
+  }
+  
+  if (sortOptions != XMMSpotOptionsNone) {
+    NSArray *sortParameter = [self spotSortOptionsToArray:sortOptions];
+    [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
+  }
+  
+  [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error) {
+      completion(nil, false, nil, error);
+    }
+    
+    NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
+    bool hasMore = [hasMoreValue boolValue];
+    NSString *cursor = [result.meta objectForKey:@"cursor"];
+    
+    completion(result.resources, hasMore, cursor, error);
+  }];
+}
+
 - (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion {
   NSDictionary *params = @{@"lang":self.language};
   [self.restClient fetchResource:[XMMSystem class] parameters:params completion:^(JSONAPI *result, NSError *error) {

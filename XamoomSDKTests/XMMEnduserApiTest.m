@@ -634,7 +634,7 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
-- (void)testThatSpotWithLocationRadiusOptionPageSizeCursor {
+- (void)testThatSpotWithLocationRadiusOptionPageSizeCursorCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102000001 longitude:14.2628843];
@@ -684,7 +684,7 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
-- (void)testThatSpotsWithTagsOptionSort {
+- (void)testThatSpotsWithTagsOptionSortCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSArray *tags = @[@"tag1", @"tag2"];
@@ -731,7 +731,7 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
-- (void)testThatSpotsWithTagsOptionPageSizeCursor {
+- (void)testThatSpotsWithTagsOptionPageSizeCursorCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSArray *tags = @[@"tag1", @"tag2"];
@@ -778,6 +778,55 @@
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
+
+//********
+
+- (void)testThatSpotsWithNameCallsFetchResource {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en",
+                                                      @"filter[name]":@"do not touch",
+                                                      @"page[size]":@"20",
+                                                      @"page[cursor]":@"1",}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api spotsWithName:@"do not touch" pageSize:20 cursor:@"1" options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    //
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatSpotsWithNameReturnsSpotsViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self spotWithName]], nil);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api spotsWithName:@"do not touch" pageSize:20 cursor:nil options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertEqual(spots.count, 1);
+    XCTAssertFalse(hasMore);
+    XCTAssertTrue([cursor isEqualToString:@""]);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+//********
+
 
 - (void)testThatSystemCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
@@ -992,6 +1041,13 @@
 
 - (NSDictionary *)spotLocation {
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"spotLocation" ofType:@"json"];
+  NSData *data = [NSData dataWithContentsOfFile:filePath];
+  NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+  return json;
+}
+
+- (NSDictionary *)spotWithName {
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"spotWithName" ofType:@"json"];
   NSData *data = [NSData dataWithContentsOfFile:filePath];
   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
   return json;

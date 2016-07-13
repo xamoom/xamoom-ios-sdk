@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "cursor": "",
+    "total": "1",
+    "has-more": false
+  },
+  "data": [
+           {
+           "relationships": {
+           "system": {
+           "data": {
+           "type": "systems",
+           "id": "5755996320301056"
+           }
+           }
+           },
+           "attributes": {
+           "image": "https://storage.googleapis.com/xamoom-files-dev/mobile/956eb377e35a469c996ce3eacf1b6909.jpg?v=822c6f2dfd6f3c1c0451cc26d25351ef744060e29dfeba1073ade84c6c88c2f7c7d31e613448839112195baf9eacd6854776f0be16bf461d29461dfa6acac6b4",
+           "description": "Test",
+           "location": {
+           "lat": "46.615067896711807",
+           "lon": "14.262270927429199"
+           },
+           "name": "DO NOT TOUCH | APP | Spot 1",
+           "tags": [
+                    "Spot1",
+                    "tag1",
+                    "donottouchspot"
+                    ]
+           },
+           "type": "spots",
+           "id": "5755996320301056|5744440375246848"
+           }
+           ]
+}

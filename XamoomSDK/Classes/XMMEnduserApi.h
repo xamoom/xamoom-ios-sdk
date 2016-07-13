@@ -361,6 +361,22 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
 - (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
+ * API call to fulltext-search spots by name.
+ *
+ * @param name Name to search for
+ * @param pageSize PageSize you want to get from xamoom cloud
+ * @param cursor Needed when paging, can be null
+ * @param options XMMSpotOptions to get markers or content
+ * @param sortOptions XMMSpotSortOptions to sort results
+ * @param completion Completion block called after finishing network request
+ * - *param1* spots Spots from xamoom system
+ * - *param2* hasMore True if more items on xamoom cloud
+ * - *param3* cursor Cursor for paging
+ * - *param4* error NSError, can be null
+ */
+- (void)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+
+/**
  * API call that returns your system.
  * 
  * @param completion Completion block called after finishing network request
