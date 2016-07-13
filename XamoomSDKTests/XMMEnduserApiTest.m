@@ -191,6 +191,25 @@
   OCMVerifyAll(mockRestClient);
 }
 
+- (void)testThatContentWithLocationIdentifierWithOptionsCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"preview":@"true",
+                                                                                  @"public-only":@"true",
+                                                                                  @"filter[location-identifier]":@"7qpqr"}];
+  NSString *qrMarker = @"7qpqr";
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api contentWithLocationIdentifier:qrMarker options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
 - (void)testThatContentWithLocationIdentifierReturnsContentViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id mockRestClient = OCMPartialMock(self.restClient);

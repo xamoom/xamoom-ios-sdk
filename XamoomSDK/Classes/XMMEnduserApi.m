@@ -136,8 +136,18 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion {
-  NSDictionary *params = @{@"lang":self.language,
-                           @"filter[location-identifier]":locationIdentifier};
+  [self contentWithLocationIdentifier:locationIdentifier options:0 completion:completion];
+}
+
+- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+  [params addEntriesFromDictionary:@{@"lang":self.language,
+                                    @"filter[location-identifier]":locationIdentifier}];
+  
+  if (options != XMMContentOptionsNone) {
+    NSDictionary *optionsDict = [self contentOptionsToDictionary:options];
+    [params addEntriesFromDictionary:optionsDict];
+  }
   
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
