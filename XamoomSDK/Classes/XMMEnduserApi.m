@@ -119,11 +119,9 @@ static XMMEnduserApi *sharedInstance;
   NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
   [params setObject:self.language forKey:@"lang"];
   
-  if (options & XMMContentOptionsPreview) {
-    [params setObject:@"true" forKey:@"preview"];
-  }
-  if (options & XMMContentOptionsPrivate) {
-    [params setObject:@"true" forKey:@"public-only"];
+  if (options != XMMContentOptionsNone) {
+    NSDictionary *optionsDict = [self contentOptionsToDictionary:options];
+    [params addEntriesFromDictionary:optionsDict];
   }
   
   [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
@@ -247,16 +245,9 @@ static XMMEnduserApi *sharedInstance;
   NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
   [params setObject:self.language forKey:@"lang"];
   
-  if (options & XMMSpotOptionsIncludeMarker) {
-    [params setObject:@"true" forKey:@"include_markers"];
-  }
-  
-  if (options & XMMSpotOptionsIncludeContent) {
-    [params setObject:@"true" forKey:@"include_content"];
-  }
-  
-  if (options & XMMSpotOptionsWithLocation) {
-    [params setObject:@"true" forKey:@"filter[has-location]"];
+  if (options != XMMSpotOptionsNone) {
+    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
+    [params addEntriesFromDictionary:optionsDict];
   }
   
   [self.restClient fetchResource:[XMMSpot class] id:spotID parameters:params completion:^(JSONAPI *result, NSError *error) {
@@ -277,16 +268,9 @@ static XMMEnduserApi *sharedInstance;
                                                       @"filter[lon]":[@(location.coordinate.longitude) stringValue],
                                                       @"filter[radius]":[@(radius) stringValue]}];
   
-  if (options & XMMSpotOptionsIncludeMarker) {
-    [params setObject:@"true" forKey:@"include_markers"];
-  }
-  
-  if (options & XMMSpotOptionsIncludeContent) {
-    [params setObject:@"true" forKey:@"include_content"];
-  }
-  
-  if (options & XMMSpotOptionsWithLocation) {
-    [params setObject:@"true" forKey:@"filter[has-location]"];
+  if (options != XMMSpotOptionsNone) {
+    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
+    [params addEntriesFromDictionary:optionsDict];
   }
   
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
@@ -310,16 +294,9 @@ static XMMEnduserApi *sharedInstance;
     [params setObject:cursor forKey:@"page[cursor]"];
   }
   
-  if (options & XMMSpotOptionsIncludeMarker) {
-    [params setObject:@"true" forKey:@"include_markers"];
-  }
-  
-  if (options & XMMSpotOptionsIncludeContent) {
-    [params setObject:@"true" forKey:@"include_content"];
-  }
-  
-  if (options & XMMSpotOptionsWithLocation) {
-    [params setObject:@"true" forKey:@"filter[has-location]"];
+  if (options != XMMSpotOptionsNone) {
+    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
+    [params addEntriesFromDictionary:optionsDict];
   }
   
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
@@ -350,19 +327,12 @@ static XMMEnduserApi *sharedInstance;
     [params setObject:cursor forKey:@"page[cursor]"];
   }
   
-  if (options & XMMSpotOptionsIncludeMarker) {
-    [params setObject:@"true" forKey:@"include_markers"];
+  if (options != XMMSpotOptionsNone) {
+    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
+    [params addEntriesFromDictionary:optionsDict];
   }
   
-  if (options & XMMSpotOptionsIncludeContent) {
-    [params setObject:@"true" forKey:@"include_content"];
-  }
-  
-  if (options & XMMSpotOptionsWithLocation) {
-    [params setObject:@"true" forKey:@"filter[has-location]"];
-  }
-  
-  if (sortOptions != XMMSpotOptionsNone) {
+  if (sortOptions != XMMSpotSortOptionsNone) {
     NSArray *sortParameter = [self spotSortOptionsToArray:sortOptions];
     [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
   }
@@ -390,19 +360,12 @@ static XMMEnduserApi *sharedInstance;
     [params setObject:cursor forKey:@"page[cursor]"];
   }
   
-  if (options & XMMSpotOptionsIncludeMarker) {
-    [params setObject:@"true" forKey:@"include_markers"];
+  if (options != XMMSpotOptionsNone) {
+    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
+    [params addEntriesFromDictionary:optionsDict];
   }
   
-  if (options & XMMSpotOptionsIncludeContent) {
-    [params setObject:@"true" forKey:@"include_content"];
-  }
-  
-  if (options & XMMSpotOptionsWithLocation) {
-    [params setObject:@"true" forKey:@"filter[has-location]"];
-  }
-  
-  if (sortOptions != XMMSpotOptionsNone) {
+  if (sortOptions != XMMSpotSortOptionsNone) {
     NSArray *sortParameter = [self spotSortOptionsToArray:sortOptions];
     [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
   }
@@ -476,6 +439,37 @@ static XMMEnduserApi *sharedInstance;
 }
 
 #pragma mark - private helpers
+
+- (NSMutableDictionary *)contentOptionsToDictionary:(XMMContentOptions)options {
+  NSMutableDictionary *optionsDict = [[NSMutableDictionary alloc] init];
+
+  if (options & XMMContentOptionsPreview) {
+    [optionsDict setObject:@"true" forKey:@"preview"];
+  }
+  if (options & XMMContentOptionsPrivate) {
+    [optionsDict setObject:@"true" forKey:@"public-only"];
+  }
+  
+  return optionsDict;
+}
+
+- (NSMutableDictionary *)spotOptionsToDictionary:(XMMSpotOptions)options {
+  NSMutableDictionary *optionsDict = [[NSMutableDictionary alloc] init];
+  
+  if (options & XMMSpotOptionsIncludeMarker) {
+    [optionsDict setObject:@"true" forKey:@"include_markers"];
+  }
+  
+  if (options & XMMSpotOptionsIncludeContent) {
+    [optionsDict setObject:@"true" forKey:@"include_content"];
+  }
+  
+  if (options & XMMSpotOptionsWithLocation) {
+    [optionsDict setObject:@"true" forKey:@"filter[has-location]"];
+  }
+  
+  return optionsDict;
+}
 
 - (NSArray *)contentSortOptionsToArray:(XMMContentSortOptions)sortOptions {
   NSMutableArray *sortParameters = [[NSMutableArray alloc] init];
