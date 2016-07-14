@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1027B4EFF9F027EB6B72F7F1'
-               BlueprintName = 'OCMock'
+               BlueprintIdentifier = '60DE232B2FC16D0AC2B75AEA'
+               BlueprintName = 'XamoomSDK'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libOCMock.a'>
+               BuildableName = 'libXamoomSDK.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
