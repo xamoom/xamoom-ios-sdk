@@ -90,11 +90,11 @@
 }
 
 - (void)showVimeoFromUrl:(NSString *)vimeoUrl {
-  NSString *regexString = @"(?<=vimeo\.com\/)([a-z0-9]*)";
+  NSString *regexString = @"(?<=vimeo.com/)([a-z0-9]*)";
   NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
                                                                           options:NSRegularExpressionCaseInsensitive
                                                                             error:nil];
-  NSTextCheckingResult *array = [regExp firstMatchInString:vimeoUrl options:nil range:NSMakeRange(0, vimeoUrl.length)];
+  NSTextCheckingResult *array = [regExp firstMatchInString:vimeoUrl options:0 range:NSMakeRange(0, vimeoUrl.length)];
   NSString *videoId =[vimeoUrl substringWithRange:array.range];
   NSString *htmlString = [NSString stringWithFormat:@"<style>html,body{margin:0;padding:0;}</style><iframe src=\"https://player.vimeo.com/video/%@?color=ffffff&title=0&byline=0&portrait=0\" width=\"100%%\" height=\"100%%\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>", videoId];
   

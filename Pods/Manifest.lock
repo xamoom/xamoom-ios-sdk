@@ -5,14 +5,12 @@ PODS:
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
-  - XamoomSDK (2.0.4):
+  - XamoomSDK (2.1.0):
     - JAMSVGImage
     - JSONAPI (~> 1.0.0)
     - SDWebImage (~> 3.7)
     - youtube-ios-player-helper (= 0.1.4)
-    - YTVimeoExtractor
   - youtube-ios-player-helper (0.1.4)
-  - YTVimeoExtractor (1.0.0)
 
 DEPENDENCIES:
   - JAMSVGImage
@@ -31,8 +29,9 @@ SPEC CHECKSUMS:
   JSONAPI: 9b32b11cb196ede8bf22489879fb4003c3e5e8f3
   OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
-  XamoomSDK: d7c6f3784922de05609c98d5b2e3ce2b2e1b5b3d
+  XamoomSDK: fdc5de69b18f6f80eb01ed45f004d3f3319588f2
   youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
-  YTVimeoExtractor: fa329a7cc99fc3d0b4e1fa6fd9d1d5eab1835c7d
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: d3a508f72f0c525904fa01bb860a78e103c0f786
+
+COCOAPODS: 1.0.1

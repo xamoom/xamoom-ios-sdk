@@ -18,7 +18,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <XMMContentBlocks.h>
+#import "XMMContentBlocks.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
 

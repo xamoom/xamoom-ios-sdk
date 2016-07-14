@@ -12,7 +12,7 @@ target 'XamoomSDK' do
   pod 'JAMSVGImage'
 end
 
-target 'XamoomSDKTests', :exclusive => true do
+target 'XamoomSDKTests' do
 	pod 'OCMock', '~> 3.2'
 end
 

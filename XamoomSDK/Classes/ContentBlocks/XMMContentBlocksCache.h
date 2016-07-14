@@ -18,7 +18,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <XMMContent.h>
+#import "XMMContent.h"
 
 @interface XMMContentBlocksCache : NSObject
 
