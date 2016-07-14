@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/XMMContentOptions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/XMMContentOptions</TokenIdentifier>
+			<Abstract type="html">XMMContent special options.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+			
+			<NodeRef refid="25"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentOptionsNone</TokenIdentifier>
+            <Abstract type="html">No options.
+   </Abstract>
+            <Declaration>XMMContentOptionsNone</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="25"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentOptionsPreview</TokenIdentifier>
+            <Abstract type="html">Will not save statistics.
+   </Abstract>
+            <Declaration>XMMContentOptionsPreview</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="25"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentOptionsPrivate</TokenIdentifier>
+            <Abstract type="html">Wont return ContentBlocks with &quot;Hide Online&quot; flag.
+   </Abstract>
+            <Declaration>XMMContentOptionsPrivate</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="25"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

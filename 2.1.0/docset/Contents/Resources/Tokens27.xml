@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/XMMSpotOptions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/XMMSpotOptions</TokenIdentifier>
+			<Abstract type="html">XMMSpot special options.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+			
+			<NodeRef refid="27"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMSpotOptionsNone</TokenIdentifier>
+            <Abstract type="html">No options.
+   </Abstract>
+            <Declaration>XMMSpotOptionsNone</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="27"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMSpotOptionsIncludeContent</TokenIdentifier>
+            <Abstract type="html">Will include contentID to spots.
+   </Abstract>
+            <Declaration>XMMSpotOptionsIncludeContent</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="27"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMSpotOptionsIncludeMarker</TokenIdentifier>
+            <Abstract type="html">Will include markers to spots
+   </Abstract>
+            <Declaration>XMMSpotOptionsIncludeMarker</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="27"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMSpotOptionsWithLocation</TokenIdentifier>
+            <Abstract type="html">Will only return spots with a location.
+   </Abstract>
+            <Declaration>XMMSpotOptionsWithLocation</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="27"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

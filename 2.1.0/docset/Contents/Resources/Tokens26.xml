@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/XMMContentSortOptions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/XMMContentSortOptions</TokenIdentifier>
+			<Abstract type="html">XMMContent sorting options.</Abstract>
+			<DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+			
+			<NodeRef refid="26"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentSortOptionsNone</TokenIdentifier>
+            <Abstract type="html">No sorting.
+   </Abstract>
+            <Declaration>XMMContentSortOptionsNone</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="26"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentSortOptionsName</TokenIdentifier>
+            <Abstract type="html">Sort by name ascending.
+   </Abstract>
+            <Declaration>XMMContentSortOptionsName</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="26"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/XMMContentSortOptionsNameDesc</TokenIdentifier>
+            <Abstract type="html">Sort by name descending.
+   </Abstract>
+            <Declaration>XMMContentSortOptionsNameDesc</Declaration>
+            
+            <DeclaredIn>XMMEnduserApi.h</DeclaredIn>
+            
+            <NodeRef refid="26"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMMenu.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMMenu</TokenIdentifier>
+			<Abstract type="html">XMMMenu with the menuItems.</Abstract>
+			<DeclaredIn>XMMMenu.h</DeclaredIn>
+            
+			
+			<NodeRef refid="16"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMMenu/setItems:</TokenIdentifier>
+			<Abstract type="html">XMMMenuItem as array.</Abstract>
+			<DeclaredIn>XMMMenu.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMMenu/items</TokenIdentifier>
+			<Abstract type="html">XMMMenuItem as array.</Abstract>
+			<DeclaredIn>XMMMenu.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/XMMMenu/items</TokenIdentifier>
+			<Abstract type="html">XMMMenuItem as array.</Abstract>
+			<DeclaredIn>XMMMenu.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) NSArray *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="16"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

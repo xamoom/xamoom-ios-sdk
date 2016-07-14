@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMContentBlocks.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMContentBlocks</TokenIdentifier>
+			<Abstract type="html">Use XMMContentBlocks to display all our contentBlocks from xamoom cloud.</Abstract>
+			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+            
+			
+			<NodeRef refid="14"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlocks/initWithTableView:api:</TokenIdentifier>
+			<Abstract type="html">Initialize XMMContentBlocks with tableview and an api.
+TableView will get set up.
+XMMEnduserApi will be used to download other contentBlocks or map-pins.</Abstract>
+			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithTableView:(UITableView *)tableView api:(XMMEnduserApi *)api</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tableView</Name>
+					<Abstract type="html">Instance of an UITableView.</Abstract>
+				</Parameter><Parameter>
+					<Name>api</Name>
+					<Abstract type="html">Instance of XMMEnduserApi.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithTableView:api:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlocks/viewWillDisappear</TokenIdentifier>
+			<Abstract type="html">Call this method, when you view will disappear.
+This will pause sounds and remove observer.</Abstract>
+			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+			
+			<Declaration>- (void)viewWillDisappear</Declaration>
+			
+			
+			<Anchor>//api/name/viewWillDisappear</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlocks/displayContent:</TokenIdentifier>
+			<Abstract type="html">Display contentBlocks with header.</Abstract>
+			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+			
+			<Declaration>- (void)displayContent:(XMMContent *)content</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>content</Name>
+					<Abstract type="html">XMMContent object.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/displayContent:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlocks/displayContent:addHeader:</TokenIdentifier>
+			<Abstract type="html">Display contentBlocks with or without header.</Abstract>
+			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+			
+			<Declaration>- (void)displayContent:(XMMContent *)content addHeader:(Boolean)addHeader</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>content</Name>
+					<Abstract type="html">XMMContent object.</Abstract>
+				</Parameter><Parameter>
+					<Name>addHeader</Name>
+					<Abstract type="html">boolean for adding header or not.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/displayContent:addHeader:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/XMMContentBlocks/updateFontSizeTo:</TokenIdentifier>
+			<Abstract type="html">Can be used to change the fontSize of the text contentBlock
+for better readability.</Abstract>
+			<DeclaredIn>XMMContentBlocks.h</DeclaredIn>
+			
+			<Declaration>- (void)updateFontSizeTo:(TextFontSize)newFontSize</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newFontSize</Name>
+					<Abstract type="html">New fontSize of the text contentBlock</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateFontSizeTo:</Anchor>
+            <NodeRef refid="14"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

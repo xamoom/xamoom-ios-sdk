@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/XMMSystem.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/XMMSystem</TokenIdentifier>
+			<Abstract type="html">XMMSystem with linked XMMSystemSettings, XMMStyle and XMMMenu.</Abstract>
+			<DeclaredIn>XMMSystem.h</DeclaredIn>
+            
+			
+			<NodeRef refid="21"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>
