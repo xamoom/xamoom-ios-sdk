@@ -244,13 +244,35 @@
   NSNumber *minor = @54222;
   NSNumber *major = @24265;
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[location-identifier]":@"54222|24265"}];
+                                                                                  @"filter[location-identifier]":@"24265|54222"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api contentWithBeaconMajor:minor minor:major completion:^(XMMContent *content, NSError *error) {
+  [api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatContentWithBeaconWithOptionsCallsFetchResources {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"filter[location-identifier]":@"24265|54222",
+                                                                                  @"preview":@"true",
+                                                                                  @"public-only":@"true",
+                                                                                  @"lang":@"en",
+                                                                                  }];
+  NSNumber *minor = @54222;
+  NSNumber *major = @24265;
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api contentWithBeaconMajor:major minor:minor options:XMMContentOptionsPrivate|XMMContentOptionsPreview completion:^(XMMContent *content, NSError *error) {
+    //
   }];
   
   OCMVerifyAll(mockRestClient);

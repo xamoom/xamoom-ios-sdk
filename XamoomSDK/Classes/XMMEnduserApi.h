@@ -170,6 +170,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
 /**
  * Change the saved sharedInstance.
  *
+ * @param instance Your XMMEnduserApi instance you want to save
  * @warning will override old instance.
  */
 + (void)saveSharedInstance:(XMMEnduserApi *)instance;
@@ -236,6 +237,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * - *param2* error NSError, can be null
  */
 - (void)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
+
 /**
  * API call to get content with beacon.
  *
@@ -246,6 +248,18 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * - *param2* error NSError, can be null
  */
 - (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion;
+
+/**
+ * API call to get content with beacon.
+ *
+ * @param major Major of the beacon
+ * @param minor Minor of the beacon
+ * @param options XMMContentOptions for call
+ * @param completion Completion block called after finishing network request
+ * - *param1* content Content from xamoom system
+ * - *param2* error NSError, can be null
+ */
+- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get contents around location (40m).

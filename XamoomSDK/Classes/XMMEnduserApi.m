@@ -59,7 +59,6 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark - init
 
-
 - (instancetype)initWithApiKey:(NSString *)apikey {
   self = [super init];
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
@@ -169,6 +168,10 @@ static XMMEnduserApi *sharedInstance;
 
 - (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion {
   [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] completion:completion];
+}
+
+- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+  [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] options:options completion:completion];
 }
 
 #pragma mark contents calls
