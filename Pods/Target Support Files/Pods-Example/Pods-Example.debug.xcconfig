@@ -1,5 +1,8 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/JAMSVGImage" "${PODS_ROOT}/Headers/Public/JSONAPI" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/XamoomSDK" "${PODS_ROOT}/Headers/Public/youtube-ios-player-helper"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/JAMSVGImage" -isystem "${PODS_ROOT}/Headers/Public/JSONAPI" -isystem "${PODS_ROOT}/Headers/Public/OCMock" -isystem "${PODS_ROOT}/Headers/Public/SDWebImage" -isystem "${PODS_ROOT}/Headers/Public/XamoomSDK" -isystem "${PODS_ROOT}/Headers/Public/youtube-ios-player-helper"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"JAMSVGImage" -l"JSONAPI" -l"SDWebImage" -l"XamoomSDK" -l"youtube-ios-player-helper" -l"z" -framework "ImageIO"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/JAMSVGImage" "${PODS_ROOT}/Headers/Public/JSONAPI" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/XamoomSDK"
+LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/JAMSVGImage" "$PODS_CONFIGURATION_BUILD_DIR/JSONAPI" "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage" "$PODS_CONFIGURATION_BUILD_DIR/XamoomSDK"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/JAMSVGImage" -isystem "${PODS_ROOT}/Headers/Public/JSONAPI" -isystem "${PODS_ROOT}/Headers/Public/OCMock" -isystem "${PODS_ROOT}/Headers/Public/SDWebImage" -isystem "${PODS_ROOT}/Headers/Public/XamoomSDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"JAMSVGImage" -l"JSONAPI" -l"SDWebImage" -l"XamoomSDK" -l"z" -framework "ImageIO"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/../Pods

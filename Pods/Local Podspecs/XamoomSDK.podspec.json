@@ -33,9 +33,6 @@
     "JSONAPI": [
       "~> 1.0.0"
     ],
-    "youtube-ios-player-helper": [
-      "= 0.1.4"
-    ],
     "SDWebImage": [
       "~>3.7"
     ],

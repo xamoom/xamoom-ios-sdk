@@ -21,7 +21,6 @@
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "YTPlayerView.h"
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
@@ -32,7 +31,6 @@
 @interface XMMContentBlock2TableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (nonatomic, strong) IBOutlet YTPlayerView *youtubePlayerView;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (nonatomic, strong) AVPlayer *videoPlayer;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playIconImageView;

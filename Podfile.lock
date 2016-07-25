@@ -1,7 +1,7 @@
 PODS:
   - JAMSVGImage (1.6.1)
   - JSONAPI (1.0.7)
-  - OCMock (3.2.2)
+  - OCMock (3.3.1)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
@@ -9,8 +9,6 @@ PODS:
     - JAMSVGImage
     - JSONAPI (~> 1.0.0)
     - SDWebImage (~> 3.7)
-    - youtube-ios-player-helper (= 0.1.4)
-  - youtube-ios-player-helper (0.1.4)
 
 DEPENDENCIES:
   - JAMSVGImage
@@ -18,7 +16,6 @@ DEPENDENCIES:
   - OCMock (~> 3.2)
   - SDWebImage (~> 3.7)
   - XamoomSDK (from `./`)
-  - youtube-ios-player-helper (= 0.1.4)
 
 EXTERNAL SOURCES:
   XamoomSDK:
@@ -27,9 +24,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2
   JSONAPI: 8fed55fcfa08ee662674cd4f1bd03c37d8b34e03
-  OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
+  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
-  XamoomSDK: fdc5de69b18f6f80eb01ed45f004d3f3319588f2
-  youtube-ios-player-helper: 84b1485ebb4b7c6b619c6e05edcb55186723a7c6
+  XamoomSDK: 45ab82dc43d7dbcf1c34ad23dde67a307edf5e1e
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: b5240c9c83edf363bf05a340a59e4ef20641f56a
+
+COCOAPODS: 1.0.1

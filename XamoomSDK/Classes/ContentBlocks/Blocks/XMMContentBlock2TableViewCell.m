@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSString* videoUrl;
 @property (nonatomic) float screenWidth;
 @property (nonatomic) UIImage *playImage;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *openInYoutubeView;
 
 @end
 
@@ -42,30 +43,39 @@
   self.webView.hidden = YES;
   self.thumbnailImageView.hidden = NO;
   self.playIconImageView.hidden = NO;
+  self.openInYoutubeView.hidden = YES;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+  self.videoUrl = block.videoUrl;
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   self.titleLabel.text = block.title;
   
   self.playIconImageView.image = self.playImage;
-  [self determineVideoFromURLString:block.videoUrl];
+  [self determineVideoFromURLString:self.videoUrl];
 }
 
 - (void)determineVideoFromURLString:(NSString*)videoURLString {
   NSString *youtubeVideoID = [self youtubeVideoIdFromURL:videoURLString];
   
   if (youtubeVideoID != nil) {
-    [self showYoutube];
-    [self.youtubePlayerView loadWithVideoId:youtubeVideoID];
+    self.webView.hidden = NO;
+    self.thumbnailImageView.hidden = YES;
+    self.playIconImageView.hidden = YES;
+    self.openInYoutubeView.hidden = NO;
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openYoutubeUrl)];
+    [self.openInYoutubeView addGestureRecognizer:gestureRecognizer];
+    
+    [self showYoutubeWithId:youtubeVideoID];
   } else if ([videoURLString containsString:@"vimeo"]) {
-    [self hideYoutube];
     self.webView.hidden = NO;
     self.thumbnailImageView.hidden = YES;
     self.playIconImageView.hidden = YES;
     [self showVimeoFromUrl:videoURLString];
   } else {
-    [self hideYoutube];
+    self.thumbnailImageView.hidden = YES;
+    self.playIconImageView.hidden = YES;
     [self videoPlayerWithURL:[NSURL URLWithString:videoURLString]];
     [self thumbnailFromUrl:[NSURL URLWithString:videoURLString] completion:^(UIImage *image) {
       self.thumbnailImageView.image = image;
@@ -87,6 +97,15 @@
   } else {
     return nil;
   }
+}
+
+- (void)openYoutubeUrl {
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.videoUrl]];
+}
+
+- (void)showYoutubeWithId:(NSString *)videoId {
+  NSString *htmlString = [NSString stringWithFormat:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"%f\" height=\"%f\" src=\"https://www.youtube.com/embed/%@\" frameborder=\"0\" allowfullscreen></iframe>", self.webView.bounds.size.width, self.webView.bounds.size.height, videoId];
+  [self.webView loadHTMLString:htmlString baseURL:nil];
 }
 
 - (void)showVimeoFromUrl:(NSString *)vimeoUrl {
@@ -128,18 +147,6 @@
       [playerViewController.player play];
     }];
   }
-}
-
-- (void)hideYoutube {
-  self.youtubePlayerView.hidden = YES;
-  self.playIconImageView.hidden = NO;
-  self.thumbnailImageView.hidden = NO;
-}
-
-- (void)showYoutube {
-  self.youtubePlayerView.hidden = NO;
-  self.playIconImageView.hidden = YES;
-  self.thumbnailImageView.hidden = YES;
 }
 
 @end
