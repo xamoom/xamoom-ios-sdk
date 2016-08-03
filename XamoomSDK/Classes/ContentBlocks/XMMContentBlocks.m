@@ -48,14 +48,16 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     self.tableView.backgroundColor = [UIColor colorWithHexString:self.style.backgroundColor];
     
     [XMMContentBlock0TableViewCell setFontSize:NormalFontSize];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(clickContentNotification:)
-                                                 name:kContentBlock9MapContentLinkNotification
-                                               object:nil];
   }
   
   return self;
+}
+
+- (void)viewWillAppear {
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(clickContentNotification:)
+                                               name:kContentBlock9MapContentLinkNotification
+                                             object:nil];
 }
 
 - (void)viewWillDisappear {

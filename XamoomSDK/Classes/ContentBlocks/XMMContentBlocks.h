@@ -91,6 +91,12 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 - (instancetype)initWithTableView:(UITableView *)tableView api:(XMMEnduserApi *)api;
 
 /**
+ *
+ *
+ */
+- (void)viewWillAppear;
+
+/**
  * Call this method, when you view will disappear.
  * This will pause sounds and remove observer.
  */
