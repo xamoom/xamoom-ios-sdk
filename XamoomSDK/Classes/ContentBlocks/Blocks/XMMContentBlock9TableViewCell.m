@@ -133,6 +133,12 @@ static NSString *contentLanguage;
     [self.loadingIndicator stopAnimating];
     [self setupMapView];
     [self showSpotMap:spots];
+    
+    XMMSpot *spot = spots.firstObject;
+    if (self.customMapMarker == nil) {
+      [self getStyleWithId:spot.system.ID api:api spotMapTags:spotMapTags];
+    }
+    
     return;
   }
   
@@ -142,8 +148,8 @@ static NSString *contentLanguage;
     [self.loadingIndicator stopAnimating];
     [self setupMapView];
     [self showSpotMap:spots];
-    XMMSpot *spot = spots.firstObject;
     
+    XMMSpot *spot = spots.firstObject;
     if (self.customMapMarker == nil) {
       [self getStyleWithId:spot.system.ID api:api spotMapTags:spotMapTags];
     }
