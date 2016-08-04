@@ -74,8 +74,8 @@
     self.playIconImageView.hidden = YES;
     [self showVimeoFromUrl:videoURLString];
   } else {
-    self.thumbnailImageView.hidden = YES;
-    self.playIconImageView.hidden = YES;
+    self.thumbnailImageView.hidden = NO;
+    self.playIconImageView.hidden = NO;
     [self videoPlayerWithURL:[NSURL URLWithString:videoURLString]];
     [self thumbnailFromUrl:[NSURL URLWithString:videoURLString] completion:^(UIImage *image) {
       self.thumbnailImageView.image = image;
