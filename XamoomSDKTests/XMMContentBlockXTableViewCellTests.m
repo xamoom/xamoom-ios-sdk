@@ -161,7 +161,7 @@
   XCTAssertNotNil(testCell);
   XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title"]);
   XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
-  XCTAssertFalse(testCell.youtubePlayerView.hidden);
+  XCTAssertFalse(testCell.webView.hidden);
   XCTAssertTrue(testCell.playIconImageView.hidden);
   XCTAssertTrue(testCell.thumbnailImageView.hidden);
 }
@@ -175,7 +175,6 @@
   XCTAssertNotNil(testCell);
   XCTAssertNil(testCell.titleLabel.text);
   XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
-  XCTAssertTrue(testCell.youtubePlayerView.hidden);
   XCTAssertTrue(testCell.playIconImageView.hidden);
   XCTAssertTrue(testCell.thumbnailImageView.hidden);
   XCTAssertFalse(testCell.webView.hidden);
@@ -190,7 +189,7 @@
   XCTAssertNotNil(testCell);
   XCTAssertNil(testCell.titleLabel.text);
   XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
-  XCTAssertTrue(testCell.youtubePlayerView.hidden);
+  XCTAssertTrue(testCell.webView.hidden);
   XCTAssertFalse(testCell.playIconImageView.hidden);
   XCTAssertFalse(testCell.thumbnailImageView.hidden);
 }
