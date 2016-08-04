@@ -127,6 +127,7 @@
   XMMContentBlocks *contentBlocks = [[XMMContentBlocks alloc] initWithTableView:tableView api:self.mockedApi];
   id delegateMock = OCMProtocolMock(@protocol(XMMContentBlocksDelegate));
   contentBlocks.delegate = delegateMock;
+  [contentBlocks viewWillAppear];
   
   OCMExpect([delegateMock didClickContentBlock:[OCMArg isEqual:contentID]]);
   
