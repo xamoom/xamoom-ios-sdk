@@ -27,6 +27,7 @@
 
 @property (nonatomic, strong) NSString *currentContentID;
 @property (nonatomic) bool showContent;
+@property (nonatomic) bool didLoadStyle;
 
 @end
 
@@ -41,6 +42,8 @@ static NSString *contentLanguage;
   [self setupLocationManager];
   [self setupMapOverlayView];
   self.mapHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
+  
+  self.didLoadStyle = NO;
 }
 
 - (void)setupMapView {
@@ -135,7 +138,7 @@ static NSString *contentLanguage;
     [self showSpotMap:spots];
     
     XMMSpot *spot = spots.firstObject;
-    if (self.customMapMarker == nil) {
+    if (self.didLoadStyle == NO) {
       [self getStyleWithId:spot.system.ID api:api spotMapTags:spotMapTags];
     }
     
@@ -150,7 +153,7 @@ static NSString *contentLanguage;
     [self showSpotMap:spots];
     
     XMMSpot *spot = spots.firstObject;
-    if (self.customMapMarker == nil) {
+    if (self.didLoadStyle == NO) {
       [self getStyleWithId:spot.system.ID api:api spotMapTags:spotMapTags];
     }
   }];
@@ -158,6 +161,7 @@ static NSString *contentLanguage;
 
 - (void)getStyleWithId:(NSString *)systemId api:(XMMEnduserApi *)api spotMapTags:(NSArray *)spotMapTags {
   [api styleWithID:systemId completion:^(XMMStyle *style, NSError *error) {
+    self.didLoadStyle = YES;
     [self mapMarkerFromBase64:style.customMarker];
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self getSpotMap:api spotMapTags:spotMapTags];
