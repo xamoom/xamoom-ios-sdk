@@ -184,7 +184,14 @@ static NSString *contentLanguage;
   }
   
   for (XMMSpot *spot in spots) {
-    XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithName:spot.name withLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
+    NSString *annotationTitle = nil;
+    if (spot.name != nil && ![spot.name isEqualToString:@""]) {
+      annotationTitle = spot.name;
+    } else {
+      annotationTitle = @"Spot";
+    }
+    
+    XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithName:annotationTitle withLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
     annotation.spot = spot;
     
     //calculate
