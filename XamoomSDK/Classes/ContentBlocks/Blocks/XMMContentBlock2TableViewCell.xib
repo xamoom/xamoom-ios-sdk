@@ -41,25 +41,27 @@
                         </constraints>
                     </imageView>
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmc-0n-lZf">
-                        <rect key="frame" x="180" y="211" width="140" height="37"/>
+                        <rect key="frame" x="250" y="208" width="70" height="40"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cjD-Dw-61k">
-                            <rect key="frame" x="0.0" y="0.0" width="140" height="37"/>
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="open in youtube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzT-ud-mDM">
-                                    <rect key="frame" x="8" y="8" width="124" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtube2white" translatesAutoresizingMaskIntoConstraints="NO" id="GmR-gx-CzU">
+                                    <rect key="frame" x="8" y="0.0" width="54" height="40"/>
+                                </imageView>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="BzT-ud-mDM" secondAttribute="bottom" constant="8" id="Dj7-GY-PWJ"/>
-                                <constraint firstAttribute="trailing" secondItem="BzT-ud-mDM" secondAttribute="trailing" constant="8" id="VK7-eY-KcB"/>
-                                <constraint firstItem="BzT-ud-mDM" firstAttribute="top" secondItem="cjD-Dw-61k" secondAttribute="top" constant="8" id="cPL-pE-68n"/>
-                                <constraint firstItem="BzT-ud-mDM" firstAttribute="leading" secondItem="cjD-Dw-61k" secondAttribute="leading" constant="8" id="s9D-DW-gNJ"/>
+                                <constraint firstItem="GmR-gx-CzU" firstAttribute="leading" secondItem="cjD-Dw-61k" secondAttribute="leading" constant="8" id="25I-Nv-VNK"/>
+                                <constraint firstAttribute="bottom" secondItem="GmR-gx-CzU" secondAttribute="bottom" id="2DO-b8-8Na"/>
+                                <constraint firstItem="GmR-gx-CzU" firstAttribute="top" secondItem="cjD-Dw-61k" secondAttribute="top" id="7Qj-sG-Gnv"/>
+                                <constraint firstAttribute="trailing" secondItem="GmR-gx-CzU" secondAttribute="trailing" constant="8" id="QPY-3g-C3B"/>
                             </constraints>
                         </view>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="FKr-cy-1k7"/>
+                            <constraint firstAttribute="width" constant="70" id="IUr-UV-fbp"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="cs5-a4-vSE"/>
+                        </constraints>
                         <blurEffect style="dark"/>
                     </visualEffectView>
                 </subviews>
@@ -93,5 +95,6 @@
     </objects>
     <resources>
         <image name="videoPlay" width="50" height="50"/>
+        <image name="youtube2white" width="27" height="32"/>
     </resources>
 </document>
