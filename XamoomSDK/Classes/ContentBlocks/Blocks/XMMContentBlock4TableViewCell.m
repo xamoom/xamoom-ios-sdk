@@ -21,6 +21,7 @@
 
 @interface XMMContentBlock4TableViewCell()
 
+@property (nonatomic, strong) NSBundle *bundle;
 
 @end
 
@@ -33,6 +34,7 @@
   self.linkUrl = nil;
 
   [self setupColors];
+  [self setupBundle];
 }
 
 - (void)setupColors {
@@ -50,6 +52,16 @@
   self.navigationColor = [UIColor colorWithRed:13/255.0f green:163/255.0f blue:96/255.0f alpha:1.0f];
   self.androidColor = [UIColor colorWithRed:0.32 green:0.42 blue:0.00 alpha:1.0];
   self.windowsColor = [UIColor colorWithRed:0.17 green:0.38 blue:0.94 alpha:1.0];
+}
+
+- (void)setupBundle {
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  if (url) {
+    self.bundle = [NSBundle bundleWithURL:url];
+  } else {
+    self.bundle = bundle;
+  }
 }
 
 - (void)prepareForReuse {
@@ -79,7 +91,7 @@
   switch (linkType) {
     case 0: {
       [self.viewForBackgroundColor setBackgroundColor:self.facebookColor];
-      [self.icon setImage:[UIImage imageNamed:@"facebook"]];
+      [self.icon setImage:[UIImage imageNamed:@"facebook" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -88,7 +100,7 @@
     }
     case 1: {
       [self.viewForBackgroundColor setBackgroundColor:self.twitterColor];
-      [self.icon setImage:[UIImage imageNamed:@"twitter"]];
+      [self.icon setImage:[UIImage imageNamed:@"twitter" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -97,7 +109,7 @@
     }
     case 2: {
       [self.viewForBackgroundColor setBackgroundColor:self.standardGreyColor];
-      [self.icon setImage:[UIImage imageNamed:@"web"]];
+      [self.icon setImage:[UIImage imageNamed:@"web" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:self.standardTextColor];
       [self.linkTextLabel setTextColor:self.standardTextColor];
@@ -106,7 +118,7 @@
     }
     case 3: {
       [self.viewForBackgroundColor setBackgroundColor:self.shopColor];
-      [self.icon setImage:[UIImage imageNamed:@"shop"]];
+      [self.icon setImage:[UIImage imageNamed:@"shop" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor blackColor]];
       [self.linkTextLabel setTextColor:[UIColor blackColor]];
@@ -115,7 +127,7 @@
     }
     case 4: {
       [self.viewForBackgroundColor setBackgroundColor:self.standardGreyColor];
-      [self.icon setImage:[UIImage imageNamed:@"wikipedia"]];
+      [self.icon setImage:[UIImage imageNamed:@"wikipedia" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:self.standardTextColor];
       [self.linkTextLabel setTextColor:self.standardTextColor];
@@ -124,7 +136,7 @@
     }
     case 5: {
       [self.viewForBackgroundColor setBackgroundColor:self.linkedInColor];
-      [self.icon setImage:[UIImage imageNamed:@"linkedin"]];
+      [self.icon setImage:[UIImage imageNamed:@"linkedin" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -133,7 +145,7 @@
     }
     case 6: {
       [self.viewForBackgroundColor setBackgroundColor:self.flickrColor];
-      [self.icon setImage:[UIImage imageNamed:@"flickr"]];
+      [self.icon setImage:[UIImage imageNamed:@"flickr" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -142,7 +154,7 @@
     }
     case 7: {
       [self.viewForBackgroundColor setBackgroundColor:self.soundcloudColor];
-      [self.icon setImage:[UIImage imageNamed:@"soundcloud"]];
+      [self.icon setImage:[UIImage imageNamed:@"soundcloud" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor blackColor]];
       [self.linkTextLabel setTextColor:[UIColor blackColor]];
@@ -151,7 +163,7 @@
     }
     case 8: {
       [self.viewForBackgroundColor setBackgroundColor:self.standardGreyColor];
-      [self.icon setImage:[UIImage imageNamed:@"itunes"]];
+      [self.icon setImage:[UIImage imageNamed:@"itunes" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:self.standardTextColor];
       [self.linkTextLabel setTextColor:self.standardTextColor];
@@ -160,7 +172,7 @@
     }
     case 9: {
       [self.viewForBackgroundColor setBackgroundColor:self.youtubeColor];
-      [self.icon setImage:[UIImage imageNamed:@"youtube"]];
+      [self.icon setImage:[UIImage imageNamed:@"youtube" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -169,7 +181,7 @@
     }
     case 10: {
       [self.viewForBackgroundColor setBackgroundColor:self.googleColor];
-      [self.icon setImage:[UIImage imageNamed:@"google"]];
+      [self.icon setImage:[UIImage imageNamed:@"google" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -178,7 +190,7 @@
     }
     case 11: {
       [self.viewForBackgroundColor setBackgroundColor:self.standardGreyColor];
-      [self.icon setImage:[UIImage imageNamed:@"phone"]];
+      [self.icon setImage:[UIImage imageNamed:@"phone" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:self.standardTextColor];
       [self.linkTextLabel setTextColor:self.standardTextColor];
@@ -187,7 +199,7 @@
     }
     case 12: {
       [self.viewForBackgroundColor setBackgroundColor:self.standardGreyColor];
-      [self.icon setImage:[UIImage imageNamed:@"email"]];
+      [self.icon setImage:[UIImage imageNamed:@"email" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:self.standardTextColor];
       [self.linkTextLabel setTextColor:self.standardTextColor];
@@ -196,7 +208,7 @@
     }
     case 13: {
       [self.viewForBackgroundColor setBackgroundColor:self.spotifyColor];
-      [self.icon setImage:[UIImage imageNamed:@"spotify"]];
+      [self.icon setImage:[UIImage imageNamed:@"spotify" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor blackColor]];
       [self.linkTextLabel setTextColor:[UIColor blackColor]];
@@ -205,7 +217,7 @@
     }
     case 14: {
       [self.viewForBackgroundColor setBackgroundColor:self.navigationColor];
-      [self.icon setImage:[UIImage imageNamed:@"directional"]];
+      [self.icon setImage:[UIImage imageNamed:@"directional" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -214,7 +226,7 @@
     }
     case 15: {
       [self.viewForBackgroundColor setBackgroundColor:[UIColor blackColor]];
-      [self.icon setImage:[UIImage imageNamed:@"apple"]];
+      [self.icon setImage:[UIImage imageNamed:@"apple" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -223,7 +235,7 @@
     }
     case 16: {
       [self.viewForBackgroundColor setBackgroundColor:self.androidColor];
-      [self.icon setImage:[UIImage imageNamed:@"android"]];
+      [self.icon setImage:[UIImage imageNamed:@"android" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -232,7 +244,7 @@
     }
     case 17: {
       [self.viewForBackgroundColor setBackgroundColor:self.windowsColor];
-      [self.icon setImage:[UIImage imageNamed:@"windows"]];
+      [self.icon setImage:[UIImage imageNamed:@"windows" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
@@ -242,7 +254,7 @@
     default:
       NSLog(@"Linktype not recognized.");
       [self.viewForBackgroundColor setBackgroundColor:self.standardGreyColor];
-      [self.icon setImage:[UIImage imageNamed:@"web"]];
+      [self.icon setImage:[UIImage imageNamed:@"web" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:self.standardTextColor];
       [self.linkTextLabel setTextColor:self.standardTextColor];
