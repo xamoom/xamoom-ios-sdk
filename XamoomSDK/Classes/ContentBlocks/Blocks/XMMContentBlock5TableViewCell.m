@@ -23,7 +23,17 @@
 
 - (void)awakeFromNib {
   // Initialization code
-  self.ebookImageView.image = [[UIImage imageNamed:@"ebook"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *imageBundle = nil;
+  if (url) {
+    imageBundle = [NSBundle bundleWithURL:url];
+  } else {
+    imageBundle = bundle;
+  }
+  
+  self.ebookImageView.image = [[UIImage imageNamed:@"ebook"
+                                          inBundle:imageBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   self.ebookImageView.tintColor = [UIColor whiteColor];
   
   self.titleLabel.text = nil;

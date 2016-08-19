@@ -21,6 +21,9 @@
 
 @interface XMMContentBlock1TableViewCell ()
 
+@property (nonatomic, strong) UIImage *playImage;
+@property (nonatomic, strong) UIImage *pauseImage;
+
 @end
 
 @implementation XMMContentBlock1TableViewCell
@@ -31,7 +34,27 @@
                                                name:@"pauseAllSounds"
                                              object:nil];
   
-  [self.audioControlButton setImage:[UIImage imageNamed:@"playbutton"] forState:UIControlStateNormal];
+  [self setupImages];
+  
+  [self.audioControlButton setImage:self.playImage
+                           forState:UIControlStateNormal];
+}
+
+- (void)setupImages {
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *imageBundle = nil;
+  if (url) {
+    imageBundle = [NSBundle bundleWithURL:url];
+  } else {
+    imageBundle = bundle;
+  }
+  
+  self.playImage = [UIImage imageNamed:@"playbutton"
+                              inBundle:imageBundle compatibleWithTraitCollection:nil];
+  
+  self.pauseImage = [UIImage imageNamed:@"pausebutton"
+                              inBundle:imageBundle compatibleWithTraitCollection:nil];
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
@@ -46,11 +69,11 @@
   if (!self.isPlaying) {
     [self.audioPlayerControl play];
     self.playing = YES;
-    [self.audioControlButton setImage:[UIImage imageNamed:@"pausebutton"] forState:UIControlStateNormal];
+    [self.audioControlButton setImage:self.pauseImage forState:UIControlStateNormal];
   } else {
     [self.audioPlayerControl pause];
     self.playing = NO;
-    [self.audioControlButton setImage:[UIImage imageNamed:@"playbutton"] forState:UIControlStateNormal];
+    [self.audioControlButton setImage:self.playImage forState:UIControlStateNormal];
   }
 }
 

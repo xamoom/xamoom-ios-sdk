@@ -26,8 +26,19 @@
   self.contentTextLabel.text = nil;
   self.fileID = nil;
   
-  self.calendarImage = [UIImage imageNamed:@"cal"];
-  self.contactImage = [UIImage imageNamed:@"contact"];
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *imageBundle = nil;
+  if (url) {
+    imageBundle = [NSBundle bundleWithURL:url];
+  } else {
+    imageBundle = bundle;
+  }
+  
+  self.calendarImage = [UIImage imageNamed:@"cal"
+                                  inBundle:imageBundle compatibleWithTraitCollection:nil];
+  self.contactImage = [UIImage imageNamed:@"contact"
+                                 inBundle:imageBundle compatibleWithTraitCollection:nil];
 }
 
 - (void)prepareForReuse {

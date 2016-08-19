@@ -33,7 +33,18 @@
 - (void)awakeFromNib {
   // Initialization code
   self.videoPlayer = nil;
-  self.playImage = [UIImage imageNamed:@"videoPlay"];
+  
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *imageBundle = nil;
+  if (url) {
+    imageBundle = [NSBundle bundleWithURL:url];
+  } else {
+    imageBundle = bundle;
+  }
+
+  self.playImage = [UIImage imageNamed:@"videoPlay"
+                              inBundle:imageBundle compatibleWithTraitCollection:nil];
   self.webView.scrollView.scrollEnabled = false;
 }
 

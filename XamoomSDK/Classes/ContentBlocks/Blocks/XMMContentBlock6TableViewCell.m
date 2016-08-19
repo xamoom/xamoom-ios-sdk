@@ -32,11 +32,21 @@ static NSString *contentLanguage;
 
 - (void)awakeFromNib {
   // Initialization code
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *imageBundle = nil;
+  if (url) {
+    imageBundle = [NSBundle bundleWithURL:url];
+  } else {
+    imageBundle = bundle;
+  }
+  
   self.contentID = nil;
   self.contentImageView.image = nil;
   self.contentTitleLabel.text = nil;
   self.contentExcerptLabel.text = nil;
-  self.angleImage = [UIImage imageNamed:@"angleRight"];
+  self.angleImage = [UIImage imageNamed:@"angleRight"
+                               inBundle:imageBundle compatibleWithTraitCollection:nil];
 }
 
 - (void)prepareForReuse {

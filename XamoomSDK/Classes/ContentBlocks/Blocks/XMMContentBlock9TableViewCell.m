@@ -244,7 +244,16 @@ static NSString *contentLanguage;
       if(self.customMapMarker) {
         annotationView.image = self.customMapMarker;
       } else {
-        annotationView.image = [UIImage imageNamed:@"mappoint"];
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+        NSBundle *imageBundle = nil;
+        if (url) {
+          imageBundle = [NSBundle bundleWithURL:url];
+        } else {
+          imageBundle = bundle;
+        }
+        annotationView.image = [UIImage imageNamed:@"mappoint"
+                                          inBundle:imageBundle compatibleWithTraitCollection:nil];
       }
     } else {
       annotationView.annotation = annotation;
