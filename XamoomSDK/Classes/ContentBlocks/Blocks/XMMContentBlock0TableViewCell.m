@@ -58,7 +58,9 @@ static UIColor *contentLinkColor;
   if(title != nil && ![title isEqualToString:@""]) {
     self.contentTextViewTopConstraint.constant = 8;
     self.titleLabel.text = title;
-    [self.titleLabel setFont:[UIFont systemFontOfSize:[XMMContentBlock0TableViewCell fontSize]+5 weight:UIFontWeightMedium]];
+    
+    UIFont *font = self.titleLabel.font;
+    [self.titleLabel setFont:[UIFont fontWithName:font.fontName size:[XMMContentBlock0TableViewCell fontSize]+5]];
   } else {
     self.contentTextViewTopConstraint.constant = 0;
   }
