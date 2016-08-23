@@ -25,6 +25,7 @@
 
 @interface XMMContentBlock9TableViewCell()
 
+@property (nonatomic, strong) NSBundle *bundle;
 @property (nonatomic, strong) NSString *currentContentID;
 @property (nonatomic) bool showContent;
 @property (nonatomic) bool didLoadStyle;
@@ -39,6 +40,15 @@ static NSString *contentLanguage;
 - (void)awakeFromNib {
   // Initialization code
   self.clipsToBounds = YES;
+  
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  if (url != nil) {
+    self.bundle = [NSBundle bundleWithURL:url];
+  } else {
+    self.bundle = bundle;
+  }
+  
   [self setupLocationManager];
   [self setupMapOverlayView];
   self.mapHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
@@ -64,15 +74,7 @@ static NSString *contentLanguage;
 }
 
 - (void)setupMapOverlayView {
-  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-  if (url) {
-    NSBundle *nibBundle = [NSBundle bundleWithURL:url];
-    self.mapAdditionView = [[nibBundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
-  } else {
-    //nib found in another boundle when unit testing
-    self.mapAdditionView = [[bundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
-  }
+  self.mapAdditionView = [[self.bundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
   
   self.mapAdditionView.translatesAutoresizingMaskIntoConstraints = NO;
   [self.contentView addSubview:self.mapAdditionView];
@@ -169,15 +171,6 @@ static NSString *contentLanguage;
 }
 
 - (void)showSpotMap:(NSArray *)spots {
-  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-  NSBundle *libBundle;
-  if (url != nil) {
-    libBundle = [NSBundle bundleWithURL:url];
-  } else {
-    libBundle = bundle;
-  }
-  
   // Add annotations
   if (self.mapView.annotations != nil) {
     [self.mapView removeAnnotations:self.mapView.annotations];
@@ -198,9 +191,9 @@ static NSString *contentLanguage;
     CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
     CLLocationDistance distance = [self.locationManager.location distanceFromLocation:annotationLocation];
     if (distance < 1000) {
-      annotation.distance = [NSString stringWithFormat:@"%@: %d m", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", libBundle, nil), (int)distance];
+      annotation.distance = [NSString stringWithFormat:@"%@: %d m", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), (int)distance];
     } else {
-      annotation.distance = [NSString stringWithFormat:@"%@: %0.1f km", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", libBundle, nil), distance/1000];
+      annotation.distance = [NSString stringWithFormat:@"%@: %0.1f km", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), distance/1000];
     }
     
     [self.mapView addAnnotation:annotation];
@@ -244,16 +237,9 @@ static NSString *contentLanguage;
       if(self.customMapMarker) {
         annotationView.image = self.customMapMarker;
       } else {
-        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-        NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-        NSBundle *imageBundle = nil;
-        if (url) {
-          imageBundle = [NSBundle bundleWithURL:url];
-        } else {
-          imageBundle = bundle;
-        }
-        annotationView.image = [UIImage imageNamed:@"mappoint"
-                                          inBundle:imageBundle compatibleWithTraitCollection:nil];
+        UIImage *image = [UIImage imageNamed:@"mappoint"
+                                          inBundle:self.bundle compatibleWithTraitCollection:nil];
+        annotationView.image = image;
       }
     } else {
       annotationView.annotation = annotation;
