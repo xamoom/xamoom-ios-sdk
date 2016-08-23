@@ -115,7 +115,7 @@
 }
 
 - (void)showYoutubeWithId:(NSString *)videoId {
-  NSString *htmlString = [NSString stringWithFormat:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"%f\" height=\"%f\" src=\"https://www.youtube.com/embed/%@\" frameborder=\"0\" allowfullscreen></iframe>", self.webView.bounds.size.width, self.webView.bounds.size.height, videoId];
+  NSString *htmlString = [NSString stringWithFormat:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"100%%\" height=\"100%%\" src=\"https://www.youtube.com/embed/%@\" frameborder=\"0\" allowfullscreen></iframe>", videoId];
   [self.webView loadHTMLString:htmlString baseURL:nil];
 }
 
