@@ -81,7 +81,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
 }
 
 - (void)registerNibs {
-  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSBundle *bundle = [NSBundle bundleForClass:[XMMContentBlocks class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
   NSBundle *nibBundle;
   if (url) {
@@ -235,7 +235,6 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     id cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell openLink];
   }
-  
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
