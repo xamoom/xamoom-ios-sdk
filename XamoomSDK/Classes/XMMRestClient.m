@@ -76,8 +76,8 @@
       
       dispatch_async(dispatch_get_main_queue(), ^{
         completion(jsonApi, error);
-        return;
       });
+      return;
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
