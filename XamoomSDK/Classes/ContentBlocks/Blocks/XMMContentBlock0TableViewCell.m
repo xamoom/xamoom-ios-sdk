@@ -50,17 +50,22 @@ static UIColor *contentLinkColor;
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
   
-  [self displayTitle:block.title];
+  [self displayTitle:block.title block:block];
   [self displayContent:block.text style:style];
 }
 
-- (void)displayTitle:(NSString *)title {
+- (void)displayTitle:(NSString *)title block:(XMMContentBlock *)block {
   if(title != nil && ![title isEqualToString:@""]) {
     self.contentTextViewTopConstraint.constant = 8;
     self.titleLabel.text = title;
     
+    int fontDiff = 5;
+    if (block.blockType == 00) {
+      fontDiff = 10;
+    }
+    
     UIFont *font = self.titleLabel.font;
-    [self.titleLabel setFont:[UIFont fontWithName:font.fontName size:[XMMContentBlock0TableViewCell fontSize]+5]];
+    [self.titleLabel setFont:[UIFont fontWithName:font.fontName size:[XMMContentBlock0TableViewCell fontSize]+fontDiff]];
   } else {
     self.contentTextViewTopConstraint.constant = 0;
   }

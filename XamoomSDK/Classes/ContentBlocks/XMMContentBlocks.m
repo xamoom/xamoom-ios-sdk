@@ -91,6 +91,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   }
   
   UINib *nib = [UINib nibWithNibName:@"XMMContentBlock0TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock00TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock0TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock0TableViewCell"];
   
   nib = [UINib nibWithNibName:@"XMMContentBlock1TableViewCell" bundle:nibBundle];
@@ -158,7 +161,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   
   XMMContentBlock *title = [[XMMContentBlock alloc] init];
   title.publicStatus = YES;
-  title.blockType = 0;
+  title.blockType = 00;
   title.title = content.title;
   title.text = content.contentDescription;
   [contentBlocks insertObject:title atIndex:0];
@@ -200,7 +203,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   id cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
   if (cell) {
     UITableViewCell *tableViewCell = (UITableViewCell *)cell;
-    tableViewCell.backgroundColor = [UIColor colorWithHexString:self.style.backgroundColor];
+    tableViewCell.backgroundColor = [UIColor clearColor];
   }
   
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:)]) {
