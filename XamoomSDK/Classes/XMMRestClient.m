@@ -52,7 +52,6 @@
     JSONAPI *jsonApi;
     
     if (error) {
-      NSLog(@"Error: %@", error);
       dispatch_async(dispatch_get_main_queue(), ^{
         completion(jsonApi, error);
       });
