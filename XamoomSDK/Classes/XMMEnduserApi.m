@@ -113,6 +113,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
+      return;
     }
     
     XMMContent *content = result.resource;
@@ -133,6 +134,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
+      return;
     }
     
     XMMContent *content = result.resource;
@@ -158,6 +160,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
+      return;
     }
     
     XMMContent *content = result.resource;
@@ -194,6 +197,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, NO, nil, error);
+      return;
     }
     
     NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
@@ -221,6 +225,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, NO, nil, error);
+      return;
     }
     
     NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
@@ -248,6 +253,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, NO, nil, error);
+      return;
     }
     
     NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
@@ -277,6 +283,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMSpot class] id:spotID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
+      return;
     }
     
     XMMSpot *spot = result.resource;
@@ -302,6 +309,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
+      return;
     }
     
     completion(result.resources, error);
@@ -328,6 +336,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, false, nil, error);
+      return;
     }
     
     NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
@@ -366,6 +375,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, false, nil, error);
+      return;
     }
     
     NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
@@ -399,6 +409,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, false, nil, error);
+      return;
     }
     
     NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
@@ -417,6 +428,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMSystem class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
+      return;
     }
     
     XMMSystem *system = result.resource;
@@ -431,6 +443,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMSystemSettings class] id:settingsID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
+      return;
     }
     
     XMMSystemSettings *settings = result.resource;
@@ -445,6 +458,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMStyle class] id:styleID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
+      return;
     }
     
     XMMStyle *style = result.resource;
@@ -459,6 +473,7 @@ static XMMEnduserApi *sharedInstance;
   [self.restClient fetchResource:[XMMMenu class] id:menuID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
+      return;
     }
     
     XMMMenu *menu = result.resource;
