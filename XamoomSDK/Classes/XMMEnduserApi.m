@@ -422,7 +422,6 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark system calls
 
-
 - (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion {
   NSDictionary *params = @{@"lang":self.language};
   [self.restClient fetchResource:[XMMSystem class] parameters:params completion:^(JSONAPI *result, NSError *error) {

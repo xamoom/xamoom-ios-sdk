@@ -108,7 +108,6 @@
 		88E46E9F1C47E348004D8AC3 /* XMMSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E421C47E348004D8AC3 /* XMMSpot.m */; };
 		88E46EA21C47E348004D8AC3 /* XMMStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E451C47E348004D8AC3 /* XMMStyle.h */; };
 		88E46EA31C47E348004D8AC3 /* XMMStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E461C47E348004D8AC3 /* XMMStyle.m */; };
-		88E46EA41C47E348004D8AC3 /* XamoomSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E471C47E348004D8AC3 /* XamoomSDK.h */; };
 		88E46EA51C47E348004D8AC3 /* XMMEnduserApi.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E481C47E348004D8AC3 /* XMMEnduserApi.h */; };
 		88E46EA61C47E348004D8AC3 /* XMMEnduserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E491C47E348004D8AC3 /* XMMEnduserApi.m */; };
 		88E46F211C4933CA004D8AC3 /* XMMQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46F1F1C4933CA004D8AC3 /* XMMQuery.h */; };
@@ -237,7 +236,6 @@
 		88E46E421C47E348004D8AC3 /* XMMSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMSpot.m; sourceTree = "<group>"; };
 		88E46E451C47E348004D8AC3 /* XMMStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMStyle.h; sourceTree = "<group>"; };
 		88E46E461C47E348004D8AC3 /* XMMStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMStyle.m; sourceTree = "<group>"; };
-		88E46E471C47E348004D8AC3 /* XamoomSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XamoomSDK.h; path = classes/XamoomSDK.h; sourceTree = "<group>"; };
 		88E46E481C47E348004D8AC3 /* XMMEnduserApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMEnduserApi.h; path = classes/XMMEnduserApi.h; sourceTree = "<group>"; };
 		88E46E491C47E348004D8AC3 /* XMMEnduserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMEnduserApi.m; path = classes/XMMEnduserApi.m; sourceTree = "<group>"; };
 		88E46F1F1C4933CA004D8AC3 /* XMMQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMQuery.h; path = Classes/XMMQuery.h; sourceTree = "<group>"; };
@@ -418,7 +416,6 @@
 				8888DDC71C47B0FA0050A84C /* Info.plist */,
 				8849374C1C731FB500C53520 /* Images.xcassets */,
 				88E46DE31C47E117004D8AC3 /* XamoomSDK.h */,
-				88E46E471C47E348004D8AC3 /* XamoomSDK.h */,
 				88E46E481C47E348004D8AC3 /* XMMEnduserApi.h */,
 				88E46E491C47E348004D8AC3 /* XMMEnduserApi.m */,
 				88E46F1F1C4933CA004D8AC3 /* XMMQuery.h */,
@@ -559,7 +556,6 @@
 				88E46F211C4933CA004D8AC3 /* XMMQuery.h in Headers */,
 				883E55A61C4A37FE000C4D09 /* XMMContentBlocks.h in Headers */,
 				883E55801C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.h in Headers */,
-				88E46EA41C47E348004D8AC3 /* XamoomSDK.h in Headers */,
 				883E55951C4A37FE000C4D09 /* XMMContentBlock7TableViewCell.h in Headers */,
 				883E55861C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.h in Headers */,
 				88E46EA21C47E348004D8AC3 /* XMMStyle.h in Headers */,

@@ -55,22 +55,6 @@
   XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
 }
 
-- (void)testThatContentWithIdCallsFetchResourceWithParamaters {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
-  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
-  
-  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
-                                       id:[OCMArg isEqual:contentID]
-                               parameters:[OCMArg isEqual:@{@"lang":@"en"}]
-                               completion:[OCMArg any]]);
-  
-  [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
-  }];
-  
-  OCMVerifyAll(mockRestClient);
-}
-
 - (void)testNewSharedInstanceWithKey {
   XMMEnduserApi *api = [XMMEnduserApi sharedInstanceWithKey:@"apikey"];
   
@@ -96,6 +80,22 @@
   XCTAssertEqual(api, checkApi);
   XCTAssertTrue([checkApi.systemLanguage isEqualToString:@"en"]);
   XCTAssertTrue([checkApi.language isEqualToString:@"en"]);
+}
+
+- (void)testThatContentWithIdCallsFetchResourceWithParamaters {
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                                       id:[OCMArg isEqual:contentID]
+                               parameters:[OCMArg isEqual:@{@"lang":@"en"}]
+                               completion:[OCMArg any]]);
+  
+  [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
 }
 
 - (void)testThatContentWithIdReturnsContentViaCallback {
@@ -125,6 +125,29 @@
   }];
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithIdReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNil(content);
+    XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:2.0 handler:nil];
 }
 
 - (void)testThatContentWithIdOptionsCallsFetchResourceWithParamaters {
@@ -168,6 +191,29 @@
     XCTAssertNotNil(content.contentDescription);
     XCTAssertTrue(content.contentBlocks.count == 9);
     XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithIdOptionsReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNil(content);
+    XCTAssertNotNil(error);
     [expectation fulfill];
   }];
   
@@ -238,6 +284,29 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatContentWithLocationIdentifierReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *qrMarker = @"7qpqr";
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNil(content);
+    XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testThatContentWithBeaconMajorCallsFetchResources {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -301,6 +370,30 @@
     XCTAssertNotNil(content.contentDescription);
     XCTAssertTrue(content.contentBlocks.count == 9);
     XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithBeaconMajorReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSNumber *minor = @54222;
+  NSNumber *major = @24265;
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNil(content);
+    XCTAssertNotNil(error);
     [expectation fulfill];
   }];
   
@@ -392,6 +485,29 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatContentsWithLocationReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentsWithLocation:location pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNil(contents);
+    XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testThatContentWithTagsCallsFetchResources {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -452,6 +568,29 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatContentsWithTagsReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSArray *tags = @[@"tag1", @"tag2"];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentsWithTags:tags pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNil(contents);
+    XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testThatContentWithNameWithCursorSortCallsFetchResources {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -497,7 +636,29 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
-- (void)testThatSpotWithIdReturnsContentViaCallback {
+- (void)testThatContentsWithNameReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api contentsWithName:@"test" pageSize:20 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNil(contents);
+    XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatSpotWithIdReturnsSpotViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id mockRestClient = OCMPartialMock(self.restClient);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -531,6 +692,28 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatSpotWithIdReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSString *spotID = @"5755996320301056|5744440375246848";
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api spotWithID:spotID completion:^(XMMSpot *spot, NSError *error) {
+    XCTAssertNil(spot);
+    XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
 
 - (void)testThatSpotWithIdAndOptionsCallsFetchResources {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
@@ -675,6 +858,29 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatSpotsWithLocationReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api spotsWithLocation:location radius:100 options:0 completion:^(NSArray *spots, NSError *error) {
+    XCTAssertNil(spots);
+    XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testThatSpotWithLocationRadiusOptionPageSizeCursorCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -725,6 +931,31 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatSpotsWithLocationPageSizeCursorReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMPartialMock(self.restClient);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api spotsWithLocation:location radius:10 options:0 pageSize:10 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNil(spots);
+    XCTAssertNotNil(error);
+    XCTAssertFalse(hasMore);
+    XCTAssertNil(cursor);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testThatSpotsWithTagsOptionSortCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -766,6 +997,31 @@
     XCTAssertTrue(spots.count == 7);
     XCTAssertTrue([cursor isEqualToString:@""]);
     XCTAssertFalse(hasMore);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatSpotsWithTagsOptionsReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  NSArray *tags = @[@"tag1", @"tag2"];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNil(spots);
+    XCTAssertNotNil(error);
+    XCTAssertFalse(hasMore);
+    XCTAssertNil(cursor);
     [expectation fulfill];
   }];
   
@@ -820,8 +1076,6 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
-//********
-
 - (void)testThatSpotsWithNameCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -866,8 +1120,29 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
-//********
-
+- (void)testThatSpotsWithNameReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api spotsWithName:@"do not touch" pageSize:20 cursor:nil options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNil(spots);
+    XCTAssertNotNil(error);
+    XCTAssertFalse(hasMore);
+    XCTAssertNil(cursor);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
 
 - (void)testThatSystemCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
@@ -912,6 +1187,28 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatSystemReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api systemWithCompletion:^(XMMSystem *system, NSError *error) {
+    XCTAssertNil(system);
+    XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testThatSystemSettingsCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -946,6 +1243,28 @@
   [api systemSettingsWithID:@"12345" completion:^(XMMSystemSettings *settings, NSError *error) {
     XCTAssertTrue([settings.itunesAppId isEqualToString:@"998504165"]);
     XCTAssertTrue([settings.googlePlayAppId isEqualToString:@"com.skype.raider"]);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatSystemSettingsReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api systemSettingsWithID:@"12345" completion:^(XMMSystemSettings *settings, NSError *error) {
+    XCTAssertNil(settings);
+    XCTAssertNotNil(error);
     [expectation fulfill];
   }];
   
@@ -996,6 +1315,28 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatStyleWithIDReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api styleWithID:@"12345" completion:^(XMMStyle *style, NSError *error) {
+    XCTAssertNil(style);
+    XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
 - (void)testThatMenuWithIDCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -1030,6 +1371,28 @@
   [api menuWithID:@"12345" completion:^(XMMMenu *menu, NSError *error) {
     XCTAssertNotNil(menu);
     XCTAssertTrue(menu.items.count == 2);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatMenuWithIDReturnsError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockRestClient = OCMClassMock([XMMRestClient class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 5];
+    passedBlock(nil, [[NSError alloc] init]);
+  };
+  
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [api menuWithID:@"12345" completion:^(XMMMenu *menu, NSError *error) {
+    XCTAssertNil(menu);
+    XCTAssertNotNil(error);
     [expectation fulfill];
   }];
   
