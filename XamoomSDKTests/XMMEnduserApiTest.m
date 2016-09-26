@@ -36,7 +36,7 @@
 
 - (void)testInitWithApiKey {
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"XamoomSDK iOS",
+                                @"User-Agent":@"XamoomSDK iOS|(null)|2.2.0",
                                 @"APIKEY":@"apikey",};
   
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];

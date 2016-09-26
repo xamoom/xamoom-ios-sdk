@@ -23,6 +23,7 @@
 NSString * const kApiBaseURLString = @"https://xamoom-cloud.appspot.com/_api/v2/consumer";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
+NSString * const kSDKVersion = @"2.2.0";
 
 @interface XMMEnduserApi ()
 
@@ -64,9 +65,14 @@ static XMMEnduserApi *sharedInstance;
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
   self.language = self.systemLanguage;
   
+  NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@|%@",
+                               kHTTPUserAgent,
+                               [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"],
+                               kSDKVersion];
+  
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:@{@"Content-Type":kHTTPContentType,
-                                     @"User-Agent":kHTTPUserAgent,
+                                     @"User-Agent":customUserAgent,
                                      @"APIKEY":apikey,}];
   
   self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString: kApiBaseURLString]
