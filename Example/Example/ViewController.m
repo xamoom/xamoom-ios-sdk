@@ -28,7 +28,7 @@
   NSString *devkey = [dict objectForKey:@"X-DEVKEY"];
   
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"XamoomSDK iOS",
+                                @"User-Agent":@"Xamoom iOS SDK | SDK Example | 2.2.0",
                                 @"APIKEY":apikey,
                                 @"X-DEVKEY":devkey};
   
