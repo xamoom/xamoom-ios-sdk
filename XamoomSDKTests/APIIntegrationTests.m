@@ -41,6 +41,7 @@
   self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
   
   self.contentID = [dict objectForKey:@"contentID"];
+  self.contentID = @"3d5a1434487f44bf93d4b66ec90a0e32";
   self.qrMarker = [dict objectForKey:@"qrMarker"];
 }
 
@@ -49,23 +50,28 @@
   self.api = nil;
   [super tearDown];
 }
-/*
+
 - (void)testContentWithID {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  NSArray *tags = [NSArray arrayWithObjects:@"tag1", @"tag2", @"tag3", nil];
+  NSArray *tags = [NSArray arrayWithObjects:@"tag1", @"tag2", nil];
   
+  self.api.language = @"en";
   [self.api contentWithID:self.contentID completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
     XCTAssertNil(error);
     
     //content
-    XCTAssertTrue([content.title isEqualToString:@"DO NOT TOUCH | APP | Testsite 1"]);
-    XCTAssertTrue([content.contentDescription isEqualToString:@"Test"]);
-    XCTAssertTrue([content.language isEqualToString:@"de"]);
-    XCTAssertNotNil(content.imagePublicUrl);
-    XCTAssertTrue([content.tags isEqualToArray:tags]);
+    XCTAssertTrue([content.title isEqualToString:@"Test Title EN"]);
+    XCTAssertTrue([content.contentDescription isEqualToString:@"Test Description EN"]);
+    XCTAssertTrue([content.language isEqualToString:@"en"]);
+
+    
+    content.imagePublicUrl = [content.imagePublicUrl substringToIndex:[content.imagePublicUrl rangeOfString:@"?v="].location];
+    XCTAssertTrue([content.imagePublicUrl isEqualToString:@"https://storage.googleapis.com/xamoom-files-test/d6f4f14cc1314a92be7c7ced95abd90d.jpg"]);
+    //XCTAssertTrue([content.tags isEqualToArray:tags]);
     XCTAssertTrue(content.category == 76);
     
+    /*
     //system
     XCTAssertTrue([content.system.ID isEqualToString:@"5755996320301056"]);
     
@@ -148,13 +154,14 @@
     XCTAssertTrue(block.blockType == 9);
     XCTAssertTrue([block.spotMapTags isEqualToArray:[NSArray arrayWithObject:@"spot1"]]);
     XCTAssertTrue(block.showContent);
-    
+    */
     [expectation fulfill];
   }];
   
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
+/*
 - (void)testContentWithLocationIdentifier {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   
