@@ -807,7 +807,7 @@
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsNone completion:^(NSArray *contents, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);
@@ -830,7 +830,7 @@
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation completion:^(NSArray *spots, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);
@@ -850,7 +850,7 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotsWithLocation:location radius:100 options:0 completion:^(NSArray *spots, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
     [expectation fulfill];
   }];
@@ -872,7 +872,7 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotsWithLocation:location radius:100 options:0 completion:^(NSArray *spots, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(spots);
     XCTAssertNotNil(error);
     [expectation fulfill];

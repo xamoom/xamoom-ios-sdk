@@ -257,18 +257,8 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark spots calls
 
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion {
-  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language location:location radius:radius];
-  params = [XMMParamHelper addSpotOptionsToParams:params options:options];
-  
-  [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
-      completion(nil, error);
-      return;
-    }
-    
-    completion(result.resources, error);
-  }];
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  [self spotsWithLocation:location radius:radius options:options pageSize:0 cursor:nil completion:completion];
 }
 
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {

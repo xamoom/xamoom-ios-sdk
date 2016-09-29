@@ -256,7 +256,7 @@ extern NSString * const kApiBaseURLString;
  * - *param1* spots Spots from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion;
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get spots inside radius of a location.

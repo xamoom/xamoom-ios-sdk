@@ -55,7 +55,9 @@
 + (NSDictionary *)addPagingToParams:(NSDictionary *)params pageSize:(int)pageSize cursor:(NSString *)cursor {
   NSMutableDictionary *mutableParams = [params mutableCopy];
   
-  [mutableParams setValue:[@(pageSize) stringValue] forKey:@"page[size]"];
+  if (pageSize != 0) {
+    [mutableParams setValue:[@(pageSize) stringValue] forKey:@"page[size]"];
+  }
   
   if (cursor != nil && ![cursor isEqualToString:@""]) {
     [mutableParams setObject:cursor forKey:@"page[cursor]"];
