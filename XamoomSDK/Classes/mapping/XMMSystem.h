@@ -29,7 +29,7 @@
 /**
  * XMMSystem with linked XMMSystemSettings, XMMStyle and XMMMenu.
  */
-@interface XMMSystem : JSONAPIResourceBase  <XMMRestResource>
+@interface XMMSystem : JSONAPIResourceBase <XMMRestResource>
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *url;
