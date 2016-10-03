@@ -13,6 +13,8 @@
 
 @property NSManagedObjectContext *managedObjectContext;
 
++ (instancetype)sharedInstance;
+
 - (NSManagedObject *)saveEntity:(id)entity;
 
 @end

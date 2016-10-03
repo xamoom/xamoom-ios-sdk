@@ -10,6 +10,15 @@
 
 @implementation XMMOfflineStorageManager
 
++ (instancetype)sharedInstance {
+  static XMMOfflineStorageManager *sharedMyManager = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    sharedMyManager = [[self alloc] init];
+  });
+  return sharedMyManager;
+}
+
 - (id)init {
   self = [super init];
   
@@ -19,8 +28,16 @@
 }
 
 - (void)initializeCoreData {
-  NSBundle *bundle = [NSBundle bundleForClass:self.class];
-  NSURL *modelURL = [bundle URLForResource:@"EnduserModel" withExtension:@"momd"];
+  NSBundle *bundle = [NSBundle bundleForClass:[XMMOfflineStorageManager class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *sdkBundle;
+  if (url) {
+    sdkBundle = [NSBundle bundleWithURL:url];
+  } else {
+    sdkBundle = bundle;
+  }
+  
+  NSURL *modelURL = [sdkBundle URLForResource:@"EnduserModel" withExtension:@"momd"];
   NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
   NSAssert(mom != nil, @"Error initializing Managed Object Model");
   
