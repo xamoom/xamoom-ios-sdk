@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 #include "JSONAPIResource.h"
 
 /**
@@ -16,7 +15,7 @@
  * The descriptor for a model resource is not implemented, and must be declared in the 
  * realized model class.
  */
-@interface JSONAPIResourceBase : NSManagedObject <JSONAPIResource>
+@interface JSONAPIResourceBase : NSObject <JSONAPIResource>
 
 /**
  * The URL that corresponds to this resource. May be nil. Should be set if returned from a
