@@ -114,7 +114,7 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark content calls
 
 - (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion {
-  NSDictionary *params = @{@"lang":self.language};
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -129,13 +129,9 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-  [params setObject:self.language forKey:@"lang"];
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
+  params = [XMMParamHelper addContentOptionsToParams:params options:options];
   
-  if (options != XMMContentOptionsNone) {
-    NSDictionary *optionsDict = [self contentOptionsToDictionary:options];
-    [params addEntriesFromDictionary:optionsDict];
-  }
   
   [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -154,14 +150,8 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-  [params addEntriesFromDictionary:@{@"lang":self.language,
-                                    @"filter[location-identifier]":locationIdentifier}];
-  
-  if (options != XMMContentOptionsNone) {
-    NSDictionary *optionsDict = [self contentOptionsToDictionary:options];
-    [params addEntriesFromDictionary:optionsDict];
-  }
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language locationIdentifier:locationIdentifier];
+  params = [XMMParamHelper addContentOptionsToParams:params options:options];
   
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -186,19 +176,9 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark contents calls
 
 - (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":self.language,
-                                                                                  @"filter[lat]":[@(location.coordinate.latitude) stringValue],
-                                                                                  @"filter[lon]":[@(location.coordinate.longitude) stringValue],
-                                                                                  @"page[size]":[@(pageSize) stringValue]}];
-  
-  if (cursor != nil && ![cursor isEqualToString:@""]) {
-    [params setObject:cursor forKey:@"page[cursor]"];
-  }
-  
-  if (sortOptions != XMMContentSortOptionsNone) {
-    NSArray *sortParameter = [self contentSortOptionsToArray:sortOptions];
-    [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
-  }
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language location:location];
+  params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
+  params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -215,18 +195,9 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
-  NSString *tagsAsParamter = [NSString stringWithFormat:@"[\"%@\"]", [tags componentsJoinedByString:@"\",\""]];
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[tags]":tagsAsParamter,
-                                                                                  @"page[size]":[@(pageSize) stringValue]}];
-  if (cursor != nil && ![cursor isEqualToString:@""]) {
-    [params setObject:cursor forKey:@"page[cursor]"];
-  }
-  
-  if (sortOptions != XMMContentSortOptionsNone) {
-    NSArray *sortParameter = [self contentSortOptionsToArray:sortOptions];
-    [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
-  }
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language tags:tags];
+  params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
+  params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -243,18 +214,9 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[name]":name,
-                                                                                  @"page[size]":[@(pageSize) stringValue]}];
-  
-  if (cursor != nil && ![cursor isEqualToString:@""]) {
-    [params setObject:cursor forKey:@"page[cursor]"];
-  }
-  
-  if (sortOptions != XMMContentSortOptionsNone) {
-    NSArray *sortParameter = [self contentSortOptionsToArray:sortOptions];
-    [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
-  }
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language name:name];
+  params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
+  params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -278,13 +240,8 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)spotWithID:(NSString *)spotID options:(XMMSpotOptions)options completion:(void(^)(XMMSpot *spot, NSError *error))completion {
-  NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-  [params setObject:self.language forKey:@"lang"];
-  
-  if (options != XMMSpotOptionsNone) {
-    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
-    [params addEntriesFromDictionary:optionsDict];
-  }
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
+  params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   
   [self.restClient fetchResource:[XMMSpot class] id:spotID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -300,44 +257,14 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark spots calls
 
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion {
-  NSMutableDictionary *params = [[NSMutableDictionary alloc]
-                                 initWithDictionary:@{@"lang":self.language,
-                                                      @"filter[lat]":[@(location.coordinate.latitude) stringValue],
-                                                      @"filter[lon]":[@(location.coordinate.longitude) stringValue],
-                                                      @"filter[radius]":[@(radius) stringValue]}];
-  
-  if (options != XMMSpotOptionsNone) {
-    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
-    [params addEntriesFromDictionary:optionsDict];
-  }
-  
-  [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
-      completion(nil, error);
-      return;
-    }
-    
-    completion(result.resources, error);
-  }];
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  [self spotsWithLocation:location radius:radius options:options pageSize:0 cursor:nil completion:completion];
 }
 
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
-  NSMutableDictionary *params = [[NSMutableDictionary alloc]
-                                 initWithDictionary:@{@"lang":self.language,
-                                                      @"filter[lat]":[@(location.coordinate.latitude) stringValue],
-                                                      @"filter[lon]":[@(location.coordinate.longitude) stringValue],
-                                                      @"filter[radius]":[@(radius) stringValue],
-                                                      @"page[size]":[@(pageSize) stringValue]}];
-  
-  if (cursor != nil && ![cursor isEqualToString:@""]) {
-    [params setObject:cursor forKey:@"page[cursor]"];
-  }
-  
-  if (options != XMMSpotOptionsNone) {
-    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
-    [params addEntriesFromDictionary:optionsDict];
-  }
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language location:location radius:radius];
+  params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
+  params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -358,25 +285,10 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
-  NSString *tagsAsParamter = [NSString stringWithFormat:@"[\"%@\"]", [tags componentsJoinedByString:@"\",\""]];
-  NSMutableDictionary *params = [[NSMutableDictionary alloc]
-                                 initWithDictionary:@{@"lang":self.language,
-                                                      @"filter[tags]":tagsAsParamter,
-                                                      @"page[size]":[@(pageSize) stringValue]}];
-  
-  if (cursor != nil && ![cursor isEqualToString:@""]) {
-    [params setObject:cursor forKey:@"page[cursor]"];
-  }
-  
-  if (options != XMMSpotOptionsNone) {
-    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
-    [params addEntriesFromDictionary:optionsDict];
-  }
-  
-  if (sortOptions != XMMSpotSortOptionsNone) {
-    NSArray *sortParameter = [self spotSortOptionsToArray:sortOptions];
-    [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
-  }
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language tags:tags];
+  params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
+  params = [XMMParamHelper addSpotOptionsToParams:params options:options];
+  params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -393,24 +305,10 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
-  NSMutableDictionary *params = [[NSMutableDictionary alloc]
-                                 initWithDictionary:@{@"lang":self.language,
-                                                      @"filter[name]":name,
-                                                      @"page[size]":[@(pageSize) stringValue]}];
-  
-  if (cursor != nil && ![cursor isEqualToString:@""]) {
-    [params setObject:cursor forKey:@"page[cursor]"];
-  }
-  
-  if (options != XMMSpotOptionsNone) {
-    NSDictionary *optionsDict = [self spotOptionsToDictionary:options];
-    [params addEntriesFromDictionary:optionsDict];
-  }
-  
-  if (sortOptions != XMMSpotSortOptionsNone) {
-    NSArray *sortParameter = [self spotSortOptionsToArray:sortOptions];
-    [params setObject:[sortParameter componentsJoinedByString:@","] forKey:@"sort"];
-  }
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language name:name];
+  params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
+  params = [XMMParamHelper addSpotOptionsToParams:params options:options];
+  params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -429,7 +327,7 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark system calls
 
 - (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion {
-  NSDictionary *params = @{@"lang":self.language};
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   [self.restClient fetchResource:[XMMSystem class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
       completion(nil, error);
@@ -443,7 +341,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion {
-  NSDictionary *params = @{@"lang":self.language};
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMSystemSettings class] id:settingsID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -458,7 +356,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)styleWithID:(NSString *)styleID completion:(void (^)(XMMStyle *style, NSError *error))completion {
-  NSDictionary *params = @{@"lang":self.language};
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMStyle class] id:styleID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -473,7 +371,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)menuWithID:(NSString *)menuID completion:(void (^)(XMMMenu *menu, NSError *error))completion {
-  NSDictionary *params = @{@"lang":self.language};
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMMenu class] id:menuID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error) {
@@ -485,75 +383,6 @@ static XMMEnduserApi *sharedInstance;
     
     completion(menu, error);
   }];
-}
-
-#pragma mark - private helpers
-
-- (NSMutableDictionary *)contentOptionsToDictionary:(XMMContentOptions)options {
-  NSMutableDictionary *optionsDict = [[NSMutableDictionary alloc] init];
-
-  if (options & XMMContentOptionsPreview) {
-    [optionsDict setObject:@"true" forKey:@"preview"];
-  }
-  if (options & XMMContentOptionsPrivate) {
-    [optionsDict setObject:@"true" forKey:@"public-only"];
-  }
-  
-  return optionsDict;
-}
-
-- (NSMutableDictionary *)spotOptionsToDictionary:(XMMSpotOptions)options {
-  NSMutableDictionary *optionsDict = [[NSMutableDictionary alloc] init];
-  
-  if (options & XMMSpotOptionsIncludeMarker) {
-    [optionsDict setObject:@"true" forKey:@"include_markers"];
-  }
-  
-  if (options & XMMSpotOptionsIncludeContent) {
-    [optionsDict setObject:@"true" forKey:@"include_content"];
-  }
-  
-  if (options & XMMSpotOptionsWithLocation) {
-    [optionsDict setObject:@"true" forKey:@"filter[has-location]"];
-  }
-  
-  return optionsDict;
-}
-
-- (NSArray *)contentSortOptionsToArray:(XMMContentSortOptions)sortOptions {
-  NSMutableArray *sortParameters = [[NSMutableArray alloc] init];
-  
-  if (sortOptions & XMMContentSortOptionsName) {
-    [sortParameters addObject:@"name"];
-  }
-  
-  if (sortOptions & XMMContentSortOptionsNameDesc) {
-    [sortParameters addObject:@"-name"];
-  }
-  
-  return sortParameters;
-}
-
-- (NSArray *)spotSortOptionsToArray:(XMMSpotSortOptions)sortOptions {
-  NSMutableArray *sortParameters = [[NSMutableArray alloc] init];
-  
-  if (sortOptions & XMMSpotSortOptionsName) {
-    [sortParameters addObject:@"name"];
-  }
-  
-  if (sortOptions & XMMSpotSortOptionsNameDesc) {
-    [sortParameters addObject:@"-name"];
-  }
-  
-  if (sortOptions & XMMSpotSortOptionsDistance) {
-    [sortParameters addObject:@"distance"];
-  }
-  
-  if (sortOptions & XMMSpotSortOptionsDistanceDesc) {
-    [sortParameters addObject:@"-distance"];
-  }
-  
-  return sortParameters;
 }
 
 @end

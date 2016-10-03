@@ -78,6 +78,8 @@
 		884937571C75C82100C53520 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 884937551C75C82100C53520 /* UIColor+HexString.m */; };
 		884937611C75F7E600C53520 /* UIImage+Scaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 8849375F1C75F7E600C53520 /* UIImage+Scaling.h */; };
 		884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 884937601C75F7E600C53520 /* UIImage+Scaling.m */; };
+		8853CBA01D9CEAE8009BD14E /* XMMParamHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */; };
+		8853CBA11D9CEAE8009BD14E /* XMMParamHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */; };
 		8886E2931C7B55B000B6AEAE /* XMMRestResourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2921C7B55B000B6AEAE /* XMMRestResourceTests.m */; };
 		8886E2951C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */; };
 		8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */; };
@@ -203,6 +205,9 @@
 		884937551C75C82100C53520 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		8849375F1C75F7E600C53520 /* UIImage+Scaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Scaling.h"; sourceTree = "<group>"; };
 		884937601C75F7E600C53520 /* UIImage+Scaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Scaling.m"; sourceTree = "<group>"; };
+		8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMParamHelper.h; path = Classes/XMMParamHelper.h; sourceTree = "<group>"; };
+		8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMParamHelper.m; path = Classes/XMMParamHelper.m; sourceTree = "<group>"; };
+		8853CBA21D9CF1EC009BD14E /* XMMOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMOptions.h; path = Classes/XMMOptions.h; sourceTree = "<group>"; };
 		886D676F1D00399F0001E288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8886E2921C7B55B000B6AEAE /* XMMRestResourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMRestResourceTests.m; sourceTree = "<group>"; };
 		8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksCacheTests.m; sourceTree = "<group>"; };
@@ -422,6 +427,9 @@
 				88E46F201C4933CA004D8AC3 /* XMMQuery.m */,
 				88E46F271C4933F0004D8AC3 /* XMMRestClient.h */,
 				88E46F281C4933F0004D8AC3 /* XMMRestClient.m */,
+				8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */,
+				8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */,
+				8853CBA21D9CF1EC009BD14E /* XMMOptions.h */,
 				883B95F51C4D32D100DB8A6B /* Resources */,
 				883E55511C4A37FE000C4D09 /* ContentBlocks */,
 			);
@@ -545,6 +553,7 @@
 				883E55A41C4A37FE000C4D09 /* UIImage+animatedGIF.h in Headers */,
 				884937561C75C82100C53520 /* UIColor+HexString.h in Headers */,
 				88FE68C11C4E380300E9A32A /* XMMMenu.h in Headers */,
+				8853CBA01D9CEAE8009BD14E /* XMMParamHelper.h in Headers */,
 				88E46E9C1C47E348004D8AC3 /* XMMMenuItem.h in Headers */,
 				88E46E7A1C47E348004D8AC3 /* XMMContentBlock.h in Headers */,
 				88E46E9E1C47E348004D8AC3 /* XMMSpot.h in Headers */,
@@ -810,6 +819,7 @@
 				883E55A51C4A37FE000C4D09 /* UIImage+animatedGIF.m in Sources */,
 				88D4C6ED1C6CD3AE00615147 /* XMMMapOverlayView.m in Sources */,
 				88FE68C81C4E6F3500E9A32A /* XMMMarker.m in Sources */,
+				8853CBA11D9CEAE8009BD14E /* XMMParamHelper.m in Sources */,
 				88E46EA31C47E348004D8AC3 /* XMMStyle.m in Sources */,
 				883B95FA1C4D32FF00DB8A6B /* XMMSystemSettings.m in Sources */,
 				883E55A91C4A37FE000C4D09 /* XMMContentBlocksCache.m in Sources */,

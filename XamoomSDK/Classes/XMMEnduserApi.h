@@ -21,6 +21,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <JSONAPI/JSONAPIResourceDescriptor.h>
 #import "XMMRestClient.h"
+#import "XMMOptions.h"
+#import "XMMParamHelper.h"
 #import "XMMSpot.h"
 #import "XMMStyle.h"
 #import "XMMSystem.h"
@@ -41,89 +43,6 @@
 
 extern NSString * const kApiBaseURLString;
 
-/**
- * XMMContent special options.
- */
-typedef NS_OPTIONS(NSUInteger, XMMContentOptions) {
-  /**
-   * No options.
-   */
-  XMMContentOptionsNone = 0 << 0,
-  /**
-   * Will not save statistics.
-   */
-  XMMContentOptionsPreview = 1 << 0,
-  /**
-   * Wont return ContentBlocks with "Hide Online" flag.
-   */
-  XMMContentOptionsPrivate = 1 << 1,
-};
-
-/**
- * XMMSpot special options.
- */
-typedef NS_OPTIONS(NSUInteger, XMMSpotOptions) {
-  /**
-   * No options.
-   */
-  XMMSpotOptionsNone = 0 << 0,
-  /**
-   * Will include contentID to spots.
-   */
-  XMMSpotOptionsIncludeContent = 1 << 0,
-  /**
-   * Will include markers to spots
-   */
-  XMMSpotOptionsIncludeMarker = 1 << 1,
-  /**
-   * Will only return spots with a location.
-   */
-  XMMSpotOptionsWithLocation = 1 << 2,
-};
-
-/**
- * XMMContent sorting options.
- */
-typedef NS_OPTIONS(NSUInteger, XMMContentSortOptions) {
-  /**
-   * No sorting.
-   */
-  XMMContentSortOptionsNone = 0 << 0,
-  /**
-   * Sort by name ascending.
-   */
-  XMMContentSortOptionsName = 1 << 0,
-  /**
-   * Sort by name descending.
-   */
-  XMMContentSortOptionsNameDesc = 1 << 1,
-};
-
-/**
- * XMMSpot sorting options.
- */
-typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
-  /**
-   * No sorting.
-   */
-  XMMSpotSortOptionsNone = 0 << 0,
-  /**
-   * Sort by name ascending.
-   */
-  XMMSpotSortOptionsName = 1 << 0,
-  /**
-   * Sort by name descending.
-   */
-  XMMSpotSortOptionsNameDesc = 1 << 1,
-  /**
-   * Sort by distance ascending.
-   */
-  XMMSpotSortOptionsDistance = 1 << 2,
-  /**
-   * Sort by distance descending.
-   */
-  XMMSpotSortOptionsDistanceDesc = 1 << 3,
-};
 
 /**
  * `XMMEnduserApi` is the main part of the XamoomSDK. You can use it to send api request to the xamoom-api.
@@ -337,7 +256,7 @@ typedef NS_OPTIONS(NSUInteger, XMMSpotSortOptions) {
  * - *param1* spots Spots from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, NSError *error))completion;
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get spots inside radius of a location.
