@@ -37,7 +37,7 @@
     sdkBundle = bundle;
   }
   
-  NSURL *modelURL = [sdkBundle URLForResource:@"EnduserModel" withExtension:@"momd"];
+  NSURL *modelURL = [sdkBundle URLForResource:@"EnduserOfflineDatamodel" withExtension:@"momd"];
   NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
   NSAssert(mom != nil, @"Error initializing Managed Object Model");
   
@@ -57,8 +57,17 @@
   });
 }
 
-- (NSManagedObject *)saveEntity:(id)entity {
-  return nil;
+- (NSError *)save {
+  NSError *error = nil;
+  [self.managedObjectContext save:&error];
+  return error;
+}
+
+- (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID {
+  NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:entityType];
+  request.predicate = [NSPredicate predicateWithFormat:@"jsonID = %@", jsonID];
+  NSError *error = nil;
+  return [self.managedObjectContext executeFetchRequest:request error:&error];
 }
 
 @end

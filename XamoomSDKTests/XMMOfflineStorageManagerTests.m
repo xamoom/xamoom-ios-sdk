@@ -7,12 +7,14 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 #import "XMMOfflineStorageManager.h"
-#import "XMMSystem.h"
+#import "XMMCDSystemSettings.h"
 
 @interface XMMOfflineStorageManagerTests : XCTestCase
 
 @property XMMOfflineStorageManager *storeManager;
+@property id mockedContext;
 
 @end
 
@@ -21,6 +23,8 @@
 - (void)setUp {
   [super setUp];
   self.storeManager = [[XMMOfflineStorageManager alloc] init];
+  self.mockedContext = OCMClassMock([NSManagedObjectContext class]);
+  self.storeManager.managedObjectContext = self.mockedContext;
 }
 
 - (void)tearDown {
@@ -34,13 +38,20 @@
   XCTAssertNotNil(manager.managedObjectContext);
 }
 
-- (void)testSaveSystem {
-  XMMSystem *system = [NSEntityDescription insertNewObjectForEntityForName:@"XMMSystem" inManagedObjectContext:self.storeManager.managedObjectContext];
-  system.name = @"Test";
+- (void)testSave {
+  NSError *error = [self.storeManager save];
   
-  XCTAssertNotNil(system);
-  XCTAssertEqual(system.name, @"Test");
+  XCTAssertNil(error);
+  OCMVerify([self.mockedContext save:[OCMArg anyObjectRef]]);
+}
+
+- (void)testFetchEntityTypeJsonID {
+  NSFetchRequest *checkRequest = [NSFetchRequest fetchRequestWithEntityName:[XMMCDSystemSettings coreDataEntityName]];
+  checkRequest.predicate = [NSPredicate predicateWithFormat:@"jsonID = %@", @"1234"];
   
+  [self.storeManager fetch:[XMMCDSystemSettings coreDataEntityName] jsonID:@"1234"];
+  
+  OCMVerify([self.mockedContext executeFetchRequest:[OCMArg isEqual:checkRequest] error:[OCMArg anyObjectRef]]);
 }
 
 @end

@@ -15,6 +15,8 @@
 
 + (instancetype)sharedInstance;
 
-- (NSManagedObject *)saveEntity:(id)entity;
+- (NSError *)save;
+
+- (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID;
 
 @end
