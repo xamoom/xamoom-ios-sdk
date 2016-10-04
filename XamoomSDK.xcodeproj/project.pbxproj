@@ -22,7 +22,6 @@
 
 /* Begin PBXBuildFile section */
 		68C7CC407CC4495F60E774F6 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8565074257BD09C685E6E62E /* libPods-XamoomSDKTests.a */; };
-		880E82891D9D1B8300A0213B /* EnduserModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 880E82871D9D1B8300A0213B /* EnduserModel.xcdatamodeld */; };
 		880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */; };
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		881945971C620E2100E4524F /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 881945961C620E2100E4524F /* menu.json */; };
@@ -94,6 +93,10 @@
 		88A047C71D250D1900960D9F /* spot.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C61D250D1900960D9F /* spot.json */; };
 		88A047C91D25219200960D9F /* spotWithContentAndMarker.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C81D25219200960D9F /* spotWithContentAndMarker.json */; };
 		88AE9ED91D9D293000B1D61C /* XMMOfflineStorageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */; };
+		88B390191DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88B390171DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld */; };
+		88B3901C1DA2945900216478 /* XMMCDSystemSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */; };
+		88B3901D1DA2945900216478 /* XMMCDSystemSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */; };
+		88B3901F1DA294D600216478 /* XMMCDResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B3901E1DA294D600216478 /* XMMCDResource.h */; };
 		88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */; };
 		88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B962901C7F00530096993D /* UIColor+HexStringTests.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
@@ -149,7 +152,6 @@
 		672B23EE39E2A7B6555ECA0B /* Pods-XamoomSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		8565074257BD09C685E6E62E /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86421FBB40BBE7E6E9176A77 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
-		880E82881D9D1B8300A0213B /* EnduserModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserModel.xcdatamodel; sourceTree = "<group>"; };
 		880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineStorageManager.h; path = Classes/XMMOfflineStorageManager.h; sourceTree = "<group>"; };
 		880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineStorageManager.m; path = Classes/XMMOfflineStorageManager.m; sourceTree = "<group>"; };
 		881945961C620E2100E4524F /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
@@ -228,6 +230,10 @@
 		88A047C61D250D1900960D9F /* spot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spot.json; sourceTree = "<group>"; };
 		88A047C81D25219200960D9F /* spotWithContentAndMarker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spotWithContentAndMarker.json; sourceTree = "<group>"; };
 		88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineStorageManagerTests.m; sourceTree = "<group>"; };
+		88B390181DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserOfflineDatamodel.xcdatamodel; sourceTree = "<group>"; };
+		88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDSystemSettings.h; path = Classes/Storage/Resources/XMMCDSystemSettings.h; sourceTree = "<group>"; };
+		88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCDSystemSettings.m; path = Classes/Storage/Resources/XMMCDSystemSettings.m; sourceTree = "<group>"; };
+		88B3901E1DA294D600216478 /* XMMCDResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDResource.h; path = Classes/Storage/Resources/XMMCDResource.h; sourceTree = "<group>"; };
 		88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockXTableViewCellTests.m; sourceTree = "<group>"; };
 		88B962901C7F00530096993D /* UIColor+HexStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexStringTests.m"; sourceTree = "<group>"; };
 		88CC28B51C567832000ACDD0 /* contentLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentLocation.json; sourceTree = "<group>"; };
@@ -438,9 +444,7 @@
 				88E46F281C4933F0004D8AC3 /* XMMRestClient.m */,
 				8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */,
 				8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */,
-				880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */,
-				880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */,
-				880E82871D9D1B8300A0213B /* EnduserModel.xcdatamodeld */,
+				88AE0F371DA292A5009C588C /* Storage */,
 				883B95F51C4D32D100DB8A6B /* Resources */,
 				883E55511C4A37FE000C4D09 /* ContentBlocks */,
 			);
@@ -469,6 +473,27 @@
 				88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */,
 			);
 			path = XamoomSDKTests;
+			sourceTree = "<group>";
+		};
+		88AE0F371DA292A5009C588C /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				88AE0F381DA292B2009C588C /* OfflineResources */,
+				880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */,
+				880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */,
+				88B390171DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		88AE0F381DA292B2009C588C /* OfflineResources */ = {
+			isa = PBXGroup;
+			children = (
+				88B3901E1DA294D600216478 /* XMMCDResource.h */,
+				88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */,
+				88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */,
+			);
+			name = OfflineResources;
 			sourceTree = "<group>";
 		};
 		88F582021C522A8E003D7C49 /* json */ = {
@@ -560,12 +585,14 @@
 				883B95F91C4D32FF00DB8A6B /* XMMSystemSettings.h in Headers */,
 				884937611C75F7E600C53520 /* UIImage+Scaling.h in Headers */,
 				883E558F1C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.h in Headers */,
+				88B3901C1DA2945900216478 /* XMMCDSystemSettings.h in Headers */,
 				883E55831C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.h in Headers */,
 				883E55A81C4A37FE000C4D09 /* XMMContentBlocksCache.h in Headers */,
 				883E55A41C4A37FE000C4D09 /* UIImage+animatedGIF.h in Headers */,
 				884937561C75C82100C53520 /* UIColor+HexString.h in Headers */,
 				88FE68C11C4E380300E9A32A /* XMMMenu.h in Headers */,
 				8853CBA01D9CEAE8009BD14E /* XMMParamHelper.h in Headers */,
+				88B3901F1DA294D600216478 /* XMMCDResource.h in Headers */,
 				88E46E9C1C47E348004D8AC3 /* XMMMenuItem.h in Headers */,
 				88E46E7A1C47E348004D8AC3 /* XMMContentBlock.h in Headers */,
 				88E46E9E1C47E348004D8AC3 /* XMMSpot.h in Headers */,
@@ -642,7 +669,7 @@
 		8888DDB91C47B0FA0050A84C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "xamoom GmbH";
 				TargetAttributes = {
 					8888DDC11C47B0FA0050A84C = {
@@ -823,6 +850,7 @@
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,
 				88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */,
+				88B390191DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */,
 				883E558D1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.m in Sources */,
 				88E46E9D1C47E348004D8AC3 /* XMMMenuItem.m in Sources */,
 				883E55901C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.m in Sources */,
@@ -843,7 +871,6 @@
 				883E55501C4A2B66000C4D09 /* XMMSystem.m in Sources */,
 				882ED6851C63741000FC8BDB /* XMMContentBlocks.m in Sources */,
 				883E559C1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.m in Sources */,
-				880E82891D9D1B8300A0213B /* EnduserModel.xcdatamodeld in Sources */,
 				88FE68C21C4E380300E9A32A /* XMMMenu.m in Sources */,
 				882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */,
 				883E55961C4A37FE000C4D09 /* XMMContentBlock7TableViewCell.m in Sources */,
@@ -851,6 +878,7 @@
 				88E46EA61C47E348004D8AC3 /* XMMEnduserApi.m in Sources */,
 				883E55931C4A37FE000C4D09 /* XMMContentBlock6TableViewCell.m in Sources */,
 				883E55871C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.m in Sources */,
+				88B3901D1DA2945900216478 /* XMMCDSystemSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -905,6 +933,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -914,8 +943,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -952,6 +983,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -961,8 +993,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -993,6 +1027,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C57131BB8444CF6B6417EA3B /* Pods-XamoomSDK.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1015,6 +1050,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EFD2A588826BDAE810F3A3F2 /* Pods-XamoomSDK.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1119,14 +1155,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		880E82871D9D1B8300A0213B /* EnduserModel.xcdatamodeld */ = {
+		88B390171DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				880E82881D9D1B8300A0213B /* EnduserModel.xcdatamodel */,
+				88B390181DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodel */,
 			);
-			currentVersion = 880E82881D9D1B8300A0213B /* EnduserModel.xcdatamodel */;
-			name = EnduserModel.xcdatamodeld;
-			path = Classes/EnduserModel.xcdatamodeld;
+			currentVersion = 88B390181DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodel */;
+			name = EnduserOfflineDatamodel.xcdatamodeld;
+			path = Assets/EnduserOfflineDatamodel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
