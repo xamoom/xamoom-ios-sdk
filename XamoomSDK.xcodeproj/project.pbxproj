@@ -88,6 +88,7 @@
 		8887006B1D34EE190049CF7F /* contentWithName.json in Resources */ = {isa = PBXBuildFile; fileRef = 8887006A1D34EE190049CF7F /* contentWithName.json */; };
 		8887006D1D3664100049CF7F /* spotWithName.json in Resources */ = {isa = PBXBuildFile; fileRef = 8887006C1D3664100049CF7F /* spotWithName.json */; };
 		8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */; };
+		889134A31DA3B5B10035109E /* XMMCDMenuTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 889134A21DA3B5B10035109E /* XMMCDMenuTest.m */; };
 		889356681C802CCF0083724C /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */; };
 		889356691C802CF40083724C /* APIIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA06D1C7F23EF003FDF80 /* APIIntegrationTests.m */; };
 		88A047C71D250D1900960D9F /* spot.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C61D250D1900960D9F /* spot.json */; };
@@ -98,6 +99,11 @@
 		88B3901D1DA2945900216478 /* XMMCDSystemSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */; };
 		88B3901F1DA294D600216478 /* XMMCDResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B3901E1DA294D600216478 /* XMMCDResource.h */; };
 		88B390231DA39EC700216478 /* XMMCDSystemSettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B390221DA39EC700216478 /* XMMCDSystemSettingsTest.m */; };
+		88B390261DA3A3E400216478 /* XMMCDStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B390241DA3A3E400216478 /* XMMCDStyle.h */; };
+		88B390271DA3A3E400216478 /* XMMCDStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B390251DA3A3E400216478 /* XMMCDStyle.m */; };
+		88B390291DA3A71D00216478 /* XMMCDStyleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B390281DA3A71D00216478 /* XMMCDStyleTest.m */; };
+		88B3902C1DA3AF8600216478 /* XMMCDMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B3902A1DA3AF8600216478 /* XMMCDMenu.h */; };
+		88B3902D1DA3AF8600216478 /* XMMCDMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3902B1DA3AF8600216478 /* XMMCDMenu.m */; };
 		88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */; };
 		88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B962901C7F00530096993D /* UIColor+HexStringTests.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
@@ -108,6 +114,10 @@
 		88D4C6E11C6CC39E00615147 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4C6E01C6CC39E00615147 /* MapKit.framework */; };
 		88D4C6EC1C6CD3AE00615147 /* XMMMapOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88D4C6EA1C6CD3AE00615147 /* XMMMapOverlayView.h */; };
 		88D4C6ED1C6CD3AE00615147 /* XMMMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D4C6EB1C6CD3AE00615147 /* XMMMapOverlayView.m */; };
+		88D5B1361DA3D90D0069E2E8 /* XMMCDMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5B1351DA3D90D0069E2E8 /* XMMCDMenuItem.m */; };
+		88D5B1371DA3D9120069E2E8 /* XMMCDMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5B1351DA3D90D0069E2E8 /* XMMCDMenuItem.m */; };
+		88D5B1391DA3D9B90069E2E8 /* XMMCDMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 88D5B1341DA3D90D0069E2E8 /* XMMCDMenuItem.h */; };
+		88D5B13B1DA3E0050069E2E8 /* XMMCDMenuItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5B13A1DA3E0050069E2E8 /* XMMCDMenuItemTest.m */; };
 		88E46E781C47E348004D8AC3 /* XMMContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E1B1C47E348004D8AC3 /* XMMContent.h */; };
 		88E46E791C47E348004D8AC3 /* XMMContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46E1C1C47E348004D8AC3 /* XMMContent.m */; };
 		88E46E7A1C47E348004D8AC3 /* XMMContentBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46E1D1C47E348004D8AC3 /* XMMContentBlock.h */; };
@@ -228,6 +238,7 @@
 		8888DDC71C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8888DDCC1C47B0FA0050A84C /* XamoomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDD31C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		889134A21DA3B5B10035109E /* XMMCDMenuTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMCDMenuTest.m; sourceTree = "<group>"; };
 		88A047C61D250D1900960D9F /* spot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spot.json; sourceTree = "<group>"; };
 		88A047C81D25219200960D9F /* spotWithContentAndMarker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spotWithContentAndMarker.json; sourceTree = "<group>"; };
 		88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineStorageManagerTests.m; sourceTree = "<group>"; };
@@ -236,6 +247,11 @@
 		88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCDSystemSettings.m; path = Classes/Storage/Resources/XMMCDSystemSettings.m; sourceTree = "<group>"; };
 		88B3901E1DA294D600216478 /* XMMCDResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDResource.h; path = Classes/Storage/Resources/XMMCDResource.h; sourceTree = "<group>"; };
 		88B390221DA39EC700216478 /* XMMCDSystemSettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMCDSystemSettingsTest.m; sourceTree = "<group>"; };
+		88B390241DA3A3E400216478 /* XMMCDStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDStyle.h; path = Classes/Storage/Resources/XMMCDStyle.h; sourceTree = "<group>"; };
+		88B390251DA3A3E400216478 /* XMMCDStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCDStyle.m; path = Classes/Storage/Resources/XMMCDStyle.m; sourceTree = "<group>"; };
+		88B390281DA3A71D00216478 /* XMMCDStyleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMCDStyleTest.m; sourceTree = "<group>"; };
+		88B3902A1DA3AF8600216478 /* XMMCDMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDMenu.h; path = Classes/Storage/Resources/XMMCDMenu.h; sourceTree = "<group>"; };
+		88B3902B1DA3AF8600216478 /* XMMCDMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCDMenu.m; path = Classes/Storage/Resources/XMMCDMenu.m; sourceTree = "<group>"; };
 		88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockXTableViewCellTests.m; sourceTree = "<group>"; };
 		88B962901C7F00530096993D /* UIColor+HexStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexStringTests.m"; sourceTree = "<group>"; };
 		88CC28B51C567832000ACDD0 /* contentLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentLocation.json; sourceTree = "<group>"; };
@@ -246,6 +262,9 @@
 		88D4C6E01C6CC39E00615147 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88D4C6EA1C6CD3AE00615147 /* XMMMapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMMapOverlayView.h; sourceTree = "<group>"; };
 		88D4C6EB1C6CD3AE00615147 /* XMMMapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMapOverlayView.m; sourceTree = "<group>"; };
+		88D5B1341DA3D90D0069E2E8 /* XMMCDMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDMenuItem.h; path = XamoomSDKTests/XMMCDMenuItem.h; sourceTree = SOURCE_ROOT; };
+		88D5B1351DA3D90D0069E2E8 /* XMMCDMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCDMenuItem.m; path = XamoomSDKTests/XMMCDMenuItem.m; sourceTree = SOURCE_ROOT; };
+		88D5B13A1DA3E0050069E2E8 /* XMMCDMenuItemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMCDMenuItemTest.m; sourceTree = "<group>"; };
 		88E46DE31C47E117004D8AC3 /* XamoomSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XamoomSDK.h; path = classes/XamoomSDK.h; sourceTree = "<group>"; };
 		88E46E1B1C47E348004D8AC3 /* XMMContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContent.h; sourceTree = "<group>"; };
 		88E46E1C1C47E348004D8AC3 /* XMMContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContent.m; sourceTree = "<group>"; };
@@ -494,6 +513,12 @@
 				88B3901E1DA294D600216478 /* XMMCDResource.h */,
 				88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */,
 				88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */,
+				88B390241DA3A3E400216478 /* XMMCDStyle.h */,
+				88B390251DA3A3E400216478 /* XMMCDStyle.m */,
+				88B3902A1DA3AF8600216478 /* XMMCDMenu.h */,
+				88B3902B1DA3AF8600216478 /* XMMCDMenu.m */,
+				88D5B1341DA3D90D0069E2E8 /* XMMCDMenuItem.h */,
+				88D5B1351DA3D90D0069E2E8 /* XMMCDMenuItem.m */,
 			);
 			name = OfflineResources;
 			sourceTree = "<group>";
@@ -511,6 +536,9 @@
 			isa = PBXGroup;
 			children = (
 				88B390221DA39EC700216478 /* XMMCDSystemSettingsTest.m */,
+				88B390281DA3A71D00216478 /* XMMCDStyleTest.m */,
+				889134A21DA3B5B10035109E /* XMMCDMenuTest.m */,
+				88D5B13A1DA3E0050069E2E8 /* XMMCDMenuItemTest.m */,
 			);
 			name = OfflineResources;
 			sourceTree = "<group>";
@@ -600,6 +628,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B390261DA3A3E400216478 /* XMMCDStyle.h in Headers */,
 				88E46EA51C47E348004D8AC3 /* XMMEnduserApi.h in Headers */,
 				883B95F91C4D32FF00DB8A6B /* XMMSystemSettings.h in Headers */,
 				884937611C75F7E600C53520 /* UIImage+Scaling.h in Headers */,
@@ -629,9 +658,11 @@
 				88E46EA21C47E348004D8AC3 /* XMMStyle.h in Headers */,
 				88D4C6EC1C6CD3AE00615147 /* XMMMapOverlayView.h in Headers */,
 				883E55AA1C4A37FE000C4D09 /* XMMMusicPlayer.h in Headers */,
+				88B3902C1DA3AF8600216478 /* XMMCDMenu.h in Headers */,
 				883E55921C4A37FE000C4D09 /* XMMContentBlock6TableViewCell.h in Headers */,
 				883E554F1C4A2B66000C4D09 /* XMMSystem.h in Headers */,
 				88E46F251C4933D8004D8AC3 /* XMMRestResource.h in Headers */,
+				88D5B1391DA3D9B90069E2E8 /* XMMCDMenuItem.h in Headers */,
 				883E559B1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.h in Headers */,
 				883E55981C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.h in Headers */,
 				88E46E781C47E348004D8AC3 /* XMMContent.h in Headers */,
@@ -868,6 +899,7 @@
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,
+				88B3902D1DA3AF8600216478 /* XMMCDMenu.m in Sources */,
 				88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */,
 				88B390191DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */,
 				883E558D1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.m in Sources */,
@@ -877,6 +909,7 @@
 				88E46F221C4933CA004D8AC3 /* XMMQuery.m in Sources */,
 				883E558A1C4A37FE000C4D09 /* XMMContentBlock3TableViewCell.m in Sources */,
 				883E55A51C4A37FE000C4D09 /* UIImage+animatedGIF.m in Sources */,
+				88D5B1371DA3D9120069E2E8 /* XMMCDMenuItem.m in Sources */,
 				88D4C6ED1C6CD3AE00615147 /* XMMMapOverlayView.m in Sources */,
 				88FE68C81C4E6F3500E9A32A /* XMMMarker.m in Sources */,
 				8853CBA11D9CEAE8009BD14E /* XMMParamHelper.m in Sources */,
@@ -892,6 +925,7 @@
 				883E559C1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.m in Sources */,
 				88FE68C21C4E380300E9A32A /* XMMMenu.m in Sources */,
 				882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */,
+				88B390271DA3A3E400216478 /* XMMCDStyle.m in Sources */,
 				883E55961C4A37FE000C4D09 /* XMMContentBlock7TableViewCell.m in Sources */,
 				88E46F2A1C4933F0004D8AC3 /* XMMRestClient.m in Sources */,
 				88E46EA61C47E348004D8AC3 /* XMMEnduserApi.m in Sources */,
@@ -908,8 +942,12 @@
 				883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */,
 				883EA06A1C7F0DF7003FDF80 /* XMMMusicPlayerTests.m in Sources */,
 				88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */,
+				88D5B1361DA3D90D0069E2E8 /* XMMCDMenuItem.m in Sources */,
+				88D5B13B1DA3E0050069E2E8 /* XMMCDMenuItemTest.m in Sources */,
 				889356691C802CF40083724C /* APIIntegrationTests.m in Sources */,
+				889134A31DA3B5B10035109E /* XMMCDMenuTest.m in Sources */,
 				8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */,
+				88B390291DA3A71D00216478 /* XMMCDStyleTest.m in Sources */,
 				881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */,
 				88B390231DA39EC700216478 /* XMMCDSystemSettingsTest.m in Sources */,
 				88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */,

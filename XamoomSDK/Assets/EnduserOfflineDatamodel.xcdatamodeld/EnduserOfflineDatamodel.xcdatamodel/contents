@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="XMMCDMenu" representedClassName="XMMCDMenu" parentEntity="XMMCDResource" syncable="YES">
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="XMMCDMenuItem" syncable="YES"/>
+    </entity>
+    <entity name="XMMCDMenuItem" parentEntity="XMMCDResource" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="contentTitle" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="XMMCDResource" syncable="YES">
         <attribute name="jsonID" attributeType="String" indexed="YES" syncable="YES"/>
+    </entity>
+    <entity name="XMMCDStyle" parentEntity="XMMCDResource" syncable="YES">
+        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chromeHeaderColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="customMarker" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="foregroundFontColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="highlightFontColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="XMMCDSystemSettings" representedClassName=".XMMCDSystemSettings" parentEntity="XMMCDResource" syncable="YES">
         <attribute name="googlePlayId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itunesAppId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="XMMCDSystemSettings" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="XMMCDMenu" positionX="-18" positionY="81" width="128" height="60"/>
+        <element name="XMMCDMenuItem" positionX="0" positionY="90" width="128" height="75"/>
         <element name="XMMCDResource" positionX="-54" positionY="18" width="128" height="60"/>
+        <element name="XMMCDStyle" positionX="-36" positionY="27" width="128" height="135"/>
+        <element name="XMMCDSystemSettings" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>

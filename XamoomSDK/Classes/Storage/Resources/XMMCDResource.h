@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMMOfflineStorageManager.h"
 
 @protocol XMMCDResource <NSObject>
 

@@ -35,6 +35,8 @@
   savedSettings.googlePlayId = settings.googlePlayAppId;
   savedSettings.itunesAppId = settings.itunesAppId;
   
+  [[XMMOfflineStorageManager sharedInstance] save];
+
   return savedSettings;
 }
 

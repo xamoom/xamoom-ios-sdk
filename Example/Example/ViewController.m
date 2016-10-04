@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "XMMCDSystemSettings.h"
+#import "XMMCDMenu.h"
+#import "XMMCDStyle.h"
 
 @interface ViewController ()
 
@@ -41,7 +44,7 @@
   self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
   self.blocks.delegate = self;
   
-  [self displayContent];
+  [self system];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -172,6 +175,7 @@
 }
 
 - (void)spotsWithLocation {
+  /*
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   [self.api spotsWithLocation:location radius:1000 options:0 completion:^(NSArray *spots, NSError *error) {
     if (error) {
@@ -185,6 +189,7 @@
     [self spotWithIdAndOptions:spot.ID];
 
   }];
+   */
 }
 
 - (void)spotsWithTags {
@@ -206,6 +211,7 @@
     }
     
     NSLog(@"system: %@", system);
+    
     [self systemSettingsWithID:system.setting.ID];
     [self styleWithID:system.style.ID];
     [self menuWithID:system.menu.ID];
@@ -220,6 +226,7 @@
     }
     
     NSLog(@"Settings: %@", settings);
+    [XMMCDSystemSettings insertNewObjectFrom:settings];
   }];
 }
 
@@ -232,8 +239,9 @@
     
     //self.blocks.style = style;
     //[self.blocks.tableView reloadData];
-    
     NSLog(@"Style: %@", style);
+    
+    [XMMCDStyle insertNewObjectFrom:style];
   }];
 }
 
@@ -245,6 +253,8 @@
     }
     
     NSLog(@"Menu: %@", menu);
+    
+    [XMMCDMenu insertNewObjectFrom:menu];
     
     for (XMMMenuItem *item in menu.items) {
       NSLog(@"MenuItem: %@", item.contentTitle);
