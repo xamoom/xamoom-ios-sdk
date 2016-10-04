@@ -23,7 +23,7 @@
   XMMCDSystemSettings *savedSettings = nil;
   
   // check if object already exists
-  NSArray *objects = [[XMMOfflineStorageManager sharedInstance] fetch:self jsonID:settings.ID];
+  NSArray *objects = [[XMMOfflineStorageManager sharedInstance] fetch:[[self class] coreDataEntityName] jsonID:settings.ID];
   if (objects.count > 0) {
     savedSettings = objects.firstObject;
   } else {
