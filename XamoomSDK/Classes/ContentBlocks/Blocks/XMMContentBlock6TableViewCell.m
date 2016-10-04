@@ -47,6 +47,7 @@ static NSString *contentLanguage;
   self.contentExcerptLabel.text = nil;
   self.angleImage = [UIImage imageNamed:@"angleRight"
                                inBundle:imageBundle compatibleWithTraitCollection:nil];
+  [super awakeFromNib];
 }
 
 - (void)prepareForReuse {

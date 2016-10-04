@@ -46,6 +46,7 @@
   self.playImage = [UIImage imageNamed:@"videoPlay"
                               inBundle:imageBundle compatibleWithTraitCollection:nil];
   self.webView.scrollView.scrollEnabled = false;
+  [super awakeFromNib];
 }
 
 - (void)prepareForReuse {
