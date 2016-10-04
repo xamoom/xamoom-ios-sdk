@@ -54,6 +54,7 @@ static NSString *contentLanguage;
   self.mapHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   
   self.didLoadStyle = NO;
+  [super awakeFromNib];
 }
 
 - (void)setupMapView {

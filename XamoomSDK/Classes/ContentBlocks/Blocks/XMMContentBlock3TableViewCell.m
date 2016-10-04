@@ -30,6 +30,7 @@
   [self.blockImageView setIsAccessibilityElement:YES];
   
   self.titleLabel.text = nil;
+  [super awakeFromNib];
 }
 
 - (void)setupGestureRecognizers {

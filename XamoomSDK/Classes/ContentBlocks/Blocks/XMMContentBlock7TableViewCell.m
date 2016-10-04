@@ -34,6 +34,7 @@ static int kWebViewSoundcloudPadding = 8;
                                            selector:@selector(pauseAllSounds)
                                                name:@"pauseAllSounds"
                                              object:nil];
+  [super awakeFromNib];
 }
 
 - (void)pauseAllSounds {

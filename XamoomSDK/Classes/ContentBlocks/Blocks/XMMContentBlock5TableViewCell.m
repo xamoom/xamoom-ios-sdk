@@ -41,6 +41,7 @@
   
   UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
   [self addGestureRecognizer:tapGestureRecognizer];
+  [super awakeFromNib];
 }
 
 - (void)prepareForReuse {

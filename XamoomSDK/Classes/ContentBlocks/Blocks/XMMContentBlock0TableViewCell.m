@@ -31,6 +31,7 @@ static UIColor *contentLinkColor;
   // Initialization code
   self.titleLabel.text = @"";
   self.contentTextView.text = @"";
+  [super awakeFromNib];
 }
 
 + (int)fontSize {

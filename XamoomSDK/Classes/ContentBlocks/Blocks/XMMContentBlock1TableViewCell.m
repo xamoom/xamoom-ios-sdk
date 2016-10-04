@@ -38,6 +38,7 @@
   
   [self.audioControlButton setImage:self.playImage
                            forState:UIControlStateNormal];
+  [super awakeFromNib];
 }
 
 - (void)setupImages {

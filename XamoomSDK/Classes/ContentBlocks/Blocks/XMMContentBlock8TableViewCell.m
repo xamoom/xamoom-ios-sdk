@@ -39,6 +39,8 @@
                                   inBundle:imageBundle compatibleWithTraitCollection:nil];
   self.contactImage = [UIImage imageNamed:@"contact"
                                  inBundle:imageBundle compatibleWithTraitCollection:nil];
+  
+  [super awakeFromNib];
 }
 
 - (void)prepareForReuse {

@@ -35,6 +35,7 @@
 
   [self setupColors];
   [self setupBundle];
+  [super awakeFromNib];
 }
 
 - (void)setupColors {
