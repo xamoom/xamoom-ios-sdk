@@ -97,6 +97,7 @@
 		88B3901C1DA2945900216478 /* XMMCDSystemSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */; };
 		88B3901D1DA2945900216478 /* XMMCDSystemSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */; };
 		88B3901F1DA294D600216478 /* XMMCDResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B3901E1DA294D600216478 /* XMMCDResource.h */; };
+		88B390231DA39EC700216478 /* XMMCDSystemSettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B390221DA39EC700216478 /* XMMCDSystemSettingsTest.m */; };
 		88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */; };
 		88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B962901C7F00530096993D /* UIColor+HexStringTests.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
@@ -234,6 +235,7 @@
 		88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDSystemSettings.h; path = Classes/Storage/Resources/XMMCDSystemSettings.h; sourceTree = "<group>"; };
 		88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCDSystemSettings.m; path = Classes/Storage/Resources/XMMCDSystemSettings.m; sourceTree = "<group>"; };
 		88B3901E1DA294D600216478 /* XMMCDResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDResource.h; path = Classes/Storage/Resources/XMMCDResource.h; sourceTree = "<group>"; };
+		88B390221DA39EC700216478 /* XMMCDSystemSettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMCDSystemSettingsTest.m; sourceTree = "<group>"; };
 		88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockXTableViewCellTests.m; sourceTree = "<group>"; };
 		88B962901C7F00530096993D /* UIColor+HexStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexStringTests.m"; sourceTree = "<group>"; };
 		88CC28B51C567832000ACDD0 /* contentLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentLocation.json; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 		8888DDD01C47B0FA0050A84C /* XamoomSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				88B390201DA39E5500216478 /* Storage */,
 				883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */,
 				8888DDD31C47B0FA0050A84C /* Info.plist */,
 				883EA06D1C7F23EF003FDF80 /* APIIntegrationTests.m */,
@@ -470,7 +473,6 @@
 				883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */,
 				883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */,
 				883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */,
-				88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */,
 			);
 			path = XamoomSDKTests;
 			sourceTree = "<group>";
@@ -492,6 +494,23 @@
 				88B3901E1DA294D600216478 /* XMMCDResource.h */,
 				88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */,
 				88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */,
+			);
+			name = OfflineResources;
+			sourceTree = "<group>";
+		};
+		88B390201DA39E5500216478 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				88B390211DA39E5F00216478 /* OfflineResources */,
+				88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */,
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		88B390211DA39E5F00216478 /* OfflineResources */ = {
+			isa = PBXGroup;
+			children = (
+				88B390221DA39EC700216478 /* XMMCDSystemSettingsTest.m */,
 			);
 			name = OfflineResources;
 			sourceTree = "<group>";
@@ -892,6 +911,7 @@
 				889356691C802CF40083724C /* APIIntegrationTests.m in Sources */,
 				8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */,
 				881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */,
+				88B390231DA39EC700216478 /* XMMCDSystemSettingsTest.m in Sources */,
 				88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */,
 				8886E2931C7B55B000B6AEAE /* XMMRestResourceTests.m in Sources */,
 				88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */,
