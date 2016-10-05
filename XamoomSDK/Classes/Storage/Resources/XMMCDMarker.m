@@ -37,6 +37,12 @@
   }
   
   savedMarker.jsonID = marker.ID;
+  savedMarker.qr = marker.qr;
+  savedMarker.nfc = marker.nfc;
+  savedMarker.beaconUUID = marker.beaconUUID;
+  savedMarker.beaconMajor = marker.beaconMajor;
+  savedMarker.beaconMinor = marker.beaconMinor;
+  savedMarker.eddyStoneUrl = marker.eddyStoneUrl;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   

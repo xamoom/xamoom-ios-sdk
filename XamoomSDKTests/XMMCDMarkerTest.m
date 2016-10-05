@@ -42,6 +42,12 @@
   XMMCDMarker *savedMarker = [XMMCDMarker insertNewObjectFrom:marker];
   
   XCTAssertTrue([savedMarker.jsonID isEqualToString:marker.ID]);
+  XCTAssertTrue([savedMarker.qr isEqualToString:marker.qr]);
+  XCTAssertTrue([savedMarker.nfc isEqualToString:marker.nfc]);
+  XCTAssertTrue([savedMarker.beaconUUID isEqualToString:marker.beaconUUID]);
+  XCTAssertTrue([savedMarker.beaconMajor isEqualToString:marker.beaconMajor]);
+  XCTAssertTrue([savedMarker.beaconMinor isEqualToString:marker.beaconMinor]);
+  XCTAssertTrue([savedMarker.eddyStoneUrl isEqualToString:marker.eddyStoneUrl]);
 }
 
 
