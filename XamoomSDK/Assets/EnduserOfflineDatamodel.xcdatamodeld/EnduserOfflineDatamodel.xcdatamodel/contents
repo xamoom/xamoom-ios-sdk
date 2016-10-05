@@ -26,6 +26,13 @@
         <attribute name="highlightFontColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="XMMCDSystem" parentEntity="XMMCDResource" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="menu" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDMenu" syncable="YES"/>
+        <relationship name="setting" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDSystemSettings" syncable="YES"/>
+        <relationship name="style" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDStyle" syncable="YES"/>
+    </entity>
     <entity name="XMMCDSystemSettings" representedClassName=".XMMCDSystemSettings" parentEntity="XMMCDResource" syncable="YES">
         <attribute name="googlePlayId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="itunesAppId" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,5 +44,6 @@
         <element name="XMMCDStyle" positionX="-36" positionY="27" width="128" height="135"/>
         <element name="XMMCDSystemSettings" positionX="-63" positionY="-18" width="128" height="75"/>
         <element name="XMMCDMarker" positionX="-27" positionY="54" width="128" height="135"/>
+        <element name="XMMCDSystem" positionX="-18" positionY="72" width="128" height="120"/>
     </elements>
 </model>
