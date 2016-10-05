@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="XMMCDContentBlock" parentEntity="XMMCDResource" syncable="YES">
+        <attribute name="altText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="artists" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blockType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="contentID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="downloadType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fileID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="linkUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publicStatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scaleX" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="showContent" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="soundcloudUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="spotMapTags" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="videoUrl" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="XMMCDMarker" parentEntity="XMMCDResource" syncable="YES">
         <attribute name="beaconMajor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="beaconMinor" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,5 +63,6 @@
         <element name="XMMCDSystemSettings" positionX="-63" positionY="-18" width="128" height="75"/>
         <element name="XMMCDMarker" positionX="-27" positionY="54" width="128" height="135"/>
         <element name="XMMCDSystem" positionX="-18" positionY="72" width="128" height="120"/>
+        <element name="XMMCDContentBlock" positionX="-9" positionY="90" width="128" height="285"/>
     </elements>
 </model>
