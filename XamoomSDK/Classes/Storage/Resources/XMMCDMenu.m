@@ -33,15 +33,19 @@
   
   savedMenu.jsonID = menu.ID;
   
-  NSMutableOrderedSet *items = [[NSMutableOrderedSet alloc] init];
-  for (XMMMenuItem *item in menu.items) {
-    [items addObject:[XMMCDMenuItem insertNewObjectFrom:item]];
-  }
-  savedMenu.items = items;
+  [savedMenu addMenuItems:menu.items];
   
   [[XMMOfflineStorageManager sharedInstance] save];
   
   return savedMenu;
+}
+
+- (void)addMenuItems:(NSArray *)menuItems {
+  NSMutableOrderedSet *items = [[NSMutableOrderedSet alloc] init];
+  for (XMMMenuItem *item in menuItems) {
+    [items addObject:[XMMCDMenuItem insertNewObjectFrom:item]];
+  }
+  self.items = items;
 }
 
 @end
