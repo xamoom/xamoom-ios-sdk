@@ -38,6 +38,9 @@
   savedSystem.jsonID = system.ID;
   savedSystem.name = system.name;
   savedSystem.url = system.url;
+  savedSystem.setting = [XMMCDSystemSettings insertNewObjectFrom:system.setting];
+  savedSystem.menu = [XMMCDMenu insertNewObjectFrom:system.menu];
+  savedSystem.style = [XMMCDStyle insertNewObjectFrom:system.style];
   
   [[XMMOfflineStorageManager sharedInstance] save];
   
