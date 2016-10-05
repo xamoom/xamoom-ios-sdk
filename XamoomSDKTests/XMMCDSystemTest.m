@@ -37,27 +37,24 @@
   XMMSystem *system = [[XMMSystem alloc] init];
   system.ID = @"1";
   
-  XMMCDStyle *style = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDStyle coreDataEntityName]
-                                                    inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
-  style.jsonID = @"2";
+  XMMStyle *style = [[XMMStyle alloc] init];
+  style.ID = @"2";
+  system.style = style;
   
-  XMMCDMenu *menu = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDMenu coreDataEntityName]
-                                                    inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
-  menu.jsonID = @"3";
+  XMMMenu *menu = [[XMMMenu alloc] init];
+  menu.ID = @"3";
+  system.menu = menu;
   
-  XMMCDSystemSettings *settings = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDSystemSettings coreDataEntityName]
-                                                    inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
-  settings.jsonID = @"4";
+  XMMSystemSettings *settings = [[XMMSystemSettings alloc] init];
+  settings.ID = @"4";
+  system.setting = settings;
   
   XMMCDSystem *savedSystem = [XMMCDSystem insertNewObjectFrom:system];
-  savedSystem.setting = settings;
-  savedSystem.style = style;
-  savedSystem.menu = menu;
   
   XCTAssertTrue([savedSystem.jsonID isEqualToString:system.ID]);
-  XCTAssertTrue([savedSystem.setting.jsonID isEqualToString:settings.jsonID]);
-  XCTAssertTrue([savedSystem.menu.jsonID isEqualToString:menu.jsonID]);
-  XCTAssertTrue([savedSystem.style.jsonID isEqualToString:style.jsonID]);
+  XCTAssertTrue([savedSystem.setting.jsonID isEqualToString:settings.ID]);
+  XCTAssertTrue([savedSystem.menu.jsonID isEqualToString:menu.ID]);
+  XCTAssertTrue([savedSystem.style.jsonID isEqualToString:style.ID]);
 }
 
 @end
