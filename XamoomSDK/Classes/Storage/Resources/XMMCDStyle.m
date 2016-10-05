@@ -32,7 +32,7 @@
   if (objects.count > 0) {
     savedStyle = objects.firstObject;
   } else {
-    savedStyle = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDStyle coreDataEntityName]
+    savedStyle = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
                                                   inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   

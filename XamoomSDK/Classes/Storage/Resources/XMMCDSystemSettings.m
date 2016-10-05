@@ -27,7 +27,7 @@
   if (objects.count > 0) {
     savedSettings = objects.firstObject;
   } else {
-    savedSettings = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDSystemSettings coreDataEntityName]
+    savedSettings = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
                                                   inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   

@@ -32,7 +32,7 @@
   if (objects.count > 0) {
     savedMarker = objects.firstObject;
   } else {
-    savedMarker = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDMarker coreDataEntityName]
+    savedMarker = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
                                                   inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   

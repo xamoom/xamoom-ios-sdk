@@ -28,7 +28,7 @@
   if (objects.count > 0) {
     savedMenuItem = objects.firstObject;
   } else {
-    savedMenuItem = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDMenuItem coreDataEntityName]
+    savedMenuItem = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
                                                inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   
