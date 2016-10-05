@@ -13,7 +13,6 @@
 
 @interface XMMCDSystemSettings : NSManagedObject <XMMCDResource>
 
-@property (strong, nonatomic) NSString *jsonID;
 @property (strong, nonatomic) NSString *itunesAppId;
 @property (strong, nonatomic) NSString *googlePlayId;
 

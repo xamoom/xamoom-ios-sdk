@@ -13,7 +13,6 @@
 
 @interface XMMCDMenuItem : NSManagedObject <XMMCDResource>
 
-@property (strong, nonatomic) NSString *jsonID;
 @property (strong, nonatomic) NSString *contentTitle;
 @property (assign, nonatomic) NSNumber *category;
 

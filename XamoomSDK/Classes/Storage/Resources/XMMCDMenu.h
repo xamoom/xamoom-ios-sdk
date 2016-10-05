@@ -13,7 +13,6 @@
 
 @interface XMMCDMenu : NSManagedObject <XMMCDResource>
 
-@property (nonatomic, copy) NSString *jsonID;
 @property (nonatomic, copy) NSOrderedSet *items;
 
 @end

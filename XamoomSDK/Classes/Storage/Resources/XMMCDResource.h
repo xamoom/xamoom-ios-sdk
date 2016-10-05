@@ -11,6 +11,8 @@
 
 @protocol XMMCDResource <NSObject>
 
+@property (nonatomic, strong) NSString* jsonID;
+
 + (NSString *)coreDataEntityName;
 
 + (instancetype)insertNewObjectFrom:(id)entity;

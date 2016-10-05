@@ -12,7 +12,6 @@
 
 @interface XMMCDStyle : NSManagedObject <XMMCDResource>
 
-@property (nonatomic, copy) NSString *jsonID;
 @property (nonatomic, copy) NSString* backgroundColor;
 @property (nonatomic, copy) NSString* highlightFontColor;
 @property (nonatomic, copy) NSString* foregroundFontColor;
