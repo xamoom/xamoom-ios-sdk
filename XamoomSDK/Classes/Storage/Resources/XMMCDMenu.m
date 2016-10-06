@@ -28,12 +28,14 @@
     savedMenu = objects.firstObject;
   } else {
     savedMenu = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
-                                               inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+                                              inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   
   savedMenu.jsonID = menu.ID;
   
-  [savedMenu addMenuItems:menu.items];
+  if (menu.items != nil) {
+    [savedMenu addMenuItems:menu.items];
+  }
   
   [[XMMOfflineStorageManager sharedInstance] save];
   

@@ -37,21 +37,25 @@
     savedContent = objects.firstObject;
   } else {
     savedContent = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
-                                                inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+                                                 inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   
   savedContent.jsonID = content.ID;
   
-  NSMutableOrderedSet *contentBlocks = [[NSMutableOrderedSet alloc] init];
-  for (XMMContentBlock *block in content.contentBlocks) {
-    [contentBlocks addObject:[XMMCDContentBlock insertNewObjectFrom:block]];
+  if (content.contentBlocks != nil) {
+    NSMutableOrderedSet *contentBlocks = [[NSMutableOrderedSet alloc] init];
+    for (XMMContentBlock *block in content.contentBlocks) {
+      [contentBlocks addObject:[XMMCDContentBlock insertNewObjectFrom:block]];
+    }
+    savedContent.contentBlocks = contentBlocks;
   }
-  savedContent.contentBlocks = contentBlocks;
   
   if (content.spot != nil) {
     savedContent.spot = [XMMCDSpot insertNewObjectFrom:content.spot];
   }
-  savedContent.system = [XMMCDSystem insertNewObjectFrom:content.system];
+  if (content.system != nil) {
+    savedContent.system = [XMMCDSystem insertNewObjectFrom:content.system];
+  }
   savedContent.title = content.title;
   savedContent.imagePublicUrl = content.imagePublicUrl;
   savedContent.contentDescription = content.contentDescription;

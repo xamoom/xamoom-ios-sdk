@@ -12,6 +12,17 @@
 @implementation XMMCDSpot
 
 @dynamic jsonID;
+@dynamic name;
+@dynamic spotDescription;
+@dynamic latitude;
+@dynamic longitude;
+@dynamic image;
+@dynamic category;
+@dynamic locationDictionary;
+@dynamic tags;
+@dynamic content;
+@dynamic markers;
+@dynamic system;
 
 + (NSString *)coreDataEntityName {
   return NSStringFromClass([self class]);
@@ -28,17 +39,27 @@
     savedSpot = objects.firstObject;
   } else {
     savedSpot = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
-                                                 inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+                                              inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   
   savedSpot.jsonID = spot.ID;
-  savedSpot.content = [XMMCDContent insertNewObjectFrom:spot.content];
-  savedSpot.system = [XMMCDSystem insertNewObjectFrom:spot.system];
-  NSMutableSet *markers = [[NSMutableSet alloc] init];
-  for (XMMMarker *marker in spot.markers) {
-    [markers addObject:[XMMCDMarker insertNewObjectFrom:marker]];
+  
+  if (spot.content != nil) {
+    savedSpot.content = [XMMCDContent insertNewObjectFrom:spot.content];
   }
-  savedSpot.markers = markers;
+  
+  if (spot.system != nil) {
+    savedSpot.system = [XMMCDSystem insertNewObjectFrom:spot.system];
+  }
+  
+  if (spot.markers != nil) {
+    NSMutableSet *markers = [[NSMutableSet alloc] init];
+    for (XMMMarker *marker in spot.markers) {
+      [markers addObject:[XMMCDMarker insertNewObjectFrom:marker]];
+    }
+    savedSpot.markers = markers;
+  }
+  
   savedSpot.name = spot.name;
   savedSpot.spotDescription = spot.spotDescription;
   savedSpot.locationDictionary = spot.locationDictionary;

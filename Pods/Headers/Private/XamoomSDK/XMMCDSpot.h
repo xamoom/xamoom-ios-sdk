@@ -1,0 +1,1 @@
+../../../../XamoomSDK/Classes/Storage/Resources/XMMCDSpot.h
