@@ -18,9 +18,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMMCDResource.h"
 
 @protocol XMMRestResource <NSObject>
 
-+ (NSString *)resourceName;
++ (NSString * _Null_unspecified)resourceName;
+
+- (instancetype _Null_unspecified)initWithCoreDataObject:(id<XMMCDResource> _Nonnull)object;
 
 @end
