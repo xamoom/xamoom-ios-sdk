@@ -33,11 +33,13 @@
 
 - (void)testInsertNewObjectFromEntityWithNoExistingEntry {
   XMMMenuItem *testItem = [[XMMMenuItem alloc] init];
+  testItem.ID = @"1";
   testItem.contentTitle = @"Test";
   testItem.category = 2;
   
   XMMCDMenuItem *savedMenuItem = [XMMCDMenuItem insertNewObjectFrom:testItem];
   
+  XCTAssertTrue([savedMenuItem.jsonID isEqualToString:testItem.ID]);
   XCTAssertTrue([savedMenuItem.contentTitle isEqualToString:testItem.contentTitle]);
   XCTAssertEqual([savedMenuItem.category intValue], testItem.category);
 }
