@@ -7,7 +7,26 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "XMMOfflineStorageManager.h"
+#import "XMMCDResource.h"
+#import "XMMSpot.h"
+#import "XMMCDMarker.h"
+#import "XMMCDSystem.h"
 
-@interface XMMCDSpot : NSManagedObject
+@class XMMCDContent;
+
+@interface XMMCDSpot : NSManagedObject <XMMCDResource>
+
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *spotDescription;
+@property (nonatomic) double latitude;
+@property (nonatomic) double longitude;
+@property (nonatomic, copy) NSString *image;
+@property (nonatomic) NSNumber *category;
+@property (nonatomic) NSMutableDictionary *locationDictionary;
+@property (nonatomic) NSArray *tags;
+@property (nonatomic) XMMCDContent *content;
+@property (nonatomic) NSSet *markers;
+@property (nonatomic) XMMCDSystem *system;
 
 @end

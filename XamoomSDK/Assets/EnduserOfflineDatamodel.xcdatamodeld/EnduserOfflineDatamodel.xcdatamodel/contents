@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="XMMCDContent" parentEntity="XMMCDResource" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="contentDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePublicUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="contentBlocks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="XMMCDContentBlock" syncable="YES"/>
+        <relationship name="spot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDSpot" syncable="YES"/>
+        <relationship name="system" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDSystem" syncable="YES"/>
+    </entity>
     <entity name="XMMCDContentBlock" parentEntity="XMMCDResource" syncable="YES">
         <attribute name="altText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="artists" optional="YES" attributeType="String" syncable="YES"/>
@@ -36,6 +47,17 @@
     <entity name="XMMCDResource" syncable="YES">
         <attribute name="jsonID" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
+    <entity name="XMMCDSpot" parentEntity="XMMCDResource" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationDictionary" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="spotDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="content" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDContent" syncable="YES"/>
+        <relationship name="markers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XMMCDMarker" syncable="YES"/>
+        <relationship name="system" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDSystem" syncable="YES"/>
+    </entity>
     <entity name="XMMCDStyle" parentEntity="XMMCDResource" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="chromeHeaderColor" optional="YES" attributeType="String" syncable="YES"/>
@@ -56,13 +78,15 @@
         <attribute name="itunesAppId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="XMMCDContent" positionX="0" positionY="162" width="128" height="180"/>
+        <element name="XMMCDContentBlock" positionX="-9" positionY="90" width="128" height="285"/>
+        <element name="XMMCDMarker" positionX="-27" positionY="54" width="128" height="135"/>
         <element name="XMMCDMenu" positionX="-18" positionY="81" width="128" height="60"/>
         <element name="XMMCDMenuItem" positionX="0" positionY="90" width="128" height="75"/>
         <element name="XMMCDResource" positionX="-54" positionY="18" width="128" height="60"/>
+        <element name="XMMCDSpot" positionX="9" positionY="171" width="128" height="180"/>
         <element name="XMMCDStyle" positionX="-36" positionY="27" width="128" height="135"/>
-        <element name="XMMCDSystemSettings" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="XMMCDMarker" positionX="-27" positionY="54" width="128" height="135"/>
         <element name="XMMCDSystem" positionX="-18" positionY="72" width="128" height="120"/>
-        <element name="XMMCDContentBlock" positionX="-9" positionY="90" width="128" height="285"/>
+        <element name="XMMCDSystemSettings" positionX="-63" positionY="-18" width="128" height="75"/>
     </elements>
 </model>
