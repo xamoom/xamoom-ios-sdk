@@ -41,7 +41,9 @@
   }
   
   savedContent.jsonID = content.ID;
-  savedContent.spot = [XMMCDSpot insertNewObjectFrom:content.spot];
+  if (content.spot != nil) {
+    savedContent.spot = [XMMCDSpot insertNewObjectFrom:content.spot];
+  }
   savedContent.system = [XMMCDSystem insertNewObjectFrom:content.system];
   savedContent.title = content.title;
   savedContent.imagePublicUrl = content.imagePublicUrl;
