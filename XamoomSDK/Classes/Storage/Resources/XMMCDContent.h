@@ -21,7 +21,7 @@
 @property (nonatomic, copy) NSString *imagePublicUrl;
 @property (nonatomic, copy) NSString *contentDescription;
 @property (nonatomic, copy) NSString *language;
-@property (nonatomic) NSArray *contentBlocks;
+@property (nonatomic) NSOrderedSet *contentBlocks;
 @property (nonatomic) NSNumber *category;
 @property (nonatomic) NSArray *tags;
 @property (nonatomic) XMMCDSystem *system;

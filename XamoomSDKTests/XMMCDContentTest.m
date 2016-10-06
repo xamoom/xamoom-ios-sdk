@@ -49,11 +49,25 @@
   spot.ID = @"3";
   content.spot = spot;
   
+  NSMutableArray *contentBlocks = [[NSMutableArray alloc] init];
+  XMMContentBlock *contentBlock = [[XMMContentBlock alloc] init];
+  contentBlock.ID = @"1";
+  [contentBlocks addObject:contentBlock];
+  XMMContentBlock *contentBlock2 = [[XMMContentBlock alloc] init];
+  contentBlock2.ID = @"2";
+  [contentBlocks addObject:contentBlock2];
+  
   XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
   
   XCTAssertTrue([savedContent.jsonID isEqualToString:content.ID]);
   XCTAssertTrue([savedContent.spot.jsonID isEqualToString:content.spot.ID]);
   XCTAssertTrue([savedContent.system.jsonID isEqualToString:content.system.ID]);
+  for (int i = 0; i < savedContent.contentBlocks.count; i++) {
+    XMMContentBlock *block = contentBlocks[i];
+    XMMCDContentBlock *savedBlock = savedContent.contentBlocks[i];
+    XCTAssertTrue([savedBlock.jsonID isEqualToString:block.ID]);
+  }
+  
   XCTAssertTrue([savedContent.title isEqualToString:content.title]);
   XCTAssertTrue([savedContent.imagePublicUrl isEqualToString:content.imagePublicUrl]);
   XCTAssertTrue([savedContent.contentDescription isEqualToString:content.contentDescription]);

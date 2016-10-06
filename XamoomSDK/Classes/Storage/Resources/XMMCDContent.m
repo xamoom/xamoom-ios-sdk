@@ -41,6 +41,13 @@
   }
   
   savedContent.jsonID = content.ID;
+  
+  NSMutableOrderedSet *contentBlocks = [[NSMutableOrderedSet alloc] init];
+  for (XMMContentBlock *block in content.contentBlocks) {
+    [contentBlocks addObject:[XMMCDContentBlock insertNewObjectFrom:block]];
+  }
+  savedContent.contentBlocks = contentBlocks;
+  
   if (content.spot != nil) {
     savedContent.spot = [XMMCDSpot insertNewObjectFrom:content.spot];
   }
