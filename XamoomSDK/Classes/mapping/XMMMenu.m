@@ -18,6 +18,9 @@
 //
 
 #import "XMMMenu.h"
+#import "XMMMenuItem.h"
+#import "XMMCDMenu.h"
+#import "XMMCDMenuItem.h"
 
 @implementation XMMMenu
 
@@ -39,6 +42,24 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  XMMCDMenu *savedMenu = (XMMCDMenu *)object;
+  
+  self = [self init];
+  if (self) {
+    self.ID = savedMenu.jsonID;
+    if (savedMenu.items != nil) {
+      NSMutableArray *items = [[NSMutableArray alloc] init];
+      for (XMMCDMenuItem *item in savedMenu.items) {
+        [items addObject:[[XMMMenuItem alloc] initWithCoreDataObject:item]];
+      }
+      self.items = items;
+    }
+  }
+  
+  return self;
 }
 
 @end

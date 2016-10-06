@@ -18,9 +18,9 @@
 //
 
 #import "XMMMenuItem.h"
+#import "XMMCDMenuItem.h"
 
 @implementation XMMMenuItem
-
 
 + (NSString *)resourceName {
   return @"content";
@@ -40,6 +40,19 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  XMMCDMenuItem *savedMenu = (XMMCDMenuItem *)object;
+  self = [self init];
+  
+  if (self) {
+    self.ID = savedMenu.jsonID;
+    self.contentTitle = savedMenu.contentTitle;
+    self.category = [savedMenu.category intValue];
+  }
+  
+  return self;
 }
 
 @end

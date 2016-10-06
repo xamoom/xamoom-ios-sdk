@@ -89,6 +89,10 @@
 		8887006D1D3664100049CF7F /* spotWithName.json in Resources */ = {isa = PBXBuildFile; fileRef = 8887006C1D3664100049CF7F /* spotWithName.json */; };
 		8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8888DDC21C47B0FA0050A84C /* XamoomSDK.framework */; };
 		888F18BA1DA6300F00518DB8 /* XMMCDSpotTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F18B91DA6300F00518DB8 /* XMMCDSpotTest.m */; };
+		888F18BD1DA66CE400518DB8 /* XMMSystemSettingsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F18BC1DA66CE400518DB8 /* XMMSystemSettingsTest.m */; };
+		888F18BF1DA670AC00518DB8 /* XMMStyleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F18BE1DA670AC00518DB8 /* XMMStyleTest.m */; };
+		888F18C11DA673FB00518DB8 /* XMMMenuItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F18C01DA673FB00518DB8 /* XMMMenuItemTest.m */; };
+		888F18C31DA6883B00518DB8 /* XMMMenuTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F18C21DA6883B00518DB8 /* XMMMenuTest.m */; };
 		888F4F5E1DA4F627000E49CE /* XMMCDMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 888F4F5C1DA4F627000E49CE /* XMMCDMenuItem.h */; };
 		888F4F5F1DA4F627000E49CE /* XMMCDMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F4F5D1DA4F627000E49CE /* XMMCDMenuItem.m */; };
 		888F4F611DA4F7A1000E49CE /* XMMCDSystemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F4F601DA4F7A1000E49CE /* XMMCDSystemTest.m */; };
@@ -253,6 +257,10 @@
 		8888DDCC1C47B0FA0050A84C /* XamoomSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XamoomSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDD31C47B0FA0050A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		888F18B91DA6300F00518DB8 /* XMMCDSpotTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMCDSpotTest.m; sourceTree = "<group>"; };
+		888F18BC1DA66CE400518DB8 /* XMMSystemSettingsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMSystemSettingsTest.m; sourceTree = "<group>"; };
+		888F18BE1DA670AC00518DB8 /* XMMStyleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMStyleTest.m; sourceTree = "<group>"; };
+		888F18C01DA673FB00518DB8 /* XMMMenuItemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMenuItemTest.m; sourceTree = "<group>"; };
+		888F18C21DA6883B00518DB8 /* XMMMenuTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMenuTest.m; sourceTree = "<group>"; };
 		888F4F5C1DA4F627000E49CE /* XMMCDMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDMenuItem.h; path = Classes/Storage/Resources/XMMCDMenuItem.h; sourceTree = "<group>"; };
 		888F4F5D1DA4F627000E49CE /* XMMCDMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCDMenuItem.m; path = Classes/Storage/Resources/XMMCDMenuItem.m; sourceTree = "<group>"; };
 		888F4F601DA4F7A1000E49CE /* XMMCDSystemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMCDSystemTest.m; sourceTree = "<group>"; };
@@ -504,6 +512,7 @@
 		8888DDD01C47B0FA0050A84C /* XamoomSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				888F18BB1DA66CCB00518DB8 /* Resources */,
 				88B390201DA39E5500216478 /* Storage */,
 				883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */,
 				8888DDD31C47B0FA0050A84C /* Info.plist */,
@@ -523,6 +532,17 @@
 				883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */,
 			);
 			path = XamoomSDKTests;
+			sourceTree = "<group>";
+		};
+		888F18BB1DA66CCB00518DB8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				888F18BC1DA66CE400518DB8 /* XMMSystemSettingsTest.m */,
+				888F18BE1DA670AC00518DB8 /* XMMStyleTest.m */,
+				888F18C01DA673FB00518DB8 /* XMMMenuItemTest.m */,
+				888F18C21DA6883B00518DB8 /* XMMMenuTest.m */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		88AE0F371DA292A5009C588C /* Storage */ = {
@@ -995,8 +1015,11 @@
 			files = (
 				883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */,
 				883EA06A1C7F0DF7003FDF80 /* XMMMusicPlayerTests.m in Sources */,
+				888F18BD1DA66CE400518DB8 /* XMMSystemSettingsTest.m in Sources */,
+				888F18C31DA6883B00518DB8 /* XMMMenuTest.m in Sources */,
 				88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */,
 				88D5B1411DA3EFF60069E2E8 /* XMMCDMarkerTest.m in Sources */,
+				888F18BF1DA670AC00518DB8 /* XMMStyleTest.m in Sources */,
 				88D5B13B1DA3E0050069E2E8 /* XMMCDMenuItemTest.m in Sources */,
 				888F4F6F1DA534D5000E49CE /* XMMCDContentBlockTest.m in Sources */,
 				889356691C802CF40083724C /* APIIntegrationTests.m in Sources */,
@@ -1007,6 +1030,7 @@
 				88B390291DA3A71D00216478 /* XMMCDStyleTest.m in Sources */,
 				881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */,
 				88B390231DA39EC700216478 /* XMMCDSystemSettingsTest.m in Sources */,
+				888F18C11DA673FB00518DB8 /* XMMMenuItemTest.m in Sources */,
 				88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */,
 				8886E2931C7B55B000B6AEAE /* XMMRestResourceTests.m in Sources */,
 				88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */,

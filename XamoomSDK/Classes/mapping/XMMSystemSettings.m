@@ -18,6 +18,7 @@
 //
 
 #import "XMMSystemSettings.h"
+#import "XMMCDSystemSettings.h"
 
 @implementation XMMSystemSettings
 
@@ -39,6 +40,19 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  XMMCDSystemSettings *savedSettings = (XMMCDSystemSettings *)object;
+  
+  self = [self init];
+  if (self) {
+    self.ID = savedSettings.jsonID;
+    self.googlePlayAppId = savedSettings.googlePlayId;
+    self.itunesAppId = savedSettings.itunesAppId;
+  }
+  
+  return self;
 }
 
 @end
