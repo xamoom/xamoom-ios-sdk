@@ -1,23 +1,20 @@
 //
-//  XMMCDSystemTest.m
+//  XMMSystemTest.m
 //  XamoomSDK
 //
-//  Created by Raphael Seher on 05/10/2016.
+//  Created by Raphael Seher on 07/10/2016.
 //  Copyright © 2016 xamoom GmbH. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "XMMCDSystem.h"
 #import "XMMSystem.h"
-#import "XMMCDSystemSettings.h"
-#import "XMMCDMenu.h"
-#import "XMMCDStyle.h"
+#import "XMMCDSystem.h"
 
-@interface XMMCDSystemTest : XCTestCase
+@interface XMMSystemTest : XCTestCase
 
 @end
 
-@implementation XMMCDSystemTest
+@implementation XMMSystemTest
 
 - (void)setUp {
     [super setUp];
@@ -29,11 +26,11 @@
     [super tearDown];
 }
 
-- (void)testCoreDataEntityName {
-  XCTAssertTrue([[XMMCDSystem coreDataEntityName] isEqualToString:@"XMMCDSystem"]);
+- (void)testSystemResourceName {
+  XCTAssertTrue([[XMMSystem resourceName] isEqualToString:@"systems"]);
 }
 
-- (void)testInsertNewObjectFromEntityWithNoExistingEntry {
+- (void)testInitWithCoreDataObject {
   XMMSystem *system = [[XMMSystem alloc] init];
   system.ID = @"1";
   system.name = @"name";
@@ -53,12 +50,14 @@
   
   XMMCDSystem *savedSystem = [XMMCDSystem insertNewObjectFrom:system];
   
-  XCTAssertTrue([savedSystem.jsonID isEqualToString:system.ID]);
-  XCTAssertTrue([savedSystem.name isEqualToString:system.name]);
-  XCTAssertTrue([savedSystem.url isEqualToString:system.url]);
-  XCTAssertTrue([savedSystem.setting.jsonID isEqualToString:settings.ID]);
-  XCTAssertTrue([savedSystem.menu.jsonID isEqualToString:menu.ID]);
-  XCTAssertTrue([savedSystem.style.jsonID isEqualToString:style.ID]);
+  XMMSystem *newSystem = [[XMMSystem alloc] initWithCoreDataObject:savedSystem];
+  
+  XCTAssertTrue([newSystem.ID isEqualToString:system.ID]);
+  XCTAssertTrue([newSystem.name isEqualToString:system.name]);
+  XCTAssertTrue([newSystem.url isEqualToString:system.url]);
+  XCTAssertTrue([newSystem.setting.ID isEqualToString:settings.ID]);
+  XCTAssertTrue([newSystem.menu.ID isEqualToString:menu.ID]);
+  XCTAssertTrue([newSystem.style.ID isEqualToString:style.ID]);
 }
 
 @end

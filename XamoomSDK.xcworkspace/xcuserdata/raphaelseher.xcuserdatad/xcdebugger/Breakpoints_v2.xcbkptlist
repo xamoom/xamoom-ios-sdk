@@ -2,4 +2,84 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XamoomSDKTests/XMMCDContentTest.m"
+            timestampString = "497533474.654657"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-testInsertNewObjectFromEntityWithNoExistingEntry"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[XMMCDContentTest testInsertNewObjectFromEntityWithNoExistingEntry]"
+                  moduleName = "XamoomSDKTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphaelseher/dev/xamoom-ios-sdk/XamoomSDKTests/XMMCDContentTest.m"
+                  timestampString = "497533569.330173"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "6706">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[XMMCDContentTest testInsertNewObjectFromEntityWithNoExistingEntry]"
+                  moduleName = "XamoomSDKTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphaelseher/dev/xamoom-ios-sdk/XamoomSDKTests/XMMCDContentTest.m"
+                  timestampString = "497533569.33235"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "8291">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[XMMCDContentTest testInsertNewObjectFromEntityWithNoExistingEntry]"
+                  moduleName = "XamoomSDKTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphaelseher/dev/xamoom-ios-sdk/XamoomSDKTests/XMMCDContentTest.m"
+                  timestampString = "497533569.333917"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "8396">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[XMMCDContentTest testInsertNewObjectFromEntityWithNoExistingEntry]"
+                  moduleName = "XamoomSDKTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/raphaelseher/dev/xamoom-ios-sdk/XamoomSDKTests/XMMCDContentTest.m"
+                  timestampString = "497533569.33566"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "8527">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

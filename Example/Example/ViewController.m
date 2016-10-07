@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "XMMCDSystemSettings.h"
-#import "XMMCDMenu.h"
-#import "XMMCDStyle.h"
+#import "XMMCDSystem.h"
+#import "XMMCDContent.h"
+#import "XMMCDSpot.h"
 
 @interface ViewController ()
 
@@ -17,6 +17,9 @@
 @property XMMContentBlocks *blocks;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property XMMContent *content;
+
+@property XMMSystem *system;
+@property XMMCDSystem *savedSystem;
 
 @end
 
@@ -31,7 +34,7 @@
   NSString *devkey = [dict objectForKey:@"X-DEVKEY"];
   
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"XamoomSDK iOS",
+                                @"User-Agent":@"XamoomSDK iOS | SDK Example | dev",
                                 @"APIKEY":apikey,
                                 @"X-DEVKEY":devkey};
   
@@ -44,7 +47,9 @@
   self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
   self.blocks.delegate = self;
   
-  [self system];
+  [self loadSystem];
+  [self contentWithID];
+  [self spotsWithTags];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +66,7 @@
   [self contentWithTags];
   [self spotsWithLocation];
   [self spotsWithTags];
-  [self system];
+  [self loadSystem];
 }
 
 - (void)didClickContentBlock:(NSString *)contentID {
@@ -69,12 +74,13 @@
 }
 
 - (void)contentWithID {
-  [self.api contentWithID:@"e5be72be162d44b189893a406aff5227" completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
+    [XMMCDContent insertNewObjectFrom:content];
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -84,7 +90,7 @@
 }
 
 - (void)contentWithIDOptions {
-  [self.api contentWithID:@"e5be72be162d44b189893a406aff5227" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
@@ -193,17 +199,21 @@
 }
 
 - (void)spotsWithTags {
-  [self.api spotsWithTags:@[@"tag1"] pageSize:10 cursor:nil options:XMMSpotOptionsIncludeContent sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [self.api spotsWithTags:@[@"tag1"] pageSize:10 cursor:nil options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
+    }
+    
+    for (XMMSpot *spot in spots) {
+      [XMMCDSpot insertNewObjectFrom:spot];
     }
     
     NSLog(@"spotsWithTags: %@", spots);
   }];
 }
 
-- (void)system {
+- (void)loadSystem {
   [self.api systemWithCompletion:^(XMMSystem *system, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
@@ -211,6 +221,9 @@
     }
     
     NSLog(@"system: %@", system);
+    
+    self.system = system;
+    self.savedSystem = [XMMCDSystem insertNewObjectFrom:system];
     
     [self systemSettingsWithID:system.setting.ID];
     [self styleWithID:system.style.ID];
@@ -226,7 +239,8 @@
     }
     
     NSLog(@"Settings: %@", settings);
-    [XMMCDSystemSettings insertNewObjectFrom:settings];
+    self.system.setting = settings;
+    self.savedSystem = [XMMCDSystem insertNewObjectFrom:self.system];
   }];
 }
 
@@ -237,11 +251,11 @@
       return;
     }
     
+    self.system.style = style;
+    self.savedSystem = [XMMCDSystem insertNewObjectFrom:self.system];
     //self.blocks.style = style;
     //[self.blocks.tableView reloadData];
     NSLog(@"Style: %@", style);
-    
-    [XMMCDStyle insertNewObjectFrom:style];
   }];
 }
 
@@ -254,7 +268,8 @@
     
     NSLog(@"Menu: %@", menu);
     
-    [XMMCDMenu insertNewObjectFrom:menu];
+    self.system.menu = menu;
+    self.savedSystem = [XMMCDSystem insertNewObjectFrom:self.system];
     
     for (XMMMenuItem *item in menu.items) {
       NSLog(@"MenuItem: %@", item.contentTitle);

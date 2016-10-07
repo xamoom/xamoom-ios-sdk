@@ -56,12 +56,14 @@
   XMMContentBlock *contentBlock2 = [[XMMContentBlock alloc] init];
   contentBlock2.ID = @"2";
   [contentBlocks addObject:contentBlock2];
-  
+  content.contentBlocks = contentBlocks;
+
   XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
   
   XCTAssertTrue([savedContent.jsonID isEqualToString:content.ID]);
   XCTAssertTrue([savedContent.spot.jsonID isEqualToString:content.spot.ID]);
   XCTAssertTrue([savedContent.system.jsonID isEqualToString:content.system.ID]);
+  XCTAssertNotNil(savedContent.contentBlocks);
   for (int i = 0; i < savedContent.contentBlocks.count; i++) {
     XMMContentBlock *block = contentBlocks[i];
     XMMCDContentBlock *savedBlock = savedContent.contentBlocks[i];

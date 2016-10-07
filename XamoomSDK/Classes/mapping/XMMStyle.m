@@ -63,10 +63,9 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 }
 
 - (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
-  XMMCDStyle *savedStyle = (XMMCDStyle *)object;
   self = [self init];
-  
-  if (self) {
+  if (self && object != nil) {
+    XMMCDStyle *savedStyle = (XMMCDStyle *)object;
     self.ID = savedStyle.jsonID;
     self.backgroundColor = savedStyle.backgroundColor;
     self.highlightFontColor = savedStyle.highlightFontColor;

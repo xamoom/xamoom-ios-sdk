@@ -18,6 +18,10 @@
 //
 
 #import "XMMSystem.h"
+#import "XMMCDSystem.h"
+#import "XMMStyle.h"
+#import "XMMSystemSettings.h"
+#import "XMMMenu.h"
 
 @implementation XMMSystem
 
@@ -43,6 +47,27 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  self = [self init];
+  if (self && object != nil) {
+    XMMCDSystem *savedSystem = (XMMCDSystem *)object;
+    self.ID = savedSystem.jsonID;
+    self.name = savedSystem.name;
+    self.url = savedSystem.url;
+    if (savedSystem.setting != nil) {
+      self.setting = [[XMMSystemSettings alloc] initWithCoreDataObject:savedSystem.setting];
+    }
+    if (savedSystem.style != nil) {
+      self.style = [[XMMStyle alloc] initWithCoreDataObject:savedSystem.style];
+    }
+    if (savedSystem.menu != nil) {
+      self.menu = [[XMMMenu alloc] initWithCoreDataObject:savedSystem.menu];
+    }
+  }
+  
+  return self;
 }
 
 @end

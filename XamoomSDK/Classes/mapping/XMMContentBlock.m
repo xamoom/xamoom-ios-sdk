@@ -18,6 +18,7 @@
 //
 
 #import "XMMContentBlock.h"
+#import "XMMCDContentBlock.h"
 
 @implementation XMMContentBlock
 
@@ -52,6 +53,31 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  self = [self init];
+  if (self && object != nil) {
+    XMMCDContentBlock *savedBlock = (XMMCDContentBlock *)object;
+    self.ID = savedBlock.jsonID;
+    self.title = savedBlock.title;
+    self.publicStatus = [savedBlock.publicStatus boolValue];
+    self.blockType = [savedBlock.blockType intValue];
+    self.text = savedBlock.text;
+    self.artists = savedBlock.artists;
+    self.fileID = savedBlock.fileID;
+    self.soundcloudUrl = savedBlock.soundcloudUrl;
+    self.linkUrl = savedBlock.linkUrl;
+    self.linkType = [savedBlock.linkType intValue];
+    self.contentID = savedBlock.contentID;
+    self.downloadType = [savedBlock.downloadType intValue];
+    self.spotMapTags = savedBlock.spotMapTags;
+    self.scaleX = [savedBlock.scaleX doubleValue];
+    self.videoUrl = savedBlock.videoUrl;
+    self.showContent = [savedBlock.showContent boolValue];
+    self.altText = savedBlock.altText;
+  }
+  return self;
 }
 
 @end

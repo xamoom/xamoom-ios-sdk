@@ -43,10 +43,9 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 }
 
 - (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
-  XMMCDMenuItem *savedMenu = (XMMCDMenuItem *)object;
   self = [self init];
-  
-  if (self) {
+  if (self && object != nil) {
+    XMMCDMenuItem *savedMenu = (XMMCDMenuItem *)object;
     self.ID = savedMenu.jsonID;
     self.contentTitle = savedMenu.contentTitle;
     self.category = [savedMenu.category intValue];

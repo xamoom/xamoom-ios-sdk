@@ -43,10 +43,9 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 }
 
 - (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
-  XMMCDSystemSettings *savedSettings = (XMMCDSystemSettings *)object;
-  
   self = [self init];
-  if (self) {
+  if (self && object != nil) {
+    XMMCDSystemSettings *savedSettings = (XMMCDSystemSettings *)object;
     self.ID = savedSettings.jsonID;
     self.googlePlayAppId = savedSettings.googlePlayId;
     self.itunesAppId = savedSettings.itunesAppId;

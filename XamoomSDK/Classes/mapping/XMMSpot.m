@@ -18,6 +18,7 @@
 //
 
 #import "XMMSpot.h"
+#import "XMMCDSpot.h"
 
 @interface XMMSpot()
 
@@ -74,6 +75,34 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  self = [self init];
+  if (self && object != nil) {
+    XMMCDSpot *savedSpot = (XMMCDSpot *)object;
+    self.ID = savedSpot.jsonID;
+    self.name = savedSpot.name;
+    self.spotDescription = savedSpot.spotDescription;
+    self.locationDictionary = savedSpot.locationDictionary;
+    self.image = savedSpot.image;
+    self.category = [savedSpot.category intValue];
+    self.tags = savedSpot.tags;
+    if (savedSpot.markers != nil) {
+      NSMutableArray *markers = [[NSMutableArray alloc] init];
+      for (XMMCDMarker *savedMarker in savedSpot.markers) {
+        [markers addObject:[[XMMMarker alloc] initWithCoreDataObject:savedMarker]];
+      }
+      self.markers = markers;
+    }
+    if (savedSpot.content != nil) {
+      self.content = [[XMMContent alloc] initWithCoreDataObject:savedSpot.content];
+    }
+    if (savedSpot.system != nil) {
+      self.system = [[XMMSystem alloc] initWithCoreDataObject:savedSpot.system];
+    }
+  }
+  return self;
 }
 
 @end

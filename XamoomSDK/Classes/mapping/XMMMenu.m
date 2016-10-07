@@ -45,10 +45,9 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 }
 
 - (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
-  XMMCDMenu *savedMenu = (XMMCDMenu *)object;
-  
   self = [self init];
-  if (self) {
+  if (self && object != nil) {
+    XMMCDMenu *savedMenu = (XMMCDMenu *)object;
     self.ID = savedMenu.jsonID;
     if (savedMenu.items != nil) {
       NSMutableArray *items = [[NSMutableArray alloc] init];
