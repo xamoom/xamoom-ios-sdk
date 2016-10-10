@@ -67,13 +67,10 @@
   }];
   
   [self waitForExpectationsWithTimeout:4.0 handler:nil];
-  
-  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-  NSString *documentsPath = [paths objectAtIndex:0];
-  NSURL *filePath = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", documentsPath]];
-  fileName = [fileName MD5String];
-  filePath = [filePath URLByAppendingPathComponent:fileName];
-  NSData *data = [NSData dataWithContentsOfURL:filePath options:0 error:nil];
+
+  NSError *error;
+  NSData *data = [self.storeManager savedDataFromUrl:fileName error:&error];
+  XCTAssertNil(error);
   XCTAssertNotNil(data);
 }
 

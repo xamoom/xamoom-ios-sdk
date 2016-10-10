@@ -82,13 +82,7 @@
 
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSData *, NSError *))completion {
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
-    NSURL *filePath = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", documentsPath]];
-    NSString *fileName = urlString;
-    fileName = [fileName MD5String];
-    filePath = [filePath URLByAppendingPathComponent:fileName];
-    
+    NSURL *filePath = [self filePathForSavedObject:urlString];
     NSData *data = [self downloadFileFromUrl:[NSURL URLWithString:urlString] completion:completion];
     NSError *error;
     [data writeToURL:filePath options:0 error:&error];
@@ -98,6 +92,22 @@
     
     completion(data, nil);
   });
+}
+
+- (NSData *)savedDataFromUrl:(NSString *)urlString error:(NSError *__autoreleasing *)error {
+  NSURL *filePath = [self filePathForSavedObject:urlString];
+  NSData *data = [NSData dataWithContentsOfURL:filePath options:0 error:error];
+  return data;
+}
+
+- (NSURL *)filePathForSavedObject:(NSString *)urlString {
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *documentsPath = [paths objectAtIndex:0];
+  NSURL *filePath = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", documentsPath]];
+  NSString *fileName = urlString;
+  fileName = [fileName MD5String];
+  filePath = [filePath URLByAppendingPathComponent:fileName];
+  return filePath;
 }
 
 @end

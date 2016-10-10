@@ -21,4 +21,6 @@
 
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void(^)(NSData *data, NSError *error))completion;
 
+- (NSData *)savedDataFromUrl:(NSString *)urlString error:(NSError **)error;
+
 @end
