@@ -82,9 +82,16 @@
     NSError *error;
     [data writeToURL:filePath options:NSDataWritingWithoutOverwriting error:&error];
     
+    // load existing file
+    if (error != nil && error.code == 516) {
+      error = nil;
+      data = [self savedDataFromUrl:urlString error:&error];
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
       if (error) {
         completion(nil, error);
+        return;
       }
       
       completion(data, nil);
