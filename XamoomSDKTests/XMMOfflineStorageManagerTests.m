@@ -10,6 +10,7 @@
 #import <OCMock/OCMock.h>
 #import "XMMOfflineStorageManager.h"
 #import "XMMCDSystemSettings.h"
+#import "NSString+MD5.h"
 
 @interface XMMOfflineStorageManagerTests : XCTestCase
 
@@ -52,6 +53,28 @@
   [self.storeManager fetch:[XMMCDSystemSettings coreDataEntityName] jsonID:@"1234"];
   
   OCMVerify([self.mockedContext executeFetchRequest:[OCMArg isEqual:checkRequest] error:[OCMArg anyObjectRef]]);
+}
+
+- (void)testSaveFileFromUrl {
+  NSString *fileName = @"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/170px-Apple_logo_black.svg.png";
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+
+  [self.storeManager saveFileFromUrl:fileName completion:^(NSData *data, NSError *error) {
+    XCTAssertNotNil(data);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:4.0 handler:nil];
+  
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *documentsPath = [paths objectAtIndex:0];
+  NSURL *filePath = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", documentsPath]];
+  fileName = [fileName MD5String];
+  filePath = [filePath URLByAppendingPathComponent:fileName];
+  NSData *data = [NSData dataWithContentsOfURL:filePath options:0 error:nil];
+  XCTAssertNotNil(data);
 }
 
 @end

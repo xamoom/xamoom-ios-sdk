@@ -7,6 +7,7 @@
 //
 
 #import "XMMOfflineStorageManager.h"
+#import "NSString+MD5.h"
 
 @implementation XMMOfflineStorageManager
 
@@ -68,6 +69,35 @@
   request.predicate = [NSPredicate predicateWithFormat:@"jsonID = %@", jsonID];
   NSError *error = nil;
   return [self.managedObjectContext executeFetchRequest:request error:&error];
+}
+
+- (NSData *)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *, NSError *))completion {
+  NSError *error = nil;
+  NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
+  if (error) {
+    completion(nil, error);
+  }
+  return data;
+}
+
+- (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSData *, NSError *))completion {
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSURL *filePath = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", documentsPath]];
+    NSString *fileName = urlString;
+    fileName = [fileName MD5String];
+    filePath = [filePath URLByAppendingPathComponent:fileName];
+    
+    NSData *data = [self downloadFileFromUrl:[NSURL URLWithString:urlString] completion:completion];
+    NSError *error;
+    [data writeToURL:filePath options:0 error:&error];
+    if (error) {
+      completion(nil, error);
+    }
+    
+    completion(data, nil);
+  });
 }
 
 @end

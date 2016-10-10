@@ -19,4 +19,6 @@
 
 - (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID;
 
+- (void)saveFileFromUrl:(NSString *)urlString completion:(void(^)(NSData *data, NSError *error))completion;
+
 @end
