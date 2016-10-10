@@ -57,7 +57,6 @@
 
 - (void)testSaveFileFromUrl {
   NSString *fileName = @"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/170px-Apple_logo_black.svg.png";
-  
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
 
   [self.storeManager saveFileFromUrl:fileName completion:^(NSData *data, NSError *error) {
@@ -72,6 +71,24 @@
   NSData *data = [self.storeManager savedDataFromUrl:fileName error:&error];
   XCTAssertNil(error);
   XCTAssertNotNil(data);
+}
+
+- (void)testImageFromSavedFile {
+  NSString *fileName = @"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/170px-Apple_logo_black.svg.png";
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  
+  [self.storeManager saveFileFromUrl:fileName completion:^(NSData *data, NSError *error) {
+    XCTAssertNotNil(data);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:4.0 handler:nil];
+  
+  NSError *error;
+  UIImage *image = [self.storeManager savedImageFromUrl:fileName error:&error];
+  XCTAssertNil(error);
+  XCTAssertNotNil(image);
 }
 
 @end

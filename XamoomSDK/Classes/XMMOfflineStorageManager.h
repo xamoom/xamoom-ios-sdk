@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
 @interface XMMOfflineStorageManager : NSObject
 
@@ -22,5 +23,7 @@
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void(^)(NSData *data, NSError *error))completion;
 
 - (NSData *)savedDataFromUrl:(NSString *)urlString error:(NSError **)error;
+
+- (UIImage *)savedImageFromUrl:(NSString *)urlString error:(NSError **)error;
 
 @end
