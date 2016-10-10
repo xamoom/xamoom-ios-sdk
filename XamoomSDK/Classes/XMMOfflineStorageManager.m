@@ -20,6 +20,10 @@
   return sharedMyManager;
 }
 
++ (NSURL *)urlForSavedData:(NSString *)urlString {
+  return [[self sharedInstance] filePathForSavedObject:urlString];
+}
+
 - (id)init {
   self = [super init];
   
@@ -76,7 +80,7 @@
     NSURL *filePath = [self filePathForSavedObject:urlString];
     NSData *data = [self downloadFileFromUrl:[NSURL URLWithString:urlString] completion:completion];
     NSError *error;
-    [data writeToURL:filePath options:0 error:&error];
+    [data writeToURL:filePath options:NSDataWritingWithoutOverwriting error:&error];
     
     dispatch_async(dispatch_get_main_queue(), ^{
       if (error) {

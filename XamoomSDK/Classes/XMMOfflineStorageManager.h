@@ -16,6 +16,8 @@
 
 + (instancetype)sharedInstance;
 
++ (NSURL *)urlForSavedData:(NSString *)urlString;
+
 - (NSError *)save;
 
 - (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID;
