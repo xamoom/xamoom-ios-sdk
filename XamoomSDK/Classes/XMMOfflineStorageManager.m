@@ -77,11 +77,14 @@
     NSData *data = [self downloadFileFromUrl:[NSURL URLWithString:urlString] completion:completion];
     NSError *error;
     [data writeToURL:filePath options:0 error:&error];
-    if (error) {
-      completion(nil, error);
-    }
     
-    completion(data, nil);
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if (error) {
+        completion(nil, error);
+      }
+      
+      completion(data, nil);
+    });
   });
 }
 
