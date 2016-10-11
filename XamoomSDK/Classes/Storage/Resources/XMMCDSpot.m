@@ -14,8 +14,6 @@
 @dynamic jsonID;
 @dynamic name;
 @dynamic spotDescription;
-@dynamic latitude;
-@dynamic longitude;
 @dynamic image;
 @dynamic category;
 @dynamic locationDictionary;

@@ -19,8 +19,6 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *spotDescription;
-@property (nonatomic) double latitude;
-@property (nonatomic) double longitude;
 @property (nonatomic, copy) NSString *image;
 @property (nonatomic) NSNumber *category;
 @property (nonatomic) NSMutableDictionary *locationDictionary;
