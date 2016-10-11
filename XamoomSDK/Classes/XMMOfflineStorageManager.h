@@ -18,9 +18,19 @@
 
 + (NSURL *)urlForSavedData:(NSString *)urlString;
 
+#pragma mark - CoreData
+
 - (NSError *)save;
 
+- (NSArray *)fetchAll:(NSString *)entityType;
+
+- (NSArray *)fetch:(NSString *)entityType predicate:(NSPredicate *)predicate;
+
 - (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID;
+
+- (void)deleteAllEntities;
+
+#pragma mark - File handling
 
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void(^)(NSData *data, NSError *error))completion;
 

@@ -8,9 +8,20 @@
 
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
+#import <CoreData/CoreData.h>
 #import "XMMOfflineStorageManager.h"
-#import "XMMCDSystemSettings.h"
 #import "NSString+MD5.h"
+#import "XMMCDContent.h"
+#import "XMMCDContentBlock.h"
+#import "XMMCDMarker.h"
+#import "XMMCDMenu.h"
+#import "XMMCDMenuItem.h"
+#import "XMMCDSpot.h"
+#import "XMMCDStyle.h"
+#import "XMMCDSystem.h"
+#import "XMMCDSystem.h"
+#import "XMMCDSystemSettings.h"
+
 
 @interface XMMOfflineStorageManagerTests : XCTestCase
 
@@ -46,6 +57,13 @@
   OCMVerify([self.mockedContext save:[OCMArg anyObjectRef]]);
 }
 
+- (void)testFetchAll {
+  NSFetchRequest *checkRequest = [NSFetchRequest fetchRequestWithEntityName:[XMMCDSystemSettings coreDataEntityName]];
+  [self.storeManager fetchAll:[XMMCDSystemSettings coreDataEntityName]];
+  
+  OCMVerify([self.mockedContext executeFetchRequest:[OCMArg isEqual:checkRequest] error:[OCMArg anyObjectRef]]);
+}
+
 - (void)testFetchEntityTypeJsonID {
   NSFetchRequest *checkRequest = [NSFetchRequest fetchRequestWithEntityName:[XMMCDSystemSettings coreDataEntityName]];
   checkRequest.predicate = [NSPredicate predicateWithFormat:@"jsonID = %@", @"1234"];
@@ -53,6 +71,22 @@
   [self.storeManager fetch:[XMMCDSystemSettings coreDataEntityName] jsonID:@"1234"];
   
   OCMVerify([self.mockedContext executeFetchRequest:[OCMArg isEqual:checkRequest] error:[OCMArg anyObjectRef]]);
+}
+
+- (void)testDeleteAllEntities {
+  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+  
+  [self.storeManager deleteAllEntities];
+
+  OCMVerifyAll(self.mockedContext);
 }
 
 - (void)testSaveFileFromUrl {
@@ -65,7 +99,7 @@
     [expectation fulfill];
   }];
   
-  [self waitForExpectationsWithTimeout:4.0 handler:nil];
+  [self waitForExpectationsWithTimeout:10.0 handler:nil];
 
   NSError *error;
   NSData *data = [self.storeManager savedDataFromUrl:fileName error:&error];

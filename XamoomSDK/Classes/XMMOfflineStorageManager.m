@@ -8,6 +8,16 @@
 
 #import "XMMOfflineStorageManager.h"
 #import "NSString+MD5.h"
+#import "XMMCDContent.h"
+#import "XMMCDContentBlock.h"
+#import "XMMCDMarker.h"
+#import "XMMCDMenu.h"
+#import "XMMCDMenuItem.h"
+#import "XMMCDSpot.h"
+#import "XMMCDStyle.h"
+#import "XMMCDSystem.h"
+#import "XMMCDSystem.h"
+#import "XMMCDSystemSettings.h"
 
 @implementation XMMOfflineStorageManager
 
@@ -62,18 +72,42 @@
   });
 }
 
+#pragma mark - CoreData
+
 - (NSError *)save {
   NSError *error = nil;
   [self.managedObjectContext save:&error];
   return error;
 }
 
-- (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID {
-  NSFetchRequest* request = [NSFetchRequest fetchRequestWithEntityName:entityType];
-  request.predicate = [NSPredicate predicateWithFormat:@"jsonID = %@", jsonID];
+- (NSArray *)fetchAll:(NSString *)entityType {
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityType];
   NSError *error = nil;
   return [self.managedObjectContext executeFetchRequest:request error:&error];
 }
+
+- (NSArray *)fetch:(NSString *)entityType predicate:(NSPredicate *)predicate {
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityType];
+  request.predicate = predicate;
+  NSError *error = nil;
+  return [self.managedObjectContext executeFetchRequest:request error:&error];
+}
+
+- (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID {
+  return [self fetch:entityType
+           predicate:[NSPredicate predicateWithFormat:@"jsonID == %@", jsonID]];
+}
+
+- (void)deleteAllEntities {
+  NSArray *entityArray = @[[XMMCDContent class],[XMMCDContentBlock class],[XMMCDMarker class],[XMMCDMenu class],[XMMCDMenuItem class],[XMMCDSpot class],[XMMCDStyle class],[XMMCDSystem class],[XMMCDSystemSettings class]];
+  for (Class entityClass in entityArray) {
+    NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:[entityClass coreDataEntityName]];
+    NSBatchDeleteRequest *deleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:fetch];
+    [self.managedObjectContext executeRequest:deleteRequest error:nil];
+  }
+}
+
+#pragma mark - File handling
 
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSData *, NSError *))completion {
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
