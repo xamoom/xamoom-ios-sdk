@@ -163,6 +163,23 @@
       XCTAssertNil(error);
     }];
   }];
-
 }
+
+- (void)testContentsWithLocationWithoutElements {
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6247222 longitude:14.3052778];
+
+  [self.offlineApi contentsWithLocation:location pageSize:2 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertEqual(contents.count, 0);
+    XCTAssertFalse(hasMore);
+    XCTAssertNotNil(cursor);
+    XCTAssertNil(error);
+  }];
+}
+
+- (void)testContentsWithLocationWithoutLocation {
+  [self.offlineApi contentsWithLocation:nil pageSize:2 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertEqual(error.code, 102);
+  }];
+}
+
 @end

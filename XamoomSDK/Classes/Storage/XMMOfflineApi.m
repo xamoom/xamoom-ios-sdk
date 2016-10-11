@@ -77,10 +77,15 @@
 
 - (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *, bool, NSString *, NSError *))completion {
   
+  if (location == nil) {
+    completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
+                                                   code:102
+                                               userInfo:@{@"description":@"Location cannot be null"}]);
+    return;
+  }
+  
   NSArray *results =
   [[XMMOfflineStorageManager sharedInstance] fetchAll:[XMMCDSpot coreDataEntityName]];
-  
-  // TODO IF NULL
   
   results = [self.apiHelper spotsInsideGeofence:results
                                        location:location
