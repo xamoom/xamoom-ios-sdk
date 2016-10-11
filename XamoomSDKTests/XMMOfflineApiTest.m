@@ -124,22 +124,35 @@
 }
 
 - (void)testContentsWithLocation {
+  
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"5";
+  
+  XMMContent *content1 = [[XMMContent alloc] init];
+  content1.ID = @"6";
+  
+  XMMContent *content2 = [[XMMContent alloc] init];
+  content2.ID = @"7";
+  
   XMMSpot *newSpot = [[XMMSpot alloc] init];
   newSpot.ID = @"1";
   newSpot.latitude = 46.6247222;
   newSpot.longitude = 14.3052778;
+  newSpot.content = content;
   [XMMCDSpot insertNewObjectFrom:newSpot];
   
   XMMSpot *newSpot1 = [[XMMSpot alloc] init];
   newSpot1.ID = @"2";
   newSpot1.latitude = 46.6247232;
   newSpot1.longitude = 14.3052788;
+  newSpot1.content = content1;
   [XMMCDSpot insertNewObjectFrom:newSpot1];
   
   XMMSpot *newSpot2 = [[XMMSpot alloc] init];
   newSpot2.ID = @"3";
   newSpot2.latitude = 46.6247212;
   newSpot2.longitude = 14.3052768;
+  newSpot2.content = content2;
   [XMMCDSpot insertNewObjectFrom:newSpot2];
   
   XMMSpot *newSpot3 = [[XMMSpot alloc] init];
@@ -152,6 +165,8 @@
   
   [self.offlineApi contentsWithLocation:location pageSize:2 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(contents.count, 2);
+    XMMContent *savedContent = contents[0];
+    XCTAssertEqual(savedContent.ID, @"5");
     XCTAssertTrue(hasMore);
     XCTAssertTrue([cursor isEqualToString:@"1"]);
     XCTAssertNil(error);

@@ -12,6 +12,7 @@
 #import "XMMCDContent.h"
 #import "XMMCDSpot.h"
 #import "XMMCDMarker.h"
+#import "XMMContent.h"
 
 @interface XMMOfflineApi()
 
@@ -60,7 +61,7 @@
                                          predicate:predicateCompound];
   
   if (results.count == 1) {
-    XMMCDSpot *savedSpot = results[0];    
+    XMMCDSpot *savedSpot = results[0];
     completion([[XMMContent alloc] initWithCoreDataObject:savedSpot.content], nil);
     return;
   } else if (results.count > 1) {
@@ -79,8 +80,8 @@
   
   if (location == nil) {
     completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
-                                                   code:102
-                                               userInfo:@{@"description":@"Location cannot be null"}]);
+                                                  code:102
+                                              userInfo:@{@"description":@"Location cannot be null"}]);
     return;
   }
   
@@ -90,6 +91,14 @@
   results = [self.apiHelper spotsInsideGeofence:results
                                        location:location
                                          radius:40];
+  
+  NSMutableArray *contents = [[NSMutableArray alloc] init];
+  for (XMMCDSpot *savedSpot in results) {
+    if (savedSpot.content != nil) {
+      [contents addObject:[[XMMContent alloc] initWithCoreDataObject:savedSpot.content]];
+    }
+  }
+  results = contents;
   
   if (sortOptions & XMMContentSortOptionsName) {
     results = [self.apiHelper sortArrayByPropertyName:results
