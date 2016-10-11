@@ -32,13 +32,6 @@
 #import "XMMContentBlock.h"
 #import "XMMMarker.h"
 
-@class XMMContentById;
-@class XMMContentByLocation;
-@class XMMContentByLocationIdentifier;
-@class XMMSpotMap;
-@class XMMContentList;
-@class XMMClosestSpot;
-
 #pragma mark - XMMEnduserApi
 
 extern NSString * const kApiBaseURLString;
