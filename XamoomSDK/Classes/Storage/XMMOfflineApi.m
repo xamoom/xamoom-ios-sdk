@@ -161,7 +161,7 @@
     return;
   }
   
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[c] %@", name];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", name];
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDContent coreDataEntityName]
                                                             predicate:predicate];
   
