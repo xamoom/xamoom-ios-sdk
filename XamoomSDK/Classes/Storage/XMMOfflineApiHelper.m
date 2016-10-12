@@ -8,6 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "XMMOfflineApiHelper.h"
+#import "XMMCDContent.h"
 #import "XMMCDSpot.h"
 #import "XMMOfflinePagedResult.h"
 
@@ -30,6 +31,19 @@
   }
   
   return spotsInsideRadius;
+}
+
+- (NSArray *)contentsWithTags:(NSArray *)contents tags:(NSArray *)tags {
+  NSMutableArray *contentsWithTags = [[NSMutableArray alloc] init];
+  for (XMMCDContent *savedContent in contents) {
+    for (NSString *tag in tags) {
+      if ([savedContent.tags containsObject:tag] &&
+          ![contentsWithTags containsObject:savedContent]) {
+        [contentsWithTags addObject:savedContent];
+      }
+    }
+  }
+  return contentsWithTags;
 }
 
 - (NSArray *)sortArrayByPropertyName:(NSArray *)array propertyName:(NSString *)propertyName ascending:(BOOL)ascending {

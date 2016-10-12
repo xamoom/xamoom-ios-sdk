@@ -12,6 +12,7 @@
 #import "XMMOfflineStorageManager.h"
 #import "XMMCDSpot.h"
 #import "XMMOfflinePagedResult.h"
+#import "XMMCDContent.h"
 
 @interface XMMOfflineApiHelperTest : XCTestCase
 
@@ -53,6 +54,24 @@
   XCTAssertEqual(spotsInsideRadius.count, 1);
   XMMCDSpot *checkSpot = spotsInsideRadius[0];
   XCTAssertEqual(checkSpot.jsonID, spot1.jsonID);
+}
+
+- (void)testContentsWithTags {
+  NSMutableArray *contents = [[NSMutableArray alloc] init];
+  
+  XMMContent *newContent = [[XMMContent alloc] init];
+  newContent.ID = @"1";
+  newContent.tags = @[@"tag1", @"tag2"];
+  [contents addObject:[XMMCDContent insertNewObjectFrom:newContent]];
+  
+  XMMContent *newContent2 = [[XMMContent alloc] init];
+  newContent2.ID = @"2";
+  newContent2.tags = @[@"tag2"];
+  [contents addObject:[XMMCDContent insertNewObjectFrom:newContent2]];
+  
+  NSArray *newContents = [self.helper contentsWithTags:contents tags:@[@"tag1", @"tag2"]];
+  
+  XCTAssertEqual(newContents.count, 2);
 }
 
 - (void)testSortArrayByPropertyName {
