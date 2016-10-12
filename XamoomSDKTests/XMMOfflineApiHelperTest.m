@@ -69,7 +69,7 @@
   newContent2.tags = @[@"tag2"];
   [contents addObject:[XMMCDContent insertNewObjectFrom:newContent2]];
   
-  NSArray *newContents = [self.helper contentsWithTags:contents tags:@[@"tag1", @"tag2"]];
+  NSArray *newContents = [self.helper entitiesWithTags:contents tags:@[@"tag1", @"tag2"]];
   
   XCTAssertEqual(newContents.count, 2);
 }

@@ -14,7 +14,7 @@
 
 - (NSArray *)spotsInsideGeofence:(NSArray *)spots location:(CLLocation *)location radius:(int)radius;
 
-- (NSArray *)contentsWithTags:(NSArray *)contents tags:(NSArray *)tags;
+- (NSArray *)entitiesWithTags:(NSArray *)contents tags:(NSArray *)tags;
 
 - (NSArray *)sortArrayByPropertyName:(NSArray *)array propertyName:(NSString *)propertyName ascending:(BOOL)ascending;
 

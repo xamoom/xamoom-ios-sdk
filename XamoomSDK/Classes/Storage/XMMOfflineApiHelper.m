@@ -32,17 +32,20 @@
   return spotsInsideRadius;
 }
 
-- (NSArray *)contentsWithTags:(NSArray *)contents tags:(NSArray *)tags {
-  NSMutableArray *contentsWithTags = [[NSMutableArray alloc] init];
-  for (XMMCDContent *savedContent in contents) {
+- (NSArray *)entitiesWithTags:(NSArray *)entities tags:(NSArray *)tags {
+  NSMutableArray *entitiesWithTags = [[NSMutableArray alloc] init];
+  for (id savedEntity in entities) {
     for (NSString *tag in tags) {
-      if ([savedContent.tags containsObject:tag] &&
-          ![contentsWithTags containsObject:savedContent]) {
-        [contentsWithTags addObject:savedContent];
+      if ([savedEntity respondsToSelector:@selector(tags)]) {
+        if ([[savedEntity valueForKey:@"tags"] containsObject:tag] &&
+            ![entitiesWithTags containsObject:savedEntity]) {
+          [entitiesWithTags addObject:savedEntity];
+        }
       }
     }
   }
-  return contentsWithTags;
+  
+  return entitiesWithTags;
 }
 
 - (NSArray *)sortArrayByPropertyName:(NSArray *)array propertyName:(NSString *)propertyName ascending:(BOOL)ascending {
