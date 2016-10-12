@@ -40,7 +40,7 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark - shared instance
 
-+ (id)sharedInstanceWithKey:(NSString *)apikey {
++ (instancetype)sharedInstanceWithKey:(NSString *)apikey {
   NSAssert(apikey != nil, @"apikey is nil. Please use an apikey");
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
@@ -49,7 +49,7 @@ static XMMEnduserApi *sharedInstance;
   return sharedInstance;
 }
 
-+ (id)sharedInstance {
++ (instancetype)sharedInstance {
   NSAssert(sharedInstance != nil, @"SharedInstance is nil. Use sharedInstanceWithKey:apikey or changeSharedInstance:instance");
   return sharedInstance;
 }

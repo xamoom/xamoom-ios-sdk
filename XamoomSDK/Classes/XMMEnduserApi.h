@@ -70,14 +70,14 @@ extern NSString * const kApiBaseURLString;
  * created with sharedInstanceWithKey:apikey or set via
  * saveSharedInstance:instance.
  */
-+ (id)sharedInstance;
++ (instancetype)sharedInstance;
 
 /**
  * Get the sharedInstance, when there is none, creates a new one with apikey.
  *
  * @param apikey Your xamoom api key
  */
-+ (id)sharedInstanceWithKey:(NSString *)apikey;
++ (instancetype)sharedInstanceWithKey:(NSString *)apikey;
 
 /**
  * Change the saved sharedInstance.
