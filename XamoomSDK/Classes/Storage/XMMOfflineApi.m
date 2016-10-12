@@ -127,7 +127,7 @@
   
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetchAll:[XMMCDContent coreDataEntityName]];
   
-  results = [self.apiHelper contentsWithTags:results tags:tags];
+  results = [self.apiHelper entitiesWithTags:results tags:tags];
   
   if (sortOptions & XMMContentSortOptionsName) {
     results = [self.apiHelper sortArrayByPropertyName:results
