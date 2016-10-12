@@ -446,4 +446,40 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
+- (void)testSpotsWithName {
+  XMMSpot *newSpot = [[XMMSpot alloc] init];
+  newSpot.ID = @"1";
+  newSpot.name = @"b";
+  [XMMCDSpot insertNewObjectFrom:newSpot];
+
+  XMMSpot *newSpot2 = [[XMMSpot alloc] init];
+  newSpot2.ID = @"2";
+  newSpot2.name = @"aB";
+  [XMMCDSpot insertNewObjectFrom:newSpot2];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotsWithName:@"b" pageSize:2 cursor:nil sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNotNil(spots);
+    XCTAssertEqual(spots.count, 2);
+    XMMSpot *spot = spots[0];
+    XCTAssertEqual(spot.name, newSpot.name);
+    XCTAssertFalse(hasMore);
+    XCTAssertTrue([cursor isEqualToString:@"1"]);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSpotsWithNameNil {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotsWithName:nil pageSize:2 cursor:nil sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertEqual(error.code, 102);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+
+
 @end
