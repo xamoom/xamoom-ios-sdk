@@ -15,6 +15,7 @@
 @interface XMMOfflineApiTest : XCTestCase
 
 @property XMMOfflineApi *offlineApi;
+@property float timeout;
 
 @end
 
@@ -22,6 +23,7 @@
 
 - (void)setUp {
   [super setUp];
+  self.timeout = 1.0;
   [[XMMOfflineStorageManager sharedInstance] deleteAllEntities];
   self.offlineApi = [[XMMOfflineApi alloc] init];
 }
@@ -38,20 +40,25 @@
 - (void)testContentWithID {
   XMMContent *newContent = [[XMMContent alloc] init];
   newContent.ID = @"Some id";
-  
   [XMMCDContent insertNewObjectFrom:newContent];
   
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentWithID:newContent.ID completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
     XCTAssertEqual(newContent.ID, content.ID);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentWithIDNothingFoundError {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentWithID:@"" completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(error);
     XCTAssertEqual(error.code, 100);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentWithIDTooManyResultsError {
@@ -64,10 +71,13 @@
   content.jsonID = @"1";
   [[XMMOfflineStorageManager sharedInstance] save];
   
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentWithID:@"1" completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(error);
     XCTAssertEqual(error.code, 101);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentWithLocationIdentifier {
@@ -85,17 +95,23 @@
   
   [XMMCDSpot insertNewObjectFrom:newSpot];
   
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentWithLocationIdentifier:@"0ana0" completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
     XCTAssertEqual(newContent.ID, content.ID);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentWithLocationIdentifierNothingFound {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentWithLocationIdentifier:@"" completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(error);
     XCTAssertEqual(error.code, 100);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentWithLocationIdentifierTooManyResultsError {
@@ -117,14 +133,16 @@
   newSpot2.markers = @[newMarker2];
   [XMMCDSpot insertNewObjectFrom:newSpot2];
   
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentWithLocationIdentifier:@"0ana0" completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(error);
     XCTAssertEqual(error.code, 101);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentsWithLocation {
-  
   XMMContent *content = [[XMMContent alloc] init];
   content.ID = @"5";
   content.title = @"d";
@@ -166,6 +184,7 @@
   
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6247222 longitude:14.3052778];
   
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsWithLocation:location pageSize:2 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(contents.count, 2);
     XMMContent *savedContent = contents[0];
@@ -180,25 +199,33 @@
       XCTAssertFalse(hasMore);
       XCTAssertTrue([cursor isEqualToString:@"2"]);
       XCTAssertNil(error);
+      [expectation fulfill];
     }];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentsWithLocationWithoutElements {
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6247222 longitude:14.3052778];
-
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsWithLocation:location pageSize:2 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(contents.count, 0);
     XCTAssertFalse(hasMore);
     XCTAssertNotNil(cursor);
     XCTAssertNil(error);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentsWithLocationWithoutLocation {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsWithLocation:nil pageSize:2 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(error.code, 102);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentsWithTags {
@@ -216,6 +243,7 @@
   
   [[XMMOfflineStorageManager sharedInstance] save];
   
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:nil sort:XMMContentSortOptionsName completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNotNil(contents);
     XCTAssertEqual(contents.count, 2);
@@ -223,13 +251,18 @@
     XCTAssertEqual(content.title, @"a");
     XCTAssertFalse(hasMore);
     XCTAssertTrue([cursor isEqualToString:@"1"]);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentsWithTagsNil {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsWithTags:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(error.code, 102);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentsWithName {
@@ -243,19 +276,70 @@
   newContent2.title = @"a";
   [XMMCDContent insertNewObjectFrom:newContent2];
   
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsWithName:@"A" pageSize:10 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNotNil(contents);
     XCTAssertEqual(contents.count, 2);
     XMMContent *content = contents[0];
     XCTAssertEqual(content.title, @"a");
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
 - (void)testContentsWithNameNil {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsWithName:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(contents);
     XCTAssertEqual(error.code, 102);
+    [expectation fulfill];
   }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
+
+- (void)testSpotWithId {
+  XMMSpot *checkSpot = [[XMMSpot alloc] init];
+  checkSpot.ID = @"1";
+  [XMMCDSpot insertNewObjectFrom:checkSpot];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotWithID:@"1" completion:^(XMMSpot *spot, NSError *error) {
+    XCTAssertNotNil(spot);
+    XCTAssertNil(error);
+    XCTAssertEqual(spot.ID, checkSpot.ID);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSpotWithoutResult {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotWithID:@"1" completion:^(XMMSpot *spot, NSError *error) {
+    XCTAssertEqual(error.code, 100);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSpotWithTooManyResults {
+  XMMSpot *checkSpot = [[XMMSpot alloc] init];
+  checkSpot.ID = @"1";
+  [XMMCDSpot insertNewObjectFrom:checkSpot];
+  
+  XMMCDSpot *checkSpot2 = [NSEntityDescription
+                           insertNewObjectForEntityForName:[XMMCDSpot coreDataEntityName]
+                           inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+  checkSpot2.jsonID = @"1";
+  [[XMMOfflineStorageManager sharedInstance] save];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotWithID:@"1" completion:^(XMMSpot *spot, NSError *error) {
+    XCTAssertEqual(error.code, 101);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
 
 @end
