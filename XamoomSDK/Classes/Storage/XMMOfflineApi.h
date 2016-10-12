@@ -38,4 +38,8 @@
 
 - (void)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
+- (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion;
+
+- (void)systemWithID:(NSString *)systemID completion:(void (^)(XMMSystem *system, NSError *error))completion;
+
 @end

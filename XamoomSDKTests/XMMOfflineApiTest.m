@@ -480,6 +480,86 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
+- (void)testSystemWithCompletion {
+  XMMSystem *system = [[XMMSystem alloc] init];
+  system.ID = @"1";
+  
+  [XMMCDSystem insertNewObjectFrom:system];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi systemWithCompletion:^(XMMSystem *system, NSError *error) {
+    XCTAssertTrue([system.ID isEqualToString:@"1"]);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
 
+- (void)testSystemWithTooManyResults {
+  XMMSystem *system = [[XMMSystem alloc] init];
+  system.ID = @"1";
+  [XMMCDSystem insertNewObjectFrom:system];
+
+  XMMCDSystem *system2 = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDSystem coreDataEntityName] inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+  system2.jsonID = @"1";
+  
+  [[XMMOfflineStorageManager sharedInstance] save];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi systemWithCompletion:^(XMMSystem *system, NSError *error) {
+    XCTAssertEqual(error.code, 101);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSystemWithNoResults {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi systemWithCompletion:^(XMMSystem *system, NSError *error) {
+    XCTAssertEqual(error.code, 100);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSystemWithID {
+  XMMSystem *system = [[XMMSystem alloc] init];
+  system.ID = @"1";
+  
+  [XMMCDSystem insertNewObjectFrom:system];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi systemWithID:@"1" completion:^(XMMSystem *system, NSError *error) {
+    XCTAssertTrue([system.ID isEqualToString:@"1"]);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSystemWithIDTooManyResults {
+  XMMSystem *system = [[XMMSystem alloc] init];
+  system.ID = @"1";
+  [XMMCDSystem insertNewObjectFrom:system];
+  
+  XMMCDSystem *system2 = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDSystem coreDataEntityName] inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+  system2.jsonID = @"1";
+  
+  [[XMMOfflineStorageManager sharedInstance] save];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi systemWithID:@"1" completion:^(XMMSystem *system, NSError *error) {
+    XCTAssertEqual(error.code, 101);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSystemWithIDNoResults {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi systemWithID:@"1" completion:^(XMMSystem *system, NSError *error) {
+    XCTAssertEqual(error.code, 100);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
 
 @end
