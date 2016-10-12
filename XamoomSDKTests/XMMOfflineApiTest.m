@@ -341,5 +341,50 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
+- (void)testSpotWithLocation {
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"5";
+  content.title = @"d";
+  
+  XMMContent *content1 = [[XMMContent alloc] init];
+  content1.ID = @"6";
+  content1.title = @"s";
+  
+  XMMSpot *newSpot = [[XMMSpot alloc] init];
+  newSpot.ID = @"1";
+  newSpot.latitude = 46.6247222;
+  newSpot.longitude = 14.3052778;
+  newSpot.content = content;
+  [XMMCDSpot insertNewObjectFrom:newSpot];
+  
+  XMMSpot *newSpot1 = [[XMMSpot alloc] init];
+  newSpot1.ID = @"2";
+  newSpot1.latitude = 46.6247232;
+  newSpot1.longitude = 14.3052788;
+  newSpot1.content = content1;
+  [XMMCDSpot insertNewObjectFrom:newSpot1];
+  
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6247222 longitude:14.3052778];
+
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotsWithLocation:location radius:60 pageSize:1 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNotNil(spots);
+    XCTAssertEqual(spots.count, 1);
+    XCTAssertTrue(hasMore);
+    XCTAssertTrue([cursor isEqualToString:@"1"]);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSpotWithLocationNil {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotsWithLocation:nil radius:60 pageSize:1 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertEqual(error.code, 102);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
 
 @end

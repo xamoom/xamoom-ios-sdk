@@ -206,4 +206,32 @@
                                          userInfo:@{@"description":@"No entry found."}]);
 }
 
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  if (location == nil) {
+    completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
+                                                  code:102
+                                              userInfo:@{@"description":@"Location cannot be nil"}]);
+    return;
+  }
+  
+  NSArray *results =
+  [[XMMOfflineStorageManager sharedInstance] fetchAll:[XMMCDSpot coreDataEntityName]];
+  
+  results = [self.apiHelper spotsInsideGeofence:results
+                                       location:location
+                                         radius:radius];
+  
+  XMMOfflinePagedResult *pagedResult = [self.apiHelper pageResults:results
+                                                          pageSize:pageSize
+                                                            cursor:cursor];
+  
+  NSMutableArray *spots = [[NSMutableArray alloc] init];
+  for (XMMCDSpot *savedSpot in pagedResult.items) {
+      [spots addObject:[[XMMSpot alloc] initWithCoreDataObject:savedSpot]];
+  }
+  pagedResult.items = spots;
+  
+  completion(pagedResult.items, pagedResult.hasMore, pagedResult.cursor, nil);
+}
+
 @end
