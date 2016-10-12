@@ -140,10 +140,46 @@
   }
   
   
+  NSMutableArray *contents = [[NSMutableArray alloc] init];
   for (XMMCDContent *savedContent in results) {
-    XMMContent *content = [[XMMContent alloc] initWithCoreDataObject:savedContent];
-    NSLog(@"Content: %@", content.tags);
+    [contents addObject:[[XMMContent alloc] initWithCoreDataObject:savedContent]];
   }
+  results = contents;
+  
+  XMMOfflinePagedResult *pagedResult = [self.apiHelper pageResults:results
+                                                          pageSize:pageSize
+                                                            cursor:cursor];
+  
+  completion(pagedResult.items, pagedResult.hasMore, pagedResult.cursor, nil);
+}
+
+- (void)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+  if (name == nil) {
+    completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
+                                                  code:102
+                                              userInfo:@{@"description":@"Name cannot be nil"}]);
+    return;
+  }
+  
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[c] %@", name];
+  NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDContent coreDataEntityName]
+                                                            predicate:predicate];
+  
+  if (sortOptions & XMMContentSortOptionsName) {
+    results = [self.apiHelper sortArrayByPropertyName:results
+                                         propertyName:@"title"
+                                            ascending:YES];
+  } else if (sortOptions & XMMContentSortOptionsNameDesc) {
+    results = [self.apiHelper sortArrayByPropertyName:results
+                                         propertyName:@"title"
+                                            ascending:NO];
+  }
+  
+  NSMutableArray *contents = [[NSMutableArray alloc] init];
+  for (XMMCDContent *savedContent in results) {
+    [contents addObject:[[XMMContent alloc] initWithCoreDataObject:savedContent]];
+  }
+  results = contents;
   
   completion(results, NO, nil, nil);
 }

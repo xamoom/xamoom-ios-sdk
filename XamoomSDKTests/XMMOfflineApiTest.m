@@ -221,6 +221,40 @@
     XCTAssertEqual(contents.count, 2);
     XMMContent *content = contents[0];
     XCTAssertEqual(content.title, @"a");
+    XCTAssertFalse(hasMore);
+    XCTAssertTrue([cursor isEqualToString:@"1"]);
+  }];
+}
+
+- (void)testContentsWithTagsNil {
+  [self.offlineApi contentsWithTags:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertEqual(error.code, 102);
+  }];
+}
+
+- (void)testContentsWithName {
+  XMMContent *newContent = [[XMMContent alloc] init];
+  newContent.ID = @"1";
+  newContent.title = @"Ab";
+  [XMMCDContent insertNewObjectFrom:newContent];
+  
+  XMMContent *newContent2 = [[XMMContent alloc] init];
+  newContent2.ID = @"2";
+  newContent2.title = @"a";
+  [XMMCDContent insertNewObjectFrom:newContent2];
+  
+  [self.offlineApi contentsWithName:@"A" pageSize:10 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNotNil(contents);
+    XCTAssertEqual(contents.count, 2);
+    XMMContent *content = contents[0];
+    XCTAssertEqual(content.title, @"a");
+  }];
+}
+
+- (void)testContentsWithNameNil {
+  [self.offlineApi contentsWithName:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNil(contents);
+    XCTAssertEqual(error.code, 102);
   }];
 }
 
