@@ -24,7 +24,6 @@
     [[CLLocation alloc] initWithLatitude:latitude
                                longitude:longitude];
     
-    NSLog(@"Distance: %f", [location distanceFromLocation:spotLocation]);
     if ([location distanceFromLocation:spotLocation] <= radius) {
       [spotsInsideRadius addObject:spot];
     }
