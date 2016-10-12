@@ -81,7 +81,7 @@
   if (location == nil) {
     completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
                                                   code:102
-                                              userInfo:@{@"description":@"Location cannot be null"}]);
+                                              userInfo:@{@"description":@"Location cannot be nil"}]);
     return;
   }
   
@@ -115,6 +115,37 @@
                                                             cursor:cursor];
   
   completion(pagedResult.items, pagedResult.hasMore, pagedResult.cursor, nil);
+}
+
+- (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+  if (tags == nil) {
+    completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
+                                                  code:102
+                                              userInfo:@{@"description":@"Tags cannot be nil"}]);
+    return;
+  }
+  
+  NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetchAll:[XMMCDContent coreDataEntityName]];
+  
+  results = [self.apiHelper contentsWithTags:results tags:tags];
+  
+  if (sortOptions & XMMContentSortOptionsName) {
+    results = [self.apiHelper sortArrayByPropertyName:results
+                                         propertyName:@"title"
+                                            ascending:YES];
+  } else if (sortOptions & XMMContentSortOptionsNameDesc) {
+    results = [self.apiHelper sortArrayByPropertyName:results
+                                         propertyName:@"title"
+                                            ascending:YES];
+  }
+  
+  
+  for (XMMCDContent *savedContent in results) {
+    XMMContent *content = [[XMMContent alloc] initWithCoreDataObject:savedContent];
+    NSLog(@"Content: %@", content.tags);
+  }
+  
+  completion(results, NO, nil, nil);
 }
 
 @end

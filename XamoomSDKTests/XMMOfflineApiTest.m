@@ -127,12 +127,15 @@
   
   XMMContent *content = [[XMMContent alloc] init];
   content.ID = @"5";
+  content.title = @"d";
   
   XMMContent *content1 = [[XMMContent alloc] init];
   content1.ID = @"6";
+  content1.title = @"s";
   
   XMMContent *content2 = [[XMMContent alloc] init];
   content2.ID = @"7";
+  content2.title = @"a";
   
   XMMSpot *newSpot = [[XMMSpot alloc] init];
   newSpot.ID = @"1";
@@ -163,10 +166,11 @@
   
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6247222 longitude:14.3052778];
   
-  [self.offlineApi contentsWithLocation:location pageSize:2 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.offlineApi contentsWithLocation:location pageSize:2 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(contents.count, 2);
     XMMContent *savedContent = contents[0];
-    XCTAssertEqual(savedContent.ID, @"5");
+    XCTAssertEqual(savedContent.ID, @"6");
+    XCTAssertTrue([savedContent.title isEqualToString:@"s"]);
     XCTAssertTrue(hasMore);
     XCTAssertTrue([cursor isEqualToString:@"1"]);
     XCTAssertNil(error);
@@ -194,6 +198,29 @@
 - (void)testContentsWithLocationWithoutLocation {
   [self.offlineApi contentsWithLocation:nil pageSize:2 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(error.code, 102);
+  }];
+}
+
+- (void)testContentsWithTags {
+  XMMContent *newContent = [[XMMContent alloc] init];
+  newContent.ID = @"1";
+  newContent.title = @"b";
+  newContent.tags = @[@"tag1", @"tag2"];
+  [XMMCDContent insertNewObjectFrom:newContent];
+  
+  XMMContent *newContent2 = [[XMMContent alloc] init];
+  newContent2.ID = @"2";
+  newContent2.title = @"a";
+  newContent2.tags = @[@"tag2"];
+  [XMMCDContent insertNewObjectFrom:newContent2];
+  
+  [[XMMOfflineStorageManager sharedInstance] save];
+  
+  [self.offlineApi contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:nil sort:XMMContentSortOptionsName completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNotNil(contents);
+    XCTAssertEqual(contents.count, 2);
+    XMMContent *content = contents[0];
+    XCTAssertEqual(content.title, @"a");
   }];
 }
 
