@@ -341,7 +341,7 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
-- (void)testSpotWithLocation {
+- (void)testSpotsWithLocation {
   XMMContent *content = [[XMMContent alloc] init];
   content.ID = @"5";
   content.title = @"d";
@@ -378,9 +378,68 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
-- (void)testSpotWithLocationNil {
+- (void)testSpotsWithLocationNil {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi spotsWithLocation:nil radius:60 pageSize:1 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertEqual(error.code, 102);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSpotsWithTags {
+  XMMSpot *newSpot = [[XMMSpot alloc] init];
+  newSpot.ID = @"1";
+  newSpot.name = @"b";
+  newSpot.tags = @[@"tag1", @"tag2"];
+  [XMMCDSpot insertNewObjectFrom:newSpot];
+  
+  XMMSpot *newSpot1 = [[XMMSpot alloc] init];
+  newSpot1.ID = @"2";
+  newSpot1.name = @"a";
+  newSpot1.tags = @[@"tag2"];
+  [XMMCDSpot insertNewObjectFrom:newSpot1];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotsWithTags:@[@"tag1", @"tag2"] pageSize:1 cursor:nil sort:XMMSpotSortOptionsName completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNotNil(spots);
+    XMMSpot *savedSpot = spots[0];
+    XCTAssertTrue([savedSpot.name isEqualToString:@"a"]);
+    XCTAssertTrue(hasMore);
+    XCTAssertTrue([cursor isEqualToString:@"1"]);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSpotsWithTagsSortNameDesc {
+  XMMSpot *newSpot = [[XMMSpot alloc] init];
+  newSpot.ID = @"1";
+  newSpot.name = @"b";
+  newSpot.tags = @[@"tag1", @"tag2"];
+  [XMMCDSpot insertNewObjectFrom:newSpot];
+  
+  XMMSpot *newSpot1 = [[XMMSpot alloc] init];
+  newSpot1.ID = @"2";
+  newSpot1.name = @"a";
+  newSpot1.tags = @[@"tag2"];
+  [XMMCDSpot insertNewObjectFrom:newSpot1];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotsWithTags:@[@"tag1", @"tag2"] pageSize:1 cursor:nil sort:XMMSpotSortOptionsNameDesc completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNotNil(spots);
+    XMMSpot *savedSpot = spots[0];
+    XCTAssertTrue([savedSpot.name isEqualToString:@"b"]);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSpotsWithTagsNil {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi spotsWithTags:nil pageSize:1 cursor:nil sort:XMMSpotSortOptionsName completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    XCTAssertNil(spots);
     XCTAssertEqual(error.code, 102);
     [expectation fulfill];
   }];
