@@ -102,11 +102,11 @@
   
   if (sortOptions & XMMContentSortOptionsName) {
     results = [self.apiHelper sortArrayByPropertyName:results
-                                         propertyName:@"name"
+                                         propertyName:@"title"
                                             ascending:YES];
   } else if (sortOptions & XMMContentSortOptionsNameDesc) {
     results = [self.apiHelper sortArrayByPropertyName:results
-                                         propertyName:@"name"
+                                         propertyName:@"title"
                                             ascending:NO];
   }
   
