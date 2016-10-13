@@ -16,6 +16,8 @@
 
 + (instancetype)sharedInstance;
 
++ (void)setSharedInstance:(XMMOfflineStorageManager *)offlineStoreManager;
+
 + (NSURL *)urlForSavedData:(NSString *)urlString;
 
 #pragma mark - CoreData

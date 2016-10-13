@@ -21,13 +21,20 @@
 
 @implementation XMMOfflineStorageManager
 
+static XMMOfflineStorageManager *sharedMyManager = nil;
+static dispatch_once_t onceToken;
+
 + (instancetype)sharedInstance {
-  static XMMOfflineStorageManager *sharedMyManager = nil;
-  static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     sharedMyManager = [[self alloc] init];
   });
   return sharedMyManager;
+}
+
++ (void)setSharedInstance:(XMMOfflineStorageManager *)offlineStoreManager {
+  dispatch_once(&onceToken, ^{
+    sharedMyManager = offlineStoreManager;
+  });
 }
 
 + (NSURL *)urlForSavedData:(NSString *)urlString {
