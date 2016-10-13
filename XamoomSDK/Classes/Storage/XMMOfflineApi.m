@@ -392,4 +392,26 @@
                                          userInfo:@{@"description":@"No entry found."}]);
 }
 
+- (void)menuWithID:(NSString *)menuID completion:(void (^)(XMMMenu *, NSError *))completion {
+  NSArray *results =
+  [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDMenu coreDataEntityName]
+                                            jsonID:menuID];
+  
+  if (results.count == 1) {
+    completion([[XMMMenu alloc] initWithCoreDataObject:results[0]], nil);
+    return;
+  } else if (results.count > 1) {
+    // smt wrong
+    completion(nil, [[NSError alloc] initWithDomain:@"XMMOfflineError"
+                                               code:101
+                                           userInfo:@{@"description":@"More than one result found."}]);
+    return;
+  }
+  
+  // nothing found
+  completion(nil, [[NSError alloc] initWithDomain:@"XMMOfflineError"
+                                             code:100
+                                         userInfo:@{@"description":@"No entry found."}]);
+}
+
 @end

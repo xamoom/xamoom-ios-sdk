@@ -649,5 +649,54 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
+- (void)testMenuWithId {
+  XMMMenuItem *menuItem = [[XMMMenuItem alloc] init];
+  menuItem.ID = @"2";
+ 
+  XMMMenu *newMenu = [[XMMMenu alloc] init];
+  newMenu.ID = @"1";
+  newMenu.items = @[menuItem];
+  [XMMCDMenu insertNewObjectFrom:newMenu];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi menuWithID:@"1" completion:^(XMMMenu *menu, NSError *error) {
+    XCTAssertNotNil(menu);
+    XCTAssertNil(error);
+    XMMMenuItem *savedMenuItem = menu.items[0];
+    XCTAssertEqual(savedMenuItem.ID, @"2");
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testMenuWithIdTooManyResults {
+  XMMMenuItem *menuItem = [[XMMMenuItem alloc] init];
+  menuItem.ID = @"2";
+  
+  XMMMenu *newMenu = [[XMMMenu alloc] init];
+  newMenu.ID = @"1";
+  newMenu.items = @[menuItem];
+  [XMMCDMenu insertNewObjectFrom:newMenu];
+  
+  XMMCDMenu *newMenu2 = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDMenu coreDataEntityName] inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+  newMenu2.jsonID = @"1";
+  [[XMMOfflineStorageManager sharedInstance] save];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi menuWithID:@"1" completion:^(XMMMenu *menu, NSError *error) {
+    XCTAssertEqual(error.code, 101);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testMenuWithNil {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi menuWithID:nil completion:^(XMMMenu *menu, NSError *error) {
+    XCTAssertEqual(error.code, 100);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
 
 @end
