@@ -130,12 +130,14 @@ static dispatch_once_t onceToken;
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-      if (error) {
+      if (error && completion) {
         completion(nil, error);
         return;
       }
       
-      completion(data, nil);
+      if (completion) {
+        completion(data, nil);
+      }
     });
   });
 }
