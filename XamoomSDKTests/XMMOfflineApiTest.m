@@ -562,4 +562,48 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
+- (void)testSystemSettingsWithID {
+  XMMSystemSettings *newSettings = [[XMMSystemSettings alloc] init];
+  newSettings.ID = @"1";
+  newSettings.itunesAppId = @"itunes";
+  newSettings.googlePlayAppId = @"play";
+  [XMMCDSystemSettings insertNewObjectFrom:newSettings];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi systemSettingsWithID:@"1" completion:^(XMMSystemSettings *settings, NSError *error) {
+    XCTAssertNil(error);
+    XCTAssertNotNil(settings);
+    XCTAssertTrue([newSettings.itunesAppId isEqualToString:settings.itunesAppId]);
+    XCTAssertTrue([newSettings.googlePlayAppId isEqualToString:settings.googlePlayAppId]);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSystemSettingsWithIDTooManyResults {
+  XMMSystemSettings *newSettings = [[XMMSystemSettings alloc] init];
+  newSettings.ID = @"1";
+  [XMMCDSystemSettings insertNewObjectFrom:newSettings];
+  
+  XMMCDSystemSettings *newSettings2 = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDSystemSettings coreDataEntityName] inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+  newSettings2.jsonID = @"1";
+  [[XMMOfflineStorageManager sharedInstance] save];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi systemSettingsWithID:@"1" completion:^(XMMSystemSettings *settings, NSError *error) {
+    XCTAssertEqual(error.code, 101);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSystemSettingsWithNil {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi systemSettingsWithID:nil completion:^(XMMSystemSettings *settings, NSError *error) {
+    XCTAssertEqual(error.code, 100);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
 @end

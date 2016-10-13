@@ -42,4 +42,6 @@
 
 - (void)systemWithID:(NSString *)systemID completion:(void (^)(XMMSystem *system, NSError *error))completion;
 
+- (void)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion;
+
 @end
