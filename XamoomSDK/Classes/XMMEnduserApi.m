@@ -114,6 +114,10 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark content calls
 
 - (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion {
+  if (self.isOffline) {
+    [self.offlineApi contentWithID:contentID completion:completion];
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
