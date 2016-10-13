@@ -157,7 +157,7 @@ static dispatch_once_t onceToken;
 - (NSData *)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *, NSError *))completion {
   NSError *error = nil;
   NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
-  if (error) {
+  if (error && completion) {
     completion(nil, error);
   }
   return data;
