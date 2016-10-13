@@ -62,6 +62,9 @@
   savedSpot.spotDescription = spot.spotDescription;
   savedSpot.locationDictionary = spot.locationDictionary;
   savedSpot.image = spot.image;
+  if (spot.image) {
+    [[XMMOfflineStorageManager sharedInstance] saveFileFromUrl:spot.image completion:nil];
+  }
   savedSpot.category = [NSNumber numberWithInt:spot.category];
   savedSpot.tags = spot.tags;
   

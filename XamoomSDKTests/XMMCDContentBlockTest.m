@@ -7,21 +7,27 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock.h>
+#import "XMMOfflineStorageManager.h"
 #import "XMMCDContentBlock.h"
 #import "XMMContentBlock.h"
 
 @interface XMMCDContentBlockTest : XCTestCase
+
+@property XMMOfflineStorageManager *mockedManager;
 
 @end
 
 @implementation XMMCDContentBlockTest
 
 - (void)setUp {
-    [super setUp];
+  [super setUp];
+  self.mockedManager = OCMPartialMock([[XMMOfflineStorageManager alloc] init]);
+  [XMMOfflineStorageManager setSharedInstance:self.mockedManager];
 }
 
 - (void)tearDown {
-    [super tearDown];
+  [super tearDown];
 }
 
 - (void)testCoreDataEntityName {
@@ -50,6 +56,9 @@
   
   XMMCDContentBlock *savedContentBlock = [XMMCDContentBlock insertNewObjectFrom:contentBlock];
   
+  OCMVerify([self.mockedManager saveFileFromUrl:[OCMArg isEqual:contentBlock.fileID] completion:[OCMArg any]]);
+  OCMVerify([self.mockedManager saveFileFromUrl:[OCMArg isEqual:contentBlock.videoUrl] completion:[OCMArg any]]);
+    
   XCTAssertTrue([savedContentBlock.jsonID isEqualToString:contentBlock.ID]);
   XCTAssertTrue([savedContentBlock.title isEqualToString:contentBlock.title]);
   XCTAssertTrue([savedContentBlock.publicStatus boolValue] == contentBlock.publicStatus);

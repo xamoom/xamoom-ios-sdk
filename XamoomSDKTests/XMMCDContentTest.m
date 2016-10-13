@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
+#import "XMMOfflineStorageManager.h"
 #import "XMMCDContent.h"
 #import "XMMContent.h"
 #import "XMMContentBlock.h"
@@ -15,16 +17,20 @@
 
 @interface XMMCDContentTest : XCTestCase
 
+@property XMMOfflineStorageManager *mockedManager;
+
 @end
 
 @implementation XMMCDContentTest
 
 - (void)setUp {
-    [super setUp];
+  [super setUp];
+  self.mockedManager = OCMPartialMock([[XMMOfflineStorageManager alloc] init]);
+  [XMMOfflineStorageManager setSharedInstance:self.mockedManager];
 }
 
 - (void)tearDown {
-    [super tearDown];
+  [super tearDown];
 }
 
 - (void)testCoreDataEntityName {
@@ -57,8 +63,10 @@
   contentBlock2.ID = @"2";
   [contentBlocks addObject:contentBlock2];
   content.contentBlocks = contentBlocks;
-
+  
   XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
+  
+  OCMVerify([self.mockedManager saveFileFromUrl:[OCMArg isEqual:content.imagePublicUrl] completion:[OCMArg any]]);
   
   XCTAssertTrue([savedContent.jsonID isEqualToString:content.ID]);
   XCTAssertTrue([savedContent.spot.jsonID isEqualToString:content.spot.ID]);

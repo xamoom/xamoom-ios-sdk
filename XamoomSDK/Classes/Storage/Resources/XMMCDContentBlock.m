@@ -53,6 +53,9 @@
   savedContentBlock.text = contentBlock.text;
   savedContentBlock.artists = contentBlock.artists;
   savedContentBlock.fileID = contentBlock.fileID;
+  if (contentBlock.fileID) {
+    [[XMMOfflineStorageManager sharedInstance] saveFileFromUrl:contentBlock.fileID completion:nil];
+  }
   savedContentBlock.soundcloudUrl = contentBlock.soundcloudUrl;
   savedContentBlock.linkUrl = contentBlock.linkUrl;
   savedContentBlock.linkType = [NSNumber numberWithInt:contentBlock.linkType];
@@ -61,6 +64,9 @@
   savedContentBlock.spotMapTags = contentBlock.spotMapTags;
   savedContentBlock.scaleX = [NSNumber numberWithDouble:contentBlock.scaleX];
   savedContentBlock.videoUrl = contentBlock.videoUrl;
+  if (contentBlock.videoUrl) {
+    [[XMMOfflineStorageManager sharedInstance] saveFileFromUrl:contentBlock.videoUrl completion:nil];
+  }
   savedContentBlock.showContent = [NSNumber numberWithBool:contentBlock.showContent];
   savedContentBlock.altText = contentBlock.altText;
   

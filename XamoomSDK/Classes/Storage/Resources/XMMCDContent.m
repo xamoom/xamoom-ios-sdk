@@ -58,6 +58,9 @@
   }
   savedContent.title = content.title;
   savedContent.imagePublicUrl = content.imagePublicUrl;
+  if (content.imagePublicUrl) {
+    [[XMMOfflineStorageManager sharedInstance] saveFileFromUrl:content.imagePublicUrl completion:nil];
+  }
   savedContent.contentDescription = content.contentDescription;
   savedContent.language = content.language;
   savedContent.category = [NSNumber numberWithInt:content.category];
