@@ -23,6 +23,7 @@
 #import "XMMRestClient.h"
 #import "XMMOptions.h"
 #import "XMMParamHelper.h"
+#import "XMMOfflineApi.h"
 #import "XMMSpot.h"
 #import "XMMStyle.h"
 #import "XMMSystem.h"
@@ -62,6 +63,14 @@ extern NSString * const kApiBaseURLString;
  * XMMRestClient used to call rest api.
  */
 @property (strong, nonatomic) XMMRestClient *restClient;
+/**
+ * XMMOfflineApi used when offline is set.
+ */
+@property (strong, nonatomic) XMMOfflineApi *offlineApi;
+/**
+ * Indicator to use the XMMOfflineApi.
+ */
+@property (getter=isOffline, nonatomic) BOOL offline;
 
 /// @name Singleton
 
