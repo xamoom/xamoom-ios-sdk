@@ -606,4 +606,48 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
+- (void)testStyleWithID {
+  XMMStyle *newStyle = [[XMMStyle alloc] init];
+  newStyle.ID = @"1";
+  newStyle.backgroundColor = @"#000000";
+  [XMMCDStyle insertNewObjectFrom:newStyle];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi styleWithID:@"1" completion:^(XMMStyle *style, NSError *error) {
+    XCTAssertNil(error);
+    XCTAssertNotNil(style);
+    XCTAssertTrue([newStyle.backgroundColor isEqualToString:style.backgroundColor]);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testStyleWithIDTooManyResults {
+  XMMStyle *newStyle = [[XMMStyle alloc] init];
+  newStyle.ID = @"1";
+  newStyle.backgroundColor = @"#000000";
+  [XMMCDStyle insertNewObjectFrom:newStyle];
+  
+  XMMCDStyle *newStyle2 = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDStyle coreDataEntityName] inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+  newStyle2.jsonID = @"1";
+  [[XMMOfflineStorageManager sharedInstance] save];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi styleWithID:@"1" completion:^(XMMStyle *style, NSError *error) {
+    XCTAssertEqual(error.code, 101);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testStyleWithNil {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi styleWithID:nil completion:^(XMMStyle *style, NSError *error) {
+    XCTAssertEqual(error.code, 100);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+
 @end
