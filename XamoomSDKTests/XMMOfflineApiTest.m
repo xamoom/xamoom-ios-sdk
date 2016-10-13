@@ -104,6 +104,52 @@
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
 
+- (void)testContentWithLocationIdentifierNfc {
+  XMMContent *newContent = [[XMMContent alloc] init];
+  newContent.ID = @"1";
+  
+  XMMMarker *newMarker = [[XMMMarker alloc] init];
+  newMarker.ID = @"2";
+  newMarker.nfc = @"0ana0";
+  
+  XMMSpot *newSpot = [[XMMSpot alloc] init];
+  newSpot.ID = @"3";
+  newSpot.content = newContent;
+  newSpot.markers = @[newMarker];
+  [XMMCDSpot insertNewObjectFrom:newSpot];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi contentWithLocationIdentifier:@"0ana0" completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNotNil(content);
+    XCTAssertEqual(newContent.ID, content.ID);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testContentWithLocationIdentifierBeacon {
+  XMMContent *newContent = [[XMMContent alloc] init];
+  newContent.ID = @"1";
+  
+  XMMMarker *newMarker = [[XMMMarker alloc] init];
+  newMarker.ID = @"2";
+  newMarker.beaconMinor = @"0ana0";
+  
+  XMMSpot *newSpot = [[XMMSpot alloc] init];
+  newSpot.ID = @"3";
+  newSpot.content = newContent;
+  newSpot.markers = @[newMarker];
+  [XMMCDSpot insertNewObjectFrom:newSpot];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi contentWithLocationIdentifier:@"0ana0" completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNotNil(content);
+    XCTAssertEqual(newContent.ID, content.ID);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
 - (void)testContentWithLocationIdentifierNothingFound {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentWithLocationIdentifier:@"" completion:^(XMMContent *content, NSError *error) {

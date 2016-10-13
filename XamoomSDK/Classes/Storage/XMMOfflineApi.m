@@ -53,7 +53,7 @@
 }
 
 - (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *, NSError *))completion {
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY markers.qr == %@", locationIdentifier];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(ANY markers.qr == %@) OR (ANY markers.nfc == %@) OR (ANY markers.beaconMinor == %@)", locationIdentifier, locationIdentifier, locationIdentifier];
   NSCompoundPredicate *predicateCompound = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate]];
   
   NSArray *results =
