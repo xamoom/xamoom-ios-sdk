@@ -20,7 +20,6 @@
 @dynamic category;
 @dynamic tags;
 @dynamic system;
-@dynamic spot;
 
 + (NSString *)coreDataEntityName {
   return NSStringFromClass([self class]);
@@ -50,9 +49,6 @@
     savedContent.contentBlocks = contentBlocks;
   }
   
-  if (content.spot != nil) {
-    savedContent.spot = [XMMCDSpot insertNewObjectFrom:content.spot];
-  }
   if (content.system != nil) {
     savedContent.system = [XMMCDSystem insertNewObjectFrom:content.system];
   }

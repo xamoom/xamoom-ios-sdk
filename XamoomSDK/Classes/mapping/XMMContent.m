@@ -68,9 +68,6 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
       self.contentBlocks = blocks;
     }
     
-    if (savedContent.spot != nil) {
-      self.spot = [[XMMSpot alloc] initWithCoreDataObject:savedContent.spot];
-    }
     if (savedContent.system != nil) {
       self.system = [[XMMSystem alloc] initWithCoreDataObject:savedContent.system];
     }

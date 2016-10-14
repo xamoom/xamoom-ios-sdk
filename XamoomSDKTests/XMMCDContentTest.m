@@ -69,7 +69,6 @@
   OCMVerify([self.mockedManager saveFileFromUrl:[OCMArg isEqual:content.imagePublicUrl] completion:[OCMArg any]]);
   
   XCTAssertTrue([savedContent.jsonID isEqualToString:content.ID]);
-  XCTAssertTrue([savedContent.spot.jsonID isEqualToString:content.spot.ID]);
   XCTAssertTrue([savedContent.system.jsonID isEqualToString:content.system.ID]);
   XCTAssertNotNil(savedContent.contentBlocks);
   for (int i = 0; i < savedContent.contentBlocks.count; i++) {
