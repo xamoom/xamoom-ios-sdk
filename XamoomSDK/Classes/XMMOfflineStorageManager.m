@@ -30,12 +30,6 @@ static dispatch_once_t onceToken;
   return sharedMyManager;
 }
 
-+ (void)setSharedInstance:(XMMOfflineStorageManager *)offlineStoreManager {
-  dispatch_once(&onceToken, ^{
-    sharedMyManager = offlineStoreManager;
-  });
-}
-
 - (id)init {
   self = [super init];
   

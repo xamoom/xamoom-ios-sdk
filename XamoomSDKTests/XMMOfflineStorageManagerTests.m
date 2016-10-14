@@ -50,13 +50,6 @@
   XCTAssertNotNil(manager.managedObjectContext);
 }
 
-- (void)skipped_testSetSharedinstance {
-  XMMOfflineStorageManager *manager = [[XMMOfflineStorageManager alloc] init];
-  [XMMOfflineStorageManager setSharedInstance:manager];
-  
-  XCTAssertEqual([XMMOfflineStorageManager sharedInstance], manager);
-}
-
 - (void)testSave {
   NSError *error = [self.storeManager save];
   
