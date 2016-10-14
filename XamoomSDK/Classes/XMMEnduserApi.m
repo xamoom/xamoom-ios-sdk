@@ -136,6 +136,10 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+  if (self.isOffline) {
+    [self.offlineApi contentWithID:contentID completion:completion];
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   params = [XMMParamHelper addContentOptionsToParams:params options:options];
   
@@ -158,6 +162,11 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+  if (self.isOffline) {
+    [self.offlineApi contentWithLocationIdentifier:locationIdentifier completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language locationIdentifier:locationIdentifier];
   params = [XMMParamHelper addContentOptionsToParams:params options:options];
   

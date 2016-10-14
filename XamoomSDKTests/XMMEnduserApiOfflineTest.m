@@ -37,14 +37,25 @@
 - (void)testContentWithIDCallsOfflineApi {
   NSString *contentId = @"1";
   
-  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-
-  [self.enduserApi contentWithID:contentId completion:^(XMMContent *content, NSError *error) {
-    [expectation fulfill];
-  }];
-  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+  [self.enduserApi contentWithID:contentId completion:nil];
   
-  OCMVerify([self.mockedOfflineApi contentWithID:[OCMArg isEqual:contentId] completion:[OCMArg isNotNil]]);
+  OCMVerify([self.mockedOfflineApi contentWithID:[OCMArg isEqual:contentId] completion:[OCMArg any]]);
+}
+
+- (void)testContentWithIDOptionsCallsOfflineApi {
+  NSString *contentId = @"1";
+  
+  [self.enduserApi contentWithID:contentId options:XMMContentOptionsNone completion:nil];
+  
+  OCMVerify([self.mockedOfflineApi contentWithID:[OCMArg isEqual:contentId] completion:[OCMArg any]]);
+}
+
+- (void)testContentWithLocationIdentifierOptionsCallsOfflineApi {
+  NSString *locId = @"1";
+  
+  [self.enduserApi contentWithLocationIdentifier:locId options:XMMContentOptionsNone completion:nil];
+  
+  OCMVerify([self.mockedOfflineApi contentWithLocationIdentifier:[OCMArg isEqual:locId] completion:[OCMArg any]]);
 }
 
 @end
