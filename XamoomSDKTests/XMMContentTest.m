@@ -61,7 +61,6 @@
   XMMContent *newContent = [[XMMContent alloc] initWithCoreDataObject:savedContent];
   
   XCTAssertTrue([newContent.ID isEqualToString:content.ID]);
-  XCTAssertTrue([newContent.spot.ID isEqualToString:content.spot.ID]);
   XCTAssertTrue([newContent.system.ID isEqualToString:content.system.ID]);
   XCTAssertNotNil(newContent.contentBlocks);
   for (int i = 0; i < newContent.contentBlocks.count; i++) {
