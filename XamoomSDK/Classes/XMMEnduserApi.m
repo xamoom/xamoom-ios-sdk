@@ -116,19 +116,22 @@ static XMMEnduserApi *sharedInstance;
 - (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi contentWithID:contentID completion:completion];
+    return;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, error);
       return;
     }
     
     XMMContent *content = result.resource;
     
-    completion(content, error);
+    if (completion) {
+      completion(content, error);
+    }
   }];
 }
 
@@ -136,16 +139,17 @@ static XMMEnduserApi *sharedInstance;
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   params = [XMMParamHelper addContentOptionsToParams:params options:options];
   
-  
   [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, error);
       return;
     }
     
     XMMContent *content = result.resource;
     
-    completion(content, error);
+    if (completion) {
+      completion(content, error);
+    }
   }];
 }
 
@@ -158,14 +162,16 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addContentOptionsToParams:params options:options];
   
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, error);
       return;
     }
     
     XMMContent *content = result.resource;
     
-    completion(content, error);
+    if (completion) {
+      completion(content, error);
+    }
   }];
 }
 
@@ -185,7 +191,7 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, NO, nil, error);
       return;
     }
@@ -194,7 +200,9 @@ static XMMEnduserApi *sharedInstance;
     bool hasMore = [hasMoreValue boolValue];
     NSString *cursor = [result.meta objectForKey:@"cursor"];
     
-    completion(result.resources, hasMore, cursor, error);
+    if (completion) {
+      completion(result.resources, hasMore, cursor, error);
+    }
   }];
 }
 
@@ -204,7 +212,7 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, NO, nil, error);
       return;
     }
@@ -213,7 +221,9 @@ static XMMEnduserApi *sharedInstance;
     bool hasMore = [hasMoreValue boolValue];
     NSString *cursor = [result.meta objectForKey:@"cursor"];
     
-    completion(result.resources, hasMore, cursor, error);
+    if (completion) {
+      completion(result.resources, hasMore, cursor, error);
+    }
   }];
 }
 
@@ -223,7 +233,7 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, NO, nil, error);
       return;
     }
@@ -232,9 +242,11 @@ static XMMEnduserApi *sharedInstance;
     bool hasMore = [hasMoreValue boolValue];
     NSString *cursor = [result.meta objectForKey:@"cursor"];
     
-    completion(result.resources, hasMore, cursor, error);
+    if (completion) {
+      completion(result.resources, hasMore, cursor, error);
+    }
   }];
-
+  
 }
 
 #pragma mark spot calls
@@ -248,14 +260,16 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   
   [self.restClient fetchResource:[XMMSpot class] id:spotID parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, error);
       return;
     }
     
     XMMSpot *spot = result.resource;
     
-    completion(spot, error);
+    if (completion) {
+      completion(spot, error);
+    }
   }];
 }
 
@@ -271,7 +285,7 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, false, nil, error);
       return;
     }
@@ -280,7 +294,9 @@ static XMMEnduserApi *sharedInstance;
     bool hasMore = [hasMoreValue boolValue];
     NSString *cursor = [result.meta objectForKey:@"cursor"];
     
-    completion(result.resources, hasMore, cursor, error);
+    if (completion) {
+      completion(result.resources, hasMore, cursor, error);
+    }
   }];
 }
 
@@ -295,7 +311,7 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, false, nil, error);
       return;
     }
@@ -304,7 +320,9 @@ static XMMEnduserApi *sharedInstance;
     bool hasMore = [hasMoreValue boolValue];
     NSString *cursor = [result.meta objectForKey:@"cursor"];
     
-    completion(result.resources, hasMore, cursor, error);
+    if (completion) {
+      completion(result.resources, hasMore, cursor, error);
+    }
   }];
 }
 
@@ -315,7 +333,7 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];
   
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, false, nil, error);
       return;
     }
@@ -324,7 +342,9 @@ static XMMEnduserApi *sharedInstance;
     bool hasMore = [hasMoreValue boolValue];
     NSString *cursor = [result.meta objectForKey:@"cursor"];
     
-    completion(result.resources, hasMore, cursor, error);
+    if (completion) {
+      completion(result.resources, hasMore, cursor, error);
+    }
   }];
 }
 
@@ -333,14 +353,16 @@ static XMMEnduserApi *sharedInstance;
 - (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion {
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   [self.restClient fetchResource:[XMMSystem class] parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, error);
       return;
     }
     
     XMMSystem *system = result.resource;
     
-    completion(system, error);
+    if (completion) {
+      completion(system, error);
+    }
   }];
 }
 
@@ -348,14 +370,16 @@ static XMMEnduserApi *sharedInstance;
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMSystemSettings class] id:settingsID parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, error);
       return;
     }
     
     XMMSystemSettings *settings = result.resource;
     
-    completion(settings, error);
+    if (completion) {
+      completion(settings, error);
+    }
   }];
 }
 
@@ -363,14 +387,16 @@ static XMMEnduserApi *sharedInstance;
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMStyle class] id:styleID parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, error);
       return;
     }
     
     XMMStyle *style = result.resource;
     
-    completion(style, error);
+    if (completion) {
+      completion(style, error);
+    }
   }];
 }
 
@@ -378,14 +404,16 @@ static XMMEnduserApi *sharedInstance;
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMMenu class] id:menuID parameters:params completion:^(JSONAPI *result, NSError *error) {
-    if (error) {
+    if (error && completion) {
       completion(nil, error);
       return;
     }
     
     XMMMenu *menu = result.resource;
     
-    completion(menu, error);
+    if (completion) {
+      completion(menu, error);
+    }
   }];
 }
 
