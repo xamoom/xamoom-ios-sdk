@@ -15,7 +15,7 @@
 
 @interface XMMCDSpotTest : XCTestCase
 
-@property XMMOfflineStorageManager *mockedManager;
+@property XMMOfflineFileManager *mockedFileManager;
 
 @end
 
@@ -23,8 +23,7 @@
 
 - (void)setUp {
   [super setUp];
-  self.mockedManager = OCMPartialMock([[XMMOfflineStorageManager alloc] init]);
-  [XMMOfflineStorageManager setSharedInstance:self.mockedManager];
+  self.mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
 }
 
 - (void)tearDown {
@@ -59,9 +58,9 @@
   marker.ID = @"4";
   spot.markers = @[marker, marker];
   
-  XMMCDSpot *savedSpot = [XMMCDSpot insertNewObjectFrom:spot];
+  XMMCDSpot *savedSpot = [XMMCDSpot insertNewObjectFrom:spot fileManager:self.mockedFileManager];
   
-  OCMVerify([self.mockedManager saveFileFromUrl:spot.image completion:[OCMArg any]]);
+  OCMVerify([self.mockedFileManager saveFileFromUrl:[OCMArg isEqual:spot.image] completion:[OCMArg any]]);
   
   XCTAssertTrue([savedSpot.jsonID isEqualToString:spot.ID]);
   XCTAssertTrue([savedSpot.content.jsonID isEqualToString:spot.content.ID]);

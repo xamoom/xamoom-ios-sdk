@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XMMOfflineStorageManager.h"
+#import "XMMOfflineFileManager.h"
 
 @protocol XMMCDResource <NSObject>
 
@@ -17,4 +18,6 @@
 
 + (instancetype)insertNewObjectFrom:(id)entity;
 
++ (instancetype)insertNewObjectFrom:(id)entity
+                    fileManager:(XMMOfflineFileManager *)fileManager;
 @end

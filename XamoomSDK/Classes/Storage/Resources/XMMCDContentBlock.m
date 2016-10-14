@@ -7,6 +7,7 @@
 //
 
 #import "XMMCDContentBlock.h"
+#import "XMMOfflineFileManager.h"
 
 @implementation XMMCDContentBlock
 
@@ -33,6 +34,10 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity {
+  return [self insertNewObjectFrom:entity fileManager:[[XMMOfflineFileManager alloc] init]];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
   XMMContentBlock *contentBlock = (XMMContentBlock *)entity;
   XMMCDContentBlock *savedContentBlock = nil;
   
@@ -43,7 +48,7 @@
     savedContentBlock = objects.firstObject;
   } else {
     savedContentBlock = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
-                                                inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+                                                      inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   
   savedContentBlock.jsonID = contentBlock.ID;
@@ -54,7 +59,7 @@
   savedContentBlock.artists = contentBlock.artists;
   savedContentBlock.fileID = contentBlock.fileID;
   if (contentBlock.fileID) {
-    [[XMMOfflineStorageManager sharedInstance] saveFileFromUrl:contentBlock.fileID completion:nil];
+    [fileManager saveFileFromUrl:contentBlock.fileID completion:nil];
   }
   savedContentBlock.soundcloudUrl = contentBlock.soundcloudUrl;
   savedContentBlock.linkUrl = contentBlock.linkUrl;
@@ -65,7 +70,7 @@
   savedContentBlock.scaleX = [NSNumber numberWithDouble:contentBlock.scaleX];
   savedContentBlock.videoUrl = contentBlock.videoUrl;
   if (contentBlock.videoUrl) {
-    [[XMMOfflineStorageManager sharedInstance] saveFileFromUrl:contentBlock.videoUrl completion:nil];
+    [fileManager saveFileFromUrl:contentBlock.videoUrl completion:nil];
   }
   savedContentBlock.showContent = [NSNumber numberWithBool:contentBlock.showContent];
   savedContentBlock.altText = contentBlock.altText;

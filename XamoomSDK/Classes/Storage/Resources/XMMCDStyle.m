@@ -23,6 +23,10 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity {
+  return [self insertNewObjectFrom:entity fileManager:[[XMMOfflineFileManager alloc] init]];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
   XMMStyle *style = (XMMStyle *)entity;
   XMMCDStyle *savedStyle = nil;
   
@@ -33,7 +37,7 @@
     savedStyle = objects.firstObject;
   } else {
     savedStyle = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
-                                                  inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+                                               inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   
   savedStyle.jsonID = style.ID;

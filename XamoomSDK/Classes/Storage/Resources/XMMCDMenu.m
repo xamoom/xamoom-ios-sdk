@@ -18,6 +18,10 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity {
+  return [self insertNewObjectFrom:entity fileManager:[[XMMOfflineFileManager alloc] init]];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
   XMMMenu *menu = (XMMMenu *)entity;
   XMMCDMenu *savedMenu = nil;
   

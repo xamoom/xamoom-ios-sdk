@@ -14,7 +14,8 @@
 
 @interface XMMCDContentBlockTest : XCTestCase
 
-@property XMMOfflineStorageManager *mockedManager;
+@property XMMOfflineFileManager *mockedFileManager;
+
 
 @end
 
@@ -22,8 +23,7 @@
 
 - (void)setUp {
   [super setUp];
-  self.mockedManager = OCMPartialMock([[XMMOfflineStorageManager alloc] init]);
-  [XMMOfflineStorageManager setSharedInstance:self.mockedManager];
+  self.mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
 }
 
 - (void)tearDown {
@@ -54,11 +54,11 @@
   contentBlock.showContent = NO;
   contentBlock.altText = @"alt";
   
-  XMMCDContentBlock *savedContentBlock = [XMMCDContentBlock insertNewObjectFrom:contentBlock];
+  XMMCDContentBlock *savedContentBlock = [XMMCDContentBlock insertNewObjectFrom:contentBlock fileManager:self.mockedFileManager];
   
-  OCMVerify([self.mockedManager saveFileFromUrl:[OCMArg isEqual:contentBlock.fileID] completion:[OCMArg any]]);
-  OCMVerify([self.mockedManager saveFileFromUrl:[OCMArg isEqual:contentBlock.videoUrl] completion:[OCMArg any]]);
-    
+  OCMVerify([self.mockedFileManager saveFileFromUrl:[OCMArg isEqual:contentBlock.fileID] completion:[OCMArg any]]);
+  OCMVerify([self.mockedFileManager saveFileFromUrl:[OCMArg isEqual:contentBlock.videoUrl] completion:[OCMArg any]]);
+  
   XCTAssertTrue([savedContentBlock.jsonID isEqualToString:contentBlock.ID]);
   XCTAssertTrue([savedContentBlock.title isEqualToString:contentBlock.title]);
   XCTAssertTrue([savedContentBlock.publicStatus boolValue] == contentBlock.publicStatus);

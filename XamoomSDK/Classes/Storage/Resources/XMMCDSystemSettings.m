@@ -19,6 +19,10 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity {
+  return [self insertNewObjectFrom:entity fileManager:[[XMMOfflineFileManager alloc] init]];
+}
+
++(instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
   XMMSystemSettings *settings = (XMMSystemSettings *)entity;
   XMMCDSystemSettings *savedSettings = nil;
   
@@ -36,7 +40,7 @@
   savedSettings.itunesAppId = settings.itunesAppId;
   
   [[XMMOfflineStorageManager sharedInstance] save];
-
+  
   return savedSettings;
 }
 
