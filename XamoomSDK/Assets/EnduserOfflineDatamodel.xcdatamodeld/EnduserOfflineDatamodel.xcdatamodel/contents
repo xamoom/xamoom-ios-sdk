@@ -9,7 +9,6 @@
         <attribute name="tags" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contentBlocks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="XMMCDContentBlock" syncable="YES"/>
-        <relationship name="spot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDSpot" syncable="YES"/>
         <relationship name="system" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDSystem" syncable="YES"/>
     </entity>
     <entity name="XMMCDContentBlock" syncable="YES">
@@ -84,7 +83,7 @@
         <attribute name="jsonID" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="XMMCDContent" positionX="0" positionY="162" width="128" height="195"/>
+        <element name="XMMCDContent" positionX="0" positionY="162" width="128" height="180"/>
         <element name="XMMCDContentBlock" positionX="-9" positionY="90" width="128" height="300"/>
         <element name="XMMCDMarker" positionX="-27" positionY="54" width="128" height="150"/>
         <element name="XMMCDMenu" positionX="-18" positionY="81" width="128" height="75"/>
