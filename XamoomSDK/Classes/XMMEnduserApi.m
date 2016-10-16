@@ -64,6 +64,7 @@ static XMMEnduserApi *sharedInstance;
   self = [super init];
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
   self.language = self.systemLanguage;
+  self.offlineApi = [[XMMOfflineApi alloc] init];
   
   NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@|%@",
                                kHTTPUserAgent,
@@ -86,6 +87,7 @@ static XMMEnduserApi *sharedInstance;
   self = [super init];
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
   self.language = self.systemLanguage;
+  self.offlineApi = [[XMMOfflineApi alloc] init];
   
   self.restClient = restClient;
   [self setupResources];
