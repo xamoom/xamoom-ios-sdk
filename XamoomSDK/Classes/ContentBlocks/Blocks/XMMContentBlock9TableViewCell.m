@@ -118,7 +118,7 @@ static NSString *contentLanguage;
   [self.mapAdditionView addConstraint:self.mapAdditionViewHeightConstraint];
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   
   self.titleLabel.text = block.title;

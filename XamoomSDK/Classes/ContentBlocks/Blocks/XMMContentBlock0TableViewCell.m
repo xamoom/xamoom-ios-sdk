@@ -47,7 +47,7 @@ static UIColor *contentLinkColor;
   self.contentTextView.text = @"";
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
   

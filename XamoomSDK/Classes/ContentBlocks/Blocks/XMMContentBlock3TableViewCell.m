@@ -57,7 +57,7 @@
   [self setNeedsUpdateConstraints];
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   
   if (![block.linkUrl isEqualToString:@""]) {

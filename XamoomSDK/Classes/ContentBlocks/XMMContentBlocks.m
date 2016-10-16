@@ -206,13 +206,13 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     tableViewCell.backgroundColor = [UIColor clearColor];
   }
   
-  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:)]) {
-    [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style];
+  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
+    [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style offline:self.offline];
     return cell;
   }
   
-  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:api:)]) {
-    [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style api:self.api];
+  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:api:offline:)]) {
+    [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style api:self.api offline:self.offline];
     return cell;
   }
   

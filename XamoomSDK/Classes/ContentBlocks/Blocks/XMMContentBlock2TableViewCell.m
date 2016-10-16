@@ -58,7 +58,7 @@
   self.openInYoutubeView.hidden = YES;
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   self.videoUrl = block.videoUrl;
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   self.titleLabel.text = block.title;
