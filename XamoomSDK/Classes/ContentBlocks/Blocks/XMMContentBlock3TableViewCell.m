@@ -18,6 +18,7 @@
 //
 
 #import "XMMContentBlock3TableViewCell.h"
+#import "XMMOfflineFileManager.h"
 
 @interface XMMContentBlock3TableViewCell()
 
@@ -81,7 +82,10 @@
     [self calculateImageScaling:block.scaleX];
   }
   
-  if (block.fileID != nil && ![block.fileID isEqualToString:@""]) {
+  if (offline) {
+    NSURL *filePath = [XMMOfflineFileManager urlForSavedData:block.fileID];
+    [self displayImageFromURL:filePath tableView:tableView indexPath:indexPath];
+  } else if (block.fileID != nil && ![block.fileID isEqualToString:@""]) {
     [self displayImageFromURL:[NSURL URLWithString:block.fileID] tableView:tableView indexPath:indexPath];
   }
 }
