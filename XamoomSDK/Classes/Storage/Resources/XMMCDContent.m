@@ -26,6 +26,12 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity {
+  return [XMMCDContent insertNewObjectFrom:entity
+                           fileManager:[[XMMOfflineFileManager alloc] init]];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity
+                    fileManager:(XMMOfflineFileManager *)fileManager {
   XMMContent *content = (XMMContent *)entity;
   XMMCDContent *savedContent = nil;
   
@@ -55,7 +61,7 @@
   savedContent.title = content.title;
   savedContent.imagePublicUrl = content.imagePublicUrl;
   if (content.imagePublicUrl) {
-    [[XMMOfflineStorageManager sharedInstance] saveFileFromUrl:content.imagePublicUrl completion:nil];
+    [fileManager saveFileFromUrl:content.imagePublicUrl completion:nil];
   }
   savedContent.contentDescription = content.contentDescription;
   savedContent.language = content.language;

@@ -8,6 +8,7 @@
 
 #import "XMMCDSpot.h"
 #import "XMMCDContent.h"
+#import "XMMOfflineFileManager.h"
 
 @implementation XMMCDSpot
 
@@ -27,17 +28,23 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity {
+  return [self insertNewObjectFrom:entity fileManager:[[XMMOfflineFileManager alloc] init]];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
   XMMSpot *spot = (XMMSpot *)entity;
   XMMCDSpot *savedSpot = nil;
   
   // check if object already exists
-  NSArray *objects = [[XMMOfflineStorageManager sharedInstance] fetch:[[self class] coreDataEntityName]
-                                                               jsonID:spot.ID];
+  NSArray *objects = [[XMMOfflineStorageManager sharedInstance]
+                      fetch:[[self class] coreDataEntityName]
+                      jsonID:spot.ID];
   if (objects.count > 0) {
     savedSpot = objects.firstObject;
   } else {
-    savedSpot = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
-                                              inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+    savedSpot = [NSEntityDescription
+                 insertNewObjectForEntityForName:[[self class] coreDataEntityName]
+                 inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   
   savedSpot.jsonID = spot.ID;
@@ -63,7 +70,7 @@
   savedSpot.locationDictionary = spot.locationDictionary;
   savedSpot.image = spot.image;
   if (spot.image) {
-    [[XMMOfflineStorageManager sharedInstance] saveFileFromUrl:spot.image completion:nil];
+    [fileManager saveFileFromUrl:spot.image completion:nil];
   }
   savedSpot.category = [NSNumber numberWithInt:spot.category];
   savedSpot.tags = spot.tags;

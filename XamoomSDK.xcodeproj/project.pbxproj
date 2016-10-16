@@ -30,6 +30,9 @@
 		88226E4C1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */; };
 		882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E55571C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.m */; };
 		882ED6851C63741000FC8BDB /* XMMContentBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E557B1C4A37FE000C4D09 /* XMMContentBlocks.m */; };
+		883AC7D51DB0BEF000AE7BA7 /* XMMOfflineFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */; };
+		883AC7D61DB0BEF000AE7BA7 /* XMMOfflineFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */; };
+		883AC7D81DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 883AC7D71DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m */; };
 		883B95F91C4D32FF00DB8A6B /* XMMSystemSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 883B95F71C4D32FF00DB8A6B /* XMMSystemSettings.h */; };
 		883B95FA1C4D32FF00DB8A6B /* XMMSystemSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 883B95F81C4D32FF00DB8A6B /* XMMSystemSettings.m */; };
 		883E554F1C4A2B66000C4D09 /* XMMSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 883E554D1C4A2B66000C4D09 /* XMMSystem.h */; };
@@ -203,6 +206,9 @@
 		881966DB1CD74F7100AC2007 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMMapOverlayView.xib; sourceTree = "<group>"; };
 		88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMEnduserApiOfflineTest.m; sourceTree = "<group>"; };
+		883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineFileManager.h; path = Classes/Storage/XMMOfflineFileManager.h; sourceTree = "<group>"; };
+		883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineFileManager.m; path = Classes/Storage/XMMOfflineFileManager.m; sourceTree = "<group>"; };
+		883AC7D71DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineFileManagerTest.m; sourceTree = "<group>"; };
 		883B95F71C4D32FF00DB8A6B /* XMMSystemSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMSystemSettings.h; path = XamoomSDK/Classes/mapping/XMMSystemSettings.h; sourceTree = SOURCE_ROOT; };
 		883B95F81C4D32FF00DB8A6B /* XMMSystemSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMSystemSettings.m; path = XamoomSDK/Classes/mapping/XMMSystemSettings.m; sourceTree = SOURCE_ROOT; };
 		883E554D1C4A2B66000C4D09 /* XMMSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMSystem.h; path = XamoomSDK/Classes/mapping/XMMSystem.h; sourceTree = SOURCE_ROOT; };
@@ -595,6 +601,8 @@
 				888F18CE1DAB8ACE00518DB8 /* NSString+MD5.h */,
 				888F18CF1DAB8ACE00518DB8 /* NSString+MD5.m */,
 				88B390171DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld */,
+				883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */,
+				883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -629,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				88B390211DA39E5F00216478 /* OfflineResources */,
+				883AC7D71DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m */,
 				88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */,
 				888F18D61DABBC4900518DB8 /* XMMOfflineApiTest.m */,
 				884B614C1DACD81700572758 /* XMMOfflineApiHelperTest.m */,
@@ -782,6 +791,7 @@
 				884B614A1DACD74400572758 /* XMMOfflineApiHelper.h in Headers */,
 				883E559B1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.h in Headers */,
 				884B61501DACE78500572758 /* XMMOfflinePagedResult.h in Headers */,
+				883AC7D51DB0BEF000AE7BA7 /* XMMOfflineFileManager.h in Headers */,
 				883E55981C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.h in Headers */,
 				88E46E781C47E348004D8AC3 /* XMMContent.h in Headers */,
 			);
@@ -794,7 +804,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8888DDD61C47B0FA0050A84C /* Build configuration list for PBXNativeTarget "XamoomSDK" */;
 			buildPhases = (
-				C21C3A421DCA113D68013B23 /* 📦 Check Pods Manifest.lock */,
+				C21C3A421DCA113D68013B23 /* [CP] Check Pods Manifest.lock */,
 				B02E2C5A641911F427ACCC99 /* [CP] Check Pods Manifest.lock */,
 				8888DDBD1C47B0FA0050A84C /* Sources */,
 				8888DDBE1C47B0FA0050A84C /* Frameworks */,
@@ -816,7 +826,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8888DDD91C47B0FA0050A84C /* Build configuration list for PBXNativeTarget "XamoomSDKTests" */;
 			buildPhases = (
-				94850F321E3ED7D9A6DD5404 /* 📦 Check Pods Manifest.lock */,
+				94850F321E3ED7D9A6DD5404 /* [CP] Check Pods Manifest.lock */,
 				700FE395F0F579824CAB1041 /* [CP] Check Pods Manifest.lock */,
 				8888DDC81C47B0FA0050A84C /* Sources */,
 				8888DDC91C47B0FA0050A84C /* Frameworks */,
@@ -996,14 +1006,14 @@
 			shellPath = /bin/sh;
 			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"xamoom\";\ncompanyID=\"com.xamoom\";\ncompanyURL=\"http://xamoom.com\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"./gendocs\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--ignore \"Pods\" \\\n--ignore \"XamoomSDKTests\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}/\" \\";
 		};
-		94850F321E3ED7D9A6DD5404 /* 📦 Check Pods Manifest.lock */ = {
+		94850F321E3ED7D9A6DD5404 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,14 +1066,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C21C3A421DCA113D68013B23 /* 📦 Check Pods Manifest.lock */ = {
+		C21C3A421DCA113D68013B23 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1096,6 +1106,7 @@
 				884937571C75C82100C53520 /* UIColor+HexString.m in Sources */,
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
+				883AC7D61DB0BEF000AE7BA7 /* XMMOfflineFileManager.m in Sources */,
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,
 				88B3902D1DA3AF8600216478 /* XMMCDMenu.m in Sources */,
 				88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */,
@@ -1157,6 +1168,7 @@
 				888F18CB1DA79A1100518DB8 /* XMMSpotTest.m in Sources */,
 				88D5B13B1DA3E0050069E2E8 /* XMMCDMenuItemTest.m in Sources */,
 				888F4F6F1DA534D5000E49CE /* XMMCDContentBlockTest.m in Sources */,
+				883AC7D81DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m in Sources */,
 				888F18C91DA7951500518DB8 /* XMMContentBlockTest.m in Sources */,
 				889356691C802CF40083724C /* APIIntegrationTests.m in Sources */,
 				888F4F751DA542CF000E49CE /* XMMCDContentTest.m in Sources */,

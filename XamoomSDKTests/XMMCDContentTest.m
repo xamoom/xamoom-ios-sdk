@@ -17,7 +17,7 @@
 
 @interface XMMCDContentTest : XCTestCase
 
-@property XMMOfflineStorageManager *mockedManager;
+@property XMMOfflineFileManager *mockedFileManager;
 
 @end
 
@@ -25,8 +25,7 @@
 
 - (void)setUp {
   [super setUp];
-  self.mockedManager = OCMPartialMock([[XMMOfflineStorageManager alloc] init]);
-  [XMMOfflineStorageManager setSharedInstance:self.mockedManager];
+  self.mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
 }
 
 - (void)tearDown {
@@ -64,10 +63,9 @@
   [contentBlocks addObject:contentBlock2];
   content.contentBlocks = contentBlocks;
   
-  XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
-  
-  OCMVerify([self.mockedManager saveFileFromUrl:[OCMArg isEqual:content.imagePublicUrl] completion:[OCMArg any]]);
-  
+  XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content fileManager:self.mockedFileManager];
+  OCMVerify([self.mockedFileManager saveFileFromUrl:content.imagePublicUrl completion:[OCMArg any]]);
+    
   XCTAssertTrue([savedContent.jsonID isEqualToString:content.ID]);
   XCTAssertTrue([savedContent.system.jsonID isEqualToString:content.system.ID]);
   XCTAssertNotNil(savedContent.contentBlocks);

@@ -19,6 +19,10 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity {
+  return [self insertNewObjectFrom:entity fileManager:[[XMMOfflineFileManager alloc] init]];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
   XMMMenuItem *menuItem = (XMMMenuItem *)entity;
   XMMCDMenuItem *savedMenuItem = nil;
   
@@ -29,7 +33,7 @@
     savedMenuItem = objects.firstObject;
   } else {
     savedMenuItem = [NSEntityDescription insertNewObjectForEntityForName:[[self class] coreDataEntityName]
-                                               inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+                                                  inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   
   savedMenuItem.jsonID = menuItem.ID;
