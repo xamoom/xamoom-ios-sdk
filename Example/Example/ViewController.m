@@ -47,9 +47,9 @@
   self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
   self.blocks.delegate = self;
   
-  [self loadSystem];
+  //[self loadSystem];
   [self contentWithID];
-  [self spotsWithTags];
+  [self contentWithTags];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +69,16 @@
   [self loadSystem];
 }
 
+- (IBAction)didClickLoad:(id)sender {
+  self.api.offline = YES;
+  
+  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
+    NSLog(@"Content: %@", content);
+    self.blocks.offline = YES;
+    [self.blocks displayContent:content];
+  }];
+}
+
 - (void)didClickContentBlock:(NSString *)contentID {
   NSLog(@"DidClockContentBlock: %@", contentID);
 }
@@ -80,7 +90,8 @@
       return;
     }
     
-    [XMMCDContent insertNewObjectFrom:content];
+    XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
+    [self.blocks displayContent:content];
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -90,14 +101,17 @@
 }
 
 - (void)contentWithIDOptions {
-  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"0737f96b520645cab6d71242cd43cdad" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
-    self.content = content;
-    [self.blocks displayContent:self.content];
+    XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
+
+    
+    //self.content = content;
+    //[self.blocks displayContent:self.content];
     
     NSLog(@"ContentWithIdOptions: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -147,10 +161,14 @@
 }
 
 - (void)contentWithTags {
-  [self.api contentsWithTags:@[@"tag1",@"tag2"] pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.api contentsWithTags:@[@"tests"] pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
+    }
+    
+    for (XMMContent *content in contents) {
+      [XMMCDContent insertNewObjectFrom:content];
     }
     
     NSLog(@"ContentWithTags: %@", contents);
