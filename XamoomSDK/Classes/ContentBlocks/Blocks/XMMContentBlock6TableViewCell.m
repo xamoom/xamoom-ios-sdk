@@ -83,6 +83,11 @@ static NSString *contentLanguage;
   
   [api contentWithID:self.contentID options:XMMContentOptionsPreview completion:^(XMMContent *content, NSError *error) {
     [self.loadingIndicator stopAnimating];
+    
+    if (error) {
+      return;
+    }
+    
     [[XMMContentBlocksCache sharedInstance] saveContent:content key:content.ID];
     [self showBlockData:content];
   }];
