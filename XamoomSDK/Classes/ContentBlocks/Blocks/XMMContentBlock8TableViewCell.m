@@ -50,6 +50,10 @@
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
+  if (offline) {
+    return;
+  }
+  
   self.titleLabel.text = block.title;
   self.contentTextLabel.text = block.text;
   self.fileID = block.fileID;

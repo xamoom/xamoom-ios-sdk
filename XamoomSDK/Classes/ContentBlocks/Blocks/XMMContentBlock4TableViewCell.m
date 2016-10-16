@@ -78,6 +78,10 @@
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   //set title, text, linkUrl and linkType
+  if (offline) {
+    return;
+  }
+  
   if(block.title != nil) {
     self.titleLabel.text = block.title;
   }

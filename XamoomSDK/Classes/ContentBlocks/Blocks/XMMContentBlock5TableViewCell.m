@@ -50,6 +50,10 @@
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
+  if (offline) {
+    return;
+  }
+  
   //set title, artist and downloadUrl
   if(block.title != nil) {
     self.titleLabel.text = block.title;
