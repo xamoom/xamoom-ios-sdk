@@ -14,9 +14,9 @@
 
 @property NSManagedObjectContext *managedObjectContext;
 
-+ (instancetype)sharedInstance;
+extern NSString *const MANAGED_CONTEXT_READY_NOTIFICATION;
 
-+ (void)setSharedInstance:(XMMOfflineStorageManager *)offlineStoreManager;
++ (instancetype)sharedInstance;
 
 #pragma mark - CoreData
 

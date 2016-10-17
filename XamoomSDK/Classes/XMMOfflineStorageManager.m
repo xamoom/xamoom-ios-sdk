@@ -18,6 +18,8 @@
 #import "XMMCDSystem.h"
 #import "XMMCDSystemSettings.h"
 
+NSString *const MANAGED_CONTEXT_READY_NOTIFICATION = @"MANAGED_CONTEXT_READY_NOTIFICATION";
+
 @implementation XMMOfflineStorageManager
 
 static XMMOfflineStorageManager *sharedMyManager = nil;
@@ -65,6 +67,9 @@ static dispatch_once_t onceToken;
     NSPersistentStoreCoordinator *psc = [[self managedObjectContext] persistentStoreCoordinator];
     NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
     NSAssert(store != nil, @"Error initializing PSC: %@\n%@", [error localizedDescription], [error userInfo]);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MANAGED_CONTEXT_READY_NOTIFICATION
+                                                        object:self];
   });
 }
 
