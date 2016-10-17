@@ -45,6 +45,7 @@
   XCTAssertNotNil(api.restClient);
   XCTAssertTrue([api.restClient.session.configuration.HTTPAdditionalHeaders isEqualToDictionary:httpHeaders]);
   XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
+  XCTAssertNotNil(api.offlineApi);
 }
 
 - (void)testInitWithApiKeyBaseUrlRestClient {
