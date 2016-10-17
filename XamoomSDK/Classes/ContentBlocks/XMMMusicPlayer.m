@@ -40,7 +40,6 @@ IB_DESIGNABLE
   return self;
 }
 
-
 - (void)initAudioPlayerWithUrlString:(NSString*)mediaUrlString {
   if (self.audioPlayer) {
     return;
@@ -50,7 +49,7 @@ IB_DESIGNABLE
   NSURL *mediaURL = [NSURL URLWithString:mediaUrlString];
   
   AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:mediaURL options:nil];
-  NSArray *keys     = [NSArray arrayWithObject:@"playable"];
+  NSArray *keys = [NSArray arrayWithObject:@"playable"];
   
   [asset loadValuesAsynchronouslyForKeys:keys completionHandler:^() {
     self.audioPlayer = [[AVPlayer alloc] initWithPlayerItem:[[AVPlayerItem alloc] initWithAsset:asset automaticallyLoadedAssetKeys:keys]];
@@ -94,7 +93,7 @@ IB_DESIGNABLE
   self.drawingFrameSize = self.bounds.size;
   
   CGContextRef context = UIGraphicsGetCurrentContext();
-
+  
   //background of progress
   CGContextSetLineWidth(context, self.lineWidth);
   

@@ -69,7 +69,8 @@
   savedContentBlock.spotMapTags = contentBlock.spotMapTags;
   savedContentBlock.scaleX = [NSNumber numberWithDouble:contentBlock.scaleX];
   savedContentBlock.videoUrl = contentBlock.videoUrl;
-  if (contentBlock.videoUrl) {
+  if (contentBlock.videoUrl && ![contentBlock.videoUrl containsString:@"youtube"]
+      && ![contentBlock.videoUrl containsString:@"vimeo"]) {
     [fileManager saveFileFromUrl:contentBlock.videoUrl completion:nil];
   }
   savedContentBlock.showContent = [NSNumber numberWithBool:contentBlock.showContent];
