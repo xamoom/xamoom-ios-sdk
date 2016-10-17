@@ -50,7 +50,7 @@ static XMMEnduserApi *sharedInstance;
 }
 
 + (instancetype)sharedInstance {
-  NSAssert(sharedInstance != nil, @"SharedInstance is nil. Use sharedInstanceWithKey:apikey or changeSharedInstance:instance");
+  NSAssert(sharedInstance != nil, @"SharedInstance is nil. Use sharedInstanceWithKey:apikey or saveSharedInstance:instance");
   return sharedInstance;
 }
 
@@ -65,6 +65,7 @@ static XMMEnduserApi *sharedInstance;
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
   self.language = self.systemLanguage;
   self.offlineApi = [[XMMOfflineApi alloc] init];
+  [[XMMOfflineStorageManager sharedInstance] init];
   
   NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@|%@",
                                kHTTPUserAgent,
@@ -88,6 +89,7 @@ static XMMEnduserApi *sharedInstance;
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
   self.language = self.systemLanguage;
   self.offlineApi = [[XMMOfflineApi alloc] init];
+   [[XMMOfflineStorageManager sharedInstance] init];
   
   self.restClient = restClient;
   [self setupResources];
