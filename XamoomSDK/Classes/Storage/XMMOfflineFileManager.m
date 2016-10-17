@@ -12,13 +12,13 @@
 
 @implementation XMMOfflineFileManager
 
-+ (NSURL *)urlForSavedData:(NSString *)urlString {
+- (NSURL *)urlForSavedData:(NSString *)urlString {
   return [self filePathForSavedObject:urlString];
 }
 
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSData *, NSError *))completion {
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    NSURL *filePath = [XMMOfflineFileManager filePathForSavedObject:urlString];
+    NSURL *filePath = [self filePathForSavedObject:urlString];
     NSData *data = [self downloadFileFromUrl:[NSURL URLWithString:urlString] completion:completion];
     NSError *error;
     [data writeToURL:filePath options:NSDataWritingWithoutOverwriting error:&error];
@@ -43,7 +43,7 @@
 }
 
 - (NSData *)savedDataFromUrl:(NSString *)urlString error:(NSError *__autoreleasing *)error {
-  NSURL *filePath = [XMMOfflineFileManager filePathForSavedObject:urlString];
+  NSURL *filePath = [self filePathForSavedObject:urlString];
   NSData *data = [NSData dataWithContentsOfURL:filePath options:0 error:error];
   return data;
 }
@@ -65,7 +65,7 @@
   return data;
 }
 
-+ (NSURL *)filePathForSavedObject:(NSString *)urlString {
+- (NSURL *)filePathForSavedObject:(NSString *)urlString {
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
   NSString *documentsPath = [paths objectAtIndex:0];
   NSURL *filePath = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", documentsPath]];

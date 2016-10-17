@@ -10,7 +10,7 @@
 
 @interface XMMOfflineFileManager : NSObject
 
-+ (NSURL *)urlForSavedData:(NSString *)urlString;
+- (NSURL *)urlForSavedData:(NSString *)urlString;
 
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void(^)(NSData *data, NSError *error))completion;
 

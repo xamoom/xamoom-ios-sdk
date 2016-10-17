@@ -24,7 +24,7 @@
   self.offlineFileManager = [[XMMOfflineFileManager alloc] init];
   self.fileName = @"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/170px-Apple_logo_black.svg.png";
   NSFileManager *fileManager = [NSFileManager defaultManager];
-  [fileManager removeItemAtPath:[[XMMOfflineFileManager urlForSavedData:self.fileName] path] error:nil];
+  [fileManager removeItemAtPath:[[self.offlineFileManager urlForSavedData:self.fileName] path] error:nil];
 }
 
 - (void)tearDown {
