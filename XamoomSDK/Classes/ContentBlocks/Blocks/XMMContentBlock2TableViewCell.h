@@ -35,6 +35,7 @@
 @property (nonatomic, strong) AVPlayer *videoPlayer;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playIconImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
+@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
 
 @end
 
