@@ -68,8 +68,10 @@ static dispatch_once_t onceToken;
     NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
     NSAssert(store != nil, @"Error initializing PSC: %@\n%@", [error localizedDescription], [error userInfo]);
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:MANAGED_CONTEXT_READY_NOTIFICATION
-                                                        object:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [[NSNotificationCenter defaultCenter] postNotificationName:MANAGED_CONTEXT_READY_NOTIFICATION
+                                                          object:self];
+    });
   });
 }
 
