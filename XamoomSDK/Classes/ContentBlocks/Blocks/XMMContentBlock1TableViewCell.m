@@ -35,6 +35,7 @@
                                              object:nil];
   
   [self setupImages];
+  self.fileManager = [[XMMOfflineFileManager alloc] init];
   
   [self.audioControlButton setImage:self.playImage
                            forState:UIControlStateNormal];
@@ -59,13 +60,13 @@
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
-  if (offline) {
-    return;
-  }
-  
   self.audioPlayerControl.delegate = self;
-  [self.audioPlayerControl initAudioPlayerWithUrlString:block.fileID];
-  
+  if (offline) {
+    NSURL *filePath = [self.fileManager urlForSavedData:block.fileID];
+    [self.audioPlayerControl initAudioPlayerWithUrlString:filePath.absoluteString];
+  } else {
+    [self.audioPlayerControl initAudioPlayerWithUrlString:block.fileID];
+  }
   self.titleLabel.text = block.title;
   self.artistLabel.text = block.artists;
 }
