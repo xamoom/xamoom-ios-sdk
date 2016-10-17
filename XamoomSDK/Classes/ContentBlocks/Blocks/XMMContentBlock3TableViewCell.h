@@ -37,6 +37,7 @@
 @property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageRightHorizontalSpaceConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpacingImageTitleConstraint;
 @property (nonatomic) NSLayoutConstraint *imageRatioConstraint;
+@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
 
 @property (strong, nonatomic) NSString *linkUrl;
 

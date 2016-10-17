@@ -29,6 +29,7 @@
 - (void)awakeFromNib {
   [self setupGestureRecognizers];
   [self.blockImageView setIsAccessibilityElement:YES];
+  self.fileManager = [[XMMOfflineFileManager alloc] init];
   
   self.titleLabel.text = nil;
   [super awakeFromNib];
@@ -83,7 +84,7 @@
   }
   
   if (offline) {
-    NSURL *filePath = [XMMOfflineFileManager urlForSavedData:block.fileID];
+    NSURL *filePath = [self.fileManager urlForSavedData:block.fileID];
     [self displayImageFromURL:filePath tableView:tableView indexPath:indexPath];
   } else if (block.fileID != nil && ![block.fileID isEqualToString:@""]) {
     [self displayImageFromURL:[NSURL URLWithString:block.fileID] tableView:tableView indexPath:indexPath];
