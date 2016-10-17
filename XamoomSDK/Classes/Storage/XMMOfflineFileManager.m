@@ -19,8 +19,11 @@
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSData *, NSError *))completion {
   NSURL *filePath = [self filePathForSavedObject:urlString];
   [self downloadFileFromUrl:[NSURL URLWithString:urlString] completion:^(NSData *data, NSError *error) {
-    if (error != nil && completion) {
-      completion(nil, error);
+    if (error) {
+      if (completion) {
+        completion(nil, error);
+      }
+      return;
     }
     
     NSError *savingError;
