@@ -17,29 +17,24 @@
 }
 
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSData *, NSError *))completion {
-  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    NSURL *filePath = [self filePathForSavedObject:urlString];
-    NSData *data = [self downloadFileFromUrl:[NSURL URLWithString:urlString] completion:completion];
-    NSError *error;
-    [data writeToURL:filePath options:NSDataWritingWithoutOverwriting error:&error];
-    
-    // load existing file
-    if (error != nil && error.code == 516) {
-      error = nil;
-      data = [self savedDataFromUrl:urlString error:&error];
+  NSURL *filePath = [self filePathForSavedObject:urlString];
+  [self downloadFileFromUrl:[NSURL URLWithString:urlString] completion:^(NSData *data, NSError *error) {
+    if (error != nil && completion) {
+      completion(nil, error);
     }
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-      if (error && completion) {
-        completion(nil, error);
-        return;
-      }
-      
-      if (completion) {
-        completion(data, nil);
-      }
-    });
-  });
+    NSError *savingError;
+    [data writeToURL:filePath options:NSDataWritingAtomic error:&savingError];
+    
+    if (savingError && completion) {
+      completion(nil, savingError);
+      return;
+    }
+    
+    if (completion) {
+      completion(data, nil);
+    }
+  }];
 }
 
 - (NSData *)savedDataFromUrl:(NSString *)urlString error:(NSError *__autoreleasing *)error {
@@ -56,13 +51,20 @@
 
 #pragma mark - Helper
 
-- (NSData *)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *, NSError *))completion {
-  NSError *error = nil;
-  NSData *data = [NSData dataWithContentsOfURL:url options:0 error:&error];
-  if (error && completion) {
-    completion(nil, error);
-  }
-  return data;
+- (void)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *, NSError *))completion {
+  NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+  NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
+  NSURLRequest *request = [NSURLRequest requestWithURL:url];
+  NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    if (error) {
+      completion(nil, error);
+      return;
+    }
+    
+    NSData *data = [NSData dataWithContentsOfURL:location];
+    completion(data, nil);
+  }];
+  [downloadTask resume];
 }
 
 - (NSURL *)filePathForSavedObject:(NSString *)urlString {
@@ -70,8 +72,10 @@
   NSString *documentsPath = [paths objectAtIndex:0];
   NSURL *filePath = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", documentsPath]];
   NSString *fileName = urlString;
+  NSURL *fileNameUrl = [NSURL URLWithString:fileName];
   fileName = [fileName MD5String];
   filePath = [filePath URLByAppendingPathComponent:fileName];
+  filePath = [filePath URLByAppendingPathExtension:fileNameUrl.pathExtension];
   return filePath;
 }
 
