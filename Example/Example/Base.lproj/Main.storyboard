@@ -31,13 +31,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SYQ-BX-IPu">
-                        <barButtonItem key="rightBarButtonItem" title="Load" id="eKy-vy-kWa">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Load" id="eKy-vy-kWa">
                             <connections>
                                 <action selector="didClickLoad:" destination="BYZ-38-t0r" id="PoR-7r-eHJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loadTabBarItem" destination="eKy-vy-kWa" id="2iA-Ch-wHK"/>
                         <outlet property="tableView" destination="Ukt-K8-tKI" id="Wfe-WG-zw8"/>
                     </connections>
                 </viewController>

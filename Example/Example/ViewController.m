@@ -13,9 +13,11 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *loadTabBarItem;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property XMMEnduserApi *api;
 @property XMMContentBlocks *blocks;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property XMMContent *content;
 
 @property XMMSystem *system;
@@ -47,9 +49,22 @@
   self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
   self.blocks.delegate = self;
   
+  
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(offlineReady)
+   name:MANAGED_CONTEXT_READY_NOTIFICATION
+   object:nil];
+  
   //[self loadSystem];
+  //[self contentWithID];
+}
+
+- (void)offlineReady {
+  self.loadTabBarItem.enabled = YES;
+  
+  //[self contentWithTags];
   [self contentWithID];
-  [self contentWithTags];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +87,7 @@
 - (IBAction)didClickLoad:(id)sender {
   self.api.offline = YES;
   
-  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"49c8f22408b047598c2b00507aed04db" completion:^(XMMContent *content, NSError *error) {
     NSLog(@"Content: %@", content);
     self.blocks.offline = YES;
     [self.blocks displayContent:content];
@@ -84,14 +99,14 @@
 }
 
 - (void)contentWithID {
-  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"49c8f22408b047598c2b00507aed04db" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
     XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
-    [self.blocks displayContent:content];
+    //[self.blocks displayContent:content];
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -108,7 +123,7 @@
     }
     
     XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
-
+    
     
     //self.content = content;
     //[self.blocks displayContent:self.content];
@@ -161,6 +176,7 @@
 }
 
 - (void)contentWithTags {
+  self.api.offline = NO;
   [self.api contentsWithTags:@[@"tests"] pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
@@ -168,7 +184,9 @@
     }
     
     for (XMMContent *content in contents) {
-      [XMMCDContent insertNewObjectFrom:content];
+      [self.api contentWithID:content.ID completion:^(XMMContent *content2, NSError *error) {
+        [XMMCDContent insertNewObjectFrom:content2];
+      }];
     }
     
     NSLog(@"ContentWithTags: %@", contents);
@@ -189,30 +207,30 @@
 - (void)spotWithIdAndOptions:(NSString *)spotID {
   [self.api spotWithID:spotID options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker
             completion:^(XMMSpot *spot, NSError *error) {
-    if (error) {
-      NSLog(@"Error: %@", error);
-      return;
-    }
-    
-    NSLog(@"spotWithIdAndOptions: %@", spot);
-  }];
+              if (error) {
+                NSLog(@"Error: %@", error);
+                return;
+              }
+              
+              NSLog(@"spotWithIdAndOptions: %@", spot);
+            }];
 }
 
 - (void)spotsWithLocation {
   /*
-  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-  [self.api spotsWithLocation:location radius:1000 options:0 completion:^(NSArray *spots, NSError *error) {
-    if (error) {
-      NSLog(@"Error: %@", error);
-      return;
-    }
-    
-    NSLog(@"spotsWithLocation: %@", spots);
-    XMMSpot *spot = [spots objectAtIndex:0];
-    [self spotWithId:spot.ID];
-    [self spotWithIdAndOptions:spot.ID];
-
-  }];
+   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+   [self.api spotsWithLocation:location radius:1000 options:0 completion:^(NSArray *spots, NSError *error) {
+   if (error) {
+   NSLog(@"Error: %@", error);
+   return;
+   }
+   
+   NSLog(@"spotsWithLocation: %@", spots);
+   XMMSpot *spot = [spots objectAtIndex:0];
+   [self spotWithId:spot.ID];
+   [self spotWithIdAndOptions:spot.ID];
+   
+   }];
    */
 }
 
