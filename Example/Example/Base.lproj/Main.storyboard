@@ -46,6 +46,35 @@
             </objects>
             <point key="canvasLocation" x="1154.4000000000001" y="473.6131934032984"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="RWG-PI-cPS">
+            <objects>
+                <tableViewController storyboardIdentifier="DetailViewController" id="293-iS-410" customClass="DetailViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PMZ-m4-3EN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TxA-9r-jFZ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TxA-9r-jFZ" id="y6W-ct-fXZ">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="293-iS-410" id="deL-gj-Vcy"/>
+                            <outlet property="delegate" destination="293-iS-410" id="U2d-xQ-Xlw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="9c9-td-TsQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xno-dk-4mb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1154" y="1182"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="hg3-p3-2wa">
             <objects>

@@ -10,6 +10,7 @@
 #import "XMMCDSystem.h"
 #import "XMMCDContent.h"
 #import "XMMCDSpot.h"
+#import "DetailViewController.h"
 
 @interface ViewController ()
 
@@ -60,11 +61,16 @@
   //[self contentWithID];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:MANAGED_CONTEXT_READY_NOTIFICATION object:nil];
+}
+
+
 - (void)offlineReady {
   self.loadTabBarItem.enabled = YES;
   
-  //[self contentWithTags];
-  [self contentWithID];
+  [self contentWithTags];
+  //[self contentWithID];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,7 +93,7 @@
 - (IBAction)didClickLoad:(id)sender {
   self.api.offline = YES;
   
-  [self.api contentWithID:@"49c8f22408b047598c2b00507aed04db" completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
     NSLog(@"Content: %@", content);
     self.blocks.offline = YES;
     [self.blocks displayContent:content];
@@ -96,10 +102,15 @@
 
 - (void)didClickContentBlock:(NSString *)contentID {
   NSLog(@"DidClockContentBlock: %@", contentID);
+  
+  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  DetailViewController *vc = (DetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+  vc.contentID = contentID;
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)contentWithID {
-  [self.api contentWithID:@"49c8f22408b047598c2b00507aed04db" completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
