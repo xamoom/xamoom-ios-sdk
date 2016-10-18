@@ -64,4 +64,14 @@
   XCTAssertNil(error);
   XCTAssertNotNil(image);
 }
+
+- (void)testFilePathForSavedObjectWithCaching {
+  NSString *urlString = @"https://storage.googleapis.com/xamoom-files-dev/mobile/e7db53fe77734ff9ba31de6cf8a92844.jpg?v=6716a9ab9440d1739402bf97fd09cd1da5427aeb64ae53a04ce748a40de06da6c2eac1fa63b8dc310db8abfdf10c21d7f81b2e133e2aeaaa5b23ea56ca2f6f5b";
+  NSString *checkUrl = @"file:///Users/raphaelseher/Library/Developer/CoreSimulator/Devices/CCE24606-63B2-4DAF-97F1-B8BD53FEFED4/data/Containers/Data/Application/250913D2-09B2-49EB-A838-FCF8F08665DD/Documents/3a312f3fa76bae7e1dc77a55d813d658.jpg";
+  
+  NSURL *url = [self.offlineFileManager urlForSavedData:urlString];
+    
+  XCTAssertTrue([[[url lastPathComponent] lowercaseString] isEqualToString:[[[NSURL URLWithString:checkUrl] lastPathComponent] lowercaseString]]);
+}
+
 @end

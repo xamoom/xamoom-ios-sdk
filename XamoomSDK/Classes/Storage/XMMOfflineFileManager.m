@@ -76,6 +76,10 @@
   NSURL *filePath = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", documentsPath]];
   NSString *fileName = urlString;
   NSURL *fileNameUrl = [NSURL URLWithString:fileName];
+  if (fileNameUrl.query != nil) {
+    NSString *stringToRemove = [NSString stringWithFormat:@"?%@", [fileNameUrl query]];
+    fileName = [fileName stringByReplacingOccurrencesOfString:stringToRemove withString:@""];
+  }
   fileName = [fileName MD5String];
   filePath = [filePath URLByAppendingPathComponent:fileName];
   filePath = [filePath URLByAppendingPathExtension:fileNameUrl.pathExtension];
