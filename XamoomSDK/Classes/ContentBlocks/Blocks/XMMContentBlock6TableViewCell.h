@@ -38,6 +38,7 @@
 
 @property (strong, nonatomic) NSString *contentID;
 @property (strong, nonatomic) XMMContent *content;
+@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
 
 @end
 

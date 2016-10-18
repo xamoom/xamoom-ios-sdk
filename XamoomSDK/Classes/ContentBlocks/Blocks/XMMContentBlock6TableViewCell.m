@@ -23,6 +23,7 @@
 @interface XMMContentBlock6TableViewCell()
 
 @property (nonatomic) UIImage *angleImage;
+@property (nonatomic) BOOL offline;
 
 @end
 
@@ -41,6 +42,7 @@ static NSString *contentLanguage;
     imageBundle = bundle;
   }
   
+  self.fileManager = [[XMMOfflineFileManager alloc] init];
   self.contentID = nil;
   self.contentImageView.image = nil;
   self.contentTitleLabel.text = nil;
@@ -60,8 +62,11 @@ static NSString *contentLanguage;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
-  self.contentTitleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
-  self.contentExcerptLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  self.offline = offline;
+  if (style.foregroundFontColor != nil) {
+    self.contentTitleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+    self.contentExcerptLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  }
   
   //set content
   self.contentID = block.contentID;
@@ -102,13 +107,26 @@ static NSString *contentLanguage;
   [self.contentExcerptLabel sizeToFit];
   
   if (self.content.imagePublicUrl == nil) {
-    self.contentImageWidthConstraint.constant = 0;
-    self.contentTitleLeadingConstraint.constant = 0;
+    [self setNoImageConstraints];
   } else {
     self.contentImageWidthConstraint.constant = 100;
     self.contentTitleLeadingConstraint.constant = 8;
-    [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.content.imagePublicUrl]];
+    if (self.offline) {
+      NSURL *offlineURL = [self.fileManager urlForSavedData:self.content.imagePublicUrl];
+      [self.contentImageView sd_setImageWithURL:offlineURL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (error) {
+          [self setNoImageConstraints];
+        }
+      }]; 
+    } else {
+      [self.contentImageView sd_setImageWithURL: [NSURL URLWithString: self.content.imagePublicUrl]];
+    }
   }
+}
+
+- (void)setNoImageConstraints {
+  self.contentImageWidthConstraint.constant = 0;
+  self.contentTitleLeadingConstraint.constant = 0;
 }
 
 @end
