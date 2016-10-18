@@ -31,6 +31,8 @@
 		88226E4C1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */; };
 		882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E55571C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.m */; };
 		882ED6851C63741000FC8BDB /* XMMContentBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E557B1C4A37FE000C4D09 /* XMMContentBlocks.m */; };
+		8830FED11DB61D960072DCAC /* XMMContentBlock6TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8830FED01DB61D960072DCAC /* XMMContentBlock6TableViewCellTest.m */; };
+		8830FED61DB664B40072DCAC /* XMMContentBlock5TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8830FED51DB664B40072DCAC /* XMMContentBlock5TableViewCellTest.m */; };
 		883AC7D51DB0BEF000AE7BA7 /* XMMOfflineFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */; };
 		883AC7D61DB0BEF000AE7BA7 /* XMMOfflineFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */; };
 		883AC7D81DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 883AC7D71DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m */; };
@@ -209,6 +211,8 @@
 		881966DB1CD74F7100AC2007 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMMapOverlayView.xib; sourceTree = "<group>"; };
 		88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMEnduserApiOfflineTest.m; sourceTree = "<group>"; };
+		8830FED01DB61D960072DCAC /* XMMContentBlock6TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock6TableViewCellTest.m; sourceTree = "<group>"; };
+		8830FED51DB664B40072DCAC /* XMMContentBlock5TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock5TableViewCellTest.m; sourceTree = "<group>"; };
 		883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineFileManager.h; path = Classes/Storage/XMMOfflineFileManager.h; sourceTree = "<group>"; };
 		883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineFileManager.m; path = Classes/Storage/XMMOfflineFileManager.m; sourceTree = "<group>"; };
 		883AC7D71DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineFileManagerTest.m; sourceTree = "<group>"; };
@@ -409,6 +413,8 @@
 			children = (
 				88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */,
 				8863987B1DB520FA00CBBAD7 /* XMMContentBlock2TableViewCellTest.m */,
+				8830FED01DB61D960072DCAC /* XMMContentBlock6TableViewCellTest.m */,
+				8830FED51DB664B40072DCAC /* XMMContentBlock5TableViewCellTest.m */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -1180,6 +1186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */,
+				8830FED61DB664B40072DCAC /* XMMContentBlock5TableViewCellTest.m in Sources */,
 				883EA06A1C7F0DF7003FDF80 /* XMMMusicPlayerTests.m in Sources */,
 				88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */,
 				888F18BD1DA66CE400518DB8 /* XMMSystemSettingsTest.m in Sources */,
@@ -1208,6 +1215,7 @@
 				88B9628F1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m in Sources */,
 				88226E4C1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m in Sources */,
 				888F18CD1DA7A2B100518DB8 /* XMMContentTest.m in Sources */,
+				8830FED11DB61D960072DCAC /* XMMContentBlock6TableViewCellTest.m in Sources */,
 				88E46F341C49345C004D8AC3 /* XMMQueryTest.m in Sources */,
 				88AE9ED91D9D293000B1D61C /* XMMOfflineStorageManagerTests.m in Sources */,
 				88E46F321C493453004D8AC3 /* XMMRestClientTest.m in Sources */,

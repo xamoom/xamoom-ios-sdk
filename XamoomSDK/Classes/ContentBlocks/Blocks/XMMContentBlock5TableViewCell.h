@@ -32,6 +32,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ebookImageView;
 
 @property (strong, nonatomic) NSString *downloadUrl;
+@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
+@property (nonatomic) BOOL offline;
+
+- (void)openInBrowser:(id)sender;
 
 @end
 

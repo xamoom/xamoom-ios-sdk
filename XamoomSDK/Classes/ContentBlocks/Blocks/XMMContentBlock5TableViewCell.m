@@ -19,6 +19,12 @@
 
 #import "XMMContentBlock5TableViewCell.h"
 
+@interface XMMContentBlock5TableViewCell()
+
+@property (strong, nonatomic) UIDocumentInteractionController *docController;
+
+@end
+
 @implementation XMMContentBlock5TableViewCell
 
 - (void)awakeFromNib {
@@ -49,7 +55,9 @@
   self.artistLabel.text = nil;
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {  
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
+  self.offline = offline;
+  
   //set title, artist and downloadUrl
   if(block.title != nil) {
     self.titleLabel.text = block.title;
@@ -61,7 +69,22 @@
 
 - (void)openInBrowser:(id)sender {
   //open url in safari
-  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downloadUrl]];
+  if (self.offline) {
+    NSURL *localURL = [self.fileManager urlForSavedData:self.downloadUrl];
+    if (localURL != nil) {
+      self.docController = [UIDocumentInteractionController interactionControllerWithURL:localURL];
+      [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.contentView animated:YES];
+    }
+  } else {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downloadUrl]];
+  }
+}
+
+- (XMMOfflineFileManager *)fileManager {
+  if (_fileManager == nil) {
+    _fileManager = [[XMMOfflineFileManager alloc] init];
+  }
+  return _fileManager;
 }
 
 @end
