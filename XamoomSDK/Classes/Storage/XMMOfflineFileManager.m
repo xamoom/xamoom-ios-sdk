@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "XMMOfflineFileManager.h"
 #import "NSString+MD5.h"
-#import "XMMOfflineDownloadManager.h"
+
+NSString *const kXamoomOfflineSaveFileFromUrlError = @"com.xamoom.ios.kSaveFileFromUrlError";
 
 @implementation XMMOfflineFileManager
 
@@ -34,7 +35,11 @@
       if (completion) {
         completion(nil, savingError);
       }
-
+      
+      [[NSNotificationCenter defaultCenter] postNotificationName:kXamoomOfflineSaveFileFromUrlError
+                                                          object:self
+                                                        userInfo:@{@"fileUrl":urlString,
+                                                                   @"error":error}];
       return;
     }
     

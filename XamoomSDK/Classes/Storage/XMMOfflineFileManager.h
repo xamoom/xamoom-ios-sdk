@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMMOfflineDownloadManager.h"
 
 @interface XMMOfflineFileManager : NSObject
+
+extern NSString *const kXamoomOfflineSaveFileFromUrlError;
 
 - (NSURL *)urlForSavedData:(NSString *)urlString;
 

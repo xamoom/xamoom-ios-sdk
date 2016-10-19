@@ -10,6 +10,8 @@
 
 @interface XMMOfflineDownloadManager : NSObject <NSURLSessionDelegate>
 
+extern NSString *const kXamoomOfflineUpdateDownloadCount;
+
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) NSMutableArray *currentDownloads;
 

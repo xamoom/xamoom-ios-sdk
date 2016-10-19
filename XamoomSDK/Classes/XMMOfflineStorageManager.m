@@ -18,7 +18,7 @@
 #import "XMMCDSystem.h"
 #import "XMMCDSystemSettings.h"
 
-NSString *const MANAGED_CONTEXT_READY_NOTIFICATION = @"MANAGED_CONTEXT_READY_NOTIFICATION";
+NSString *const kManagedContextReadyNotification = @"MANAGED_CONTEXT_READY_NOTIFICATION";
 
 @implementation XMMOfflineStorageManager
 

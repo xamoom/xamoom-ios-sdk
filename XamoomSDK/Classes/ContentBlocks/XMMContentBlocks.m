@@ -21,7 +21,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 
 int const kHorizontalSpaceToSubview = 32;
-NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContentBlock9MapContentLinkNotification";
+NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kContentBlock9MapContentLinkNotification";
 
 #pragma mark - XMMContentBlocks Interface
 

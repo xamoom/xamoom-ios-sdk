@@ -14,7 +14,7 @@
 
 @property NSManagedObjectContext *managedObjectContext;
 
-extern NSString *const MANAGED_CONTEXT_READY_NOTIFICATION;
+extern NSString *const kManagedContextReadyNotification;
 
 + (instancetype)sharedInstance;
 
