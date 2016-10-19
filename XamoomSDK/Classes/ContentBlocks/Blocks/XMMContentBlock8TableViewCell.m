@@ -22,6 +22,7 @@
 @interface XMMContentBlock8TableViewCell()
 
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
+@property (nonatomic) int downloadType;
 
 @end
 
@@ -60,6 +61,7 @@
   self.titleLabel.text = block.title;
   self.contentTextLabel.text = block.text;
   self.fileID = block.fileID;
+  self.downloadType = block.downloadType;
   
   [self.icon setImage:[self iconForDownloadType:block.downloadType]];
 }
@@ -82,10 +84,12 @@
 }
 
 - (void)openLink {
-  if (self.offline) {
+  if (self.offline && self.downloadType == 0) {
     NSURL *localURL = [self.fileManager urlForSavedData:self.fileID];
+    
     if (localURL != nil) {
       self.docController = [UIDocumentInteractionController interactionControllerWithURL:localURL];
+      self.docController.delegate = self;
       [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.contentView animated:YES];
     }
   } else {
