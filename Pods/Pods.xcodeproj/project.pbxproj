@@ -10,6 +10,33 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>0027715D73C9FA940A8CE1771206D7F8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D7E885F096DAD3AC79996339BC29C1A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0041A183A40079FB8751DFFD2DD50E39</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMMenuItem.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>005E2C596983A7551B11B97292B9691B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E960A322D091991243AB3760A23AD2C5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>00EBB3809FEC941281453B22CFD61DB1</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -50,18 +77,12 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>01456270C3B5FD5011A4FDACF05F2CA8</key>
+		<key>0119D491372A6A6467FF79AC820DEF96</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>5FC58294CF13EB456DDC37534DDA73DC</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContentBlock5TableViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>015D0E10652FD7F51524E66CD98E1015</key>
 		<dict>
@@ -74,6 +95,33 @@
 			<key>targetProxy</key>
 			<string>766F04B58FA7C259F8105A76F82C4272</string>
 		</dict>
+		<key>01AC45C66195924A3367EC154F0C025C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8785DB4A094BE11C1790DC01810BA118</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>01B31E43733EFE7840254498853C1362</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMCDSpot.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>01E416DC2CFDB54EB91C06C078F34E3C</key>
 		<dict>
 			<key>children</key>
@@ -85,6 +133,40 @@
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>022F41BA96C5B12126915F10568EA029</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0A86CC38519A00DBCCDE6C2A20B4B04C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>0246E1145D9FEF7A1F6155C825EF7B53</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A17785645E627F09C0E7E2B0D542285D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>031152DD4C28013E4013F8B217D5BB83</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMQuery.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -119,33 +201,6 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>04AD47F094E54218462ADBCF91EACCBA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>01456270C3B5FD5011A4FDACF05F2CA8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>04B2614D33519DF09A95EE6569FEB14B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMCDContentBlock.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>04E536DF5F1B827DC1F6C4379EAF9CDD</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -161,25 +216,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>04FBD471AA7A2BDC639725831ACA76C0</key>
+		<key>0557089F0CE9424A7162B591B615316E</key>
 		<dict>
 			<key>fileRef</key>
-			<string>3D52FBDEAE8D58273C1583E735F47A07</string>
+			<string>64A42A377A8FBCEE3EB6564C0F7B2333</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>055D6E70E56300A676491B930B4977AC</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContentBlock0TableViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>05D9E7F6BF0E3462875C347A5BCDF67E</key>
 		<dict>
@@ -237,60 +286,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>06A290FF83645A11470EA334EADEC5BE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C81B1415DFCF65B246525A3DDC807775</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>070175B24735DF5278457DD7371FAF55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>134E4ED1DE66EDB6B0A813C173AC8BF2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>0828F650090ABF74D9E92A6326F8E066</key>
 		<dict>
 			<key>fileRef</key>
 			<string>61879E1CF2BC24513E08721F262B2EDA</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>08849CFEEAE8BF5786E82BDC24E60139</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMRestResource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>08FE6D353175A1EA4683F0C3BDC52133</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8716C783F1ECE51AEC97FDEFC97B9879</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>0934D3DAC27331C1569A357A677B2206</key>
 		<dict>
@@ -306,19 +307,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>094A60788332917901BE1D9B69E3DDC9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMStyle.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>09A040F87532413512AF2A6E891DECC0</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -329,6 +317,19 @@
 			<string>file.xib</string>
 			<key>path</key>
 			<string>XMMContentBlock8TableViewCell.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>09FAC6B281F24F04AF6850004556F04D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMCDMenuItem.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -344,32 +345,6 @@
 			<string>OCMArgAction.m</string>
 			<key>path</key>
 			<string>Source/OCMock/OCMArgAction.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0A2FFC4FB19261CD0C3A9B6A7537D5ED</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMOfflineFileManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0A3221998DE40FE34B9E8EEFECEE7CD8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMCDMenuItem.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -391,6 +366,19 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-fno-objc-arc</string>
 			</dict>
+		</dict>
+		<key>0A86CC38519A00DBCCDE6C2A20B4B04C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMMusicPlayer.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>0BCFDE25E8FEEA7AC5203410EFB62B27</key>
 		<dict>
@@ -420,13 +408,6 @@
 			<string>Source/OCMock/OCMIndirectReturnValueProvider.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0BED41486F178D665B6F53DC7A062305</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C3934415F0C352D057B39140C87EB5A9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>0BF4A2E3899BE87BAD71BDB1C34C4436</key>
 		<dict>
@@ -468,16 +449,30 @@
 			<key>remoteInfo</key>
 			<string>SDWebImage</string>
 		</dict>
-		<key>0D4EA1F720917C0B4591A0E8C0BB3592</key>
+		<key>0D61E8F82C1391E5B150C07454A61F03</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DF9A2C004FF709ABF11F1F6406FDBCEC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0D96B71A2A1920B81166ED4D92432585</key>
+		<dict>
+			<key>fileRef</key>
+			<string>EF48DA56A04A5CB21CE44C05EF96A609</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0DACEF2427E5C5CA36DFF4470FC1CE43</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMCDMarker.m</string>
+			<string>XMMSystemSettings.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -509,25 +504,25 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>0E37FB83F4CC754CE7EA367A3EC1C43C</key>
+		<key>0E660A563E12F9289D02569DD5A3F8EC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>12B25C6EBEBFFF5D73EE458485B11857</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0E93DF1DD86D8CE25C6F6125910C5F75</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMCDSystem.m</string>
+			<string>XMMContentBlock4TableViewCell.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0EC25CB673F55F5C5D5F9A8235B83E07</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A0CC7B8ECE6B39E308D1D1C0EA8879E2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>0EC56F9EDD25D9625902556BD0BD90B1</key>
 		<dict>
@@ -544,23 +539,24 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>0ED525BC55ECC3232DE3663BC06FC85C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMOfflinePagedResult.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>0EE98780873CB1A29EE8B4A36BA7E14A</key>
 		<dict>
 			<key>fileRef</key>
 			<string>45459E92A0738EAA5FBC7A380B8EC672</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>0EF6FCF365D585DA9DAB0B2AB0149E0F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D971AD6A62F2C61F40A0E53C530D0821</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -678,20 +674,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>107A6246EE5C8827C0F12FBF5F087296</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6B9585DBDD6EC7C19E688446D6F37B9C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>10AEAD2136880EEE7E771F533331F250</key>
 		<dict>
 			<key>fileRef</key>
@@ -706,6 +688,19 @@
 				</array>
 			</dict>
 		</dict>
+		<key>1113EB5B0556FCA4B054729740803240</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>NSString+MD5.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>11958A1050776764D2FAA899386A0D6C</key>
 		<dict>
 			<key>fileRef</key>
@@ -719,13 +714,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>11EF2A8732F5FCC0E2958BC3B726A26A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3A1B7566AF5FBF6A66E49F8498C9D9BA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>12097ACFFF777A594A6794E257EF9778</key>
 		<dict>
@@ -749,6 +737,26 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>12B25C6EBEBFFF5D73EE458485B11857</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMMenuItem.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>130C02D20582D1A62BBE952CC53E883A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A7C7E5A8732B0B39745C5D09C4DA2481</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>133678FF5E92B8A947B9D4235DAF61B2</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -764,45 +772,40 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>134E4ED1DE66EDB6B0A813C173AC8BF2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMMusicPlayer.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>138231F8D64F3AE2484ECEB200293038</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMOptions.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1406031DC5D760EFCB3E5F28FA168E80</key>
+		<key>1366BA73C349380F508396B059620890</key>
 		<dict>
 			<key>fileRef</key>
-			<string>AE825A302D0F7587807AEA54246A241A</string>
+			<string>FD6335F7BE8E44EDC8BD482038599789</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+		</dict>
+		<key>145FECD7DF7DDB1A8EB22E2AF15C07E4</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>60C52C9FB6E2A351A5A1F37C414D6698</string>
+				<string>2D54369B2A40B719AB5251653E3BE37B</string>
+				<string>FF53E17008A848DD678D3E9E762E10B6</string>
+				<string>C0DF5A7BC6C152C9C8EA3777F58C56CF</string>
+				<string>91F4B0DAA1C341EDA7C64B5A5E342417</string>
+				<string>EF48DA56A04A5CB21CE44C05EF96A609</string>
+				<string>14A016959EFA932899098B165F37CFAF</string>
+				<string>CFB2A9F9E11EEB634F98CD00DD974F7C</string>
+				<string>F08C99E80333C8588CA23DAC983D9D12</string>
+				<string>95DAC150A16B335039DD67B0371A4CBF</string>
+				<string>0A86CC38519A00DBCCDE6C2A20B4B04C</string>
+				<string>BD54CE0CEC2EF932781D230A7D090491</string>
+				<string>37F786901F4006DF2CE882C6D9FF004A</string>
+				<string>A19DA3FE414E67E0FC142B20531AAF07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ContentBlocks</string>
+			<key>path</key>
+			<string>ContentBlocks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>148567C78F073B93447A046D71B7E973</key>
 		<dict>
@@ -831,12 +834,39 @@
 				</array>
 			</dict>
 		</dict>
+		<key>14A016959EFA932899098B165F37CFAF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlocks.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>14BF262FBAC6E17E736B24FB1DB73A4D</key>
 		<dict>
 			<key>fileRef</key>
 			<string>60D06BB29D965CB151554E030C0BF7AE</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>14D2F70C21EA9DA1FD680C44D08F9A23</key>
+		<dict>
+			<key>fileRef</key>
+			<string>58DC1ED6A8922F216A4F3F6143A861BF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>1586CD3BDB1E92D87A0E423AAC313FD4</key>
 		<dict>
@@ -863,13 +893,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1635F921E43FA9AD1C5109BC0A9F3579</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BC9F711CCADC8FDC7131ACC4F794D8E9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>16A6A7FE8157E05AE1D7E6FD093395D9</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -882,6 +905,27 @@
 			<string>PBXFrameworksBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>17908948002A469F2AFD6F03519A1323</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DFBA35BD63F025D84CAE22BB4111A552</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17B974186645C64D291C2A91AE89906C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3581FB1BECD521E3A617328F07DFF925</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>17C5C0A444CECB73F570D88D2568319E</key>
 		<dict>
@@ -956,31 +1000,26 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1A6E677E0231FCA38883EE37193129D5</key>
+		<key>19F0B86EBB651C4090AA402DA539F7D3</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>47792437D7C72B4226A18F8BC1780386</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMCDContent.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
-		<key>1AB68F9A0EA8CB40322A0C420ECA9532</key>
+		<key>1A57545480D2DE178B11E878DD15AC9A</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>CFB2A9F9E11EEB634F98CD00DD974F7C</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMCDMarker.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>1AE44954C087A28861BE23F55C9CE4B7</key>
 		<dict>
@@ -1014,66 +1053,6 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>1C3F7AA67A1D622176B8445B1571D08C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>055D6E70E56300A676491B930B4977AC</string>
-				<string>AE976275D94FAE25D1BAB936776983AE</string>
-				<string>6B9585DBDD6EC7C19E688446D6F37B9C</string>
-				<string>DB779AFD9238C8C89F0457FFD25234AE</string>
-				<string>9193ED239370D5124A4E9CA3B72B3279</string>
-				<string>29922FF01C14A13171BF965E5CDF9FF2</string>
-				<string>DE4451CD2A31FA2EAD7AB0E0FF5FB675</string>
-				<string>CEFDD6F8CB235235857E833B09CC65F4</string>
-				<string>59E162311C256FDCE301B50944B99CA7</string>
-				<string>6B17CAD9F8E473ED9B1A46792689A4F9</string>
-				<string>01456270C3B5FD5011A4FDACF05F2CA8</string>
-				<string>1CAC9D6922678EB77418F07058B6C7AD</string>
-				<string>8716C783F1ECE51AEC97FDEFC97B9879</string>
-				<string>E195EEF1DAAF907764343B7C42DCC9D8</string>
-				<string>A9C3D8506C9B74CFD1A181A742A00C05</string>
-				<string>8F7A5590D65AFFAB4436BE627BAD8940</string>
-				<string>724CF2467BC42DAAD452E6ABD2D1ED71</string>
-				<string>C7E03187DBBAEB40753101ABD7B6C36D</string>
-				<string>7ADAB181A599BB2ED1D955BA281229A6</string>
-				<string>E7B3F491DAF3EBD236EE58DA9F5C06C9</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Blocks</string>
-			<key>path</key>
-			<string>Blocks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1CAC9D6922678EB77418F07058B6C7AD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlock5TableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1D2E5BE3DE85E575E3E8D049E93264D8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMCDContent.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>1D6B5E4C4B4C1E1AA7EC2EFC88FFD489</key>
 		<dict>
 			<key>fileRef</key>
@@ -1096,12 +1075,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1F765EC149349FE10478B8A94A42874B</key>
+		<key>1F8CA3710627F0FC9762336B95CBF6B3</key>
 		<dict>
 			<key>fileRef</key>
-			<string>FCC15A8E62B1DE7A87E640E1903150D6</string>
+			<string>D41C72DB77C1B00AC9B465372648F503</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>2000E65B56B0772FD8D80FD912EBE4AD</key>
 		<dict>
@@ -1151,6 +1137,20 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
+		<key>21B56392C87F833EE5344D79F7E9747C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CECC34D2D88451BAADFD0F9FABF999E7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>21D6DD211B72C50A743032E455DC490A</key>
 		<dict>
 			<key>fileRef</key>
@@ -1179,20 +1179,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>23829359A456DCCB6A16DBFFB7265098</key>
-		<dict>
-			<key>fileRef</key>
-			<string>31988EA6FC52F5DD9D6BB6FAAB8CC12E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>23D44A65CBCD880CE16D8C7470EDE88C</key>
 		<dict>
 			<key>fileRef</key>
@@ -1215,13 +1201,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>25E368418D1F9DB62863229E97A4FD54</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5DE4A158B414AB10CFEE9895ADABE2C6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>25F390A224C6383182789D09B3F1DACB</key>
 		<dict>
 			<key>fileRef</key>
@@ -1236,17 +1215,24 @@
 				</array>
 			</dict>
 		</dict>
-		<key>260A0BF3C5790F7258B94B795E0FD5B2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A1455419BD864E98925DEF25B6DD1A9D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>2614B2750D37B8607B0F8BACD7AC9EC6</key>
 		<dict>
 			<key>fileRef</key>
 			<string>69C55032242A6EE31F489F4A8E512DF8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>265E3D4C059DD8C12279ABEA02B72BE6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B96C2DDFF5B8AAFC8DE3DD8E35D9698E</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1279,47 +1265,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2952481201AB68A46741C9F5DAED87B3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CAD98920661C7390D9255B8D875D9804</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>29922FF01C14A13171BF965E5CDF9FF2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlock2TableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>29E0F508345FF85579CE6A4497E7CC78</key>
-		<dict>
-			<key>fileRef</key>
-			<string>87CC5BB12E952F6CD19F2534DFD0B6A6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>2A9B10DF94AE47C91244AEBF60813710</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1335,18 +1280,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2B73AB873AFFA63E354CD084144A88B3</key>
+		<key>2B55BEC65221CCC7F66D8D8055C81817</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>D39A4F57E462A4955E5157AF5148ED78</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIImage+Scaling.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>2BD507847D31ACE30CCDC12B1D630EEB</key>
 		<dict>
@@ -1362,18 +1301,12 @@
 				</array>
 			</dict>
 		</dict>
-		<key>2BFC12412656C0EFCCB40A2151A66787</key>
+		<key>2C785486F5ECBF9135645E1C725E5880</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>FDD9FFB5958EF8B7C2C1ABB12E826F7E</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMParamHelper.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>2CE3874B1EFAD4995A22068ED00E3EF6</key>
 		<dict>
@@ -1390,16 +1323,16 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2D0C3BD889862A72E1A71042C2B3028D</key>
+		<key>2D54369B2A40B719AB5251653E3BE37B</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>NSString+MD5.h</string>
+			<string>UIColor+HexString.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1438,6 +1371,13 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>2E8A83937004F8C6E3D3ABC69C1FAFD4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>96CD1C011436FE9F34602601BAF23BF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>2EA882DEA07E1329E12485BB7D606DBB</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -1450,6 +1390,27 @@
 			<string>PBXFrameworksBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>2EC6AAF3F7AF719B443B91CB6F64820F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>49744BD0DEB4F09D60E322A1F9D3024F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>2ED7743412DD2CA826C3FD73A1EF9AB0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B5755A6D5E5CD5DCCEE0E5D33F2D7CFB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>2F150840A9766999C0D78A0DEF6669D2</key>
 		<dict>
@@ -1498,13 +1459,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>2F97B79CBD72FF3D8DC2CDB38498ABE2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0E37FB83F4CC754CE7EA367A3EC1C43C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>2FBCF5C7BAAC4C808FDB07200F7F5CDE</key>
 		<dict>
 			<key>children</key>
@@ -1523,6 +1477,47 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>2FCBD5ED0DB6AEE5F051BDEDD5898EDA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9CC248474DE9D459BEB17D2D43982387</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>314BDD2CF5ADD10B8EC713A90FB6387F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FF53E17008A848DD678D3E9E762E10B6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>315156453607D8A54D343A317FE63866</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMContentBlock2TableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>3152811CD17686AA726713BFE3612206</key>
 		<dict>
 			<key>fileRef</key>
@@ -1536,19 +1531,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>31988EA6FC52F5DD9D6BB6FAAB8CC12E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMOfflineStorageManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>31C212DA4DC937FD82E4A4DA1960304E</key>
 		<dict>
@@ -1606,6 +1588,20 @@
 			<string>en.lproj</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>337C96796785A7A20016034483DDC2E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4C6D98C5A3FD621361896C3F500CB2A6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>33C4E9CA4B43CD4C468B338E2ED06860</key>
 		<dict>
@@ -1757,6 +1753,26 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>3581FB1BECD521E3A617328F07DFF925</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlock0TableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>35B05381AEBD43E35C5E72ACC5BCBAD6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB5197C75BCFBBB3250F49D1228514BB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>36CDA2AF2861913A1D976D6892055DE0</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1810,6 +1826,40 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>37F786901F4006DF2CE882C6D9FF004A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3581FB1BECD521E3A617328F07DFF925</string>
+				<string>81C44D8D953BCF71922512F91039B37C</string>
+				<string>553AEB757B62D20CEB7D35AFCADE0CB4</string>
+				<string>A65479FA922536FDAEBD68D3142D25EB</string>
+				<string>FB44EC952C905C7B970EA7A015DF8544</string>
+				<string>315156453607D8A54D343A317FE63866</string>
+				<string>8785DB4A094BE11C1790DC01810BA118</string>
+				<string>D39A4F57E462A4955E5157AF5148ED78</string>
+				<string>0E93DF1DD86D8CE25C6F6125910C5F75</string>
+				<string>40B8B7BD8F28B09CB480A597151496CF</string>
+				<string>4C6D98C5A3FD621361896C3F500CB2A6</string>
+				<string>FB53A6D72769EDEFE70C5F00CCF1A39F</string>
+				<string>E471F0720632B9C5589C9027CD290328</string>
+				<string>EC6453FAEFFCB52434258AC6952A6194</string>
+				<string>58DC1ED6A8922F216A4F3F6143A861BF</string>
+				<string>48665278AC98D8475612988D2057EDCE</string>
+				<string>CECC34D2D88451BAADFD0F9FABF999E7</string>
+				<string>E0F5CE068537908E8813A00A281EB7C6</string>
+				<string>CC1382242F8F1755CB1009890ACFAC45</string>
+				<string>CFC207B3F2C2C0314E19D9D4DD49952B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Blocks</string>
+			<key>path</key>
+			<string>Blocks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>389F4AE8F4458887743C1DCF6EC9D7C5</key>
 		<dict>
 			<key>fileRef</key>
@@ -1847,20 +1897,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3985838EDFCEDE7ACE507594CA2C02A0</key>
+		<key>3942EF59B0D808A8A2FB38A2CC7B360F</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>470CF12E11CD9CF424DFAE5C74F694FE</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMCDSystem.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
-		<key>3A1B7566AF5FBF6A66E49F8498C9D9BA</key>
+		<key>39E8F21CA6F6AFA4FB37B34C9F66B3E3</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1869,7 +1920,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMMusicPlayer.m</string>
+			<string>NSString+MD5.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1962,19 +2013,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3AF9787B95DA411D6E6067EDC03A7DD6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMMenuItem.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>3B31EB5FA1E3A7B1914D61CF23807076</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1990,19 +2028,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3C08D878958D5BA5040789F5C6EA3897</key>
+		<key>3B69088821641314FB8ADC46E58DE843</key>
 		<dict>
-			<key>fileRef</key>
-			<string>A3E8AE6C662FF88A8164BCD85B9A0AD1</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMOfflineFileManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>3C35C6D8F187800E27FF11A97236E0FC</key>
 		<dict>
@@ -2018,14 +2055,7 @@
 				</array>
 			</dict>
 		</dict>
-		<key>3C9AB3AD421D759937E2DC39AC5F088D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E195EEF1DAAF907764343B7C42DCC9D8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>3C9C329EFAA3619FB38D137270F9D695</key>
+		<key>3CA1D3C83D7CF298E526A00D136C7DC5</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2034,7 +2064,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMMenu.h</string>
+			<string>XMMRestClient.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2066,32 +2096,6 @@
 			<string>3F5C4EC8290AD1F096D1DD7F0254B991</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
-		</dict>
-		<key>3D52FBDEAE8D58273C1583E735F47A07</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMMarker.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3D8F6FA920B70DAC39719E51BCE710EB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMRestClient.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>3D955010A1650D6AEAC84EC4AD803854</key>
 		<dict>
@@ -2157,65 +2161,6 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>3F82A60AD67CE3E8506CD92F44B16331</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIImage+animatedGIF.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3F912D099EC77D0C5ABAF453E47549A1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1A6E677E0231FCA38883EE37193129D5</string>
-				<string>1D2E5BE3DE85E575E3E8D049E93264D8</string>
-				<string>04B2614D33519DF09A95EE6569FEB14B</string>
-				<string>4F5F146DC2DEEF1FF69C3B8E5D92F7D6</string>
-				<string>1AB68F9A0EA8CB40322A0C420ECA9532</string>
-				<string>0D4EA1F720917C0B4591A0E8C0BB3592</string>
-				<string>C7721855ABAA9FED101ED35DF7E9105F</string>
-				<string>CEF1AC6C9ECA52248ED3CFACBFA286D6</string>
-				<string>0A3221998DE40FE34B9E8EEFECEE7CD8</string>
-				<string>AC375397874EC1505125F71799A43BDF</string>
-				<string>CAD98920661C7390D9255B8D875D9804</string>
-				<string>AE825A302D0F7587807AEA54246A241A</string>
-				<string>C3934415F0C352D057B39140C87EB5A9</string>
-				<string>7D72737D2F5DBB55353FCF2C7FCFD5A8</string>
-				<string>4F6E935BC131427EB67018A2A7E0F8C1</string>
-				<string>3985838EDFCEDE7ACE507594CA2C02A0</string>
-				<string>0E37FB83F4CC754CE7EA367A3EC1C43C</string>
-				<string>FF08CAE14A3395B484B85BA74C68F91D</string>
-				<string>625BFBB880211B2E98B0748976B8218E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>path</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3FAEFFF823595FE5F9FBC1B04F15BD55</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMEnduserApi.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>3FC9539D88D9CB9FD60333A5B212A60E</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2258,45 +2203,7 @@
 				</array>
 			</dict>
 		</dict>
-		<key>412E4CFEC8605109AA0BEA72FFDCE645</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2D0C3BD889862A72E1A71042C2B3028D</string>
-				<string>AD59ED891C50BBB148FFF5D5FEBE2A6A</string>
-				<string>FA28E43D745B9633B506D4761A89A17D</string>
-				<string>3FAEFFF823595FE5F9FBC1B04F15BD55</string>
-				<string>4729D9D586E4E7592FF31D9904DFA6ED</string>
-				<string>31988EA6FC52F5DD9D6BB6FAAB8CC12E</string>
-				<string>E6C8C18483C9BBF1331547D9E98BAF7C</string>
-				<string>138231F8D64F3AE2484ECEB200293038</string>
-				<string>B944FC52203A2EAB4979E33D7C5A3B19</string>
-				<string>2BFC12412656C0EFCCB40A2151A66787</string>
-				<string>EB79B879D20493E389F542D637962EF4</string>
-				<string>41B2EB3B6337A310435DBC70D891A373</string>
-				<string>3D8F6FA920B70DAC39719E51BCE710EB</string>
-				<string>9D327BE3986CF3D71CE76E7065C62ACA</string>
-				<string>5115982CE975481CB1D5D22067EC75FD</string>
-				<string>64B1F44805143E7F2C309A5363297122</string>
-				<string>68166B88BD93C59138771A7E0105AAC1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Classes</string>
-			<key>path</key>
-			<string>Classes</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4149DBFA0A7949F7D60B236C90FC2F5E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3AF9787B95DA411D6E6067EDC03A7DD6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>41B2EB3B6337A310435DBC70D891A373</key>
+		<key>40B8B7BD8F28B09CB480A597151496CF</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2305,7 +2212,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMQuery.m</string>
+			<string>XMMContentBlock4TableViewCell.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2321,20 +2228,6 @@
 			<string>Pods-XamoomSDKTests-dummy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>422106C08E57EE5038D90DB107C01691</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FF08CAE14A3395B484B85BA74C68F91D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>42614559E1F8BA0DC0D857E6CF872A46</key>
 		<dict>
@@ -2375,12 +2268,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>4402A9AEACE82FE20FA4FC17A51D4E8A</key>
+		<key>4416F9ED43D6EC05535F6341679C1270</key>
 		<dict>
-			<key>fileRef</key>
-			<string>AE976275D94FAE25D1BAB936776983AE</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMOfflinePagedResult.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>445FF043E4E2E3310625187336178B18</key>
 		<dict>
@@ -2418,6 +2317,20 @@
 				</array>
 			</dict>
 		</dict>
+		<key>452F05BCA6A9181E339646D2832740D3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CC1382242F8F1755CB1009890ACFAC45</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>45459E92A0738EAA5FBC7A380B8EC672</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2430,19 +2343,6 @@
 			<string>OCMFunctions.h</string>
 			<key>path</key>
 			<string>Source/OCMock/OCMFunctions.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>45FCDD2F7BEE398762465289F5E3CCE3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMMenuItem.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2468,7 +2368,7 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>470A913615EA7341C36D9B8997923B12</key>
+		<key>470CF12E11CD9CF424DFAE5C74F694FE</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2477,20 +2377,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMContentBlocksCache.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4729D9D586E4E7592FF31D9904DFA6ED</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMEnduserApi.m</string>
+			<string>XMMOfflineApi.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2566,6 +2453,19 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Debug</string>
+		</dict>
+		<key>47792437D7C72B4226A18F8BC1780386</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMCDMenuItem.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>47BEF9D903506B003EA5C2B249729489</key>
 		<dict>
@@ -2658,19 +2558,38 @@
 			<key>remoteInfo</key>
 			<string>JSONAPI</string>
 		</dict>
-		<key>49507412438AE307EF6FEE691202C5FA</key>
+		<key>48665278AC98D8475612988D2057EDCE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMContentBlock7TableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>490D4E157B498BF5EAD70B7D81806044</key>
 		<dict>
 			<key>fileRef</key>
-			<string>3C9C329EFAA3619FB38D137270F9D695</string>
+			<string>4E3FFB14990FF408F506AAED76DCBFA0</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+		</dict>
+		<key>49744BD0DEB4F09D60E322A1F9D3024F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMCDMarker.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>4993AD25FBD6007CEE9F6C0FAF3043BF</key>
 		<dict>
@@ -2704,6 +2623,19 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
+		<key>4A8AE7B897F784409B22DC41BD41B1CD</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlock.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>4B73E9A7E9F78D168E40902DDA607A86</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2718,20 +2650,6 @@
 			<string>Source/OCMock/NSObject+OCMAdditions.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4BB555C2C0F1F5FA1E39182B9C6BBFB7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>470A913615EA7341C36D9B8997923B12</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>4C0D9274410B504BAF0388D41AAE77B7</key>
 		<dict>
@@ -2761,6 +2679,20 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>4C303048260E48117D639B6B3C61A583</key>
+		<dict>
+			<key>fileRef</key>
+			<string>59411882245BA0872D38AF770C9D4AC7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>4C43F609E91C1F61E1103EBCB3ED2447</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2771,6 +2703,32 @@
 			<string>text.xcconfig</string>
 			<key>path</key>
 			<string>Pods-XamoomSDKTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4C5F8AD096E3BCC292038361DF4B97C6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMOfflineApiHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4C6D98C5A3FD621361896C3F500CB2A6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlock5TableViewCell.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2856,12 +2814,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>4E0B872CB3B0BCB2F2747B8BEC11DF3C</key>
+		<key>4E3FFB14990FF408F506AAED76DCBFA0</key>
 		<dict>
-			<key>fileRef</key>
-			<string>7858AE26DCF201766763BA381180C527</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMCDSystem.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>4E5896A297AE3B61740476F15B39937C</key>
 		<dict>
@@ -2877,98 +2841,6 @@
 			<string>XamoomSDK.bundle</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>4EAB877640C69C61A9E1FF0429B342BC</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>EF2516F2488C7390B986B1B727E5B927</string>
-				<string>A83F5833C9D01F00F402562BF3486DAB</string>
-				<string>25E368418D1F9DB62863229E97A4FD54</string>
-				<string>94217F47650ECEC1CAA799D35FE3E077</string>
-				<string>93296961BE8073BDCD74826791989AC2</string>
-				<string>9033A611FBDE13C52AF5F2197C18512E</string>
-				<string>F592955C91653BCCD36A1E017915E020</string>
-				<string>6F024A8089CCCD4999646A20A591B613</string>
-				<string>9E394E003BADE37A3E41AF9B0A4EC568</string>
-				<string>6C2E3A532DFF2820475A8BF1AD40A68D</string>
-				<string>D1B04E5525D98B39642FB7A7381E9AD1</string>
-				<string>0BED41486F178D665B6F53DC7A062305</string>
-				<string>BEC8AF5E2360911A9B7C437C0682CFAD</string>
-				<string>2F97B79CBD72FF3D8DC2CDB38498ABE2</string>
-				<string>B2D4594F0B9263960B8EC92714E493FF</string>
-				<string>63D489D386EB42791F2E8223DF32BF25</string>
-				<string>C55754B9EFEA8D16826D865209B8AB24</string>
-				<string>4402A9AEACE82FE20FA4FC17A51D4E8A</string>
-				<string>CF2945E7BD06C9700B0340F35A694217</string>
-				<string>964EAA7D4D93454E1DE146D17C5E132D</string>
-				<string>E51B9E4210A7194AF444B40A950A320D</string>
-				<string>DDCBFFF3250F5C7C21B6B851FD5135F8</string>
-				<string>AD6FC9D474BCFD53336A4BE4423671C5</string>
-				<string>3C9AB3AD421D759937E2DC39AC5F088D</string>
-				<string>7142ACA44CB7B611AE7062AA6ED1A947</string>
-				<string>98450E280A558CBE0462434B75E54738</string>
-				<string>E5F727C1707D11F3F646CFFEB0238F49</string>
-				<string>260A0BF3C5790F7258B94B795E0FD5B2</string>
-				<string>BEF27EFBBDD22770AAD694569DB96C23</string>
-				<string>93AF09CC75325D9C35F86569FABDFA81</string>
-				<string>4F0134B41B18E4B28ECD6FB82BD3EE64</string>
-				<string>04FBD471AA7A2BDC639725831ACA76C0</string>
-				<string>62CDD25BDD6BE6FAA85BEB0BF2CF32E2</string>
-				<string>4149DBFA0A7949F7D60B236C90FC2F5E</string>
-				<string>11EF2A8732F5FCC0E2958BC3B726A26A</string>
-				<string>1F765EC149349FE10478B8A94A42874B</string>
-				<string>F30FACA070AAAAD56E59F4513815231B</string>
-				<string>06A290FF83645A11470EA334EADEC5BE</string>
-				<string>F7892D0106898E0FFB9CBD3B0878989D</string>
-				<string>C9CAFB5CB44BB393C997D168128AECCA</string>
-				<string>9AD8036A69C4C18D5E4C20FD4BCA1A59</string>
-				<string>CD52BD90EC3C2570C79760BD3EC0A331</string>
-				<string>74B1A50277D617BAD5A742E51EB4595E</string>
-				<string>0EC25CB673F55F5C5D5F9A8235B83E07</string>
-				<string>65559AED153619F38837919B3D2ECE37</string>
-				<string>4E0B872CB3B0BCB2F2747B8BEC11DF3C</string>
-				<string>1635F921E43FA9AD1C5109BC0A9F3579</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>4F0134B41B18E4B28ECD6FB82BD3EE64</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A6BE932D1E2A233EE23CAEB3B5406870</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>4F5F146DC2DEEF1FF69C3B8E5D92F7D6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMCDContentBlock.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4F6E935BC131427EB67018A2A7E0F8C1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMCDStyle.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>503740A0EECBA9BC99AD5BFA99969317</key>
 		<dict>
@@ -3003,33 +2875,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>5115982CE975481CB1D5D22067EC75FD</key>
+		<key>513198F927C185340AAF4FB1A7C9197F</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>588766502A2150D3A789544382A8BA42</string>
-				<string>E1C99A9757C3301A7CCE7BC3819529DB</string>
-				<string>3F82A60AD67CE3E8506CD92F44B16331</string>
-				<string>5DE4A158B414AB10CFEE9895ADABE2C6</string>
-				<string>2B73AB873AFFA63E354CD084144A88B3</string>
-				<string>77B68504A76E52CAF246F1974E95B3FA</string>
-				<string>DAE0D9DF895CB11743E407DCB249BF0C</string>
-				<string>A1455419BD864E98925DEF25B6DD1A9D</string>
-				<string>470A913615EA7341C36D9B8997923B12</string>
-				<string>7776BAFE5D36A2770154498C784662A8</string>
-				<string>134E4ED1DE66EDB6B0A813C173AC8BF2</string>
-				<string>3A1B7566AF5FBF6A66E49F8498C9D9BA</string>
-				<string>1C3F7AA67A1D622176B8445B1571D08C</string>
-				<string>8B40577716AC497F6E75FDB478FB076E</string>
-			</array>
+			<key>fileRef</key>
+			<string>560854911267808100A3126A9754AFDC</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>ContentBlocks</string>
-			<key>path</key>
-			<string>ContentBlocks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>515348A03C2541403C62868CCC85D9F5</key>
 		<dict>
@@ -3043,6 +2901,13 @@
 			<string>SDWebImage-prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5176B530514160A250DAED66CE59C9FA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>954618A7AE2D4C0C4BCF9924DCB00D10</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>520C89B119D1C90299A01348FF3A1C9D</key>
 		<dict>
@@ -3123,10 +2988,10 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>54ABE686CDE4C6954EC70FA213E7C00E</key>
+		<key>542AA44CE69ACBBA0571196FB5611AFC</key>
 		<dict>
 			<key>fileRef</key>
-			<string>45FCDD2F7BEE398762465289F5E3CCE3</string>
+			<string>0041A183A40079FB8751DFFD2DD50E39</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3136,6 +3001,19 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>553AEB757B62D20CEB7D35AFCADE0CB4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlock1TableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>55EA7FCA2F507BCC25959CE95D295A8C</key>
 		<dict>
@@ -3161,19 +3039,18 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>562585E3EE2842BAD4B48A0150426B95</key>
+		<key>560854911267808100A3126A9754AFDC</key>
 		<dict>
-			<key>fileRef</key>
-			<string>C7721855ABAA9FED101ED35DF7E9105F</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContent.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>562C4A7A171B6F0000B132E22372C3DA</key>
 		<dict>
@@ -3204,10 +3081,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>5675417CFF09AE5403C10824F405918F</key>
+		<key>565881DF3A5CE941F903061D3572E137</key>
 		<dict>
 			<key>fileRef</key>
-			<string>EB79B879D20493E389F542D637962EF4</string>
+			<string>FB44EC952C905C7B970EA7A015DF8544</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3274,6 +3151,19 @@
 			<key>remoteInfo</key>
 			<string>XamoomSDK-XamoomSDK</string>
 		</dict>
+		<key>57C85C2D9B85B620AAA328F99F2EFFB7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMCDSystem.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>57F156E0D64F280EDE30AC5E1C66D3FC</key>
 		<dict>
 			<key>children</key>
@@ -3326,7 +3216,7 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>588766502A2150D3A789544382A8BA42</key>
+		<key>58DC1ED6A8922F216A4F3F6143A861BF</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -3335,23 +3225,29 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>UIColor+HexString.h</string>
+			<string>XMMContentBlock7TableViewCell.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>5961909595413CF5D59AD35562FDC6B9</key>
+		<key>591338A8F5451A5BECA006654A890A3B</key>
 		<dict>
 			<key>fileRef</key>
-			<string>6EE5A437D8F1D357C5888870E926D600</string>
+			<string>FB53A6D72769EDEFE70C5F00CCF1A39F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+		</dict>
+		<key>59411882245BA0872D38AF770C9D4AC7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMOptions.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>59BC54DA90AD2433D20358F9853622CA</key>
 		<dict>
@@ -3365,7 +3261,7 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>59E162311C256FDCE301B50944B99CA7</key>
+		<key>5A49D9A86379F9B07AB37C46C8E164C3</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -3374,7 +3270,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMContentBlock4TableViewCell.h</string>
+			<string>XMMSpot.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3392,20 +3288,6 @@
 			<string>Classes/JSONAPIErrorResource.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5A77269634D5C67C07ADE00633279137</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7D72737D2F5DBB55353FCF2C7FCFD5A8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>5AFF86D43561748E7227622A6EDDA92B</key>
 		<dict>
@@ -3527,16 +3409,16 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>5DE4A158B414AB10CFEE9895ADABE2C6</key>
+		<key>5E6B06AECC57C4BEC94C1ADD52F5738C</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>UIImage+animatedGIF.m</string>
+			<string>XMMCDContent.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3584,6 +3466,33 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>5FC58294CF13EB456DDC37534DDA73DC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMAnnotation.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6060C0E866596EC7D145BFFCF5D5CC54</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0DACEF2427E5C5CA36DFF4470FC1CE43</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>60A102E711D709AB59DC6FF4CB3A106D</key>
 		<dict>
 			<key>fileRef</key>
@@ -3597,6 +3506,19 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>60C52C9FB6E2A351A5A1F37C414D6698</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>UIColor+HexString.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>60D06BB29D965CB151554E030C0BF7AE</key>
 		<dict>
@@ -3612,6 +3534,20 @@
 			<string>SDWebImage/SDWebImageDecoder.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>60E5F72D9314CBD69698CC2E5752C484</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AE3918364FF431ABCF106EDFFF195917</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>60EC523F90BF802C186BB2ED59CCCBEB</key>
 		<dict>
@@ -3654,6 +3590,13 @@
 			<string>Classes/JAMSVGImage/Utilities/JAMSVGUtilities.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>61C3DD6943E12A45BBC2346A80476BCF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8F88CBC28915AD9D1B047B4BF003515F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>61E90AE93B763085D6EAA2B1B167759D</key>
 		<dict>
@@ -3699,53 +3642,12 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>625BFBB880211B2E98B0748976B8218E</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMCDSystemSettings.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>627DC1115CFDD56D95C0427AF361F8BA</key>
+		<key>624613BE9A83D714516B4979251F28A8</key>
 		<dict>
 			<key>fileRef</key>
-			<string>588766502A2150D3A789544382A8BA42</string>
+			<string>A50DB7629ACA98CFD942B26A0EC3C347</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>62CDD25BDD6BE6FAA85BEB0BF2CF32E2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F331F2EB832E4D2590918E3A184EA966</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6323BDC5857C8FECA1E10ACB1A0A4899</key>
-		<dict>
-			<key>fileRef</key>
-			<string>59E162311C256FDCE301B50944B99CA7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>639A1F0BB71946A47BFE6F15FE78889C</key>
 		<dict>
@@ -3754,25 +3656,19 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>63A7780043A6278C34679793B7078A59</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlock.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>63D489D386EB42791F2E8223DF32BF25</key>
+		<key>63C07F16356472C4B5CC872F54C6B74C</key>
 		<dict>
 			<key>fileRef</key>
-			<string>F12AD74C5B0AD48686513471D8525FD7</string>
+			<string>8112DE014BD21ED686A21179FF626CD4</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>63D6B335B6917859AEC63D015B802D5A</key>
 		<dict>
@@ -3781,36 +3677,16 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>64B1F44805143E7F2C309A5363297122</key>
+		<key>64A42A377A8FBCEE3EB6564C0F7B2333</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>87CC5BB12E952F6CD19F2534DFD0B6A6</string>
-				<string>F12AD74C5B0AD48686513471D8525FD7</string>
-				<string>C8E0018E223FA3A56292B7FCC909FD6D</string>
-				<string>63A7780043A6278C34679793B7078A59</string>
-				<string>72D088F8F97FBA79A353244D443482B2</string>
-				<string>3D52FBDEAE8D58273C1583E735F47A07</string>
-				<string>3C9C329EFAA3619FB38D137270F9D695</string>
-				<string>F331F2EB832E4D2590918E3A184EA966</string>
-				<string>45FCDD2F7BEE398762465289F5E3CCE3</string>
-				<string>3AF9787B95DA411D6E6067EDC03A7DD6</string>
-				<string>08849CFEEAE8BF5786E82BDC24E60139</string>
-				<string>7043F5C21F58D715503C3BA45F91A85F</string>
-				<string>A0CC7B8ECE6B39E308D1D1C0EA8879E2</string>
-				<string>094A60788332917901BE1D9B69E3DDC9</string>
-				<string>E1E23828632CA617F7F36BA0EDDB83C7</string>
-				<string>A3E8AE6C662FF88A8164BCD85B9A0AD1</string>
-				<string>7858AE26DCF201766763BA381180C527</string>
-				<string>7852584FFCCACDE861F2ED8CB3DDDB43</string>
-				<string>BC9F711CCADC8FDC7131ACC4F794D8E9</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>mapping</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>mapping</string>
+			<string>XMMCDSystemSettings.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3826,19 +3702,26 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>65559AED153619F38837919B3D2ECE37</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1E23828632CA617F7F36BA0EDDB83C7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>659547118E91A9F2E21FEF1B6B9BB1EC</key>
 		<dict>
 			<key>fileRef</key>
 			<string>41CF8BE1A6AE6CA26F11655F6D80C92A</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>667DD4F9A31A710360ACC55890424698</key>
+		<dict>
+			<key>fileRef</key>
+			<string>031152DD4C28013E4013F8B217D5BB83</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>66CB06EDA7CAC514D40AD2B004A2E2B7</key>
 		<dict>
@@ -3867,6 +3750,13 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
+		<key>67C10DEA3806DF821B37E77C3151401E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A65479FA922536FDAEBD68D3142D25EB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>680425D4AF6801E4C96712C44648D413</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3879,29 +3769,6 @@
 			<string>NSMethodSignature+OCMAdditions.m</string>
 			<key>path</key>
 			<string>Source/OCMock/NSMethodSignature+OCMAdditions.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>68166B88BD93C59138771A7E0105AAC1</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6EE5A437D8F1D357C5888870E926D600</string>
-				<string>FCC15A8E62B1DE7A87E640E1903150D6</string>
-				<string>9B93E8EAB5B8CADDC90684FBFEC78A3B</string>
-				<string>A8B459DBE9D2444B3DBDD584693DA336</string>
-				<string>0A2FFC4FB19261CD0C3A9B6A7537D5ED</string>
-				<string>C81B1415DFCF65B246525A3DDC807775</string>
-				<string>D9349C5DD48F5953B23C6D48134458F6</string>
-				<string>0ED525BC55ECC3232DE3663BC06FC85C</string>
-				<string>3F912D099EC77D0C5ABAF453E47549A1</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Storage</string>
-			<key>path</key>
-			<string>Storage</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3952,20 +3819,6 @@
 				<string>-DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
 		</dict>
-		<key>6904A2DF0688FC26564CE37568512491</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3D8F6FA920B70DAC39719E51BCE710EB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>693CF76EC75B70742624339230476F84</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -4008,18 +3861,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>6B17CAD9F8E473ED9B1A46792689A4F9</key>
+		<key>6A309CC1B2F2764C9D5CACDCF2A8B78C</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>F769DFC7EE7DE25E52DDBA3BE3DD9A3E</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlock4TableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>6B39C184BB34CB6D00A262F440C2C84F</key>
 		<dict>
@@ -4051,19 +3905,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>6B9585DBDD6EC7C19E688446D6F37B9C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContentBlock1TableViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>6BB025C0F4D1E381CE3F082B2C45A6B4</key>
 		<dict>
 			<key>isa</key>
@@ -4074,27 +3915,6 @@
 			<string>D5DF82BFD37BCC69B2C159B8B655AA3F</string>
 			<key>targetProxy</key>
 			<string>47D49881883F6313CA3740EC278F5343</string>
-		</dict>
-		<key>6C2E3A532DFF2820475A8BF1AD40A68D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CEF1AC6C9ECA52248ED3CFACBFA286D6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6D18EE92D22A15DEFCB3C0B521C3E8D6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>08849CFEEAE8BF5786E82BDC24E60139</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>6D230A26F6346E5C261D5C0CBAC23EE4</key>
 		<dict>
@@ -4123,19 +3943,6 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>6DCF5AFB1813042B231F98B0AEAA3F51</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMMapOverlayView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>6DFB91796B5ACD79B7842C48D2778811</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4149,39 +3956,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>6EE5A437D8F1D357C5888870E926D600</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMOfflineApi.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6F024A8089CCCD4999646A20A591B613</key>
+		<key>6E1BFEA4399560455F3D866728DA2CE8</key>
 		<dict>
 			<key>fileRef</key>
-			<string>4F5F146DC2DEEF1FF69C3B8E5D92F7D6</string>
+			<string>BC075F7ACBB6037CF4E704A976A90E4C</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>6F027347DD207FD68C748E5C333A66B7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7043F5C21F58D715503C3BA45F91A85F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>6F808465BCC93EE5D83FAED683ECD2BC</key>
 		<dict>
@@ -4209,18 +3989,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7043F5C21F58D715503C3BA45F91A85F</key>
+		<key>705344869216E5EBD19FF79742558ABE</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>B92A1E4A30DE7219F44B626A1B23FE79</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMSpot.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>706644D9017D1B121BC8AD0617B4B8CB</key>
 		<dict>
@@ -4297,13 +4078,6 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>7142ACA44CB7B611AE7062AA6ED1A947</key>
-		<dict>
-			<key>fileRef</key>
-			<string>8F7A5590D65AFFAB4436BE627BAD8940</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>71899DFD8094C412FFC39669279B4533</key>
 		<dict>
 			<key>fileRef</key>
@@ -4318,43 +4092,16 @@
 				</array>
 			</dict>
 		</dict>
-		<key>724C067ACAF57BD7DDC6127031AB0AEE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1AB68F9A0EA8CB40322A0C420ECA9532</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>724CF2467BC42DAAD452E6ABD2D1ED71</key>
+		<key>71FC49803542B76B5EAD5896CBDE384A</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMContentBlock8TableViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>72D088F8F97FBA79A353244D443482B2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMMarker.h</string>
+			<string>XMMCDMenu.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -4369,13 +4116,6 @@
 		<dict>
 			<key>fileRef</key>
 			<string>9DCF59691ABD788A56C32EA7E4A8983D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>74B1A50277D617BAD5A742E51EB4595E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9D327BE3986CF3D71CE76E7065C62ACA</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -4426,6 +4166,27 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>75902FCBFD2160F88A1A71261FDC9694</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C6055670C473219AEF31F8CEA97D2F4C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>75EFD721A09194393ADFB757CE6DDD52</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5E6B06AECC57C4BEC94C1ADD52F5738C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>761B1AAAF210E52BC4A10AC4D981B5FE</key>
 		<dict>
 			<key>fileRef</key>
@@ -4474,32 +4235,6 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>7776BAFE5D36A2770154498C784662A8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlocksCache.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>77B68504A76E52CAF246F1974E95B3FA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIImage+Scaling.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>7812975A2092161D4B21FD52F3C1D765</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4508,59 +4243,6 @@
 			<string>PBXFileReference</string>
 			<key>path</key>
 			<string>Base.lproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>782FEAF6E7646646615BFD6F3889A884</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMAnnotation.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7836A6E223219BE15B2C5C8D2EF48CE2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1A6E677E0231FCA38883EE37193129D5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>7852584FFCCACDE861F2ED8CB3DDDB43</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMSystemSettings.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7858AE26DCF201766763BA381180C527</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMSystem.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -4576,6 +4258,20 @@
 			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework</string>
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>79D8629F722B4C1738DC93CDC875A7C5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ED62B2B3EC67630F87D716B390CE510F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>79DB35675903E896ECF952DF2F13B72F</key>
 		<dict>
@@ -4606,20 +4302,6 @@
 			<string>Classes/JAMSVGImage/SVG Image/UIImage+SVG.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7A44CF6C66B2B582A35909625D853A19</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0A3221998DE40FE34B9E8EEFECEE7CD8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>7A5DE838E7FA5D9A3B4E63CB70B6862F</key>
 		<dict>
@@ -4663,18 +4345,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7ADAB181A599BB2ED1D955BA281229A6</key>
+		<key>7ADDEA0CF28435CCF96A96B4287956D3</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>9A584141BDF31733DA8108BE2C9B6015</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContentBlock9TableViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>7C2C4F2B17B93F8F3159042B0B8A1AF5</key>
 		<dict>
@@ -4702,19 +4385,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7D72737D2F5DBB55353FCF2C7FCFD5A8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMCDStyle.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>7DB346D0F39D3F0E887471402A8071AB</key>
 		<dict>
 			<key>children</key>
@@ -4730,20 +4400,6 @@
 			<string>PBXGroup</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7DF0004EE62F02B2B2773B08B021E51D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3985838EDFCEDE7ACE507594CA2C02A0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>7E0256E2A396D83E829FD7E98C0099AF</key>
 		<dict>
@@ -4784,6 +4440,27 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Release</string>
+		</dict>
+		<key>7E402B2553C613223166BC9930DC6E08</key>
+		<dict>
+			<key>fileRef</key>
+			<string>40B8B7BD8F28B09CB480A597151496CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7E885AB6DA6DC1688C1D8E1ADDC9CDC1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3CA1D3C83D7CF298E526A00D136C7DC5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>7ED240B463A74FC297AD4F35179E5D16</key>
 		<dict>
@@ -4903,6 +4580,19 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>8112DE014BD21ED686A21179FF626CD4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMEnduserApi.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>81320EB7B74139698DFFBFAFF306F2CD</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -4917,6 +4607,33 @@
 			<string>libJSONAPI.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>81C44D8D953BCF71922512F91039B37C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMContentBlock0TableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>81C7299CDDA0ADBB8045C90B0ED5AA12</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E471F0720632B9C5589C9027CD290328</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>82EA3213450D178C06C64D2FE48A2149</key>
 		<dict>
@@ -4943,20 +4660,6 @@
 			<dict>
 				<key>COMPILER_FLAGS</key>
 				<string>-fno-objc-arc</string>
-			</dict>
-		</dict>
-		<key>8441EDC860A571C3374DD0E9AA51AB02</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3F82A60AD67CE3E8506CD92F44B16331</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
 			</dict>
 		</dict>
 		<key>85500DF706A0D33F476A389663643C44</key>
@@ -5004,6 +4707,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>85E9A9DBB7BA74710BB47E06B73CBAB7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMOfflinePagedResult.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>863FA51650A92D7A110EA3F217ACC2E0</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5014,19 +4730,6 @@
 			<string>file.xib</string>
 			<key>path</key>
 			<string>XMMContentBlock7TableViewCell.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8716C783F1ECE51AEC97FDEFC97B9879</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContentBlock6TableViewCell.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -5051,6 +4754,79 @@
 				</array>
 			</dict>
 		</dict>
+		<key>874FFE477806DAEEB4ACDB239C1CBA31</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>EB7ED2BC8932772DAED1BD084FD0CC9A</string>
+				<string>F61BA98790D1976C6D42B77C43786785</string>
+				<string>CC1A026B1E2F19A228D83F72121A41C0</string>
+				<string>0D96B71A2A1920B81166ED4D92432585</string>
+				<string>2E8A83937004F8C6E3D3ABC69C1FAFD4</string>
+				<string>0119D491372A6A6467FF79AC820DEF96</string>
+				<string>96A8B3B8FBCC8DFD9A5B0AD5B5FA8D71</string>
+				<string>0D61E8F82C1391E5B150C07454A61F03</string>
+				<string>130C02D20582D1A62BBE952CC53E883A</string>
+				<string>DD9AE5167EBCAB11B1777C66D82A254B</string>
+				<string>CC1E11B6D1AEA4164D60EA379502C961</string>
+				<string>1366BA73C349380F508396B059620890</string>
+				<string>B549906593F0A721636D2E2377C3CEC7</string>
+				<string>490D4E157B498BF5EAD70B7D81806044</string>
+				<string>6E1BFEA4399560455F3D866728DA2CE8</string>
+				<string>938A8F47C1EC535C72C617D08146524E</string>
+				<string>0246E1145D9FEF7A1F6155C825EF7B53</string>
+				<string>939F5ECE35B6DDCF0C05B865E961B648</string>
+				<string>67C10DEA3806DF821B37E77C3151401E</string>
+				<string>9E6D676380705BE7EC43FDC1599E3BED</string>
+				<string>2B55BEC65221CCC7F66D8D8055C81817</string>
+				<string>7E402B2553C613223166BC9930DC6E08</string>
+				<string>591338A8F5451A5BECA006654A890A3B</string>
+				<string>8A81A4D8D5E70AD7588408350FBBB936</string>
+				<string>ABDF591F6607B0FA4D68A18BF0EF04FC</string>
+				<string>975858BC2825C9E14D18F9C2CD69132C</string>
+				<string>D9A9B4EFE537FA638447A0499DF6C8D0</string>
+				<string>1A57545480D2DE178B11E878DD15AC9A</string>
+				<string>B6C810B5AE9228F02DA1D7B2529DCFB6</string>
+				<string>2ED7743412DD2CA826C3FD73A1EF9AB0</string>
+				<string>17908948002A469F2AFD6F03519A1323</string>
+				<string>BD818B29B63B627D13BF3E97CE99CC94</string>
+				<string>D2F4173836D6AE66DF1ECC36F3C44F80</string>
+				<string>0E660A563E12F9289D02569DD5A3F8EC</string>
+				<string>F16CCEC28F2A05E8C8F15898C6125C46</string>
+				<string>2C785486F5ECBF9135645E1C725E5880</string>
+				<string>75902FCBFD2160F88A1A71261FDC9694</string>
+				<string>624613BE9A83D714516B4979251F28A8</string>
+				<string>BAE00320FF33CC5194CE017D00771361</string>
+				<string>BA006A3E84F3437A667DECC3C135AA14</string>
+				<string>005E2C596983A7551B11B97292B9691B</string>
+				<string>A80A77F30F06A1D3EEF5D7EAE3DEE9B9</string>
+				<string>0027715D73C9FA940A8CE1771206D7F8</string>
+				<string>35B05381AEBD43E35C5E72ACC5BCBAD6</string>
+				<string>D290BF625DFD00AA41DCB121A3E9331D</string>
+				<string>5176B530514160A250DAED66CE59C9FA</string>
+				<string>D01CC24810121161399833CEF11D5ACE</string>
+				<string>61C3DD6943E12A45BBC2346A80476BCF</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>8785DB4A094BE11C1790DC01810BA118</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlock3TableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>87AA263FA688A8E92C2B8ADEE72C98C6</key>
 		<dict>
 			<key>fileRef</key>
@@ -5064,19 +4840,6 @@
 					<string>Project</string>
 				</array>
 			</dict>
-		</dict>
-		<key>87CC5BB12E952F6CD19F2534DFD0B6A6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContent.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>883FC491383FAD5B3CC1476FF136DCEB</key>
 		<dict>
@@ -5106,6 +4869,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>88FFCA5B8763DDBCBDFABDADE9BDEB4A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMContent.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>8911EEA52993DAC05BE758D6FC9F08FD</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5128,19 +4904,18 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>89931094240E952FDE365897C055DA38</key>
+		<key>8962A6AAD068A7EFE626A8B3FA04D321</key>
 		<dict>
-			<key>fileRef</key>
-			<string>138231F8D64F3AE2484ECEB200293038</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMSpot.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>89C9903CF5412AF4370A0BF2DD63DEA3</key>
 		<dict>
@@ -5148,9 +4923,9 @@
 			<string>693CF76EC75B70742624339230476F84</string>
 			<key>buildPhases</key>
 			<array>
-				<string>4EAB877640C69C61A9E1FF0429B342BC</string>
+				<string>874FFE477806DAEEB4ACDB239C1CBA31</string>
 				<string>B0FF2FCBC1EF73D4AEE5CC812E6324CF</string>
-				<string>8B241C3C122620C4BBEB5BE166CD2B9B</string>
+				<string>AE6F7F5B0C4E56225602DB44F3E961D9</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -5186,19 +4961,25 @@
 				</array>
 			</dict>
 		</dict>
-		<key>8A66979D05EA65ED6A4554B63124FCA1</key>
+		<key>8A18861BFC4A75EA8C7FCBA6CE558EF4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMCDStyle.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A81A4D8D5E70AD7588408350FBBB936</key>
 		<dict>
 			<key>fileRef</key>
-			<string>B944FC52203A2EAB4979E33D7C5A3B19</string>
+			<string>EC6453FAEFFCB52434258AC6952A6194</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>8AA970B9441254EBC88FA24C9C4E264F</key>
 		<dict>
@@ -5278,91 +5059,11 @@
 			<key>remoteInfo</key>
 			<string>XamoomSDK</string>
 		</dict>
-		<key>8B241C3C122620C4BBEB5BE166CD2B9B</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>B51F4FBCDF5FD3D094D1C77B70B9841C</string>
-				<string>627DC1115CFDD56D95C0427AF361F8BA</string>
-				<string>8441EDC860A571C3374DD0E9AA51AB02</string>
-				<string>F6440793CBFA040DB2A7DE394F9043E9</string>
-				<string>9F1FF78E769B58B91582D390B75CC8A8</string>
-				<string>AB3FD41536B88201DDBA14742FDDF984</string>
-				<string>7836A6E223219BE15B2C5C8D2EF48CE2</string>
-				<string>BFDC288E5CE3468650066992E1BE00AF</string>
-				<string>724C067ACAF57BD7DDC6127031AB0AEE</string>
-				<string>562585E3EE2842BAD4B48A0150426B95</string>
-				<string>7A44CF6C66B2B582A35909625D853A19</string>
-				<string>2952481201AB68A46741C9F5DAED87B3</string>
-				<string>1406031DC5D760EFCB3E5F28FA168E80</string>
-				<string>5A77269634D5C67C07ADE00633279137</string>
-				<string>7DF0004EE62F02B2B2773B08B021E51D</string>
-				<string>422106C08E57EE5038D90DB107C01691</string>
-				<string>29E0F508345FF85579CE6A4497E7CC78</string>
-				<string>C12CC3CD3548640B1F252F9C8355C103</string>
-				<string>B185495A42FDCCA9D3A4A7BCA0AD452F</string>
-				<string>107A6246EE5C8827C0F12FBF5F087296</string>
-				<string>C0E5C3E3959FE88E2D79A565C96DC251</string>
-				<string>DA1769050A4B52B892606689D4DAA0CB</string>
-				<string>6323BDC5857C8FECA1E10ACB1A0A4899</string>
-				<string>04AD47F094E54218462ADBCF91EACCBA</string>
-				<string>08FE6D353175A1EA4683F0C3BDC52133</string>
-				<string>AB3ECD2F993245D6543D024B2BC81038</string>
-				<string>D563D8406E7D0650E15B43DAF09F42C4</string>
-				<string>95114E283CB4420983416A2275845591</string>
-				<string>D72F812DED3CCD803A4D01EE6D1CCECE</string>
-				<string>4BB555C2C0F1F5FA1E39182B9C6BBFB7</string>
-				<string>96C1E70526DFE9DDFD92BBB7E2DC8C8F</string>
-				<string>98EFFAAF354BF88313FDBB365AD7EA76</string>
-				<string>FC47CD3B10F8AC2A9A7A1C030897BBF6</string>
-				<string>49507412438AE307EF6FEE691202C5FA</string>
-				<string>54ABE686CDE4C6954EC70FA213E7C00E</string>
-				<string>070175B24735DF5278457DD7371FAF55</string>
-				<string>5961909595413CF5D59AD35562FDC6B9</string>
-				<string>A74C71430F3E02B7A5150D89AF4D70AB</string>
-				<string>929B0060CCAC515656E530F520EF80F9</string>
-				<string>9DB7B49ACDEAD1A232E7899C0F89F750</string>
-				<string>23829359A456DCCB6A16DBFFB7265098</string>
-				<string>89931094240E952FDE365897C055DA38</string>
-				<string>8A66979D05EA65ED6A4554B63124FCA1</string>
-				<string>5675417CFF09AE5403C10824F405918F</string>
-				<string>6904A2DF0688FC26564CE37568512491</string>
-				<string>6D18EE92D22A15DEFCB3C0B521C3E8D6</string>
-				<string>6F027347DD207FD68C748E5C333A66B7</string>
-				<string>AD27C25B3CC027DC6BB0FBA88A86B636</string>
-				<string>3C08D878958D5BA5040789F5C6EA3897</string>
-				<string>8F1CA409DA062CD5AE1D631EAD4CC52E</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>8B40577716AC497F6E75FDB478FB076E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>782FEAF6E7646646615BFD6F3889A884</string>
-				<string>CAC51EB144DEAC4968935417735E03D2</string>
-				<string>6DCF5AFB1813042B231F98B0AEAA3F51</string>
-				<string>A6BE932D1E2A233EE23CAEB3B5406870</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>MapViews</string>
-			<key>path</key>
-			<string>MapViews</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>8B670A3D1C60324F19F17EBCA801426D</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>412E4CFEC8605109AA0BEA72FFDCE645</string>
+				<string>B7A1168EBB968D430379CCEFFB61A8FD</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -5451,21 +5152,7 @@
 				</array>
 			</dict>
 		</dict>
-		<key>8F1CA409DA062CD5AE1D631EAD4CC52E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7852584FFCCACDE861F2ED8CB3DDDB43</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>8F7A5590D65AFFAB4436BE627BAD8940</key>
+		<key>8F88CBC28915AD9D1B047B4BF003515F</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -5474,7 +5161,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMContentBlock7TableViewCell.m</string>
+			<string>XMMSystemSettings.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -5491,13 +5178,6 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
-		</dict>
-		<key>9033A611FBDE13C52AF5F2197C18512E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CAC51EB144DEAC4968935417735E03D2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>90936DD5973F5879B3CD5E738CBD5BA4</key>
 		<dict>
@@ -5530,19 +5210,6 @@
 			<string>SDWebImageDownloaderOperation.m</string>
 			<key>path</key>
 			<string>SDWebImage/SDWebImageDownloaderOperation.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9193ED239370D5124A4E9CA3B72B3279</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContentBlock2TableViewCell.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -5586,10 +5253,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>929B0060CCAC515656E530F520EF80F9</key>
+		<key>91D9C853F057A2CFAC31600CF12A2211</key>
 		<dict>
 			<key>fileRef</key>
-			<string>0A2FFC4FB19261CD0C3A9B6A7537D5ED</string>
+			<string>01B31E43733EFE7840254498853C1362</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -5600,12 +5267,18 @@
 				</array>
 			</dict>
 		</dict>
-		<key>93296961BE8073BDCD74826791989AC2</key>
+		<key>91F4B0DAA1C341EDA7C64B5A5E342417</key>
 		<dict>
-			<key>fileRef</key>
-			<string>96CD1C011436FE9F34602601BAF23BF6</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>UIImage+Scaling.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>936B6A402E5EB33DAC022DF844CCFD45</key>
 		<dict>
@@ -5629,6 +5302,20 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>938A8F47C1EC535C72C617D08146524E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>88FFCA5B8763DDBCBDFABDADE9BDEB4A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>939F5ECE35B6DDCF0C05B865E961B648</key>
+		<dict>
+			<key>fileRef</key>
+			<string>81C44D8D953BCF71922512F91039B37C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>93A4A3777CF96A4AAC1D13BA6DCCEA73</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -5647,13 +5334,6 @@
 			<string>SOURCE_ROOT</string>
 			<key>xcLanguageSpecificationIdentifier</key>
 			<string>xcode.lang.ruby</string>
-		</dict>
-		<key>93AF09CC75325D9C35F86569FABDFA81</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4729D9D586E4E7592FF31D9904DFA6ED</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>941BEA9677104E1D3A90B35F8FAD4D91</key>
 		<dict>
@@ -5683,13 +5363,6 @@
 					<string>Project</string>
 				</array>
 			</dict>
-		</dict>
-		<key>94217F47650ECEC1CAA799D35FE3E077</key>
-		<dict>
-			<key>fileRef</key>
-			<string>77B68504A76E52CAF246F1974E95B3FA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>946C7789A42A57F8B3FA0D7280843CCB</key>
 		<dict>
@@ -5744,19 +5417,18 @@
 				</array>
 			</dict>
 		</dict>
-		<key>95114E283CB4420983416A2275845591</key>
+		<key>954618A7AE2D4C0C4BCF9924DCB00D10</key>
 		<dict>
-			<key>fileRef</key>
-			<string>7ADAB181A599BB2ED1D955BA281229A6</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMStyle.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>9556C575E764277699CC0D522780DDC9</key>
 		<dict>
@@ -5793,26 +5465,25 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>964EAA7D4D93454E1DE146D17C5E132D</key>
+		<key>95DAC150A16B335039DD67B0371A4CBF</key>
 		<dict>
-			<key>fileRef</key>
-			<string>29922FF01C14A13171BF965E5CDF9FF2</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMContentBlocksCache.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>96C1E70526DFE9DDFD92BBB7E2DC8C8F</key>
+		<key>96A8B3B8FBCC8DFD9A5B0AD5B5FA8D71</key>
 		<dict>
 			<key>fileRef</key>
-			<string>3FAEFFF823595FE5F9FBC1B04F15BD55</string>
+			<string>A32568CF6E9313D403ED3217808C2DA8</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>96CD1C011436FE9F34602601BAF23BF6</key>
 		<dict>
@@ -5826,6 +5497,13 @@
 			<string>XamoomSDK-dummy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>975858BC2825C9E14D18F9C2CD69132C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E0F5CE068537908E8813A00A281EB7C6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>97CC6ECD06639ECE8FB50C3764D8C31D</key>
 		<dict>
@@ -5885,13 +5563,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>98450E280A558CBE0462434B75E54738</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C7E03187DBBAEB40753101ABD7B6C36D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>98EE96FC3364B4B4A924D446D18596B0</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5906,20 +5577,6 @@
 			<string>Source/OCMock/NSValue+OCMAdditions.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>98EFFAAF354BF88313FDBB365AD7EA76</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6DCF5AFB1813042B231F98B0AEAA3F51</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>990B14BE6D6D5F560EE069AEEA2CC271</key>
 		<dict>
@@ -5977,12 +5634,31 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9AD8036A69C4C18D5E4C20FD4BCA1A59</key>
+		<key>9A584141BDF31733DA8108BE2C9B6015</key>
 		<dict>
-			<key>fileRef</key>
-			<string>2BFC12412656C0EFCCB40A2151A66787</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMParamHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9AEBC4023C859700F44BC10AD0E06012</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMRestResource.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>9AFFC36B489B67936D736A4CAC6FE181</key>
 		<dict>
@@ -5999,19 +5675,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9B93E8EAB5B8CADDC90684FBFEC78A3B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMOfflineApiHelper.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>9BC6B8FF46A95982F680FA7E23D1DB7B</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -6024,6 +5687,19 @@
 			<string>OCMFunctions.m</string>
 			<key>path</key>
 			<string>Source/OCMock/OCMFunctions.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9BD9C936CA748B5FD4EDAD9A30565594</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMMarker.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6046,6 +5722,20 @@
 		<dict>
 			<key>fileRef</key>
 			<string>C4DC187D58BB812A58E4AA53E9E31A0D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>9C1F4B073A27EE2F61A9820E0837A3CC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4C5F8AD096E3BCC292038361DF4B97C6</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -6088,6 +5778,19 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
+		<key>9CC248474DE9D459BEB17D2D43982387</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMOfflineFileManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>9D15AC38C40ACCB07BA99A97E1FA8174</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -6103,7 +5806,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9D327BE3986CF3D71CE76E7065C62ACA</key>
+		<key>9D652D54AAC5596A32F2D4891A25BC47</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -6112,23 +5815,9 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMRestClient.m</string>
+			<string>XMMMenu.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9DB7B49ACDEAD1A232E7899C0F89F750</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D9349C5DD48F5953B23C6D48134458F6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>9DCF59691ABD788A56C32EA7E4A8983D</key>
 		<dict>
@@ -6143,10 +5832,35 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9E394E003BADE37A3E41AF9B0A4EC568</key>
+		<key>9DEB0BCF07C5D7A743939F3EFABFD233</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>470CF12E11CD9CF424DFAE5C74F694FE</string>
+				<string>FDD9FFB5958EF8B7C2C1ABB12E826F7E</string>
+				<string>4C5F8AD096E3BCC292038361DF4B97C6</string>
+				<string>C6055670C473219AEF31F8CEA97D2F4C</string>
+				<string>F118970170F9DCB59A830097787A7694</string>
+				<string>A50DB7629ACA98CFD942B26A0EC3C347</string>
+				<string>9CC248474DE9D459BEB17D2D43982387</string>
+				<string>3B69088821641314FB8ADC46E58DE843</string>
+				<string>4416F9ED43D6EC05535F6341679C1270</string>
+				<string>85E9A9DBB7BA74710BB47E06B73CBAB7</string>
+				<string>F077693565C0B4A20F8102F9177440E8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Storage</string>
+			<key>path</key>
+			<string>Storage</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9E6D676380705BE7EC43FDC1599E3BED</key>
 		<dict>
 			<key>fileRef</key>
-			<string>0D4EA1F720917C0B4591A0E8C0BB3592</string>
+			<string>315156453607D8A54D343A317FE63866</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -6160,20 +5874,6 @@
 			<dict>
 				<key>COMPILER_FLAGS</key>
 				<string>-fno-objc-arc</string>
-			</dict>
-		</dict>
-		<key>9F1FF78E769B58B91582D390B75CC8A8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA28E43D745B9633B506D4761A89A17D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
 			</dict>
 		</dict>
 		<key>9F4B0DC0BA45FD148E9338502EA8DCD5</key>
@@ -6205,7 +5905,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A0CC7B8ECE6B39E308D1D1C0EA8879E2</key>
+		<key>A17785645E627F09C0E7E2B0D542285D</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -6214,20 +5914,25 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMSpot.m</string>
+			<string>XMMContentBlock.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A1455419BD864E98925DEF25B6DD1A9D</key>
+		<key>A19DA3FE414E67E0FC142B20531AAF07</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>A54E19595102485668759F77F1D73298</string>
+				<string>5FC58294CF13EB456DDC37534DDA73DC</string>
+				<string>ED62B2B3EC67630F87D716B390CE510F</string>
+				<string>DFBA35BD63F025D84CAE22BB4111A552</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>MapViews</string>
 			<key>path</key>
-			<string>XMMContentBlocks.m</string>
+			<string>MapViews</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6271,6 +5976,19 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>A32568CF6E9313D403ED3217808C2DA8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMCDContent.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>A392EEAEB8C8E3390F694CCC60304720</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -6297,19 +6015,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>A3E8AE6C662FF88A8164BCD85B9A0AD1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMSystem.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>A425B4C6EAA79B2C9BB4F374180DC194</key>
 		<dict>
@@ -6370,6 +6075,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>A50DB7629ACA98CFD942B26A0EC3C347</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMOfflineDownloadManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>A516CB608A827C4FEA550CB372854AF7</key>
 		<dict>
 			<key>fileRef</key>
@@ -6380,6 +6098,47 @@
 			<dict>
 				<key>COMPILER_FLAGS</key>
 				<string>-fno-objc-arc</string>
+			</dict>
+		</dict>
+		<key>A54E19595102485668759F77F1D73298</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMAnnotation.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A56C0907F65454C8E868D2E138021E25</key>
+		<dict>
+			<key>fileRef</key>
+			<string>57C85C2D9B85B620AAA328F99F2EFFB7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>A5EFC37E078CCA22AB9C3CB29D23289A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>553AEB757B62D20CEB7D35AFCADE0CB4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
 			</dict>
 		</dict>
 		<key>A64DAE76857422FCEEDE4F45098E3C70</key>
@@ -6397,7 +6156,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A6BE932D1E2A233EE23CAEB3B5406870</key>
+		<key>A65479FA922536FDAEBD68D3142D25EB</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -6406,7 +6165,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMMapOverlayView.m</string>
+			<string>XMMContentBlock1TableViewCell.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6425,28 +6184,7 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>A74C71430F3E02B7A5150D89AF4D70AB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9B93E8EAB5B8CADDC90684FBFEC78A3B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>A83F5833C9D01F00F402562BF3486DAB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E1C99A9757C3301A7CCE7BC3819529DB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A8B459DBE9D2444B3DBDD584693DA336</key>
+		<key>A7C7E5A8732B0B39745C5D09C4DA2481</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -6455,9 +6193,16 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMOfflineApiHelper.m</string>
+			<string>XMMCDMarker.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A80A77F30F06A1D3EEF5D7EAE3DEE9B9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D3C25E6C7FAD07DB997EB969A31D93F5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>A90663D284B66520E118886795B025A1</key>
 		<dict>
@@ -6527,19 +6272,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A9C3D8506C9B74CFD1A181A742A00C05</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContentBlock7TableViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>AA872BBE2BCD07F8CD262F87DB91F9E4</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -6569,6 +6301,20 @@
 			<string>Source/OCMock/OCMockObject.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAD7ECB09119CBCFC6538B3C821D2313</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A54E19595102485668759F77F1D73298</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>AAF678CED40D3499169D10F63CA0719E</key>
 		<dict>
@@ -6648,38 +6394,30 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>AB3ECD2F993245D6543D024B2BC81038</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A9C3D8506C9B74CFD1A181A742A00C05</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>AB3FD41536B88201DDBA14742FDDF984</key>
-		<dict>
-			<key>fileRef</key>
-			<string>782FEAF6E7646646615BFD6F3889A884</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>AB4B9262165F2C951DEDF8B60739EAE6</key>
 		<dict>
 			<key>fileRef</key>
 			<string>79C43EBA6705504C4AE1C53A721903E0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AB5F09F925A0190C4E4EC8CBCD4A485C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XamoomSDK.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>ABDF591F6607B0FA4D68A18BF0EF04FC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>48665278AC98D8475612988D2057EDCE</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -6707,19 +6445,6 @@
 			<string>text</string>
 			<key>path</key>
 			<string>Pods-XamoomSDK-acknowledgements.markdown</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AC375397874EC1505125F71799A43BDF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMCDMenuItem.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6765,33 +6490,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>AD27C25B3CC027DC6BB0FBA88A86B636</key>
-		<dict>
-			<key>fileRef</key>
-			<string>094A60788332917901BE1D9B69E3DDC9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>AD59ED891C50BBB148FFF5D5FEBE2A6A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>NSString+MD5.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>AD672A92EF1A71CB35F77D51924A63D7</key>
 		<dict>
 			<key>fileRef</key>
@@ -6805,13 +6503,6 @@
 					<string>Project</string>
 				</array>
 			</dict>
-		</dict>
-		<key>AD6FC9D474BCFD53336A4BE4423671C5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1CAC9D6922678EB77418F07058B6C7AD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>ADBADEAD21491158197BC1051BC751F0</key>
 		<dict>
@@ -6845,7 +6536,7 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>AE825A302D0F7587807AEA54246A241A</key>
+		<key>AE3918364FF431ABCF106EDFFF195917</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -6854,22 +6545,100 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMCDSpot.h</string>
+			<string>XMMMarker.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>AE976275D94FAE25D1BAB936776983AE</key>
+		<key>AE6F7F5B0C4E56225602DB44F3E961D9</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B98323A44BDD44DBB12F8F0778675B28</string>
+				<string>ED8BD3DC88C2C982D9246B896157E359</string>
+				<string>314BDD2CF5ADD10B8EC713A90FB6387F</string>
+				<string>F2BA380EF036711F4A8F1C2A6FBB1037</string>
+				<string>D565E911F7D47DCA558D5F8F804D1549</string>
+				<string>AAD7ECB09119CBCFC6538B3C821D2313</string>
+				<string>75EFD721A09194393ADFB757CE6DDD52</string>
+				<string>AEAFD8A6CA2F80504F35663C3D45A49E</string>
+				<string>2EC6AAF3F7AF719B443B91CB6F64820F</string>
+				<string>DB5662D9D57131B611BD4016A4E5CE8B</string>
+				<string>19F0B86EBB651C4090AA402DA539F7D3</string>
+				<string>265E3D4C059DD8C12279ABEA02B72BE6</string>
+				<string>91D9C853F057A2CFAC31600CF12A2211</string>
+				<string>0EF6FCF365D585DA9DAB0B2AB0149E0F</string>
+				<string>A56C0907F65454C8E868D2E138021E25</string>
+				<string>0557089F0CE9424A7162B591B615316E</string>
+				<string>513198F927C185340AAF4FB1A7C9197F</string>
+				<string>AF0F72A48E2360975F17D100AFF5F103</string>
+				<string>17B974186645C64D291C2A91AE89906C</string>
+				<string>A5EFC37E078CCA22AB9C3CB29D23289A</string>
+				<string>565881DF3A5CE941F903061D3572E137</string>
+				<string>01AC45C66195924A3367EC154F0C025C</string>
+				<string>B1F2A1BBB8D530FD9DD5BBB73E30E22B</string>
+				<string>337C96796785A7A20016034483DDC2E1</string>
+				<string>81C7299CDDA0ADBB8045C90B0ED5AA12</string>
+				<string>14D2F70C21EA9DA1FD680C44D08F9A23</string>
+				<string>21B56392C87F833EE5344D79F7E9747C</string>
+				<string>452F05BCA6A9181E339646D2832740D3</string>
+				<string>CB77092762EF77BB75953AB555A1E8BD</string>
+				<string>DA616AC96C010FECD42E5D7D2A65C100</string>
+				<string>63C07F16356472C4B5CC872F54C6B74C</string>
+				<string>79D8629F722B4C1738DC93CDC875A7C5</string>
+				<string>60E5F72D9314CBD69698CC2E5752C484</string>
+				<string>1F8CA3710627F0FC9762336B95CBF6B3</string>
+				<string>542AA44CE69ACBBA0571196FB5611AFC</string>
+				<string>022F41BA96C5B12126915F10568EA029</string>
+				<string>3942EF59B0D808A8A2FB38A2CC7B360F</string>
+				<string>9C1F4B073A27EE2F61A9820E0837A3CC</string>
+				<string>D172D8940BF44AACA84F90A34AD9D2B5</string>
+				<string>2FCBD5ED0DB6AEE5F051BDEDD5898EDA</string>
+				<string>F69A19196E7039B10C91186378258BA1</string>
+				<string>6A309CC1B2F2764C9D5CACDCF2A8B78C</string>
+				<string>4C303048260E48117D639B6B3C61A583</string>
+				<string>7ADDEA0CF28435CCF96A96B4287956D3</string>
+				<string>667DD4F9A31A710360ACC55890424698</string>
+				<string>7E885AB6DA6DC1688C1D8E1ADDC9CDC1</string>
+				<string>B1C3734E48D375FEF0AC2FD7B0D44D25</string>
+				<string>C20D16D18CA27940240A9537637FEF0E</string>
+				<string>705344869216E5EBD19FF79742558ABE</string>
+				<string>E07FBFA5D09772EA478F94016A328105</string>
+				<string>6060C0E866596EC7D145BFFCF5D5CC54</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlock0TableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AEAFD8A6CA2F80504F35663C3D45A49E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D6756557C7DA5E6B36BB133029396BA1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>AF0F72A48E2360975F17D100AFF5F103</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4A8AE7B897F784409B22DC41BD41B1CD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>B0FF2FCBC1EF73D4AEE5CC812E6324CF</key>
 		<dict>
@@ -6884,10 +6653,17 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>B185495A42FDCCA9D3A4A7BCA0AD452F</key>
+		<key>B1A99F49DAF9B0C1D4B9C09B77A35DEC</key>
 		<dict>
 			<key>fileRef</key>
-			<string>055D6E70E56300A676491B930B4977AC</string>
+			<string>79C43EBA6705504C4AE1C53A721903E0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B1C3734E48D375FEF0AC2FD7B0D44D25</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9AEBC4023C859700F44BC10AD0E06012</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -6898,12 +6674,19 @@
 				</array>
 			</dict>
 		</dict>
-		<key>B1A99F49DAF9B0C1D4B9C09B77A35DEC</key>
+		<key>B1F2A1BBB8D530FD9DD5BBB73E30E22B</key>
 		<dict>
 			<key>fileRef</key>
-			<string>79C43EBA6705504C4AE1C53A721903E0</string>
+			<string>0E93DF1DD86D8CE25C6F6125910C5F75</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>B28B82281F2A75B1A27E9B1B289B179D</key>
 		<dict>
@@ -6930,13 +6713,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>B2D4594F0B9263960B8EC92714E493FF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>625BFBB880211B2E98B0748976B8218E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>B31FEBDC2249352189377D9A5A832C00</key>
 		<dict>
@@ -6999,19 +6775,25 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>B51F4FBCDF5FD3D094D1C77B70B9841C</key>
+		<key>B549906593F0A721636D2E2377C3CEC7</key>
 		<dict>
 			<key>fileRef</key>
-			<string>2D0C3BD889862A72E1A71042C2B3028D</string>
+			<string>8A18861BFC4A75EA8C7FCBA6CE558EF4</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+		</dict>
+		<key>B5755A6D5E5CD5DCCEE0E5D33F2D7CFB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMEnduserApi.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>B5FCA8933F16CC2B554E731B2FA11CDB</key>
 		<dict>
@@ -7041,6 +6823,44 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>B6C810B5AE9228F02DA1D7B2529DCFB6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>95DAC150A16B335039DD67B0371A4CBF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B7A1168EBB968D430379CCEFFB61A8FD</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1113EB5B0556FCA4B054729740803240</string>
+				<string>39E8F21CA6F6AFA4FB37B34C9F66B3E3</string>
+				<string>AB5F09F925A0190C4E4EC8CBCD4A485C</string>
+				<string>8112DE014BD21ED686A21179FF626CD4</string>
+				<string>B5755A6D5E5CD5DCCEE0E5D33F2D7CFB</string>
+				<string>F769DFC7EE7DE25E52DDBA3BE3DD9A3E</string>
+				<string>E960A322D091991243AB3760A23AD2C5</string>
+				<string>59411882245BA0872D38AF770C9D4AC7</string>
+				<string>9A584141BDF31733DA8108BE2C9B6015</string>
+				<string>D3C25E6C7FAD07DB997EB969A31D93F5</string>
+				<string>031152DD4C28013E4013F8B217D5BB83</string>
+				<string>D7E885F096DAD3AC79996339BC29C1A9</string>
+				<string>3CA1D3C83D7CF298E526A00D136C7DC5</string>
+				<string>BB5197C75BCFBBB3250F49D1228514BB</string>
+				<string>145FECD7DF7DDB1A8EB22E2AF15C07E4</string>
+				<string>C36C2594F352B81F6A9A38C36E3ED654</string>
+				<string>9DEB0BCF07C5D7A743939F3EFABFD233</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Classes</string>
+			<key>path</key>
+			<string>Classes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>B7E198988658DB3C3763F703EB31BE11</key>
 		<dict>
 			<key>fileRef</key>
@@ -7063,14 +6883,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>B942C3084BE1CF0AAF0C280C3DACCE37</key>
-		<dict>
-			<key>fileRef</key>
-			<string>31C212DA4DC937FD82E4A4DA1960304E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B944FC52203A2EAB4979E33D7C5A3B19</key>
+		<key>B92A1E4A30DE7219F44B626A1B23FE79</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -7079,9 +6892,43 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMParamHelper.h</string>
+			<string>XMMStyle.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B942C3084BE1CF0AAF0C280C3DACCE37</key>
+		<dict>
+			<key>fileRef</key>
+			<string>31C212DA4DC937FD82E4A4DA1960304E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B96C2DDFF5B8AAFC8DE3DD8E35D9698E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMCDResource.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B98323A44BDD44DBB12F8F0778675B28</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1113EB5B0556FCA4B054729740803240</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>B9AB64D4DEE02973B306DB6023C1AF71</key>
 		<dict>
@@ -7138,6 +6985,33 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
+		<key>BA006A3E84F3437A667DECC3C135AA14</key>
+		<dict>
+			<key>fileRef</key>
+			<string>85E9A9DBB7BA74710BB47E06B73CBAB7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BAE00320FF33CC5194CE017D00771361</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3B69088821641314FB8ADC46E58DE843</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB5197C75BCFBBB3250F49D1228514BB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMRestClient.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>BB571DDB6972E6AD9A55B96D416065CD</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -7148,6 +7022,19 @@
 			<string>file.xib</string>
 			<key>path</key>
 			<string>XMMContentBlock6TableViewCell.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BC075F7ACBB6037CF4E704A976A90E4C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMCDSystemSettings.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -7193,19 +7080,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>BC9F711CCADC8FDC7131ACC4F794D8E9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMSystemSettings.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>BCAF615FF50DC8042CFA12E1A6BAC2C2</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -7234,33 +7108,25 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BEC8AF5E2360911A9B7C437C0682CFAD</key>
+		<key>BD54CE0CEC2EF932781D230A7D090491</key>
 		<dict>
-			<key>fileRef</key>
-			<string>4F6E935BC131427EB67018A2A7E0F8C1</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMMusicPlayer.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BEF27EFBBDD22770AAD694569DB96C23</key>
+		<key>BD818B29B63B627D13BF3E97CE99CC94</key>
 		<dict>
 			<key>fileRef</key>
-			<string>7776BAFE5D36A2770154498C784662A8</string>
+			<string>9BD9C936CA748B5FD4EDAD9A30565594</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>BFDC288E5CE3468650066992E1BE00AF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>04B2614D33519DF09A95EE6569FEB14B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>C01520F21314A4A11E0BD5C9BE190A1A</key>
 		<dict>
@@ -7297,33 +7163,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C0E5C3E3959FE88E2D79A565C96DC251</key>
+		<key>C0DF5A7BC6C152C9C8EA3777F58C56CF</key>
 		<dict>
-			<key>fileRef</key>
-			<string>9193ED239370D5124A4E9CA3B72B3279</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C12CC3CD3548640B1F252F9C8355C103</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C8E0018E223FA3A56292B7FCC909FD6D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>UIImage+animatedGIF.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>C13A58D13B692B348C8EC93B23C51667</key>
 		<dict>
@@ -7366,6 +7217,20 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
+		</dict>
+		<key>C20D16D18CA27940240A9537637FEF0E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5A49D9A86379F9B07AB37C46C8E164C3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>C22F68E75DBB9DEB1807AAC57A9D9AE4</key>
 		<dict>
@@ -7423,16 +7288,36 @@
 			<key>remoteInfo</key>
 			<string>JAMSVGImage</string>
 		</dict>
-		<key>C3934415F0C352D057B39140C87EB5A9</key>
+		<key>C36C2594F352B81F6A9A38C36E3ED654</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>560854911267808100A3126A9754AFDC</string>
+				<string>88FFCA5B8763DDBCBDFABDADE9BDEB4A</string>
+				<string>4A8AE7B897F784409B22DC41BD41B1CD</string>
+				<string>A17785645E627F09C0E7E2B0D542285D</string>
+				<string>AE3918364FF431ABCF106EDFFF195917</string>
+				<string>9BD9C936CA748B5FD4EDAD9A30565594</string>
+				<string>D41C72DB77C1B00AC9B465372648F503</string>
+				<string>9D652D54AAC5596A32F2D4891A25BC47</string>
+				<string>0041A183A40079FB8751DFFD2DD50E39</string>
+				<string>12B25C6EBEBFFF5D73EE458485B11857</string>
+				<string>9AEBC4023C859700F44BC10AD0E06012</string>
+				<string>5A49D9A86379F9B07AB37C46C8E164C3</string>
+				<string>8962A6AAD068A7EFE626A8B3FA04D321</string>
+				<string>B92A1E4A30DE7219F44B626A1B23FE79</string>
+				<string>954618A7AE2D4C0C4BCF9924DCB00D10</string>
+				<string>F72C62192783629D4E744CA02C044F37</string>
+				<string>C6185C9E532CDF9FD358CB8F82AC5BEF</string>
+				<string>0DACEF2427E5C5CA36DFF4470FC1CE43</string>
+				<string>8F88CBC28915AD9D1B047B4BF003515F</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>mapping</string>
 			<key>path</key>
-			<string>XMMCDSpot.m</string>
+			<string>mapping</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -7509,13 +7394,6 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>C55754B9EFEA8D16826D865209B8AB24</key>
-		<dict>
-			<key>fileRef</key>
-			<string>63A7780043A6278C34679793B7078A59</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>C55C0B0594D26DE09DEC7F161910A211</key>
 		<dict>
 			<key>fileRef</key>
@@ -7540,6 +7418,32 @@
 			<string>JSONAPIResourceDescriptor.h</string>
 			<key>path</key>
 			<string>Classes/JSONAPIResourceDescriptor.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C6055670C473219AEF31F8CEA97D2F4C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMOfflineApiHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C6185C9E532CDF9FD358CB8F82AC5BEF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMSystem.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -7609,19 +7513,6 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
-		<key>C7721855ABAA9FED101ED35DF7E9105F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMCDMenu.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>C796F27878B148315E4EB60535EEA4BE</key>
 		<dict>
 			<key>fileRef</key>
@@ -7635,32 +7526,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>C7E03187DBBAEB40753101ABD7B6C36D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlock8TableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C81B1415DFCF65B246525A3DDC807775</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMOfflineFileManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>C841410B94CD8349C616FF9C7483817B</key>
 		<dict>
@@ -7690,7 +7555,7 @@
 			<key>remoteInfo</key>
 			<string>OCMock</string>
 		</dict>
-		<key>C8E0018E223FA3A56292B7FCC909FD6D</key>
+		<key>CA14A28E3B1C7459A28BC2676BD8DA7B</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -7699,16 +7564,9 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMContentBlock.h</string>
+			<string>XMMCDMenu.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C9CAFB5CB44BB393C997D168128AECCA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E6C8C18483C9BBF1331547D9E98BAF7C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>CA636F964817ECDE30E3C939F81A0FBD</key>
 		<dict>
@@ -7725,38 +7583,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CAC51EB144DEAC4968935417735E03D2</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMAnnotation.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>CACFE1B7C2A62F6CDB218BEC60773AB8</key>
 		<dict>
 			<key>fileRef</key>
 			<string>79C43EBA6705504C4AE1C53A721903E0</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>CAD98920661C7390D9255B8D875D9804</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMCDResource.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>CB06380D800FBF35766C2802AC616142</key>
 		<dict>
@@ -7785,6 +7617,47 @@
 			<string>Source/OCMock/OCMBlockArgCaller.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CB77092762EF77BB75953AB555A1E8BD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>14A016959EFA932899098B165F37CFAF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>CC1382242F8F1755CB1009890ACFAC45</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlock9TableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CC1A026B1E2F19A228D83F72121A41C0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C0DF5A7BC6C152C9C8EA3777F58C56CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CC1E11B6D1AEA4164D60EA379502C961</key>
+		<dict>
+			<key>fileRef</key>
+			<string>09FAC6B281F24F04AF6850004556F04D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>CC40C17D2E01DDDF48A7A8D50B8E92F8</key>
 		<dict>
@@ -7847,13 +7720,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CD52BD90EC3C2570C79760BD3EC0A331</key>
-		<dict>
-			<key>fileRef</key>
-			<string>41B2EB3B6337A310435DBC70D891A373</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>CE1D11A21BB0D710B640F31B18935BF3</key>
 		<dict>
 			<key>fileRef</key>
@@ -7883,6 +7749,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>CECC34D2D88451BAADFD0F9FABF999E7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlock8TableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>CED92332F1320EFDB76219441C76EBFA</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -7898,7 +7777,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CEF1AC6C9ECA52248ED3CFACBFA286D6</key>
+		<key>CFB2A9F9E11EEB634F98CD00DD974F7C</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -7907,11 +7786,11 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMCDMenu.m</string>
+			<string>XMMContentBlocks.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CEFDD6F8CB235235857E833B09CC65F4</key>
+		<key>CFC207B3F2C2C0314E19D9D4DD49952B</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -7920,16 +7799,9 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMContentBlock3TableViewCell.m</string>
+			<string>XMMContentBlock9TableViewCell.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CF2945E7BD06C9700B0340F35A694217</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DB779AFD9238C8C89F0457FFD25234AE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>CFFD3CB5E6D8290860E8EE69FE28626D</key>
 		<dict>
@@ -7943,6 +7815,13 @@
 			<string>Pods-XamoomSDKTests-acknowledgements.markdown</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D01CC24810121161399833CEF11D5ACE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C6185C9E532CDF9FD358CB8F82AC5BEF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>D0649706B611A75D68B3634C35DC6AC8</key>
 		<dict>
@@ -7980,12 +7859,19 @@
 			<key>targetProxy</key>
 			<string>E601D1BF1C22A29BF1B0F145F86FE8BF</string>
 		</dict>
-		<key>D1B04E5525D98B39642FB7A7381E9AD1</key>
+		<key>D172D8940BF44AACA84F90A34AD9D2B5</key>
 		<dict>
 			<key>fileRef</key>
-			<string>AC375397874EC1505125F71799A43BDF</string>
+			<string>F118970170F9DCB59A830097787A7694</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>D1BDD0FEA1807C5B3C969BD6D50E005D</key>
 		<dict>
@@ -8028,6 +7914,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>D290BF625DFD00AA41DCB121A3E9331D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8962A6AAD068A7EFE626A8B3FA04D321</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>D2D5756821C947FBBCFFCC415C356688</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -8042,6 +7935,13 @@
 			<string>Source/OCMock/OCMInvocationMatcher.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D2F4173836D6AE66DF1ECC36F3C44F80</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9D652D54AAC5596A32F2D4891A25BC47</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>D3269E3D559D2C5F94878B9B2E1B32CE</key>
 		<dict>
@@ -8068,6 +7968,45 @@
 			<string>89C9903CF5412AF4370A0BF2DD63DEA3</string>
 			<key>targetProxy</key>
 			<string>8B2308877021F57CB184AF4E9C59FDF8</string>
+		</dict>
+		<key>D39A4F57E462A4955E5157AF5148ED78</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMContentBlock3TableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D3C25E6C7FAD07DB997EB969A31D93F5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMParamHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D41C72DB77C1B00AC9B465372648F503</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMMenu.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>D41D8CD98F00B204E9800998ECF8427E</key>
 		<dict>
@@ -8142,10 +8081,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D563D8406E7D0650E15B43DAF09F42C4</key>
+		<key>D565E911F7D47DCA558D5F8F804D1549</key>
 		<dict>
 			<key>fileRef</key>
-			<string>724CF2467BC42DAAD452E6ABD2D1ED71</string>
+			<string>AB5F09F925A0190C4E4EC8CBCD4A485C</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -8230,6 +8169,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>D6756557C7DA5E6B36BB133029396BA1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMCDContentBlock.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>D703A8CCABC9894329CDFF15F232742E</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -8244,20 +8196,6 @@
 			<string>Source/OCMock/OCMock.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D72F812DED3CCD803A4D01EE6D1CCECE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DAE0D9DF895CB11743E407DCB249BF0C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>D78D41AA2CEB6ED571503108CEC3DA15</key>
 		<dict>
@@ -8312,6 +8250,19 @@
 			<string>1072D5429AE53298D987FDC13B8E73ED</string>
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>D7E885F096DAD3AC79996339BC29C1A9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMQuery.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>D838E45011EAFBCBBE7324187D13CBD8</key>
 		<dict>
@@ -8481,7 +8432,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D9349C5DD48F5953B23C6D48134458F6</key>
+		<key>D971AD6A62F2C61F40A0E53C530D0821</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -8490,9 +8441,16 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMOfflinePagedResult.h</string>
+			<string>XMMCDStyle.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D9A9B4EFE537FA638447A0499DF6C8D0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CFC207B3F2C2C0314E19D9D4DD49952B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>D9EA9C8052853B8962318FFD5A5551B6</key>
 		<dict>
@@ -8506,10 +8464,10 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>DA1769050A4B52B892606689D4DAA0CB</key>
+		<key>DA616AC96C010FECD42E5D7D2A65C100</key>
 		<dict>
 			<key>fileRef</key>
-			<string>DE4451CD2A31FA2EAD7AB0E0FF5FB675</string>
+			<string>F08C99E80333C8588CA23DAC983D9D12</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -8547,31 +8505,19 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>DAE0D9DF895CB11743E407DCB249BF0C</key>
+		<key>DB5662D9D57131B611BD4016A4E5CE8B</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>CA14A28E3B1C7459A28BC2676BD8DA7B</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContentBlocks.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>DB779AFD9238C8C89F0457FFD25234AE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlock1TableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>DB8A2164165ACA8A4E4F014C363D96FD</key>
 		<dict>
@@ -8753,25 +8699,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>DDCBFFF3250F5C7C21B6B851FD5135F8</key>
+		<key>DD9AE5167EBCAB11B1777C66D82A254B</key>
 		<dict>
 			<key>fileRef</key>
-			<string>6B17CAD9F8E473ED9B1A46792689A4F9</string>
+			<string>71FC49803542B76B5EAD5896CBDE384A</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>DE4451CD2A31FA2EAD7AB0E0FF5FB675</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XMMContentBlock3TableViewCell.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>DE57384C891A85506CB91EA186D2D2B4</key>
 		<dict>
@@ -8827,6 +8760,32 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>DF9A2C004FF709ABF11F1F6406FDBCEC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMCDContentBlock.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DFBA35BD63F025D84CAE22BB4111A552</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMMapOverlayView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>E00ABE7FC44CB9D1B511D96D47C16AD5</key>
 		<dict>
 			<key>fileRef</key>
@@ -8838,6 +8797,33 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-fno-objc-arc</string>
 			</dict>
+		</dict>
+		<key>E07FBFA5D09772EA478F94016A328105</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F72C62192783629D4E744CA02C044F37</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>E0F5CE068537908E8813A00A281EB7C6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMContentBlock8TableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>E13B34958B2A61483C2A8016D33354DE</key>
 		<dict>
@@ -8854,51 +8840,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E195EEF1DAAF907764343B7C42DCC9D8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlock6TableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>E1AD5AAF1798317E08867A2DAB5ED356</key>
 		<dict>
 			<key>fileRef</key>
 			<string>98228C651464F0925BC8DA529ABC56E7</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>E1C99A9757C3301A7CCE7BC3819529DB</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIColor+HexString.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E1E23828632CA617F7F36BA0EDDB83C7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMStyle.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>E225144392D3E93BA336087E07FCE56D</key>
 		<dict>
@@ -8967,6 +8914,19 @@
 				</array>
 			</dict>
 		</dict>
+		<key>E471F0720632B9C5589C9027CD290328</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlock6TableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>E4A71167D567FB063E3B10D590C10357</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -8997,20 +8957,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E51B9E4210A7194AF444B40A950A320D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CEFDD6F8CB235235857E833B09CC65F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>E5F727C1707D11F3F646CFFEB0238F49</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E7B3F491DAF3EBD236EE58DA9F5C06C9</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>E601D1BF1C22A29BF1B0F145F86FE8BF</key>
 		<dict>
 			<key>containerPortal</key>
@@ -9023,19 +8969,6 @@
 			<string>8AA970B9441254EBC88FA24C9C4E264F</string>
 			<key>remoteInfo</key>
 			<string>SDWebImage</string>
-		</dict>
-		<key>E6C8C18483C9BBF1331547D9E98BAF7C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMOfflineStorageManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>E6FAD010F15AA44D142AD895CADE44E3</key>
 		<dict>
@@ -9107,19 +9040,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E7B3F491DAF3EBD236EE58DA9F5C06C9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMContentBlock9TableViewCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>E845E85348602603C8A02A9454510F7F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -9159,6 +9079,19 @@
 			<string>PBXSourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
+		</dict>
+		<key>E960A322D091991243AB3760A23AD2C5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMOfflineStorageManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>E97F12AA18B974810FA34441711697E0</key>
 		<dict>
@@ -9245,16 +9178,23 @@
 			<key>productType</key>
 			<string>com.apple.product-type.bundle</string>
 		</dict>
-		<key>EB79B879D20493E389F542D637962EF4</key>
+		<key>EB7ED2BC8932772DAED1BD084FD0CC9A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>39E8F21CA6F6AFA4FB37B34C9F66B3E3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>EC6453FAEFFCB52434258AC6952A6194</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>XMMQuery.h</string>
+			<string>XMMContentBlock6TableViewCell.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -9290,6 +9230,33 @@
 		<dict>
 			<key>fileRef</key>
 			<string>6B48AD7EA2F4BA91816C7831CD0A58F6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>ED62B2B3EC67630F87D716B390CE510F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMMapOverlayView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>ED8BD3DC88C2C982D9246B896157E359</key>
+		<dict>
+			<key>fileRef</key>
+			<string>60C52C9FB6E2A351A5A1F37C414D6698</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -9372,12 +9339,18 @@
 				</array>
 			</dict>
 		</dict>
-		<key>EF2516F2488C7390B986B1B727E5B927</key>
+		<key>EF48DA56A04A5CB21CE44C05EF96A609</key>
 		<dict>
-			<key>fileRef</key>
-			<string>AD59ED891C50BBB148FFF5D5FEBE2A6A</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>UIImage+Scaling.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>EF48FFA46D4920947ECD2F673238A1E6</key>
 		<dict>
@@ -9405,6 +9378,52 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>F077693565C0B4A20F8102F9177440E8</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>5E6B06AECC57C4BEC94C1ADD52F5738C</string>
+				<string>A32568CF6E9313D403ED3217808C2DA8</string>
+				<string>D6756557C7DA5E6B36BB133029396BA1</string>
+				<string>DF9A2C004FF709ABF11F1F6406FDBCEC</string>
+				<string>49744BD0DEB4F09D60E322A1F9D3024F</string>
+				<string>A7C7E5A8732B0B39745C5D09C4DA2481</string>
+				<string>CA14A28E3B1C7459A28BC2676BD8DA7B</string>
+				<string>71FC49803542B76B5EAD5896CBDE384A</string>
+				<string>47792437D7C72B4226A18F8BC1780386</string>
+				<string>09FAC6B281F24F04AF6850004556F04D</string>
+				<string>B96C2DDFF5B8AAFC8DE3DD8E35D9698E</string>
+				<string>01B31E43733EFE7840254498853C1362</string>
+				<string>FD6335F7BE8E44EDC8BD482038599789</string>
+				<string>D971AD6A62F2C61F40A0E53C530D0821</string>
+				<string>8A18861BFC4A75EA8C7FCBA6CE558EF4</string>
+				<string>57C85C2D9B85B620AAA328F99F2EFFB7</string>
+				<string>4E3FFB14990FF408F506AAED76DCBFA0</string>
+				<string>64A42A377A8FBCEE3EB6564C0F7B2333</string>
+				<string>BC075F7ACBB6037CF4E704A976A90E4C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>path</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F08C99E80333C8588CA23DAC983D9D12</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlocksCache.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>F0AEFBBFA08B0767B749D8E5A7F67233</key>
 		<dict>
 			<key>fileRef</key>
@@ -9424,18 +9443,25 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
-		<key>F12AD74C5B0AD48686513471D8525FD7</key>
+		<key>F118970170F9DCB59A830097787A7694</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMContent.m</string>
+			<string>XMMOfflineDownloadManager.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F16CCEC28F2A05E8C8F15898C6125C46</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BD54CE0CEC2EF932781D230A7D090491</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>F1B92D1016788201E528223B757DAE2B</key>
 		<dict>
@@ -9524,12 +9550,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F30FACA070AAAAD56E59F4513815231B</key>
+		<key>F2BA380EF036711F4A8F1C2A6FBB1037</key>
 		<dict>
 			<key>fileRef</key>
-			<string>A8B459DBE9D2444B3DBDD584693DA336</string>
+			<string>91F4B0DAA1C341EDA7C64B5A5E342417</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>F3219B27897AF4E8A73DC34B94F27491</key>
 		<dict>
@@ -9537,19 +9570,6 @@
 			<string>196132848D81278104755402EFB9EF1D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>F331F2EB832E4D2590918E3A184EA966</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMMenu.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>F3C52FB414F11923A2F9F3A5F66754DD</key>
 		<dict>
@@ -9566,26 +9586,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F592955C91653BCCD36A1E017915E020</key>
+		<key>F61BA98790D1976C6D42B77C43786785</key>
 		<dict>
 			<key>fileRef</key>
-			<string>1D2E5BE3DE85E575E3E8D049E93264D8</string>
+			<string>2D54369B2A40B719AB5251653E3BE37B</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>F6440793CBFA040DB2A7DE394F9043E9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2B73AB873AFFA63E354CD084144A88B3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>F67C3533469507F4B632874E6B85DE51</key>
 		<dict>
@@ -9627,6 +9633,33 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>F69A19196E7039B10C91186378258BA1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4416F9ED43D6EC05535F6341679C1270</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>F72C62192783629D4E744CA02C044F37</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMSystem.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>F74CF8FFA6A48E22F3F9B3FF0C6E6153</key>
 		<dict>
 			<key>fileRef</key>
@@ -9639,12 +9672,18 @@
 				<string>-DOS_OBJECT_USE_OBJC=0</string>
 			</dict>
 		</dict>
-		<key>F7892D0106898E0FFB9CBD3B0878989D</key>
+		<key>F769DFC7EE7DE25E52DDBA3BE3DD9A3E</key>
 		<dict>
-			<key>fileRef</key>
-			<string>0ED525BC55ECC3232DE3663BC06FC85C</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMOfflineStorageManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>F83F50B5870C9CE2595AEAE98E5D8BF3</key>
 		<dict>
@@ -9685,19 +9724,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>FA28E43D745B9633B506D4761A89A17D</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>XamoomSDK.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>FAD21AA2396C68D63F31A6EDC99BC69F</key>
 		<dict>
 			<key>fileRef</key>
@@ -9732,24 +9758,36 @@
 				</array>
 			</dict>
 		</dict>
+		<key>FB44EC952C905C7B970EA7A015DF8544</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>XMMContentBlock2TableViewCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB53A6D72769EDEFE70C5F00CCF1A39F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMContentBlock5TableViewCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>FBFDD7505D556AE7837DAFBC007258A1</key>
 		<dict>
 			<key>fileRef</key>
 			<string>37EF9A6F1F6CCABCC589E722A5034F0C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>FC47CD3B10F8AC2A9A7A1C030897BBF6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>72D088F8F97FBA79A353244D443482B2</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -9775,19 +9813,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FCC15A8E62B1DE7A87E640E1903150D6</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>XMMOfflineApi.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>FD153D8C79B658EFD37427C605D97B02</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -9800,6 +9825,32 @@
 			<string>UIImage+SVG.m</string>
 			<key>path</key>
 			<string>Classes/JAMSVGImage/SVG Image/UIImage+SVG.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FD6335F7BE8E44EDC8BD482038599789</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMCDSpot.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FDD9FFB5958EF8B7C2C1ABB12E826F7E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>XMMOfflineApi.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -9832,7 +9883,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FF08CAE14A3395B484B85BA74C68F91D</key>
+		<key>FF53E17008A848DD678D3E9E762E10B6</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -9841,7 +9892,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>XMMCDSystemSettings.h</string>
+			<string>UIImage+animatedGIF.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>

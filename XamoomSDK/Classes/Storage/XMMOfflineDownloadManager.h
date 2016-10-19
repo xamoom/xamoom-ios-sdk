@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XMMOfflineDownloadManager : NSObject <NSURLSessionDelegate>
+@interface XMMOfflineDownloadManager : NSObject <NSURLSessionDownloadDelegate>
 
 extern NSString *const kXamoomOfflineUpdateDownloadCount;
 

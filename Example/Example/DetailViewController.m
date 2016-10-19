@@ -46,12 +46,12 @@
   [[NSNotificationCenter defaultCenter]
    addObserver:self
    selector:@selector(offlineReady)
-   name:MANAGED_CONTEXT_READY_NOTIFICATION
+   name:kManagedContextReadyNotification
    object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-  [[NSNotificationCenter defaultCenter] removeObserver:self name:MANAGED_CONTEXT_READY_NOTIFICATION object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:kManagedContextReadyNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {

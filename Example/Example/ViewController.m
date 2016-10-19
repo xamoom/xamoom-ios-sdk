@@ -54,7 +54,19 @@
   [[NSNotificationCenter defaultCenter]
    addObserver:self
    selector:@selector(offlineReady)
-   name:MANAGED_CONTEXT_READY_NOTIFICATION
+   name:kManagedContextReadyNotification
+   object:nil];
+  
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(offlineFileSaveError:)
+   name:kXamoomOfflineSaveFileFromUrlError
+   object:nil];
+  
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(downloadFileUpdate:)
+   name:kXamoomOfflineUpdateDownloadCount
    object:nil];
   
   //[self loadSystem];
@@ -62,7 +74,9 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-  [[NSNotificationCenter defaultCenter] removeObserver:self name:MANAGED_CONTEXT_READY_NOTIFICATION object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:kManagedContextReadyNotification object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:kXamoomOfflineSaveFileFromUrlError object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:kXamoomOfflineUpdateDownloadCount object:nil];
 }
 
 
@@ -71,6 +85,17 @@
   
   [self contentWithTags];
   //[self contentWithID];
+}
+
+- (void)downloadFileUpdate:(NSNotification *)notification {
+  NSLog(@"Count %@", notification.userInfo[@"count"]);
+
+}
+
+- (void)offlineFileSaveError:(NSNotification *)notification {
+  NSError *error = notification.userInfo[@"error"];
+  NSString *url = notification.userInfo[@"url"];
+  NSLog(@"Error:%@ loading file: %@", error, url);
 }
 
 - (void)didReceiveMemoryWarning {

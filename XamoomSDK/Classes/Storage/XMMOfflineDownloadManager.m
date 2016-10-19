@@ -11,6 +11,12 @@
 NSString *const kXamoomOfflineUpdateDownloadCount = @"com.xamoom.ios.kXamoomOfflineUpdateDownloadCount";
 static XMMOfflineDownloadManager *sharedInstance;
 
+@interface XMMOfflineDownloadManager()
+
+@property (strong, nonatomic) NSMutableDictionary *completionDict;
+
+@end
+
 @implementation XMMOfflineDownloadManager
 
 + (instancetype)sharedInstance {
@@ -25,6 +31,7 @@ static XMMOfflineDownloadManager *sharedInstance;
   self = [super init];
   if (self) {
     self.currentDownloads = [[NSMutableArray alloc] init];
+    self.completionDict = [[NSMutableDictionary alloc] init];
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     self.session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
   }
@@ -34,9 +41,9 @@ static XMMOfflineDownloadManager *sharedInstance;
 
 - (void)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *data, NSError *error))completion {
   NSURLRequest *request = [NSURLRequest requestWithURL:url];
+  NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request];
+  /*
   NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    [self removeCurrentDownload:downloadTask];
-    
     if (error) {
       completion(nil, error);
       return;
@@ -45,9 +52,16 @@ static XMMOfflineDownloadManager *sharedInstance;
     NSData *data = [NSData dataWithContentsOfURL:location];
     completion(data, nil);
   }];
+  */
   
-  [self addNewCurrentDownload:downloadTask];
-  [downloadTask resume];
+  if (completion) {
+    [self.completionDict setObject:completion forKey:url];
+  }
+  
+  if (downloadTask) {
+    [self addNewCurrentDownload:downloadTask];
+    [downloadTask resume];
+  }
 }
 
 - (void)addNewCurrentDownload:(NSURLSessionDownloadTask *)task {
@@ -64,7 +78,25 @@ static XMMOfflineDownloadManager *sharedInstance;
   [[NSNotificationCenter defaultCenter]
    postNotificationName:kXamoomOfflineUpdateDownloadCount
    object:nil
-   userInfo:@{@"count":[NSString stringWithFormat:@"%lu", (unsigned long)self.currentDownloads.count]}];
+   userInfo:@{@"count":[NSNumber numberWithUnsignedInteger:self.currentDownloads.count]}];
+}
+
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
+  [self removeCurrentDownload:downloadTask];
+  void (^completionBlock)(NSData *data, NSError *error) = [self.completionDict objectForKey:downloadTask.originalRequest.URL];
+  if (completionBlock) {
+    NSData *data = [NSData dataWithContentsOfURL:location];
+    completionBlock(data, nil);
+  }
+}
+
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
+  void (^completionBlock)(NSData *data, NSError *error) = [self.completionDict objectForKey:task.originalRequest.URL];
+  if (completionBlock && error) {
+    NSURLSessionDownloadTask *downloadTask = (NSURLSessionDownloadTask *)task;
+    [self removeCurrentDownload:downloadTask];
+    completionBlock(nil, error);
+  }
 }
 
 @end
