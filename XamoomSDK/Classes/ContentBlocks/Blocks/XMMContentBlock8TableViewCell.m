@@ -19,6 +19,12 @@
 
 #import "XMMContentBlock8TableViewCell.h"
 
+@interface XMMContentBlock8TableViewCell()
+
+@property (strong, nonatomic) UIDocumentInteractionController *docController;
+
+@end
+
 @implementation XMMContentBlock8TableViewCell
 
 - (void)awakeFromNib {
@@ -50,7 +56,7 @@
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
-  
+  self.offline = offline;
   self.titleLabel.text = block.title;
   self.contentTextLabel.text = block.text;
   self.fileID = block.fileID;
@@ -76,8 +82,22 @@
 }
 
 - (void)openLink {
-  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.fileID]];
+  if (self.offline) {
+    NSURL *localURL = [self.fileManager urlForSavedData:self.fileID];
+    if (localURL != nil) {
+      self.docController = [UIDocumentInteractionController interactionControllerWithURL:localURL];
+      [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.contentView animated:YES];
+    }
+  } else {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.fileID]];
+  }
 }
 
+- (XMMOfflineFileManager *)fileManager {
+  if (_fileManager == nil) {
+    _fileManager = [[XMMOfflineFileManager alloc] init];
+  }
+  return _fileManager;
+}
 
 @end

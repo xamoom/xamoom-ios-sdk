@@ -34,6 +34,8 @@
 @property (strong, nonatomic) NSString *fileID;
 @property (strong, nonatomic) UIImage *contactImage;
 @property (strong, nonatomic) UIImage *calendarImage;
+@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
+@property (nonatomic) BOOL offline;
 
 - (UIImage *)iconForDownloadType:(int)downloadType;
 
