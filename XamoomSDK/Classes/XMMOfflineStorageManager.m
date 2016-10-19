@@ -69,7 +69,7 @@ static dispatch_once_t onceToken;
     NSAssert(store != nil, @"Error initializing PSC: %@\n%@", [error localizedDescription], [error userInfo]);
     
     dispatch_async(dispatch_get_main_queue(), ^{
-      [[NSNotificationCenter defaultCenter] postNotificationName:MANAGED_CONTEXT_READY_NOTIFICATION
+      [[NSNotificationCenter defaultCenter] postNotificationName:kManagedContextReadyNotification
                                                           object:self];
     });
   });
