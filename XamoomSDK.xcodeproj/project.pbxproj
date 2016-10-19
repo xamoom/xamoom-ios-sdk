@@ -405,6 +405,7 @@
 		88117C951DB4C74B0046A8DC /* ContentBlocks */ = {
 			isa = PBXGroup;
 			children = (
+				881945981C625B5000E4524F /* XMMContentBlocksTests.m */,
 				88117C961DB4C7560046A8DC /* TableViewCells */,
 			);
 			name = ContentBlocks;
@@ -588,7 +589,6 @@
 				88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */,
 				88E46F311C493453004D8AC3 /* XMMRestClientTest.m */,
 				88E46F331C49345C004D8AC3 /* XMMQueryTest.m */,
-				881945981C625B5000E4524F /* XMMContentBlocksTests.m */,
 				8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */,
 				8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */,
 				88B9628E1C7DBEBC0096993D /* XMMContentBlockXTableViewCellTests.m */,

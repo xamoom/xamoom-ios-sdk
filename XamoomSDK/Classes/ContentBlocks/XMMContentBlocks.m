@@ -41,6 +41,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     self.tableView = tableView;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.showAllStoreLinks = NO;
+    self.showAllBlocksWhenOffline = NO;
     
     [self setupTableView];
     [self defaultStyle];
@@ -135,11 +137,18 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
     self.items = [content.contentBlocks mutableCopy];
   }
   
+  if (!self.showAllStoreLinks) {
+    self.items = [self removeStoreLinkBlocks:self.items];
+  }
+  
+  if (!self.showAllBlocksWhenOffline && self.offline) {
+    self.items = [self removeNonOfflineBlocks:self.items];
+  }
+  
   dispatch_async(dispatch_get_main_queue(), ^{
     [self.tableView reloadData];
   });
 }
-
 
 #pragma mark - Setters
 
@@ -175,6 +184,43 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.kContent
   }
   
   return contentBlocks;
+}
+
+- (NSMutableArray *)removeStoreLinkBlocks:(NSMutableArray *)blocks {
+  NSMutableArray *deleteBlocks = [[NSMutableArray alloc] init];
+  for (XMMContentBlock *block in blocks) {
+    if ((block.blockType == 4) && (block.linkType == 17 || block.linkType == 16)) {
+      [deleteBlocks addObject:block];
+    }
+  }
+  [blocks removeObjectsInArray:deleteBlocks];
+  return blocks;
+}
+
+- (NSMutableArray *)removeNonOfflineBlocks:(NSMutableArray *)blocks {
+  NSMutableArray *deleteBlocks = [[NSMutableArray alloc] init];
+  for (XMMContentBlock *block in blocks) {
+    if (block.blockType == 7) {
+      [deleteBlocks addObject:block];
+    }
+    
+    if (block.blockType == 9) {
+      [deleteBlocks addObject:block];
+    }
+    
+    if (block.blockType == 2) {
+      if ([block.videoUrl containsString:@"youtu"]) {
+        [deleteBlocks addObject:block];
+      }
+      
+      if ([block.videoUrl containsString:@"vimeo"]) {
+        [deleteBlocks addObject:block];
+      }
+    }
+  }
+  
+  [blocks removeObjectsInArray:deleteBlocks];
+  return blocks;
 }
 
 - (void)updateFontSizeTo:(TextFontSize)newFontSize {

@@ -495,6 +495,7 @@
 }
 
 - (void)testThatContentBlock4CellConfigureType16 {
+  self.contentBlocks.showAllStoreLinks = YES;
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:17 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
@@ -511,6 +512,7 @@
 }
 
 - (void)testThatContentBlock4CellConfigureType17 {
+  self.contentBlocks.showAllStoreLinks = YES;
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:18 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
@@ -527,6 +529,7 @@
 }
 
 - (void)testThatContentBlock4CellConfigureTypeFalse {
+  self.contentBlocks.showAllStoreLinks = YES;
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:19 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];

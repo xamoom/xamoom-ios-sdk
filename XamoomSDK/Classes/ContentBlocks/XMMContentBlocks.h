@@ -79,6 +79,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) UIColor *linkColor;
 @property (nonatomic) BOOL showAllStoreLinks;
+@property (nonatomic) BOOL showAllBlocksWhenOffline;
 @property (nonatomic, getter=isOffline) BOOL offline;
 
 /**
