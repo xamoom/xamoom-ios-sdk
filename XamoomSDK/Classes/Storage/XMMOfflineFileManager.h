@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XMMOfflineFileManager : NSObject <NSURLSessionDelegate>
+@interface XMMOfflineFileManager : NSObject
 
 - (NSURL *)urlForSavedData:(NSString *)urlString;
 

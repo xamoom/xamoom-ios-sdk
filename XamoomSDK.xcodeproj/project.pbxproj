@@ -33,6 +33,9 @@
 		882ED6851C63741000FC8BDB /* XMMContentBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 883E557B1C4A37FE000C4D09 /* XMMContentBlocks.m */; };
 		8830FED11DB61D960072DCAC /* XMMContentBlock6TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8830FED01DB61D960072DCAC /* XMMContentBlock6TableViewCellTest.m */; };
 		8830FED61DB664B40072DCAC /* XMMContentBlock5TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8830FED51DB664B40072DCAC /* XMMContentBlock5TableViewCellTest.m */; };
+		8830FED91DB79F4C0072DCAC /* XMMOfflineDownloadManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8830FED71DB79F4C0072DCAC /* XMMOfflineDownloadManager.h */; };
+		8830FEDA1DB79F4C0072DCAC /* XMMOfflineDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8830FED81DB79F4C0072DCAC /* XMMOfflineDownloadManager.m */; };
+		8830FEDC1DB7A3AC0072DCAC /* XMMOfflineDownloadManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8830FEDB1DB7A3AC0072DCAC /* XMMOfflineDownloadManagerTest.m */; };
 		883AC7D51DB0BEF000AE7BA7 /* XMMOfflineFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */; };
 		883AC7D61DB0BEF000AE7BA7 /* XMMOfflineFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */; };
 		883AC7D81DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 883AC7D71DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m */; };
@@ -214,6 +217,9 @@
 		88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMEnduserApiOfflineTest.m; sourceTree = "<group>"; };
 		8830FED01DB61D960072DCAC /* XMMContentBlock6TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock6TableViewCellTest.m; sourceTree = "<group>"; };
 		8830FED51DB664B40072DCAC /* XMMContentBlock5TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock5TableViewCellTest.m; sourceTree = "<group>"; };
+		8830FED71DB79F4C0072DCAC /* XMMOfflineDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineDownloadManager.h; path = Classes/Storage/XMMOfflineDownloadManager.h; sourceTree = "<group>"; };
+		8830FED81DB79F4C0072DCAC /* XMMOfflineDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineDownloadManager.m; path = Classes/Storage/XMMOfflineDownloadManager.m; sourceTree = "<group>"; };
+		8830FEDB1DB7A3AC0072DCAC /* XMMOfflineDownloadManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineDownloadManagerTest.m; sourceTree = "<group>"; };
 		883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineFileManager.h; path = Classes/Storage/XMMOfflineFileManager.h; sourceTree = "<group>"; };
 		883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineFileManager.m; path = Classes/Storage/XMMOfflineFileManager.m; sourceTree = "<group>"; };
 		883AC7D71DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineFileManagerTest.m; sourceTree = "<group>"; };
@@ -634,6 +640,8 @@
 				88B390171DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld */,
 				883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */,
 				883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */,
+				8830FED71DB79F4C0072DCAC /* XMMOfflineDownloadManager.h */,
+				8830FED81DB79F4C0072DCAC /* XMMOfflineDownloadManager.m */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -672,6 +680,7 @@
 				88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */,
 				888F18D61DABBC4900518DB8 /* XMMOfflineApiTest.m */,
 				884B614C1DACD81700572758 /* XMMOfflineApiHelperTest.m */,
+				8830FEDB1DB7A3AC0072DCAC /* XMMOfflineDownloadManagerTest.m */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -812,6 +821,7 @@
 				883E55861C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.h in Headers */,
 				88E46EA21C47E348004D8AC3 /* XMMStyle.h in Headers */,
 				88D4C6EC1C6CD3AE00615147 /* XMMMapOverlayView.h in Headers */,
+				8830FED91DB79F4C0072DCAC /* XMMOfflineDownloadManager.h in Headers */,
 				883E55AA1C4A37FE000C4D09 /* XMMMusicPlayer.h in Headers */,
 				88B3902C1DA3AF8600216478 /* XMMCDMenu.h in Headers */,
 				888F4F641DA4F7B3000E49CE /* XMMCDSystem.h in Headers */,
@@ -1180,6 +1190,7 @@
 				884B614B1DACD74400572758 /* XMMOfflineApiHelper.m in Sources */,
 				888F4F691DA52C94000E49CE /* XMMCDSpot.m in Sources */,
 				883E55871C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.m in Sources */,
+				8830FEDA1DB79F4C0072DCAC /* XMMOfflineDownloadManager.m in Sources */,
 				88B3901D1DA2945900216478 /* XMMCDSystemSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1200,6 +1211,7 @@
 				888F18C71DA78EC400518DB8 /* XMMMarkerTest.m in Sources */,
 				888F18BF1DA670AC00518DB8 /* XMMStyleTest.m in Sources */,
 				888F18CB1DA79A1100518DB8 /* XMMSpotTest.m in Sources */,
+				8830FEDC1DB7A3AC0072DCAC /* XMMOfflineDownloadManagerTest.m in Sources */,
 				88D5B13B1DA3E0050069E2E8 /* XMMCDMenuItemTest.m in Sources */,
 				888F4F6F1DA534D5000E49CE /* XMMCDContentBlockTest.m in Sources */,
 				883AC7D81DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m in Sources */,

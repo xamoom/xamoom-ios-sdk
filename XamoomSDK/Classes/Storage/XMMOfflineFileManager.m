@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XMMOfflineFileManager.h"
 #import "NSString+MD5.h"
+#import "XMMOfflineDownloadManager.h"
 
 @implementation XMMOfflineFileManager
 
@@ -18,7 +19,7 @@
 
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSData *, NSError *))completion {
   NSURL *filePath = [self filePathForSavedObject:urlString];
-  [self downloadFileFromUrl:[NSURL URLWithString:urlString] completion:^(NSData *data, NSError *error) {
+  [[XMMOfflineDownloadManager sharedInstance] downloadFileFromUrl:[NSURL URLWithString:urlString] completion:^(NSData *data, NSError *error) {
     if (error) {
       if (completion) {
         completion(nil, error);
@@ -29,8 +30,11 @@
     NSError *savingError;
     [data writeToURL:filePath options:NSDataWritingAtomic error:&savingError];
     
-    if (savingError && completion) {
-      completion(nil, savingError);
+    if (savingError) {
+      if (completion) {
+        completion(nil, savingError);
+      }
+
       return;
     }
     
@@ -53,22 +57,6 @@
 }
 
 #pragma mark - Helper
-
-- (void)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *, NSError *))completion {
-  NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-  NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
-  NSURLRequest *request = [NSURLRequest requestWithURL:url];
-  NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    if (error) {
-      completion(nil, error);
-      return;
-    }
-    
-    NSData *data = [NSData dataWithContentsOfURL:location];
-    completion(data, nil);
-  }];
-  [downloadTask resume];
-}
 
 - (NSURL *)filePathForSavedObject:(NSString *)urlString {
   NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
