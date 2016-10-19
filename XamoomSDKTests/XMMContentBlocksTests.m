@@ -76,7 +76,7 @@
 }
 
 - (void)testkContentBlock9MapContentLinkNotification {
-  XCTAssertTrue([[XMMContentBlocks kContentBlock9MapContentLinkNotification] isEqualToString:@"com.xamoom.kContentBlock9MapContentLinkNotification"]);
+  XCTAssertTrue([[XMMContentBlocks kContentBlock9MapContentLinkNotification] isEqualToString:@"com.xamoom.ios.kContentBlock9MapContentLinkNotification"]);
 }
 
 - (void)testThatUpdateFontSizeUpdatesValue {
