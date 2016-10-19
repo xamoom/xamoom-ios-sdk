@@ -38,7 +38,7 @@ NSString *const kXamoomOfflineSaveFileFromUrlError = @"com.xamoom.ios.kSaveFileF
       
       [[NSNotificationCenter defaultCenter] postNotificationName:kXamoomOfflineSaveFileFromUrlError
                                                           object:self
-                                                        userInfo:@{@"fileUrl":urlString,
+                                                        userInfo:@{@"url":urlString,
                                                                    @"error":error}];
       return;
     }
