@@ -103,11 +103,46 @@ static dispatch_once_t onceToken;
 
 - (void)deleteAllEntities {
   NSArray *entityArray = @[[XMMCDContent class],[XMMCDContentBlock class],[XMMCDMarker class],[XMMCDMenu class],[XMMCDMenuItem class],[XMMCDSpot class],[XMMCDStyle class],[XMMCDSystem class],[XMMCDSystemSettings class]];
+  
   for (Class entityClass in entityArray) {
     NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:[entityClass coreDataEntityName]];
-    NSBatchDeleteRequest *deleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:fetch];
-    [self.managedObjectContext executeRequest:deleteRequest error:nil];
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetch error:nil];
+    
+    if (entityClass == [XMMCDContent class]) {
+      [self deleteSavedFilesForEntities:results urlKeyPath:@"imagePublicUrl"];
+    }
+    
+    if (entityClass == [XMMCDSpot class]) {
+      [self deleteSavedFilesForEntities:results urlKeyPath:@"image"];
+    }
+    
+    if (entityClass == [XMMCDContentBlock class]) {
+      [self deleteSavedFilesForEntities:results urlKeyPath:@"fileID"];
+      [self deleteSavedFilesForEntities:results urlKeyPath:@"videoUrl"];
+    }
+    
+    for (NSManagedObject *entity in results) {
+      [self.managedObjectContext deleteObject:entity];
+    }
   }
+  
+  [self.managedObjectContext save:nil];
+}
+
+- (void)deleteSavedFilesForEntities:(NSArray *)entities urlKeyPath:(NSString *)keyPath {
+  for (NSManagedObject *entity in entities) {
+    NSString *urlString = [entity valueForKey:keyPath];
+    if (urlString != nil) {
+      [self.fileManager deleteFileWithUrl:urlString error:nil];
+    }
+  }
+}
+
+- (XMMOfflineFileManager *)fileManager {
+  if (_fileManager == nil) {
+    _fileManager = [[XMMOfflineFileManager alloc] init];
+  }
+  return _fileManager;
 }
 
 @end

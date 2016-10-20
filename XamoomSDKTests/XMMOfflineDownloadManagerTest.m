@@ -32,21 +32,16 @@
 - (void)testDownloadFileFromUrl {
   NSURLSession *mockedSession = OCMClassMock([NSURLSession class]);
   self.downloadManager.session = mockedSession;
+  NSURLSessionDownloadTask *mockedTask = OCMClassMock([NSURLSessionDownloadTask class]);
   
-  OCMStub([mockedSession downloadTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]]).andDo(^(NSInvocation *invocation) {
-    void(^passedBlock)(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error);
-    [invocation getArgument:&passedBlock atIndex:3];
-    passedBlock([NSURL URLWithString:@"www.xamoom.com"], nil, nil);
-  }).andReturn([[NSURLSession sharedSession] downloadTaskWithURL:[NSURL URLWithString:@"www.xamoom.com"]]);
-  
-  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.downloadManager downloadFileFromUrl:[NSURL URLWithString:@"www.xamoom.com"] completion:^(NSData *data, NSError *error) {
-    XCTAssertEqual(self.downloadManager.currentDownloads.count, 0);
-    [expectation fulfill];
-  }];
-  XCTAssertEqual(self.downloadManager.currentDownloads.count, 1);
+  OCMStub([mockedSession downloadTaskWithRequest:[OCMArg any]]).andReturn(mockedTask);
 
-  [self waitForExpectationsWithTimeout:2.0 handler:nil];
+  [self.downloadManager downloadFileFromUrl:[NSURL URLWithString:@"file.jp"] completion:^(NSData *data, NSError *error) {
+    //
+  }];
+  
+  OCMVerify([mockedTask resume]);
+  XCTAssertEqual(self.downloadManager.currentDownloads.count, 1);
 }
 
 @end

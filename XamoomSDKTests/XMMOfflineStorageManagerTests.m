@@ -73,20 +73,38 @@
   OCMVerify([self.mockedContext executeFetchRequest:[OCMArg isEqual:checkRequest] error:[OCMArg anyObjectRef]]);
 }
 
-- (void)testDeleteAllEntities {
-  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
-  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
-  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
-  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
-  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
-  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
-  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
-  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
-  OCMExpect([self.mockedContext executeRequest:[OCMArg isKindOfClass:[NSBatchDeleteRequest class]] error:[OCMArg anyObjectRef]]);
+- (void)testDeleteAllEntitiesCallsFetchRequest {
+  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
+  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
   
   [self.storeManager deleteAllEntities];
 
   OCMVerifyAll(self.mockedContext);
+}
+
+- (void)testDeleteAllEntitiesCallsDeleteSavedFiles {
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"1";
+  content.imagePublicUrl = @"www.xamoom.com/file.jpg";
+  XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
+
+  XMMOfflineFileManager *mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
+  self.storeManager.fileManager = mockedFileManager;
+  
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:nil])
+    .andReturn(@[savedContent]);
+  
+  [self.storeManager deleteAllEntities];
+
+  OCMVerify([mockedFileManager deleteFileWithUrl:[OCMArg isEqual:@"www.xamoom.com/file.jpg"] error:nil]);
+  OCMVerify([self.mockedContext deleteObject:[OCMArg isEqual:savedContent]]);
 }
 
 @end

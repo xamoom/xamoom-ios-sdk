@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
+#import "XMMOfflineFileManager.h"
 
 @interface XMMOfflineStorageManager : NSObject
 
-@property NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
 
 extern NSString *const kManagedContextReadyNotification;
 
