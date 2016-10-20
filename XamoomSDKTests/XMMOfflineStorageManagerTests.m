@@ -93,17 +93,39 @@
   XMMContent *content = [[XMMContent alloc] init];
   content.ID = @"1";
   content.imagePublicUrl = @"www.xamoom.com/file.jpg";
-  XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
 
+  XMMSpot *spot = [[XMMSpot alloc] init];
+  spot.ID = @"2";
+  spot.image = @"www.xamoom.com/file2.jpg";
+  XMMCDSpot *savedSpot = [XMMCDSpot insertNewObjectFrom:spot];
+  
+  XMMContentBlock *fileBlock = [[XMMContentBlock alloc] init];
+  fileBlock.ID = @"3";
+  fileBlock.fileID = @"www.xamoom.com/file3.jpg";
+  
+  XMMContentBlock *videoBlock = [[XMMContentBlock alloc] init];
+  videoBlock.ID = @"4";
+  videoBlock.videoUrl = @"www.xamoom.com/file4.jpg";
+  content.contentBlocks = @[fileBlock, videoBlock];
+  XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
+  
   XMMOfflineFileManager *mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
   self.storeManager.fileManager = mockedFileManager;
   
-  OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:nil])
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg isEqual:[NSFetchRequest fetchRequestWithEntityName:[XMMCDContent coreDataEntityName]]] error:nil])
     .andReturn(@[savedContent]);
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg isEqual:[NSFetchRequest fetchRequestWithEntityName:[XMMCDContentBlock coreDataEntityName]]] error:nil])
+  .andReturn(savedContent.contentBlocks);
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg isEqual:[NSFetchRequest fetchRequestWithEntityName:[XMMCDSpot coreDataEntityName]]] error:nil])
+  .andReturn(@[savedSpot]);
   
   [self.storeManager deleteAllEntities];
 
   OCMVerify([mockedFileManager deleteFileWithUrl:[OCMArg isEqual:@"www.xamoom.com/file.jpg"] error:nil]);
+  OCMVerify([mockedFileManager deleteFileWithUrl:[OCMArg isEqual:@"www.xamoom.com/file2.jpg"] error:nil]);
+  OCMVerify([mockedFileManager deleteFileWithUrl:[OCMArg isEqual:@"www.xamoom.com/file3.jpg"] error:nil]);
+  OCMVerify([mockedFileManager deleteFileWithUrl:[OCMArg isEqual:@"www.xamoom.com/file4.jpg"] error:nil]);
+
   OCMVerify([self.mockedContext deleteObject:[OCMArg isEqual:savedContent]]);
 }
 

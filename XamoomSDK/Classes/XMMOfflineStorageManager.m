@@ -108,25 +108,31 @@ static dispatch_once_t onceToken;
     NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:[entityClass coreDataEntityName]];
     NSArray *results = [self.managedObjectContext executeFetchRequest:fetch error:nil];
     
-    if (entityClass == [XMMCDContent class]) {
-      [self deleteSavedFilesForEntities:results urlKeyPath:@"imagePublicUrl"];
-    }
-    
-    if (entityClass == [XMMCDSpot class]) {
-      [self deleteSavedFilesForEntities:results urlKeyPath:@"image"];
-    }
-    
-    if (entityClass == [XMMCDContentBlock class]) {
-      [self deleteSavedFilesForEntities:results urlKeyPath:@"fileID"];
-      [self deleteSavedFilesForEntities:results urlKeyPath:@"videoUrl"];
-    }
-    
-    for (NSManagedObject *entity in results) {
-      [self.managedObjectContext deleteObject:entity];
+    if (results) {
+      [self determineFileDeletion:entityClass entities:results];
+      
+      for (NSManagedObject *entity in results) {
+        [self.managedObjectContext deleteObject:entity];
+      }
     }
   }
   
   [self.managedObjectContext save:nil];
+}
+
+- (void)determineFileDeletion:(Class)entityClass entities:(NSArray *)entities {
+  if (entityClass == [XMMCDContent class]) {
+    [self deleteSavedFilesForEntities:entities urlKeyPath:@"imagePublicUrl"];
+  }
+  
+  if (entityClass == [XMMCDSpot class]) {
+    [self deleteSavedFilesForEntities:entities urlKeyPath:@"image"];
+  }
+  
+  if (entityClass == [XMMCDContentBlock class]) {
+    [self deleteSavedFilesForEntities:entities urlKeyPath:@"fileID"];
+    [self deleteSavedFilesForEntities:entities urlKeyPath:@"videoUrl"];
+  }
 }
 
 - (void)deleteSavedFilesForEntities:(NSArray *)entities urlKeyPath:(NSString *)keyPath {
