@@ -7,6 +7,7 @@
 //
 
 #import "XMMCDMenuItem.h"
+#import "XMMContent.h"
 
 @implementation XMMCDMenuItem
 
@@ -23,7 +24,7 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
-  XMMMenuItem *menuItem = (XMMMenuItem *)entity;
+  XMMContent *menuItem = (XMMContent *)entity;
   XMMCDMenuItem *savedMenuItem = nil;
   
   // check if object already exists
@@ -37,7 +38,7 @@
   }
   
   savedMenuItem.jsonID = menuItem.ID;
-  savedMenuItem.contentTitle = menuItem.contentTitle;
+  savedMenuItem.contentTitle = menuItem.title;
   savedMenuItem.category = [NSNumber numberWithInt:menuItem.category];
   
   [[XMMOfflineStorageManager sharedInstance] save];
