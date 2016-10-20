@@ -26,4 +26,6 @@
 
 - (instancetype _Null_unspecified)initWithCoreDataObject:(id<XMMCDResource> _Nonnull)object;
 
+- (void)deleteOfflineCopy;
+
 @end
