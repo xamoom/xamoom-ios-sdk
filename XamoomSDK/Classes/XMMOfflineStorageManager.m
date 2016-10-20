@@ -36,6 +36,7 @@ static dispatch_once_t onceToken;
   self = [super init];
   
   [self initializeCoreData];
+  self.saveDeletionFiles = [[NSMutableArray alloc] init];
   
   return self;
 }
@@ -66,7 +67,9 @@ static dispatch_once_t onceToken;
     NSError *error = nil;
     NSPersistentStoreCoordinator *psc = [[self managedObjectContext] persistentStoreCoordinator];
     NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
-    NSAssert(store != nil, @"Error initializing PSC: %@\n%@", [error localizedDescription], [error userInfo]);
+    if (error) {
+      NSAssert(store != nil, @"Error initializing PSC: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
     
     dispatch_async(dispatch_get_main_queue(), ^{
       [[NSNotificationCenter defaultCenter] postNotificationName:kManagedContextReadyNotification
@@ -109,7 +112,7 @@ static dispatch_once_t onceToken;
     NSArray *results = [self.managedObjectContext executeFetchRequest:fetch error:nil];
     
     if (results) {
-      [self determineFileDeletion:entityClass entities:results];
+      [self determineFileDeletionForEntities:results entityClass:entityClass saveDeletion:NO];
       
       for (NSManagedObject *entity in results) {
         [self.managedObjectContext deleteObject:entity];
@@ -120,28 +123,62 @@ static dispatch_once_t onceToken;
   [self.managedObjectContext save:nil];
 }
 
-- (void)determineFileDeletion:(Class)entityClass entities:(NSArray *)entities {
-  if (entityClass == [XMMCDContent class]) {
-    [self deleteSavedFilesForEntities:entities urlKeyPath:@"imagePublicUrl"];
-  }
-  
-  if (entityClass == [XMMCDSpot class]) {
-    [self deleteSavedFilesForEntities:entities urlKeyPath:@"image"];
-  }
-  
-  if (entityClass == [XMMCDContentBlock class]) {
-    [self deleteSavedFilesForEntities:entities urlKeyPath:@"fileID"];
-    [self deleteSavedFilesForEntities:entities urlKeyPath:@"videoUrl"];
+- (void)determineFileDeletionForEntities:(NSArray *)entities
+                             entityClass:(Class)entityClass
+                            saveDeletion:(BOOL)saveDeletion {
+  for (id entity in entities) {
+    if (entityClass == [XMMCDContent class]) {
+      [self deleteSavedFilesForEntity:entity urlKeyPath:@"imagePublicUrl" saveDeletion:saveDeletion];
+    }
+    
+    if (entityClass == [XMMCDSpot class]) {
+      [self deleteSavedFilesForEntity:entity urlKeyPath:@"image" saveDeletion:saveDeletion];
+    }
+    
+    if (entityClass == [XMMCDContentBlock class]) {
+      [self deleteSavedFilesForEntity:entity urlKeyPath:@"fileID" saveDeletion:saveDeletion];
+      [self deleteSavedFilesForEntity:entity urlKeyPath:@"videoUrl" saveDeletion:saveDeletion];
+    }
   }
 }
 
-- (void)deleteSavedFilesForEntities:(NSArray *)entities urlKeyPath:(NSString *)keyPath {
-  for (NSManagedObject *entity in entities) {
-    NSString *urlString = [entity valueForKey:keyPath];
-    if (urlString != nil) {
+- (void)deleteSavedFilesForEntity:(NSManagedObject *)entity urlKeyPath:(NSString *)keyPath
+                     saveDeletion:(BOOL)saveDeletion {
+  NSString *urlString = [entity valueForKey:keyPath];
+  
+  if (urlString != nil) {
+    if (saveDeletion) {
+      [self.saveDeletionFiles addObject:urlString];
+    } else {
       [self.fileManager deleteFileWithUrl:urlString error:nil];
     }
   }
+}
+
+- (void)deleteLocalFilesWithSafetyCheck {
+  for (NSString *urlString in self.saveDeletionFiles) {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"imagePublicUrl == %@", urlString];
+    NSArray *results = [self fetch:[XMMCDContent coreDataEntityName] predicate:predicate];
+    if (results.count > 0) {
+      continue;
+    }
+    
+    predicate = [NSPredicate predicateWithFormat:@"image == %@", urlString];
+    results = [self fetch:[XMMCDSpot coreDataEntityName] predicate:predicate];
+    if (results.count > 0) {
+      continue;
+    }
+    
+    predicate = [NSPredicate predicateWithFormat:@"fileID == %@ OR videoUrl == %@", urlString, urlString];
+    results = [self fetch:[XMMCDContentBlock coreDataEntityName] predicate:predicate];
+    if (results.count > 0) {
+      continue;
+    }
+    
+    [self.fileManager deleteFileWithUrl:urlString error:nil];
+  }
+  
+  [self.saveDeletionFiles removeAllObjects];
 }
 
 - (XMMOfflineFileManager *)fileManager {

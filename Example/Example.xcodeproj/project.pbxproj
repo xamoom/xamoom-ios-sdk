@@ -103,14 +103,14 @@
 				8888DDEC1C47B16C0050A84C /* AppDelegate.m */,
 				8888DDEE1C47B16C0050A84C /* ViewController.h */,
 				8888DDEF1C47B16C0050A84C /* ViewController.m */,
+				8830FED21DB629830072DCAC /* DetailViewController.h */,
+				8830FED31DB629830072DCAC /* DetailViewController.m */,
 				8888DDF11C47B16C0050A84C /* Main.storyboard */,
 				8888DDF41C47B16C0050A84C /* Assets.xcassets */,
 				8888DDF61C47B16C0050A84C /* LaunchScreen.storyboard */,
 				8888DDF91C47B16C0050A84C /* Info.plist */,
 				886BD8C01CB533E80040ECD0 /* TestingIDs.plist */,
 				8888DDE81C47B16C0050A84C /* Supporting Files */,
-				8830FED21DB629830072DCAC /* DetailViewController.h */,
-				8830FED31DB629830072DCAC /* DetailViewController.m */,
 			);
 			path = Example;
 			sourceTree = "<group>";

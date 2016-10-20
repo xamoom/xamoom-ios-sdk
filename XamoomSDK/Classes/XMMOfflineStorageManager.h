@@ -13,10 +13,11 @@
 
 @interface XMMOfflineStorageManager : NSObject
 
+extern NSString *const kManagedContextReadyNotification;
+
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) XMMOfflineFileManager *fileManager;
-
-extern NSString *const kManagedContextReadyNotification;
+@property (strong, nonatomic) NSMutableArray *saveDeletionFiles;
 
 + (instancetype)sharedInstance;
 
@@ -31,5 +32,7 @@ extern NSString *const kManagedContextReadyNotification;
 - (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID;
 
 - (void)deleteAllEntities;
+
+- (void)deleteLocalFilesWithSafetyCheck;
 
 @end

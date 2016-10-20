@@ -129,4 +129,86 @@
   OCMVerify([self.mockedContext deleteObject:[OCMArg isEqual:savedContent]]);
 }
 
+- (void)testSaveFileDeleteWithContentDuplicate {
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"1";
+  content.imagePublicUrl = @"www.xamoom.com/file.jpg";
+  XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
+  
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(@[savedContent]);
+  
+  XMMOfflineFileManager *mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
+  OCMReject([mockedFileManager deleteFileWithUrl:[OCMArg any] error:[OCMArg anyObjectRef]]);
+  self.storeManager.fileManager = mockedFileManager;
+  
+  [self.storeManager.saveDeletionFiles addObject:@"www.xamoom.com/file.jpg"];
+  [self.storeManager deleteLocalFilesWithSafetyCheck];
+}
+
+- (void)testSaveFileDeleteWithSpotDuplicate {
+  XMMSpot *spot = [[XMMSpot alloc] init];
+  spot.ID = @"2";
+  spot.image = @"www.xamoom.com/file.jpg";
+  XMMCDSpot *savedSpot = [XMMCDSpot insertNewObjectFrom:spot];
+  
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(@[savedSpot]);
+
+  XMMOfflineFileManager *mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
+  OCMReject([mockedFileManager deleteFileWithUrl:[OCMArg any] error:nil]);
+  self.storeManager.fileManager = mockedFileManager;
+  
+  [self.storeManager.saveDeletionFiles addObject:@"www.xamoom.com/file.jpg"];
+  [self.storeManager deleteLocalFilesWithSafetyCheck];
+  
+  OCMVerify(mockedFileManager);
+}
+
+- (void)testSaveFileDeleteWithContentBlockWithFileIDDuplicate {
+  XMMContentBlock *block = [[XMMContentBlock alloc] init];
+  block.ID = @"1";
+  block.fileID = @"www.xamoom.com/file.jpg";
+  [XMMCDContentBlock insertNewObjectFrom:block];
+  
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(@[block]);
+
+  XMMOfflineFileManager *mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
+  OCMReject([mockedFileManager deleteFileWithUrl:[OCMArg any] error:nil]);
+  self.storeManager.fileManager = mockedFileManager;
+  
+  [self.storeManager.saveDeletionFiles addObject:@"www.xamoom.com/file.jpg"];
+  [self.storeManager deleteLocalFilesWithSafetyCheck];
+  
+  OCMVerify(mockedFileManager);
+}
+
+- (void)testSaveFileDeleteWithContentBlockWithVideoUrlDuplicate {
+  XMMContentBlock *block = [[XMMContentBlock alloc] init];
+  block.ID = @"1";
+  block.videoUrl = @"www.xamoom.com/file.jpg";
+  [XMMCDContentBlock insertNewObjectFrom:block];
+  
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(@[block]);
+  
+  XMMOfflineFileManager *mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
+  OCMReject([mockedFileManager deleteFileWithUrl:[OCMArg any] error:nil]);
+  self.storeManager.fileManager = mockedFileManager;
+  
+  [self.storeManager.saveDeletionFiles addObject:@"www.xamoom.com/file.jpg"];
+  [self.storeManager deleteLocalFilesWithSafetyCheck];
+  
+  OCMVerify(mockedFileManager);
+}
+
+- (void)testSaveFileDeleteSuccess {
+  XMMOfflineFileManager *mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
+  self.storeManager.fileManager = mockedFileManager;
+  
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(@[]);
+
+  [self.storeManager.saveDeletionFiles addObject:@"www.xamoom.com/file.jpg"];
+  [self.storeManager deleteLocalFilesWithSafetyCheck];
+  
+  OCMVerify([mockedFileManager deleteFileWithUrl:[OCMArg isEqual:@"www.xamoom.com/file.jpg"] error:nil]);
+}
+
 @end

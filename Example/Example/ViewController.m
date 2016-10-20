@@ -118,11 +118,15 @@
 - (IBAction)didClickLoad:(id)sender {
   self.api.offline = YES;
   
+  [[XMMOfflineStorageManager sharedInstance] deleteAllEntities];
+  
+  /*
   [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
     NSLog(@"Content: %@", content);
     self.blocks.offline = YES;
     [self.blocks displayContent:content];
   }];
+   */
 }
 
 - (void)didClickContentBlock:(NSString *)contentID {
