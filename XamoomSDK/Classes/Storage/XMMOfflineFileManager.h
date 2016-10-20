@@ -21,4 +21,6 @@ extern NSString *const kXamoomOfflineSaveFileFromUrlError;
 
 - (UIImage *)savedImageFromUrl:(NSString *)urlString error:(NSError **)error;
 
+- (void)deleteFileWithUrl:(NSString *)urlString error:(NSError **)error;
+
 @end

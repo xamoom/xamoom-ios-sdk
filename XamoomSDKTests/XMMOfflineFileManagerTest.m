@@ -74,4 +74,22 @@
   XCTAssertTrue([[[url lastPathComponent] lowercaseString] isEqualToString:[[[NSURL URLWithString:checkUrl] lastPathComponent] lowercaseString]]);
 }
 
+- (void)testDeleteFileWithUrl {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineFileManager saveFileFromUrl:self.fileName completion:^(NSData *data, NSError *error) {
+    XCTAssertNotNil(data);
+    XCTAssertNil(error);
+    
+    NSError *error1;
+    [self.offlineFileManager deleteFileWithUrl:self.fileName error:&error1];
+    XCTAssertNil(error);
+    
+    NSData *data1 = [self.offlineFileManager savedDataFromUrl:self.fileName error:&error1];
+    XCTAssertNil(data1);
+    
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:2.0 handler:nil];
+}
+
 @end
