@@ -14,9 +14,10 @@ extern NSString *const kXamoomOfflineUpdateDownloadCount;
 
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) NSMutableArray *currentDownloads;
+@property (nonatomic) BOOL startDownloadAutomatically;
 
 + (instancetype)sharedInstance;
 
-- (void)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *, NSError *))completion;
+- (void)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *data, NSError *error))completion;
 
 @end

@@ -34,6 +34,7 @@ static XMMOfflineDownloadManager *sharedInstance;
     self.completionDict = [[NSMutableDictionary alloc] init];
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     self.session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:nil];
+    self.startDownloadAutomatically = YES;
   }
   
   return self;
@@ -42,25 +43,23 @@ static XMMOfflineDownloadManager *sharedInstance;
 - (void)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *data, NSError *error))completion {
   NSURLRequest *request = [NSURLRequest requestWithURL:url];
   NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request];
-  /*
-  NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    if (error) {
-      completion(nil, error);
-      return;
-    }
-    
-    NSData *data = [NSData dataWithContentsOfURL:location];
-    completion(data, nil);
-  }];
-  */
-  
+
   if (completion) {
     [self.completionDict setObject:completion forKey:url];
   }
   
   if (downloadTask) {
     [self addNewCurrentDownload:downloadTask];
-    [downloadTask resume];
+    
+    if (self.startDownloadAutomatically) {
+      [downloadTask resume];
+    }
+  }
+}
+
+- (void)startDownloads {
+  for (NSURLSessionDownloadTask *task in self.currentDownloads) {
+    [task resume];
   }
 }
 
