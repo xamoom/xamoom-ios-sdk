@@ -104,6 +104,18 @@ static dispatch_once_t onceToken;
            predicate:[NSPredicate predicateWithFormat:@"jsonID == %@", jsonID]];
 }
 
+- (void)deleteEntity:(NSString *)entityType ID:(NSString *)ID {
+  NSArray *results = [self fetch:entityType jsonID:ID];
+  if (results.count > 0) {
+    for (NSManagedObject *object in results) {
+      [self.managedObjectContext deleteObject:object];
+    }
+  }
+  
+  NSError *error;
+  [self.managedObjectContext save:&error];
+}
+
 - (void)deleteAllEntities {
   NSArray *entityArray = @[[XMMCDContent class],[XMMCDContentBlock class],[XMMCDMarker class],[XMMCDMenu class],[XMMCDMenuItem class],[XMMCDSpot class],[XMMCDStyle class],[XMMCDSystem class],[XMMCDSystemSettings class]];
   

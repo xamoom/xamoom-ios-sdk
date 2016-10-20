@@ -31,6 +31,8 @@ extern NSString *const kManagedContextReadyNotification;
 
 - (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID;
 
+- (void)deleteEntity:(NSString *)entityType ID:(NSString *)ID;
+
 - (void)deleteAllEntities;
 
 - (void)deleteLocalFilesWithSafetyCheck;

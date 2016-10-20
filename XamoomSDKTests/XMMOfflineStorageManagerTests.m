@@ -211,4 +211,17 @@
   OCMVerify([mockedFileManager deleteFileWithUrl:[OCMArg isEqual:@"www.xamoom.com/file.jpg"] error:nil]);
 }
 
+- (void)testDeleteEntityWithID {
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"1";
+  XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
+  
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(@[savedContent]);
+  
+  NSError *error;
+  [self.storeManager deleteEntity:[XMMCDContent coreDataEntityName] ID:@"1"];
+  
+  OCMVerify([self.mockedContext deleteObject:[OCMArg isEqual:savedContent]]);
+}
+
 @end
