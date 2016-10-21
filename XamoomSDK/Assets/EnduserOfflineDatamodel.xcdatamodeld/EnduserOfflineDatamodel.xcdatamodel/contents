@@ -8,7 +8,7 @@
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tags" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="contentBlocks" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="XMMCDContentBlock" syncable="YES"/>
+        <relationship name="contentBlocks" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="XMMCDContentBlock" syncable="YES"/>
         <relationship name="system" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDSystem" syncable="YES"/>
     </entity>
     <entity name="XMMCDContentBlock" syncable="YES">
@@ -41,7 +41,7 @@
     </entity>
     <entity name="XMMCDMenu" representedClassName="XMMCDMenu" syncable="YES">
         <attribute name="jsonID" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="XMMCDMenuItem" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="XMMCDMenuItem" syncable="YES"/>
     </entity>
     <entity name="XMMCDMenuItem" syncable="YES">
         <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -57,7 +57,7 @@
         <attribute name="spotDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tags" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="content" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDContent" syncable="YES"/>
-        <relationship name="markers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="XMMCDMarker" syncable="YES"/>
+        <relationship name="markers" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="XMMCDMarker" syncable="YES"/>
         <relationship name="system" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDSystem" syncable="YES"/>
     </entity>
     <entity name="XMMCDStyle" syncable="YES">
@@ -73,9 +73,9 @@
         <attribute name="jsonID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="menu" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDMenu" syncable="YES"/>
-        <relationship name="setting" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDSystemSettings" syncable="YES"/>
-        <relationship name="style" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="XMMCDStyle" syncable="YES"/>
+        <relationship name="menu" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="XMMCDMenu" syncable="YES"/>
+        <relationship name="setting" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="XMMCDSystemSettings" syncable="YES"/>
+        <relationship name="style" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="XMMCDStyle" syncable="YES"/>
     </entity>
     <entity name="XMMCDSystemSettings" representedClassName=".XMMCDSystemSettings" syncable="YES">
         <attribute name="googlePlayId" optional="YES" attributeType="String" syncable="YES"/>

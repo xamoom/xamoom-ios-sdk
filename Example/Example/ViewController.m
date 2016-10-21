@@ -11,6 +11,7 @@
 #import "XMMCDContent.h"
 #import "XMMCDSpot.h"
 #import "DetailViewController.h"
+#import "XMMOfflineHelper.h"
 
 @interface ViewController ()
 
@@ -83,8 +84,16 @@
 - (void)offlineReady {
   self.loadTabBarItem.enabled = YES;
   
-  [self contentWithTags];
-  //[self contentWithID];
+  NSLog(@"offline ready");
+  
+  //[self contentWithTags];
+  //[self loadSystem];
+  
+  XMMOfflineHelper *offlineHelper = [[XMMOfflineHelper alloc] initWithApi:self.api];
+  [offlineHelper downloadAndSaveWithTags:@[@"spot1"] completion:^(NSArray *spots, NSError *error) {
+    NSLog(@"Yeah!");
+  }];
+  
 }
 
 - (void)downloadFileUpdate:(NSNotification *)notification {
@@ -116,17 +125,17 @@
 }
 
 - (IBAction)didClickLoad:(id)sender {
-  self.api.offline = YES;
-  
-  [[XMMOfflineStorageManager sharedInstance] deleteAllEntities];
+  [self.system.menu deleteOfflineCopy];
   
   /*
+  self.api.offline = YES;
+  
   [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
     NSLog(@"Content: %@", content);
     self.blocks.offline = YES;
     [self.blocks displayContent:content];
   }];
-   */
+  */
 }
 
 - (void)didClickContentBlock:(NSString *)contentID {
@@ -347,8 +356,8 @@
     self.system.menu = menu;
     self.savedSystem = [XMMCDSystem insertNewObjectFrom:self.system];
     
-    for (XMMMenuItem *item in menu.items) {
-      NSLog(@"MenuItem: %@", item.contentTitle);
+    for (XMMContent *item in menu.items) {
+      NSLog(@"MenuItem: %@", item.title);
     }
   }];
 }
