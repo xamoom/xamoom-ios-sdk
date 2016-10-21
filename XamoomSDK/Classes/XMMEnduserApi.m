@@ -89,7 +89,7 @@ static XMMEnduserApi *sharedInstance;
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
   self.language = self.systemLanguage;
   self.offlineApi = [[XMMOfflineApi alloc] init];
-   [[XMMOfflineStorageManager sharedInstance] init];
+  [XMMOfflineStorageManager sharedInstance];
   
   self.restClient = restClient;
   [self setupResources];
