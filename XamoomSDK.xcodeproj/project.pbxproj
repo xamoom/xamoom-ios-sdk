@@ -185,6 +185,7 @@
 		88E46F321C493453004D8AC3 /* XMMRestClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46F311C493453004D8AC3 /* XMMRestClientTest.m */; };
 		88E46F341C49345C004D8AC3 /* XMMQueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46F331C49345C004D8AC3 /* XMMQueryTest.m */; };
 		88E46F361C49374A004D8AC3 /* XamoomSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 88E46F351C49374A004D8AC3 /* XamoomSDK.podspec */; };
+		88F0945F1DBD0CAF0072E9CA /* XMMOfflineStorageTagModule.h in Sources */ = {isa = PBXBuildFile; fileRef = 88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */; };
 		88F581FD1C5213D3003D7C49 /* contentPublicOnly.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F581FC1C5213D3003D7C49 /* contentPublicOnly.json */; };
 		88F582041C522AA0003D7C49 /* content.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F582031C522AA0003D7C49 /* content.json */; };
 		88FE68C11C4E380300E9A32A /* XMMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FE68BF1C4E380300E9A32A /* XMMMenu.h */; };
@@ -863,6 +864,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8888DDD61C47B0FA0050A84C /* Build configuration list for PBXNativeTarget "XamoomSDK" */;
 			buildPhases = (
+				1BE559E61A81F6E715EBF39F /* 📦 Check Pods Manifest.lock */,
 				C21C3A421DCA113D68013B23 /* [CP] Check Pods Manifest.lock */,
 				B02E2C5A641911F427ACCC99 /* [CP] Check Pods Manifest.lock */,
 				8888DDBD1C47B0FA0050A84C /* Sources */,
@@ -885,6 +887,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8888DDD91C47B0FA0050A84C /* Build configuration list for PBXNativeTarget "XamoomSDKTests" */;
 			buildPhases = (
+				54802381F5BCB38BAF8A6EB1 /* 📦 Check Pods Manifest.lock */,
 				94850F321E3ED7D9A6DD5404 /* [CP] Check Pods Manifest.lock */,
 				700FE395F0F579824CAB1041 /* [CP] Check Pods Manifest.lock */,
 				8888DDC81C47B0FA0050A84C /* Sources */,
@@ -992,6 +995,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1BE559E61A81F6E715EBF39F /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		235E136BC4263816322E33B3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1020,6 +1038,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54802381F5BCB38BAF8A6EB1 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5FF292A4CDDEFF32FE9B9629 /* [CP] Embed Pods Frameworks */ = {
@@ -1162,6 +1195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88F0945F1DBD0CAF0072E9CA /* XMMOfflineStorageTagModule.h in Sources */,
 				884937571C75C82100C53520 /* UIColor+HexString.m in Sources */,
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
