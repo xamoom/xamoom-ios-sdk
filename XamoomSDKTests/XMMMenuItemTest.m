@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "XMMMenuItem.h"
+#import "XMMContent.h"
 #import "XMMCDMenuItem.h"
 
 @interface XMMMenuItemTest : XCTestCase
@@ -31,9 +31,9 @@
 }
 
 - (void)testInitWithCoreDataObject {
-  XMMMenuItem *testItem = [[XMMMenuItem alloc] init];
+  XMMContent *testItem = [[XMMContent alloc] init];
   testItem.ID = @"1";
-  testItem.contentTitle = @"Test";
+  testItem.title = @"Test";
   testItem.category = 2;
   
   XMMCDMenuItem *savedMenuItem = [XMMCDMenuItem insertNewObjectFrom:testItem];
@@ -41,7 +41,7 @@
   XMMMenuItem *newMenuItem = [[XMMMenuItem alloc] initWithCoreDataObject:savedMenuItem];
   
   XCTAssertTrue([newMenuItem.ID isEqualToString:testItem.ID]);
-  XCTAssertTrue([newMenuItem.contentTitle isEqualToString:testItem.contentTitle]);
+  XCTAssertTrue([newMenuItem.contentTitle isEqualToString:testItem.title]);
   XCTAssertEqual(newMenuItem.category, testItem.category);
 }
 

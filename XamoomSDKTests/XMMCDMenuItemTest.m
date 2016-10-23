@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "XMMMenuItem.h"
+#import "XMMContent.h"
 #import "XMMCDMenuItem.h"
 #import "XMMOfflineStorageManager.h"
 
@@ -32,15 +32,15 @@
 }
 
 - (void)testInsertNewObjectFromEntityWithNoExistingEntry {
-  XMMMenuItem *testItem = [[XMMMenuItem alloc] init];
+  XMMContent *testItem = [[XMMContent alloc] init];
   testItem.ID = @"1";
-  testItem.contentTitle = @"Test";
+  testItem.title = @"Test";
   testItem.category = 2;
   
   XMMCDMenuItem *savedMenuItem = [XMMCDMenuItem insertNewObjectFrom:testItem];
   
   XCTAssertTrue([savedMenuItem.jsonID isEqualToString:testItem.ID]);
-  XCTAssertTrue([savedMenuItem.contentTitle isEqualToString:testItem.contentTitle]);
+  XCTAssertTrue([savedMenuItem.contentTitle isEqualToString:testItem.title]);
   XCTAssertEqual([savedMenuItem.category intValue], testItem.category);
 }
 

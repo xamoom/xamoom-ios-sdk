@@ -696,7 +696,7 @@
 }
 
 - (void)testMenuWithId {
-  XMMMenuItem *menuItem = [[XMMMenuItem alloc] init];
+  XMMContent *menuItem = [[XMMContent alloc] init];
   menuItem.ID = @"2";
  
   XMMMenu *newMenu = [[XMMMenu alloc] init];
@@ -716,7 +716,7 @@
 }
 
 - (void)testMenuWithIdTooManyResults {
-  XMMMenuItem *menuItem = [[XMMMenuItem alloc] init];
+  XMMContent *menuItem = [[XMMContent alloc] init];
   menuItem.ID = @"2";
   
   XMMMenu *newMenu = [[XMMMenu alloc] init];
