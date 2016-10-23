@@ -7,11 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "XMMCDSystem.h"
 #import "XMMCDContent.h"
 #import "XMMCDSpot.h"
 #import "DetailViewController.h"
-#import "XMMOfflineHelper.h"
+#import <XamoomSDK/XMMOfflineStorageTagModule.h>
 
 @interface ViewController ()
 
@@ -86,14 +85,13 @@
   
   NSLog(@"offline ready");
   
-  //[self contentWithTags];
-  //[self loadSystem];
-  
-  XMMOfflineHelper *offlineHelper = [[XMMOfflineHelper alloc] initWithApi:self.api];
-  [offlineHelper downloadAndSaveWithTags:@[@"spot1"] completion:^(NSArray *spots, NSError *error) {
-    NSLog(@"Yeah!");
+  XMMOfflineStorageTagModule *module = [[XMMOfflineStorageTagModule alloc] initWithApi:self.api];
+  [module downloadAndSaveWithTags:@[@"tag1", @"tag2"] completion:^(NSArray *spots, NSError *error) {
+    if (error) {
+      NSLog(@"error: %@", error);
+    }
+    
   }];
-  
 }
 
 - (void)downloadFileUpdate:(NSNotification *)notification {
@@ -125,7 +123,9 @@
 }
 
 - (IBAction)didClickLoad:(id)sender {
-  [self.system.menu deleteOfflineCopy];
+  
+  XMMOfflineStorageTagModule *module = [[XMMOfflineStorageTagModule alloc] init];
+  [module deleteSavedDataWithTags:@[@"tag1"] ignoreTags:nil];
   
   /*
   self.api.offline = YES;

@@ -50,4 +50,13 @@
   XCTAssertEqual(newMenuItem.category, testItem.category);
 }
 
+- (void)testSaveOffline {
+  XMMMenu *menu = [[XMMMenu alloc] init];
+  menu.ID = @"1";
+  
+  XMMCDMenu *savedMenu = [menu saveOffline];
+  
+  XCTAssertNotNil(savedMenu);
+}
+
 @end

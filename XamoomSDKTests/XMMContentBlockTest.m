@@ -71,4 +71,13 @@
   XCTAssertTrue([newContentBlock.altText isEqualToString:contentBlock.altText]);
 }
 
+- (void)testSaveOffline {
+  XMMContentBlock *contentBlock = [[XMMContentBlock alloc] init];
+  contentBlock.ID = @"1";
+  
+  XMMCDContentBlock *savedContentBlock = [contentBlock saveOffline];
+  
+  XCTAssertNotNil(savedContentBlock);
+}
+
 @end

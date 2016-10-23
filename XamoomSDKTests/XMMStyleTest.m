@@ -53,4 +53,13 @@
   XCTAssertTrue([newStyle.icon isEqualToString:style.icon]);
 }
 
+- (void)testSaveOffline {
+  XMMStyle *style = [[XMMStyle alloc] init];
+  style.ID = @"1";
+  
+  XMMCDStyle *savedStyle = [style saveOffline];
+  
+  XCTAssertNotNil(savedStyle);
+}
+
 @end

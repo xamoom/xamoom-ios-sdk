@@ -75,4 +75,13 @@
   XCTAssertEqual(newSpot.tags, spot.tags);
 }
 
+- (void)testSaveOffline {
+  XMMSpot *spot = [[XMMSpot alloc] init];
+  spot.ID = @"1";
+  
+  XMMCDSpot *savedSpot = [spot saveOffline];
+  
+  XCTAssertNotNil(savedSpot);
+}
+
 @end

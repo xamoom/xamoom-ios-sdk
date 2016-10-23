@@ -60,4 +60,13 @@
   XCTAssertTrue([newSystem.style.ID isEqualToString:style.ID]);
 }
 
+- (void)testSaveOffline {
+  XMMSystem *system = [[XMMSystem alloc] init];
+  system.ID = @"1";
+  
+  XMMCDSystem *savedSystem = [system saveOffline];
+  
+  XCTAssertNotNil(savedSystem);
+}
+
 @end

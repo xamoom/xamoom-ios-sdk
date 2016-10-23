@@ -54,4 +54,12 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   return self;
 }
 
+- (id<XMMCDResource>)saveOffline {
+  return [XMMCDMenuItem insertNewObjectFrom:self];
+}
+
+- (void)deleteOfflineCopy {
+  [[XMMOfflineStorageManager sharedInstance] deleteEntity:[XMMCDMenuItem coreDataEntityName] ID:self.ID];
+}
+
 @end

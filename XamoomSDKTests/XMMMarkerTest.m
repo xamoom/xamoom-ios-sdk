@@ -52,4 +52,13 @@
   XCTAssertTrue([newMarker.eddyStoneUrl isEqualToString:marker.eddyStoneUrl]);
 }
 
+- (void)testSaveOffline {
+  XMMMarker *marker = [[XMMMarker alloc] init];
+  marker.ID = @"1";
+  
+  XMMCDMarker *savedMarker = [marker saveOffline];
+  
+  XCTAssertNotNil(savedMarker);
+}
+
 @end

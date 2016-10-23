@@ -77,5 +77,13 @@
   XCTAssertEqual(newContent.tags, content.tags);
 }
 
+- (void)testSaveOffline {
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"1";
+  
+  XMMCDMenuItem *savedMenuItem = [content saveOffline];
+  
+  XCTAssertNotNil(savedMenuItem);
+}
 
 @end

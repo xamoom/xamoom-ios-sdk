@@ -45,4 +45,13 @@
   XCTAssertTrue([checkSettings.itunesAppId isEqualToString:settings.itunesAppId]);
 }
 
+- (void)testSaveOffline {
+  XMMSystemSettings *settings = [[XMMSystemSettings alloc] init];
+  settings.ID = @"1";
+  
+  XMMCDSystemSettings *savedSettings = [settings saveOffline];
+  
+  XCTAssertNotNil(savedSettings);
+}
+
 @end
