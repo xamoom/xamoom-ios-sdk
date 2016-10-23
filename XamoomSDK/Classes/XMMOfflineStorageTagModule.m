@@ -6,20 +6,20 @@
 //  Copyright © 2016 xamoom GmbH. All rights reserved.
 //
 
-#import "XMMOfflineHelper.h"
+#import "XMMOfflineStorageTagModule.h"
 #import "XMMCDSpot.h"
 #import "XMMOfflineApiHelper.h"
 #import "XMMCDContent.h"
 
 int const kPageSize = 100;
 
-@interface XMMOfflineHelper()
+@interface XMMOfflineStorageTagModule()
 
 @property NSMutableArray *allSpots;
 
 @end
 
-@implementation XMMOfflineHelper
+@implementation XMMOfflineStorageTagModule
 
 - (instancetype)initWithApi:(XMMEnduserApi *)api {
   self = [super init];
@@ -72,17 +72,28 @@ int const kPageSize = 100;
   
   NSMutableArray *contentsToDelete = [[NSMutableArray alloc] init];
   for (XMMCDSpot *spot in spotsToDelete) {
-    
+    // get all spots with
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"spot.content.jsonID == %@", spot.content.jsonID];
     NSArray *spotsWithThatContent = [self.storeManager fetch:[XMMCDSpot coreDataEntityName] predicate:predicate];
     
+    BOOL deleteableContent = YES;
+    for (XMMCDSpot *queriedSpot in spotsWithThatContent) {
+      if (![spotsToDelete containsObject:queriedSpot]) {
+        deleteableContent = NO;
+      }
+    }
     
-    
+    if (deleteableContent) {
+      [contentsToDelete addObject:spot.content];
+    }
   }
-  
   
   for (XMMCDSpot *spot in spotsToDelete) {
     [self.storeManager.managedObjectContext deleteObject:spot];
+  }
+  
+  for (XMMCDContent *content in contentsToDelete) {
+    [self.storeManager.managedObjectContext deleteObject:content];
   }
   
   NSError *error;

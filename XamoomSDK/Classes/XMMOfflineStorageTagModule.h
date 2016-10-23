@@ -10,7 +10,7 @@
 #import "XMMEnduserApi.h"
 #import "XMMOfflineStorageManager.h"
 
-@interface XMMOfflineHelper : NSObject
+@interface XMMOfflineStorageTagModule : NSObject
 
 @property (strong, nonatomic) XMMEnduserApi *api;
 @property (strong, nonatomic) XMMOfflineStorageManager *storeManager;
