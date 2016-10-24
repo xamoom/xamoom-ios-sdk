@@ -107,6 +107,7 @@ static dispatch_once_t onceToken;
 - (void)deleteEntity:(NSString *)entityType ID:(NSString *)ID {
   NSArray *results = [self fetch:entityType jsonID:ID];
   if (results.count > 0) {
+    
     for (NSManagedObject *object in results) {
       [self.managedObjectContext deleteObject:object];
     }

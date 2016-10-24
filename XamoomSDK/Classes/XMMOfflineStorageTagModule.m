@@ -41,11 +41,21 @@ int const kPageSize = 100;
     }
     
     for (XMMSpot *spot in self.allSpots) {
-      [XMMCDSpot insertNewObjectFrom:spot];
+      [spot saveOffline];
     }
     
-    [offlineTags arrayByAddingObjectsFromArray:tags];
-    completion(self.allSpots, error);
+    [self downloadAllContentsFromSpots:self.allSpots completion:^(NSArray *contents, NSError *error) {
+      if (error) {
+        completion(nil, error);
+      }
+      
+      for (XMMContent *content in contents) {
+        [content saveOffline];
+      }
+      
+      [self.offlineTags addObjectsFromArray:tags];
+      completion(self.allSpots, error);
+    }];
   }];
 }
 
@@ -65,6 +75,34 @@ int const kPageSize = 100;
       completion(self.allSpots, nil);
     }
   }];
+}
+
+- (void) downloadAllContentsFromSpots:(NSArray *)spots completion:(void (^)(NSArray *contents, NSError *error))completion {
+  NSMutableArray *allContents = [[NSMutableArray alloc] init];
+  int count = 0;
+  
+  for (XMMSpot *spot in spots) {
+    if (spot.content != nil) {
+      count++;
+    }
+  }
+  
+  for (XMMSpot *spot in spots) {
+    if (spot.content != nil) {
+      [self.api contentWithID:spot.content.ID completion:^(XMMContent *content, NSError *error) {
+        if (error) {
+          completion(nil, error);
+          return;
+        }
+        
+        [allContents addObject:content];
+        
+        if (allContents.count == count) {
+          completion(allContents, nil);
+        }
+      }];
+    }
+  }
 }
 
 - (NSError *)deleteSavedDataWithTags:(NSArray *)tags {
@@ -95,11 +133,11 @@ int const kPageSize = 100;
   }
   
   for (XMMCDSpot *spot in spotsToDelete) {
-    [self.storeManager.managedObjectContext deleteObject:spot];
+    [self.storeManager deleteEntity:[XMMCDSpot coreDataEntityName] ID:spot.jsonID];
   }
   
   for (XMMCDContent *content in contentsToDelete) {
-    [self.storeManager.managedObjectContext deleteObject:content];
+    [self.storeManager deleteEntity:[XMMCDContent coreDataEntityName] ID:content.jsonID];
   }
   
   NSError *error;
@@ -108,7 +146,7 @@ int const kPageSize = 100;
 }
 
 - (void)addOfflineTag:(NSString *)tag {
-  [offlineTags addObject:tag];
+  [self.offlineTags addObject:tag];
 }
 
 - (XMMOfflineStorageManager *)storeManager {
