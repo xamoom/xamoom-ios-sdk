@@ -76,7 +76,7 @@
 }
 
 - (void)testkContentBlock9MapContentLinkNotification {
-  XCTAssertTrue([[XMMContentBlocks kContentBlock9MapContentLinkNotification] isEqualToString:@"com.xamoom.kContentBlock9MapContentLinkNotification"]);
+  XCTAssertTrue([[XMMContentBlocks kContentBlock9MapContentLinkNotification] isEqualToString:@"com.xamoom.ios.kContentBlock9MapContentLinkNotification"]);
 }
 
 - (void)testThatUpdateFontSizeUpdatesValue {
@@ -283,6 +283,54 @@
   OCMVerifyAll(delegateMock);
 }
 
+- (void)testRemoveStoreLinksFromBlocks {
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.blockType = 4;
+  block1.linkType = 17;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.blockType = 4;
+  block2.linkType = 16;
+  
+  NSArray *blocks = @[block1, block2];
+  
+  XMMContent *content = [[XMMContent alloc] init];
+  content.contentBlocks= blocks;
+  
+  [self.contentBlocks displayContent:content addHeader:NO];
+  
+  NSArray *newBlocks = self.contentBlocks.items;
+  
+  XCTAssertEqual(newBlocks.count, 0);
+}
+
+- (void)testRemoveNonOfflineBlocks {
+  XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
+  block1.blockType = 7;
+  
+  XMMContentBlock *block2 = [[XMMContentBlock alloc] init];
+  block2.blockType = 2;
+  block2.videoUrl = @"https://www.youtube.com/watch?v=vrPzsP2gl4M";
+  
+  XMMContentBlock *block3 = [[XMMContentBlock alloc] init];
+  block3.blockType = 2;
+  block3.videoUrl = @"https://vimeo.com/187372244";
+  
+  XMMContentBlock *block4 = [[XMMContentBlock alloc] init];
+  block4.blockType = 9;
+  
+  NSArray *blocks = @[block1, block2, block3, block4];
+  
+  XMMContent *content = [[XMMContent alloc] init];
+  content.contentBlocks= blocks;
+  
+  self.contentBlocks.offline = YES;
+  [self.contentBlocks displayContent:content addHeader:NO];
+  
+  NSArray *newBlocks = self.contentBlocks.items;
+  
+  XCTAssertEqual(newBlocks.count, 0);
+}
 
 #pragma mark - Helpers
 

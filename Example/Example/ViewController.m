@@ -7,13 +7,24 @@
 //
 
 #import "ViewController.h"
+#import "XMMCDContent.h"
+#import "XMMCDSpot.h"
+#import "DetailViewController.h"
+#import <XamoomSDK/XMMOfflineStorageTagModule.h>
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *loadTabBarItem;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property XMMEnduserApi *api;
 @property XMMContentBlocks *blocks;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property XMMContent *content;
+
+@property XMMSystem *system;
+@property XMMCDSystem *savedSystem;
+
+@property XMMOfflineStorageTagModule *module;
 
 @end
 
@@ -28,7 +39,7 @@
   NSString *devkey = [dict objectForKey:@"X-DEVKEY"];
   
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"Xamoom iOS SDK | SDK Example | 2.2.0",
+                                @"User-Agent":@"XamoomSDK iOS | SDK Example | dev",
                                 @"APIKEY":apikey,
                                 @"X-DEVKEY":devkey};
   
@@ -41,7 +52,60 @@
   self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
   self.blocks.delegate = self;
   
-  [self displayContent];
+  
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(offlineReady)
+   name:kManagedContextReadyNotification
+   object:nil];
+  
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(offlineFileSaveError:)
+   name:kXamoomOfflineSaveFileFromUrlError
+   object:nil];
+  
+  [[NSNotificationCenter defaultCenter]
+   addObserver:self
+   selector:@selector(downloadFileUpdate:)
+   name:kXamoomOfflineUpdateDownloadCount
+   object:nil];
+  
+  
+  self.module = [[XMMOfflineStorageTagModule alloc] initWithApi:self.api];
+
+  //[self loadSystem];
+  //[self contentWithID];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:kManagedContextReadyNotification object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:kXamoomOfflineSaveFileFromUrlError object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:kXamoomOfflineUpdateDownloadCount object:nil];
+}
+
+
+- (void)offlineReady {
+  self.loadTabBarItem.enabled = YES;
+  
+  NSLog(@"offline ready");
+
+  [self.module downloadAndSaveWithTags:@[@"tag1", @"tag2"] completion:^(NSArray *spots, NSError *error) {
+    if (error) {
+      NSLog(@"error: %@", error);
+    }
+  }];
+}
+
+- (void)downloadFileUpdate:(NSNotification *)notification {
+  NSLog(@"Count %@", notification.userInfo[@"count"]);
+
+}
+
+- (void)offlineFileSaveError:(NSNotification *)notification {
+  NSError *error = notification.userInfo[@"error"];
+  NSString *url = notification.userInfo[@"url"];
+  NSLog(@"Error:%@ loading file: %@", error, url);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,20 +122,42 @@
   [self contentWithTags];
   [self spotsWithLocation];
   [self spotsWithTags];
-  [self system];
+  [self loadSystem];
+}
+
+- (IBAction)didClickLoad:(id)sender {
+  [self.module deleteSavedDataWithTags:@[@"tag1"]];
+  [self.module deleteSavedDataWithTags:@[@"tag2"]];
+  
+  /*
+  self.api.offline = YES;
+  
+  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
+    NSLog(@"Content: %@", content);
+    self.blocks.offline = YES;
+    [self.blocks displayContent:content];
+  }];
+  */
 }
 
 - (void)didClickContentBlock:(NSString *)contentID {
   NSLog(@"DidClockContentBlock: %@", contentID);
+  
+  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  DetailViewController *vc = (DetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+  vc.contentID = contentID;
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)contentWithID {
-  [self.api contentWithID:@"e5be72be162d44b189893a406aff5227" completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
+    XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
+    //[self.blocks displayContent:content];
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -81,14 +167,17 @@
 }
 
 - (void)contentWithIDOptions {
-  [self.api contentWithID:@"e5be72be162d44b189893a406aff5227" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"0737f96b520645cab6d71242cd43cdad" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
-    self.content = content;
-    [self.blocks displayContent:self.content];
+    XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
+    
+    
+    //self.content = content;
+    //[self.blocks displayContent:self.content];
     
     NSLog(@"ContentWithIdOptions: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -138,10 +227,17 @@
 }
 
 - (void)contentWithTags {
-  [self.api contentsWithTags:@[@"tag1",@"tag2"] pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  self.api.offline = NO;
+  [self.api contentsWithTags:@[@"tests"] pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
+    }
+    
+    for (XMMContent *content in contents) {
+      [self.api contentWithID:content.ID completion:^(XMMContent *content2, NSError *error) {
+        [XMMCDContent insertNewObjectFrom:content2];
+      }];
     }
     
     NSLog(@"ContentWithTags: %@", contents);
@@ -162,43 +258,49 @@
 - (void)spotWithIdAndOptions:(NSString *)spotID {
   [self.api spotWithID:spotID options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker
             completion:^(XMMSpot *spot, NSError *error) {
-    if (error) {
-      NSLog(@"Error: %@", error);
-      return;
-    }
-    
-    NSLog(@"spotWithIdAndOptions: %@", spot);
-  }];
+              if (error) {
+                NSLog(@"Error: %@", error);
+                return;
+              }
+              
+              NSLog(@"spotWithIdAndOptions: %@", spot);
+            }];
 }
 
 - (void)spotsWithLocation {
-  CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-  [self.api spotsWithLocation:location radius:1000 options:0 completion:^(NSArray *spots, NSError *error) {
+  /*
+   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
+   [self.api spotsWithLocation:location radius:1000 options:0 completion:^(NSArray *spots, NSError *error) {
+   if (error) {
+   NSLog(@"Error: %@", error);
+   return;
+   }
+   
+   NSLog(@"spotsWithLocation: %@", spots);
+   XMMSpot *spot = [spots objectAtIndex:0];
+   [self spotWithId:spot.ID];
+   [self spotWithIdAndOptions:spot.ID];
+   
+   }];
+   */
+}
+
+- (void)spotsWithTags {
+  [self.api spotsWithTags:@[@"tag1"] pageSize:10 cursor:nil options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
-    NSLog(@"spotsWithLocation: %@", spots);
-    XMMSpot *spot = [spots objectAtIndex:0];
-    [self spotWithId:spot.ID];
-    [self spotWithIdAndOptions:spot.ID];
-
-  }];
-}
-
-- (void)spotsWithTags {
-  [self.api spotsWithTags:@[@"tag1"] pageSize:10 cursor:nil options:XMMSpotOptionsIncludeContent sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
-    if (error) {
-      NSLog(@"Error: %@", error);
-      return;
+    for (XMMSpot *spot in spots) {
+      [XMMCDSpot insertNewObjectFrom:spot];
     }
     
     NSLog(@"spotsWithTags: %@", spots);
   }];
 }
 
-- (void)system {
+- (void)loadSystem {
   [self.api systemWithCompletion:^(XMMSystem *system, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
@@ -206,6 +308,10 @@
     }
     
     NSLog(@"system: %@", system);
+    
+    self.system = system;
+    self.savedSystem = [XMMCDSystem insertNewObjectFrom:system];
+    
     [self systemSettingsWithID:system.setting.ID];
     [self styleWithID:system.style.ID];
     [self menuWithID:system.menu.ID];
@@ -220,6 +326,8 @@
     }
     
     NSLog(@"Settings: %@", settings);
+    self.system.setting = settings;
+    self.savedSystem = [XMMCDSystem insertNewObjectFrom:self.system];
   }];
 }
 
@@ -230,9 +338,10 @@
       return;
     }
     
+    self.system.style = style;
+    self.savedSystem = [XMMCDSystem insertNewObjectFrom:self.system];
     //self.blocks.style = style;
     //[self.blocks.tableView reloadData];
-    
     NSLog(@"Style: %@", style);
   }];
 }
@@ -246,8 +355,11 @@
     
     NSLog(@"Menu: %@", menu);
     
-    for (XMMMenuItem *item in menu.items) {
-      NSLog(@"MenuItem: %@", item.contentTitle);
+    self.system.menu = menu;
+    self.savedSystem = [XMMCDSystem insertNewObjectFrom:self.system];
+    
+    for (XMMContent *item in menu.items) {
+      NSLog(@"MenuItem: %@", item.title);
     }
   }];
 }

@@ -54,6 +54,7 @@ static NSString *contentLanguage;
   self.mapHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   
   self.didLoadStyle = NO;
+  [super awakeFromNib];
 }
 
 - (void)setupMapView {
@@ -117,7 +118,11 @@ static NSString *contentLanguage;
   [self.mapAdditionView addConstraint:self.mapAdditionViewHeightConstraint];
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
+  if (offline) {
+    return;
+  }
+  
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   
   self.titleLabel.text = block.title;

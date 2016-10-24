@@ -19,14 +19,15 @@
     "ios": "8.0"
   },
   "requires_arc": true,
-  "source_files": "XamoomSDK/Classes/**/*.{h,m}",
+  "source_files": "XamoomSDK/Classes/**/**/*.{h,m}",
   "public_header_files": "XamoomSDK/Classes/**/*.h",
   "resources": "XamoomSDK/Assets/Images.xcassets",
   "resource_bundles": {
     "XamoomSDK": [
       "XamoomSDK/Assets/*.xcassets",
       "XamoomSDK/Assets/*.lproj",
-      "XamoomSDK/Classes/ContentBlocks/**/*.xib"
+      "XamoomSDK/Classes/ContentBlocks/**/*.xib",
+      "XamoomSDK/Assets/*.xcdatamodeld"
     ]
   },
   "dependencies": {

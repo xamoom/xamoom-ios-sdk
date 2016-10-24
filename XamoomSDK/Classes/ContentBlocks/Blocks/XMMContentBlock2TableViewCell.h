@@ -35,12 +35,13 @@
 @property (nonatomic, strong) AVPlayer *videoPlayer;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playIconImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;
+@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
 
 @end
 
 @interface XMMContentBlock2TableViewCell (XMMTableViewRepresentation)
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style;
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline;
 
 - (void)openVideo;
 

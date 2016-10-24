@@ -45,6 +45,7 @@
   XCTAssertNotNil(api.restClient);
   XCTAssertTrue([api.restClient.session.configuration.HTTPAdditionalHeaders isEqualToDictionary:httpHeaders]);
   XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
+  XCTAssertNotNil(api.offlineApi);
 }
 
 - (void)testInitWithApiKeyBaseUrlRestClient {
@@ -1176,7 +1177,6 @@
   
   [api systemWithCompletion:^(XMMSystem *system, NSError *error) {
     XCTAssertTrue([system.url isEqualToString:@"http://testpavol.at"]);
-    XCTAssertTrue(system.isDemo);
     XCTAssertTrue([system.name isEqualToString:@"Dev xamoom testing UMGEBUNG"]);
     XCTAssertNotNil(system.menu);
     XCTAssertNotNil(system.style);

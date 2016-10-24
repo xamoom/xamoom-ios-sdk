@@ -18,6 +18,7 @@
 //
 
 #import "XMMContentBlock3TableViewCell.h"
+#import "XMMOfflineFileManager.h"
 
 @interface XMMContentBlock3TableViewCell()
 
@@ -28,8 +29,10 @@
 - (void)awakeFromNib {
   [self setupGestureRecognizers];
   [self.blockImageView setIsAccessibilityElement:YES];
+  self.fileManager = [[XMMOfflineFileManager alloc] init];
   
   self.titleLabel.text = nil;
+  [super awakeFromNib];
 }
 
 - (void)setupGestureRecognizers {
@@ -56,7 +59,7 @@
   [self setNeedsUpdateConstraints];
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   
   if (![block.linkUrl isEqualToString:@""]) {
@@ -80,7 +83,10 @@
     [self calculateImageScaling:block.scaleX];
   }
   
-  if (block.fileID != nil && ![block.fileID isEqualToString:@""]) {
+  if (offline) {
+    NSURL *filePath = [self.fileManager urlForSavedData:block.fileID];
+    [self displayImageFromURL:filePath tableView:tableView indexPath:indexPath];
+  } else if (block.fileID != nil && ![block.fileID isEqualToString:@""]) {
     [self displayImageFromURL:[NSURL URLWithString:block.fileID] tableView:tableView indexPath:indexPath];
   }
 }

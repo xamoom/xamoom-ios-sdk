@@ -35,6 +35,7 @@
 
   [self setupColors];
   [self setupBundle];
+  [super awakeFromNib];
 }
 
 - (void)setupColors {
@@ -75,8 +76,9 @@
   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   //set title, text, linkUrl and linkType
+  
   if(block.title != nil) {
     self.titleLabel.text = block.title;
   }

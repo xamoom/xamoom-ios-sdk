@@ -18,6 +18,7 @@
 //
 
 #import "XMMSystemSettings.h"
+#import "XMMCDSystemSettings.h"
 
 @implementation XMMSystemSettings
 
@@ -39,6 +40,26 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  self = [self init];
+  if (self && object != nil) {
+    XMMCDSystemSettings *savedSettings = (XMMCDSystemSettings *)object;
+    self.ID = savedSettings.jsonID;
+    self.googlePlayAppId = savedSettings.googlePlayId;
+    self.itunesAppId = savedSettings.itunesAppId;
+  }
+  
+  return self;
+}
+
+- (id<XMMCDResource>)saveOffline {
+  return [XMMCDSystemSettings insertNewObjectFrom:self];
+}
+
+- (void)deleteOfflineCopy {
+  [[XMMOfflineStorageManager sharedInstance] deleteEntity:[XMMCDSystemSettings coreDataEntityName] ID:self.ID];
 }
 
 @end

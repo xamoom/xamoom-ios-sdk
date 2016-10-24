@@ -18,6 +18,7 @@
 //
 
 #import "XMMContent.h"
+#import "XMMCDContent.h"
 
 @implementation XMMContent
 
@@ -45,6 +46,42 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  self = [self init];
+  if (self && object != nil) {
+    XMMCDContent *savedContent = (XMMCDContent *)object;
+    self.ID = savedContent.jsonID;
+    self.title = savedContent.title;
+    self.imagePublicUrl = savedContent.imagePublicUrl;
+    self.contentDescription = savedContent.contentDescription;
+    self.language = savedContent.language;
+    self.category = [savedContent.category intValue];
+    self.tags = savedContent.tags;
+    
+    if (savedContent.contentBlocks != nil) {
+      NSMutableArray *blocks = [[NSMutableArray alloc] init];
+      for (XMMCDContentBlock *block in savedContent.contentBlocks) {
+        [blocks addObject:[[XMMContentBlock alloc] initWithCoreDataObject:block]];
+      }
+      self.contentBlocks = blocks;
+    }
+    
+    if (savedContent.system != nil) {
+      self.system = [[XMMSystem alloc] initWithCoreDataObject:savedContent.system];
+    }
+    
+  }
+  return self;
+}
+
+- (id<XMMCDResource>)saveOffline {
+  return [XMMCDContent insertNewObjectFrom:self];
+}
+
+- (void)deleteOfflineCopy {
+  [[XMMOfflineStorageManager sharedInstance] deleteEntity:[XMMCDContent coreDataEntityName] ID:self.ID];
 }
 
 @end

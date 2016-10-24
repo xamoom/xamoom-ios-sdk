@@ -37,6 +37,7 @@
 @property (unsafe_unretained, nonatomic) IBOutlet NSLayoutConstraint *imageRightHorizontalSpaceConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpacingImageTitleConstraint;
 @property (nonatomic) NSLayoutConstraint *imageRatioConstraint;
+@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
 
 @property (strong, nonatomic) NSString *linkUrl;
 
@@ -46,6 +47,6 @@
 
 @interface XMMContentBlock3TableViewCell (XMMTableViewRepresentation)
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style;
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline;
 
 @end

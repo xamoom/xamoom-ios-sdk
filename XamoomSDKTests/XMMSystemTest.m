@@ -2,63 +2,71 @@
 //  XMMSystemTest.m
 //  XamoomSDK
 //
-//  Created by Raphael Seher on 03/10/2016.
+//  Created by Raphael Seher on 07/10/2016.
 //  Copyright © 2016 xamoom GmbH. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import <OCMock/OCMock.h>
 #import "XMMSystem.h"
-#import "XMMOfflineStorageManager.h"
+#import "XMMCDSystem.h"
 
 @interface XMMSystemTest : XCTestCase
-
-@property id offlineStorage;
-@property id mockedContext;
 
 @end
 
 @implementation XMMSystemTest
 
-- (void)verifySavedEntity:(XMMSystem *)system {
-  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:[XMMSystem coreDataEntityName]];
-  [request setPredicate:[NSPredicate predicateWithFormat:@"jsonID == %@", system.jsonID]];
-  
-  NSError *error = nil;
-  NSArray *results = [[XMMOfflineStorageManager sharedInstance].managedObjectContext executeFetchRequest:request error:&error];
-
-  NSLog(@"Results: %@", results);
-}
-
-
 - (void)setUp {
-  self.offlineStorage = [XMMOfflineStorageManager sharedInstance];
-  self.mockedContext = OCMPartialMock([XMMOfflineStorageManager sharedInstance].managedObjectContext);
-  
-  [super setUp];
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
-  [super tearDown];
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
 }
 
-- (void)testInit {
+- (void)testSystemResourceName {
+  XCTAssertTrue([[XMMSystem resourceName] isEqualToString:@"systems"]);
+}
+
+- (void)testInitWithCoreDataObject {
   XMMSystem *system = [[XMMSystem alloc] init];
-  system.name = @"Some Name";
+  system.ID = @"1";
+  system.name = @"name";
+  system.url = @"url";
   
-  XCTAssertNotNil(system);
-  XCTAssertEqual(@"Some Name", system.name);
+  XMMStyle *style = [[XMMStyle alloc] init];
+  style.ID = @"2";
+  system.style = style;
+  
+  XMMMenu *menu = [[XMMMenu alloc] init];
+  menu.ID = @"3";
+  system.menu = menu;
+  
+  XMMSystemSettings *settings = [[XMMSystemSettings alloc] init];
+  settings.ID = @"4";
+  system.setting = settings;
+  
+  XMMCDSystem *savedSystem = [XMMCDSystem insertNewObjectFrom:system];
+  
+  XMMSystem *newSystem = [[XMMSystem alloc] initWithCoreDataObject:savedSystem];
+  
+  XCTAssertTrue([newSystem.ID isEqualToString:system.ID]);
+  XCTAssertTrue([newSystem.name isEqualToString:system.name]);
+  XCTAssertTrue([newSystem.url isEqualToString:system.url]);
+  XCTAssertTrue([newSystem.setting.ID isEqualToString:settings.ID]);
+  XCTAssertTrue([newSystem.menu.ID isEqualToString:menu.ID]);
+  XCTAssertTrue([newSystem.style.ID isEqualToString:style.ID]);
 }
 
 - (void)testSaveOffline {
   XMMSystem *system = [[XMMSystem alloc] init];
-  system.jsonID = @"1234";
-  system.name = @"Some Name";
+  system.ID = @"1";
   
-  NSError *error = [system saveOffline];
+  XMMCDSystem *savedSystem = [system saveOffline];
   
-  OCMVerify([self.mockedContext insertObject:[OCMArg isEqual:system]]);
-  XCTAssertNil(error);
+  XCTAssertNotNil(savedSystem);
 }
 
 @end

@@ -33,6 +33,7 @@
 - (void)awakeFromNib {
   // Initialization code
   self.videoPlayer = nil;
+  self.fileManager = [[XMMOfflineFileManager alloc] init];
   
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
@@ -42,10 +43,11 @@
   } else {
     imageBundle = bundle;
   }
-
+  
   self.playImage = [UIImage imageNamed:@"videoPlay"
                               inBundle:imageBundle compatibleWithTraitCollection:nil];
   self.webView.scrollView.scrollEnabled = false;
+  [super awakeFromNib];
 }
 
 - (void)prepareForReuse {
@@ -57,13 +59,19 @@
   self.openInYoutubeView.hidden = YES;
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   self.videoUrl = block.videoUrl;
-  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  if (style.foregroundFontColor) {
+    self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  }
   self.titleLabel.text = block.title;
-  
   self.playIconImageView.image = self.playImage;
-  [self determineVideoFromURLString:self.videoUrl];
+  
+  if (offline) {
+    [self determineVideoFromURLString:[self.fileManager urlForSavedData:self.videoUrl].absoluteString];
+  } else {
+    [self determineVideoFromURLString:self.videoUrl];
+  }
 }
 
 - (void)determineVideoFromURLString:(NSString*)videoURLString {

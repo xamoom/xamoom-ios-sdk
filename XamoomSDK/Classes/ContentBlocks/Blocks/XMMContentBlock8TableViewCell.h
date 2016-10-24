@@ -34,6 +34,8 @@
 @property (strong, nonatomic) NSString *fileID;
 @property (strong, nonatomic) UIImage *contactImage;
 @property (strong, nonatomic) UIImage *calendarImage;
+@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
+@property (nonatomic) BOOL offline;
 
 - (UIImage *)iconForDownloadType:(int)downloadType;
 
@@ -43,6 +45,6 @@
 
 @interface XMMContentBlock8TableViewCell (XMMTableViewRepresentation)
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style;
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline;
 
 @end

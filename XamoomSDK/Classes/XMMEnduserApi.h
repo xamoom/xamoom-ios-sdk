@@ -23,6 +23,7 @@
 #import "XMMRestClient.h"
 #import "XMMOptions.h"
 #import "XMMParamHelper.h"
+#import "XMMOfflineApi.h"
 #import "XMMSpot.h"
 #import "XMMStyle.h"
 #import "XMMSystem.h"
@@ -31,13 +32,6 @@
 #import "XMMContent.h"
 #import "XMMContentBlock.h"
 #import "XMMMarker.h"
-
-@class XMMContentById;
-@class XMMContentByLocation;
-@class XMMContentByLocationIdentifier;
-@class XMMSpotMap;
-@class XMMContentList;
-@class XMMClosestSpot;
 
 #pragma mark - XMMEnduserApi
 
@@ -69,6 +63,14 @@ extern NSString * const kApiBaseURLString;
  * XMMRestClient used to call rest api.
  */
 @property (strong, nonatomic) XMMRestClient *restClient;
+/**
+ * XMMOfflineApi used when offline is set.
+ */
+@property (strong, nonatomic) XMMOfflineApi *offlineApi;
+/**
+ * Indicator to use the XMMOfflineApi.
+ */
+@property (getter=isOffline, nonatomic) BOOL offline;
 
 /// @name Singleton
 
@@ -77,14 +79,14 @@ extern NSString * const kApiBaseURLString;
  * created with sharedInstanceWithKey:apikey or set via
  * saveSharedInstance:instance.
  */
-+ (id)sharedInstance;
++ (instancetype)sharedInstance;
 
 /**
  * Get the sharedInstance, when there is none, creates a new one with apikey.
  *
  * @param apikey Your xamoom api key
  */
-+ (id)sharedInstanceWithKey:(NSString *)apikey;
++ (instancetype)sharedInstanceWithKey:(NSString *)apikey;
 
 /**
  * Change the saved sharedInstance.

@@ -11,13 +11,13 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'XamoomSDK/Classes/**/*.{h,m}'
+  s.source_files = 'XamoomSDK/Classes/**/**/*.{h,m}'
   s.public_header_files = 'XamoomSDK/Classes/**/*.h'
 
   s.resource = 'XamoomSDK/Assets/Images.xcassets'
   s.resource_bundles = {
     'XamoomSDK' => ['XamoomSDK/Assets/*.xcassets', 'XamoomSDK/Assets/*.lproj',
-    'XamoomSDK/Classes/ContentBlocks/**/*.xib']
+    'XamoomSDK/Classes/ContentBlocks/**/*.xib', 'XamoomSDK/Assets/*.xcdatamodeld']
   }
 
 #s.frameworks = 'CoreText', 'CoreImage', 'QuartzCore', 'CoreGraphics', 'UIKit'

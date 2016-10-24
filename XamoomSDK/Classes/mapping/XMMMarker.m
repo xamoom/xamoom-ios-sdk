@@ -18,6 +18,7 @@
 //
 
 #import "XMMMarker.h"
+#import "XMMCDMarker.h"
 
 @implementation XMMMarker
 
@@ -43,6 +44,30 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  self = [self init];
+  if (self && object != nil) {
+    XMMCDMarker *savedMarker = (XMMCDMarker *)object;
+    self.ID = savedMarker.jsonID;
+    self.qr = savedMarker.qr;
+    self.nfc = savedMarker.nfc;
+    self.beaconUUID = savedMarker.beaconUUID;
+    self.beaconMajor = savedMarker.beaconMajor;
+    self.beaconMinor = savedMarker.beaconMinor;
+    self.eddyStoneUrl = savedMarker.eddyStoneUrl;
+  }
+  
+  return self;
+}
+
+- (id<XMMCDResource>)saveOffline {
+  return [XMMCDMarker insertNewObjectFrom:self];
+}
+
+- (void)deleteOfflineCopy {
+  [[XMMOfflineStorageManager sharedInstance] deleteEntity:[XMMCDMarker coreDataEntityName] ID:self.ID];
 }
 
 @end
