@@ -24,6 +24,8 @@
 @property XMMSystem *system;
 @property XMMCDSystem *savedSystem;
 
+@property XMMOfflineStorageTagModule *module;
+
 @end
 
 @implementation ViewController
@@ -68,7 +70,10 @@
    selector:@selector(downloadFileUpdate:)
    name:kXamoomOfflineUpdateDownloadCount
    object:nil];
-    
+  
+  
+  self.module = [[XMMOfflineStorageTagModule alloc] initWithApi:self.api];
+
   //[self loadSystem];
   //[self contentWithID];
 }
@@ -84,13 +89,11 @@
   self.loadTabBarItem.enabled = YES;
   
   NSLog(@"offline ready");
-  
-  XMMOfflineStorageTagModule *module = [[XMMOfflineStorageTagModule alloc] initWithApi:self.api];
-  [module downloadAndSaveWithTags:@[@"tag1", @"tag2"] completion:^(NSArray *spots, NSError *error) {
+
+  [self.module downloadAndSaveWithTags:@[@"tag1", @"tag2"] completion:^(NSArray *spots, NSError *error) {
     if (error) {
       NSLog(@"error: %@", error);
     }
-    
   }];
 }
 
@@ -123,9 +126,8 @@
 }
 
 - (IBAction)didClickLoad:(id)sender {
-  
-  XMMOfflineStorageTagModule *module = [[XMMOfflineStorageTagModule alloc] init];
-  [module deleteSavedDataWithTags:@[@"tag1"] ignoreTags:nil];
+  [self.module deleteSavedDataWithTags:@[@"tag1"]];
+  [self.module deleteSavedDataWithTags:@[@"tag2"]];
   
   /*
   self.api.offline = YES;
