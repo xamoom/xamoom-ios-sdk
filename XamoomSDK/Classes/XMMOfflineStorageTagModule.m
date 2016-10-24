@@ -21,10 +21,13 @@ int const kPageSize = 100;
 
 @implementation XMMOfflineStorageTagModule
 
+@synthesize offlineTags;
+
 - (instancetype)initWithApi:(XMMEnduserApi *)api {
   self = [super init];
   if (self) {
     self.api = api;
+    offlineTags = [[NSMutableArray alloc] init];
   }
   return self;
 }
@@ -41,6 +44,7 @@ int const kPageSize = 100;
       [XMMCDSpot insertNewObjectFrom:spot];
     }
     
+    [offlineTags arrayByAddingObjectsFromArray:tags];
     completion(self.allSpots, error);
   }];
 }
@@ -63,16 +67,18 @@ int const kPageSize = 100;
   }];
 }
 
-- (NSError *)deleteSavedDataWithTags:(NSArray *)tags ignoreTags:(NSArray *)ignoreTags {
+- (NSError *)deleteSavedDataWithTags:(NSArray *)tags {
+  [offlineTags removeObjectsInArray:tags];
+
   NSArray *allSpots = [self.storeManager fetchAll:[XMMCDSpot coreDataEntityName]];
   XMMOfflineApiHelper* offlineApiHelper = [[XMMOfflineApiHelper alloc] init];
   NSMutableArray *spotsToDelete = [[offlineApiHelper entitiesWithTags:allSpots tags:tags] mutableCopy];
-  NSArray *spotsToKeep = [offlineApiHelper entitiesWithTags:spotsToDelete tags:ignoreTags];
+  NSArray *spotsToKeep = [offlineApiHelper entitiesWithTags:spotsToDelete tags:offlineTags];
   [spotsToDelete removeObjectsInArray:spotsToKeep];
   
   NSMutableArray *contentsToDelete = [[NSMutableArray alloc] init];
   for (XMMCDSpot *spot in spotsToDelete) {
-    // get all spots with
+    // get all spots with that content
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"content.jsonID == %@", spot.content.jsonID];
     NSArray *spotsWithThatContent = [self.storeManager fetch:[XMMCDSpot coreDataEntityName] predicate:predicate];
     
@@ -99,6 +105,10 @@ int const kPageSize = 100;
   NSError *error;
   [self.storeManager.managedObjectContext save:&error];
   return error;
+}
+
+- (void)addOfflineTag:(NSString *)tag {
+  [offlineTags addObject:tag];
 }
 
 - (XMMOfflineStorageManager *)storeManager {

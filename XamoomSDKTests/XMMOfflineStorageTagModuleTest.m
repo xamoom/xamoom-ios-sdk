@@ -84,7 +84,10 @@
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
   OCMReject([self.mockedContext deleteObject:[OCMArg isEqual:spots[1]]]);
   
-  NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"] ignoreTags:@[@"tag2"]];
+  [self.offlineHelper addOfflineTag:@"tag1"];
+  [self.offlineHelper addOfflineTag:@"tag2"];
+  
+  NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
   
   OCMVerify([self.mockedContext deleteObject:[OCMArg isEqual:spots[0]]]);
 }
@@ -103,6 +106,9 @@
   spot2.tags = @[@"tag1", @"tag2"];
   spot2.content = content;
   
+  [self.offlineHelper addOfflineTag:@"tag1"];
+  [self.offlineHelper addOfflineTag:@"tag2"];
+  
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
   
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
@@ -111,7 +117,7 @@
   XMMCDSpot *savedSpot = spots[0];
   OCMReject([self.mockedContext deleteObject:savedSpot.content]);
   
-  NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"] ignoreTags:@[@"tag2"]];
+  NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
 }
 
 - (void)testDeleteSavedDataWtihTagsDifferentContent {
@@ -131,13 +137,16 @@
   spot2.tags = @[@"tag1", @"tag2"];
   spot2.content = content2;
   
+  [self.offlineHelper addOfflineTag:@"tag1"];
+  [self.offlineHelper addOfflineTag:@"tag2"];
+  
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
   
   NSArray *spotsWithContent1 = @[spots[0]];
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
   OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spotsWithContent1);
   
-  NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"] ignoreTags:@[@"tag2"]];
+  NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
   
   XMMCDSpot *savedSpot = spots[0];
   OCMVerify([self.mockedContext deleteObject:savedSpot.content]);

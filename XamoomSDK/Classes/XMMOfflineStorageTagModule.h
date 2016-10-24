@@ -14,11 +14,14 @@
 
 @property (strong, nonatomic) XMMEnduserApi *api;
 @property (strong, nonatomic) XMMOfflineStorageManager *storeManager;
+@property (strong, nonatomic, readonly) NSMutableArray *offlineTags;
 
 - (instancetype)initWithApi:(XMMEnduserApi * __nonnull)api;
 
 - (void)downloadAndSaveWithTags:(NSArray *)tags completion:(void (^)(NSArray *spots, NSError *error))completion;
 
-- (NSError *)deleteSavedDataWithTags:(NSArray *)tags ignoreTags:(NSArray *)ignoreTags;
+- (NSError *)deleteSavedDataWithTags:(NSArray *)tags;
+
+- (void)addOfflineTag:(NSString *)tag;
 
 @end
