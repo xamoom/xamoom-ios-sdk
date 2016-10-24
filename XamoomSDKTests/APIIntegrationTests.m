@@ -51,7 +51,8 @@
   [super tearDown];
 }
 
-- (void)testContentWithID {
+/*
+- (void)skipped_testContentWithID {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   NSArray *tags = [NSArray arrayWithObjects:@"tag1", @"tag2", nil];
   
@@ -154,13 +155,13 @@
     XCTAssertTrue(block.blockType == 9);
     XCTAssertTrue([block.spotMapTags isEqualToArray:[NSArray arrayWithObject:@"spot1"]]);
     XCTAssertTrue(block.showContent);
-    */
+ 
     [expectation fulfill];
   }];
   
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
-
+*/
 /*
 - (void)testContentWithLocationIdentifier {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
