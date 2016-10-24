@@ -46,6 +46,9 @@
 }
 
 - (void)testDownloadWithTags {
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"2";
+  
   OCMStub([self.mockApi spotsWithTags:[OCMArg any] pageSize:100 cursor:[OCMArg any] options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:0 completion:[OCMArg any]]).andDo(^(NSInvocation *invocation) {
     void (^passedBlock)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 7];
@@ -54,12 +57,20 @@
     
     XMMSpot *spot = [[XMMSpot alloc] init];
     spot.ID = @"1";
+    spot.content = content;
     
     if ([cursor isEqualToString:@"1"]) {
       passedBlock(@[spot], NO, nil, nil);
     } else {
       passedBlock(@[spot], YES, @"1", nil);
     }
+  });
+  
+  OCMStub([self.mockApi contentWithID:[OCMArg any] completion:[OCMArg any]]).andDo(^(NSInvocation *invocation) {
+    void (^passedBlock)(XMMContent *contents, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 3];
+    
+    passedBlock(content, nil);
   });
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
@@ -71,13 +82,21 @@
 }
 
 - (void)testDeleteSavedWithTagsSameTags {
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"3";
+  
+  XMMContent *content2 = [[XMMContent alloc] init];
+  content2.ID = @"4";
+  
   XMMSpot *spot1 = [[XMMSpot alloc] init];
   spot1.ID = @"1";
   spot1.tags = @[@"tag1"];
+  spot1.content = content;
   
   XMMSpot *spot2 = [[XMMSpot alloc] init];
   spot2.ID = @"2";
   spot2.tags = @[@"tag1", @"tag2"];
+  spot2.content = content2;
   
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
   
@@ -89,7 +108,7 @@
   
   NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
   
-  OCMVerify([self.mockedContext deleteObject:[OCMArg isEqual:spots[0]]]);
+  OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"1"]]);
 }
 
 - (void)testDeleteSavedDataWithTagsSameContent {
@@ -125,7 +144,7 @@
   content.ID = @"3";
   
   XMMContent *content2 = [[XMMContent alloc] init];
-  content.ID = @"4";
+  content2.ID = @"4";
   
   XMMSpot *spot1 = [[XMMSpot alloc] init];
   spot1.ID = @"1";
@@ -148,8 +167,7 @@
   
   NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
   
-  XMMCDSpot *savedSpot = spots[0];
-  OCMVerify([self.mockedContext deleteObject:savedSpot.content]);
+  OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"3"]]);
 }
 
 @end

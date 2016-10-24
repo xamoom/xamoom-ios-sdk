@@ -133,12 +133,15 @@ int const kPageSize = 100;
   }
   
   for (XMMCDSpot *spot in spotsToDelete) {
-    [self.storeManager deleteEntity:[XMMCDSpot coreDataEntityName] ID:spot.jsonID];
+    [self.storeManager deleteEntity:[XMMCDSpot class] ID:spot.jsonID];
   }
   
   for (XMMCDContent *content in contentsToDelete) {
-    [self.storeManager deleteEntity:[XMMCDContent coreDataEntityName] ID:content.jsonID];
+    NSLog(@"test: %@", content.jsonID);
+    [self.storeManager deleteEntity:[XMMCDContent class] ID:content.jsonID];
   }
+  
+  [self.storeManager deleteLocalFilesWithSafetyCheck];
   
   NSError *error;
   [self.storeManager.managedObjectContext save:&error];

@@ -104,9 +104,14 @@ static dispatch_once_t onceToken;
            predicate:[NSPredicate predicateWithFormat:@"jsonID == %@", jsonID]];
 }
 
-- (void)deleteEntity:(NSString *)entityType ID:(NSString *)ID {
-  NSArray *results = [self fetch:entityType jsonID:ID];
+- (void)deleteEntity:(Class)entityClass ID:(NSString *)ID {
+  NSString *entityName = nil;
+  if ([entityClass conformsToProtocol:@protocol(XMMCDResource)]) {
+    entityName = [entityClass coreDataEntityName];
+  }
+  NSArray *results = [self fetch:entityName jsonID:ID];
   if (results.count > 0) {
+    [self determineFileDeletionForEntities:results entityClass:entityClass saveDeletion:YES];
     
     for (NSManagedObject *object in results) {
       [self.managedObjectContext deleteObject:object];
@@ -157,7 +162,13 @@ static dispatch_once_t onceToken;
 
 - (void)deleteSavedFilesForEntity:(NSManagedObject *)entity urlKeyPath:(NSString *)keyPath
                      saveDeletion:(BOOL)saveDeletion {
-  NSString *urlString = [entity valueForKey:keyPath];
+  NSString *urlString = nil;
+  @try {
+    urlString = [entity valueForKey:keyPath];
+  }
+  @catch (NSException *e) {
+    return;
+  }
   
   if (urlString != nil) {
     if (saveDeletion) {
