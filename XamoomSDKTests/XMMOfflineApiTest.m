@@ -134,6 +134,7 @@
   XMMMarker *newMarker = [[XMMMarker alloc] init];
   newMarker.ID = @"2";
   newMarker.beaconMinor = @"0ana0";
+  newMarker.beaconMajor = @u"52196";
   
   XMMSpot *newSpot = [[XMMSpot alloc] init];
   newSpot.ID = @"3";
@@ -142,7 +143,7 @@
   [XMMCDSpot insertNewObjectFrom:newSpot];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentWithLocationIdentifier:@"0ana0" completion:^(XMMContent *content, NSError *error) {
+  [self.offlineApi contentWithLocationIdentifier:@"52196|0ana0" completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
     XCTAssertEqual(newContent.ID, content.ID);
     [expectation fulfill];
