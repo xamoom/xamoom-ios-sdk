@@ -10,8 +10,6 @@
 #import "XMMOfflineFileManager.h"
 #import "NSString+MD5.h"
 
-NSString *const kXamoomOfflineSaveFileFromUrlError = @"com.xamoom.ios.kSaveFileFromUrlError";
-
 @implementation XMMOfflineFileManager
 
 - (NSURL *)urlForSavedData:(NSString *)urlString {
@@ -36,10 +34,6 @@ NSString *const kXamoomOfflineSaveFileFromUrlError = @"com.xamoom.ios.kSaveFileF
         completion(nil, savingError);
       }
       
-      [[NSNotificationCenter defaultCenter] postNotificationName:kXamoomOfflineSaveFileFromUrlError
-                                                          object:self
-                                                        userInfo:@{@"url":urlString,
-                                                                   @"error":error}];
       return;
     }
     
