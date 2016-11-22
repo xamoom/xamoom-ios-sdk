@@ -26,6 +26,12 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
+  return [self insertNewObjectFrom:entity fileManager:fileManager completion:nil];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity
+                        fileManager:(XMMOfflineFileManager *)fileManager
+                         completion:(void (^)(NSData *, NSError *))completion {
   XMMSystem *system = (XMMSystem *)entity;
   XMMCDSystem *savedSystem = nil;
   

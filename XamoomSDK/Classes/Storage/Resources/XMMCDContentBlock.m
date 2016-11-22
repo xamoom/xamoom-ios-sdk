@@ -38,6 +38,12 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
+  return [self insertNewObjectFrom:entity fileManager:fileManager completion:nil];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity
+                        fileManager:(XMMOfflineFileManager *)fileManager
+                         completion:(void(^)(NSData *data, NSError *error))completion {
   XMMContentBlock *contentBlock = (XMMContentBlock *)entity;
   XMMCDContentBlock *savedContentBlock = nil;
   
@@ -59,7 +65,7 @@
   savedContentBlock.artists = contentBlock.artists;
   savedContentBlock.fileID = contentBlock.fileID;
   if (contentBlock.fileID) {
-    [fileManager saveFileFromUrl:contentBlock.fileID completion:nil];
+    [fileManager saveFileFromUrl:contentBlock.fileID completion:completion];
   }
   savedContentBlock.soundcloudUrl = contentBlock.soundcloudUrl;
   savedContentBlock.linkUrl = contentBlock.linkUrl;
@@ -69,9 +75,9 @@
   savedContentBlock.spotMapTags = contentBlock.spotMapTags;
   savedContentBlock.scaleX = [NSNumber numberWithDouble:contentBlock.scaleX];
   savedContentBlock.videoUrl = contentBlock.videoUrl;
-  if (contentBlock.videoUrl && ![contentBlock.videoUrl containsString:@"youtube"]
+  if (contentBlock.videoUrl && ![contentBlock.videoUrl containsString:@"youtu"]
       && ![contentBlock.videoUrl containsString:@"vimeo"]) {
-    [fileManager saveFileFromUrl:contentBlock.videoUrl completion:nil];
+    [fileManager saveFileFromUrl:contentBlock.videoUrl completion:completion];
   }
   savedContentBlock.showContent = [NSNumber numberWithBool:contentBlock.showContent];
   savedContentBlock.altText = contentBlock.altText;

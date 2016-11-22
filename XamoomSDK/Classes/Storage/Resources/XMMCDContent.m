@@ -26,12 +26,17 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity {
-  return [XMMCDContent insertNewObjectFrom:entity
-                           fileManager:[[XMMOfflineFileManager alloc] init]];
+  return [self insertNewObjectFrom:entity
+                       fileManager:[[XMMOfflineFileManager alloc] init]];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
+  return [self insertNewObjectFrom:entity fileManager:fileManager completion:nil];
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity
-                    fileManager:(XMMOfflineFileManager *)fileManager {
+                        fileManager:(XMMOfflineFileManager *)fileManager
+                         completion:(void(^)(NSData *data, NSError *error))completion {
   XMMContent *content = (XMMContent *)entity;
   XMMCDContent *savedContent = nil;
   
@@ -61,7 +66,7 @@
   savedContent.title = content.title;
   savedContent.imagePublicUrl = content.imagePublicUrl;
   if (content.imagePublicUrl) {
-    [fileManager saveFileFromUrl:content.imagePublicUrl completion:nil];
+    [fileManager saveFileFromUrl:content.imagePublicUrl completion:completion];
   }
   savedContent.contentDescription = content.contentDescription;
   savedContent.language = content.language;

@@ -32,6 +32,12 @@
 }
 
 + (instancetype)insertNewObjectFrom:(id)entity fileManager:(XMMOfflineFileManager *)fileManager {
+  return [self insertNewObjectFrom:entity fileManager:fileManager completion:nil];
+}
+
++ (instancetype)insertNewObjectFrom:(id)entity
+                        fileManager:(XMMOfflineFileManager *)fileManager
+                         completion:(void (^)(NSData *, NSError *))completion {
   XMMSpot *spot = (XMMSpot *)entity;
   XMMCDSpot *savedSpot = nil;
   
@@ -70,7 +76,7 @@
   savedSpot.locationDictionary = spot.locationDictionary;
   savedSpot.image = spot.image;
   if (spot.image) {
-    [fileManager saveFileFromUrl:spot.image completion:nil];
+    [fileManager saveFileFromUrl:spot.image completion:completion];
   }
   savedSpot.category = [NSNumber numberWithInt:spot.category];
   savedSpot.tags = spot.tags;

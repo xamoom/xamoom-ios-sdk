@@ -20,4 +20,9 @@
 
 + (instancetype)insertNewObjectFrom:(id)entity
                     fileManager:(XMMOfflineFileManager *)fileManager;
+
++ (instancetype)insertNewObjectFrom:(id)entity
+                        fileManager:(XMMOfflineFileManager *)fileManager
+                         completion:(void(^)(NSData *data, NSError *error))completion;
+
 @end
