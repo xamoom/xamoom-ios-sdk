@@ -134,7 +134,7 @@
   XMMMarker *newMarker = [[XMMMarker alloc] init];
   newMarker.ID = @"2";
   newMarker.beaconMinor = @"0ana0";
-  newMarker.beaconMajor = @u"52196";
+  newMarker.beaconMajor = @"52196";
   
   XMMSpot *newSpot = [[XMMSpot alloc] init];
   newSpot.ID = @"3";
