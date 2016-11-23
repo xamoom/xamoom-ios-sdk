@@ -45,6 +45,8 @@ extern NSString * const kApiBaseURLString;
  * 
  * Change the requested language by setting the language. The users language is
  * saved in systemLanguage.
+ *
+ * Set offline to true, to get results from offline storage.
  */
 @interface XMMEnduserApi : NSObject
 

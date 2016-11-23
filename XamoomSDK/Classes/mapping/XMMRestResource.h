@@ -22,12 +22,24 @@
 
 @protocol XMMRestResource <NSObject>
 
+/**
+ * JSONApi resource name.
+ */
 + (NSString * _Null_unspecified)resourceName;
 
+/**
+ * Initialize entity with offline saved entity.
+ */
 - (instancetype _Null_unspecified)initWithCoreDataObject:(id<XMMCDResource> _Nonnull)object;
 
+/**
+ * Save offline copy of this entity.
+ */
 - (id<XMMCDResource> _Nonnull)saveOffline;
 
+/**
+ * Delete offline saved copy of this entity.
+ */
 - (void)deleteOfflineCopy;
 
 @end

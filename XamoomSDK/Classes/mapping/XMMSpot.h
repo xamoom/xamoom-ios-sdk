@@ -78,6 +78,14 @@
  */
 @property (nonatomic) XMMSystem *system;
 
+/**
+ * Save this entity for offline use with callback for downloaded files.  
+ *
+ * @param downloadCompletion Completion block called after finishing download
+ * - *param1* url Url of the saved file
+ * - *param1* data Data of the saved file
+ * - *param2* error NSError, can be null
+ */
 - (id<XMMCDResource>)saveOffline:(void (^)(NSString *url, NSData *data, NSError *error))downloadCompletion;
 
 @end

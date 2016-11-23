@@ -55,7 +55,9 @@
   if (content.contentBlocks != nil) {
     NSMutableOrderedSet *contentBlocks = [[NSMutableOrderedSet alloc] init];
     for (XMMContentBlock *block in content.contentBlocks) {
-      [contentBlocks addObject:[XMMCDContentBlock insertNewObjectFrom:block]];
+      [contentBlocks addObject:[XMMCDContentBlock insertNewObjectFrom:block
+                                                          fileManager:fileManager
+                                                           completion:completion]];
     }
     savedContent.contentBlocks = contentBlocks;
   }
