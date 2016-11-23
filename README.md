@@ -39,7 +39,7 @@ Grab a contentID from your [xamoom-system](https://xamoom.net/) (open a page and
 
 ```objective-c
 //make your call
-[self.api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
+[self.api contentWithID:contentID completion:^(XMMContent \*content, NSError \*error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
@@ -65,6 +65,33 @@ xamoom offers support for iBeacons. We have a [small guide](https://github.com/x
 
 xamoom has a lot of different contentBlocks. With XMMContentBlocks you have a easy way to display them.
 How to use it is in our [Step by Step Guide](https://github.com/xamoom/xamoom-ios-sdk/wiki/Step-by-Step-Guide).
+
+# Offline
+
+## Save & get entities Offline
+
+You can save your entities offline and use them even if you are not connected
+to the internet.
+
+To save entities offline call its `saveOffline` method.
+For example to save a content works like this:
+
+```objective-c
+[content saveOffline];
+
+// with completionBlock for automatically downloaded files
+// XMMContent & XMMSpot will download their files
+[content saveOffline:^(NSString \*url, NSData \*data, NSError \*error) {
+  NSLog(@"Downloaded file %@", url);
+}];
+```
+
+To get offline saved entities use the `XMMEnduserApi` and set the offline property
+to true:
+```objective-c
+enduserApi.offline = YES;
+```
+All `XMMEnduserApi` calls will now return you the offline saved entities.
 
 # Requirements
 
