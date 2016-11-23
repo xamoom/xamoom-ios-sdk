@@ -32,7 +32,9 @@ int const kPageSize = 100;
   return self;
 }
 
-- (void)downloadAndSaveWithTags:(NSArray *)tags completion:(void (^)(NSArray *, NSError *))completion {
+- (void)downloadAndSaveWithTags:(NSArray *)tags
+             downloadCompletion:(void (^)(NSString *url, NSData *data, NSError *error))downloadCompletion
+                     completion:(void (^)(NSArray *, NSError *))completion {
   self.allSpots = [[NSMutableArray alloc] init];
   
   [self downloadAllSpots:tags cursor:nil completion:^(NSArray *spots, NSError *error) {
@@ -41,7 +43,7 @@ int const kPageSize = 100;
     }
     
     for (XMMSpot *spot in self.allSpots) {
-      [spot saveOffline];
+      [spot saveOffline:downloadCompletion];
     }
     
     [self downloadAllContentsFromSpots:self.allSpots completion:^(NSArray *contents, NSError *error) {
@@ -50,7 +52,7 @@ int const kPageSize = 100;
       }
       
       for (XMMContent *content in contents) {
-        [content saveOffline];
+        [content saveOffline:downloadCompletion];
       }
       
       [self.offlineTags addObjectsFromArray:tags];

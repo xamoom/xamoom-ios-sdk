@@ -80,6 +80,12 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   return [XMMCDContent insertNewObjectFrom:self];
 }
 
+- (id<XMMCDResource>)saveOffline:(void (^)(NSString *url, NSData *, NSError *))downloadCompletion {
+  return [XMMCDContent insertNewObjectFrom:self
+                               fileManager:[[XMMOfflineFileManager alloc] init]
+                                completion:downloadCompletion];
+}
+
 - (void)deleteOfflineCopy {
   [[XMMOfflineStorageManager sharedInstance] deleteEntity:[XMMCDContent class] ID:self.ID];
 }

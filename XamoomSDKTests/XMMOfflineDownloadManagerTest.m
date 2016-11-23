@@ -36,12 +36,39 @@
   
   OCMStub([mockedSession downloadTaskWithRequest:[OCMArg any]]).andReturn(mockedTask);
 
-  [self.downloadManager downloadFileFromUrl:[NSURL URLWithString:@"file.jp"] completion:^(NSData *data, NSError *error) {
+  [self.downloadManager downloadFileFromUrl:[NSURL URLWithString:@"file.jp"] completion:^(NSString *url, NSData *data, NSError *error) {
     //
   }];
   
-  OCMVerify([mockedTask resume]);
   XCTAssertEqual(self.downloadManager.currentDownloads.count, 1);
+}
+
+- (void)testStartDownloads {
+  NSURLSession *mockedSession = OCMClassMock([NSURLSession class]);
+  self.downloadManager.session = mockedSession;
+  self.downloadManager.startDownloadAutomatically = NO;
+  
+  NSURLSessionDownloadTask *mockedTask = OCMClassMock([NSURLSessionDownloadTask class]);
+  OCMStub([mockedSession downloadTaskWithRequest:[OCMArg any]]).andReturn(mockedTask);
+  NSURLRequest *mockedUrlRequest = OCMClassMock([NSURLRequest class]);
+  OCMStub([mockedTask originalRequest]).andReturn(mockedUrlRequest);
+  NSURL *urlForMock = [NSURL URLWithString:@"file.jpg"];
+  OCMStub([mockedUrlRequest URL]).andReturn(urlForMock);
+  
+  [self.downloadManager downloadFileFromUrl:urlForMock completion:^(NSString *url, NSData *data, NSError *error) {
+    XCTAssertEqual(urlForMock.absoluteString, url);
+  }];
+  
+  XCTAssertEqual(self.downloadManager.currentDownloads.count, 1);
+  
+  [self.downloadManager startDownloads];
+  
+  [self.downloadManager URLSession:mockedSession
+                      downloadTask:mockedTask
+         didFinishDownloadingToURL:urlForMock];
+  
+  XCTAssertEqual(self.downloadManager.currentDownloads.count, 0);
+  OCMVerify([mockedTask resume]);
 }
 
 @end

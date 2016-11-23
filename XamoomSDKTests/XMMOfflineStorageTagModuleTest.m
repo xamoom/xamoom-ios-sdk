@@ -74,7 +74,7 @@
   });
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineHelper downloadAndSaveWithTags:@[@"tag1"] completion:^(NSArray *spots, NSError *error) {
+  [self.offlineHelper downloadAndSaveWithTags:@[@"tag1"] downloadCompletion:nil completion:^(NSArray *spots, NSError *error) {
     XCTAssertEqual(spots.count, 2);
     [expectation fulfill];
   }];

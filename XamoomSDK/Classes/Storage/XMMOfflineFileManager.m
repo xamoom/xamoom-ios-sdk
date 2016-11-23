@@ -16,12 +16,13 @@
   return [self filePathForSavedObject:urlString];
 }
 
-- (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSData *, NSError *))completion {
+- (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSString *url, NSData *, NSError *))completion {
   NSURL *filePath = [self filePathForSavedObject:urlString];
-  [[XMMOfflineDownloadManager sharedInstance] downloadFileFromUrl:[NSURL URLWithString:urlString] completion:^(NSData *data, NSError *error) {
+  [[XMMOfflineDownloadManager sharedInstance] downloadFileFromUrl:[NSURL URLWithString:urlString]
+                                                       completion:^(NSString *url, NSData *data, NSError *error) {
     if (error) {
       if (completion) {
-        completion(nil, error);
+        completion(url, nil, error);
       }
       return;
     }
@@ -31,14 +32,14 @@
     
     if (savingError) {
       if (completion) {
-        completion(nil, savingError);
+        completion(url, nil, savingError);
       }
       
       return;
     }
     
     if (completion) {
-      completion(data, nil);
+      completion(url, data, nil);
     }
   }];
 }

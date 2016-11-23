@@ -32,7 +32,7 @@
 
 + (instancetype)insertNewObjectFrom:(id)entity
                         fileManager:(XMMOfflineFileManager *)fileManager
-                         completion:(void (^)(NSData *, NSError *))completion {
+                         completion:(void (^)(NSString *url, NSData *, NSError *))completion {
   XMMStyle *style = (XMMStyle *)entity;
   XMMCDStyle *savedStyle = nil;
   

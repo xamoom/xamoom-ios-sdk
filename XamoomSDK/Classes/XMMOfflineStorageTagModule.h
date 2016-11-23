@@ -19,6 +19,7 @@
 - (nonnull instancetype)initWithApi:(nonnull XMMEnduserApi *)api;
 
 - (void)downloadAndSaveWithTags:(nonnull NSArray *)tags
+             downloadCompletion:(nullable void (^)(NSString * _Null_unspecified url, NSData * _Null_unspecified data, NSError * _Null_unspecified error))downloadCompletion
                      completion:(nullable void (^)( NSArray * _Null_unspecified spots , NSError * _Null_unspecified error))completion;
 
 - (nullable NSError *)deleteSavedDataWithTags:(nonnull NSArray *)tags;

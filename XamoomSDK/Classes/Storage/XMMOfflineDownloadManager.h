@@ -18,6 +18,9 @@ extern NSString *const kXamoomOfflineUpdateDownloadCount;
 
 + (instancetype)sharedInstance;
 
-- (void)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *data, NSError *error))completion;
+- (void)downloadFileFromUrl:(NSURL *)url
+                 completion:(void (^)(NSString *url, NSData *data, NSError *error))completion;
+
+- (void)startDownloads;
 
 @end

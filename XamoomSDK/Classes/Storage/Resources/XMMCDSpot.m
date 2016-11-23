@@ -37,7 +37,7 @@
 
 + (instancetype)insertNewObjectFrom:(id)entity
                         fileManager:(XMMOfflineFileManager *)fileManager
-                         completion:(void (^)(NSData *, NSError *))completion {
+                         completion:(void (^)(NSString *url, NSData *, NSError *))completion {
   XMMSpot *spot = (XMMSpot *)entity;
   XMMCDSpot *savedSpot = nil;
   

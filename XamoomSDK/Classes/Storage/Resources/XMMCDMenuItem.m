@@ -29,7 +29,7 @@
 
 + (instancetype)insertNewObjectFrom:(id)entity
                         fileManager:(XMMOfflineFileManager *)fileManager
-                         completion:(void (^)(NSData *, NSError *))completion {
+                         completion:(void (^)(NSString *url, NSData *, NSError *))completion {
   XMMContent *menuItem = (XMMContent *)entity;
   XMMCDMenuItem *savedMenuItem = nil;
   

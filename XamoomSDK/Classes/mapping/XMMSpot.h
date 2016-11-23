@@ -78,5 +78,7 @@
  */
 @property (nonatomic) XMMSystem *system;
 
+- (id<XMMCDResource>)saveOffline:(void (^)(NSString *url, NSData *data, NSError *error))downloadCompletion;
+
 @end
 

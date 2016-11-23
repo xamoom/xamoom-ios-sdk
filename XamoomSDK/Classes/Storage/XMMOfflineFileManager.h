@@ -15,7 +15,7 @@ extern NSString *const kXamoomOfflineSaveFileFromUrlError;
 
 - (NSURL *)urlForSavedData:(NSString *)urlString;
 
-- (void)saveFileFromUrl:(NSString *)urlString completion:(void(^)(NSData *data, NSError *error))completion;
+- (void)saveFileFromUrl:(NSString *)urlString completion:(void(^)(NSString *url, NSData *data, NSError *error))completion;
 
 - (NSData *)savedDataFromUrl:(NSString *)urlString error:(NSError **)error;
 

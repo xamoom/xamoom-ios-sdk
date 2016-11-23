@@ -43,7 +43,7 @@
 
 + (instancetype)insertNewObjectFrom:(id)entity
                         fileManager:(XMMOfflineFileManager *)fileManager
-                         completion:(void(^)(NSData *data, NSError *error))completion {
+                         completion:(void(^)(NSString *url, NSData *data, NSError *error))completion {
   XMMContentBlock *contentBlock = (XMMContentBlock *)entity;
   XMMCDContentBlock *savedContentBlock = nil;
   

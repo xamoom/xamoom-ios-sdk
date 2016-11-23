@@ -34,7 +34,7 @@
 
 - (void)testSaveFileFromUrl {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineFileManager saveFileFromUrl:self.fileName completion:^(NSData *data, NSError *error) {
+  [self.offlineFileManager saveFileFromUrl:self.fileName completion:^(NSString *url, NSData *data, NSError *error) {
     XCTAssertNotNil(data);
     XCTAssertNil(error);
     [expectation fulfill];
@@ -51,7 +51,7 @@
 - (void)testImageFromSavedFile {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   
-  [self.offlineFileManager saveFileFromUrl:self.fileName completion:^(NSData *data, NSError *error) {
+  [self.offlineFileManager saveFileFromUrl:self.fileName completion:^(NSString *url, NSData *data, NSError *error) {
     XCTAssertNotNil(data);
     XCTAssertNil(error);
     [expectation fulfill];
@@ -76,7 +76,7 @@
 
 - (void)testDeleteFileWithUrl {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineFileManager saveFileFromUrl:self.fileName completion:^(NSData *data, NSError *error) {
+  [self.offlineFileManager saveFileFromUrl:self.fileName completion:^(NSString *url, NSData *data, NSError *error) {
     XCTAssertNotNil(data);
     XCTAssertNil(error);
     

@@ -62,7 +62,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     __descriptor = [[JSONAPIResourceDescriptor alloc] initWithClass:[self class] forLinkedType:@"spots"];
     
     [__descriptor setIdProperty:@"ID"];
- 
+    
     [__descriptor addProperty:@"name" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"name"]];
     [__descriptor addProperty:@"spotDescription" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"description"]];
     [__descriptor addProperty:@"locationDictionary" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"location"]];
@@ -107,6 +107,12 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 
 - (id<XMMCDResource>)saveOffline {
   return [XMMCDSpot insertNewObjectFrom:self];
+}
+
+- (id<XMMCDResource>)saveOffline:(void (^)(NSString *url, NSData *, NSError *))downloadCompletion {
+  return [XMMCDSpot insertNewObjectFrom:self
+                            fileManager:[[XMMOfflineFileManager alloc] init]
+                             completion:downloadCompletion];
 }
 
 - (void)deleteOfflineCopy {

@@ -23,6 +23,6 @@
 
 + (instancetype)insertNewObjectFrom:(id)entity
                         fileManager:(XMMOfflineFileManager *)fileManager
-                         completion:(void(^)(NSData *data, NSError *error))completion;
+                         completion:(void(^)(NSString *url, NSData *data, NSError *error))completion;
 
 @end

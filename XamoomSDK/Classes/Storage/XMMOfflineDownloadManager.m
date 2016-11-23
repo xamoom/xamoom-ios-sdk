@@ -40,10 +40,11 @@ static XMMOfflineDownloadManager *sharedInstance;
   return self;
 }
 
-- (void)downloadFileFromUrl:(NSURL *)url completion:(void (^)(NSData *data, NSError *error))completion {
+- (void)downloadFileFromUrl:(NSURL *)url
+                 completion:(void (^)(NSString *url, NSData *data, NSError *error))completion {
   NSURLRequest *request = [NSURLRequest requestWithURL:url];
   NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request];
-
+  
   if (completion) {
     [self.completionDict setObject:completion forKey:url];
   }
@@ -82,19 +83,22 @@ static XMMOfflineDownloadManager *sharedInstance;
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
   [self removeCurrentDownload:downloadTask];
-  void (^completionBlock)(NSData *data, NSError *error) = [self.completionDict objectForKey:downloadTask.originalRequest.URL];
+  NSLog(@"Test %@", downloadTask.originalRequest.URL);
+  void (^completionBlock)(NSString *url, NSData *data, NSError *error) =
+  [self.completionDict objectForKey:downloadTask.originalRequest.URL];
+  
   if (completionBlock) {
     NSData *data = [NSData dataWithContentsOfURL:location];
-    completionBlock(data, nil);
+    completionBlock(downloadTask.originalRequest.URL.absoluteString, data, nil);
   }
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
-  void (^completionBlock)(NSData *data, NSError *error) = [self.completionDict objectForKey:task.originalRequest.URL];
+  void (^completionBlock)(NSString *url, NSData *data, NSError *error) = [self.completionDict objectForKey:task.originalRequest.URL];
   if (completionBlock && error) {
     NSURLSessionDownloadTask *downloadTask = (NSURLSessionDownloadTask *)task;
     [self removeCurrentDownload:downloadTask];
-    completionBlock(nil, error);
+    completionBlock(downloadTask.originalRequest.URL.absoluteString, nil, error);
   }
 }
 
