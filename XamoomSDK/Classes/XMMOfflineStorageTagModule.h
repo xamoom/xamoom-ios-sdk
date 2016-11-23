@@ -12,16 +12,17 @@
 
 @interface XMMOfflineStorageTagModule : NSObject
 
-@property (strong, nonatomic) XMMEnduserApi *api;
-@property (strong, nonatomic) XMMOfflineStorageManager *storeManager;
-@property (strong, nonatomic, readonly) NSMutableArray *offlineTags;
+@property (strong, nonatomic, nonnull) XMMEnduserApi *api;
+@property (strong, nonatomic, nonnull) XMMOfflineStorageManager *storeManager;
+@property (strong, nonatomic, nonnull, readonly) NSMutableArray *offlineTags;
 
-- (instancetype)initWithApi:(XMMEnduserApi * __nonnull)api;
+- (nonnull instancetype)initWithApi:(nonnull XMMEnduserApi *)api;
 
-- (void)downloadAndSaveWithTags:(NSArray *)tags completion:(void (^)(NSArray *spots, NSError *error))completion;
+- (void)downloadAndSaveWithTags:(nonnull NSArray *)tags
+                     completion:(nullable void (^)( NSArray * _Null_unspecified spots , NSError * _Null_unspecified error))completion;
 
-- (NSError *)deleteSavedDataWithTags:(NSArray *)tags;
+- (nullable NSError *)deleteSavedDataWithTags:(nonnull NSArray *)tags;
 
-- (void)addOfflineTag:(NSString *)tag;
+- (void)addOfflineTag:(nullable NSString *)tag;
 
 @end
