@@ -107,7 +107,7 @@
   [self.offlineHelper addOfflineTag:@"tag2"];
   
   NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
-  
+  XCTAssertNil(error);
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"1"]]);
 }
 
@@ -137,6 +137,7 @@
   OCMReject([self.mockedContext deleteObject:(NSManagedObject *)savedSpot.content]);
   
   NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
+  XCTAssertNil(error);
 }
 
 - (void)testDeleteSavedDataWtihTagsDifferentContent {
@@ -166,7 +167,7 @@
   OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spotsWithContent1);
   
   NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
-  
+  XCTAssertNil(error);
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"3"]]);
 }
 
