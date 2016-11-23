@@ -49,7 +49,7 @@
   XMMSystemSettings *settings = [[XMMSystemSettings alloc] init];
   settings.ID = @"1";
   
-  XMMCDSystemSettings *savedSettings = [settings saveOffline];
+  XMMCDSystemSettings *savedSettings = (XMMCDSystemSettings *)[settings saveOffline];
   
   XCTAssertNotNil(savedSettings);
 }

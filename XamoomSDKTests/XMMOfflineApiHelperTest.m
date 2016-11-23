@@ -35,13 +35,13 @@
 - (void)testSpotsInsideRadius {
   XMMCDSpot *spot1 = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDSpot coreDataEntityName] inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   spot1.jsonID = @"1";
-  spot1.locationDictionary = @{@"lat":@46.6247222,
-                               @"lon":@14.3052778};
+  spot1.locationDictionary = [@{@"lat":@46.6247222,
+                               @"lon":@14.3052778} mutableCopy];
                 
   XMMCDSpot *spot2 = [NSEntityDescription insertNewObjectForEntityForName:[XMMCDSpot coreDataEntityName] inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   spot2.jsonID = @"2";
-  spot2.locationDictionary = @{@"lat":@45.6247222,
-                               @"lon":@13.3052778};
+  spot2.locationDictionary = [@{@"lat":@45.6247222,
+                               @"lon":@13.3052778} mutableCopy];
   NSArray *result = @[spot1, spot2];
   
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6247222

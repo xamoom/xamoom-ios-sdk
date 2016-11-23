@@ -79,7 +79,7 @@
   XMMSpot *spot = [[XMMSpot alloc] init];
   spot.ID = @"1";
   
-  XMMCDSpot *savedSpot = [spot saveOffline];
+  XMMCDSpot *savedSpot = (XMMCDSpot *)[spot saveOffline];
   
   XCTAssertNotNil(savedSpot);
 }

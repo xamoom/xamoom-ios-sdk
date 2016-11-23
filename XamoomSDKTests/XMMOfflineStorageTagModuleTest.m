@@ -134,7 +134,7 @@
   OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spots);
   
   XMMCDSpot *savedSpot = spots[0];
-  OCMReject([self.mockedContext deleteObject:savedSpot.content]);
+  OCMReject([self.mockedContext deleteObject:(NSManagedObject *)savedSpot.content]);
   
   NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
 }

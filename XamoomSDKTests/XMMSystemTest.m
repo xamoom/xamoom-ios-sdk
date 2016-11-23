@@ -64,7 +64,7 @@
   XMMSystem *system = [[XMMSystem alloc] init];
   system.ID = @"1";
   
-  XMMCDSystem *savedSystem = [system saveOffline];
+  XMMCDSystem *savedSystem = (XMMCDSystem *)[system saveOffline];
   
   XCTAssertNotNil(savedSystem);
 }

@@ -57,7 +57,7 @@
   XMMStyle *style = [[XMMStyle alloc] init];
   style.ID = @"1";
   
-  XMMCDStyle *savedStyle = [style saveOffline];
+  XMMCDStyle *savedStyle = (XMMCDStyle *)[style saveOffline];
   
   XCTAssertNotNil(savedStyle);
 }

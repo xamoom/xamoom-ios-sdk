@@ -75,7 +75,7 @@
       int startIndex = [[self numberFromString:cursor] intValue] * pageSize;
       int size = pageSize;
       if (size + startIndex > results.count) {
-        size = results.count - startIndex;
+        size = (unsigned) results.count - startIndex;
       }
       if (results.count > startIndex+pageSize) {
         pagedResult.hasMore = YES;

@@ -54,8 +54,8 @@
   XMMMenu *menu = [[XMMMenu alloc] init];
   menu.ID = @"1";
   
-  XMMCDMenu *savedMenu = [menu saveOffline];
-  
+  XMMCDMenu *savedMenu = (XMMCDMenu *)[menu saveOffline];
+
   XCTAssertNotNil(savedMenu);
 }
 

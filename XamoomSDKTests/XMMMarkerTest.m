@@ -56,7 +56,7 @@
   XMMMarker *marker = [[XMMMarker alloc] init];
   marker.ID = @"1";
   
-  XMMCDMarker *savedMarker = [marker saveOffline];
+  XMMCDMarker *savedMarker = (XMMCDMarker *)[marker saveOffline];
   
   XCTAssertNotNil(savedMarker);
 }

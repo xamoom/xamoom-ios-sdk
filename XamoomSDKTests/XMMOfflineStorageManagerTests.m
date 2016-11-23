@@ -218,8 +218,7 @@
   
   OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(@[savedContent]);
   
-  NSError *error;
-  [self.storeManager deleteEntity:[XMMCDContent coreDataEntityName] ID:@"1"];
+  [self.storeManager deleteEntity:[XMMCDContent class] ID:@"1"];
   
   OCMVerify([self.mockedContext deleteObject:[OCMArg isEqual:savedContent]]);
 }

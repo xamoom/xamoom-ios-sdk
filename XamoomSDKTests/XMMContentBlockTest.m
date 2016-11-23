@@ -75,7 +75,7 @@
   XMMContentBlock *contentBlock = [[XMMContentBlock alloc] init];
   contentBlock.ID = @"1";
   
-  XMMCDContentBlock *savedContentBlock = [contentBlock saveOffline];
+  XMMCDContentBlock *savedContentBlock = (XMMCDContentBlock *)[contentBlock saveOffline];
   
   XCTAssertNotNil(savedContentBlock);
 }
