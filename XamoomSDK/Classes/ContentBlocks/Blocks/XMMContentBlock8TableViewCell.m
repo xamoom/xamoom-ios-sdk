@@ -19,7 +19,7 @@
 
 #import "XMMContentBlock8TableViewCell.h"
 
-@interface XMMContentBlock8TableViewCell()
+@interface XMMContentBlock8TableViewCell() <UIDocumentInteractionControllerDelegate>
 
 @property (strong, nonatomic) UIDocumentInteractionController *docController;
 @property (nonatomic) int downloadType;
