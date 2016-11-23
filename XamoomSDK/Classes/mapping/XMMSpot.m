@@ -96,7 +96,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
       self.markers = markers;
     }
     if (savedSpot.content != nil) {
-      self.content = [[XMMContent alloc] initWithCoreDataObject:savedSpot.content];
+      self.content = [[XMMContent alloc] initWithCoreDataObject:(id<XMMCDResource>)savedSpot.content];
     }
     if (savedSpot.system != nil) {
       self.system = [[XMMSystem alloc] initWithCoreDataObject:savedSpot.system];
@@ -110,7 +110,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 }
 
 - (void)deleteOfflineCopy {
-  [[XMMOfflineStorageManager sharedInstance] deleteEntity:[XMMCDSpot coreDataEntityName] ID:self.ID];
+  [[XMMOfflineStorageManager sharedInstance] deleteEntity:[XMMCDSpot class] ID:self.ID];
 }
 
 @end
