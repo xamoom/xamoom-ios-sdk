@@ -58,7 +58,7 @@
 - (void)deleteFileWithUrl:(NSString *)urlString error:(NSError *__autoreleasing *)error {
   NSFileManager *fileManager = [NSFileManager defaultManager];
   [fileManager removeItemAtPath:[[self filePathForSavedObject:urlString] path]
-                          error:&error];
+                          error:error];
 }
 
 #pragma mark - Helper
