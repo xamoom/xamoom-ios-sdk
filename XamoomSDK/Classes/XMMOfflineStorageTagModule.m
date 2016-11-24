@@ -36,7 +36,8 @@ int const kPageSize = 100;
              downloadCompletion:(void (^)(NSString *url, NSData *data, NSError *error))downloadCompletion
                      completion:(void (^)(NSArray *, NSError *))completion {
   self.allSpots = [[NSMutableArray alloc] init];
-  
+  [self.offlineTags addObjectsFromArray:tags];
+
   [self downloadAllSpots:tags cursor:nil completion:^(NSArray *spots, NSError *error) {
     if (error) {
       completion(nil, error);
@@ -55,7 +56,6 @@ int const kPageSize = 100;
         [content saveOffline:downloadCompletion];
       }
       
-      [self.offlineTags addObjectsFromArray:tags];
       completion(self.allSpots, error);
     }];
   }];
@@ -139,7 +139,6 @@ int const kPageSize = 100;
   }
   
   for (XMMCDContent *content in contentsToDelete) {
-    NSLog(@"test: %@", content.jsonID);
     [self.storeManager deleteEntity:[XMMCDContent class] ID:content.jsonID];
   }
   

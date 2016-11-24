@@ -101,12 +101,13 @@
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
   
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
-  OCMReject([self.mockedContext deleteObject:[OCMArg isEqual:spots[1]]]);
+  OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"2"]]);
+  OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"4"]]);
   
-  [self.offlineHelper addOfflineTag:@"tag1"];
-  [self.offlineHelper addOfflineTag:@"tag2"];
+  [self.offlineHelper downloadAndSaveWithTags:@[@"tag1", @"tag2"] downloadCompletion:nil completion:nil];
   
   NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
+  
   XCTAssertNil(error);
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"1"]]);
 }
@@ -125,22 +126,24 @@
   spot2.tags = @[@"tag1", @"tag2"];
   spot2.content = content;
   
-  [self.offlineHelper addOfflineTag:@"tag1"];
-  [self.offlineHelper addOfflineTag:@"tag2"];
+  //[self.offlineHelper setOfflineTags:[[NSMutableArray alloc] initWithObjects:@"tag1", @"tag2", nil]];
   
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
   
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
   OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spots);
+  OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"3"]]);
+  OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"2"]]);
   
-  XMMCDSpot *savedSpot = spots[0];
-  OCMReject([self.mockedContext deleteObject:(NSManagedObject *)savedSpot.content]);
-  
+  [self.offlineHelper downloadAndSaveWithTags:@[@"tag1", @"tag2"] downloadCompletion:nil completion:nil];
+
   NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
+  
   XCTAssertNil(error);
+  OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"1"]]);
 }
 
-- (void)testDeleteSavedDataWtihTagsDifferentContent {
+- (void)testDeleteSavedDataWithTagsDifferentContent {
   XMMContent *content = [[XMMContent alloc] init];
   content.ID = @"3";
   
@@ -157,8 +160,39 @@
   spot2.tags = @[@"tag1", @"tag2"];
   spot2.content = content2;
   
-  [self.offlineHelper addOfflineTag:@"tag1"];
-  [self.offlineHelper addOfflineTag:@"tag2"];
+  NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
+  
+  NSArray *spotsWithContent1 = @[spots[0]];
+  OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
+  OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spotsWithContent1);
+  
+  OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"2"]]);
+  OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"4"]]);
+
+  [self.offlineHelper downloadAndSaveWithTags:@[@"tag1", @"tag2"] downloadCompletion:nil completion:nil];
+  NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
+  XCTAssertNil(error);
+  
+  OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"1"]]);
+  OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"3"]]);
+}
+
+- (void)testDeleteSavedDataWithTagsAll {
+  XMMContent *content = [[XMMContent alloc] init];
+  content.ID = @"3";
+  
+  XMMContent *content2 = [[XMMContent alloc] init];
+  content2.ID = @"4";
+  
+  XMMSpot *spot1 = [[XMMSpot alloc] init];
+  spot1.ID = @"1";
+  spot1.tags = @[@"tag1"];
+  spot1.content = content;
+  
+  XMMSpot *spot2 = [[XMMSpot alloc] init];
+  spot2.ID = @"2";
+  spot2.tags = @[@"tag1", @"tag2"];
+  spot2.content = content2;
   
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
   
@@ -166,9 +200,14 @@
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
   OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spotsWithContent1);
   
-  NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1"]];
+  [self.offlineHelper downloadAndSaveWithTags:@[@"tag1", @"tag2"] downloadCompletion:nil completion:nil];
+  NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1", @"tag2"]];
   XCTAssertNil(error);
+  
+  OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"1"]]);
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"3"]]);
+  OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"2"]]);
+  OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"4"]]);
 }
 
 @end

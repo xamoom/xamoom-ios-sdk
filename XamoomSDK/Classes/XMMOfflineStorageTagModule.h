@@ -24,6 +24,4 @@
 
 - (nullable NSError *)deleteSavedDataWithTags:(nonnull NSArray *)tags;
 
-- (void)addOfflineTag:(nullable NSString *)tag;
-
 @end
