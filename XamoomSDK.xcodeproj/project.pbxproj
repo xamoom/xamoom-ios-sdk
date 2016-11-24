@@ -415,6 +415,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		880528EA1DE6D9A300241BC0 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				88A4A5631DB9EE6100BFDC35 /* XMMOfflineStorageTagModuleTest.m */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
 		88117C951DB4C74B0046A8DC /* ContentBlocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,6 +610,7 @@
 		8888DDD01C47B0FA0050A84C /* XamoomSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				880528EA1DE6D9A300241BC0 /* Modules */,
 				88117C951DB4C74B0046A8DC /* ContentBlocks */,
 				888F18BB1DA66CCB00518DB8 /* Resources */,
 				88B390201DA39E5500216478 /* Storage */,
@@ -619,7 +628,6 @@
 				883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */,
 				883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */,
 				883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */,
-				88A4A5631DB9EE6100BFDC35 /* XMMOfflineStorageTagModuleTest.m */,
 				88F582021C522A8E003D7C49 /* json */,
 			);
 			path = XamoomSDKTests;
