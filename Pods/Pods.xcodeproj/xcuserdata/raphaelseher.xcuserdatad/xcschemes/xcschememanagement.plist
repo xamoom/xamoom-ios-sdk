@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Nocilla.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>OCMock.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,6 +67,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>69D426A44E2690B562D66F103D7D5CFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7ADCC2D53C543FEA2E85F998CB94E277</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>89C9903CF5412AF4370A0BF2DD63DEA3</key>
 		<dict>
 			<key>primary</key>
@@ -78,11 +93,6 @@
 			<true/>
 		</dict>
 		<key>D5DF82BFD37BCC69B2C159B8B655AA3F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D7D2C3CDF08797D3B984E8A0D8325DDC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

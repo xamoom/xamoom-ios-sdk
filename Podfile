@@ -13,6 +13,7 @@ end
 
 target 'XamoomSDKTests' do
 	pod 'OCMock', '~> 3.2'
+  pod 'Nocilla'
 end
 
 target 'Example' do

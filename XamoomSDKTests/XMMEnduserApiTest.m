@@ -1370,7 +1370,7 @@
   
   [api menuWithID:@"12345" completion:^(XMMMenu *menu, NSError *error) {
     XCTAssertNotNil(menu);
-    XCTAssertTrue(menu.items.count == 2);
+    XCTAssertTrue(menu.items.count == 3);
     [expectation fulfill];
   }];
   

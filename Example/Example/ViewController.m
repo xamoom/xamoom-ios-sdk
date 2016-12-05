@@ -59,53 +59,20 @@
    name:kManagedContextReadyNotification
    object:nil];
   
-  [[NSNotificationCenter defaultCenter]
-   addObserver:self
-   selector:@selector(offlineFileSaveError:)
-   name:kXamoomOfflineSaveFileFromUrlError
-   object:nil];
-  
-  [[NSNotificationCenter defaultCenter]
-   addObserver:self
-   selector:@selector(downloadFileUpdate:)
-   name:kXamoomOfflineUpdateDownloadCount
-   object:nil];
-  
-  
   self.module = [[XMMOfflineStorageTagModule alloc] initWithApi:self.api];
 
-  //[self loadSystem];
-  //[self contentWithID];
+  [self contentWithID];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kManagedContextReadyNotification object:nil];
-  [[NSNotificationCenter defaultCenter] removeObserver:self name:kXamoomOfflineSaveFileFromUrlError object:nil];
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kXamoomOfflineUpdateDownloadCount object:nil];
 }
 
 
 - (void)offlineReady {
   self.loadTabBarItem.enabled = YES;
-  
   NSLog(@"offline ready");
-
-  [self.module downloadAndSaveWithTags:@[@"tag1", @"tag2"] completion:^(NSArray *spots, NSError *error) {
-    if (error) {
-      NSLog(@"error: %@", error);
-    }
-  }];
-}
-
-- (void)downloadFileUpdate:(NSNotification *)notification {
-  NSLog(@"Count %@", notification.userInfo[@"count"]);
-
-}
-
-- (void)offlineFileSaveError:(NSNotification *)notification {
-  NSError *error = notification.userInfo[@"error"];
-  NSString *url = notification.userInfo[@"url"];
-  NSLog(@"Error:%@ loading file: %@", error, url);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,18 +93,7 @@
 }
 
 - (IBAction)didClickLoad:(id)sender {
-  [self.module deleteSavedDataWithTags:@[@"tag1"]];
-  [self.module deleteSavedDataWithTags:@[@"tag2"]];
-  
-  /*
-  self.api.offline = YES;
-  
-  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
-    NSLog(@"Content: %@", content);
-    self.blocks.offline = YES;
-    [self.blocks displayContent:content];
-  }];
-  */
+  //
 }
 
 - (void)didClickContentBlock:(NSString *)contentID {
@@ -156,8 +112,11 @@
       return;
     }
     
-    XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
-    //[self.blocks displayContent:content];
+    [content saveOffline:^(NSString *url, NSData *data, NSError *error) {
+      NSLog(@"Downloaded file %@", url);
+    }];
+    
+    [self.blocks displayContent:content];
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {

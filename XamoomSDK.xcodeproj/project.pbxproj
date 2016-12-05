@@ -25,7 +25,6 @@
 		880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */; };
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */; };
-		881945971C620E2100E4524F /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 881945961C620E2100E4524F /* menu.json */; };
 		881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 881945981C625B5000E4524F /* XMMContentBlocksTests.m */; };
 		881CB3061C72124D00AD3AE3 /* XMMMapOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */; };
 		88226E4C1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */; };
@@ -98,6 +97,23 @@
 		8853CBA01D9CEAE8009BD14E /* XMMParamHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */; };
 		8853CBA11D9CEAE8009BD14E /* XMMParamHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */; };
 		8863987C1DB520FA00CBBAD7 /* XMMContentBlock2TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8863987B1DB520FA00CBBAD7 /* XMMContentBlock2TableViewCellTest.m */; };
+		886744291DF567790075C579 /* APIIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 886744281DF567790075C579 /* APIIntegrationTests.m */; };
+		886744321DF567910075C579 /* contentById.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867442A1DF567910075C579 /* contentById.json */; };
+		886744331DF567910075C579 /* contentByQr.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867442B1DF567910075C579 /* contentByQr.json */; };
+		886744341DF567910075C579 /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867442C1DF567910075C579 /* menu.json */; };
+		886744351DF567910075C579 /* setting.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867442D1DF567910075C579 /* setting.json */; };
+		886744361DF567910075C579 /* spotById.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867442E1DF567910075C579 /* spotById.json */; };
+		886744371DF567910075C579 /* spotByTags.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867442F1DF567910075C579 /* spotByTags.json */; };
+		886744381DF567910075C579 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 886744301DF567910075C579 /* style.json */; };
+		886744391DF567910075C579 /* system.json in Resources */ = {isa = PBXBuildFile; fileRef = 886744311DF567910075C579 /* system.json */; };
+		886744421DF597440075C579 /* 1d4f6152baa5418098d12cbf14e20275.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867443A1DF597440075C579 /* 1d4f6152baa5418098d12cbf14e20275.json */; };
+		886744431DF597440075C579 /* 1d966300bb304a199a7ba5d9ff295269.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867443B1DF597440075C579 /* 1d966300bb304a199a7ba5d9ff295269.json */; };
+		886744441DF597440075C579 /* 2dacd9944946484b9df2b822c475a90c.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867443C1DF597440075C579 /* 2dacd9944946484b9df2b822c475a90c.json */; };
+		886744451DF597440075C579 /* 5f6a24e9ec5e4090890b7911c791a0c7.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867443D1DF597440075C579 /* 5f6a24e9ec5e4090890b7911c791a0c7.json */; };
+		886744461DF597440075C579 /* 6b4102f6fd0c40eba7398e4012069d1d.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867443E1DF597440075C579 /* 6b4102f6fd0c40eba7398e4012069d1d.json */; };
+		886744471DF597440075C579 /* 0737f96b520645cab6d71242cd43cdad.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867443F1DF597440075C579 /* 0737f96b520645cab6d71242cd43cdad.json */; };
+		886744481DF597440075C579 /* 2570fd0d2a0a48c39112bc9913461f5d.json in Resources */ = {isa = PBXBuildFile; fileRef = 886744401DF597440075C579 /* 2570fd0d2a0a48c39112bc9913461f5d.json */; };
+		886744491DF597440075C579 /* 3092bce1dbef409c8943ab43afa2c938.json in Resources */ = {isa = PBXBuildFile; fileRef = 886744411DF597440075C579 /* 3092bce1dbef409c8943ab43afa2c938.json */; };
 		8886E2951C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */; };
 		8886E29A1C7C57B400B6AEAE /* XMMStyleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */; };
 		8887006B1D34EE190049CF7F /* contentWithName.json in Resources */ = {isa = PBXBuildFile; fileRef = 8887006A1D34EE190049CF7F /* contentWithName.json */; };
@@ -133,7 +149,6 @@
 		888F4F751DA542CF000E49CE /* XMMCDContentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F4F741DA542CF000E49CE /* XMMCDContentTest.m */; };
 		889134A31DA3B5B10035109E /* XMMCDMenuTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 889134A21DA3B5B10035109E /* XMMCDMenuTest.m */; };
 		889356681C802CCF0083724C /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */; };
-		889356691C802CF40083724C /* APIIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA06D1C7F23EF003FDF80 /* APIIntegrationTests.m */; };
 		88A047C71D250D1900960D9F /* spot.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C61D250D1900960D9F /* spot.json */; };
 		88A047C91D25219200960D9F /* spotWithContentAndMarker.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C81D25219200960D9F /* spotWithContentAndMarker.json */; };
 		88A4A5611DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */; };
@@ -155,9 +170,7 @@
 		88C5CCD01DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C5CCCF1DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
 		88D486DC1C5A7069003E252D /* spotLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D486DB1C5A7069003E252D /* spotLocation.json */; };
-		88D486DE1C5B9B6B003E252D /* system.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D486DD1C5B9B6B003E252D /* system.json */; };
 		88D486E01C5BA210003E252D /* systemSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D486DF1C5BA210003E252D /* systemSettings.json */; };
-		88D486E21C5BAABF003E252D /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D486E11C5BAABF003E252D /* style.json */; };
 		88D4C6E11C6CC39E00615147 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D4C6E01C6CC39E00615147 /* MapKit.framework */; };
 		88D4C6EC1C6CD3AE00615147 /* XMMMapOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88D4C6EA1C6CD3AE00615147 /* XMMMapOverlayView.h */; };
 		88D4C6ED1C6CD3AE00615147 /* XMMMapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D4C6EB1C6CD3AE00615147 /* XMMMapOverlayView.m */; };
@@ -214,7 +227,6 @@
 		880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineStorageManager.h; path = Classes/XMMOfflineStorageManager.h; sourceTree = "<group>"; };
 		880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineStorageManager.m; path = Classes/XMMOfflineStorageManager.m; sourceTree = "<group>"; };
 		88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock1TableViewCellTest.m; sourceTree = "<group>"; };
-		881945961C620E2100E4524F /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
 		881945981C625B5000E4524F /* XMMContentBlocksTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksTests.m; sourceTree = "<group>"; };
 		881966DB1CD74F7100AC2007 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMMapOverlayView.xib; sourceTree = "<group>"; };
@@ -275,7 +287,6 @@
 		883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMapOverlayViewTests.m; sourceTree = "<group>"; };
 		883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMusicPlayerTests.m; sourceTree = "<group>"; };
 		883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestingIDs.plist; sourceTree = "<group>"; };
-		883EA06D1C7F23EF003FDF80 /* APIIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIIntegrationTests.m; sourceTree = "<group>"; };
 		8849374C1C731FB500C53520 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Assets/Images.xcassets; sourceTree = "<group>"; };
 		884937511C74B1C600C53520 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		884937531C74B1E900C53520 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -292,6 +303,23 @@
 		8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMParamHelper.m; path = Classes/XMMParamHelper.m; sourceTree = "<group>"; };
 		8853CBA21D9CF1EC009BD14E /* XMMOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMOptions.h; path = Classes/XMMOptions.h; sourceTree = "<group>"; };
 		8863987B1DB520FA00CBBAD7 /* XMMContentBlock2TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock2TableViewCellTest.m; sourceTree = "<group>"; };
+		886744281DF567790075C579 /* APIIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIIntegrationTests.m; path = IntegrationTest/APIIntegrationTests.m; sourceTree = "<group>"; };
+		8867442A1DF567910075C579 /* contentById.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = contentById.json; path = "IntegrationTest/json-resources/contentById.json"; sourceTree = "<group>"; };
+		8867442B1DF567910075C579 /* contentByQr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = contentByQr.json; path = "IntegrationTest/json-resources/contentByQr.json"; sourceTree = "<group>"; };
+		8867442C1DF567910075C579 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = menu.json; path = "IntegrationTest/json-resources/menu.json"; sourceTree = "<group>"; };
+		8867442D1DF567910075C579 /* setting.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = setting.json; path = "IntegrationTest/json-resources/setting.json"; sourceTree = "<group>"; };
+		8867442E1DF567910075C579 /* spotById.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = spotById.json; path = "IntegrationTest/json-resources/spotById.json"; sourceTree = "<group>"; };
+		8867442F1DF567910075C579 /* spotByTags.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = spotByTags.json; path = "IntegrationTest/json-resources/spotByTags.json"; sourceTree = "<group>"; };
+		886744301DF567910075C579 /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = style.json; path = "IntegrationTest/json-resources/style.json"; sourceTree = "<group>"; };
+		886744311DF567910075C579 /* system.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = system.json; path = "IntegrationTest/json-resources/system.json"; sourceTree = "<group>"; };
+		8867443A1DF597440075C579 /* 1d4f6152baa5418098d12cbf14e20275.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1d4f6152baa5418098d12cbf14e20275.json; sourceTree = "<group>"; };
+		8867443B1DF597440075C579 /* 1d966300bb304a199a7ba5d9ff295269.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1d966300bb304a199a7ba5d9ff295269.json; sourceTree = "<group>"; };
+		8867443C1DF597440075C579 /* 2dacd9944946484b9df2b822c475a90c.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2dacd9944946484b9df2b822c475a90c.json; sourceTree = "<group>"; };
+		8867443D1DF597440075C579 /* 5f6a24e9ec5e4090890b7911c791a0c7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 5f6a24e9ec5e4090890b7911c791a0c7.json; sourceTree = "<group>"; };
+		8867443E1DF597440075C579 /* 6b4102f6fd0c40eba7398e4012069d1d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 6b4102f6fd0c40eba7398e4012069d1d.json; sourceTree = "<group>"; };
+		8867443F1DF597440075C579 /* 0737f96b520645cab6d71242cd43cdad.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 0737f96b520645cab6d71242cd43cdad.json; sourceTree = "<group>"; };
+		886744401DF597440075C579 /* 2570fd0d2a0a48c39112bc9913461f5d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 2570fd0d2a0a48c39112bc9913461f5d.json; sourceTree = "<group>"; };
+		886744411DF597440075C579 /* 3092bce1dbef409c8943ab43afa2c938.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 3092bce1dbef409c8943ab43afa2c938.json; sourceTree = "<group>"; };
 		886D676F1D00399F0001E288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8886E2941C7B5DAF00B6AEAE /* XMMContentBlocksCacheTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksCacheTests.m; sourceTree = "<group>"; };
 		8886E2991C7C57B400B6AEAE /* XMMStyleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMStyleTests.m; sourceTree = "<group>"; };
@@ -351,9 +379,7 @@
 		88C5CCCF1DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock8TableViewCellTest.m; sourceTree = "<group>"; };
 		88CC28B51C567832000ACDD0 /* contentLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentLocation.json; sourceTree = "<group>"; };
 		88D486DB1C5A7069003E252D /* spotLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spotLocation.json; sourceTree = "<group>"; };
-		88D486DD1C5B9B6B003E252D /* system.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = system.json; sourceTree = "<group>"; };
 		88D486DF1C5BA210003E252D /* systemSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = systemSettings.json; sourceTree = "<group>"; };
-		88D486E11C5BAABF003E252D /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
 		88D4C6E01C6CC39E00615147 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		88D4C6EA1C6CD3AE00615147 /* XMMMapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMMapOverlayView.h; sourceTree = "<group>"; };
 		88D4C6EB1C6CD3AE00615147 /* XMMMapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMapOverlayView.m; sourceTree = "<group>"; };
@@ -562,6 +588,38 @@
 			path = MapViews;
 			sourceTree = "<group>";
 		};
+		886744261DF566CB0075C579 /* IntegrationTest */ = {
+			isa = PBXGroup;
+			children = (
+				886744281DF567790075C579 /* APIIntegrationTests.m */,
+				886744271DF566E80075C579 /* json-respones */,
+			);
+			name = IntegrationTest;
+			sourceTree = "<group>";
+		};
+		886744271DF566E80075C579 /* json-respones */ = {
+			isa = PBXGroup;
+			children = (
+				8867442A1DF567910075C579 /* contentById.json */,
+				8867442B1DF567910075C579 /* contentByQr.json */,
+				8867442C1DF567910075C579 /* menu.json */,
+				8867442D1DF567910075C579 /* setting.json */,
+				8867442E1DF567910075C579 /* spotById.json */,
+				8867442F1DF567910075C579 /* spotByTags.json */,
+				886744301DF567910075C579 /* style.json */,
+				886744311DF567910075C579 /* system.json */,
+				8867443A1DF597440075C579 /* 1d4f6152baa5418098d12cbf14e20275.json */,
+				8867443B1DF597440075C579 /* 1d966300bb304a199a7ba5d9ff295269.json */,
+				8867443C1DF597440075C579 /* 2dacd9944946484b9df2b822c475a90c.json */,
+				8867443D1DF597440075C579 /* 5f6a24e9ec5e4090890b7911c791a0c7.json */,
+				8867443E1DF597440075C579 /* 6b4102f6fd0c40eba7398e4012069d1d.json */,
+				8867443F1DF597440075C579 /* 0737f96b520645cab6d71242cd43cdad.json */,
+				886744401DF597440075C579 /* 2570fd0d2a0a48c39112bc9913461f5d.json */,
+				886744411DF597440075C579 /* 3092bce1dbef409c8943ab43afa2c938.json */,
+			);
+			name = "json-respones";
+			sourceTree = "<group>";
+		};
 		8888DDB81C47B0FA0050A84C = {
 			isa = PBXGroup;
 			children = (
@@ -610,13 +668,9 @@
 		8888DDD01C47B0FA0050A84C /* XamoomSDKTests */ = {
 			isa = PBXGroup;
 			children = (
-				880528EA1DE6D9A300241BC0 /* Modules */,
-				88117C951DB4C74B0046A8DC /* ContentBlocks */,
-				888F18BB1DA66CCB00518DB8 /* Resources */,
-				88B390201DA39E5500216478 /* Storage */,
+				886744261DF566CB0075C579 /* IntegrationTest */,
 				883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */,
 				8888DDD31C47B0FA0050A84C /* Info.plist */,
-				883EA06D1C7F23EF003FDF80 /* APIIntegrationTests.m */,
 				88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */,
 				88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */,
 				88E46F311C493453004D8AC3 /* XMMRestClientTest.m */,
@@ -628,6 +682,10 @@
 				883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */,
 				883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */,
 				883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */,
+				880528EA1DE6D9A300241BC0 /* Modules */,
+				88117C951DB4C74B0046A8DC /* ContentBlocks */,
+				888F18BB1DA66CCB00518DB8 /* Resources */,
+				88B390201DA39E5500216478 /* Storage */,
 				88F582021C522A8E003D7C49 /* json */,
 			);
 			path = XamoomSDKTests;
@@ -734,10 +792,7 @@
 				88F582031C522AA0003D7C49 /* content.json */,
 				88CC28B51C567832000ACDD0 /* contentLocation.json */,
 				88D486DB1C5A7069003E252D /* spotLocation.json */,
-				88D486DD1C5B9B6B003E252D /* system.json */,
 				88D486DF1C5BA210003E252D /* systemSettings.json */,
-				88D486E11C5BAABF003E252D /* style.json */,
-				881945961C620E2100E4524F /* menu.json */,
 				88A047C61D250D1900960D9F /* spot.json */,
 				88A047C81D25219200960D9F /* spotWithContentAndMarker.json */,
 				8887006A1D34EE190049CF7F /* contentWithName.json */,
@@ -872,7 +927,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8888DDD61C47B0FA0050A84C /* Build configuration list for PBXNativeTarget "XamoomSDK" */;
 			buildPhases = (
-				1BE559E61A81F6E715EBF39F /* 📦 Check Pods Manifest.lock */,
+				1BE559E61A81F6E715EBF39F /* [CP] Check Pods Manifest.lock */,
 				C21C3A421DCA113D68013B23 /* [CP] Check Pods Manifest.lock */,
 				B02E2C5A641911F427ACCC99 /* [CP] Check Pods Manifest.lock */,
 				8888DDBD1C47B0FA0050A84C /* Sources */,
@@ -895,7 +950,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8888DDD91C47B0FA0050A84C /* Build configuration list for PBXNativeTarget "XamoomSDKTests" */;
 			buildPhases = (
-				54802381F5BCB38BAF8A6EB1 /* 📦 Check Pods Manifest.lock */,
+				54802381F5BCB38BAF8A6EB1 /* [CP] Check Pods Manifest.lock */,
 				94850F321E3ED7D9A6DD5404 /* [CP] Check Pods Manifest.lock */,
 				700FE395F0F579824CAB1041 /* [CP] Check Pods Manifest.lock */,
 				8888DDC81C47B0FA0050A84C /* Sources */,
@@ -984,33 +1039,46 @@
 			buildActionMask = 2147483647;
 			files = (
 				889356681C802CCF0083724C /* TestingIDs.plist in Resources */,
+				886744331DF567910075C579 /* contentByQr.json in Resources */,
 				88A047C71D250D1900960D9F /* spot.json in Resources */,
-				881945971C620E2100E4524F /* menu.json in Resources */,
+				886744371DF567910075C579 /* spotByTags.json in Resources */,
+				886744321DF567910075C579 /* contentById.json in Resources */,
 				88A047C91D25219200960D9F /* spotWithContentAndMarker.json in Resources */,
+				886744441DF597440075C579 /* 2dacd9944946484b9df2b822c475a90c.json in Resources */,
+				886744351DF567910075C579 /* setting.json in Resources */,
+				886744471DF597440075C579 /* 0737f96b520645cab6d71242cd43cdad.json in Resources */,
 				88E46F361C49374A004D8AC3 /* XamoomSDK.podspec in Resources */,
 				88D486E01C5BA210003E252D /* systemSettings.json in Resources */,
 				88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */,
-				88D486DE1C5B9B6B003E252D /* system.json in Resources */,
-				88D486E21C5BAABF003E252D /* style.json in Resources */,
+				886744451DF597440075C579 /* 5f6a24e9ec5e4090890b7911c791a0c7.json in Resources */,
+				886744341DF567910075C579 /* menu.json in Resources */,
+				886744381DF567910075C579 /* style.json in Resources */,
+				886744361DF567910075C579 /* spotById.json in Resources */,
 				8887006B1D34EE190049CF7F /* contentWithName.json in Resources */,
 				88F581FD1C5213D3003D7C49 /* contentPublicOnly.json in Resources */,
+				886744391DF567910075C579 /* system.json in Resources */,
+				886744431DF597440075C579 /* 1d966300bb304a199a7ba5d9ff295269.json in Resources */,
 				88F582041C522AA0003D7C49 /* content.json in Resources */,
+				886744481DF597440075C579 /* 2570fd0d2a0a48c39112bc9913461f5d.json in Resources */,
+				886744421DF597440075C579 /* 1d4f6152baa5418098d12cbf14e20275.json in Resources */,
 				8887006D1D3664100049CF7F /* spotWithName.json in Resources */,
 				88D486DC1C5A7069003E252D /* spotLocation.json in Resources */,
+				886744491DF597440075C579 /* 3092bce1dbef409c8943ab43afa2c938.json in Resources */,
+				886744461DF597440075C579 /* 6b4102f6fd0c40eba7398e4012069d1d.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BE559E61A81F6E715EBF39F /* 📦 Check Pods Manifest.lock */ = {
+		1BE559E61A81F6E715EBF39F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1048,14 +1116,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		54802381F5BCB38BAF8A6EB1 /* 📦 Check Pods Manifest.lock */ = {
+		54802381F5BCB38BAF8A6EB1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1272,12 +1340,12 @@
 				888F18C71DA78EC400518DB8 /* XMMMarkerTest.m in Sources */,
 				888F18BF1DA670AC00518DB8 /* XMMStyleTest.m in Sources */,
 				888F18CB1DA79A1100518DB8 /* XMMSpotTest.m in Sources */,
+				886744291DF567790075C579 /* APIIntegrationTests.m in Sources */,
 				8830FEDC1DB7A3AC0072DCAC /* XMMOfflineDownloadManagerTest.m in Sources */,
 				88D5B13B1DA3E0050069E2E8 /* XMMCDMenuItemTest.m in Sources */,
 				888F4F6F1DA534D5000E49CE /* XMMCDContentBlockTest.m in Sources */,
 				883AC7D81DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m in Sources */,
 				888F18C91DA7951500518DB8 /* XMMContentBlockTest.m in Sources */,
-				889356691C802CF40083724C /* APIIntegrationTests.m in Sources */,
 				888F4F751DA542CF000E49CE /* XMMCDContentTest.m in Sources */,
 				888F18BA1DA6300F00518DB8 /* XMMCDSpotTest.m in Sources */,
 				889134A31DA3B5B10035109E /* XMMCDMenuTest.m in Sources */,

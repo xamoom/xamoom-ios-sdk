@@ -37,11 +37,15 @@
   XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"https://xamoom-cloud-dev.appspot.com/_api/v2/consumer/"] session:[NSURLSession sessionWithConfiguration:config]];
   
   self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
-  self.api.offline = YES;
 
   self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
   self.blocks.delegate = self;
-  self.blocks.offline = YES;
+  
+  if (self.contentID) {
+    [self.api contentWithID:self.contentID completion:^(XMMContent *content, NSError *error) {
+      [self.blocks displayContent:content];
+    }];
+  }
   
   [[NSNotificationCenter defaultCenter]
    addObserver:self
@@ -61,11 +65,6 @@
 
 - (void)offlineReady {
   NSLog(@"offlineReady");
-  if (self.contentID) {
-    [self.api contentWithID:self.contentID completion:^(XMMContent *content, NSError *error) {
-      [self.blocks displayContent:content];
-    }];
-  }
 }
 
 - (void)didClickContentBlock:(NSString *)contentID {
