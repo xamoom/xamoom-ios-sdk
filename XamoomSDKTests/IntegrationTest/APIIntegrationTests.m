@@ -362,6 +362,12 @@
         XCTAssertEqual(block.blockType, 9);
       }
       
+      if ([content.ID isEqualToString:@"49c8f22408b047598c2b00507aed04db"]) {
+        XCTAssertTrue([block.title isEqualToString:@"Youtube Video 1"]);
+        XCTAssertTrue([block.videoUrl isEqualToString:@"https://www.youtube.com/watch?v=dtm_tIkEbMc"]);
+        XCTAssertEqual(block.blockType, 2);
+      }
+      
       [expectation fulfill];
     }];
     [self waitForExpectationsWithTimeout:self.timeout handler:nil];

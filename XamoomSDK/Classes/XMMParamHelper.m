@@ -129,7 +129,7 @@
 + (NSArray *)contentSortOptionsToArray:(XMMContentSortOptions)sortOptions {
   NSMutableArray *sortParameters = [[NSMutableArray alloc] init];
   
-  if (sortOptions & XMMContentSortOptionsName) {
+  if (sortOptions & XMMContentSortOptionsTitle) {
     [sortParameters addObject:@"name"];
   }
   

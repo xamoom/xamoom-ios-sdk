@@ -291,7 +291,7 @@
   [[XMMOfflineStorageManager sharedInstance] save];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:nil sort:XMMContentSortOptionsName completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.offlineApi contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:nil sort:XMMContentSortOptionsTitle completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNotNil(contents);
     XCTAssertEqual(contents.count, 2);
     XMMContent *content = contents[0];

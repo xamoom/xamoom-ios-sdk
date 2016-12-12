@@ -154,6 +154,7 @@
 		88A4A5611DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */; };
 		88A4A5621DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A4A5601DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.m */; };
 		88A4A5641DB9EE6100BFDC35 /* XMMOfflineStorageTagModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A4A5631DB9EE6100BFDC35 /* XMMOfflineStorageTagModuleTest.m */; };
+		88AA329E1DFA99AD004E9FC8 /* 49c8f22408b047598c2b00507aed04db.json in Resources */ = {isa = PBXBuildFile; fileRef = 88AA329D1DFA99AD004E9FC8 /* 49c8f22408b047598c2b00507aed04db.json */; };
 		88AE9ED91D9D293000B1D61C /* XMMOfflineStorageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */; };
 		88B390191DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88B390171DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld */; };
 		88B3901C1DA2945900216478 /* XMMCDSystemSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */; };
@@ -363,6 +364,7 @@
 		88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineStorageTagModule.h; path = Classes/XMMOfflineStorageTagModule.h; sourceTree = "<group>"; };
 		88A4A5601DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineStorageTagModule.m; path = Classes/XMMOfflineStorageTagModule.m; sourceTree = "<group>"; };
 		88A4A5631DB9EE6100BFDC35 /* XMMOfflineStorageTagModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineStorageTagModuleTest.m; sourceTree = "<group>"; };
+		88AA329D1DFA99AD004E9FC8 /* 49c8f22408b047598c2b00507aed04db.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 49c8f22408b047598c2b00507aed04db.json; sourceTree = "<group>"; };
 		88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineStorageManagerTests.m; sourceTree = "<group>"; };
 		88B390181DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserOfflineDatamodel.xcdatamodel; sourceTree = "<group>"; };
 		88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDSystemSettings.h; path = Classes/Storage/Resources/XMMCDSystemSettings.h; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 				8867442F1DF567910075C579 /* spotByTags.json */,
 				886744301DF567910075C579 /* style.json */,
 				886744311DF567910075C579 /* system.json */,
+				88AA329D1DFA99AD004E9FC8 /* 49c8f22408b047598c2b00507aed04db.json */,
 				8867443A1DF597440075C579 /* 1d4f6152baa5418098d12cbf14e20275.json */,
 				8867443B1DF597440075C579 /* 1d966300bb304a199a7ba5d9ff295269.json */,
 				8867443C1DF597440075C579 /* 2dacd9944946484b9df2b822c475a90c.json */,
@@ -1055,6 +1058,7 @@
 				886744381DF567910075C579 /* style.json in Resources */,
 				886744361DF567910075C579 /* spotById.json in Resources */,
 				8887006B1D34EE190049CF7F /* contentWithName.json in Resources */,
+				88AA329E1DFA99AD004E9FC8 /* 49c8f22408b047598c2b00507aed04db.json in Resources */,
 				88F581FD1C5213D3003D7C49 /* contentPublicOnly.json in Resources */,
 				886744391DF567910075C579 /* system.json in Resources */,
 				886744431DF597440075C579 /* 1d966300bb304a199a7ba5d9ff295269.json in Resources */,

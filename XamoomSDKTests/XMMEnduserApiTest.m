@@ -435,7 +435,7 @@
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsName completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitle completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);
@@ -539,7 +539,7 @@
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsName completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [api contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitle completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);

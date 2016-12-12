@@ -109,7 +109,7 @@
   }
   results = contents;
   
-  if (sortOptions & XMMContentSortOptionsName) {
+  if (sortOptions & XMMContentSortOptionsTitle) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"title"
                                             ascending:YES];
@@ -138,7 +138,7 @@
   
   results = [self.apiHelper entitiesWithTags:results tags:tags];
   
-  if (sortOptions & XMMContentSortOptionsName) {
+  if (sortOptions & XMMContentSortOptionsTitle) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"title"
                                             ascending:YES];
@@ -174,7 +174,7 @@
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDContent coreDataEntityName]
                                                             predicate:predicate];
   
-  if (sortOptions & XMMContentSortOptionsName) {
+  if (sortOptions & XMMContentSortOptionsTitle) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"title"
                                             ascending:YES];
@@ -256,7 +256,7 @@
   
   results = [self.apiHelper entitiesWithTags:results tags:tags];
   
-  if (sortOptions & XMMContentSortOptionsName) {
+  if (sortOptions & XMMContentSortOptionsTitle) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"name"
                                             ascending:YES];
@@ -291,7 +291,7 @@
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDSpot coreDataEntityName]
                                                             predicate:predicate];
   
-  if (sortOptions & XMMContentSortOptionsName) {
+  if (sortOptions & XMMContentSortOptionsTitle) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"name"
                                             ascending:YES];
