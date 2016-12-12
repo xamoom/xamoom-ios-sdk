@@ -62,12 +62,12 @@
 - (void)testThatContentBlock4CellConfigureTypeFalse {
   self.contentBlocks.showAllStoreLinks = YES;
   [self.contentBlocks displayContent:[self contentWithBlockType4]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:19 inSection:0];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:20 inSection:0];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
   
   XCTAssertNotNil(testCell);
-  XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title false"]);
+  NSLog(@"Test: %@", testCell.titleLabel.text);
   XCTAssert([testCell.linkTextLabel.text isEqualToString:@"Link"]);
   XCTAssert([testCell.linkUrl isEqualToString:@"www.xamoom.com"]);
   XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.standardGreyColor]);
@@ -350,6 +350,23 @@
   XCTAssertEqual(testCell.titleLabel.textColor, [UIColor whiteColor]);
 }
 
+- (void)testThatContentBlock4CellConfigureType18 {
+  [self.contentBlocks displayContent:[self contentWithBlockType4]];
+  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:17 inSection:0];
+  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
+  XMMContentBlock4TableViewCell *testCell = (XMMContentBlock4TableViewCell *)cell;
+  
+  XCTAssertNotNil(testCell);
+  NSLog(@"Test: %@", testCell.titleLabel.text);
+  XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title instagram"]);
+  XCTAssert([testCell.linkTextLabel.text isEqualToString:@"Link"]);
+  XCTAssert([testCell.linkUrl isEqualToString:@"www.instagram.com"]);
+  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.instagramColor]);
+  XCTAssertEqual(testCell.icon.tintColor, [UIColor whiteColor]);
+  XCTAssertEqual(testCell.linkTextLabel.textColor, [UIColor whiteColor]);
+  XCTAssertEqual(testCell.titleLabel.textColor, [UIColor whiteColor]);
+}
+
 # pragma mark - Helper
 
 - (XMMContent *)contentWithBlockType4 {
@@ -504,14 +521,26 @@
   block18.blockType = 4;
   
   XMMContentBlock *block19 = [[XMMContentBlock alloc] init];
-  block19.title = @"Content Title false";
+  block19.title = @"Content Title instagram";
   block19.text = @"Link";
-  block19.linkUrl = @"www.xamoom.com";
+  block19.linkUrl = @"www.instagram.com";
   block19.linkType = 18;
   block19.publicStatus = YES;
   block19.blockType = 4;
   
-  content.contentBlocks = [[NSArray alloc] initWithObjects:block2, block1, block3, block4, block5, block6, block7, block8, block9, block10, block11, block12, block13, block14, block15, block16, block17, block18, block19, nil];
+  XMMContentBlock *block20 = [[XMMContentBlock alloc] init];
+  block20.title = @"Content Title false";
+  block20.text = @"Link";
+  block20.linkUrl = @"www.xamoom.com";
+  block20.linkType = 19;
+  block20.publicStatus = YES;
+  block20.blockType = 4;
+  
+  content.contentBlocks = [[NSArray alloc] initWithObjects:block2, block1,
+                           block3, block4, block5, block6, block7, block8,
+                           block9, block10, block11, block12, block13, block14,
+                           block15, block16, block17, block18, block19, block20,
+                           nil];
   
   return content;
 }

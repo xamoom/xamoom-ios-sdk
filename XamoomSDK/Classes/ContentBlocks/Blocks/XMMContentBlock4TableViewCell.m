@@ -53,6 +53,7 @@
   self.navigationColor = [UIColor colorWithRed:13/255.0f green:163/255.0f blue:96/255.0f alpha:1.0f];
   self.androidColor = [UIColor colorWithRed:0.32 green:0.42 blue:0.00 alpha:1.0];
   self.windowsColor = [UIColor colorWithRed:0.17 green:0.38 blue:0.94 alpha:1.0];
+  self.instagramColor = [UIColor colorWithRed:0.74 green:0.16 blue:0.55 alpha:1.0];
 }
 
 - (void)setupBundle {
@@ -247,6 +248,15 @@
     case 17: {
       [self.viewForBackgroundColor setBackgroundColor:self.windowsColor];
       [self.icon setImage:[UIImage imageNamed:@"windows" inBundle:self.bundle compatibleWithTraitCollection:nil]];
+      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+      [self.icon setTintColor:[UIColor whiteColor]];
+      [self.linkTextLabel setTextColor:[UIColor whiteColor]];
+      [self.titleLabel setTextColor:[UIColor whiteColor]];
+      break;
+    }
+    case 18: {
+      [self.viewForBackgroundColor setBackgroundColor:self.instagramColor];
+      [self.icon setImage:[UIImage imageNamed:@"instagram" inBundle:self.bundle compatibleWithTraitCollection:nil]];
       self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
       [self.icon setTintColor:[UIColor whiteColor]];
       [self.linkTextLabel setTextColor:[UIColor whiteColor]];
