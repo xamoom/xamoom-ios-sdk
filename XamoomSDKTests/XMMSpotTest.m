@@ -84,4 +84,17 @@
   XCTAssertNotNil(savedSpot);
 }
 
+- (void)testSetCustomMeta {
+  NSMutableDictionary *checkMeta = [[NSMutableDictionary alloc] init];
+  [checkMeta setValue:@"test-value" forKey:@"test-key"];
+  [checkMeta setValue:@"test-value2" forKey:@"test-key2"];
+  
+  XMMSpot *spot = [[XMMSpot alloc] init];
+  spot.customMeta = checkMeta;
+  
+  NSDictionary *testmeta = spot.customMeta;
+  
+  XCTAssertTrue([testmeta isEqualToDictionary:checkMeta]);
+}
+
 @end

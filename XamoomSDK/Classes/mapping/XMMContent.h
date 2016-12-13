@@ -62,6 +62,10 @@
  */
 @property (nonatomic) NSArray *tags;
 /**
+ * Custom meta as dictionary.
+ */
+@property (nonatomic) NSDictionary *customMeta;
+/**
  * Connected XMMSystem.
  */
 @property (nonatomic) XMMSystem *system;

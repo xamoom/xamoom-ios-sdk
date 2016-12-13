@@ -86,4 +86,17 @@
   XCTAssertNotNil(savedMenuItem);
 }
 
+- (void)testSetCustomMeta {
+  NSMutableDictionary *checkMeta = [[NSMutableDictionary alloc] init];
+  [checkMeta setValue:@"test-value" forKey:@"test-key"];
+  [checkMeta setValue:@"test-value2" forKey:@"test-key2"];
+  
+  XMMContent *content = [[XMMContent alloc] init];
+  content.customMeta = checkMeta;
+  
+  NSDictionary *testmeta = content.customMeta;
+  
+  XCTAssertTrue([testmeta isEqualToDictionary:checkMeta]);
+}
+
 @end

@@ -103,6 +103,9 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   NSArray *tags = [NSArray arrayWithObjects:@"tests", @"Wörthersee", nil];
   
+  NSDictionary *checkDict = @{@"test-key":@"test-value",
+                              @"test-key2":@"test-value2"};
+  
   XMMContent * __block loadedContent = nil;
   
   self.api.language = @"en";
@@ -120,6 +123,9 @@
     XCTAssertTrue([content.imagePublicUrl isEqualToString:@"https://storage.googleapis.com/xamoom-files-dev/mobile/d8baa2bad1ce4d9da21297098ce4ff00.jpg?v=b87374bc207bd8267e5e89e439b3e475eb90b63fd974fbe338421cdd63944370e98dd495fab54ceaf3efef6b9223f7de9f44097a39c630c08a969d1545c4aa63"]);
     XCTAssertTrue([content.tags isEqualToArray:tags]);
     XCTAssertTrue(content.category == 58);
+    
+    NSLog(@"custom meta: %@", content.customMeta);
+    XCTAssertTrue([content.customMeta isEqualToDictionary:checkDict]);
     
     //system
     XCTAssertTrue([content.system.ID isEqualToString:@"5755996320301056"]);
@@ -167,6 +173,25 @@
     XCTAssertNil(error);
     XCTAssertTrue([content.title isEqualToString:@"APP | Testing Hub"]);
     
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testSpotWithId {
+  stubRequest(@"GET", @"http://localhost:9999/_api/v2/consumer/spots/5755996320301056%7C5673385510043648?lang=en").
+  withHeaders(@{ @"APIKEY": @"test", @"Content-Type": @"application/vnd.api+json", @"User-Agent": @"XamoomSDK iOS" }).
+  andReturn(200).
+  withBody([self jsonResponse:@"spotById"]);
+  
+  NSDictionary *checkDict = @{@"test-key":@"test-value",
+                              @"test-key2":@"test-value2"};
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.api spotWithID:@"5755996320301056|5673385510043648" completion:^(XMMSpot *spot, NSError *error) {
+    XCTAssertNotNil(spot);
+    NSLog(@"Test: %@", spot.customMeta);
+    XCTAssertTrue([spot.customMeta isEqualToDictionary:checkDict]);
     [expectation fulfill];
   }];
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];

@@ -66,6 +66,10 @@
  */
 @property (nonatomic) NSArray *tags;
 /**
+ * Custom meta as dictionary.
+ */
+@property (nonatomic) NSDictionary *customMeta;
+/**
  *  Linked content to the spot.
  */
 @property (nonatomic) XMMContent *content;

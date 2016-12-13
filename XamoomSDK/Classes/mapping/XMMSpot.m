@@ -22,6 +22,11 @@
 
 @interface XMMSpot()
 
+/**
+ * Custom meta as list of key value objects.
+ */
+@property (nonatomic) NSArray *customMetaArray;
+
 @end
 
 @implementation XMMSpot
@@ -69,6 +74,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"image" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"image"]];
     [__descriptor addProperty:@"category"];
     [__descriptor addProperty:@"tags"];
+    [__descriptor addProperty:@"customMetaArray" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"custom-meta"]];
     [__descriptor hasOne:[XMMContent class] withName:@"content"];
     [__descriptor hasOne:[XMMSystem class] withName:@"system"];
     [__descriptor hasOne:[XMMMarker class] withName:@"markers"];
@@ -117,6 +123,29 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 
 - (void)deleteOfflineCopy {
   [[XMMOfflineStorageManager sharedInstance] deleteEntity:[XMMCDSpot class] ID:self.ID];
+}
+
+- (NSDictionary *)customMeta {
+  NSMutableDictionary *customMetaDict = [[NSMutableDictionary alloc] init];
+  
+  for (NSDictionary *dict in self.customMetaArray) {
+    [customMetaDict setObject:[dict objectForKey:@"value"] forKey:[dict objectForKey:@"key"]];
+  }
+  
+  return customMetaDict;
+}
+
+- (void)setCustomMeta:(NSDictionary *)customMeta {
+  NSMutableArray *customMetaArray = [[NSMutableArray alloc] init];
+  
+  for (NSString *key in customMeta) {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setObject:key forKey:@"key"];
+    [dict setObject:[customMeta objectForKey:key] forKey:@"value"];
+    [customMetaArray addObject: dict];
+  }
+  
+  self.customMetaArray = customMetaArray;
 }
 
 @end
