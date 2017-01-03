@@ -41,6 +41,8 @@
 
 - (void)tearDown {
   self.contentBlocks = nil;
+  self.mockedApi = nil;
+  self.mockedTableView = nil;
   [super tearDown];
 }
 
@@ -55,7 +57,8 @@
   XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
   XCTAssertTrue([[testCell.contentTextView.linkTextAttributes objectForKey:NSForegroundColorAttributeName] isEqual:[UIColor colorWithHexString: self.style.highlightFontColor]]);
   XCTAssertTrue([testCell.titleLabel.text isEqualToString:@"Content Title"]);
-  XCTAssertNotNil(testCell.contentTextView.attributedText);
+  NSString *attributedString = testCell.contentTextView.text;
+  XCTAssertTrue([attributedString isEqualToString:@"Some content description"]);
 }
 
 - (void)testThatContentBlock0CellConfigureForNoText {
@@ -276,13 +279,14 @@
     passedBlock(content, nil);
   };
   
-  [[[self.mockedApi stub] andDo:completion] contentWithID:[OCMArg any] options:XMMContentOptionsPreview completion:[OCMArg any]];
+  [[[self.mockedApi stub] andDo:completion] contentWithID:[OCMArg isEqual:@"423hjk23h4k2j34"] options:XMMContentOptionsPreview completion:[OCMArg any]];
   
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock6TableViewCell *testCell = (XMMContentBlock6TableViewCell *)cell;
   
   XCTAssertNotNil(testCell);
-  XCTAssert([testCell.contentID isEqualToString:@"123456"]);
+  XCTAssert([testCell.contentID isEqualToString:@"423hjk23h4k2j34"]);
+  NSString *woot = testCell.contentTitleLabel.text;
   XCTAssert([testCell.contentTitleLabel.text isEqualToString:@"Content Title check"]);
   XCTAssert([testCell.contentExcerptLabel.text isEqualToString:@"check"]);
   XCTAssertTrue(testCell.loadingIndicator.hidden);
@@ -546,7 +550,7 @@
   content.language = @"de";
   
   XMMContentBlock *block1 = [[XMMContentBlock alloc] init];
-  block1.contentID = @"123456";
+  block1.contentID = @"423hjk23h4k2j34";
   block1.publicStatus = YES;
   block1.blockType = 6;
   

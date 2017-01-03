@@ -246,7 +246,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   XMMContentBlock *block = [self.items objectAtIndex:indexPath.row];
   NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
   
-  id cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
+  id cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
   if (cell) {
     UITableViewCell *tableViewCell = (UITableViewCell *)cell;
     tableViewCell.backgroundColor = [UIColor clearColor];

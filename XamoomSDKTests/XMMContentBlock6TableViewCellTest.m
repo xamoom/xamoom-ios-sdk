@@ -32,6 +32,8 @@
   XMMContentBlock6TableViewCell *cell = [[XMMContentBlock6TableViewCell alloc] init];
   
   XMMContentBlock *block = [[XMMContentBlock alloc] init];
+  block.ID = @"dgs98d7fgdfsg8796dfg";
+  block.blockType = 6;
   block.fileID = @"www.xamoom.com/file.jpg";
   
   XMMOfflineFileManager *mockFileManager = OCMClassMock([XMMOfflineFileManager class]);
