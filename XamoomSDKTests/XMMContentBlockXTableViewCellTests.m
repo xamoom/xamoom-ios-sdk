@@ -286,7 +286,6 @@
   
   XCTAssertNotNil(testCell);
   XCTAssert([testCell.contentID isEqualToString:@"423hjk23h4k2j34"]);
-  NSString *woot = testCell.contentTitleLabel.text;
   XCTAssert([testCell.contentTitleLabel.text isEqualToString:@"Content Title check"]);
   XCTAssert([testCell.contentExcerptLabel.text isEqualToString:@"check"]);
   XCTAssertTrue(testCell.loadingIndicator.hidden);
