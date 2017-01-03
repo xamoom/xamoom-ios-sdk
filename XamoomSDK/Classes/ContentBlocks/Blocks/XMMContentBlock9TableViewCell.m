@@ -131,6 +131,7 @@ static int kPageSize = 100;
   
   if (style.customMarker != nil) {
     [self mapMarkerFromBase64:style.customMarker];
+    self.didLoadStyle = YES;
   }
   
   self.showContent = block.showContent;
