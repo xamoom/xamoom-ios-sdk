@@ -10,6 +10,7 @@
 
 @interface DetailViewController : UITableViewController <XMMContentBlocksDelegate>
 
-@property NSString *contentID;
+@property (nonatomic, strong) NSString *contentID;
+@property (nonatomic, strong) XMMEnduserApi *api;
 
 @end

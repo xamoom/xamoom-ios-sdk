@@ -60,8 +60,8 @@
    object:nil];
   
   self.module = [[XMMOfflineStorageTagModule alloc] initWithApi:self.api];
-
-  [self contentWithID];
+  
+  [self displayContent];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -93,7 +93,13 @@
 }
 
 - (IBAction)didClickLoad:(id)sender {
-  //
+  [self.blocks.items removeAllObjects];
+  [self.tableView reloadData];
+  
+  self.blocks.offline = YES;
+  self.api.offline = YES;
+  
+  [self contentWithID];
 }
 
 - (void)didClickContentBlock:(NSString *)contentID {
@@ -101,6 +107,7 @@
   
   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
   DetailViewController *vc = (DetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+  vc.api = self.api;
   vc.contentID = contentID;
   [self.navigationController pushViewController:vc animated:YES];
 }
@@ -112,9 +119,11 @@
       return;
     }
     
-    [content saveOffline:^(NSString *url, NSData *data, NSError *error) {
-      NSLog(@"Downloaded file %@", url);
-    }];
+    if (self.api.offline == NO) {
+      [content saveOffline:^(NSString *url, NSData *data, NSError *error) {
+        NSLog(@"Downloaded file %@", url);
+      }];
+    }
     
     [self.blocks displayContent:content];
     
@@ -132,7 +141,6 @@
       return;
     }
     
-    XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
     
     
     //self.content = content;
