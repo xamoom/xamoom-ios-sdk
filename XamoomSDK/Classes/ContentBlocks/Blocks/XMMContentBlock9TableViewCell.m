@@ -29,13 +29,15 @@
 @property (nonatomic, strong) NSString *currentContentID;
 @property (nonatomic) bool showContent;
 @property (nonatomic) bool didLoadStyle;
+@property (nonatomic, strong) NSMutableArray *spots;
 
 @end
 
 @implementation XMMContentBlock9TableViewCell
 
-static UIColor *contentLinkColor;
-static NSString *contentLanguage;
+static UIColor *kContentLinkColor;
+static NSString *kContentLanguage;
+static int kPageSize = 100;
 
 - (void)awakeFromNib {
   // Initialization code
@@ -152,16 +154,36 @@ static NSString *contentLanguage;
     return;
   }
   
-  [api spotsWithTags:spotMapTags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
-    [[XMMContentBlocksCache sharedInstance] saveSpots:spots key:[spotMapTags componentsJoinedByString:@","]];
-    
+  self.spots = [[NSMutableArray alloc] init];
+  [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     [self.loadingIndicator stopAnimating];
     [self setupMapView];
     [self showSpotMap:spots];
+  }];
+}
+
+- (void)downloadAllSpotsWithSpots:(NSArray *)tags cursor:(NSString *)cursor api:(XMMEnduserApi *)api completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  NSUInteger options = XMMSpotOptionsWithLocation;
+  if (self.showContent) {
+    options = options|XMMSpotOptionsIncludeContent;
+  }
+  
+  [api spotsWithTags:tags pageSize:kPageSize cursor:cursor options:options sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    if (error != nil) {
+      completion(nil, false, nil, error);
+    }
     
-    XMMSpot *spot = spots.firstObject;
-    if (self.didLoadStyle == NO) {
-      [self getStyleWithId:spot.system.ID api:api spotMapTags:spotMapTags];
+    [self.spots arrayByAddingObjectsFromArray:spots];
+    
+    if (self.didLoadStyle == NO && spots.count > 0) {
+      XMMSpot *spot = spots.firstObject;
+      [self getStyleWithId:spot.system.ID api:api spotMapTags:tags];
+    }
+    
+    if (hasMore) {
+      [self downloadAllSpotsWithSpots:tags cursor:cursor api:api completion:completion];
+    } else {
+      completion(spots, false, nil, nil);
     }
   }];
 }
@@ -171,7 +193,8 @@ static NSString *contentLanguage;
     self.didLoadStyle = YES;
     [self mapMarkerFromBase64:style.customMarker];
     [self.mapView removeAnnotations:self.mapView.annotations];
-    [self getSpotMap:api spotMapTags:spotMapTags];
+    
+    [self getSpotMap:api spotMapTags:spotMapTags]; // reloads data to use custom marker
   }];
 }
 
