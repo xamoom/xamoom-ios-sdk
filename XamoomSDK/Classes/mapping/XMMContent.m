@@ -69,6 +69,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     self.language = savedContent.language;
     self.category = [savedContent.category intValue];
     self.tags = savedContent.tags;
+    self.customMeta = savedContent.customMeta;
     
     if (savedContent.contentBlocks != nil) {
       NSMutableArray *blocks = [[NSMutableArray alloc] init];

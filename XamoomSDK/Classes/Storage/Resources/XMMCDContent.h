@@ -22,6 +22,7 @@
 @property (nonatomic) NSOrderedSet *contentBlocks;
 @property (nonatomic) NSNumber *category;
 @property (nonatomic) NSArray *tags;
+@property (nonatomic) NSDictionary *customMeta;
 @property (nonatomic) XMMCDSystem *system;
 
 @end

@@ -39,6 +39,7 @@
   content.language = @"en";
   content.category = 1;
   content.tags = @[@"tag1", @"tag2"];
+  content.customMeta = @{@"key":@"value"};
   
   XMMSystem *system = [[XMMSystem alloc] init];
   system.ID = @"2";
@@ -75,6 +76,7 @@
   XCTAssertTrue([newContent.language isEqualToString:content.language]);
   XCTAssertTrue(newContent.category == content.category);
   XCTAssertEqual(newContent.tags, content.tags);
+  XCTAssertTrue([newContent.customMeta isEqualToDictionary:content.customMeta]);
 }
 
 - (void)testSaveOffline {

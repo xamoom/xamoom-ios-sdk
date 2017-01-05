@@ -20,6 +20,7 @@
 @dynamic category;
 @dynamic tags;
 @dynamic system;
+@dynamic customMeta;
 
 + (NSString *)coreDataEntityName {
   return NSStringFromClass([self class]);
@@ -74,6 +75,7 @@
   savedContent.language = content.language;
   savedContent.category = [NSNumber numberWithInt:content.category];
   savedContent.tags = content.tags;
+  savedContent.customMeta = content.customMeta;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   
