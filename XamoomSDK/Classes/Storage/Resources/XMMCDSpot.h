@@ -25,6 +25,7 @@
 @property (nonatomic) NSArray *tags;
 @property (nonatomic) XMMCDContent *content;
 @property (nonatomic) NSSet *markers;
+@property (nonatomic) NSDictionary *customMeta;
 @property (nonatomic) XMMCDSystem *system;
 
 @end

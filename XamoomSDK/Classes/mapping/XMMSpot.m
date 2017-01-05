@@ -94,6 +94,8 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     self.image = savedSpot.image;
     self.category = [savedSpot.category intValue];
     self.tags = savedSpot.tags;
+    self.customMeta = savedSpot.customMeta;
+    
     if (savedSpot.markers != nil) {
       NSMutableArray *markers = [[NSMutableArray alloc] init];
       for (XMMCDMarker *savedMarker in savedSpot.markers) {

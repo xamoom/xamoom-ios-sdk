@@ -45,6 +45,7 @@
   spot.image = @"url";
   spot.category = 1;
   spot.tags = @[@"tag1", @"tag2"];
+  spot.customMeta = @{@"key":@"value"};
   
   XMMContent *content = [[XMMContent alloc] init];
   content.ID = @"2";
@@ -77,6 +78,7 @@
   XCTAssertTrue([savedSpot.image isEqualToString:spot.image]);
   XCTAssertTrue([savedSpot.category intValue] == spot.category);
   XCTAssertEqual(savedSpot.tags, spot.tags);
+  XCTAssertTrue([savedSpot.customMeta isEqualToDictionary:spot.customMeta]);
 }
 
 @end

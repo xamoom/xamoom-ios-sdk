@@ -22,6 +22,7 @@
 @dynamic content;
 @dynamic markers;
 @dynamic system;
+@dynamic customMeta;
 
 + (NSString *)coreDataEntityName {
   return NSStringFromClass([self class]);
@@ -80,6 +81,7 @@
   }
   savedSpot.category = [NSNumber numberWithInt:spot.category];
   savedSpot.tags = spot.tags;
+  savedSpot.customMeta = spot.customMeta;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   
