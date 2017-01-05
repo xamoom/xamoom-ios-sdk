@@ -23,7 +23,6 @@
 NSString * const kApiBaseURLString = @"https://xamoom-cloud.appspot.com/_api/v2/consumer";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
-NSString * const kSDKVersion = @"2.2.0";
 
 @interface XMMEnduserApi ()
 
@@ -67,14 +66,11 @@ static XMMEnduserApi *sharedInstance;
   self.offlineApi = [[XMMOfflineApi alloc] init];
   [XMMOfflineStorageManager sharedInstance];
   
-  NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@|%@",
-                               kHTTPUserAgent,
-                               [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"],
-                               kSDKVersion];
+  
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:@{@"Content-Type":kHTTPContentType,
-                                     @"User-Agent":customUserAgent,
+                                     @"User-Agent":[self customUserAgent],
                                      @"APIKEY":apikey,}];
   
   self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString: kApiBaseURLString]
@@ -428,6 +424,27 @@ static XMMEnduserApi *sharedInstance;
       completion(menu, error);
     }
   }];
+}
+
+#pragma mark - Helper
+
+- (NSString *)customUserAgent {
+  NSBundle *bundle = [NSBundle bundleForClass:[XMMEnduserApi class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *nibBundle;
+  if (url) {
+    nibBundle = [NSBundle bundleWithURL:url];
+  } else {
+    nibBundle = bundle;
+  }
+  NSDictionary *infoDict = [nibBundle infoDictionary];
+  NSString *sdkVersion = [infoDict objectForKey:@"CFBundleShortVersionString"];
+  
+  NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@|%@",
+                               kHTTPUserAgent,
+                               [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"],
+                               sdkVersion];
+  return customUserAgent;
 }
 
 @end
