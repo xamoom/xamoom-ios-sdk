@@ -9,7 +9,6 @@
 #import <CoreData/CoreData.h>
 #import "XMMCDResource.h"
 #import "XMMMenu.h"
-#import "XMMCDMenuItem.h"
 
 @interface XMMCDMenu : NSManagedObject <XMMCDResource>
 

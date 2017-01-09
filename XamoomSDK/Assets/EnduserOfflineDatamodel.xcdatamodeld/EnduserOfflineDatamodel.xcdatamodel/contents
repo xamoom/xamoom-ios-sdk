@@ -42,7 +42,7 @@
     </entity>
     <entity name="XMMCDMenu" representedClassName="XMMCDMenu" syncable="YES">
         <attribute name="jsonID" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="XMMCDMenuItem" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="XMMCDContent" syncable="YES"/>
     </entity>
     <entity name="XMMCDMenuItem" syncable="YES">
         <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>

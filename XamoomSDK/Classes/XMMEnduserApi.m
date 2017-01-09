@@ -102,7 +102,6 @@ static XMMEnduserApi *sharedInstance;
   [JSONAPIResourceDescriptor addResource:[XMMSystemSettings class]];
   [JSONAPIResourceDescriptor addResource:[XMMStyle class]];
   [JSONAPIResourceDescriptor addResource:[XMMMenu class]];
-  [JSONAPIResourceDescriptor addResource:[XMMMenuItem class]];
   [JSONAPIResourceDescriptor addResource:[XMMContent class]];
   [JSONAPIResourceDescriptor addResource:[XMMContentBlock class]];
   [JSONAPIResourceDescriptor addResource:[XMMSpot class]];

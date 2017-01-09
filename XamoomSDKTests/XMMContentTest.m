@@ -83,7 +83,7 @@
   XMMContent *content = [[XMMContent alloc] init];
   content.ID = @"1";
   
-  XMMCDMenuItem *savedMenuItem = (XMMCDMenuItem *)[content saveOffline];
+  XMMCDContent *savedMenuItem = (XMMCDContent *)[content saveOffline];
   
   XCTAssertNotNil(savedMenuItem);
 }

@@ -11,7 +11,6 @@
 #import "XMMCDContentBlock.h"
 #import "XMMCDMarker.h"
 #import "XMMCDMenu.h"
-#import "XMMCDMenuItem.h"
 #import "XMMCDSpot.h"
 #import "XMMCDStyle.h"
 #import "XMMCDSystem.h"
@@ -127,7 +126,7 @@ static dispatch_once_t onceToken;
 }
 
 - (void)deleteAllEntities {
-  NSArray *entityArray = @[[XMMCDContent class],[XMMCDContentBlock class],[XMMCDMarker class],[XMMCDMenu class],[XMMCDMenuItem class],[XMMCDSpot class],[XMMCDStyle class],[XMMCDSystem class],[XMMCDSystemSettings class]];
+  NSArray *entityArray = @[[XMMCDContent class],[XMMCDContentBlock class],[XMMCDMarker class],[XMMCDMenu class],[XMMCDSpot class],[XMMCDStyle class],[XMMCDSystem class],[XMMCDSystemSettings class]];
   
   for (Class entityClass in entityArray) {
     NSFetchRequest *fetch = [NSFetchRequest fetchRequestWithEntityName:[entityClass coreDataEntityName]];

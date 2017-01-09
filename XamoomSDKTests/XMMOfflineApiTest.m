@@ -709,7 +709,7 @@
   [self.offlineApi menuWithID:@"1" completion:^(XMMMenu *menu, NSError *error) {
     XCTAssertNotNil(menu);
     XCTAssertNil(error);
-    XMMMenuItem *savedMenuItem = menu.items[0];
+    XMMContent *savedMenuItem = menu.items[0];
     XCTAssertEqual(savedMenuItem.ID, @"2");
     [expectation fulfill];
   }];

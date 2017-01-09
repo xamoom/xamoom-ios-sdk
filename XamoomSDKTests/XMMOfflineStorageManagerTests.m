@@ -15,7 +15,6 @@
 #import "XMMCDContentBlock.h"
 #import "XMMCDMarker.h"
 #import "XMMCDMenu.h"
-#import "XMMCDMenuItem.h"
 #import "XMMCDSpot.h"
 #import "XMMCDStyle.h"
 #import "XMMCDSystem.h"
@@ -74,7 +73,6 @@
 }
 
 - (void)testDeleteAllEntitiesCallsFetchRequest {
-  OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
   OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
   OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);
   OCMExpect([self.mockedContext executeFetchRequest:[OCMArg isKindOfClass:[NSFetchRequest class]] error:[OCMArg anyObjectRef]]);

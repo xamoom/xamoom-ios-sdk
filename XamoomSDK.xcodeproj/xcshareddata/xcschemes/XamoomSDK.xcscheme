@@ -38,6 +38,11 @@
                BlueprintName = "XamoomSDKTests"
                ReferencedContainer = "container:XamoomSDK.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "XMMMenuItemTest">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

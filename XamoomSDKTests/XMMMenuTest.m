@@ -42,11 +42,11 @@
   XMMCDMenu *offlineMenu = [XMMCDMenu insertNewObjectFrom:menu];
   
   XMMMenu *newMenu = [[XMMMenu alloc] initWithCoreDataObject:offlineMenu];
-  XMMMenuItem *newMenuItem = newMenu.items.firstObject;
+  XMMContent *newMenuItem = newMenu.items.firstObject;
   
   XCTAssertTrue([newMenu.ID isEqualToString:menu.ID]);
   XCTAssertNotNil(newMenu.items);
-  XCTAssertTrue([newMenuItem.contentTitle isEqualToString:testItem.title]);
+  XCTAssertTrue([newMenuItem.title isEqualToString:testItem.title]);
   XCTAssertEqual(newMenuItem.category, testItem.category);
 }
 

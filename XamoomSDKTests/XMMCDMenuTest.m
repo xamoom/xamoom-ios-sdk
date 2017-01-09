@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "XMMMenu.h"
 #import "XMMContent.h"
+#import "XMMCDContent.h"
 #import "XMMCDMenu.h"
 #import "XMMOfflineStorageManager.h"
 
@@ -41,11 +42,11 @@
   menu.items = @[testItem];
   
   XMMCDMenu *offlineMenu = [XMMCDMenu insertNewObjectFrom:menu];
-  XMMCDMenuItem *savedMenuItem = offlineMenu.items.firstObject;
+  XMMCDContent *savedMenuItem = offlineMenu.items.firstObject;
 
   XCTAssertTrue([offlineMenu.jsonID isEqualToString:menu.ID]);
   XCTAssertNotNil(offlineMenu.items);
-  XCTAssertTrue([savedMenuItem.contentTitle isEqualToString:testItem.title]);
+  XCTAssertTrue([savedMenuItem.title isEqualToString:testItem.title]);
   XCTAssertEqual([savedMenuItem.category intValue], testItem.category);
 }
 

@@ -13,7 +13,6 @@
 #import "XMMStyle.h"
 #import "XMMSystem.h"
 #import "XMMMenu.h"
-#import "XMMMenuItem.h"
 #import "XMMContent.h"
 #import "XMMContentBlock.h"
 #import "XMMMarker.h"

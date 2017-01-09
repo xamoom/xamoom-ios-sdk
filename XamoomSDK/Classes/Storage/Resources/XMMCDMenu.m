@@ -7,6 +7,8 @@
 //
 
 #import "XMMCDMenu.h"
+#import "XMMContent.h"
+#import "XMMCDContent.h"
 
 @implementation XMMCDMenu
 
@@ -54,8 +56,8 @@
 
 - (void)addMenuItems:(NSArray *)menuItems {
   NSMutableOrderedSet *items = [[NSMutableOrderedSet alloc] init];
-  for (XMMMenuItem *item in menuItems) {
-    [items addObject:[XMMCDMenuItem insertNewObjectFrom:item]];
+  for (XMMContent *item in menuItems) {
+    [items addObject:[XMMCDContent insertNewObjectFrom:item]];
   }
   self.items = items;
 }
