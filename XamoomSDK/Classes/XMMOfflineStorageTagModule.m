@@ -11,7 +11,7 @@
 #import "XMMOfflineApiHelper.h"
 #import "XMMCDContent.h"
 
-int const kPageSize = 100;
+static int kPageSize = 100;
 
 @interface XMMOfflineStorageTagModule()
 
