@@ -206,7 +206,7 @@
   NSArray *tags = [NSArray arrayWithObjects:@"spot1", @"allSpots", @"Wörthersee", nil];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.api spotsWithTags:@[@"spot1"] options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [self.api spotsWithTags:@[@"spot1"] options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertFalse(hasMore);
     XCTAssertTrue([cursor isEqualToString:@""]);
     XMMSpot *spot = [spots firstObject];

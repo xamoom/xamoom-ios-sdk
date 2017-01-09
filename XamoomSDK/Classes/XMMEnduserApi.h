@@ -255,11 +255,12 @@ extern NSString * const kApiBaseURLString;
  * @param location Location of the user
  * @param radius Radius in meter
  * @param options XMMSpotOptions to get markers or content
+ * @param sort XMMSpotSortOptions to sort the results
  * @param completion Completion block called after finishing network request
  * - *param1* spots Spots from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get spots inside radius of a location.
@@ -267,6 +268,7 @@ extern NSString * const kApiBaseURLString;
  * @param location Location of the user
  * @param radius Radius in meter
  * @param options XMMSpotOptions to get markers or content
+ * @param sort XMMSpotSortOptions to sort the results
  * @param completion Completion block called after finishing network request
  * @param pageSize PageSize you want to get from xamoom cloud
  * @param cursor Needed when paging, can be null
@@ -275,20 +277,21 @@ extern NSString * const kApiBaseURLString;
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get spots with specific tags. Returns max. 100 spots.
  *
  * @param tags Array of tags
  * @param options XMMSpotOptions to get markers or content
+ * @param sort XMMSpotSortOptions to sort the results
  * @param completion Completion block called after finishing network request
  * - *param1* spots Spots from xamoom system
  * - *param2* hasMore True if more items on xamoom cloud
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get spots with specific tags.

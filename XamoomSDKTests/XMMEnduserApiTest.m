@@ -808,7 +808,7 @@
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsNone sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);
@@ -825,13 +825,14 @@
                                                       @"filter[radius]":@"100",
                                                       @"include_markers":@"true",
                                                       @"include_content":@"true",
-                                                      @"filter[has-location]":@"true"}];
+                                                      @"filter[has-location]":@"true",
+                                                      @"sort":@"-distance"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation sort:XMMSpotSortOptionsDistanceDesc completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);
@@ -851,7 +852,7 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotsWithLocation:location radius:100 options:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:0 sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
     [expectation fulfill];
   }];
@@ -873,7 +874,7 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotsWithLocation:location radius:100 options:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:0 sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(spots);
     XCTAssertNotNil(error);
     [expectation fulfill];
@@ -901,7 +902,7 @@
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation pageSize:20 cursor:@"2" completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation sort:XMMSpotSortOptionsNone pageSize:20 cursor:@"2" completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     //
   }];
   
@@ -922,7 +923,7 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotsWithLocation:location radius:10 options:0 pageSize:10 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithLocation:location radius:10 options:0 sort:XMMSpotSortOptionsNone pageSize:10 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
     XCTAssertTrue([cursor isEqualToString:@""]);
     XCTAssertFalse(hasMore);
@@ -946,7 +947,7 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotsWithLocation:location radius:10 options:0 pageSize:10 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithLocation:location radius:10 options:0 sort:XMMSpotSortOptionsNone pageSize:10 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(spots);
     XCTAssertNotNil(error);
     XCTAssertFalse(hasMore);
@@ -967,13 +968,14 @@
                                                       @"include_markers":@"true",
                                                       @"include_content":@"true",
                                                       @"page[size]":@"100",
-                                                      @"filter[has-location]":@"true"}];
+                                                      @"filter[has-location]":@"true",
+                                                      @"sort":@"name"}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker|XMMSpotOptionsWithLocation completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker|XMMSpotOptionsWithLocation sort:XMMSpotSortOptionsName completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     //
   }];
   
@@ -994,7 +996,7 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
     XCTAssertTrue([cursor isEqualToString:@""]);
     XCTAssertFalse(hasMore);
@@ -1018,7 +1020,7 @@
   
   [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+  [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(spots);
     XCTAssertNotNil(error);
     XCTAssertFalse(hasMore);

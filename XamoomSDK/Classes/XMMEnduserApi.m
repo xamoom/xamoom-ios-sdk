@@ -283,15 +283,16 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark spots calls
 
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
-  [self spotsWithLocation:location radius:radius options:options pageSize:0 cursor:nil completion:completion];
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  [self spotsWithLocation:location radius:radius options:options sort:sortOptions pageSize:0 cursor:nil completion:completion];
 }
 
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language location:location radius:radius];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
-  
+  params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];
+
   [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, false, nil, error);
@@ -308,8 +309,8 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
-  [self spotsWithTags:tags pageSize:100 cursor:nil options:options sort:XMMSpotSortOptionsNone completion:completion];
+- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  [self spotsWithTags:tags pageSize:100 cursor:nil options:options sort:sortOptions completion:completion];
 }
 
 - (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
