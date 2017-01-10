@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,17 +20,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Test" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-Ht-jrX">
-                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <rect key="frame" x="8" y="0.0" width="304" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fvj-ka-sv0">
-                        <rect key="frame" x="0.0" y="37" width="320" height="131"/>
+                        <rect key="frame" x="0.0" y="29" width="320" height="139"/>
                         <gestureRecognizers/>
                     </imageView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3na-Wc-qZL">
-                        <rect key="frame" x="150" y="38" width="20" height="20"/>
+                        <rect key="frame" x="150" y="30" width="20" height="20"/>
                     </activityIndicatorView>
                 </subviews>
                 <constraints>
@@ -38,7 +43,7 @@
                     <constraint firstItem="Fvj-ka-sv0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rzk-49-ohI"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Fvj-ka-sv0" secondAttribute="bottom" priority="999" id="X2x-1v-uYX"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3na-Wc-qZL" secondAttribute="trailing" constant="142" id="tpH-X5-atq"/>
-                    <constraint firstAttribute="topMargin" secondItem="NfP-Ht-jrX" secondAttribute="top" id="vcl-5z-WaN"/>
+                    <constraint firstAttribute="top" secondItem="NfP-Ht-jrX" secondAttribute="top" id="vcl-5z-WaN"/>
                     <constraint firstItem="Fvj-ka-sv0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" id="xl5-do-CiW"/>
                 </constraints>
             </tableViewCellContentView>
