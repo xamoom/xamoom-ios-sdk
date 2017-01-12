@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 #import "XMMEnduserApi.h"
+#import "XMMOfflineApi.h"
 
 @interface XMMEnduserApiTest : XCTestCase
 
@@ -151,6 +152,23 @@
   [self waitForExpectationsWithTimeout:2.0 handler:nil];
 }
 
+- (void)testThatContentWithIdCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+
+  api.offline = YES;
+  
+  [api contentWithID:contentID completion:nil];
+  
+  OCMVerify([mockOfflineApi contentWithID:[OCMArg isEqual:contentID]
+                               completion:[OCMArg any]]);
+  
+}
+
 - (void)testThatContentWithIdOptionsCallsFetchResourceWithParamaters {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -219,6 +237,23 @@
   }];
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithIdOptionsCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+  
+  api.offline = YES;
+  
+  [api contentWithID:contentID options:0 completion:nil];
+  
+  OCMVerify([mockOfflineApi contentWithID:[OCMArg isEqual:contentID]
+                               completion:[OCMArg any]]);
+  
 }
 
 - (void)testThatContentWithLocationIdentifierCallsFetchResources {
@@ -306,6 +341,21 @@
   }];
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithLocationIdentifierCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *qr = @"1214";
+  
+  api.offline = YES;
+  
+  [api contentWithLocationIdentifier:qr options:0 completion:nil];
+  
+  OCMVerify([mockOfflineApi contentWithLocationIdentifier:[OCMArg isEqual:qr] completion:[OCMArg any]]);
 }
 
 - (void)testThatContentWithBeaconMajorCallsFetchResources {
@@ -486,6 +536,21 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatContentWithLocationCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:44.0 longitude:16.9];
+  
+  api.offline = YES;
+  
+  [api contentsWithLocation:location pageSize:0 cursor:nil sort:0 completion:nil];
+  
+  OCMVerify([mockOfflineApi contentsWithLocation:[OCMArg isEqual:location] pageSize:0 cursor:[OCMArg any] sort:0 completion:[OCMArg any]]);
+}
+
 - (void)testThatContentsWithLocationReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id mockRestClient = OCMPartialMock(self.restClient);
@@ -592,6 +657,21 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatContentWithTagsCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSArray *tags = [[NSArray alloc] initWithObjects:@"tag1", nil];
+  
+  api.offline = YES;
+  
+  [api contentsWithTags:tags pageSize:0 cursor:nil sort:0 completion:nil];
+  
+  OCMVerify([mockOfflineApi contentsWithTags:[OCMArg isEqual:tags] pageSize:0 cursor:[OCMArg any] sort:0 completion:[OCMArg any]]);
+}
+
 - (void)testThatContentWithNameWithCursorSortCallsFetchResources {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -657,6 +737,21 @@
   }];
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithNameCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *name = @"test";
+  
+  api.offline = YES;
+  
+  [api contentsWithName:name pageSize:0 cursor:nil sort:0 completion:nil];
+  
+  OCMVerify([mockOfflineApi contentsWithName:[OCMArg isEqual:name] pageSize:0 cursor:[OCMArg any] sort:0 completion:[OCMArg any]]);
 }
 
 - (void)testThatSpotWithIdReturnsSpotViaCallback {
@@ -794,6 +889,21 @@
   OCMVerifyAll(mockRestClient);
 }
 
+- (void)testThatSpotWithIdCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *spotId = @"test";
+  
+  api.offline = YES;
+  
+  [api spotWithID:spotId options:0 completion:nil];
+  
+  OCMVerify([mockOfflineApi spotWithID:[OCMArg isEqual:spotId] completion:[OCMArg any]]);
+}
+
 - (void)testThatSpotWithLocationRadiusCallsFetchResources {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -881,6 +991,21 @@
   }];
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatSpotsWithLocationCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  CLLocation *location = [[CLLocation alloc] initWithLatitude:44.0 longitude:16.0];
+  
+  api.offline = YES;
+  
+  [api spotsWithLocation:location radius:0 options:0 sort:0 completion:nil];
+  
+  OCMVerify([mockOfflineApi spotsWithLocation:location radius:0 pageSize:0 cursor:[OCMArg any] completion:[OCMArg any]]);
 }
 
 - (void)testThatSpotWithLocationRadiusOptionPageSizeCursorCallsFetchResource {
@@ -1079,6 +1204,21 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatSpotsWithTagsCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSArray *tags = [[NSArray alloc] initWithObjects:@"tag1", nil];
+  
+  api.offline = YES;
+  
+  [api spotsWithTags:tags options:0 sort:0 completion:nil];
+  
+  OCMVerify([mockOfflineApi spotsWithTags:[OCMArg isEqual:tags] pageSize:100 cursor:[OCMArg any] sort:0 completion:[OCMArg any]]);
+}
+
 - (void)testThatSpotsWithNameCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -1147,6 +1287,21 @@
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
+- (void)testThatSpotsWithNameCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *name = @"name";
+  
+  api.offline = YES;
+  
+  [api spotsWithName:name pageSize:0 cursor:[OCMArg any] options:0 sort:0 completion:nil];
+  
+  OCMVerify([mockOfflineApi spotsWithName:[OCMArg isEqual:name] pageSize:0 cursor:[OCMArg any] sort:0 completion:[OCMArg any]]);
+}
+
 - (void)testThatSystemCallsFetchResource {
   id mockRestClient = OCMClassMock([XMMRestClient class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
@@ -1209,6 +1364,21 @@
   }];
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatSystemCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *systemId = @"11";
+  
+  api.offline = YES;
+  
+  [api systemWithCompletion:nil];
+  
+  OCMVerify([mockOfflineApi systemWithCompletion:[OCMArg any]]);
 }
 
 - (void)testThatSystemSettingsCallsFetchResource {
@@ -1291,6 +1461,21 @@
   OCMVerifyAll(mockRestClient);
 }
 
+- (void)testThatSystemSettingsCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *systemId = @"11";
+  
+  api.offline = YES;
+  
+  [api systemSettingsWithID:systemId completion:nil];
+  
+  OCMVerify([mockOfflineApi systemSettingsWithID:[OCMArg isEqual:systemId] completion:[OCMArg any]]);
+}
+
 - (void)testThatStyleWithIDReturnsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   id mockRestClient = OCMClassMock([XMMRestClient class]);
@@ -1337,6 +1522,21 @@
   }];
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatStyleCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *systemId = @"11";
+  
+  api.offline = YES;
+  
+  [api styleWithID:systemId completion:nil];
+  
+  OCMVerify([mockOfflineApi styleWithID:[OCMArg isEqual:systemId] completion:[OCMArg any]]);
 }
 
 - (void)testThatMenuWithIDCallsFetchResource {
@@ -1399,6 +1599,21 @@
   }];
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatMenuCallsOfflineApi {
+  id mockRestClient = OCMPartialMock(self.restClient);
+  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  api.offlineApi = mockOfflineApi;
+  
+  NSString *systemId = @"11";
+  
+  api.offline = YES;
+  
+  [api menuWithID:systemId completion:nil];
+  
+  OCMVerify([mockOfflineApi menuWithID:[OCMArg isEqual:systemId] completion:[OCMArg any]]);
 }
 
 #pragma mark - Load json

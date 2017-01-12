@@ -137,6 +137,7 @@ static XMMEnduserApi *sharedInstance;
 - (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi contentWithID:contentID completion:completion];
+    return;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
@@ -194,6 +195,12 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark contents calls
 
 - (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+  
+  if (self.isOffline) {
+    [self.offlineApi contentsWithLocation:location pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language location:location];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
@@ -215,6 +222,12 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+  
+  if (self.isOffline) {
+    [self.offlineApi contentsWithTags:tags pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language tags:tags];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
@@ -236,6 +249,12 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+  
+  if (self.isOffline) {
+    [self.offlineApi contentsWithName:name pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language name:name];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
@@ -264,6 +283,11 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)spotWithID:(NSString *)spotID options:(XMMSpotOptions)options completion:(void(^)(XMMSpot *spot, NSError *error))completion {
+  
+  if (self.isOffline) {
+    [self.offlineApi spotWithID:spotID completion:completion];
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   
@@ -288,6 +312,12 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+ 
+  if (self.isOffline) {
+    [self.offlineApi spotsWithLocation:location radius:radius pageSize:pageSize cursor:cursor completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language location:location radius:radius];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
@@ -314,6 +344,12 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  
+  if (self.isOffline) {
+    [self.offlineApi spotsWithTags:tags pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language tags:tags];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
@@ -336,6 +372,11 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  if (self.isOffline) {
+    [self.offlineApi spotsWithName:name pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language name:name];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
@@ -360,6 +401,11 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark system calls
 
 - (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion {
+  if (self.isOffline) {
+    [self.offlineApi systemWithCompletion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   [self.restClient fetchResource:[XMMSystem class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
@@ -376,6 +422,11 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion {
+  if (self.isOffline) {
+    [self.offlineApi systemSettingsWithID:settingsID completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMSystemSettings class] id:settingsID parameters:params completion:^(JSONAPI *result, NSError *error) {
@@ -393,6 +444,11 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)styleWithID:(NSString *)styleID completion:(void (^)(XMMStyle *style, NSError *error))completion {
+  if (self.isOffline) {
+    [self.offlineApi styleWithID:styleID completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMStyle class] id:styleID parameters:params completion:^(JSONAPI *result, NSError *error) {
@@ -410,6 +466,11 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (void)menuWithID:(NSString *)menuID completion:(void (^)(XMMMenu *menu, NSError *error))completion {
+  if (self.isOffline) {
+    [self.offlineApi menuWithID:menuID completion:completion];
+    return;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
   [self.restClient fetchResource:[XMMMenu class] id:menuID parameters:params completion:^(JSONAPI *result, NSError *error) {
