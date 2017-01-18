@@ -1,6 +1,6 @@
 # Changelog
 
-## [3.0.0](#) - 18.01.2017
+## [3.0.0](https://github.com/xamoom/xamoom-ios-sdk/compare/2.2.0...3.0.0) - 18.01.2017
 
 - Added offline saving
 - Added loading of Assets from XamoomSDK bundle
