@@ -26,6 +26,7 @@
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */; };
 		8818B4331E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8818B42F1E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld */; };
+		8818B4351E2F98A300BDF126 /* XMMContentBlock3TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8818B4341E2F98A300BDF126 /* XMMContentBlock3TableViewCellTest.m */; };
 		881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 881945981C625B5000E4524F /* XMMContentBlocksTests.m */; };
 		881CB3061C72124D00AD3AE3 /* XMMMapOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */; };
 		88226E4C1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */; };
@@ -227,6 +228,7 @@
 		8818B4301E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.0.xcdatamodel"; sourceTree = "<group>"; };
 		8818B4311E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.1.xcdatamodel"; sourceTree = "<group>"; };
 		8818B4321E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserOfflineDatamodel.xcdatamodel; sourceTree = "<group>"; };
+		8818B4341E2F98A300BDF126 /* XMMContentBlock3TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock3TableViewCellTest.m; sourceTree = "<group>"; };
 		881945981C625B5000E4524F /* XMMContentBlocksTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksTests.m; sourceTree = "<group>"; };
 		881966DB1CD74F7100AC2007 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMMapOverlayView.xib; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				888DA63C1DFEB122003EFD63 /* XMMContentBlockXTableViewCellTests.m */,
 				88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */,
 				8863987B1DB520FA00CBBAD7 /* XMMContentBlock2TableViewCellTest.m */,
+				8818B4341E2F98A300BDF126 /* XMMContentBlock3TableViewCellTest.m */,
 				888DA63A1DFEB0B4003EFD63 /* XMMContentBlock4TableViewCellTest.m */,
 				8830FED01DB61D960072DCAC /* XMMContentBlock6TableViewCellTest.m */,
 				8830FED51DB664B40072DCAC /* XMMContentBlock5TableViewCellTest.m */,
@@ -1333,6 +1336,7 @@
 				886744291DF567790075C579 /* APIIntegrationTests.m in Sources */,
 				8830FEDC1DB7A3AC0072DCAC /* XMMOfflineDownloadManagerTest.m in Sources */,
 				888F4F6F1DA534D5000E49CE /* XMMCDContentBlockTest.m in Sources */,
+				8818B4351E2F98A300BDF126 /* XMMContentBlock3TableViewCellTest.m in Sources */,
 				883AC7D81DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m in Sources */,
 				888DA63D1DFEB122003EFD63 /* XMMContentBlockXTableViewCellTests.m in Sources */,
 				88B90D491E1A974C00B99E10 /* XMMContentBlock9TableViewCellTest.m in Sources */,
