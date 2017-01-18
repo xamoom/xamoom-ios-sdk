@@ -46,7 +46,7 @@
 }
 
 - (void)testException {
-  XCTAssertThrows([UIColor colorWithHexString:@"#000000000"]);
+  XCTAssertNil([UIColor colorWithHexString:@"#000000000"]);
 }
 
 @end
