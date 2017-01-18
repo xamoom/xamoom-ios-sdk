@@ -1372,8 +1372,6 @@
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
-  NSString *systemId = @"11";
-  
   api.offline = YES;
   
   [api systemWithCompletion:nil];
