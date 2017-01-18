@@ -29,5 +29,6 @@
 @property (nonatomic) NSString *videoUrl;
 @property (nonatomic) NSNumber *showContent;
 @property (nonatomic) NSString *altText;
+@property (nonatomic) NSString *copyright;
 
 @end

@@ -81,6 +81,7 @@
   }
   savedContentBlock.showContent = [NSNumber numberWithBool:contentBlock.showContent];
   savedContentBlock.altText = contentBlock.altText;
+  savedContentBlock.copyright = contentBlock.copyright;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   

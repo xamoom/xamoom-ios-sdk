@@ -25,6 +25,7 @@
 		880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */; };
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */; };
+		8818B4331E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8818B42F1E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld */; };
 		881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 881945981C625B5000E4524F /* XMMContentBlocksTests.m */; };
 		881CB3061C72124D00AD3AE3 /* XMMMapOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */; };
 		88226E4C1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */; };
@@ -155,7 +156,6 @@
 		88A4A5641DB9EE6100BFDC35 /* XMMOfflineStorageTagModuleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A4A5631DB9EE6100BFDC35 /* XMMOfflineStorageTagModuleTest.m */; };
 		88AA329E1DFA99AD004E9FC8 /* 49c8f22408b047598c2b00507aed04db.json in Resources */ = {isa = PBXBuildFile; fileRef = 88AA329D1DFA99AD004E9FC8 /* 49c8f22408b047598c2b00507aed04db.json */; };
 		88AE9ED91D9D293000B1D61C /* XMMOfflineStorageManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */; };
-		88B390191DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88B390171DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld */; };
 		88B3901C1DA2945900216478 /* XMMCDSystemSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */; };
 		88B3901D1DA2945900216478 /* XMMCDSystemSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */; };
 		88B3901F1DA294D600216478 /* XMMCDResource.h in Headers */ = {isa = PBXBuildFile; fileRef = 88B3901E1DA294D600216478 /* XMMCDResource.h */; };
@@ -224,6 +224,9 @@
 		880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineStorageManager.h; path = Classes/XMMOfflineStorageManager.h; sourceTree = "<group>"; };
 		880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineStorageManager.m; path = Classes/XMMOfflineStorageManager.m; sourceTree = "<group>"; };
 		88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock1TableViewCellTest.m; sourceTree = "<group>"; };
+		8818B4301E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.0.xcdatamodel"; sourceTree = "<group>"; };
+		8818B4311E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.1.xcdatamodel"; sourceTree = "<group>"; };
+		8818B4321E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserOfflineDatamodel.xcdatamodel; sourceTree = "<group>"; };
 		881945981C625B5000E4524F /* XMMContentBlocksTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksTests.m; sourceTree = "<group>"; };
 		881966DB1CD74F7100AC2007 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMMapOverlayView.xib; sourceTree = "<group>"; };
@@ -361,7 +364,6 @@
 		88A4A5631DB9EE6100BFDC35 /* XMMOfflineStorageTagModuleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineStorageTagModuleTest.m; sourceTree = "<group>"; };
 		88AA329D1DFA99AD004E9FC8 /* 49c8f22408b047598c2b00507aed04db.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 49c8f22408b047598c2b00507aed04db.json; sourceTree = "<group>"; };
 		88AE9ED81D9D293000B1D61C /* XMMOfflineStorageManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMOfflineStorageManagerTests.m; sourceTree = "<group>"; };
-		88B390181DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserOfflineDatamodel.xcdatamodel; sourceTree = "<group>"; };
 		88B3901A1DA2945900216478 /* XMMCDSystemSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDSystemSettings.h; path = Classes/Storage/Resources/XMMCDSystemSettings.h; sourceTree = "<group>"; };
 		88B3901B1DA2945900216478 /* XMMCDSystemSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCDSystemSettings.m; path = Classes/Storage/Resources/XMMCDSystemSettings.m; sourceTree = "<group>"; };
 		88B3901E1DA294D600216478 /* XMMCDResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMCDResource.h; path = Classes/Storage/Resources/XMMCDResource.h; sourceTree = "<group>"; };
@@ -717,11 +719,11 @@
 				884B614F1DACE78500572758 /* XMMOfflinePagedResult.m */,
 				888F18CE1DAB8ACE00518DB8 /* NSString+MD5.h */,
 				888F18CF1DAB8ACE00518DB8 /* NSString+MD5.m */,
-				88B390171DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld */,
 				883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */,
 				883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */,
 				8830FED71DB79F4C0072DCAC /* XMMOfflineDownloadManager.h */,
 				8830FED81DB79F4C0072DCAC /* XMMOfflineDownloadManager.m */,
+				8818B42F1E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -1270,7 +1272,6 @@
 				88B3902D1DA3AF8600216478 /* XMMCDMenu.m in Sources */,
 				88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */,
 				888F4F6D1DA53317000E49CE /* XMMCDContentBlock.m in Sources */,
-				88B390191DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */,
 				883E558D1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.m in Sources */,
 				888F4F731DA53FA8000E49CE /* XMMCDContent.m in Sources */,
 				883E55901C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.m in Sources */,
@@ -1294,6 +1295,7 @@
 				883E55501C4A2B66000C4D09 /* XMMSystem.m in Sources */,
 				882ED6851C63741000FC8BDB /* XMMContentBlocks.m in Sources */,
 				883E559C1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.m in Sources */,
+				8818B4331E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */,
 				88FE68C21C4E380300E9A32A /* XMMMenu.m in Sources */,
 				88D5B13F1DA3EED90069E2E8 /* XMMCDMarker.m in Sources */,
 				888F4F651DA4F7B3000E49CE /* XMMCDSystem.m in Sources */,
@@ -1613,12 +1615,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		88B390171DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodeld */ = {
+		8818B42F1E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				88B390181DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodel */,
+				8818B4301E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.0.xcdatamodel */,
+				8818B4311E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.1.xcdatamodel */,
+				8818B4321E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodel */,
 			);
-			currentVersion = 88B390181DA2934900216478 /* EnduserOfflineDatamodel.xcdatamodel */;
+			currentVersion = 8818B4311E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.1.xcdatamodel */;
 			name = EnduserOfflineDatamodel.xcdatamodeld;
 			path = Assets/EnduserOfflineDatamodel.xcdatamodeld;
 			sourceTree = "<group>";

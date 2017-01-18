@@ -50,6 +50,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"videoUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"video-url"]];
     [__descriptor addProperty:@"showContent" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"should-show-content-on-spotmap"]];
     [__descriptor addProperty:@"altText" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"alt-text"]];
+    [__descriptor addProperty:@"copyright" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"copyright"]];
   });
   
   return __descriptor;
@@ -76,6 +77,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     self.videoUrl = savedBlock.videoUrl;
     self.showContent = [savedBlock.showContent boolValue];
     self.altText = savedBlock.altText;
+    self.copyright = savedBlock.copyright;
   }
   return self;
 }

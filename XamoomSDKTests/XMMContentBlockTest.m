@@ -49,6 +49,7 @@
   contentBlock.videoUrl = @"video";
   contentBlock.showContent = NO;
   contentBlock.altText = @"alt";
+  contentBlock.copyright = @"copyright";
   
   XMMCDContentBlock *savedContentBlock = [XMMCDContentBlock insertNewObjectFrom:contentBlock];
   XMMContentBlock *newContentBlock = [[XMMContentBlock alloc] initWithCoreDataObject:savedContentBlock];
@@ -69,6 +70,7 @@
   XCTAssertTrue([newContentBlock.videoUrl isEqualToString:contentBlock.videoUrl]);
   XCTAssertTrue(newContentBlock.showContent == contentBlock.showContent);
   XCTAssertTrue([newContentBlock.altText isEqualToString:contentBlock.altText]);
+  XCTAssertTrue([newContentBlock.copyright isEqualToString:contentBlock.copyright]);
 }
 
 - (void)testSaveOffline {

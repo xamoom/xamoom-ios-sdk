@@ -53,6 +53,7 @@
   contentBlock.videoUrl = @"video";
   contentBlock.showContent = NO;
   contentBlock.altText = @"alt";
+  contentBlock.copyright = @"copyright";
   
   XMMCDContentBlock *savedContentBlock = [XMMCDContentBlock insertNewObjectFrom:contentBlock fileManager:self.mockedFileManager];
   
@@ -75,6 +76,7 @@
   XCTAssertTrue([savedContentBlock.videoUrl isEqualToString:contentBlock.videoUrl]);
   XCTAssertTrue([savedContentBlock.showContent boolValue] == contentBlock.showContent);
   XCTAssertTrue([savedContentBlock.altText isEqualToString:contentBlock.altText]);
+  XCTAssertTrue([savedContentBlock.copyright isEqualToString:contentBlock.copyright]);
 }
 
 @end

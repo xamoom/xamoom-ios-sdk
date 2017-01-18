@@ -370,6 +370,7 @@
         XCTAssertTrue([block.fileID isEqualToString:@"https://storage.googleapis.com/xamoom-files-dev/mobile/62a7d76c4a14446bbc8e3155b8db025f.png"]);
         XCTAssertEqual(block.scaleX, 100.0);
         XCTAssertEqual(block.blockType, 3);
+        XCTAssertTrue([block.copyright isEqualToString:@"copyright by someone"]);
       }
       
       if ([content.ID isEqualToString:@"2570fd0d2a0a48c39112bc9913461f5d"]) {
