@@ -20,6 +20,9 @@
 #import <Foundation/Foundation.h>
 #import "XMMCDResource.h"
 
+/**
+ * Base class for every JSONApi resource.
+ */
 @protocol XMMRestResource <NSObject>
 
 /**

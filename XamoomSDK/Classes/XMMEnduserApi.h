@@ -255,7 +255,7 @@ extern NSString * const kApiBaseURLString;
  * @param location Location of the user
  * @param radius Radius in meter
  * @param options XMMSpotOptions to get markers or content
- * @param sort XMMSpotSortOptions to sort the results
+ * @param sortOptions XMMSpotSortOptions to sort the results
  * @param completion Completion block called after finishing network request
  * - *param1* spots Spots from xamoom system
  * - *param2* error NSError, can be null
@@ -268,7 +268,7 @@ extern NSString * const kApiBaseURLString;
  * @param location Location of the user
  * @param radius Radius in meter
  * @param options XMMSpotOptions to get markers or content
- * @param sort XMMSpotSortOptions to sort the results
+ * @param sortOptions XMMSpotSortOptions to sort the results
  * @param completion Completion block called after finishing network request
  * @param pageSize PageSize you want to get from xamoom cloud
  * @param cursor Needed when paging, can be null
@@ -284,7 +284,7 @@ extern NSString * const kApiBaseURLString;
  *
  * @param tags Array of tags
  * @param options XMMSpotOptions to get markers or content
- * @param sort XMMSpotSortOptions to sort the results
+ * @param sortOptions XMMSpotSortOptions to sort the results
  * @param completion Completion block called after finishing network request
  * - *param1* spots Spots from xamoom system
  * - *param2* hasMore True if more items on xamoom cloud
