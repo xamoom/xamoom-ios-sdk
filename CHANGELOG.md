@@ -1,5 +1,10 @@
 # Changelog
 
+## development
+
+- Added copyright to XMMContentBlock
+- Added copyrightLabel to XMMContentBlock3TableViewCell
+
 ## [3.0.0](https://github.com/xamoom/xamoom-ios-sdk/compare/2.2.0...3.0.0) - 18.01.2017
 
 - Added offline saving
@@ -22,8 +27,10 @@
 ## [2.2.0](https://github.com/xamoom/xamoom-ios-sdk/compare/2.0.0...2.2.0) - 17.08.2016
 
 - Changed youtube contentblock (webview + youtube link)
+
 - Added viewWillAppear to XMMContentBlocks
-- Bugfix for custom map pins
+
+- Fixed custom map pins
 
 ## [2.0.0](https://github.com/xamoom/xamoom-ios-sdk/compare/1.4.0...2.0.0) - 29.02.2016
 
@@ -37,4 +44,5 @@
 ## 1.4.2 (outdated) - 11.01.2016
 
 - Removed style from XMMClosestSpot
+
 - Fixed bug with youtube-video-player
