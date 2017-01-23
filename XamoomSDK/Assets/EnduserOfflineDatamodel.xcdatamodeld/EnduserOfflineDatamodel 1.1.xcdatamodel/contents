@@ -45,11 +45,6 @@
         <attribute name="jsonID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="XMMCDContent" syncable="YES"/>
     </entity>
-    <entity name="XMMCDMenuItem" syncable="YES">
-        <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="contentTitle" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="jsonID" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="XMMCDSpot" syncable="YES">
         <attribute name="category" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="customMeta" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -90,7 +85,6 @@
         <element name="XMMCDContentBlock" positionX="-9" positionY="90" width="128" height="315"/>
         <element name="XMMCDMarker" positionX="-27" positionY="54" width="128" height="150"/>
         <element name="XMMCDMenu" positionX="-18" positionY="81" width="128" height="75"/>
-        <element name="XMMCDMenuItem" positionX="0" positionY="90" width="128" height="90"/>
         <element name="XMMCDSpot" positionX="9" positionY="171" width="128" height="210"/>
         <element name="XMMCDStyle" positionX="-36" positionY="27" width="128" height="150"/>
         <element name="XMMCDSystem" positionX="-18" positionY="72" width="128" height="135"/>
