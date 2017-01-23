@@ -83,7 +83,7 @@ static XMMOfflineDownloadManager *sharedInstance;
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
   [self removeCurrentDownload:downloadTask];
-  NSLog(@"Test %@", downloadTask.originalRequest.URL);
+
   void (^completionBlock)(NSString *url, NSData *data, NSError *error) =
   [self.completionDict objectForKey:downloadTask.originalRequest.URL];
   
