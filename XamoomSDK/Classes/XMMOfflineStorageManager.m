@@ -17,6 +17,7 @@
 #import "XMMCDSystem.h"
 #import "XMMCDSystemSettings.h"
 
+NSString *const kManagedContextErrorNotification = @"MANAGED_CONTEXT_ERROR_NOTIFICATION";
 NSString *const kManagedContextReadyNotification = @"MANAGED_CONTEXT_READY_NOTIFICATION";
 
 @implementation XMMOfflineStorageManager
@@ -72,6 +73,11 @@ static dispatch_once_t onceToken;
     NSPersistentStore *store = [psc addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
     if (error) {
       NSAssert(store != nil, @"Error initializing PSC: %@\n%@", [error localizedDescription], [error userInfo]);
+      dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:kManagedContextErrorNotification
+                                                            object:self
+                                                          userInfo:@{@"error":error}];
+      });
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
