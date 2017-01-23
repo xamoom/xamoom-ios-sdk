@@ -34,7 +34,14 @@
 }
 
 - (void)tearDown {
-  // Put teardown code here. This method is called after the invocation of each test method in the class.
+  
+  NSString *suiteName = [NSString stringWithFormat:@"%@.%@", @"com.xamoom.ios",
+                         [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
+  NSUserDefaults *userDefaults = [[NSUserDefaults alloc]
+                                  initWithSuiteName:suiteName];
+  [userDefaults setObject:nil forKey:@"offlineTags"];
+  [userDefaults synchronize];
+  
   [super tearDown];
 }
 
@@ -43,6 +50,7 @@
   
   XCTAssertNotNil(offlineHelper);
   XCTAssertEqual(offlineHelper.api, self.mockApi);
+  XCTAssertNotNil(offlineHelper.offlineTags);
 }
 
 - (void)testDownloadWithTags {
@@ -79,6 +87,9 @@
     [expectation fulfill];
   }];
   [self waitForExpectationsWithTimeout:2.0 handler:nil];
+  
+  NSMutableArray *tagsSaved = [self loadOfflineTags];
+  XCTAssertEqual(tagsSaved.count, 1);
 }
 
 - (void)testDeleteSavedWithTagsSameTags {
@@ -110,6 +121,8 @@
   
   XCTAssertNil(error);
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"1"]]);
+  NSMutableArray *tagsSaved = [self loadOfflineTags];
+  XCTAssertEqual(tagsSaved.count, 1);
 }
 
 - (void)testDeleteSavedDataWithTagsSameContent {
@@ -209,5 +222,22 @@
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"2"]]);
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"4"]]);
 }
+
+#pragma mark - Helper
+
+- (NSMutableArray *)loadOfflineTags {
+  NSString *suiteName = [NSString stringWithFormat:@"%@.%@", @"com.xamoom.ios",
+                         [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
+  NSUserDefaults *userDefaults = [[NSUserDefaults alloc]
+                                  initWithSuiteName:suiteName];
+  NSMutableArray *tags = [userDefaults objectForKey:@"offlineTags"];
+  if (tags == nil) {
+    tags = [[NSMutableArray alloc] init];
+  }
+  
+  return tags;
+}
+
+
 
 @end

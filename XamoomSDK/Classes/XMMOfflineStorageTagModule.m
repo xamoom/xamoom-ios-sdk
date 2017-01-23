@@ -16,18 +16,19 @@ static int kPageSize = 100;
 @interface XMMOfflineStorageTagModule()
 
 @property NSMutableArray *allSpots;
+@property NSString *suiteName;
 
 @end
 
 @implementation XMMOfflineStorageTagModule
 
-@synthesize offlineTags;
-
 - (instancetype)initWithApi:(XMMEnduserApi *)api {
   self = [super init];
   if (self) {
     self.api = api;
-    offlineTags = [[NSMutableArray alloc] init];
+    self.suiteName = [NSString stringWithFormat:@"%@.%@", @"com.xamoom.ios",
+                      [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
+    _offlineTags = [self loadOfflineTags];
   }
   return self;
 }
@@ -37,6 +38,7 @@ static int kPageSize = 100;
                      completion:(void (^)(NSArray *, NSError *))completion {
   self.allSpots = [[NSMutableArray alloc] init];
   [self.offlineTags addObjectsFromArray:tags];
+  [self saveOfflineTags];
 
   [self downloadAllSpots:tags cursor:nil completion:^(NSArray *spots, NSError *error) {
     if (error) {
@@ -108,12 +110,13 @@ static int kPageSize = 100;
 }
 
 - (NSError *)deleteSavedDataWithTags:(NSArray *)tags {
-  [offlineTags removeObjectsInArray:tags];
+  [self.offlineTags removeObjectsInArray:tags];
+  [self saveOfflineTags];
 
   NSArray *allSpots = [self.storeManager fetchAll:[XMMCDSpot coreDataEntityName]];
   XMMOfflineApiHelper* offlineApiHelper = [[XMMOfflineApiHelper alloc] init];
   NSMutableArray *spotsToDelete = [[offlineApiHelper entitiesWithTags:allSpots tags:tags] mutableCopy];
-  NSArray *spotsToKeep = [offlineApiHelper entitiesWithTags:spotsToDelete tags:offlineTags];
+  NSArray *spotsToKeep = [offlineApiHelper entitiesWithTags:spotsToDelete tags:self.offlineTags];
   [spotsToDelete removeObjectsInArray:spotsToKeep];
   
   NSMutableArray *contentsToDelete = [[NSMutableArray alloc] init];
@@ -149,8 +152,22 @@ static int kPageSize = 100;
   return error;
 }
 
-- (void)addOfflineTag:(NSString *)tag {
-  [self.offlineTags addObject:tag];
+- (NSMutableArray *)loadOfflineTags {
+  NSUserDefaults *userDefaults = [[NSUserDefaults alloc]
+                                  initWithSuiteName:self.suiteName];
+  NSMutableArray *tags = [userDefaults objectForKey:@"offlineTags"];
+  if (tags == nil) {
+    tags = [[NSMutableArray alloc] init];
+  }
+  
+  return tags;
+}
+
+- (void)saveOfflineTags {
+  NSUserDefaults *userDefaults = [[NSUserDefaults alloc]
+                                  initWithSuiteName:self.suiteName];
+  [userDefaults setObject:self.offlineTags forKey:@"offlineTags"];
+  [userDefaults synchronize];
 }
 
 - (XMMOfflineStorageManager *)storeManager {
