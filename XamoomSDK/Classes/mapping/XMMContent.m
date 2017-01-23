@@ -59,6 +59,11 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 }
 
 - (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  return [self initWithCoreDataObject:object excludeRelations:NO];
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object
+                              excludeRelations:(Boolean)excludeRelations {
   self = [self init];
   if (self && object != nil) {
     XMMCDContent *savedContent = (XMMCDContent *)object;
@@ -79,7 +84,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
       self.contentBlocks = blocks;
     }
     
-    if (savedContent.system != nil) {
+    if (savedContent.system != nil && !excludeRelations) {
       self.system = [[XMMSystem alloc] initWithCoreDataObject:savedContent.system];
     }
     

@@ -45,6 +45,10 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 }
 
 - (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  return [self initWithCoreDataObject:object excludeRelations:NO];
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object excludeRelations:(Boolean)excludeRelations {
   self = [self init];
   if (self && object != nil) {
     XMMCDMenu *savedMenu = (XMMCDMenu *)object;
@@ -52,7 +56,8 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     if (savedMenu.items != nil) {
       NSMutableArray *items = [[NSMutableArray alloc] init];
       for (XMMCDContent *item in savedMenu.items) {
-        [items addObject:[[XMMContent alloc] initWithCoreDataObject:item]];
+        [items addObject:[[XMMContent alloc] initWithCoreDataObject:item
+                                                   excludeRelations:YES]];
       }
       self.items = items;
     }

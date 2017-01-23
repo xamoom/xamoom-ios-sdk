@@ -47,6 +47,10 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 }
 
 - (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
+  return [self initWithCoreDataObject:object excludeRelations:NO];
+}
+
+- (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object excludeRelations:(Boolean)excludeRelations {
   self = [self init];
   if (self && object != nil) {
     XMMCDMarker *savedMarker = (XMMCDMarker *)object;

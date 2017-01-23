@@ -36,6 +36,12 @@
 - (instancetype _Null_unspecified)initWithCoreDataObject:(id<XMMCDResource> _Nonnull)object;
 
 /**
+ * Initialize entity with offline saved entity and don't add relations.
+ */
+- (instancetype _Null_unspecified)initWithCoreDataObject:(id<XMMCDResource> _Nonnull)object
+                              excludeRelations:(Boolean)excludeRelations;
+
+/**
  * Save offline copy of this entity.
  */
 - (id<XMMCDResource> _Nonnull)saveOffline;

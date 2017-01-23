@@ -48,6 +48,7 @@
   XCTAssertNotNil(offlineMenu.items);
   XCTAssertTrue([savedMenuItem.title isEqualToString:testItem.title]);
   XCTAssertEqual([savedMenuItem.category intValue], testItem.category);
+  XCTAssertNil(savedMenuItem.system);
 }
 
 @end

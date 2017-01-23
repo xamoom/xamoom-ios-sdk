@@ -28,6 +28,7 @@
 @dynamic videoUrl;
 @dynamic showContent;
 @dynamic altText;
+@dynamic copyright;
 
 + (NSString *)coreDataEntityName {
   return NSStringFromClass([self class]);
