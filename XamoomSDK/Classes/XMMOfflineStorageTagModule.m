@@ -26,7 +26,7 @@ static int kPageSize = 100;
   self = [super init];
   if (self) {
     self.api = api;
-    self.suiteName = [NSString stringWithFormat:@"%@.%@", @"com.xamoom.ios",
+    self.suiteName = [NSString stringWithFormat:@"xamoomsdk.%@", 
                       [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
     _offlineTags = [self loadOfflineTags];
   }
@@ -153,8 +153,7 @@ static int kPageSize = 100;
 }
 
 - (NSMutableArray *)loadOfflineTags {
-  NSUserDefaults *userDefaults = [[NSUserDefaults alloc]
-                                  initWithSuiteName:self.suiteName];
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   NSMutableArray *tags = [userDefaults objectForKey:@"offlineTags"];
   if (tags == nil) {
     tags = [[NSMutableArray alloc] init];

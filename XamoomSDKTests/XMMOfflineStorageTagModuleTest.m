@@ -226,7 +226,7 @@
 #pragma mark - Helper
 
 - (NSMutableArray *)loadOfflineTags {
-  NSString *suiteName = [NSString stringWithFormat:@"%@.%@", @"com.xamoom.ios",
+  NSString *suiteName = [NSString stringWithFormat:@"xamoomsdk.%@",
                          [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
   NSUserDefaults *userDefaults = [[NSUserDefaults alloc]
                                   initWithSuiteName:suiteName];
