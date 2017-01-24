@@ -23,6 +23,7 @@
 @property (strong, nonatomic, nonnull) XMMEnduserApi *api;
 @property (strong, nonatomic, nonnull) XMMOfflineStorageManager *storeManager;
 @property (strong, nonatomic, nonnull, readonly) NSMutableArray *offlineTags;
+@property (strong, nonatomic, nonnull) NSUserDefaults *userDefaults;
 
 /**
  * Constructor needs a valid api to download from cloud.

@@ -17,6 +17,7 @@
 @property XMMEnduserApi *mockApi;
 @property XMMOfflineStorageManager *mockedManager;
 @property NSManagedObjectContext *mockedContext;
+@property NSUserDefaults *mockUserDefaults;
 
 @end
 
@@ -29,18 +30,14 @@
   self.mockedContext = OCMClassMock([NSManagedObjectContext class]);
   self.mockedManager.managedObjectContext = self.mockedContext;
   
+  self.mockUserDefaults = OCMClassMock([NSUserDefaults class]);
+
   self.offlineHelper = [[XMMOfflineStorageTagModule alloc] initWithApi:self.mockApi];
   self.offlineHelper.storeManager = self.mockedManager;
+  self.offlineHelper.userDefaults = self.mockUserDefaults;
 }
 
 - (void)tearDown {
-  
-  NSString *suiteName = [NSString stringWithFormat:@"%@.%@", @"com.xamoom.ios",
-                         [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
-  NSUserDefaults *userDefaults = [[NSUserDefaults alloc]
-                                  initWithSuiteName:suiteName];
-  [userDefaults setObject:nil forKey:@"offlineTags"];
-  [userDefaults synchronize];
   
   [super tearDown];
 }
@@ -88,8 +85,10 @@
   }];
   [self waitForExpectationsWithTimeout:2.0 handler:nil];
   
-  NSMutableArray *tagsSaved = [self loadOfflineTags];
-  XCTAssertEqual(tagsSaved.count, 1);
+  OCMVerify([self.mockUserDefaults setObject:[OCMArg isEqual:@[@"tag1"]]
+                                      forKey:@"com.xamoom.ios.offlineTags"]);
+  //NSMutableArray *tagsSaved = [self loadOfflineTags];
+  //XCTAssertEqual(tagsSaved.count, 1);
 }
 
 - (void)testDeleteSavedWithTagsSameTags {
@@ -121,8 +120,9 @@
   
   XCTAssertNil(error);
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"1"]]);
-  NSMutableArray *tagsSaved = [self loadOfflineTags];
-  XCTAssertEqual(tagsSaved.count, 1);
+  
+  OCMVerify([self.mockUserDefaults setObject:[OCMArg isEqual:@[@"tag2"]]
+                                      forKey:@"com.xamoom.ios.offlineTags"]);
 }
 
 - (void)testDeleteSavedDataWithTagsSameContent {
@@ -222,22 +222,5 @@
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"2"]]);
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"4"]]);
 }
-
-#pragma mark - Helper
-
-- (NSMutableArray *)loadOfflineTags {
-  NSString *suiteName = [NSString stringWithFormat:@"xamoomsdk.%@",
-                         [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
-  NSUserDefaults *userDefaults = [[NSUserDefaults alloc]
-                                  initWithSuiteName:suiteName];
-  NSMutableArray *tags = [userDefaults objectForKey:@"offlineTags"];
-  if (tags == nil) {
-    tags = [[NSMutableArray alloc] init];
-  }
-  
-  return tags;
-}
-
-
 
 @end

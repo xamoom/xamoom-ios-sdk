@@ -29,6 +29,7 @@ static int kPageSize = 100;
     self.suiteName = [NSString stringWithFormat:@"xamoomsdk.%@", 
                       [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"]];
     _offlineTags = [self loadOfflineTags];
+    self.userDefaults = [NSUserDefaults standardUserDefaults];
   }
   return self;
 }
@@ -153,8 +154,8 @@ static int kPageSize = 100;
 }
 
 - (NSMutableArray *)loadOfflineTags {
-  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  NSMutableArray *tags = [userDefaults objectForKey:@"offlineTags"];
+  NSMutableArray *tags = [[self.userDefaults
+                           arrayForKey:@"com.xamoom.ios.offlineTags"] mutableCopy];
   if (tags == nil) {
     tags = [[NSMutableArray alloc] init];
   }
@@ -163,10 +164,9 @@ static int kPageSize = 100;
 }
 
 - (void)saveOfflineTags {
-  NSUserDefaults *userDefaults = [[NSUserDefaults alloc]
-                                  initWithSuiteName:self.suiteName];
-  [userDefaults setObject:self.offlineTags forKey:@"offlineTags"];
-  [userDefaults synchronize];
+  [self.userDefaults setObject:self.offlineTags
+                        forKey:@"com.xamoom.ios.offlineTags"];
+  [self.userDefaults synchronize];
 }
 
 - (XMMOfflineStorageManager *)storeManager {
