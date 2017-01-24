@@ -129,6 +129,7 @@ static dispatch_once_t onceToken;
   
   NSError *error;
   [self.managedObjectContext save:&error];
+  [self deleteLocalFilesWithSafetyCheck];
 }
 
 - (void)deleteAllEntities {
@@ -148,6 +149,7 @@ static dispatch_once_t onceToken;
   }
   
   [self.managedObjectContext save:nil];
+  [self deleteLocalFilesWithSafetyCheck];
 }
 
 - (void)determineFileDeletionForEntities:(NSArray *)entities

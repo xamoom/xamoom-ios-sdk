@@ -140,7 +140,6 @@
   self.storeManager.fileManager = mockedFileManager;
   
   [self.storeManager.saveDeletionFiles addObject:@"www.xamoom.com/file.jpg"];
-  [self.storeManager deleteLocalFilesWithSafetyCheck];
 }
 
 - (void)testSaveFileDeleteWithSpotDuplicate {
@@ -156,7 +155,6 @@
   self.storeManager.fileManager = mockedFileManager;
   
   [self.storeManager.saveDeletionFiles addObject:@"www.xamoom.com/file.jpg"];
-  [self.storeManager deleteLocalFilesWithSafetyCheck];
   
   OCMVerify(mockedFileManager);
 }
@@ -174,7 +172,6 @@
   self.storeManager.fileManager = mockedFileManager;
   
   [self.storeManager.saveDeletionFiles addObject:@"www.xamoom.com/file.jpg"];
-  [self.storeManager deleteLocalFilesWithSafetyCheck];
   
   OCMVerify(mockedFileManager);
 }
@@ -192,7 +189,6 @@
   self.storeManager.fileManager = mockedFileManager;
   
   [self.storeManager.saveDeletionFiles addObject:@"www.xamoom.com/file.jpg"];
-  [self.storeManager deleteLocalFilesWithSafetyCheck];
   
   OCMVerify(mockedFileManager);
 }
@@ -210,15 +206,25 @@
 }
 
 - (void)testDeleteEntityWithID {
+  XMMOfflineFileManager *mockedFileManager = OCMClassMock([XMMOfflineFileManager class]);
+  self.storeManager.fileManager = mockedFileManager;
+  
   XMMContent *content = [[XMMContent alloc] init];
   content.ID = @"1";
+  content.imagePublicUrl = @"www.xamoom.com/fileWithANameNobobyKnows.jpg";
   XMMCDContent *savedContent = [XMMCDContent insertNewObjectFrom:content];
   
-  OCMStub([self.mockedContext executeFetchRequest:[OCMArg any] error:[OCMArg anyObjectRef]]).andReturn(@[savedContent]);
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:
+                             [XMMCDContent coreDataEntityName]];
+  request.predicate = [NSPredicate predicateWithFormat:@"jsonID == %@", @"1"];
+  
+  OCMStub([self.mockedContext executeFetchRequest:[OCMArg isEqual:request] error:[OCMArg anyObjectRef]]).andReturn(@[savedContent]);
+  
   
   [self.storeManager deleteEntity:[XMMCDContent class] ID:@"1"];
   
   OCMVerify([self.mockedContext deleteObject:[OCMArg isEqual:savedContent]]);
+  OCMVerify([mockedFileManager deleteFileWithUrl:[OCMArg any] error:nil]);
 }
 
 @end
