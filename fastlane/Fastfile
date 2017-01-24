@@ -1,0 +1,10 @@
+fastlane_version "1.109.0"
+
+default_platform :ios
+
+lane :beta do
+  scan(
+    scheme: "XamoomSDK",
+    clean: true,
+  )
+end
