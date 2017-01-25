@@ -5,6 +5,8 @@
 - Added copyright to XMMContentBlock
 - Added copyrightLabel to XMMContentBlock3TableViewCell
 
+- Fixed offlineTags in `XMMOfflineStorageTagModule` were not saved. These are now saved to NSUserDefaults.
+
 ## [3.0.0](https://github.com/xamoom/xamoom-ios-sdk/compare/2.2.0...3.0.0) - 18.01.2017
 
 - Added offline saving
