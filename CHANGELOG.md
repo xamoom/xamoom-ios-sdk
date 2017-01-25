@@ -2,6 +2,8 @@
 
 ## development
 
+## [3.1.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.0.0...3.1.0) - 25.01.2017
+
 - Added copyright to XMMContentBlock
 - Added copyrightLabel to XMMContentBlock3TableViewCell
 

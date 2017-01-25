@@ -61,8 +61,7 @@
   
   //self.module = [[XMMOfflineStorageTagModule alloc] initWithApi:self.api];
   
-  //[self displayContent];
-  [self testSmth];
+  [self displayContent];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -101,20 +100,6 @@
   self.api.offline = YES;
   
   [self contentWithID];
-}
-
-- (void)testSmth {
-  XMMOfflineStorageTagModule *module = [[XMMOfflineStorageTagModule alloc]
-                                        initWithApi:self.api];
-  
-  
-  [module downloadAndSaveWithTags:@[@"spot1", @"spot2"] downloadCompletion:^(NSString * _Null_unspecified url, NSData * _Null_unspecified data, NSError * _Null_unspecified error) {
-    //
-  } completion:^(NSArray * _Null_unspecified spots, NSError * _Null_unspecified error) {
-    NSLog(@"Finished");
-  }];
-  
-  
 }
 
 - (void)didClickContentBlock:(NSString *)contentID {

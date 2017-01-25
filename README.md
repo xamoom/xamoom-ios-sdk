@@ -19,7 +19,7 @@ Download the XamoomSDK and add it to your project, build it and use the framewor
 
 Add in your podfile
 
-    pod 'XamoomSDK', '~> 3.0.0'
+    pod 'XamoomSDK', '~> 3.1.0'
 
 Install pods via terminal
 
@@ -49,13 +49,7 @@ Grab a contentID from your [xamoom-system](https://xamoom.net/) (open a page and
   }];
 ```
 
-When your call is successful you will get a [`XMMContent`](http://xamoom.github.io/xamoom-ios-sdk/2.1.0/html/Classes/XMMContent.html) object.
-
-## [API Calls]((https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls))
-
-Check out our [API Calls Wiki Page](https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls).
-
-Every call is also on our documentation: [XMMEnduserApi documentation](http://xamoom.github.io/xamoom-ios-sdk/2.1.0/html/Classes/XMMEnduserApi.html)
+Every call is also on our documentation: [XMMEnduserApi documentation](http://xamoom.github.io/xamoom-ios-sdk/3.1.0/html/Classes/XMMEnduserApi.html)
 
 # iBeacons
 
