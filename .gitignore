@@ -22,3 +22,5 @@ DerivedData
 
 test-reports/
 gendocs/
+fastlane/report.xml
+fastlane/test_output/
