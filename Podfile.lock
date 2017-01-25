@@ -2,10 +2,10 @@ PODS:
   - JAMSVGImage (1.6.1)
   - JSONAPI (1.0.7)
   - Nocilla (0.11.0)
-  - OCMock (3.3.1)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
+  - OCMock (3.4)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - XamoomSDK (3.0.0):
     - JAMSVGImage
     - JSONAPI (~> 1.0.0)
@@ -27,8 +27,8 @@ SPEC CHECKSUMS:
   JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2
   JSONAPI: 8fed55fcfa08ee662674cd4f1bd03c37d8b34e03
   Nocilla: 7af7a386071150cc8aa5da4da97d060f049dd61c
-  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   XamoomSDK: 53b6e693a2acb045355c5c24ba3adb795fd1cb4a
 
 PODFILE CHECKSUM: 11b1390408ff93bf120a8ad88feb06c4cbe258b8

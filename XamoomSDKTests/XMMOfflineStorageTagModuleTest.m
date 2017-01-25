@@ -17,7 +17,7 @@
 @property XMMEnduserApi *mockApi;
 @property XMMOfflineStorageManager *mockedManager;
 @property NSManagedObjectContext *mockedContext;
-@property NSUserDefaults *mockUserDefaults;
+@property XMMSimpleStorage *mockSimpleStorage;
 
 @end
 
@@ -30,11 +30,11 @@
   self.mockedContext = OCMClassMock([NSManagedObjectContext class]);
   self.mockedManager.managedObjectContext = self.mockedContext;
   
-  self.mockUserDefaults = OCMClassMock([NSUserDefaults class]);
+  self.mockSimpleStorage = OCMClassMock([XMMSimpleStorage class]);
 
   self.offlineHelper = [[XMMOfflineStorageTagModule alloc] initWithApi:self.mockApi];
   self.offlineHelper.storeManager = self.mockedManager;
-  self.offlineHelper.userDefaults = self.mockUserDefaults;
+  self.offlineHelper.simpleStorage = self.mockSimpleStorage;
 }
 
 - (void)tearDown {
@@ -47,12 +47,13 @@
   
   XCTAssertNotNil(offlineHelper);
   XCTAssertEqual(offlineHelper.api, self.mockApi);
-  XCTAssertNotNil(offlineHelper.offlineTags);
 }
 
 - (void)testDownloadWithTags {
   XMMContent *content = [[XMMContent alloc] init];
   content.ID = @"2";
+  
+  OCMStub([self.mockSimpleStorage readTags]).andReturn([[NSMutableArray alloc] init]);
   
   OCMStub([self.mockApi spotsWithTags:[OCMArg any] pageSize:100 cursor:[OCMArg any] options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:0 completion:[OCMArg any]]).andDo(^(NSInvocation *invocation) {
     void (^passedBlock)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error);
@@ -78,6 +79,7 @@
     passedBlock(content, nil);
   });
   
+  self.offlineHelper.simpleStorage = self.mockSimpleStorage;
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineHelper downloadAndSaveWithTags:@[@"tag1"] downloadCompletion:nil completion:^(NSArray *spots, NSError *error) {
     XCTAssertEqual(spots.count, 2);
@@ -85,8 +87,7 @@
   }];
   [self waitForExpectationsWithTimeout:2.0 handler:nil];
   
-  OCMVerify([self.mockUserDefaults setObject:[OCMArg isEqual:@[@"tag1"]]
-                                      forKey:@"com.xamoom.ios.offlineTags"]);
+  OCMVerify([self.mockSimpleStorage saveTags:@[@"tag1"]]);
   //NSMutableArray *tagsSaved = [self loadOfflineTags];
   //XCTAssertEqual(tagsSaved.count, 1);
 }
@@ -110,6 +111,7 @@
   
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
   
+  OCMStub([self.mockSimpleStorage readTags]).andReturn([[NSMutableArray alloc] init]);
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
   OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"2"]]);
   OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"4"]]);
@@ -121,8 +123,7 @@
   XCTAssertNil(error);
   OCMVerify([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"1"]]);
   
-  OCMVerify([self.mockUserDefaults setObject:[OCMArg isEqual:@[@"tag2"]]
-                                      forKey:@"com.xamoom.ios.offlineTags"]);
+  OCMVerify([self.mockSimpleStorage saveTags:@[@"tag2"]]);
 }
 
 - (void)testDeleteSavedDataWithTagsSameContent {
@@ -139,10 +140,8 @@
   spot2.tags = @[@"tag1", @"tag2"];
   spot2.content = content;
   
-  //[self.offlineHelper setOfflineTags:[[NSMutableArray alloc] initWithObjects:@"tag1", @"tag2", nil]];
-  
+  OCMStub([self.mockSimpleStorage readTags]).andReturn([[NSMutableArray alloc] init]);
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
-  
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
   OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spots);
   OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"3"]]);
@@ -173,8 +172,8 @@
   spot2.tags = @[@"tag1", @"tag2"];
   spot2.content = content2;
   
+  OCMStub([self.mockSimpleStorage readTags]).andReturn([[NSMutableArray alloc] init]);
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
-  
   NSArray *spotsWithContent1 = @[spots[0]];
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
   OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spotsWithContent1);

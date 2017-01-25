@@ -1,14 +1,26 @@
 //
-//  XMMOfflineHelper.h
-//  XamoomSDK
+// Copyright 2017 by xamoom GmbH <apps@xamoom.com>
 //
-//  Created by Raphael Seher on 21/10/2016.
-//  Copyright © 2016 xamoom GmbH. All rights reserved.
+// This file is part of some open source application.
+//
+// Some open source application is free software: you can redistribute
+// it and/or modify it under the terms of the GNU General Public
+// License as published by the Free Software Foundation, either
+// version 2 of the License, or (at your option) any later version.
+//
+// Some open source application is distributed in the hope that it will
+// be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+// of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
 #import <Foundation/Foundation.h>
 #import "XMMEnduserApi.h"
 #import "XMMOfflineStorageManager.h"
+#import "XMMSimpleStorage.h"
 
 /**
  * Use the XMMOfflineStorageTagModule to have a managed way to download and
@@ -23,7 +35,7 @@
 @property (strong, nonatomic, nonnull) XMMEnduserApi *api;
 @property (strong, nonatomic, nonnull) XMMOfflineStorageManager *storeManager;
 @property (strong, nonatomic, nonnull, readonly) NSMutableArray *offlineTags;
-@property (strong, nonatomic, nonnull) NSUserDefaults *userDefaults;
+@property (strong, nonatomic, nonnull) XMMSimpleStorage *simpleStorage;
 
 /**
  * Constructor needs a valid api to download from cloud.

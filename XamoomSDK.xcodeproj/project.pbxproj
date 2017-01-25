@@ -85,6 +85,8 @@
 		883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */; };
 		883EA0661C7F05FC003FDF80 /* XMMMapOverlayViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */; };
 		883EA06A1C7F0DF7003FDF80 /* XMMMusicPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */; };
+		88482D771E37961700B28293 /* XMMSimpleStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 88482D751E37961700B28293 /* XMMSimpleStorage.h */; };
+		88482D781E37961700B28293 /* XMMSimpleStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 88482D761E37961700B28293 /* XMMSimpleStorage.m */; };
 		8849374D1C731FB500C53520 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8849374C1C731FB500C53520 /* Images.xcassets */; };
 		884937501C74B1C600C53520 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 884937521C74B1C600C53520 /* Localizable.strings */; };
 		884937561C75C82100C53520 /* UIColor+HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = 884937541C75C82100C53520 /* UIColor+HexString.h */; };
@@ -149,7 +151,6 @@
 		888F4F731DA53FA8000E49CE /* XMMCDContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F4F711DA53FA8000E49CE /* XMMCDContent.m */; };
 		888F4F751DA542CF000E49CE /* XMMCDContentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F4F741DA542CF000E49CE /* XMMCDContentTest.m */; };
 		889134A31DA3B5B10035109E /* XMMCDMenuTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 889134A21DA3B5B10035109E /* XMMCDMenuTest.m */; };
-		889356681C802CCF0083724C /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */; };
 		88A047C71D250D1900960D9F /* spot.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C61D250D1900960D9F /* spot.json */; };
 		88A047C91D25219200960D9F /* spotWithContentAndMarker.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C81D25219200960D9F /* spotWithContentAndMarker.json */; };
 		88A4A5611DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */; };
@@ -288,7 +289,8 @@
 		883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMAnnotationTests.m; sourceTree = "<group>"; };
 		883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMapOverlayViewTests.m; sourceTree = "<group>"; };
 		883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMMusicPlayerTests.m; sourceTree = "<group>"; };
-		883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestingIDs.plist; sourceTree = "<group>"; };
+		88482D751E37961700B28293 /* XMMSimpleStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMSimpleStorage.h; path = Classes/XMMSimpleStorage.h; sourceTree = "<group>"; };
+		88482D761E37961700B28293 /* XMMSimpleStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMSimpleStorage.m; path = Classes/XMMSimpleStorage.m; sourceTree = "<group>"; };
 		8849374C1C731FB500C53520 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Assets/Images.xcassets; sourceTree = "<group>"; };
 		884937511C74B1C600C53520 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		884937531C74B1E900C53520 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -486,6 +488,8 @@
 			children = (
 				88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */,
 				88A4A5601DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.m */,
+				88482D751E37961700B28293 /* XMMSimpleStorage.h */,
+				88482D761E37961700B28293 /* XMMSimpleStorage.m */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -672,7 +676,6 @@
 			isa = PBXGroup;
 			children = (
 				886744261DF566CB0075C579 /* IntegrationTest */,
-				883EA06B1C7F23AA003FDF80 /* TestingIDs.plist */,
 				8888DDD31C47B0FA0050A84C /* Info.plist */,
 				88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */,
 				88226E4B1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m */,
@@ -888,6 +891,7 @@
 				883E558C1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.h in Headers */,
 				88D5B13E1DA3EED90069E2E8 /* XMMCDMarker.h in Headers */,
 				88E46F211C4933CA004D8AC3 /* XMMQuery.h in Headers */,
+				88482D771E37961700B28293 /* XMMSimpleStorage.h in Headers */,
 				883E55A61C4A37FE000C4D09 /* XMMContentBlocks.h in Headers */,
 				880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */,
 				883E55801C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.h in Headers */,
@@ -1032,7 +1036,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				889356681C802CCF0083724C /* TestingIDs.plist in Resources */,
 				886744331DF567910075C579 /* contentByQr.json in Resources */,
 				88A047C71D250D1900960D9F /* spot.json in Resources */,
 				886744371DF567910075C579 /* spotByTags.json in Resources */,
@@ -1266,6 +1269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88482D781E37961700B28293 /* XMMSimpleStorage.m in Sources */,
 				88F0945F1DBD0CAF0072E9CA /* XMMOfflineStorageTagModule.h in Sources */,
 				884937571C75C82100C53520 /* UIColor+HexString.m in Sources */,
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,

@@ -1,5 +1,5 @@
 //
-// Copyright 2016 by xamoom GmbH <apps@xamoom.com>
+// Copyright 2017 by xamoom GmbH <apps@xamoom.com>
 //
 // This file is part of some open source application.
 //
