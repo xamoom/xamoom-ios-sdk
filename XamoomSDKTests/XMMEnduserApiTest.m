@@ -37,14 +37,17 @@
 
 - (void)testInitWithApiKey {
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"XamoomSDK iOS|(null)|3.0.0",
+                                @"User-Agent":@"XamoomSDK iOS|(null)|3.1.0",
                                 @"APIKEY":@"apikey",};
   
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
   
+  
+  NSDictionary *usedHeaders = api.restClient.session.configuration.HTTPAdditionalHeaders;
+  
   XCTAssertNotNil(api);
   XCTAssertNotNil(api.restClient);
-  XCTAssertTrue([api.restClient.session.configuration.HTTPAdditionalHeaders isEqualToDictionary:httpHeaders]);
+  XCTAssertTrue([usedHeaders isEqualToDictionary:httpHeaders]);
   XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
   XCTAssertNotNil(api.offlineApi);
 }
