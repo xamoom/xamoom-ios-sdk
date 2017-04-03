@@ -6,7 +6,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - XamoomSDK (3.0.0):
+  - XamoomSDK (3.1.0):
     - JAMSVGImage
     - JSONAPI (~> 1.0.0)
     - SDWebImage (~> 3.7)
@@ -29,8 +29,8 @@ SPEC CHECKSUMS:
   Nocilla: 7af7a386071150cc8aa5da4da97d060f049dd61c
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XamoomSDK: 53b6e693a2acb045355c5c24ba3adb795fd1cb4a
+  XamoomSDK: c688f8a536e711b9d056ab7269911b6f2740cdc9
 
-PODFILE CHECKSUM: 11b1390408ff93bf120a8ad88feb06c4cbe258b8
+PODFILE CHECKSUM: e3140c0276f8065cd4a6f04b5db9d8e0dcdcd5a6
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

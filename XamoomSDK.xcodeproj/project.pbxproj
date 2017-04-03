@@ -21,7 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		68C7CC407CC4495F60E774F6 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8565074257BD09C685E6E62E /* libPods-XamoomSDKTests.a */; };
 		880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */; };
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */; };
@@ -205,7 +204,8 @@
 		88FE68C71C4E6F3500E9A32A /* XMMMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FE68C51C4E6F3500E9A32A /* XMMMarker.h */; };
 		88FE68C81C4E6F3500E9A32A /* XMMMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE68C61C4E6F3500E9A32A /* XMMMarker.m */; };
 		88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */; };
-		A113EC5E2EB3AC619F1DB5A8 /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C57DCB32B9DD8ED021FA08 /* libPods-XamoomSDK.a */; };
+		B38F0D3EB51B1BE60120C076 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8796652F7A66500CFA6B310E /* libPods-XamoomSDKTests.a */; };
+		EEC4D0B6EA0C3F6E10E894DD /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B270058A46C1B57EB7134D38 /* libPods-XamoomSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,10 +219,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		49C57DCB32B9DD8ED021FA08 /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		672B23EE39E2A7B6555ECA0B /* Pods-XamoomSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.release.xcconfig"; sourceTree = "<group>"; };
-		8565074257BD09C685E6E62E /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86421FBB40BBE7E6E9176A77 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8796652F7A66500CFA6B310E /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineStorageManager.h; path = Classes/XMMOfflineStorageManager.h; sourceTree = "<group>"; };
 		880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineStorageManager.m; path = Classes/XMMOfflineStorageManager.m; sourceTree = "<group>"; };
 		88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock1TableViewCellTest.m; sourceTree = "<group>"; };
@@ -415,6 +414,7 @@
 		88FE68C51C4E6F3500E9A32A /* XMMMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMMarker.h; path = XamoomSDK/Classes/mapping/XMMMarker.h; sourceTree = SOURCE_ROOT; };
 		88FE68C61C4E6F3500E9A32A /* XMMMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMMarker.m; path = XamoomSDK/Classes/mapping/XMMMarker.m; sourceTree = SOURCE_ROOT; };
 		88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMEnduserApiTest.m; sourceTree = "<group>"; };
+		B270058A46C1B57EB7134D38 /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57131BB8444CF6B6417EA3B /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		EFD2A588826BDAE810F3A3F2 /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -425,7 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88D4C6E11C6CC39E00615147 /* MapKit.framework in Frameworks */,
-				A113EC5E2EB3AC619F1DB5A8 /* libPods-XamoomSDK.a in Frameworks */,
+				EEC4D0B6EA0C3F6E10E894DD /* libPods-XamoomSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */,
-				68C7CC407CC4495F60E774F6 /* libPods-XamoomSDKTests.a in Frameworks */,
+				B38F0D3EB51B1BE60120C076 /* libPods-XamoomSDKTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,8 +537,8 @@
 				883E557B1C4A37FE000C4D09 /* XMMContentBlocks.m */,
 				883E557C1C4A37FE000C4D09 /* XMMContentBlocksCache.h */,
 				883E557D1C4A37FE000C4D09 /* XMMContentBlocksCache.m */,
-				883E557F1C4A37FE000C4D09 /* XMMMusicPlayer.m */,
 				883E557E1C4A37FE000C4D09 /* XMMMusicPlayer.h */,
+				883E557F1C4A37FE000C4D09 /* XMMMusicPlayer.m */,
 			);
 			name = ContentBlocks;
 			path = Classes/ContentBlocks;
@@ -842,8 +842,8 @@
 			isa = PBXGroup;
 			children = (
 				88D4C6E01C6CC39E00615147 /* MapKit.framework */,
-				49C57DCB32B9DD8ED021FA08 /* libPods-XamoomSDK.a */,
-				8565074257BD09C685E6E62E /* libPods-XamoomSDKTests.a */,
+				B270058A46C1B57EB7134D38 /* libPods-XamoomSDK.a */,
+				8796652F7A66500CFA6B310E /* libPods-XamoomSDKTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

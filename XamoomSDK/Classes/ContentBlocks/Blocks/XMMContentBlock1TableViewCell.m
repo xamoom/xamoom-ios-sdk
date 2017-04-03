@@ -83,6 +83,14 @@
   }
 }
 
+- (IBAction)backwardButtonTouched:(id)sender {
+  [self.audioPlayerControl backward];
+}
+
+- (IBAction)forwardButtonTouched:(id)sender {
+  [self.audioPlayerControl forward];
+}
+
 #pragma mark - XMMMMusicPlayer delegate
 
 - (void)didLoadAsset:(AVURLAsset *)asset {
@@ -93,6 +101,11 @@
   
   float songDurationInSeconds = CMTimeGetSeconds(asset.duration);
   self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
+}
+
+- (void)finishedPlayback {
+  self.playing = NO;
+  [self.audioControlButton setImage:self.playImage forState:UIControlStateNormal];
 }
 
 -(void)didUpdateRemainingSongTime:(NSString *)remainingSongTime {
