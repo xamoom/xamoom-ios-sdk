@@ -49,9 +49,8 @@
   
   self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
   
-  //self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
-  //self.blocks.delegate = self;
-  
+  self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
+  self.blocks.delegate = self;
   
   [[NSNotificationCenter defaultCenter]
    addObserver:self
