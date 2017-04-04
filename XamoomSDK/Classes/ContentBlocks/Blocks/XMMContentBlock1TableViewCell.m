@@ -39,6 +39,7 @@
   
   [self.audioControlButton setImage:self.playImage
                            forState:UIControlStateNormal];
+  
   [super awakeFromNib];
 }
 
@@ -75,10 +76,12 @@
   if (!self.isPlaying) {
     [self.audioPlayerControl play];
     self.playing = YES;
+    [self.movingBarView start];
     [self.audioControlButton setImage:self.pauseImage forState:UIControlStateNormal];
   } else {
     [self.audioPlayerControl pause];
     self.playing = NO;
+    [self.movingBarView stop];
     [self.audioControlButton setImage:self.playImage forState:UIControlStateNormal];
   }
 }
@@ -105,7 +108,9 @@
 
 - (void)finishedPlayback {
   self.playing = NO;
-  [self.audioControlButton setImage:self.playImage forState:UIControlStateNormal];
+  [self.movingBarView stop];
+  [self.audioControlButton setImage:self.playImage
+                           forState:UIControlStateNormal];
 }
 
 -(void)didUpdateRemainingSongTime:(NSString *)remainingSongTime {
@@ -116,6 +121,8 @@
 
 - (void)pauseAllXMMMusicPlayer {
   [self.audioPlayerControl pause];
+  [self.movingBarView stop];
+  self.playing = NO;
 }
 
 @end

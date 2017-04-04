@@ -68,7 +68,7 @@ IB_DESIGNABLE
         CGFloat currentSongTime = CMTimeGetSeconds([weakSelf.audioPlayer currentTime]);
         CGFloat remainingSongTime = songDuration - currentSongTime;
         
-        if (remainingSongTime == 0) {
+        if (remainingSongTime <= 0) {
           if ([weakSelf.delegate respondsToSelector:@selector(finishedPlayback)]) {
             [weakSelf.delegate finishedPlayback];
             [weakSelf reset];
@@ -159,10 +159,12 @@ IB_DESIGNABLE
                         self.audioPlayer.currentTime.timescale);
   
   if (CMTimeCompare(newTime, self.audioPlayer.currentItem.duration) >= 0) {
-    NSLog(@"Too long");
+    [self.delegate finishedPlayback];
+    [self.audioPlayer seekToTime:newTime];
+    [self.audioPlayer pause];
+  } else {
+    [self.audioPlayer seekToTime:newTime];
   }
-  
-  [self.audioPlayer seekToTime:newTime];
 }
 
 - (void)backward {

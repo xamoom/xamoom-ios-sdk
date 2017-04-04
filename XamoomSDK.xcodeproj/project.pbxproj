@@ -169,6 +169,8 @@
 		88B90D491E1A974C00B99E10 /* XMMContentBlock9TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B90D481E1A974C00B99E10 /* XMMContentBlock9TableViewCellTest.m */; };
 		88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B962901C7F00530096993D /* UIColor+HexStringTests.m */; };
 		88C5CCD01DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C5CCCF1DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m */; };
+		88CBA9651E93794200FC6B90 /* MovingBarsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88CBA9631E93794200FC6B90 /* MovingBarsView.h */; };
+		88CBA9661E93794200FC6B90 /* MovingBarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CBA9641E93794200FC6B90 /* MovingBarsView.m */; };
 		88CC28B61C567832000ACDD0 /* contentLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88CC28B51C567832000ACDD0 /* contentLocation.json */; };
 		88D486DC1C5A7069003E252D /* spotLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D486DB1C5A7069003E252D /* spotLocation.json */; };
 		88D486E01C5BA210003E252D /* systemSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D486DF1C5BA210003E252D /* systemSettings.json */; };
@@ -379,6 +381,8 @@
 		88B90D481E1A974C00B99E10 /* XMMContentBlock9TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock9TableViewCellTest.m; sourceTree = "<group>"; };
 		88B962901C7F00530096993D /* UIColor+HexStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexStringTests.m"; sourceTree = "<group>"; };
 		88C5CCCF1DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock8TableViewCellTest.m; sourceTree = "<group>"; };
+		88CBA9631E93794200FC6B90 /* MovingBarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingBarsView.h; sourceTree = "<group>"; };
+		88CBA9641E93794200FC6B90 /* MovingBarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingBarsView.m; sourceTree = "<group>"; };
 		88CC28B51C567832000ACDD0 /* contentLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contentLocation.json; sourceTree = "<group>"; };
 		88D486DB1C5A7069003E252D /* spotLocation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spotLocation.json; sourceTree = "<group>"; };
 		88D486DF1C5BA210003E252D /* systemSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = systemSettings.json; sourceTree = "<group>"; };
@@ -539,6 +543,8 @@
 				883E557D1C4A37FE000C4D09 /* XMMContentBlocksCache.m */,
 				883E557E1C4A37FE000C4D09 /* XMMMusicPlayer.h */,
 				883E557F1C4A37FE000C4D09 /* XMMMusicPlayer.m */,
+				88CBA9631E93794200FC6B90 /* MovingBarsView.h */,
+				88CBA9641E93794200FC6B90 /* MovingBarsView.m */,
 			);
 			name = ContentBlocks;
 			path = Classes/ContentBlocks;
@@ -877,6 +883,7 @@
 				883E55A81C4A37FE000C4D09 /* XMMContentBlocksCache.h in Headers */,
 				883E55A41C4A37FE000C4D09 /* UIImage+animatedGIF.h in Headers */,
 				884937561C75C82100C53520 /* UIColor+HexString.h in Headers */,
+				88CBA9651E93794200FC6B90 /* MovingBarsView.h in Headers */,
 				88FE68C11C4E380300E9A32A /* XMMMenu.h in Headers */,
 				8853CBA01D9CEAE8009BD14E /* XMMParamHelper.h in Headers */,
 				88B3901F1DA294D600216478 /* XMMCDResource.h in Headers */,
@@ -1315,6 +1322,7 @@
 				88A4A5621DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.m in Sources */,
 				884B614B1DACD74400572758 /* XMMOfflineApiHelper.m in Sources */,
 				888F4F691DA52C94000E49CE /* XMMCDSpot.m in Sources */,
+				88CBA9661E93794200FC6B90 /* MovingBarsView.m in Sources */,
 				883E55871C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.m in Sources */,
 				8830FEDA1DB79F4C0072DCAC /* XMMOfflineDownloadManager.m in Sources */,
 				88B3901D1DA2945900216478 /* XMMCDSystemSettings.m in Sources */,
