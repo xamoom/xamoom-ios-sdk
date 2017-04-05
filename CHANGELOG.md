@@ -2,6 +2,11 @@
 
 ## development
 
+## [3.2.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.1.0...3.2.0) - 5.04.2017
+
+- Changed image title to image caption. Is now below the image.
+- Changed audio player. New design, forward backward seeking and playing indicator.
+
 ## [3.1.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.0.0...3.1.0) - 25.01.2017
 
 - Added copyright to XMMContentBlock
