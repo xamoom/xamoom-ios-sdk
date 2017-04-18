@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version          = "3.2.0"
   s.summary          = "Integrate your app with your xamoom system. More information at www.xamoom.com"
   s.homepage         = "http://xamoom.github.io/xamoom-ios-sdk/"
-  s.license          = { :type => 'GPL', :file => 'LICENCE.md' }
+  s.license          = { :type => 'GPL', :file => 'LICENSE.md' }
   s.author           = { "Raphael Seher" => "raphael@xamoom.com" }
   s.source           = { :git => "https://github.com/xamoom/xamoom-ios-sdk.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/xamoom'
