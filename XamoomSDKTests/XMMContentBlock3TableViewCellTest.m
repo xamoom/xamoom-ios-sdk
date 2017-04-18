@@ -54,7 +54,6 @@
   
   XCTAssertNotNil(testCell);
   XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title"]);
-  XCTAssert(testCell.horizontalSpacingImageTitleConstraint.constant == 8);
   XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
   XCTAssertTrue([testCell.copyrightLabel.text isEqual:@"copyright"]);
   XCTAssert([testCell.blockImageView.accessibilityHint isEqualToString:@"Content Title"]);
@@ -85,7 +84,6 @@
   
   XCTAssertNotNil(testCell);
   XCTAssertTrue([testCell.titleLabel.text isEqualToString:@"SVG"]);
-  XCTAssert(testCell.horizontalSpacingImageTitleConstraint.constant == 8);
   XCTAssertTrue([testCell.titleLabel.textColor isEqual:[UIColor colorWithHexString: self.style.foregroundFontColor]]);
   XCTAssert(testCell.imageLeftHorizontalSpaceConstraint.constant == 0);
   XCTAssert(testCell.imageRightHorizontalSpaceConstraint.constant == 0);
