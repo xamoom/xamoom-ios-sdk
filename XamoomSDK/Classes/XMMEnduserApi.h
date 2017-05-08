@@ -125,8 +125,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion;
+- (NSURLSessionDataTask *)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get content with specific ID and options.
@@ -136,8 +137,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (NSURLSessionDataTask *)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get content with specific location-identifier.
@@ -146,8 +148,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get content with specific location-identifier with options.
@@ -157,8 +160,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get content with beacon.
@@ -168,8 +172,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get content with beacon.
@@ -180,8 +185,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
 
 /**
  * API call to get contents around location (40m).
@@ -195,8 +201,9 @@ extern NSString * const kApiBaseURLString;
  * - *param2* hasMore True if more items on xamoom cloud
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+- (NSURLSessionDataTask *)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get contents with specific tags.
@@ -210,8 +217,9 @@ extern NSString * const kApiBaseURLString;
  * - *param2* hasMore True if more items on xamoom cloud
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+- (NSURLSessionDataTask *)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to fulltext-search contents for name and tags.
@@ -225,8 +233,9 @@ extern NSString * const kApiBaseURLString;
  * - *param2* hasMore True if more items on xamoom cloud
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+- (NSURLSessionDataTask *)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get a spot with specific id.
@@ -235,8 +244,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* spot The returned spot
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)spotWithID:(NSString *)spotID completion:(void(^)(XMMSpot *spot, NSError *error))completion;
+- (NSURLSessionDataTask *)spotWithID:(NSString *)spotID completion:(void(^)(XMMSpot *spot, NSError *error))completion;
 
 /**
  * API call to get a spot with specific id.
@@ -246,8 +256,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* spot The returned spot
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)spotWithID:(NSString *)spotID options:(XMMSpotOptions)options completion:(void(^)(XMMSpot *spot, NSError *error))completion;
+- (NSURLSessionDataTask *)spotWithID:(NSString *)spotID options:(XMMSpotOptions)options completion:(void(^)(XMMSpot *spot, NSError *error))completion;
 
 /**
  * API call to get spots inside radius of a location.
@@ -259,8 +270,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* spots Spots from xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (NSURLSessionDataTask *)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get spots inside radius of a location.
@@ -276,8 +288,9 @@ extern NSString * const kApiBaseURLString;
  * - *param2* hasMore True if more items on xamoom cloud
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (NSURLSessionDataTask *)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get spots with specific tags. Returns max. 100 spots.
@@ -290,8 +303,9 @@ extern NSString * const kApiBaseURLString;
  * - *param2* hasMore True if more items on xamoom cloud
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (NSURLSessionDataTask *)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to get spots with specific tags.
@@ -306,8 +320,9 @@ extern NSString * const kApiBaseURLString;
  * - *param2* hasMore True if more items on xamoom cloud
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (NSURLSessionDataTask *)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to fulltext-search spots by name.
@@ -322,8 +337,9 @@ extern NSString * const kApiBaseURLString;
  * - *param2* hasMore True if more items on xamoom cloud
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (NSURLSessionDataTask *)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call that returns your system.
@@ -331,8 +347,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* system System from xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion;
+- (NSURLSessionDataTask *)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion;
 
 /**
  * API call that returns your system settings.
@@ -341,8 +358,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* settings System settings from your xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion;
+- (NSURLSessionDataTask *)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion;
 
 /**
  * API call that returns your system style.
@@ -351,8 +369,9 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* style System style from your xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)styleWithID:(NSString *)styleID completion:(void (^)(XMMStyle *style, NSError *error))completion;
+- (NSURLSessionDataTask *)styleWithID:(NSString *)styleID completion:(void (^)(XMMStyle *style, NSError *error))completion;
 
 /**
  * API call that returns your menu.
@@ -361,7 +380,8 @@ extern NSString * const kApiBaseURLString;
  * @param completion Completion block called after finishing network request
  * - *param1* style System style from your xamoom system
  * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
  */
-- (void)menuWithID:(NSString *)menuID completion:(void (^)(XMMMenu *menu, NSError *error))completion;
+- (NSURLSessionDataTask *)menuWithID:(NSString *)menuID completion:(void (^)(XMMMenu *menu, NSError *error))completion;
 
 @end

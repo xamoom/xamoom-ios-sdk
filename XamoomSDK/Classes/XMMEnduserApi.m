@@ -112,15 +112,15 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark content calls
 
-- (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion {
+- (NSURLSessionDataTask *)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi contentWithID:contentID completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
-  [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, error);
       return;
@@ -134,16 +134,16 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+- (NSURLSessionDataTask *)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi contentWithID:contentID completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   params = [XMMParamHelper addContentOptionsToParams:params options:options];
   
-  [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMContent class] id:contentID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, error);
       return;
@@ -157,20 +157,20 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion {
-  [self contentWithLocationIdentifier:locationIdentifier options:0 completion:completion];
+- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion {
+  return [self contentWithLocationIdentifier:locationIdentifier options:0 completion:completion];
 }
 
-- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi contentWithLocationIdentifier:locationIdentifier completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language locationIdentifier:locationIdentifier];
   params = [XMMParamHelper addContentOptionsToParams:params options:options];
   
-  [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, error);
       return;
@@ -184,28 +184,28 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion {
-  [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] completion:completion];
+- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion {
+  return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] completion:completion];
 }
 
-- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
-  [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] options:options completion:completion];
+- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+  return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] options:options completion:completion];
 }
 
 #pragma mark contents calls
 
-- (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+- (NSURLSessionDataTask *)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
   
   if (self.isOffline) {
     [self.offlineApi contentsWithLocation:location pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language location:location];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
-  [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, NO, nil, error);
       return;
@@ -221,18 +221,18 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+- (NSURLSessionDataTask *)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
   
   if (self.isOffline) {
     [self.offlineApi contentsWithTags:tags pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language tags:tags];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
-  [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, NO, nil, error);
       return;
@@ -248,18 +248,18 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+- (NSURLSessionDataTask *)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
   
   if (self.isOffline) {
     [self.offlineApi contentsWithName:name pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language name:name];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
-  [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, NO, nil, error);
       return;
@@ -278,11 +278,11 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark spot calls
 
-- (void)spotWithID:(NSString *)spotID completion:(void (^)(XMMSpot *, NSError *))completion {
-  [self spotWithID:spotID options:XMMSpotOptionsNone completion:completion];
+- (NSURLSessionDataTask *)spotWithID:(NSString *)spotID completion:(void (^)(XMMSpot *, NSError *))completion {
+  return [self spotWithID:spotID options:XMMSpotOptionsNone completion:completion];
 }
 
-- (void)spotWithID:(NSString *)spotID options:(XMMSpotOptions)options completion:(void(^)(XMMSpot *spot, NSError *error))completion {
+- (NSURLSessionDataTask *)spotWithID:(NSString *)spotID options:(XMMSpotOptions)options completion:(void(^)(XMMSpot *spot, NSError *error))completion {
   
   if (self.isOffline) {
     [self.offlineApi spotWithID:spotID completion:completion];
@@ -291,7 +291,7 @@ static XMMEnduserApi *sharedInstance;
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   
-  [self.restClient fetchResource:[XMMSpot class] id:spotID parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMSpot class] id:spotID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, error);
       return;
@@ -307,15 +307,15 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark spots calls
 
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
-  [self spotsWithLocation:location radius:radius options:options sort:sortOptions pageSize:0 cursor:nil completion:completion];
+- (NSURLSessionDataTask *)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  return [self spotsWithLocation:location radius:radius options:options sort:sortOptions pageSize:0 cursor:nil completion:completion];
 }
 
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+- (NSURLSessionDataTask *)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
  
   if (self.isOffline) {
     [self.offlineApi spotsWithLocation:location radius:radius pageSize:pageSize cursor:cursor completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language location:location radius:radius];
@@ -323,7 +323,7 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];
 
-  [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, false, nil, error);
       return;
@@ -339,15 +339,15 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
-  [self spotsWithTags:tags pageSize:100 cursor:nil options:options sort:sortOptions completion:completion];
+- (NSURLSessionDataTask *)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+  return [self spotsWithTags:tags pageSize:100 cursor:nil options:options sort:sortOptions completion:completion];
 }
 
-- (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+- (NSURLSessionDataTask *)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
   
   if (self.isOffline) {
     [self.offlineApi spotsWithTags:tags pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language tags:tags];
@@ -355,7 +355,7 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];
   
-  [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, false, nil, error);
       return;
@@ -371,10 +371,10 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
+- (NSURLSessionDataTask *)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi spotsWithName:name pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language name:name];
@@ -382,7 +382,7 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];
   
-  [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMSpot class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, false, nil, error);
       return;
@@ -400,14 +400,14 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark system calls
 
-- (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion {
+- (NSURLSessionDataTask *)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi systemWithCompletion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
-  [self.restClient fetchResource:[XMMSystem class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMSystem class] parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, error);
       return;
@@ -421,15 +421,15 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion {
+- (NSURLSessionDataTask *)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi systemSettingsWithID:settingsID completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
-  [self.restClient fetchResource:[XMMSystemSettings class] id:settingsID parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMSystemSettings class] id:settingsID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, error);
       return;
@@ -443,15 +443,15 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)styleWithID:(NSString *)styleID completion:(void (^)(XMMStyle *style, NSError *error))completion {
+- (NSURLSessionDataTask *)styleWithID:(NSString *)styleID completion:(void (^)(XMMStyle *style, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi styleWithID:styleID completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
-  [self.restClient fetchResource:[XMMStyle class] id:styleID parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMStyle class] id:styleID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, error);
       return;
@@ -465,15 +465,15 @@ static XMMEnduserApi *sharedInstance;
   }];
 }
 
-- (void)menuWithID:(NSString *)menuID completion:(void (^)(XMMMenu *menu, NSError *error))completion {
+- (NSURLSessionDataTask *)menuWithID:(NSString *)menuID completion:(void (^)(XMMMenu *menu, NSError *error))completion {
   if (self.isOffline) {
     [self.offlineApi menuWithID:menuID completion:completion];
-    return;
+    return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   
-  [self.restClient fetchResource:[XMMMenu class] id:menuID parameters:params completion:^(JSONAPI *result, NSError *error) {
+  return [self.restClient fetchResource:[XMMMenu class] id:menuID parameters:params completion:^(JSONAPI *result, NSError *error) {
     if (error && completion) {
       completion(nil, error);
       return;
