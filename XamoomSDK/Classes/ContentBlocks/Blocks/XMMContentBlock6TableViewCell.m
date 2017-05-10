@@ -24,6 +24,7 @@
 
 @property (nonatomic) UIImage *angleImage;
 @property (nonatomic) BOOL offline;
+@property (nonatomic, weak) NSURLSessionDataTask *dataTask;
 
 @end
 
@@ -58,6 +59,9 @@ static NSString *contentLanguage;
   self.contentTitleLabel.text = nil;
   self.contentExcerptLabel.text = nil;
   
+  if (self.dataTask != nil && self.dataTask.state == NSURLSessionTaskStateRunning) {
+    [self.dataTask cancel];
+  }
   [self.loadingIndicator stopAnimating];
 }
 
@@ -86,12 +90,12 @@ static NSString *contentLanguage;
     return;
   }
   
-  [api contentWithID:self.contentID options:XMMContentOptionsPreview completion:^(XMMContent *content, NSError *error) {
-    [self.loadingIndicator stopAnimating];
-    
+  self.dataTask = [api contentWithID:self.contentID options:XMMContentOptionsPreview completion:^(XMMContent *content, NSError *error) {
     if (error) {
       return;
     }
+    
+    [self.loadingIndicator stopAnimating];
     
     [[XMMContentBlocksCache sharedInstance] saveContent:content key:content.ID];
     [self showBlockData:content];

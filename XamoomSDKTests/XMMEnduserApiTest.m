@@ -157,7 +157,7 @@
 
 - (void)testThatContentWithIdCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -244,7 +244,7 @@
 
 - (void)testThatContentWithIdOptionsCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -348,7 +348,7 @@
 
 - (void)testThatContentWithLocationIdentifierCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -541,7 +541,7 @@
 
 - (void)testThatContentWithLocationCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -662,7 +662,7 @@
 
 - (void)testThatContentWithTagsCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -744,7 +744,7 @@
 
 - (void)testThatContentWithNameCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -894,7 +894,7 @@
 
 - (void)testThatSpotWithIdCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -1371,7 +1371,7 @@
 
 - (void)testThatSystemCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -1464,7 +1464,7 @@
 
 - (void)testThatSystemSettingsCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -1527,7 +1527,7 @@
 
 - (void)testThatStyleCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
@@ -1604,7 +1604,7 @@
 
 - (void)testThatMenuCallsOfflineApi {
   id mockRestClient = OCMPartialMock(self.restClient);
-  id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
+  XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
