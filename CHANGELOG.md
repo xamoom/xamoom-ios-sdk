@@ -2,6 +2,10 @@
 
 ## development
 
+## [3.2.1](https://github.com/xamoom/xamoom-ios-sdk/compare/3.2.0...3.2.1) - 10.05.2017
+
+- Added call as return value to all api calls
+
 ## [3.2.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.1.0...3.2.0) - 5.04.2017
 
 - Changed image title to image caption. Is now below the image.
