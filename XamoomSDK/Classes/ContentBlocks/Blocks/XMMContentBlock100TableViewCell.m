@@ -17,12 +17,12 @@
 // along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "XMMContentBlock0TableViewCell.h"
+#import "XMMContentBlock100TableViewCell.h"
 
-@interface XMMContentBlock0TableViewCell()
+@interface XMMContentBlock100TableViewCell()
 @end
 
-@implementation XMMContentBlock0TableViewCell
+@implementation XMMContentBlock100TableViewCell
 
 static int contentFontSize;
 static UIColor *contentLinkColor;
@@ -67,7 +67,7 @@ static UIColor *contentLinkColor;
 - (void)displayContent:(NSString *)text style:(XMMStyle *)style {
   if (text != nil && ![text isEqualToString:@""]) {
     [self resetTextViewInsets:self.contentTextView];
-    self.contentTextView.attributedText = [self attributedStringFromHTML:text fontSize:[XMMContentBlock0TableViewCell fontSize] fontColor:[UIColor colorWithHexString:style.foregroundFontColor]];
+    self.contentTextView.attributedText = [self attributedStringFromHTML:text fontSize:[XMMContentBlock100TableViewCell fontSize] fontColor:[UIColor colorWithHexString:style.foregroundFontColor]];
     [self.contentTextView sizeToFit];
   } else {
     [self disappearTextView:self.contentTextView];

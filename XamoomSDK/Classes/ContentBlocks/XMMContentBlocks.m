@@ -92,8 +92,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     nibBundle = bundle;
   }
   
-  UINib *nib = [UINib nibWithNibName:@"XMMContentBlock0TableViewCell" bundle:nibBundle];
-  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock00TableViewCell"];
+  UINib *nib = [UINib nibWithNibName:@"XMMContentBlock100TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock100TableViewCell"];
   
   nib = [UINib nibWithNibName:@"XMMContentBlock0TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock0TableViewCell"];
@@ -170,7 +170,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   XMMContentBlock *title = [[XMMContentBlock alloc] init];
   title.publicStatus = YES;
-  title.blockType = 00;
+  title.blockType = 100;
   title.title = content.title;
   title.text = content.contentDescription;
   [contentBlocks insertObject:title atIndex:0];

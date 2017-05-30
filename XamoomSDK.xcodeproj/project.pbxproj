@@ -99,6 +99,9 @@
 		884B61511DACE78500572758 /* XMMOfflinePagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B614F1DACE78500572758 /* XMMOfflinePagedResult.m */; };
 		8853CBA01D9CEAE8009BD14E /* XMMParamHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */; };
 		8853CBA11D9CEAE8009BD14E /* XMMParamHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */; };
+		88617A511EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 88617A4E1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h */; };
+		88617A521EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88617A4F1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m */; };
+		88617A531EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88617A501EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib */; };
 		8863987C1DB520FA00CBBAD7 /* XMMContentBlock2TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8863987B1DB520FA00CBBAD7 /* XMMContentBlock2TableViewCellTest.m */; };
 		886744291DF567790075C579 /* APIIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 886744281DF567790075C579 /* APIIntegrationTests.m */; };
 		886744321DF567910075C579 /* contentById.json in Resources */ = {isa = PBXBuildFile; fileRef = 8867442A1DF567910075C579 /* contentById.json */; };
@@ -307,6 +310,9 @@
 		8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMParamHelper.h; path = Classes/XMMParamHelper.h; sourceTree = "<group>"; };
 		8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMParamHelper.m; path = Classes/XMMParamHelper.m; sourceTree = "<group>"; };
 		8853CBA21D9CF1EC009BD14E /* XMMOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMOptions.h; path = Classes/XMMOptions.h; sourceTree = "<group>"; };
+		88617A4E1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock100TableViewCell.h; sourceTree = "<group>"; };
+		88617A4F1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock100TableViewCell.m; sourceTree = "<group>"; };
+		88617A501EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock100TableViewCell.xib; sourceTree = "<group>"; };
 		8863987B1DB520FA00CBBAD7 /* XMMContentBlock2TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock2TableViewCellTest.m; sourceTree = "<group>"; };
 		886744281DF567790075C579 /* APIIntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIIntegrationTests.m; path = IntegrationTest/APIIntegrationTests.m; sourceTree = "<group>"; };
 		8867442A1DF567910075C579 /* contentById.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = contentById.json; path = "IntegrationTest/json-resources/contentById.json"; sourceTree = "<group>"; };
@@ -553,6 +559,9 @@
 		883E55521C4A37FE000C4D09 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				88617A4E1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h */,
+				88617A4F1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m */,
+				88617A501EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib */,
 				883E55531C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.h */,
 				883E55541C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.m */,
 				883E55551C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.xib */,
@@ -897,6 +906,7 @@
 				883E55891C4A37FE000C4D09 /* XMMContentBlock3TableViewCell.h in Headers */,
 				883E558C1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.h in Headers */,
 				88D5B13E1DA3EED90069E2E8 /* XMMCDMarker.h in Headers */,
+				88617A511EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h in Headers */,
 				88E46F211C4933CA004D8AC3 /* XMMQuery.h in Headers */,
 				88482D771E37961700B28293 /* XMMSimpleStorage.h in Headers */,
 				883E55A61C4A37FE000C4D09 /* XMMContentBlocks.h in Headers */,
@@ -1035,6 +1045,7 @@
 				884937501C74B1C600C53520 /* Localizable.strings in Resources */,
 				8849374D1C731FB500C53520 /* Images.xcassets in Resources */,
 				883E55941C4A37FE000C4D09 /* XMMContentBlock6TableViewCell.xib in Resources */,
+				88617A531EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib in Resources */,
 				883E558E1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1088,7 +1099,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		235E136BC4263816322E33B3 /* [CP] Copy Pods Resources */ = {
@@ -1133,7 +1144,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5FF292A4CDDEFF32FE9B9629 /* [CP] Embed Pods Frameworks */ = {
@@ -1311,6 +1322,7 @@
 				883E559C1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.m in Sources */,
 				8818B4331E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */,
 				88FE68C21C4E380300E9A32A /* XMMMenu.m in Sources */,
+				88617A521EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m in Sources */,
 				88D5B13F1DA3EED90069E2E8 /* XMMCDMarker.m in Sources */,
 				888F4F651DA4F7B3000E49CE /* XMMCDSystem.m in Sources */,
 				882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */,
