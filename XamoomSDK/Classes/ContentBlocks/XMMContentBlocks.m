@@ -50,6 +50,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     self.tableView.backgroundColor = [UIColor colorWithHexString:self.style.backgroundColor];
     
     [XMMContentBlock0TableViewCell setFontSize:NormalFontSize];
+    [XMMContentBlock100TableViewCell setFontSize:NormalFontSize];
   }
   
   return self;
@@ -225,6 +226,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
 
 - (void)updateFontSizeTo:(TextFontSize)newFontSize {
   [XMMContentBlock0TableViewCell setFontSize:newFontSize];
+  [XMMContentBlock100TableViewCell setFontSize:newFontSize];
   [self.tableView reloadData];
 }
 

@@ -20,6 +20,7 @@
 #import <Foundation/Foundation.h>
 #import "XMMContentBlock.h"
 #import "XMMEnduserApi.h"
+#import "XMMContentBlock100TableViewCell.h"
 #import "XMMContentBlock0TableViewCell.h"
 #import "XMMContentBlock1TableViewCell.h"
 #import "XMMContentBlock2TableViewCell.h"
