@@ -47,15 +47,15 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
   /**
    * NormalFontSize is the "standard" fontSize.
    */
-  NormalFontSize = 15,
+  NormalFontSize = 17,
   /**
    * BigFontSize is the next "bigger" fontSize.
    */
-  BigFontSize = 18,
+  BigFontSize = 20,
   /**
    * BiggerFontSize is the "biggest" fontSize.
    */
-  BiggerFontSize = 20,
+  BiggerFontSize = 22,
 };
 
 @protocol XMMContentBlocksDelegate <NSObject>
