@@ -2,6 +2,12 @@
 
 ## development
 
+## [3.2.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.2.1...3.2.2) - 31.05.2017
+
+- Added italian translations
+
+- Changed design of different contentBlocks
+
 ## [3.2.1](https://github.com/xamoom/xamoom-ios-sdk/compare/3.2.0...3.2.1) - 10.05.2017
 
 - Added call as return value to all api calls
