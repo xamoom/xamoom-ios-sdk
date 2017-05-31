@@ -42,10 +42,10 @@
     imageBundle = bundle;
   }
   
-  self.calendarImage = [UIImage imageNamed:@"cal"
-                                  inBundle:imageBundle compatibleWithTraitCollection:nil];
-  self.contactImage = [UIImage imageNamed:@"contact"
-                                 inBundle:imageBundle compatibleWithTraitCollection:nil];
+  self.calendarImage = [[UIImage imageNamed:@"cal"
+                                  inBundle:imageBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+  self.contactImage = [[UIImage imageNamed:@"contact"
+                                 inBundle:imageBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   
   [super awakeFromNib];
 }
@@ -62,25 +62,24 @@
   self.contentTextLabel.text = block.text;
   self.fileID = block.fileID;
   self.downloadType = block.downloadType;
-  
-  [self.icon setImage:[self iconForDownloadType:block.downloadType]];
+
+  [self styleBlockForType:block.downloadType];
 }
 
-- (UIImage *)iconForDownloadType:(int)downloadType {
-  switch (downloadType) {
-    case 0: {
-      return self.contactImage;
+- (void)styleBlockForType:(int)type {
+  switch (type) {
+    case 0:
+      [self.icon setImage:self.contactImage];
+      self.icon.tintColor = UIColor.whiteColor;
+      self.viewForBackground.backgroundColor = [UIColor colorWithHexString:@"#AA3F41"];
       break;
-    }
-    case 1: {
-      return self.calendarImage;
-      break;
-    }
-    default:
+      
+    case 1:
+      [self.icon setImage:self.calendarImage];
+      self.icon.tintColor = UIColor.whiteColor;
+      self.viewForBackground.backgroundColor = [UIColor colorWithHexString:@"#3b5998"];
       break;
   }
-  
-  return nil;
 }
 
 - (void)openLink {

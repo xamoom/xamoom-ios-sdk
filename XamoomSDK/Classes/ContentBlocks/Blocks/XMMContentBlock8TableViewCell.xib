@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +15,11 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="XMMContentBlock8TableViewCell" rowHeight="71" id="KGk-i7-Jjw" customClass="XMMContentBlock8TableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="328" height="77"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="328" height="76"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="328" height="77"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grh-BE-wCl">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grh-BE-wCl">
                         <rect key="frame" x="8" y="0.0" width="312" height="68"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yec-h6-DBB">
@@ -29,16 +29,16 @@
                                     <constraint firstAttribute="height" constant="32" id="RH0-We-HlK"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mehr text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYX-UX-kgy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mehr text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pYX-UX-kgy">
                                 <rect key="frame" x="68" y="32" width="236" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGQ-fC-xb3">
                                 <rect key="frame" x="68" y="13" width="236" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -50,7 +50,6 @@
                             <constraint firstItem="LGQ-fC-xb3" firstAttribute="leading" secondItem="Yec-h6-DBB" secondAttribute="trailing" constant="18" id="TQ9-W4-KrO"/>
                             <constraint firstAttribute="trailing" secondItem="LGQ-fC-xb3" secondAttribute="trailing" constant="8" id="XUW-3G-2QW"/>
                             <constraint firstItem="Yec-h6-DBB" firstAttribute="top" secondItem="grh-BE-wCl" secondAttribute="top" constant="18" id="d9x-u1-vcD"/>
-                            <constraint firstAttribute="height" constant="68" id="dJh-eQ-okL"/>
                             <constraint firstItem="pYX-UX-kgy" firstAttribute="trailing" secondItem="LGQ-fC-xb3" secondAttribute="trailing" id="dWV-BE-l2d"/>
                             <constraint firstAttribute="bottom" secondItem="pYX-UX-kgy" secondAttribute="bottom" constant="15" id="ouD-yr-VBU"/>
                             <constraint firstItem="LGQ-fC-xb3" firstAttribute="top" secondItem="grh-BE-wCl" secondAttribute="top" constant="13" id="ukO-dE-Oo1"/>
@@ -69,6 +68,7 @@
                 <outlet property="contentTextLabel" destination="pYX-UX-kgy" id="8Hj-fy-y33"/>
                 <outlet property="icon" destination="Yec-h6-DBB" id="g9V-ni-kZM"/>
                 <outlet property="titleLabel" destination="LGQ-fC-xb3" id="7fw-f7-JEJ"/>
+                <outlet property="viewForBackground" destination="grh-BE-wCl" id="vcs-6N-jtx"/>
             </connections>
             <point key="canvasLocation" x="403" y="-326"/>
         </tableViewCell>

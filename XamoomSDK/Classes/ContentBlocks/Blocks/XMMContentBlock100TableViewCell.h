@@ -16,33 +16,26 @@
 // You should have received a copy of the GNU General Public License
 // along with xamoom-ios-sdk. If not, see <http://www.gnu.org/licenses/>.
 //
-
 #import <UIKit/UIKit.h>
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
 
 /**
- * XMMContentBlock0TableViewCell is used to display download contentBlocks from the xamoom cloud.
+ * XMMContentBlock0TableViewCell is used to display text contentBlocks from the xamoom cloud.
  */
-@interface XMMContentBlock8TableViewCell : UITableViewCell
+@interface XMMContentBlock100TableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIView *viewForBackground;
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
-@property (weak, nonatomic) IBOutlet UILabel *contentTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTopConstraint;
 
-@property (strong, nonatomic) NSString *fileID;
-@property (strong, nonatomic) UIImage *contactImage;
-@property (strong, nonatomic) UIImage *calendarImage;
-@property (strong, nonatomic) XMMOfflineFileManager *fileManager;
-@property (nonatomic) BOOL offline;
-
-- (void)openLink;
++ (int)fontSize;
++ (void)setFontSize:(int)fontSize;
 
 @end
 
-@interface XMMContentBlock8TableViewCell (XMMTableViewRepresentation)
+@interface XMMContentBlock100TableViewCell (XMMTableViewRepresentation)
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline;
 
