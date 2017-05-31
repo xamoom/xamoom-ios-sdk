@@ -27,6 +27,7 @@
  */
 @interface XMMContentBlock8TableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *viewForBackground;
 @property (weak, nonatomic) IBOutlet UIImageView *icon;
 @property (weak, nonatomic) IBOutlet UILabel *contentTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -36,8 +37,6 @@
 @property (strong, nonatomic) UIImage *calendarImage;
 @property (strong, nonatomic) XMMOfflineFileManager *fileManager;
 @property (nonatomic) BOOL offline;
-
-- (UIImage *)iconForDownloadType:(int)downloadType;
 
 - (void)openLink;
 

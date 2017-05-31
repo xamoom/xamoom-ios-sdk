@@ -245,7 +245,7 @@
   XCTAssert([testCell.contentTitleLabel.text isEqualToString:@"Content Title check"]);
   XCTAssert([testCell.contentExcerptLabel.text isEqualToString:@"check"]);
   XCTAssertTrue(testCell.loadingIndicator.hidden);
-  XCTAssert(testCell.contentImageWidthConstraint.constant == 100);
+  XCTAssert(testCell.contentImageWidthConstraint.constant == 80);
   XCTAssert(testCell.contentTitleLeadingConstraint.constant == 8);
 }
 
@@ -337,22 +337,6 @@
   XCTAssertNil(testCell.contentTextLabel.text
                );
   XCTAssertNil(testCell.fileID);
-}
-
-- (void)testThatContentBlock8CellIconForDownloadType {
-  [self.contentBlocks displayContent:[self contentWithBlockType8]];
-  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
-  UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
-  XMMContentBlock8TableViewCell *testCell = (XMMContentBlock8TableViewCell *)cell;
-  
-  testCell.contactImage = [self testImageNamed:@"contact"];
-  testCell.calendarImage = [self testImageNamed:@"cal"];
-  
-  XCTAssertNotNil(testCell.contactImage);
-  XCTAssertNotNil(testCell.calendarImage);
-
-  XCTAssertEqual([testCell iconForDownloadType:0], testCell.contactImage);
-  XCTAssertEqual([testCell iconForDownloadType:1], testCell.calendarImage);
 }
 
 #pragma mark - Helpers
