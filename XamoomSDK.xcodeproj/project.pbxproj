@@ -380,6 +380,7 @@
 		88B3902B1DA3AF8600216478 /* XMMCDMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMCDMenu.m; path = Classes/Storage/Resources/XMMCDMenu.m; sourceTree = "<group>"; };
 		88B90D481E1A974C00B99E10 /* XMMContentBlock9TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock9TableViewCellTest.m; sourceTree = "<group>"; };
 		88B962901C7F00530096993D /* UIColor+HexStringTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexStringTests.m"; sourceTree = "<group>"; };
+		88BAFDA71EDEEC4300DFA85A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		88C5CCCF1DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock8TableViewCellTest.m; sourceTree = "<group>"; };
 		88CBA9631E93794200FC6B90 /* MovingBarsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingBarsView.h; sourceTree = "<group>"; };
 		88CBA9641E93794200FC6B90 /* MovingBarsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingBarsView.m; sourceTree = "<group>"; };
@@ -1005,6 +1006,7 @@
 				de,
 				nl,
 				Base,
+				it,
 			);
 			mainGroup = 8888DDB81C47B0FA0050A84C;
 			productRefGroup = 8888DDC31C47B0FA0050A84C /* Products */;
@@ -1397,6 +1399,7 @@
 				884937531C74B1E900C53520 /* de */,
 				881966DB1CD74F7100AC2007 /* nl */,
 				886D676F1D00399F0001E288 /* Base */,
+				88BAFDA71EDEEC4300DFA85A /* it */,
 			);
 			name = Localizable.strings;
 			path = XamoomSDK/Assets;
