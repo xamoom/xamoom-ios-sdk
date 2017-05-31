@@ -113,7 +113,7 @@ static NSString *contentLanguage;
   if (self.content.imagePublicUrl == nil) {
     [self setNoImageConstraints];
   } else {
-    self.contentImageWidthConstraint.constant = 100;
+    self.contentImageWidthConstraint.constant = 80;
     self.contentTitleLeadingConstraint.constant = 8;
     if (self.offline) {
       NSURL *offlineURL = [self.fileManager urlForSavedData:self.content.imagePublicUrl];
