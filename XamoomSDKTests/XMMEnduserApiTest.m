@@ -14,10 +14,14 @@
 @interface XMMEnduserApiTest : XCTestCase
 
 @property XMMRestClient *restClient;
+@property XMMEnduserApi *api;
+@property id mockRestClient;
 
 @end
 
 @implementation XMMEnduserApiTest
+
+@synthesize api, restClient, mockRestClient;
 
 - (void)setUp {
   [super setUp];
@@ -28,6 +32,19 @@
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:httpHeaders];
   self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"http://xamoom.test"] session:[NSURLSession sessionWithConfiguration:config]];
+  self.mockRestClient = OCMPartialMock(self.restClient);
+  self.api = [[XMMEnduserApi alloc] initWithRestClient:self.mockRestClient];
+  
+  
+  // needed, because JSONAPIResourceDescriptors linkedTypeToResource dictionary is nil when setting api up
+  [JSONAPIResourceDescriptor addResource:[XMMSystem class]];
+  [JSONAPIResourceDescriptor addResource:[XMMSystemSettings class]];
+  [JSONAPIResourceDescriptor addResource:[XMMStyle class]];
+  [JSONAPIResourceDescriptor addResource:[XMMMenu class]];
+  [JSONAPIResourceDescriptor addResource:[XMMContent class]];
+  [JSONAPIResourceDescriptor addResource:[XMMContentBlock class]];
+  [JSONAPIResourceDescriptor addResource:[XMMSpot class]];
+  [JSONAPIResourceDescriptor addResource:[XMMMarker class]];
 }
 
 - (void)tearDown {
@@ -40,56 +57,55 @@
                                 @"User-Agent":@"XamoomSDK iOS|(null)|3.2.1",
                                 @"APIKEY":@"apikey",};
   
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
+  XMMEnduserApi *customApi = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
   
   
-  NSDictionary *usedHeaders = api.restClient.session.configuration.HTTPAdditionalHeaders;
+  NSDictionary *usedHeaders = customApi.restClient.session.configuration.HTTPAdditionalHeaders;
   
-  XCTAssertNotNil(api);
-  XCTAssertNotNil(api.restClient);
+  XCTAssertNotNil(customApi);
+  XCTAssertNotNil(customApi.restClient);
   XCTAssertTrue([usedHeaders isEqualToDictionary:httpHeaders]);
-  XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
-  XCTAssertNotNil(api.offlineApi);
+  XCTAssertTrue([customApi.systemLanguage isEqualToString:@"en"]);
+  XCTAssertNotNil(customApi.offlineApi);
 }
 
 - (void)testInitWithApiKeyBaseUrlRestClient {
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:self.restClient];
+  XMMEnduserApi *customApi = [[XMMEnduserApi alloc] initWithRestClient:self.restClient];
   
-  XCTAssertNotNil(api);
-  XCTAssertNotNil(api.restClient);
-  XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
+  XCTAssertNotNil(customApi);
+  XCTAssertNotNil(customApi.restClient);
+  XCTAssertTrue([customApi.systemLanguage isEqualToString:@"en"]);
 }
 
 - (void)testNewSharedInstanceWithKey {
-  XMMEnduserApi *api = [XMMEnduserApi sharedInstanceWithKey:@"apikey"];
+  XMMEnduserApi *customApi = [XMMEnduserApi sharedInstanceWithKey:@"apikey"];
   
-  XCTAssertNotNil(api);
-  XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
-  XCTAssertTrue([api.language isEqualToString:@"en"]);
+  XCTAssertNotNil(customApi);
+  XCTAssertTrue([customApi.systemLanguage isEqualToString:@"en"]);
+  XCTAssertTrue([customApi.language isEqualToString:@"en"]);
 }
 
 - (void)testSharedInstance {
-  XMMEnduserApi *api = [XMMEnduserApi sharedInstanceWithKey:@"apikey"];
+  XMMEnduserApi *customApi = [XMMEnduserApi sharedInstanceWithKey:@"apikey"];
   api = [XMMEnduserApi sharedInstance];
   
-  XCTAssertNotNil(api);
-  XCTAssertTrue([api.systemLanguage isEqualToString:@"en"]);
-  XCTAssertTrue([api.language isEqualToString:@"en"]);
+  XCTAssertNotNil(customApi);
+  XCTAssertTrue([customApi.systemLanguage isEqualToString:@"en"]);
+  XCTAssertTrue([customApi.language isEqualToString:@"en"]);
 }
 
 - (void)testSaveSharedInstance {
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
-  [XMMEnduserApi saveSharedInstance:api];
+  XMMEnduserApi *customApi = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
+  [XMMEnduserApi saveSharedInstance:customApi];
   XMMEnduserApi *checkApi = [XMMEnduserApi sharedInstance];
   
-  XCTAssertEqual(api, checkApi);
+  XCTAssertEqual(customApi, checkApi);
   XCTAssertTrue([checkApi.systemLanguage isEqualToString:@"en"]);
   XCTAssertTrue([checkApi.language isEqualToString:@"en"]);
 }
 
 - (void)testThatContentWithIdCallsFetchResourceWithParamaters {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -105,19 +121,17 @@
 
 - (void)testThatContentWithIdReturnsContentViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
-  
+
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentJson]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
     XCTAssertTrue([content.ID isEqualToString:contentID]);
     XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
@@ -134,8 +148,6 @@
 
 - (void)testThatContentWithIdReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -144,9 +156,9 @@
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
     XCTAssertNil(content);
     XCTAssertNotNil(error);
     [expectation fulfill];
@@ -156,16 +168,14 @@
 }
 
 - (void)testThatContentWithIdCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
-  api.offlineApi = mockOfflineApi;
+  self.api.offlineApi = mockOfflineApi;
   
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
 
-  api.offline = YES;
+  self.api.offline = YES;
   
-  [api contentWithID:contentID completion:nil];
+  [self.api contentWithID:contentID completion:nil];
   
   OCMVerify([mockOfflineApi contentWithID:[OCMArg isEqual:contentID]
                                completion:[OCMArg any]]);
@@ -173,28 +183,24 @@
 }
 
 - (void)testThatContentWithIdOptionsCallsFetchResourceWithParamaters {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"preview":@"true",
                                                                                   @"public-only":@"true"}];
   
-  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+  OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                        id:[OCMArg isEqual:contentID]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
   }];
   
-  OCMVerifyAll(mockRestClient);
+  OCMVerifyAll(self.mockRestClient);
 }
 
 - (void)testThatContentWithIdOptionsReturnsContentViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -203,9 +209,9 @@
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
     XCTAssertTrue([content.ID isEqualToString:contentID]);
     XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
@@ -221,8 +227,6 @@
 
 - (void)testThatContentWithIdOptionsReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -231,9 +235,9 @@
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     XCTAssertNil(content);
     XCTAssertNotNil(error);
     [expectation fulfill];
@@ -243,16 +247,14 @@
 }
 
 - (void)testThatContentWithIdOptionsCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
-  api.offlineApi = mockOfflineApi;
+  self.api.offlineApi = mockOfflineApi;
   
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
   
-  api.offline = YES;
+  self.api.offline = YES;
   
-  [api contentWithID:contentID options:0 completion:nil];
+  [self.api contentWithID:contentID options:0 completion:nil];
   
   OCMVerify([mockOfflineApi contentWithID:[OCMArg isEqual:contentID]
                                completion:[OCMArg any]]);
@@ -260,8 +262,7 @@
 }
 
 - (void)testThatContentWithLocationIdentifierCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[location-identifier]":@"7qpqr"}];
   NSString *qrMarker = @"7qpqr";
@@ -277,8 +278,7 @@
 }
 
 - (void)testThatContentWithLocationIdentifierWithOptionsCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"preview":@"true",
                                                                                   @"public-only":@"true",
@@ -297,8 +297,6 @@
 
 - (void)testThatContentWithLocationIdentifierReturnsContentViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSString *qrMarker = @"7qpqr";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -307,9 +305,9 @@
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
     XCTAssertNotNil(content.ID);
     XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
@@ -325,8 +323,6 @@
 
 - (void)testThatContentWithLocationIdentifierReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSString *qrMarker = @"7qpqr";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -335,9 +331,9 @@
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
     XCTAssertNil(content);
     XCTAssertNotNil(error);
     [expectation fulfill];
@@ -347,23 +343,20 @@
 }
 
 - (void)testThatContentWithLocationIdentifierCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
-  api.offlineApi = mockOfflineApi;
+  self.api.offlineApi = mockOfflineApi;
   
   NSString *qr = @"1214";
   
-  api.offline = YES;
+  self.api.offline = YES;
   
-  [api contentWithLocationIdentifier:qr options:0 completion:nil];
+  [self.api contentWithLocationIdentifier:qr options:0 completion:nil];
   
   OCMVerify([mockOfflineApi contentWithLocationIdentifier:[OCMArg isEqual:qr] completion:[OCMArg any]]);
 }
 
 - (void)testThatContentWithBeaconMajorCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSNumber *minor = @54222;
   NSNumber *major = @24265;
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
@@ -380,8 +373,7 @@
 }
 
 - (void)testThatContentWithBeaconWithOptionsCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"filter[location-identifier]":@"24265|54222",
                                                                                   @"preview":@"true",
                                                                                   @"public-only":@"true",
@@ -403,8 +395,6 @@
 
 - (void)testThatContentWithBeaconMajorReturnsContentViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSNumber *minor = @54222;
   NSNumber *major = @24265;
   
@@ -414,9 +404,9 @@
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
     XCTAssertNotNil(content.ID);
     XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
@@ -432,8 +422,6 @@
 
 - (void)testThatContentWithBeaconMajorReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   NSNumber *minor = @54222;
   NSNumber *major = @24265;
   
@@ -443,9 +431,9 @@
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
   
-  [api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
     XCTAssertNil(content);
     XCTAssertNotNil(error);
     [expectation fulfill];
@@ -455,27 +443,23 @@
 }
 
 - (void)testThatContentsWithLocationCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[lat]":[@(location.coordinate.latitude) stringValue],
                                                                                   @"filter[lon]":[@(location.coordinate.longitude) stringValue],
                                                                                   @"page[size]":@"10"}];
   
-  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+  OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api contentsWithLocation:location pageSize:10 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.api contentsWithLocation:location pageSize:10 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
-  OCMVerifyAll(mockRestClient);
+  OCMVerifyAll(self.mockRestClient);
 }
 
 - (void)testThatContentsWithLocationCallsFetchResourcesWithCursorAndSortName {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[lat]":[@(location.coordinate.latitude) stringValue],
@@ -484,19 +468,18 @@
                                                                                   @"page[cursor]":@"1234",
                                                                                   @"sort":@"name"}];
   
-  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+  OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitle completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitle completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
-  OCMVerifyAll(mockRestClient);
+  OCMVerifyAll(self.mockRestClient);
 }
 
 - (void)testThatContentsWithLocationCallsFetchResourcesWithCursorAndSortNameDesc {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[lat]":[@(location.coordinate.latitude) stringValue],
@@ -517,8 +500,7 @@
 
 - (void)testThatContentsWithLocationReturnsContentHasMoreCursorViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -540,9 +522,8 @@
 }
 
 - (void)testThatContentWithLocationCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   CLLocation *location = [[CLLocation alloc] initWithLatitude:44.0 longitude:16.9];
@@ -556,8 +537,7 @@
 
 - (void)testThatContentsWithLocationReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -578,8 +558,7 @@
 }
 
 - (void)testThatContentWithTagsCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[tags]":@"[\"tag1\",\"tag2\"]",
                                                                                   @"page[size]":@"10"}];
@@ -595,8 +574,7 @@
 }
 
 - (void)testThatContentWithTagsWithCursorSortCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[tags]":@"[\"tag1\",\"tag2\"]",
                                                                                   @"page[size]":@"10",
@@ -615,8 +593,7 @@
 
 - (void)testThatContentsWithTagsReturnsContentHasMoreCursorViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSArray *tags = @[@"tag1", @"tag2"];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -639,8 +616,7 @@
 
 - (void)testThatContentsWithTagsReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSArray *tags = @[@"tag1", @"tag2"];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -661,9 +637,8 @@
 }
 
 - (void)testThatContentWithTagsCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   NSArray *tags = [[NSArray alloc] initWithObjects:@"tag1", nil];
@@ -676,8 +651,7 @@
 }
 
 - (void)testThatContentWithNameWithCursorSortCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[name]":@"test",
                                                                                   @"page[size]":@"10",
@@ -695,8 +669,7 @@
 
 - (void)testThatContentsWithNameReturnsContentHasMoreCursorViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -722,8 +695,7 @@
 
 - (void)testThatContentsWithNameReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -743,9 +715,8 @@
 }
 
 - (void)testThatContentWithNameCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   NSString *name = @"test";
@@ -759,8 +730,7 @@
 
 - (void)testThatSpotWithIdReturnsSpotViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSString *spotID = @"5755996320301056|5744440375246848";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -793,8 +763,7 @@
 
 - (void)testThatSpotWithIdReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSString *spotID = @"5755996320301056|5744440375246848";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -815,8 +784,7 @@
 }
 
 - (void)testThatSpotWithIdAndOptionsCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSString *spotID = @"5755996320301056|5744440375246848";
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en",
@@ -838,8 +806,7 @@
 
 - (void)testThatSpotWithIdAndOptionsReturnsContentViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSString *spotID = @"5755996320301056|5744440375246848";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -874,8 +841,7 @@
 
 
 - (void)testThatSpotWithIdCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSString *spotID = @"5755996320301056|5744440375246848";
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en"}];
@@ -893,9 +859,8 @@
 }
 
 - (void)testThatSpotWithIdCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   NSString *spotId = @"test";
@@ -908,8 +873,7 @@
 }
 
 - (void)testThatSpotWithLocationRadiusCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en",
@@ -928,8 +892,7 @@
 }
 
 - (void)testThatSpotWithLocationRadiusOptionCallsFetchResources {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102000001 longitude:14.2628843];
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en",
@@ -953,8 +916,7 @@
 
 - (void)testThatSpotsWithLocationReturnsSpotsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -975,8 +937,7 @@
 
 - (void)testThatSpotsWithLocationReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -997,9 +958,8 @@
 }
 
 - (void)testThatSpotsWithLocationCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   CLLocation *location = [[CLLocation alloc] initWithLatitude:44.0 longitude:16.0];
@@ -1012,8 +972,7 @@
 }
 
 - (void)testThatSpotWithLocationRadiusOptionPageSizeCursorCallsFetchResource {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102000001 longitude:14.2628843];
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en",
@@ -1039,8 +998,7 @@
 
 - (void)testThatSpotsWithLocationPageSizeCursorReturnsSpotsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -1063,8 +1021,7 @@
 
 - (void)testThatSpotsWithLocationPageSizeCursorReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMPartialMock(self.restClient);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -1087,8 +1044,7 @@
 }
 
 - (void)testThatSpotsWithTagsOptionSortCallsFetchResource {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSArray *tags = @[@"tag1", @"tag2"];
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en",
@@ -1112,8 +1068,7 @@
 
 - (void)testThatSpotsWithTagsOptionsReturnsSpotsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSArray *tags = @[@"tag1", @"tag2"];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -1136,8 +1091,7 @@
 
 - (void)testThatSpotsWithTagsOptionsReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSArray *tags = @[@"tag1", @"tag2"];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -1160,8 +1114,7 @@
 }
 
 - (void)testThatSpotsWithTagsOptionPageSizeCursorCallsFetchResource {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSArray *tags = @[@"tag1", @"tag2"];
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en",
@@ -1185,8 +1138,7 @@
 
 - (void)testThatSpotsWithTagsOptionsPageSizeCursorReturnsSpotsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSArray *tags = @[@"tag1", @"tag2"];
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
@@ -1208,9 +1160,8 @@
 }
 
 - (void)testThatSpotsWithTagsCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   NSArray *tags = [[NSArray alloc] initWithObjects:@"tag1", nil];
@@ -1223,8 +1174,7 @@
 }
 
 - (void)testThatSpotsWithNameCallsFetchResource {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en",
                                                       @"filter[name]":@"do not touch",
@@ -1244,8 +1194,7 @@
 
 - (void)testThatSpotsWithNameReturnsSpotsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -1268,8 +1217,7 @@
 
 - (void)testThatSpotsWithNameReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -1291,9 +1239,8 @@
 }
 
 - (void)testThatSpotsWithNameCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   id mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   NSString *name = @"name";
@@ -1306,8 +1253,7 @@
 }
 
 - (void)testThatSystemCallsFetchResource {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en"}];
   
@@ -1324,8 +1270,7 @@
 
 - (void)testThatSystemReturnsSystemViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -1349,9 +1294,8 @@
 
 - (void)testThatSystemReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   
+
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 4];
@@ -1370,9 +1314,8 @@
 }
 
 - (void)testThatSystemCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   api.offline = YES;
@@ -1383,8 +1326,7 @@
 }
 
 - (void)testThatSystemSettingsCallsFetchResource {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en"}];
   
@@ -1402,8 +1344,7 @@
 
 - (void)testThatSystemSettingsReturnsSettingsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -1424,8 +1365,7 @@
 
 - (void)testThatSystemSettingsReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -1445,8 +1385,7 @@
 }
 
 - (void)testThatStyleWithIDCallsFetchResource {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en"}];
   
@@ -1463,9 +1402,8 @@
 }
 
 - (void)testThatSystemSettingsCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   NSString *systemId = @"11";
@@ -1479,8 +1417,7 @@
 
 - (void)testThatStyleWithIDReturnsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -1505,8 +1442,7 @@
 
 - (void)testThatStyleWithIDReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -1526,9 +1462,8 @@
 }
 
 - (void)testThatStyleCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   NSString *systemId = @"11";
@@ -1541,8 +1476,7 @@
 }
 
 - (void)testThatMenuWithIDCallsFetchResource {
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   NSMutableDictionary *params = [[NSMutableDictionary alloc]
                                  initWithDictionary:@{@"lang":@"en"}];
   
@@ -1560,8 +1494,7 @@
 
 - (void)testThatMenuWithIDReturnsViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -1582,8 +1515,7 @@
 
 - (void)testThatMenuWithIDReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  id mockRestClient = OCMClassMock([XMMRestClient class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
+  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -1603,9 +1535,8 @@
 }
 
 - (void)testThatMenuCallsOfflineApi {
-  id mockRestClient = OCMPartialMock(self.restClient);
+  
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
-  XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithRestClient:mockRestClient];
   api.offlineApi = mockOfflineApi;
   
   NSString *systemId = @"11";
