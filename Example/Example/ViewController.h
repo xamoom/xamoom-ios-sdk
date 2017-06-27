@@ -11,6 +11,7 @@
 
 @interface ViewController : UIViewController <XMMContentBlocksDelegate>
 
+@property XMMEnduserApi *api;
 
 @end
 

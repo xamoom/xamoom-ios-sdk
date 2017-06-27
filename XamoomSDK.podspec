@@ -11,6 +11,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
+  s.ios.libraries = 'stdc++', 'z'
+
   s.source_files = 'XamoomSDK/Classes/**/**/*.{h,m}'
   s.public_header_files = 'XamoomSDK/Classes/**/*.h'
 
@@ -23,4 +25,5 @@ Pod::Spec.new do |s|
   s.dependency 'JSONAPI', '~> 1.0.0'
   s.dependency 'SDWebImage', '~>3.7'
   s.dependency 'JAMSVGImage'
+  s.dependency 'Pushwoosh'
 end
