@@ -52,20 +52,30 @@ NSString *CONTENT_ID_NAME = @"content_id";
 - (void)onPushAccepted:(PushNotificationManager *)pushManager
       withNotification:(NSDictionary *)pushNotification onStart:(BOOL)onStart {
   NSString *customDataString = [pushManager getCustomPushData:pushNotification];
-  NSDictionary *jsonData = nil;
-  NSString *contentId = nil;
-  
-  if (customDataString) {
-    jsonData = [NSJSONSerialization
-                JSONObjectWithData:[customDataString dataUsingEncoding:NSUTF8StringEncoding]
-                options:NSJSONReadingMutableContainers error:nil];
-    
-    contentId = [jsonData objectForKey:CONTENT_ID_NAME];
-  }
+  NSString *contentId = [self contentIdFromCustomData:customDataString];
   
   if ([self.delegate respondsToSelector:@selector(didClickPushNotification:)]) {
     [self.delegate didClickPushNotification:contentId];
   }
+}
+
+#pragma mark - Helper
+
+- (NSString *)contentIdFromCustomData:(NSString *)customData {
+  NSDictionary *jsonData = nil;
+  NSString *contentId = nil;
+  
+  if (customData) {
+    jsonData = [NSJSONSerialization
+                JSONObjectWithData:[customData dataUsingEncoding:NSUTF8StringEncoding]
+                options:NSJSONReadingMutableContainers error:nil];
+    
+    if (jsonData) {
+      contentId = [jsonData objectForKey:CONTENT_ID_NAME];
+    }
+  }
+  
+  return contentId;
 }
 
 @end
