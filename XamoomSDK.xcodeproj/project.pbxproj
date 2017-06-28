@@ -84,6 +84,8 @@
 		883EA0641C7F03D2003FDF80 /* XMMAnnotationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0631C7F03D2003FDF80 /* XMMAnnotationTests.m */; };
 		883EA0661C7F05FC003FDF80 /* XMMMapOverlayViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0651C7F05FC003FDF80 /* XMMMapOverlayViewTests.m */; };
 		883EA06A1C7F0DF7003FDF80 /* XMMMusicPlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 883EA0691C7F0DF7003FDF80 /* XMMMusicPlayerTests.m */; };
+		8844B0451F03CB0200038D9F /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 889BA3DF1F014540004AC15D /* libstdc++.tbd */; };
+		8844B0461F03CB0800038D9F /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 889BA3DD1F014534004AC15D /* libz.tbd */; };
 		88456DD71F026069001CC048 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 889BA3DF1F014540004AC15D /* libstdc++.tbd */; };
 		88456DD81F026070001CC048 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 889BA3DD1F014534004AC15D /* libz.tbd */; };
 		88482D771E37961700B28293 /* XMMSimpleStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = 88482D751E37961700B28293 /* XMMSimpleStorage.h */; };
@@ -454,6 +456,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8844B0461F03CB0800038D9F /* libz.tbd in Frameworks */,
+				8844B0451F03CB0200038D9F /* libstdc++.tbd in Frameworks */,
 				8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */,
 				B38F0D3EB51B1BE60120C076 /* libPods-XamoomSDKTests.a in Frameworks */,
 			);
