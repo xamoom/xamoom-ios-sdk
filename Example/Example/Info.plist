@@ -29,6 +29,12 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Need your location</string>
+	<key>Pushwoosh_APPID</key>
+	<string>8AF88-DDD2D</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

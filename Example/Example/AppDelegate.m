@@ -7,17 +7,49 @@
 //
 
 #import "AppDelegate.h"
+#import "DetailViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <XMMPushNotificationDelegate>
+
+@property (strong, nonatomic) XMMEnduserApi *api;
+@property (strong, nonatomic) XMMPushManager *pushManager;
 
 @end
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
+  
+  self.pushManager = [[XMMPushManager alloc] init];
+  self.pushManager.delegate = self;
+
+  [self setupApi];
+  
+  UINavigationController *nav = (UINavigationController *) self.window.rootViewController;
+  ViewController *vc = (ViewController *)nav.topViewController;
+  vc.api = self.api;
+  
   return YES;
+}
+
+- (void)setupApi {
+  // Do any additional setup after loading the view, typically from a nib.
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"TestingIDs" ofType:@"plist"];
+  NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+  NSString *apikey = [dict objectForKey:@"APIKEY"];
+  NSString *devkey = [dict objectForKey:@"X-DEVKEY"];
+  
+  NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
+                                @"User-Agent":@"XamoomSDK iOS | SDK Example | dev",
+                                @"APIKEY":apikey,
+                                @"X-DEVKEY":devkey};
+  
+  NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+  [config setHTTPAdditionalHeaders:httpHeaders];
+  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"https://xamoom-cloud-dev.appspot.com/_api/v2/consumer/"] session:[NSURLSession sessionWithConfiguration:config]];
+  
+  self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -40,6 +72,34 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+// system push notification registration success callback, delegate to pushManager
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+  [self.pushManager handlePushRegistration:deviceToken];
+}
+
+// system push notification registration error callback, delegate to pushManager
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+  [self.pushManager handlePushRegistrationFailure:error];
+}
+
+// system push notifications callback, delegate to pushManager
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+  [self.pushManager handlePushReceived:userInfo];
+  completionHandler(UIBackgroundFetchResultNoData);
+}
+
+- (void)didClickPushNotification:(NSString *)contentId {
+  NSLog(@"Did click notification: %@", contentId);
+  
+  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  DetailViewController *vc = (DetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+  vc.api = self.api;
+  vc.contentID = contentId;
+  UINavigationController *navigationController = (UINavigationController *) self.window.rootViewController;
+  [navigationController showViewController:vc sender:nil];
 }
 
 @end

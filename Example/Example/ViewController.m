@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *loadTabBarItem;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property XMMEnduserApi *api;
 @property XMMContentBlocks *blocks;
 @property XMMContent *content;
 
@@ -32,22 +31,6 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
-  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"TestingIDs" ofType:@"plist"];
-  NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:filePath];
-  NSString *apikey = [dict objectForKey:@"APIKEY"];
-  NSString *devkey = [dict objectForKey:@"X-DEVKEY"];
-  
-  NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"XamoomSDK iOS | SDK Example | dev",
-                                @"APIKEY":apikey,
-                                @"X-DEVKEY":devkey};
-  
-  NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-  [config setHTTPAdditionalHeaders:httpHeaders];
-  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"https://xamoom-cloud-dev.appspot.com/_api/v2/consumer/"] session:[NSURLSession sessionWithConfiguration:config]];
-  
-  self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
   
   self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
   self.blocks.delegate = self;
