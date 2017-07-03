@@ -2,6 +2,12 @@
 
 ## development
 
+## [3.3.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.2.2...3.3.0) - 03.06.2017
+
+- Added push notifications
+
+- Changed to MIT License
+
 ## [3.2.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.2.1...3.2.2) - 31.05.2017
 
 - Added italian translations
