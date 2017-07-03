@@ -25,3 +25,4 @@ gendocs/
 fastlane/report.xml
 fastlane/test_output/
 *.xcbkptlist
+.DS_Store
