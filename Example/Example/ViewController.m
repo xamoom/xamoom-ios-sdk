@@ -66,6 +66,7 @@
   [self contentWithID];
   [self contentWithIDOptions];
   [self contentWithLocationIdentifier];
+  [self contentWithCondition];
   [self contentWithBeaconMajor];
   [self contentWithLocation];
   [self contentWithTags];
@@ -147,6 +148,24 @@
       NSLog(@"Block %@", block.title);
     }
   }];
+}
+
+- (void)contentWithCondition {
+  NSDictionary *condition = @{@"string":@"I'm such a wonderful goat",
+                              @"date":[[NSDate alloc] init],
+                              @"number":@4};
+  
+  [self.api contentWithLocationIdentifier:@"7qpqr"
+                                  options:0
+                               conditions:condition
+                               completion:^(XMMContent *content, NSError *error) {
+                                 if (error) {
+                                   NSLog(@"Error: %@", error);
+                                   return;
+                                 }
+                                 
+                                 NSLog(@"ContentWithLocationIdentifier: %@", content.title);
+                               }];
 }
 
 - (void)contentWithBeaconMajor {
