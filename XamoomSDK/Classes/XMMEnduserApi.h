@@ -157,12 +157,10 @@ extern NSString * const kApiBaseURLString;
  * API call to get content with specific location-identifier with options
  * and conditions.
  *
- * @warning: Does not work offline. Will return default content from spot.
- *
  * @param locationIdentifier Locationidentifier from xamoom marker
  * @param options XMMContentOptions for call
- * @param conditions NSDictionary with conditions to match. Allowed value types:
-    numbers, strings and dates.
+ * @param conditions NSDictionary with conditions to match. Allowed value types: 
+ * numbers, strings and dates.
  * @param completion Completion block called after finishing network request
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
@@ -204,7 +202,7 @@ extern NSString * const kApiBaseURLString;
  * @param minor Minor of the beacon
  * @param options XMMContentOptions for call
  * @param conditions NSDictionary with conditions to match. Allowed value types:
- numbers, strings and dates.
+ * numbers, strings and dates.
  * @param completion Completion block called after finishing network request
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
