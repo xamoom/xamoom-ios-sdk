@@ -366,7 +366,7 @@
                                                                                   @"public-only":@"true",
                                                                                   @"filter[location-identifier]":@"7qpqr",
                                                                                   @"condition[name]":@"myname",
-                                                                                  @"condition[date]":@"2017-07-10T13:18:49+02:00",
+                                                                                  @"condition[date]":@"2017-07-10T11:18:49Z",
                                                                                   @"condition[weekday]":@"3"}];
   
   NSString *qrMarker = @"7qpqr";

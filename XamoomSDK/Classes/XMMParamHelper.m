@@ -210,7 +210,8 @@
   if ([condition isKindOfClass:[NSDate class]]) {
     NSDate *date = (NSDate *)condition;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     return [dateFormatter stringFromDate:date];
   }
   
