@@ -1,6 +1,8 @@
 # Changelog
 
-## development
+## [3.4.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.3.0...3.4.0) - 17.07.2017
+
+- Added conditional content support
 
 ## [3.3.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.2.2...3.3.0) - 03.06.2017
 
