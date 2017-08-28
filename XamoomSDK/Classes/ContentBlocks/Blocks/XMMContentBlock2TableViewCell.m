@@ -134,7 +134,6 @@
     if (range.location != NSNotFound) {
       int hours = [[url substringWithRange:range] intValue];
       startSeconds += hours * 60 * 60; // to seconds
-      NSLog(@"group2: %@", [url substringWithRange:range]);
     }
 
     // minutes
@@ -142,7 +141,6 @@
     if (range.location != NSNotFound) {
       int minutes = [[url substringWithRange:range] intValue];
       startSeconds += minutes * 60; // to seconds
-      NSLog(@"group3: %@", [url substringWithRange:range]);
     }
     
     // seconds
@@ -150,14 +148,12 @@
     if (range.location != NSNotFound) {
       int seconds = [[url substringWithRange:range] intValue];
       startSeconds += seconds;
-      NSLog(@"group4: %@", [url substringWithRange:range]);
     }
 
     // time already in seconds
     range = [result rangeAtIndex:5];
     if (range.location != NSNotFound) {
       startSeconds = [[url substringWithRange:range] integerValue];
-      NSLog(@"group5: %ld", (long)startSeconds);
     }
   }
   
