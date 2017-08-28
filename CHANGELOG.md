@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.5.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.4.0...3.5.0) - 28.08.2017
+
+- Added support for youtube timestamps
+
 ## [3.4.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.3.0...3.4.0) - 17.07.2017
 
 - Added conditional content support
