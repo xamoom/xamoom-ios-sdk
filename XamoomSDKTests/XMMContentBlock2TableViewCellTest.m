@@ -26,6 +26,73 @@
     [super tearDown];
 }
 
+- (void)testYoutubeNormal {
+  XMMContentBlock2TableViewCell *cell = [[XMMContentBlock2TableViewCell alloc] init];
+  UIWebView *mockWebview = OCMClassMock(UIWebView.class);
+  cell.webView = mockWebview;
+  
+  XMMContentBlock *block = [[XMMContentBlock alloc] init];
+  block.videoUrl = @"https://www.youtube.com/watch?v=dtm_tIkEbMc";
+  
+  [cell configureForCell:block tableView:nil indexPath:nil style:nil offline:NO];
+  
+  OCMVerify([mockWebview loadHTMLString:[OCMArg isEqual:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/dtm_tIkEbMc?start=0\" frameborder=\"0\" allowfullscreen></iframe>"] baseURL:[OCMArg isNil]]);
+}
+
+- (void)testYoutubeShort {
+  XMMContentBlock2TableViewCell *cell = [[XMMContentBlock2TableViewCell alloc] init];
+  UIWebView *mockWebview = OCMClassMock(UIWebView.class);
+  cell.webView = mockWebview;
+  
+  XMMContentBlock *block = [[XMMContentBlock alloc] init];
+  block.videoUrl = @"https://youtu.be/-drQtUAya00";
+  
+  [cell configureForCell:block tableView:nil indexPath:nil style:nil offline:NO];
+
+  OCMVerify([mockWebview loadHTMLString:[OCMArg isEqual:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/-drQtUAya00?start=0\" frameborder=\"0\" allowfullscreen></iframe>"] baseURL:[OCMArg isNil]]);
+}
+
+
+
+- (void)testYoutubeWithTimestampSeconds {
+  XMMContentBlock2TableViewCell *cell = [[XMMContentBlock2TableViewCell alloc] init];
+  UIWebView *mockWebview = OCMClassMock(UIWebView.class);
+  cell.webView = mockWebview;
+  
+  XMMContentBlock *block = [[XMMContentBlock alloc] init];
+  block.videoUrl = @"https://youtu.be/-drQtUAya00?t=103";
+  
+  [cell configureForCell:block tableView:nil indexPath:nil style:nil offline:NO];
+  
+  OCMVerify([mockWebview loadHTMLString:[OCMArg isEqual:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/-drQtUAya00?start=103\" frameborder=\"0\" allowfullscreen></iframe>"] baseURL:[OCMArg isNil]]);
+}
+
+- (void)testYoutubeWithTimestampHoursMinutesSeconds {
+  XMMContentBlock2TableViewCell *cell = [[XMMContentBlock2TableViewCell alloc] init];
+  UIWebView *mockWebview = OCMClassMock(UIWebView.class);
+  cell.webView = mockWebview;
+  
+  XMMContentBlock *block = [[XMMContentBlock alloc] init];
+  block.videoUrl = @"https://youtu.be/-drQtUAya00?t=1h03m1s";
+  
+  [cell configureForCell:block tableView:nil indexPath:nil style:nil offline:NO];
+  
+  OCMVerify([mockWebview loadHTMLString:[OCMArg isEqual:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/-drQtUAya00?start=3781\" frameborder=\"0\" allowfullscreen></iframe>"] baseURL:[OCMArg isNil]]);
+}
+
+- (void)testYoutubeWithTimestampInvalid {
+  XMMContentBlock2TableViewCell *cell = [[XMMContentBlock2TableViewCell alloc] init];
+  UIWebView *mockWebview = OCMClassMock(UIWebView.class);
+  cell.webView = mockWebview;
+  
+  XMMContentBlock *block = [[XMMContentBlock alloc] init];
+  block.videoUrl = @"https://youtu.be/-drQtUAya00?t=letscrash";
+  
+  [cell configureForCell:block tableView:nil indexPath:nil style:nil offline:NO];
+  
+  OCMVerify([mockWebview loadHTMLString:[OCMArg isEqual:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"100%\" height=\"100%\" src=\"https://www.youtube.com/embed/-drQtUAya00?start=0\" frameborder=\"0\" allowfullscreen></iframe>"] baseURL:[OCMArg isNil]]);
+}
+
 - (void)testIfOfflineCallsFileManager {
   XMMContentBlock2TableViewCell *cell = [[XMMContentBlock2TableViewCell alloc] init];
   

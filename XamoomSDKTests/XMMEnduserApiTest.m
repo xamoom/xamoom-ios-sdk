@@ -54,7 +54,7 @@
 
 - (void)testInitWithApiKey {
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"XamoomSDK iOS|(null)|3.3.0",
+                                @"User-Agent":@"XamoomSDK iOS|(null)|3.5.0",
                                 @"APIKEY":@"apikey",};
   
   XMMEnduserApi *customApi = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
@@ -325,13 +325,18 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   NSString *qrMarker = @"7qpqr";
   
+  NSDictionary *checkDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                   @"val1", @"key1", nil];
+  
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 4];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                    parameters:[OCMArg isEqual:checkDictionary]
+                                                    completion:[OCMArg any]];
   
   [self.api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
     XCTAssertNil(content);
@@ -353,6 +358,62 @@
   [self.api contentWithLocationIdentifier:qr options:0 completion:nil];
   
   OCMVerify([mockOfflineApi contentWithLocationIdentifier:[OCMArg isEqual:qr] completion:[OCMArg any]]);
+}
+
+- (void)testThatContentWithLocationIdentifierWithOptionsAndConditionCallsFetchResources {
+  NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
+                                                                                  @"preview":@"true",
+                                                                                  @"public-only":@"true",
+                                                                                  @"filter[location-identifier]":@"7qpqr",
+                                                                                  @"condition[name]":@"myname",
+                                                                                  @"condition[date]":@"2017-07-10T11:18:49Z",
+                                                                                  @"condition[weekday]":@"3"}];
+  
+  NSString *qrMarker = @"7qpqr";
+  NSString *dateString = @"2017-07-10T13:18:49+02:00";
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+  NSDate *date = [dateFormatter dateFromString:dateString];
+  
+  NSDictionary *options = @{@"name":@"myname",
+                            @"date":date,
+                            @"weekday":@3};
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  [api contentWithLocationIdentifier:qrMarker options:XMMContentOptionsPreview|XMMContentOptionsPrivate conditions:options completion:^(XMMContent *content, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
+- (void)testThatContentWithLocationIdentifierAndConditionCallReturnsContentViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  NSString *qrMarker = @"7qpqr";
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
+  };
+  
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  
+  [self.api contentWithLocationIdentifier:qrMarker options:0 conditions:nil completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNotNil(content);
+    XCTAssertNotNil(content.ID);
+    XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
+    XCTAssertNil(content.imagePublicUrl);
+    XCTAssertNotNil(content.contentDescription);
+    XCTAssertTrue(content.contentBlocks.count == 9);
+    XCTAssertNil(error);
+    [expectation fulfill];
+  }];
+   
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
 - (void)testThatContentWithBeaconMajorCallsFetchResources {
@@ -436,6 +497,28 @@
   [self.api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
     XCTAssertNil(content);
     XCTAssertNotNil(error);
+    [expectation fulfill];
+  }];
+  
+  [self waitForExpectationsWithTimeout:1.0 handler:nil];
+}
+
+- (void)testThatContentWithBeaconAndConditionCallReturnsContentViaCallback {
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  NSNumber *minor = @54222;
+  NSNumber *major = @24265;
+  
+  void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
+    void (^passedBlock)(JSONAPI *result, NSError *error);
+    [invocation getArgument: &passedBlock atIndex: 4];
+    passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
+  };
+  
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  
+  [self.api contentWithBeaconMajor:major minor:minor options:0 conditions:nil completion:^(XMMContent *content, NSError *error) {
+    XCTAssertNotNil(content);
+    XCTAssertNil(error);
     [expectation fulfill];
   }];
   
