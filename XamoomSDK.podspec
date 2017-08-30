@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
   s.subspec 'PushWorkaround' do |workaround|
     # add the Pushwoosh dependency to your Podfile and
     # copy the XMMPushManager files to your project
-    workaround.source_files = 'XamoomSDK/Classes/XMMPushManager.{h,m}'
+    workaround.preserve_path = 'XamoomSDK/Classes/XMMPushManager.{h,m}'
     workaround.libraries = 'stdc++', 'z'
   end
 end
