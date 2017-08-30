@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.5.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.5.1...3.5.2) - 30.08.2017
+
+- Changed podspec to use subspecs for PushNotifications
+
+## [3.5.1](https://github.com/xamoom/xamoom-ios-sdk/compare/3.5.0...3.5.1) - 29.08.2017
+
+-  Reuploaded podspec
+
 ## [3.5.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.4.0...3.5.0) - 28.08.2017
 
 - Added support for youtube timestamps
