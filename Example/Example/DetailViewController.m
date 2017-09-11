@@ -17,6 +17,10 @@
 
 @implementation DetailViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+  [self.blocks viewWillAppear];
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
@@ -39,6 +43,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+  [self.blocks viewWillDisappear];
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kManagedContextReadyNotification object:nil];
 }
 
