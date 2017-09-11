@@ -53,6 +53,12 @@
 
 - (void)didClickContentBlock:(NSString *)contentID {
   NSLog(@"didClickContentBlock");
+  
+  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  DetailViewController *vc = (DetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+  vc.api = self.api;
+  vc.contentID = contentID;
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*
