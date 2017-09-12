@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import <XamoomSDK/XMMPushManager.h>
 
 @interface AppDelegate () <XMMPushNotificationDelegate>
 

@@ -246,10 +246,10 @@
   XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title"]);
   XCTAssert([testCell.linkTextLabel.text isEqualToString:@"Link"]);
   XCTAssert([testCell.linkUrl isEqualToString:@"www.xamoom.com"]);
-  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.standardGreyColor]);
-  XCTAssertEqual(testCell.icon.tintColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.titleLabel.textColor, testCell.standardTextColor);
+  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.phoneColor]);
+  XCTAssertEqual(testCell.icon.tintColor, [UIColor blackColor]);
+  XCTAssertEqual(testCell.linkTextLabel.textColor, [UIColor blackColor]);
+  XCTAssertEqual(testCell.titleLabel.textColor, [UIColor blackColor]);
 }
 
 - (void)testThatContentBlock4CellConfigureType12 {
