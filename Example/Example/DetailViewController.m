@@ -17,6 +17,10 @@
 
 @implementation DetailViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+  [self.blocks viewWillAppear];
+}
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
@@ -39,6 +43,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+  [self.blocks viewWillDisappear];
   [[NSNotificationCenter defaultCenter] removeObserver:self name:kManagedContextReadyNotification object:nil];
 }
 
@@ -53,6 +58,12 @@
 
 - (void)didClickContentBlock:(NSString *)contentID {
   NSLog(@"didClickContentBlock");
+  
+  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  DetailViewController *vc = (DetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+  vc.api = self.api;
+  vc.contentID = contentID;
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.5.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.5.2...3.5.3) - 12.09.2017
+
+- Changed relative margins
+- Changed phone link color to match web
+
+- Fixed constraints on contentBlock content
+- Fixed autolayout for audioplayer
+
 ## [3.5.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.5.1...3.5.2) - 30.08.2017
 
 - Changed podspec to use subspecs for PushNotifications
