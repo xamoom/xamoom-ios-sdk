@@ -55,8 +55,6 @@ static XMMEnduserApi *sharedInstance;
   self.offlineApi = [[XMMOfflineApi alloc] init];
   [XMMOfflineStorageManager sharedInstance];
   
-  
-  
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:@{@"Content-Type":kHTTPContentType,
                                      @"User-Agent":[self customUserAgent],
@@ -159,6 +157,15 @@ static XMMEnduserApi *sharedInstance;
     [self.offlineApi contentWithLocationIdentifier:locationIdentifier completion:completion];
     return nil;
   }
+  NSMutableDictionary *mutableConditions = nil;
+  if (conditions == nil) {
+    mutableConditions = [[NSMutableDictionary alloc] init];
+  } else {
+    mutableConditions = [conditions mutableCopy];
+  }
+
+  [mutableConditions setObject:[[NSDate alloc] init] forKey:@"x-datetime"];
+  conditions = mutableConditions;
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language locationIdentifier:locationIdentifier];
   params = [XMMParamHelper addContentOptionsToParams:params options:options];
