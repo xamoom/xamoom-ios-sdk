@@ -23,6 +23,8 @@
 
 @synthesize api, restClient, mockRestClient;
 
+NSString* apiVersion = @"3.5.3";
+
 - (void)setUp {
   [super setUp];
   // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -54,7 +56,7 @@
 
 - (void)testInitWithApiKey {
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"XamoomSDK iOS|(null)|3.5.3",
+                                @"User-Agent":[NSString stringWithFormat:@"XamoomSDK iOS||%@", apiVersion],
                                 @"APIKEY":@"apikey",};
   
   XMMEnduserApi *customApi = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
@@ -67,6 +69,16 @@
   XCTAssertTrue([usedHeaders isEqualToDictionary:httpHeaders]);
   XCTAssertTrue([customApi.systemLanguage isEqualToString:@"en"]);
   XCTAssertNotNil(customApi.offlineApi);
+}
+
+- (void)testCustomUserAgent {
+  XMMEnduserApi *customApi = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
+
+  NSString *checkUserAgent = [NSString stringWithFormat:@"XamoomSDK iOS|aou|%@", apiVersion];
+  
+  NSString *userAgent = [customApi customUserAgentFrom:@"äöü"];
+  
+  XCTAssertTrue([checkUserAgent isEqualToString:userAgent]);
 }
 
 - (void)testInitWithApiKeyBaseUrlRestClient {
