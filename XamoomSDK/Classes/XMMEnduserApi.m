@@ -59,7 +59,7 @@ static XMMEnduserApi *sharedInstance;
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:@{@"Content-Type":kHTTPContentType,
-                                     @"User-Agent":[self customUserAgent],
+                                     @"User-Agent":[self customUserAgentFrom:nil],
                                      @"APIKEY":apikey,}];
   
   self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString: kApiBaseURLString]
@@ -487,7 +487,7 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark - Helper
 
-- (NSString *)customUserAgent {
+- (NSString *)customUserAgentFrom:(NSString *)appName {
   NSBundle *bundle = [NSBundle bundleForClass:[XMMEnduserApi class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
   NSBundle *nibBundle;
@@ -499,9 +499,16 @@ static XMMEnduserApi *sharedInstance;
   NSDictionary *infoDict = [nibBundle infoDictionary];
   NSString *sdkVersion = [infoDict objectForKey:@"CFBundleShortVersionString"];
   
+  if (appName == nil) {
+    appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+  }
+  NSData *asciiStringData = [appName dataUsingEncoding:NSASCIIStringEncoding
+                              allowLossyConversion:YES];
+  appName = [[NSString alloc] initWithData:asciiStringData
+                                                encoding:NSASCIIStringEncoding];
   NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@|%@",
                                kHTTPUserAgent,
-                               [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"],
+                               appName,
                                sdkVersion];
   return customUserAgent;
 }
