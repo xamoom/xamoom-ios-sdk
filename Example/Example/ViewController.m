@@ -137,7 +137,7 @@
 }
 
 - (void)contentWithLocationIdentifier {
-  [self.api contentWithLocationIdentifier:@"7qpqr" completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithLocationIdentifier:@"b5v2p" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
@@ -155,7 +155,7 @@
                               @"date":[[NSDate alloc] init],
                               @"number":@4};
   
-  [self.api contentWithLocationIdentifier:@"7qpqr"
+  [self.api contentWithLocationIdentifier:@"b5v2p"
                                   options:0
                                conditions:condition
                                completion:^(XMMContent *content, NSError *error) {

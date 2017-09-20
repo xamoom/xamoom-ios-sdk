@@ -10,6 +10,7 @@
 #import <OCMock/OCMock.h>
 #import "XMMEnduserApi.h"
 #import "XMMOfflineApi.h"
+#import "NSDate+ISODate.h"
 
 @interface XMMEnduserApiTest : XCTestCase
 
@@ -276,7 +277,8 @@ NSString* apiVersion = @"3.5.3";
 - (void)testThatContentWithLocationIdentifierCallsFetchResources {
   
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[location-identifier]":@"7qpqr"}];
+                                                                                @"filter[location-identifier]":@"7qpqr",
+                                                                                @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
   NSString *qrMarker = @"7qpqr";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -294,7 +296,8 @@ NSString* apiVersion = @"3.5.3";
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"preview":@"true",
                                                                                   @"public-only":@"true",
-                                                                                  @"filter[location-identifier]":@"7qpqr"}];
+                                                                                  @"filter[location-identifier]":@"7qpqr",
+                                                                                  @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
   NSString *qrMarker = @"7qpqr";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -379,7 +382,8 @@ NSString* apiVersion = @"3.5.3";
                                                                                   @"filter[location-identifier]":@"7qpqr",
                                                                                   @"condition[name]":@"myname",
                                                                                   @"condition[date]":@"2017-07-10T11:18:49Z",
-                                                                                  @"condition[weekday]":@"3"}];
+                                                                                  @"condition[weekday]":@"3",
+                                                                                  @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
   
   NSString *qrMarker = @"7qpqr";
   NSString *dateString = @"2017-07-10T13:18:49+02:00";
@@ -433,7 +437,8 @@ NSString* apiVersion = @"3.5.3";
   NSNumber *minor = @54222;
   NSNumber *major = @24265;
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[location-identifier]":@"24265|54222"}];
+                                                                                  @"filter[location-identifier]":@"24265|54222",
+                                                                                  @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
@@ -446,11 +451,11 @@ NSString* apiVersion = @"3.5.3";
 }
 
 - (void)testThatContentWithBeaconWithOptionsCallsFetchResources {
-  
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"filter[location-identifier]":@"24265|54222",
                                                                                   @"preview":@"true",
                                                                                   @"public-only":@"true",
                                                                                   @"lang":@"en",
+                                                                                  @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]
                                                                                   }];
   NSNumber *minor = @54222;
   NSNumber *major = @24265;
