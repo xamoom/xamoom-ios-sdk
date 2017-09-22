@@ -7,13 +7,13 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - XamoomSDK (3.5.3):
-    - XamoomSDK/Core (= 3.5.3)
-  - XamoomSDK/Core (3.5.3):
+  - XamoomSDK (3.5.4):
+    - XamoomSDK/Core (= 3.5.4)
+  - XamoomSDK/Core (3.5.4):
     - JAMSVGImage
     - JSONAPI (~> 1.0.0)
     - SDWebImage (~> 3.7)
-  - XamoomSDK/Push (3.5.3):
+  - XamoomSDK/Push (3.5.4):
     - Pushwoosh
 
 DEPENDENCIES:
@@ -37,7 +37,7 @@ SPEC CHECKSUMS:
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   Pushwoosh: 63ece3b160161aa7ce2926f864b2c5d7f0416615
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XamoomSDK: 4a08d9c62a885b61ec0bb3c1df366d72e2be7db2
+  XamoomSDK: 8ad569d26460584403393cb44a2d3fe1ccdbb695
 
 PODFILE CHECKSUM: 75c8197da2dcbf6b0a83e50b7744a7f9145a5119
 

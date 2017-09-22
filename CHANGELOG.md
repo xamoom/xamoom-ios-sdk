@@ -1,6 +1,12 @@
 # Changelog
 
-## [3.5.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.5.2...3.5.3) - 12.09.2017
+## [3.5.4](https://github.com/xamoom/xamoom-ios-sdk/compare/3.5.3...3.5.4) - 22.09.2017
+
+- Added x-datetime condition to getByLocationIdentifier calls
+
+- Changed useragent to get normalized
+
+## [3.5.3](https://github.com/xamoom/xamoom-ios-sdk/compare/3.5.2...3.5.3) - 12.09.2017
 
 - Changed relative margins
 - Changed phone link color to match web
