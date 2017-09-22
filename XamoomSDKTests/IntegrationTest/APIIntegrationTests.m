@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <Nocilla/Nocilla.h>
 #import "XMMEnduserApi.h"
+#import "NSDate+ISODate.h"
 
 @interface APIIntegrationTests : XCTestCase
 
@@ -142,7 +143,12 @@
 }
 
 - (void)testContentWithLocationIdentifier {
-  stubRequest(@"GET", @"http://localhost:9999/_api/v2/consumer/contents?lang=en&filter%5Blocation-identifier%5D=k7ttt").
+  NSString *url = [NSString
+                   stringWithFormat:@"http://localhost:9999/_api/v2/consumer/contents?lang=en&condition[x-datetime]=%@&filter[location-identifier]=k7ttt",
+                   [[NSDate new] ISO8601]];
+  url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+  
+  stubRequest(@"GET", url).
   withHeaders(@{ @"APIKEY": @"test", @"Content-Type": @"application/vnd.api+json", @"User-Agent": @"XamoomSDK iOS" }). andReturn(200).
   withBody([self jsonResponse:@"contentByQr"]);
   
@@ -162,7 +168,12 @@
 }
 
 - (void)testContentWithBeacon {
-  stubRequest(@"GET", @"http://localhost:9999/_api/v2/consumer/contents?lang=en&filter%5Blocation-identifier%5D=54222%7C24265").
+  NSString *url = [NSString
+   stringWithFormat:@"http://localhost:9999/_api/v2/consumer/contents?lang=en&condition[x-datetime]=%@&filter[location-identifier]=54222|24265",
+                 [[NSDate new] ISO8601]];
+  url = [url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+
+  stubRequest(@"GET", url).
   withHeaders(@{ @"APIKEY": @"test", @"Content-Type": @"application/vnd.api+json", @"User-Agent": @"XamoomSDK iOS" }).
   andReturn(200).
   withBody([self jsonResponse:@"contentByQr"]);

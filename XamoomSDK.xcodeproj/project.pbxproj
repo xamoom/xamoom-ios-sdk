@@ -103,6 +103,8 @@
 		884B61511DACE78500572758 /* XMMOfflinePagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 884B614F1DACE78500572758 /* XMMOfflinePagedResult.m */; };
 		8853CBA01D9CEAE8009BD14E /* XMMParamHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */; };
 		8853CBA11D9CEAE8009BD14E /* XMMParamHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */; };
+		885AC9F21F71517F00DDD9A8 /* NSDate+ISODate.h in Headers */ = {isa = PBXBuildFile; fileRef = 885AC9F01F71517F00DDD9A8 /* NSDate+ISODate.h */; };
+		885AC9F31F71517F00DDD9A8 /* NSDate+ISODate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885AC9F11F71517F00DDD9A8 /* NSDate+ISODate.m */; };
 		88617A511EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 88617A4E1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h */; };
 		88617A521EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88617A4F1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m */; };
 		88617A531EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88617A501EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib */; };
@@ -316,6 +318,8 @@
 		8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMParamHelper.h; path = Classes/XMMParamHelper.h; sourceTree = "<group>"; };
 		8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMParamHelper.m; path = Classes/XMMParamHelper.m; sourceTree = "<group>"; };
 		8853CBA21D9CF1EC009BD14E /* XMMOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMOptions.h; path = Classes/XMMOptions.h; sourceTree = "<group>"; };
+		885AC9F01F71517F00DDD9A8 /* NSDate+ISODate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+ISODate.h"; path = "Classes/NSDate+ISODate.h"; sourceTree = "<group>"; };
+		885AC9F11F71517F00DDD9A8 /* NSDate+ISODate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+ISODate.m"; path = "Classes/NSDate+ISODate.m"; sourceTree = "<group>"; };
 		88617A4E1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock100TableViewCell.h; sourceTree = "<group>"; };
 		88617A4F1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock100TableViewCell.m; sourceTree = "<group>"; };
 		88617A501EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock100TableViewCell.xib; sourceTree = "<group>"; };
@@ -700,6 +704,8 @@
 				88AE0F371DA292A5009C588C /* Storage */,
 				883B95F51C4D32D100DB8A6B /* Resources */,
 				883E55511C4A37FE000C4D09 /* ContentBlocks */,
+				885AC9F01F71517F00DDD9A8 /* NSDate+ISODate.h */,
+				885AC9F11F71517F00DDD9A8 /* NSDate+ISODate.m */,
 			);
 			path = XamoomSDK;
 			sourceTree = "<group>";
@@ -909,6 +915,7 @@
 				883E55831C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.h in Headers */,
 				888F4F721DA53FA8000E49CE /* XMMCDContent.h in Headers */,
 				883E55A81C4A37FE000C4D09 /* XMMContentBlocksCache.h in Headers */,
+				885AC9F21F71517F00DDD9A8 /* NSDate+ISODate.h in Headers */,
 				883E55A41C4A37FE000C4D09 /* UIImage+animatedGIF.h in Headers */,
 				884937561C75C82100C53520 /* UIColor+HexString.h in Headers */,
 				88CBA9651E93794200FC6B90 /* MovingBarsView.h in Headers */,
@@ -1362,6 +1369,7 @@
 				88A4A5621DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.m in Sources */,
 				884B614B1DACD74400572758 /* XMMOfflineApiHelper.m in Sources */,
 				888F4F691DA52C94000E49CE /* XMMCDSpot.m in Sources */,
+				885AC9F31F71517F00DDD9A8 /* NSDate+ISODate.m in Sources */,
 				88CBA9661E93794200FC6B90 /* MovingBarsView.m in Sources */,
 				883E55871C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.m in Sources */,
 				8830FEDA1DB79F4C0072DCAC /* XMMOfflineDownloadManager.m in Sources */,

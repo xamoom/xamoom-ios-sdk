@@ -10,6 +10,7 @@
 #import <OCMock/OCMock.h>
 #import "XMMEnduserApi.h"
 #import "XMMOfflineApi.h"
+#import "NSDate+ISODate.h"
 
 @interface XMMEnduserApiTest : XCTestCase
 
@@ -22,6 +23,8 @@
 @implementation XMMEnduserApiTest
 
 @synthesize api, restClient, mockRestClient;
+
+NSString* apiVersion = @"3.5.4";
 
 - (void)setUp {
   [super setUp];
@@ -54,7 +57,7 @@
 
 - (void)testInitWithApiKey {
   NSDictionary *httpHeaders = @{@"Content-Type":@"application/vnd.api+json",
-                                @"User-Agent":@"XamoomSDK iOS|(null)|3.5.3",
+                                @"User-Agent":[NSString stringWithFormat:@"XamoomSDK iOS||%@", apiVersion],
                                 @"APIKEY":@"apikey",};
   
   XMMEnduserApi *customApi = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
@@ -67,6 +70,16 @@
   XCTAssertTrue([usedHeaders isEqualToDictionary:httpHeaders]);
   XCTAssertTrue([customApi.systemLanguage isEqualToString:@"en"]);
   XCTAssertNotNil(customApi.offlineApi);
+}
+
+- (void)testCustomUserAgent {
+  XMMEnduserApi *customApi = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
+
+  NSString *checkUserAgent = [NSString stringWithFormat:@"XamoomSDK iOS|aou|%@", apiVersion];
+  
+  NSString *userAgent = [customApi customUserAgentFrom:@"äöü"];
+  
+  XCTAssertTrue([checkUserAgent isEqualToString:userAgent]);
 }
 
 - (void)testInitWithApiKeyBaseUrlRestClient {
@@ -264,7 +277,8 @@
 - (void)testThatContentWithLocationIdentifierCallsFetchResources {
   
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[location-identifier]":@"7qpqr"}];
+                                                                                @"filter[location-identifier]":@"7qpqr",
+                                                                                @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
   NSString *qrMarker = @"7qpqr";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -282,7 +296,8 @@
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"preview":@"true",
                                                                                   @"public-only":@"true",
-                                                                                  @"filter[location-identifier]":@"7qpqr"}];
+                                                                                  @"filter[location-identifier]":@"7qpqr",
+                                                                                  @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
   NSString *qrMarker = @"7qpqr";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -367,7 +382,8 @@
                                                                                   @"filter[location-identifier]":@"7qpqr",
                                                                                   @"condition[name]":@"myname",
                                                                                   @"condition[date]":@"2017-07-10T11:18:49Z",
-                                                                                  @"condition[weekday]":@"3"}];
+                                                                                  @"condition[weekday]":@"3",
+                                                                                  @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
   
   NSString *qrMarker = @"7qpqr";
   NSString *dateString = @"2017-07-10T13:18:49+02:00";
@@ -421,7 +437,8 @@
   NSNumber *minor = @54222;
   NSNumber *major = @24265;
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                  @"filter[location-identifier]":@"24265|54222"}];
+                                                                                  @"filter[location-identifier]":@"24265|54222",
+                                                                                  @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
@@ -434,11 +451,11 @@
 }
 
 - (void)testThatContentWithBeaconWithOptionsCallsFetchResources {
-  
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"filter[location-identifier]":@"24265|54222",
                                                                                   @"preview":@"true",
                                                                                   @"public-only":@"true",
                                                                                   @"lang":@"en",
+                                                                                  @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]
                                                                                   }];
   NSNumber *minor = @54222;
   NSNumber *major = @24265;
