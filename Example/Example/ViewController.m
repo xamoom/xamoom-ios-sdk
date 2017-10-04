@@ -102,6 +102,16 @@
       return;
     }
     
+    XMMContentBlock *block = [[XMMContentBlock alloc] init];
+    block.ID = @"21401059125125";
+    block.contentListSortAsc = true;
+    block.contentListPageSize = 11;
+    block.contentListTags = @[@"test1", @"test2"];
+    
+    NSMutableArray *contentBlocks = [content.contentBlocks mutableCopy];
+    [contentBlocks addObject:block];
+    content.contentBlocks = contentBlocks;
+    
     if (self.api.offline == NO) {
       [content saveOffline:^(NSString *url, NSData *data, NSError *error) {
         NSLog(@"Downloaded file %@", url);
@@ -123,8 +133,6 @@
       NSLog(@"Error: %@", error);
       return;
     }
-    
-    
     
     //self.content = content;
     //[self.blocks displayContent:self.content];
