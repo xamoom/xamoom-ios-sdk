@@ -104,6 +104,7 @@
     
     XMMContentBlock *block = [[XMMContentBlock alloc] init];
     block.ID = @"21401059125125";
+    block.blockType = 11;
     block.contentListSortAsc = true;
     block.contentListPageSize = 11;
     block.contentListTags = @[@"test1", @"test2"];

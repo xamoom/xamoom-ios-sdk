@@ -32,6 +32,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     self.tableView.dataSource = self;
     self.showAllStoreLinks = NO;
     self.showAllBlocksWhenOffline = NO;
+    self.listManager = [[XMMListManager alloc] init];
     
     [self setupTableView];
     [self defaultStyle];
@@ -114,6 +115,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   nib = [UINib nibWithNibName:@"XMMContentBlock9TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock9TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock11TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock11TableViewCell"];
 }
 
 - (void)displayContent:(XMMContent *)content {
@@ -250,6 +254,11 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:api:offline:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style api:self.api offline:self.offline];
+    return cell;
+  }
+  
+  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:api:listManager:offline:)]) {
+    [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style api:self.api listManager:nil offline:self.offline];
     return cell;
   }
   
