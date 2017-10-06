@@ -257,8 +257,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     return cell;
   }
   
-  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:api:listManager:offline:)]) {
-    [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style api:self.api listManager:nil offline:self.offline];
+  if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:api:listManager:position:offline:)]) {
+    [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style api:self.api listManager:_listManager position:(NSInteger)indexPath.row offline:self.offline];
     return cell;
   }
   

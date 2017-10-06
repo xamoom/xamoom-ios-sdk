@@ -8,6 +8,7 @@
 
 #import "XMMContentBlock11TableViewCell.h"
 #import "XMMContentBlocks.h"
+#import "XMMListManager.h"
 
 @interface XMMContentBlock11TableViewCell()
 
@@ -28,23 +29,20 @@
   // Configure the view for the selected state
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api listManager:(id)listManager offline:(BOOL)offline {
-  _contentBlocks = [[XMMContentBlocks alloc] initWithTableView:_tableView api:api];
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api listManager:(XMMListManager *)listManager position:(NSInteger)position offline:(BOOL)offline {
+  if (_contentBlocks == nil) {
+    _contentBlocks = [[XMMContentBlocks alloc] initWithTableView:_tableView api:api];
+  }
   
-  block.ID = @"21401059125125";
-  block.blockType = 6;
-  block.contentID = @"7cf2c58e6d374ce3888c32eb80be53b5";
-  block.title = @"Hello";
-  block.contentListSortAsc = true;
-  block.contentListPageSize = 11;
-  block.contentListTags = @[@"test1", @"test2"];
+  if (block.title != nil && ![block.title isEqualToString:@""]) {
+    _titleLabel.text = block.title;
+  }
   
-  XMMContent *content = [[XMMContent alloc] init];
-  content.ID = @"1294810294";
-  content.contentBlocks = [NSArray arrayWithObject:block];
+  [listManager downloadContentsWith:block.contentListTags pageSize:block.contentListPageSize ascending:block.contentListSortAsc position:(int)position callback:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    //
+  }];
   
-  //[_contentBlocks displayContent:content];
-  //[_contentBlocks viewWillAppear];
+  [_contentBlocks viewWillAppear];
 }
 
 @end

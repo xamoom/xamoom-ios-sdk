@@ -110,6 +110,8 @@
 		885E21CE1F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885E21CB1F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.xib */; };
 		885E21D11F850DB400F7F7E7 /* XMMListManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 885E21CF1F850DB400F7F7E7 /* XMMListManager.h */; };
 		885E21D21F850DB400F7F7E7 /* XMMListManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 885E21D01F850DB400F7F7E7 /* XMMListManager.m */; };
+		885E21D51F877B9700F7F7E7 /* XMMListItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 885E21D31F877B9700F7F7E7 /* XMMListItem.h */; };
+		885E21D61F877B9700F7F7E7 /* XMMListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 885E21D41F877B9700F7F7E7 /* XMMListItem.m */; };
 		88617A511EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 88617A4E1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h */; };
 		88617A521EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88617A4F1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m */; };
 		88617A531EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88617A501EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib */; };
@@ -330,6 +332,8 @@
 		885E21CB1F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMMContentBlock11TableViewCell.xib; sourceTree = "<group>"; };
 		885E21CF1F850DB400F7F7E7 /* XMMListManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMListManager.h; sourceTree = "<group>"; };
 		885E21D01F850DB400F7F7E7 /* XMMListManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMListManager.m; sourceTree = "<group>"; };
+		885E21D31F877B9700F7F7E7 /* XMMListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMListItem.h; sourceTree = "<group>"; };
+		885E21D41F877B9700F7F7E7 /* XMMListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMListItem.m; sourceTree = "<group>"; };
 		88617A4E1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock100TableViewCell.h; sourceTree = "<group>"; };
 		88617A4F1EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock100TableViewCell.m; sourceTree = "<group>"; };
 		88617A501EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock100TableViewCell.xib; sourceTree = "<group>"; };
@@ -582,6 +586,8 @@
 				88CBA9641E93794200FC6B90 /* MovingBarsView.m */,
 				885E21CF1F850DB400F7F7E7 /* XMMListManager.h */,
 				885E21D01F850DB400F7F7E7 /* XMMListManager.m */,
+				885E21D31F877B9700F7F7E7 /* XMMListItem.h */,
+				885E21D41F877B9700F7F7E7 /* XMMListItem.m */,
 			);
 			name = ContentBlocks;
 			path = Classes/ContentBlocks;
@@ -921,6 +927,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				885E21D51F877B9700F7F7E7 /* XMMListItem.h in Headers */,
 				88B390261DA3A3E400216478 /* XMMCDStyle.h in Headers */,
 				88E46EA51C47E348004D8AC3 /* XMMEnduserApi.h in Headers */,
 				883B95F91C4D32FF00DB8A6B /* XMMSystemSettings.h in Headers */,
@@ -1368,6 +1375,7 @@
 				88E46EA31C47E348004D8AC3 /* XMMStyle.m in Sources */,
 				883B95FA1C4D32FF00DB8A6B /* XMMSystemSettings.m in Sources */,
 				883E55A91C4A37FE000C4D09 /* XMMContentBlocksCache.m in Sources */,
+				885E21D61F877B9700F7F7E7 /* XMMListItem.m in Sources */,
 				883E55AB1C4A37FE000C4D09 /* XMMMusicPlayer.m in Sources */,
 				884B61511DACE78500572758 /* XMMOfflinePagedResult.m in Sources */,
 				88E46E9F1C47E348004D8AC3 /* XMMSpot.m in Sources */,
