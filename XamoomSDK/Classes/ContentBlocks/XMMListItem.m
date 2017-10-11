@@ -10,12 +10,13 @@
 
 @implementation XMMListItem
 
-- (instancetype)initWith:(NSArray *)tags pageSize:(int)pageSize {
+- (instancetype)initWith:(NSArray *)tags pageSize:(int)pageSize ascending:(Boolean)ascending {
   self = [super init];
   _tags = tags;
   _pageSize = pageSize;
   _cursor = nil;
   _contents = [[NSMutableArray alloc] init];
+  _sortAsc = ascending;
   return self;
 }
 

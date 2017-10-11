@@ -107,10 +107,13 @@
     block.title = @"List";
     block.blockType = 11;
     block.contentListSortAsc = true;
-    block.contentListPageSize = 11;
-    block.contentListTags = @[@"test1", @"test2"];
+    block.contentListPageSize = 3;
+    block.contentListTags = @[@"tests"];
     
     NSMutableArray *contentBlocks = [content.contentBlocks mutableCopy];
+    [contentBlocks removeAllObjects];
+    [contentBlocks addObject:block];
+    [contentBlocks addObject:block];
     [contentBlocks addObject:block];
     content.contentBlocks = contentBlocks;
     
@@ -120,7 +123,7 @@
       }];
     }
     
-    [self.blocks displayContent:content];
+    [self.blocks displayContent:content addHeader:YES];
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {

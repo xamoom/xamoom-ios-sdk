@@ -32,7 +32,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     self.tableView.dataSource = self;
     self.showAllStoreLinks = NO;
     self.showAllBlocksWhenOffline = NO;
-    self.listManager = [[XMMListManager alloc] init];
+    self.listManager = [[XMMListManager alloc] initWithApi:api];
     
     [self setupTableView];
     [self defaultStyle];
@@ -238,6 +238,10 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  if (indexPath.row >= self.items.count) {
+    return  [[UITableViewCell alloc] initWithFrame:CGRectZero];
+  }
+  
   XMMContentBlock *block = [self.items objectAtIndex:indexPath.row];
   NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
   
