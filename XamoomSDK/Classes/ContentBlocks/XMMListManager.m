@@ -65,7 +65,9 @@
     callback(contents, item.hasMore, position, nil);
   }];
   
-  [_tasks setObject:task forKey:[NSNumber numberWithInt:position]];
+  if (task != nil) {
+    [_tasks setObject:task forKey:[NSNumber numberWithInt:position]];
+  }
 }
 
 - (XMMListItem *)listItemFor:(int)position {

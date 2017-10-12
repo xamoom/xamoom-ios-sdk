@@ -40,22 +40,17 @@
   _loadMoreButtonHeightConstraint.constant = 39;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-  [super setSelected:selected animated:animated];
-  
-  // Configure the view for the selected state
-}
-
-- (void)layoutSubviews {
-}
-
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api listManager:(XMMListManager *)listManager position:(NSInteger)position offline:(BOOL)offline {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api listManager:(XMMListManager *)listManager offline:(BOOL)offline delegate:(id)delegate {
   _listManager = listManager;
+  _listManager.api.offline = offline;
   _parentTableView = tableView;
   _parentIndexPath = indexPath;
   
   if (_contentBlocks == nil) {
     _contentBlocks = [[XMMContentBlocks alloc] initWithTableView:_tableView api:api];
+    _contentBlocks.delegate = delegate;
+    _contentBlocks.offline = offline;
+    _contentBlocks.style = style;
   }
   
   if (block.title != nil && ![block.title isEqualToString:@""]) {
@@ -131,7 +126,6 @@
     [self setNeedsLayout];
     
     [_contentBlocks displayContent: [self generateContentsFrom:contents]];
-    //[_parentTableView reloadData];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:position inSection:0];
     [_parentTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];

@@ -96,6 +96,9 @@
 }
 
 - (void)contentWithID {
+  self.blocks.offline = YES;
+  self.api.offline = YES;
+  
   [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
