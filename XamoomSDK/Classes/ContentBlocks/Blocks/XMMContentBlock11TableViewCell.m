@@ -58,7 +58,7 @@
   }
   
   _loadMoreButton.hidden = YES;
-  _activityIndicator.hidden = NO;
+  [self showLoading];
   
   XMMListItem *listItem = [listManager listItemFor: (int)indexPath.row];
   if (listItem != nil && listItem.contents.count > 0) {
@@ -73,28 +73,6 @@
     [self setNeedsLayout];
     
     [_contentBlocks displayContent: [self generateContentsFrom:listItem.contents]];
-    /*
-     if (listItem.contents.count == _contentBlocks.items.count) {
-     return;
-     }
-     
-     NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
-     int index = listItem.contents.count - _contentBlocks.items.count;
-     if (index < 0 || _contentBlocks.items.count == 0) {
-     index = 0;
-     }
-     while (index < listItem.contents.count) {
-     [indexPaths addObject:[NSIndexPath indexPathForItem:index inSection:0]];
-     index += 1;
-     }
-     [_tableView beginUpdates];
-     _contentBlocks.items = [[self generateContentsFrom:listItem.contents] contentBlocks];
-     [_tableView insertRowsAtIndexPaths:indexPaths
-     withRowAnimation:UITableViewRowAnimationNone];
-     [_tableView endUpdates];
-     */
-    
-    
   } else {
     [self loadContentWith:block.contentListTags pageSize:block.contentListPageSize ascending:block.contentListSortAsc position:(int)indexPath.row];
   }
@@ -135,7 +113,7 @@
 - (void)showLoading {
   _loadMoreButton.hidden = YES;
   _activityIndicator.hidden = NO;
-  [_activityIndicator stopAnimating];
+  [_activityIndicator startAnimating];
 }
 
 - (void)hideLoadMoreButtonWithConstraints {
