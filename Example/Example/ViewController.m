@@ -96,11 +96,29 @@
 }
 
 - (void)contentWithID {
+  self.blocks.offline = YES;
+  self.api.offline = YES;
+  
   [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
+    
+    XMMContentBlock *block = [[XMMContentBlock alloc] init];
+    block.ID = @"21401059125125";
+    block.title = @"List";
+    block.blockType = 11;
+    block.contentListSortAsc = true;
+    block.contentListPageSize = 3;
+    block.contentListTags = @[@"tests"];
+    
+    NSMutableArray *contentBlocks = [content.contentBlocks mutableCopy];
+    [contentBlocks removeAllObjects];
+    [contentBlocks addObject:block];
+    [contentBlocks addObject:block];
+    [contentBlocks addObject:block];
+    content.contentBlocks = contentBlocks;
     
     if (self.api.offline == NO) {
       [content saveOffline:^(NSString *url, NSData *data, NSError *error) {
@@ -108,7 +126,7 @@
       }];
     }
     
-    [self.blocks displayContent:content];
+    [self.blocks displayContent:content addHeader:YES];
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -123,8 +141,6 @@
       NSLog(@"Error: %@", error);
       return;
     }
-    
-    
     
     //self.content = content;
     //[self.blocks displayContent:self.content];

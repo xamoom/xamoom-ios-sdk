@@ -50,6 +50,9 @@
   contentBlock.showContent = NO;
   contentBlock.altText = @"alt";
   contentBlock.copyright = @"copyright";
+  contentBlock.contentListTags = @[@"test1", @"test2"];
+  contentBlock.contentListPageSize = 10;
+  contentBlock.contentListSortAsc = true;
   
   XMMCDContentBlock *savedContentBlock = [XMMCDContentBlock insertNewObjectFrom:contentBlock];
   XMMContentBlock *newContentBlock = [[XMMContentBlock alloc] initWithCoreDataObject:savedContentBlock];
@@ -71,6 +74,9 @@
   XCTAssertTrue(newContentBlock.showContent == contentBlock.showContent);
   XCTAssertTrue([newContentBlock.altText isEqualToString:contentBlock.altText]);
   XCTAssertTrue([newContentBlock.copyright isEqualToString:contentBlock.copyright]);
+  XCTAssertTrue(newContentBlock.contentListPageSize == contentBlock.contentListPageSize);
+  XCTAssertTrue(newContentBlock.contentListSortAsc == contentBlock.contentListSortAsc);
+  XCTAssertTrue(newContentBlock.contentListTags == contentBlock.contentListTags);
 }
 
 - (void)testSaveOffline {
