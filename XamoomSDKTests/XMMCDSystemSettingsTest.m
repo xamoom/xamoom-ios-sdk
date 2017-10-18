@@ -36,12 +36,14 @@
   settings.ID = @"1";
   settings.googlePlayAppId = @"play";
   settings.itunesAppId = @"itunes";
+  settings.socialSharingEnabled = YES;
   
   XMMCDSystemSettings *offlineSettings = [XMMCDSystemSettings insertNewObjectFrom:settings];
   
   XCTAssertTrue([offlineSettings.jsonID isEqualToString:settings.ID]);
   XCTAssertTrue([offlineSettings.googlePlayId isEqualToString:settings.googlePlayAppId]);
   XCTAssertTrue([offlineSettings.itunesAppId isEqualToString:settings.itunesAppId]);
+  XCTAssertTrue(offlineSettings.socialSharingEnabled);
 }
 
 @end

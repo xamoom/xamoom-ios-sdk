@@ -76,6 +76,10 @@
   savedContent.category = [NSNumber numberWithInt:content.category];
   savedContent.tags = content.tags;
   savedContent.customMeta = content.customMeta;
+  savedContent.sharingUrl = content.sharingUrl;
+  savedContent.relatedSpot = [XMMCDSpot insertNewObjectFrom:content.relatedSpot];
+  savedContent.toDate = content.toDate;
+  savedContent.fromDate = content.fromDate;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   

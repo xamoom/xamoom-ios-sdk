@@ -46,6 +46,10 @@
   content.category = 1;
   content.tags = @[@"tag1", @"tag2"];
   content.customMeta = @{@"key":@"value"};
+  content.sharingUrl = @"sharingUrl";
+  content.relatedSpotID = @"2";
+  content.toDate = [NSDate dateWithTimeIntervalSinceReferenceDate:0];
+  content.fromDate = [NSDate dateWithTimeIntervalSinceReferenceDate:0];
   
   XMMSystem *system = [[XMMSystem alloc] init];
   system.ID = @"2";
@@ -83,6 +87,10 @@
   XCTAssertTrue([savedContent.category intValue] == content.category);
   XCTAssertEqual(savedContent.tags, content.tags);
   XCTAssertTrue([savedContent.customMeta isEqualToDictionary:content.customMeta]);
+  XCTAssertTrue([savedContent.sharingUrl isEqualToString:content.sharingUrl]);
+  XCTAssertTrue([savedContent.relatedSpotID isEqualToString:content.relatedSpotID]);
+  XCTAssertTrue(savedContent.toDate == content.toDate);
+  XCTAssertTrue(savedContent.fromDate == content.fromDate);
 }
 
 @end

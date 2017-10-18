@@ -63,6 +63,11 @@
  */
 @property (nonatomic) XMMSpot *spot;
 
+@property (nonatomic) NSString *sharingUrl;
+@property (nonatomic) XMMSpot *relatedSpot;
+@property (nonatomic) NSDate *toDate;
+@property (nonatomic) NSDate *fromDate;
+
 /**
  * Save this entity for offline use with callback for downloaded files.
  *

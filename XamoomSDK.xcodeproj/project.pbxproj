@@ -24,7 +24,7 @@
 		880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */; };
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */; };
-		8818B4331E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8818B42F1E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld */; };
+		8818B4331E2F7F5000BDF126 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		8818B4351E2F98A300BDF126 /* XMMContentBlock3TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8818B4341E2F98A300BDF126 /* XMMContentBlock3TableViewCellTest.m */; };
 		881945991C625B5000E4524F /* XMMContentBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 881945981C625B5000E4524F /* XMMContentBlocksTests.m */; };
 		881CB3061C72124D00AD3AE3 /* XMMMapOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881CB3051C72124D00AD3AE3 /* XMMMapOverlayView.xib */; };
@@ -224,6 +224,7 @@
 		88FE68C71C4E6F3500E9A32A /* XMMMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FE68C51C4E6F3500E9A32A /* XMMMarker.h */; };
 		88FE68C81C4E6F3500E9A32A /* XMMMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE68C61C4E6F3500E9A32A /* XMMMarker.m */; };
 		88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */; };
+		88FEF64E1F9631C500792DBF /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88FEF6461F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodeld */; };
 		B38F0D3EB51B1BE60120C076 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8796652F7A66500CFA6B310E /* libPods-XamoomSDKTests.a */; };
 		EEC4D0B6EA0C3F6E10E894DD /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B270058A46C1B57EB7134D38 /* libPods-XamoomSDK.a */; };
 /* End PBXBuildFile section */
@@ -245,9 +246,6 @@
 		880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineStorageManager.h; path = Classes/XMMOfflineStorageManager.h; sourceTree = "<group>"; };
 		880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineStorageManager.m; path = Classes/XMMOfflineStorageManager.m; sourceTree = "<group>"; };
 		88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock1TableViewCellTest.m; sourceTree = "<group>"; };
-		8818B4301E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.0.xcdatamodel"; sourceTree = "<group>"; };
-		8818B4311E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.1.xcdatamodel"; sourceTree = "<group>"; };
-		8818B4321E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserOfflineDatamodel.xcdatamodel; sourceTree = "<group>"; };
 		8818B4341E2F98A300BDF126 /* XMMContentBlock3TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock3TableViewCellTest.m; sourceTree = "<group>"; };
 		881945981C625B5000E4524F /* XMMContentBlocksTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlocksTests.m; sourceTree = "<group>"; };
 		881966DB1CD74F7100AC2007 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -453,6 +451,11 @@
 		88FE68C51C4E6F3500E9A32A /* XMMMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMMarker.h; path = XamoomSDK/Classes/mapping/XMMMarker.h; sourceTree = SOURCE_ROOT; };
 		88FE68C61C4E6F3500E9A32A /* XMMMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMMarker.m; path = XamoomSDK/Classes/mapping/XMMMarker.m; sourceTree = SOURCE_ROOT; };
 		88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMEnduserApiTest.m; sourceTree = "<group>"; };
+		88FEF6471F962D1E00792DBF /* EnduserOfflineDatamodel 1.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.0.xcdatamodel"; sourceTree = "<group>"; };
+		88FEF6481F962D1E00792DBF /* EnduserOfflineDatamodel 1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.1.xcdatamodel"; sourceTree = "<group>"; };
+		88FEF6491F962D1E00792DBF /* EnduserOfflineDatamodel 1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.2.xcdatamodel"; sourceTree = "<group>"; };
+		88FEF64A1F962D1E00792DBF /* EnduserOfflineDatamodel 1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.3.xcdatamodel"; sourceTree = "<group>"; };
+		88FEF64B1F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserOfflineDatamodel.xcdatamodel; sourceTree = "<group>"; };
 		B270058A46C1B57EB7134D38 /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57131BB8444CF6B6417EA3B /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		EFD2A588826BDAE810F3A3F2 /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
@@ -773,6 +776,7 @@
 		88AE0F371DA292A5009C588C /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				88FEF6461F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodeld */,
 				88AE0F381DA292B2009C588C /* OfflineResources */,
 				880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */,
 				880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */,
@@ -788,7 +792,6 @@
 				883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */,
 				8830FED71DB79F4C0072DCAC /* XMMOfflineDownloadManager.h */,
 				8830FED81DB79F4C0072DCAC /* XMMOfflineDownloadManager.m */,
-				8818B42F1E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -1375,6 +1378,7 @@
 				88E46EA31C47E348004D8AC3 /* XMMStyle.m in Sources */,
 				883B95FA1C4D32FF00DB8A6B /* XMMSystemSettings.m in Sources */,
 				883E55A91C4A37FE000C4D09 /* XMMContentBlocksCache.m in Sources */,
+				88FEF64E1F9631C500792DBF /* EnduserOfflineDatamodel.xcdatamodeld in Sources */,
 				885E21D61F877B9700F7F7E7 /* XMMListItem.m in Sources */,
 				883E55AB1C4A37FE000C4D09 /* XMMMusicPlayer.m in Sources */,
 				884B61511DACE78500572758 /* XMMOfflinePagedResult.m in Sources */,
@@ -1383,7 +1387,7 @@
 				883E55501C4A2B66000C4D09 /* XMMSystem.m in Sources */,
 				882ED6851C63741000FC8BDB /* XMMContentBlocks.m in Sources */,
 				883E559C1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.m in Sources */,
-				8818B4331E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld in Sources */,
+				8818B4331E2F7F5000BDF126 /* (null) in Sources */,
 				88FE68C21C4E380300E9A32A /* XMMMenu.m in Sources */,
 				88617A521EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m in Sources */,
 				88D5B13F1DA3EED90069E2E8 /* XMMCDMarker.m in Sources */,
@@ -1720,14 +1724,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8818B42F1E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodeld */ = {
+		88FEF6461F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8818B4301E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.0.xcdatamodel */,
-				8818B4311E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.1.xcdatamodel */,
-				8818B4321E2F7F5000BDF126 /* EnduserOfflineDatamodel.xcdatamodel */,
+				88FEF6471F962D1E00792DBF /* EnduserOfflineDatamodel 1.0.xcdatamodel */,
+				88FEF6481F962D1E00792DBF /* EnduserOfflineDatamodel 1.1.xcdatamodel */,
+				88FEF6491F962D1E00792DBF /* EnduserOfflineDatamodel 1.2.xcdatamodel */,
+				88FEF64A1F962D1E00792DBF /* EnduserOfflineDatamodel 1.3.xcdatamodel */,
+				88FEF64B1F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodel */,
 			);
-			currentVersion = 8818B4311E2F7F5000BDF126 /* EnduserOfflineDatamodel 1.1.xcdatamodel */;
+			currentVersion = 88FEF64A1F962D1E00792DBF /* EnduserOfflineDatamodel 1.3.xcdatamodel */;
 			name = EnduserOfflineDatamodel.xcdatamodeld;
 			path = Assets/EnduserOfflineDatamodel.xcdatamodeld;
 			sourceTree = "<group>";
