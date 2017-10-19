@@ -47,7 +47,8 @@
   content.tags = @[@"tag1", @"tag2"];
   content.customMeta = @{@"key":@"value"};
   content.sharingUrl = @"sharingUrl";
-  content.relatedSpotID = @"2";
+  content.relatedSpot = [[XMMSpot alloc] init];
+  content.relatedSpot.ID = @"2";
   content.toDate = [NSDate dateWithTimeIntervalSinceReferenceDate:0];
   content.fromDate = [NSDate dateWithTimeIntervalSinceReferenceDate:0];
   
@@ -88,7 +89,7 @@
   XCTAssertEqual(savedContent.tags, content.tags);
   XCTAssertTrue([savedContent.customMeta isEqualToDictionary:content.customMeta]);
   XCTAssertTrue([savedContent.sharingUrl isEqualToString:content.sharingUrl]);
-  XCTAssertTrue([savedContent.relatedSpotID isEqualToString:content.relatedSpotID]);
+  XCTAssertTrue([savedContent.relatedSpot.jsonID isEqualToString:content.relatedSpot.ID]);
   XCTAssertTrue(savedContent.toDate == content.toDate);
   XCTAssertTrue(savedContent.fromDate == content.fromDate);
 }
