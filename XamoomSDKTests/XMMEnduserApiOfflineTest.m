@@ -10,6 +10,7 @@
 #import <OCMock.h>
 #import "XMMEnduserApi.h"
 #import "XMMOfflineApi.h"
+#import "NSDateFormatter+ISODate.h"
 
 @interface XMMEnduserApiOfflineTest : XCTestCase
 
@@ -56,6 +57,22 @@
   [self.enduserApi contentWithLocationIdentifier:locId options:XMMContentOptionsNone completion:nil];
   
   OCMVerify([self.mockedOfflineApi contentWithLocationIdentifier:[OCMArg isEqual:locId] completion:[OCMArg any]]);
+}
+
+
+- (void)testContentsFromDateToDateCallsOfflineApi {
+  NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:02:01Z"];
+  
+  [self.enduserApi contentsFrom:date to:date pageSize:10 cursor:@"" sort:0
+                     completion:nil];
+  
+  OCMVerify([self.mockedOfflineApi
+             contentsFrom:[OCMArg isEqual:date]
+             to:[OCMArg isEqual:date]
+             pageSize:10
+             cursor:[OCMArg isEqual:@""]
+             sort:0
+             completion:[OCMArg isNil]]);
 }
 
 @end

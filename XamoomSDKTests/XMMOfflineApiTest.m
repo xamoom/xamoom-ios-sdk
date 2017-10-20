@@ -11,6 +11,7 @@
 #import "XMMOfflineApi.h"
 #import "XMMCDContent.h"
 #import "XMMCDSpot.h"
+#import "NSDateFormatter+ISODate.h"
 
 @interface XMMOfflineApiTest : XCTestCase
 
@@ -339,6 +340,64 @@
   [self.offlineApi contentsWithName:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(contents);
     XCTAssertEqual(error.code, 102);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testContentsFromDateToDate {
+  XMMContent *newContent = [[XMMContent alloc] init];
+  newContent.ID = @"1";
+  newContent.title = @"Ab";
+  newContent.fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:02:01Z"];
+  newContent.toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:02:01Z"];
+  [XMMCDContent insertNewObjectFrom:newContent];
+  
+  NSDate *fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:10:01Z"];
+  NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:00:01Z"];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi contentsFrom:fromDate to:toDate pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+    XCTAssertNotNil(contents);
+    XCTAssertEqual(contents.count, 1);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testContentsFromDate {
+  XMMContent *newContent = [[XMMContent alloc] init];
+  newContent.ID = @"1";
+  newContent.title = @"Ab";
+  newContent.fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:02:01Z"];
+  newContent.toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:02:01Z"];
+  [XMMCDContent insertNewObjectFrom:newContent];
+  
+  NSDate *fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:10:01Z"];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi contentsFrom:fromDate to:nil pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+    XCTAssertNotNil(contents);
+    XCTAssertEqual(contents.count, 1);
+    [expectation fulfill];
+  }];
+  [self waitForExpectationsWithTimeout:self.timeout handler:nil];
+}
+
+- (void)testContentsToDate {
+  XMMContent *newContent = [[XMMContent alloc] init];
+  newContent.ID = @"1";
+  newContent.title = @"Ab";
+  newContent.fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:02:01Z"];
+  newContent.toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:02:01Z"];
+  [XMMCDContent insertNewObjectFrom:newContent];
+  
+  NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:00:01Z"];
+  
+  XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  [self.offlineApi contentsFrom:nil to:toDate pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+    XCTAssertNotNil(contents);
+    XCTAssertEqual(contents.count, 1);
     [expectation fulfill];
   }];
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
