@@ -282,7 +282,7 @@ static XMMEnduserApi *sharedInstance;
 
 - (NSURLSessionDataTask *)contentsFrom:(NSDate *)fromDate to:(NSDate *)toDate pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
   if (self.isOffline) {
-    // TODO
+    [self.offlineApi contentsFrom:fromDate to:toDate pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
     return nil;
   }
   

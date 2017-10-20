@@ -29,6 +29,8 @@
 
 - (void)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
+- (void)contentsFrom:(NSDate * _Nullable)fromDate to:(NSDate * _Nullable)toDate pageSize:(int)pageSize cursor:(NSString * _Nullable)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+
 - (void)spotWithID:(NSString *)spotID completion:(void(^)(XMMSpot *spot, NSError *error))completion;
 
 - (void)spotsWithLocation:(CLLocation *)location radius:(int)radius pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;

@@ -232,9 +232,14 @@
 
 - (void)contentWithDate {
   self.api.offline = NO;
-  NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-18T13:00:01Z"];
-  [self.api contentsFrom:date to:nil pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+  NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:02:01Z"];
+  [self.api contentsFrom:date to:[[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:00:01Z"] pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
     NSLog(@"ContentFromDate: %@", contents);
+    /*
+     for (XMMContent *content in contents) {
+      [content saveOffline];
+    }
+     */
   }];
 }
 
@@ -270,9 +275,11 @@
     }
     
     NSLog(@"spotsWithLocation: %@", spots);
-    XMMSpot *spot = [spots objectAtIndex:0];
-    [self spotWithId:spot.ID];
-    [self spotWithIdAndOptions:spot.ID];
+    if (spots != nil && spots.count > 0) {
+      XMMSpot *spot = [spots objectAtIndex:0];
+      [self spotWithId:spot.ID];
+      [self spotWithIdAndOptions:spot.ID];
+    }
   }];
 }
 

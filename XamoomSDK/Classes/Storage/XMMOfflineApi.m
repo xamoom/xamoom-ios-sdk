@@ -190,7 +190,54 @@
   }
   results = contents;
   
+  // TODO: did you forget paging?
+  
   completion(results, NO, nil, nil);
+}
+
+- (void)contentsFrom:(NSDate * _Nullable)fromDate to:(NSDate * _Nullable)toDate pageSize:(int)pageSize cursor:(NSString * _Nullable)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion {
+  if (fromDate == nil && toDate == nil) {
+    completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
+                                                  code:102
+                                              userInfo:@{@"description":@"FromDate and ToDate cannot be nil"}]);
+  }
+  
+  NSPredicate *predicate;
+  if (fromDate != nil && toDate == nil) {
+    predicate = [NSPredicate predicateWithFormat:@"(fromDate > %@)", fromDate];
+  } else if (toDate != nil && fromDate == nil) {
+    predicate = [NSPredicate predicateWithFormat:@"(toDate < %@)", toDate];
+  } else {
+    // fromDate and toDate are set
+    predicate = [NSPredicate predicateWithFormat:@"(fromDate > %@) AND (toDate < %@)", fromDate, toDate];
+  }
+  
+  NSArray *results = [[XMMOfflineStorageManager sharedInstance]
+                      fetch:[XMMCDContent coreDataEntityName]
+                      predicate:predicate];
+  
+  if (sortOptions & XMMContentSortOptionsTitle) {
+    results = [self.apiHelper sortArrayByPropertyName:results
+                                         propertyName:@"title"
+                                            ascending:YES];
+  } else if (sortOptions & XMMContentSortOptionsNameDesc) {
+    results = [self.apiHelper sortArrayByPropertyName:results
+                                         propertyName:@"title"
+                                            ascending:YES];
+  }
+  
+  
+  NSMutableArray *contents = [[NSMutableArray alloc] init];
+  for (XMMCDContent *savedContent in results) {
+    [contents addObject:[[XMMContent alloc] initWithCoreDataObject:savedContent]];
+  }
+  results = contents;
+  
+  XMMOfflinePagedResult *pagedResult = [self.apiHelper pageResults:results
+                                                          pageSize:pageSize
+                                                            cursor:cursor];
+  
+  completion(pagedResult.items, pagedResult.hasMore, pagedResult.cursor, nil);
 }
 
 - (void)spotWithID:(NSString *)spotID completion:(void(^)(XMMSpot *spot, NSError *error))completion {
@@ -236,7 +283,7 @@
   
   NSMutableArray *spots = [[NSMutableArray alloc] init];
   for (XMMCDSpot *savedSpot in pagedResult.items) {
-      [spots addObject:[[XMMSpot alloc] initWithCoreDataObject:savedSpot]];
+    [spots addObject:[[XMMSpot alloc] initWithCoreDataObject:savedSpot]];
   }
   pagedResult.items = spots;
   
@@ -286,7 +333,7 @@
                                               userInfo:@{@"description":@"Name cannot be nil"}]);
     return;
   }
-
+  
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", name];
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDSpot coreDataEntityName]
                                                             predicate:predicate];
