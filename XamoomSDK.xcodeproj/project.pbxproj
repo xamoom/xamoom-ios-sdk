@@ -225,6 +225,7 @@
 		88FE68C81C4E6F3500E9A32A /* XMMMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE68C61C4E6F3500E9A32A /* XMMMarker.m */; };
 		88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */; };
 		88FEF64E1F9631C500792DBF /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88FEF6461F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodeld */; };
+		88FEF6581F99F68E00792DBF /* NSDateFormatter+ISODate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FEF6571F99F68D00792DBF /* NSDateFormatter+ISODate.m */; };
 		B38F0D3EB51B1BE60120C076 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8796652F7A66500CFA6B310E /* libPods-XamoomSDKTests.a */; };
 		EEC4D0B6EA0C3F6E10E894DD /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B270058A46C1B57EB7134D38 /* libPods-XamoomSDK.a */; };
 /* End PBXBuildFile section */
@@ -456,6 +457,8 @@
 		88FEF6491F962D1E00792DBF /* EnduserOfflineDatamodel 1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.2.xcdatamodel"; sourceTree = "<group>"; };
 		88FEF64A1F962D1E00792DBF /* EnduserOfflineDatamodel 1.3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "EnduserOfflineDatamodel 1.3.xcdatamodel"; sourceTree = "<group>"; };
 		88FEF64B1F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserOfflineDatamodel.xcdatamodel; sourceTree = "<group>"; };
+		88FEF6561F99F68D00792DBF /* NSDateFormatter+ISODate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+ISODate.h"; path = "Classes/NSDateFormatter+ISODate.h"; sourceTree = "<group>"; };
+		88FEF6571F99F68D00792DBF /* NSDateFormatter+ISODate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+ISODate.m"; path = "Classes/NSDateFormatter+ISODate.m"; sourceTree = "<group>"; };
 		B270058A46C1B57EB7134D38 /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C57131BB8444CF6B6417EA3B /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		EFD2A588826BDAE810F3A3F2 /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
@@ -730,6 +733,8 @@
 				883E55511C4A37FE000C4D09 /* ContentBlocks */,
 				885AC9F01F71517F00DDD9A8 /* NSDate+ISODate.h */,
 				885AC9F11F71517F00DDD9A8 /* NSDate+ISODate.m */,
+				88FEF6561F99F68D00792DBF /* NSDateFormatter+ISODate.h */,
+				88FEF6571F99F68D00792DBF /* NSDateFormatter+ISODate.m */,
 			);
 			path = XamoomSDK;
 			sourceTree = "<group>";
@@ -1399,6 +1404,7 @@
 				88E46EA61C47E348004D8AC3 /* XMMEnduserApi.m in Sources */,
 				883E55931C4A37FE000C4D09 /* XMMContentBlock6TableViewCell.m in Sources */,
 				88A4A5621DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.m in Sources */,
+				88FEF6581F99F68E00792DBF /* NSDateFormatter+ISODate.m in Sources */,
 				884B614B1DACD74400572758 /* XMMOfflineApiHelper.m in Sources */,
 				888F4F691DA52C94000E49CE /* XMMCDSpot.m in Sources */,
 				885AC9F31F71517F00DDD9A8 /* NSDate+ISODate.m in Sources */,

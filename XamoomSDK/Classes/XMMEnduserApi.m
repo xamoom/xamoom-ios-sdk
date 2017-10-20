@@ -278,7 +278,32 @@ static XMMEnduserApi *sharedInstance;
       completion(result.resources, hasMore, cursor, error);
     }
   }];
+}
+
+- (NSURLSessionDataTask *)contentsFrom:(NSDate *)fromDate to:(NSDate *)toDate pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+  if (self.isOffline) {
+    // TODO
+    return nil;
+  }
   
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language from:fromDate to:toDate];
+  params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
+  params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
+
+  return [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
+    if (error && completion) {
+      completion(nil, NO, nil, error);
+      return;
+    }
+    
+    NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
+    bool hasMore = [hasMoreValue boolValue];
+    NSString *cursor = [result.meta objectForKey:@"cursor"];
+    
+    if (completion) {
+      completion(result.resources, hasMore, cursor, error);
+    }
+  }];
 }
 
 #pragma mark spot calls

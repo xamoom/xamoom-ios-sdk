@@ -44,6 +44,19 @@
   return params;
 }
 
++ (NSDictionary *)paramsWithLanguage:(NSString *)language
+                                from:(NSDate *)fromDate
+                                  to:(NSDate *)toDate {
+  NSMutableDictionary *params = [[self paramsWithLanguage:language] mutableCopy];
+  if (fromDate != nil) {
+    [params setValue:[fromDate ISO8601] forKey:@"filter[meta-datetime-from]"];
+  }
+  if (toDate != nil) {
+    [params setValue:[toDate ISO8601] forKey:@"filter[meta-datetime-to]"];
+  }
+  return params;
+}
+
 + (NSDictionary *)paramsWithLanguage:(NSString *)language location:(CLLocation *)location radius:(int) radius {
   NSMutableDictionary *params = [[self paramsWithLanguage:language] mutableCopy];
   [params setValue:[@(location.coordinate.latitude) stringValue] forKey:@"filter[lat]"];
@@ -136,6 +149,22 @@
   
   if (sortOptions & XMMContentSortOptionsNameDesc) {
     [sortParameters addObject:@"-name"];
+  }
+  
+  if (sortOptions & XMMContentSortOptionsFromDate) {
+    [sortParameters addObject:@"meta-datetime-from"];
+  }
+  
+  if (sortOptions & XMMContentSortOptionsFromDateDesc) {
+    [sortParameters addObject:@"-meta-datetime-from"];
+  }
+  
+  if (sortOptions & XMMContentSortOptionsToDate) {
+    [sortParameters addObject:@"meta-datetime-to"];
+  }
+  
+  if (sortOptions & XMMContentSortOptionsToDateDesc) {
+    [sortParameters addObject:@"-meta-datetime-to"];
   }
   
   return sortParameters;

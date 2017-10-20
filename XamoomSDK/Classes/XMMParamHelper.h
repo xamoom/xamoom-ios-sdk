@@ -27,6 +27,10 @@
                                 name:(NSString *)name;
 
 + (NSDictionary *)paramsWithLanguage:(NSString *)language
+                                from:(NSDate *)fromDate
+                                  to:(NSDate *)toDate;
+
++ (NSDictionary *)paramsWithLanguage:(NSString *)language
                             location:(CLLocation *)location
                               radius:(int) radius;
 

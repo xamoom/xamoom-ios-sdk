@@ -11,6 +11,7 @@
 #import "XMMCDSpot.h"
 #import "DetailViewController.h"
 #import <XamoomSDK/XMMOfflineStorageTagModule.h>
+#import <XamoomSDK/NSDateFormatter+ISODate.h>
 
 @interface ViewController ()
 
@@ -70,6 +71,7 @@
   [self contentWithBeaconMajor];
   [self contentWithLocation];
   [self contentWithTags];
+  [self contentWithDate];
   [self spotsWithLocation];
   [self spotsWithTags];
   [self loadSystem];
@@ -228,6 +230,14 @@
   }];
 }
 
+- (void)contentWithDate {
+  self.api.offline = NO;
+  NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-18T13:00:01Z"];
+  [self.api contentsFrom:date to:nil pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+    NSLog(@"ContentFromDate: %@", contents);
+  }];
+}
+
 - (void)spotWithId:(NSString *)spotID {
   [self.api spotWithID:spotID completion:^(XMMSpot *spot, NSError *error) {
     if (error) {
@@ -252,21 +262,18 @@
 }
 
 - (void)spotsWithLocation {
-  /*
    CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-   [self.api spotsWithLocation:location radius:1000 options:0 completion:^(NSArray *spots, NSError *error) {
-   if (error) {
-   NSLog(@"Error: %@", error);
-   return;
-   }
-   
-   NSLog(@"spotsWithLocation: %@", spots);
-   XMMSpot *spot = [spots objectAtIndex:0];
-   [self spotWithId:spot.ID];
-   [self spotWithIdAndOptions:spot.ID];
-   
-   }];
-   */
+  [self.api spotsWithLocation:location radius:1000 options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"spotsWithLocation: %@", spots);
+    XMMSpot *spot = [spots objectAtIndex:0];
+    [self spotWithId:spot.ID];
+    [self spotWithIdAndOptions:spot.ID];
+  }];
 }
 
 - (void)spotsWithTags {
