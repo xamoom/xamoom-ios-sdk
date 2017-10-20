@@ -8,6 +8,7 @@
 
 #import "XMMContent.h"
 #import "XMMCDContent.h"
+#import "NSDateFormatter+ISODate.h"
 
 @interface XMMContent()
 
@@ -40,8 +41,8 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"tags"];
     [__descriptor addProperty:@"customMetaArray" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"custom-meta"]];
     [__descriptor addProperty:@"sharingUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"social-sharing-url"]];
-    [__descriptor addProperty:@"toDate" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"meta-datetime-to"]];
-    [__descriptor addProperty:@"fromDate" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"meta-datetime-from"]];
+    [__descriptor addProperty:@"toDate" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"meta-datetime-to" withFormat:[NSDateFormatter ISO8601Formatter]]];
+    [__descriptor addProperty:@"fromDate" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"meta-datetime-from" withFormat:[NSDateFormatter ISO8601Formatter]]];
     [__descriptor hasOne:[XMMSystem class] withName:@"system"];
     [__descriptor hasOne:[XMMSpot class] withName:@"spot"];
     [__descriptor hasOne:[XMMSpot class] withName:@"relatedSpot" withJsonName:@"related-spot"];

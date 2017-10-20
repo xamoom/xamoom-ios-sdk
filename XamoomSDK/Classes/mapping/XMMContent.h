@@ -14,6 +14,7 @@
 #import "XMMSystem.h"
 #import "XMMSpot.h"
 #import "XMMContentBlock.h"
+#import "NSDate+ISODate.h"
 
 @class XMMSpot;
 
