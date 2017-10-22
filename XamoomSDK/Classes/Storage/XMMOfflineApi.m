@@ -210,11 +210,22 @@
   } else {
     // fromDate and toDate are set
     predicate = [NSPredicate predicateWithFormat:@"(fromDate < %@) AND (toDate > %@)", fromDate, toDate];
+  NSSortDescriptor *sort;
+  if (sortOptions & XMMContentSortOptionsFromDate){
+    sort = [[NSSortDescriptor alloc] initWithKey:@"fromDate" ascending:YES];
+  } else if (sortOptions & XMMContentSortOptionsFromDateDesc) {
+    sort = [[NSSortDescriptor alloc] initWithKey:@"fromDate" ascending:NO];
+  }
+  
+  if (sortOptions & XMMContentSortOptionsToDate){
+    sort = [[NSSortDescriptor alloc] initWithKey:@"toDate" ascending:YES];
+  } else if (sortOptions & XMMContentSortOptionsToDateDesc) {
+    sort = [[NSSortDescriptor alloc] initWithKey:@"toDate" ascending:NO];
   }
   
   NSArray *results = [[XMMOfflineStorageManager sharedInstance]
                       fetch:[XMMCDContent coreDataEntityName]
-                      predicate:predicate];
+                      predicate:predicate sorting:sort];
   
   if (sortOptions & XMMContentSortOptionsTitle) {
     results = [self.apiHelper sortArrayByPropertyName:results
