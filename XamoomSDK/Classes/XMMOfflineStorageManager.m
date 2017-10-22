@@ -108,6 +108,18 @@ static dispatch_once_t onceToken;
   return [self.managedObjectContext executeFetchRequest:request error:&error];
 }
 
+- (NSArray *)fetch:(NSString *)entityType predicate:(NSPredicate *)predicate sorting:(NSSortDescriptor *)sortDescriptor {
+  NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityType];
+  request.predicate = predicate;
+  
+  if (sortDescriptor != nil) {
+  request.sortDescriptors = @[sortDescriptor];
+  }
+  
+  NSError *error = nil;
+  return [self.managedObjectContext executeFetchRequest:request error:&error];
+}
+
 - (NSArray *)fetch:(NSString *)entityType jsonID:(NSString *)jsonID {
   return [self fetch:entityType
            predicate:[NSPredicate predicateWithFormat:@"jsonID == %@", jsonID]];
