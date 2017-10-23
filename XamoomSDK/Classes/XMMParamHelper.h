@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "XMMOptions.h"
+#import "XMMFilter.h"
 
 @interface XMMParamHelper : NSObject
 
@@ -24,19 +25,15 @@
                                 tags:(NSArray *)tags;
 
 + (NSDictionary *)paramsWithLanguage:(NSString *)language
-                                name:(NSString *)name;
-
-+ (NSDictionary *)paramsWithLanguage:(NSString *)language
-                                from:(NSDate *)fromDate
-                                  to:(NSDate *)toDate;
-
-+ (NSDictionary *)paramsWithLanguage:(NSString *)language
                             location:(CLLocation *)location
                               radius:(int) radius;
 
 + (NSDictionary *)addPagingToParams:(NSDictionary *)params
                            pageSize:(int)pageSize
                              cursor:(NSString *)cursor;
+
++ (NSDictionary *)addFiltersToParams:(NSDictionary *)params
+                             filters:(XMMFilter *)filters;
 
 + (NSDictionary *)addContentOptionsToParams:(NSDictionary *)params
                                     options:(XMMContentOptions)options;

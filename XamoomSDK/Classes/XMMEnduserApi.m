@@ -260,7 +260,12 @@ static XMMEnduserApi *sharedInstance;
     return nil;
   }
   
-  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language name:name];
+  XMMFilter *filters = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
+    builder.name = name;
+  }];
+  
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
+  params = [XMMParamHelper addFiltersToParams:params filters:filters];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
@@ -286,8 +291,15 @@ static XMMEnduserApi *sharedInstance;
     return nil;
   }
   
-  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language from:fromDate to:toDate];
+  XMMFilter *filters = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
+    builder.fromDate = fromDate;
+    builder.toDate = toDate;
+  }];
+  
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
+  
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
+  params = [XMMParamHelper addFiltersToParams:params filters:filters];
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
 
   return [self.restClient fetchResource:[XMMContent class] parameters:params completion:^(JSONAPI *result, NSError *error) {
@@ -407,7 +419,12 @@ static XMMEnduserApi *sharedInstance;
     return nil;
   }
   
-  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language name:name];
+  XMMFilter *filters = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
+    builder.name = name;
+  }];
+  
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
+  params = [XMMParamHelper addFiltersToParams:params filters:filters];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];

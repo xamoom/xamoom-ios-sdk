@@ -38,31 +38,12 @@
   return params;
 }
 
-+ (NSDictionary *)paramsWithLanguage:(NSString *)language name:(NSString *)name {
-  NSMutableDictionary *params = [[self paramsWithLanguage:language] mutableCopy];
-  [params setValue:name forKey:@"filter[name]"];
-  return params;
-}
-
-+ (NSDictionary *)paramsWithLanguage:(NSString *)language
-                                from:(NSDate *)fromDate
-                                  to:(NSDate *)toDate {
-  NSMutableDictionary *params = [[self paramsWithLanguage:language] mutableCopy];
-  if (fromDate != nil) {
-    [params setValue:[fromDate ISO8601] forKey:@"filter[meta-datetime-from]"];
-  }
-  if (toDate != nil) {
-    [params setValue:[toDate ISO8601] forKey:@"filter[meta-datetime-to]"];
-  }
-  return params;
-}
-
 + (NSDictionary *)paramsWithLanguage:(NSString *)language location:(CLLocation *)location radius:(int) radius {
   NSMutableDictionary *params = [[self paramsWithLanguage:language] mutableCopy];
   [params setValue:[@(location.coordinate.latitude) stringValue] forKey:@"filter[lat]"];
   [params setValue:[@(location.coordinate.longitude) stringValue] forKey:@"filter[lon]"];
   [params setValue:[@(radius) stringValue] forKey:@"filter[radius]"];
-
+  
   return params;
 }
 
@@ -80,9 +61,30 @@
   return mutableParams;
 }
 
++ (NSDictionary *)addFiltersToParams:(NSDictionary *)params
+                             filters:(XMMFilter *)filters {
+  NSMutableDictionary *mutableParams = [params mutableCopy];
+  
+  if (filters.fromDate != nil) {
+    [mutableParams setValue:[filters.fromDate ISO8601] forKey:@"filter[meta-datetime-from]"];
+  }
+  if (filters.toDate != nil) {
+    [mutableParams setValue:[filters.toDate ISO8601] forKey:@"filter[meta-datetime-to]"];
+  }
+  if (filters.relatedSpotID != nil) {
+    [mutableParams setValue:filters.relatedSpotID forKey:@"filter[related-spot]"];
+  }
+  if (filters.name != nil) {
+    [mutableParams setValue:filters.name forKey:@"filter[name]"];
+  }
+  
+  
+  return mutableParams;
+}
+
 + (NSDictionary *)addContentOptionsToParams:(NSDictionary *)params options:(XMMContentOptions)options {
   NSMutableDictionary *mutableParams = [params mutableCopy];
- 
+  
   if (options != XMMContentOptionsNone) {
     NSDictionary *optionsDict = [self contentOptionsToDictionary:options];
     [mutableParams addEntriesFromDictionary:optionsDict];
