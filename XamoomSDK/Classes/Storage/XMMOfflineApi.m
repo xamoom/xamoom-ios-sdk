@@ -63,11 +63,9 @@
   }
   
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(ANY markers.qr == %@) OR (ANY markers.nfc == %@) OR ((ANY markers.beaconMinor == %@) AND (ANY markers.beaconMajor == %@))", locationIdentifier, locationIdentifier, minor, major];
-  NSCompoundPredicate *predicateCompound = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate]];
-  
   NSArray *results =
   [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDSpot coreDataEntityName]
-                                         predicate:predicateCompound];
+                                         predicates:@[predicate]];
   
   if (results.count == 1) {
     XMMCDSpot *savedSpot = results[0];
@@ -113,7 +111,7 @@
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"title"
                                             ascending:YES];
-  } else if (sortOptions & XMMContentSortOptionsNameDesc) {
+  } else if (sortOptions & XMMContentSortOptionsTitleDesc) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"title"
                                             ascending:NO];
@@ -134,20 +132,11 @@
     return;
   }
   
-  NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetchAll:[XMMCDContent coreDataEntityName]];
-  
+  NSArray *sortDescriptors = [self contentSortDescriptors:sortOptions];
+  NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDContent coreDataEntityName]
+                                                           predicates:nil
+                                                      sortDescriptors:sortDescriptors];
   results = [self.apiHelper entitiesWithTags:results tags:tags];
-  
-  if (sortOptions & XMMContentSortOptionsTitle) {
-    results = [self.apiHelper sortArrayByPropertyName:results
-                                         propertyName:@"title"
-                                            ascending:YES];
-  } else if (sortOptions & XMMContentSortOptionsNameDesc) {
-    results = [self.apiHelper sortArrayByPropertyName:results
-                                         propertyName:@"title"
-                                            ascending:YES];
-  }
-  
   
   NSMutableArray *contents = [[NSMutableArray alloc] init];
   for (XMMCDContent *savedContent in results) {
@@ -171,18 +160,10 @@
   }
   
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", name];
+  NSArray *sortDescriptors = [self contentSortDescriptors:sortOptions];
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDContent coreDataEntityName]
-                                                            predicate:predicate];
-  
-  if (sortOptions & XMMContentSortOptionsTitle) {
-    results = [self.apiHelper sortArrayByPropertyName:results
-                                         propertyName:@"title"
-                                            ascending:YES];
-  } else if (sortOptions & XMMContentSortOptionsNameDesc) {
-    results = [self.apiHelper sortArrayByPropertyName:results
-                                         propertyName:@"title"
-                                            ascending:NO];
-  }
+                                                            predicates:@[predicate]
+                                                      sortDescriptors:sortDescriptors];
   
   NSMutableArray *contents = [[NSMutableArray alloc] init];
   for (XMMCDContent *savedContent in results) {
@@ -190,9 +171,11 @@
   }
   results = contents;
   
-  // TODO: did you forget paging?
+  XMMOfflinePagedResult *pagedResult = [self.apiHelper pageResults:results
+                                                          pageSize:pageSize
+                                                            cursor:cursor];
   
-  completion(results, NO, nil, nil);
+  completion(pagedResult.items, pagedResult.hasMore, pagedResult.cursor, nil);  
 }
 
 - (void)contentsFrom:(NSDate * _Nullable)fromDate to:(NSDate * _Nullable)toDate pageSize:(int)pageSize cursor:(NSString * _Nullable)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion {
@@ -212,32 +195,12 @@
     predicate = [NSPredicate predicateWithFormat:@"(fromDate > %@) AND (toDate < %@)", fromDate, toDate];
   }
   
-  NSSortDescriptor *sort;
-  if (sortOptions & XMMContentSortOptionsFromDate){
-    sort = [[NSSortDescriptor alloc] initWithKey:@"fromDate" ascending:YES];
-  } else if (sortOptions & XMMContentSortOptionsFromDateDesc) {
-    sort = [[NSSortDescriptor alloc] initWithKey:@"fromDate" ascending:NO];
-  }
   
-  if (sortOptions & XMMContentSortOptionsToDate){
-    sort = [[NSSortDescriptor alloc] initWithKey:@"toDate" ascending:YES];
-  } else if (sortOptions & XMMContentSortOptionsToDateDesc) {
-    sort = [[NSSortDescriptor alloc] initWithKey:@"toDate" ascending:NO];
-  }
+  NSArray *sortDescriptors = [self contentSortDescriptors:sortOptions];
   
   NSArray *results = [[XMMOfflineStorageManager sharedInstance]
                       fetch:[XMMCDContent coreDataEntityName]
-                      predicate:predicate sorting:sort];
-  
-  if (sortOptions & XMMContentSortOptionsTitle) {
-    results = [self.apiHelper sortArrayByPropertyName:results
-                                         propertyName:@"title"
-                                            ascending:YES];
-  } else if (sortOptions & XMMContentSortOptionsNameDesc) {
-    results = [self.apiHelper sortArrayByPropertyName:results
-                                         propertyName:@"title"
-                                            ascending:YES];
-  }
+                      predicates:@[predicate] sortDescriptors:sortDescriptors];
   
   NSMutableArray *contents = [[NSMutableArray alloc] init];
   for (XMMCDContent *savedContent in results) {
@@ -312,14 +275,12 @@
   
   NSArray *results =
   [[XMMOfflineStorageManager sharedInstance] fetchAll:[XMMCDSpot coreDataEntityName]];
-  
   results = [self.apiHelper entitiesWithTags:results tags:tags];
-  
   if (sortOptions & XMMContentSortOptionsTitle) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"name"
                                             ascending:YES];
-  } else if (sortOptions & XMMContentSortOptionsNameDesc) {
+  } else if (sortOptions & XMMContentSortOptionsTitleDesc) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"name"
                                             ascending:NO];
@@ -348,13 +309,13 @@
   
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", name];
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDSpot coreDataEntityName]
-                                                            predicate:predicate];
-  
+                                                            predicates:@[predicate]];
+
   if (sortOptions & XMMContentSortOptionsTitle) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"name"
                                             ascending:YES];
-  } else if (sortOptions & XMMContentSortOptionsNameDesc) {
+  } else if (sortOptions & XMMContentSortOptionsTitleDesc) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"name"
                                             ascending:NO];
@@ -480,6 +441,32 @@
   completion(nil, [[NSError alloc] initWithDomain:@"XMMOfflineError"
                                              code:100
                                          userInfo:@{@"description":@"No entry found."}]);
+}
+
+# pragma mark - Helper
+
+- (NSArray *)contentSortDescriptors:(XMMContentSortOptions)sortOptions {
+  NSMutableArray *sortDesciptors = [NSMutableArray new];
+  
+  if (sortOptions & XMMContentSortOptionsTitle) {
+    [sortDesciptors addObject:[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES]];
+  } else if (sortOptions & XMMContentSortOptionsTitleDesc) {
+    [sortDesciptors addObject:[[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO]];
+  }
+  
+  if (sortOptions & XMMContentSortOptionsFromDate){
+    [sortDesciptors addObject:[[NSSortDescriptor alloc] initWithKey:@"fromDate" ascending:YES]];
+  } else if (sortOptions & XMMContentSortOptionsFromDateDesc) {
+    [sortDesciptors addObject:[[NSSortDescriptor alloc] initWithKey:@"fromDate" ascending:NO]];
+  }
+  
+  if (sortOptions & XMMContentSortOptionsToDate){
+    [sortDesciptors addObject:[[NSSortDescriptor alloc] initWithKey:@"toDate" ascending:YES]];
+  } else if (sortOptions & XMMContentSortOptionsToDateDesc) {
+    [sortDesciptors addObject:[[NSSortDescriptor alloc] initWithKey:@"toDate" ascending:NO]];
+  }
+  
+  return sortDesciptors;
 }
 
 @end

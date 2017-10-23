@@ -64,7 +64,7 @@ typedef NS_OPTIONS(NSUInteger, XMMContentSortOptions) {
   /**
    * Sort by name descending.
    */
-  XMMContentSortOptionsNameDesc = 1 << 1,
+  XMMContentSortOptionsTitleDesc = 1 << 1,
   /**
    * Sort by from date ascending;
    */

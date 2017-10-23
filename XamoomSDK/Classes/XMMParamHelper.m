@@ -145,7 +145,7 @@
     [sortParameters addObject:@"name"];
   }
   
-  if (sortOptions & XMMContentSortOptionsNameDesc) {
+  if (sortOptions & XMMContentSortOptionsTitleDesc) {
     [sortParameters addObject:@"-name"];
   }
   

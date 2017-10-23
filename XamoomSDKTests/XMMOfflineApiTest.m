@@ -233,7 +233,7 @@
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6247222 longitude:14.3052778];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsWithLocation:location pageSize:2 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.offlineApi contentsWithLocation:location pageSize:2 cursor:nil sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(contents.count, 2);
     XMMContent *savedContent = contents[0];
     XCTAssertEqual(savedContent.ID, @"6");
@@ -275,6 +275,7 @@
   }];
   [self waitForExpectationsWithTimeout:self.timeout handler:nil];
 }
+
 
 - (void)testContentsWithTags {
   XMMContent *newContent = [[XMMContent alloc] init];
@@ -325,7 +326,7 @@
   [XMMCDContent insertNewObjectFrom:newContent2];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsWithName:@"A" pageSize:10 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.offlineApi contentsWithName:@"A" pageSize:10 cursor:nil sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNotNil(contents);
     XCTAssertEqual(contents.count, 2);
     XMMContent *content = contents[0];
@@ -337,7 +338,7 @@
 
 - (void)testContentsWithNameNil {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsWithName:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.offlineApi contentsWithName:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(contents);
     XCTAssertEqual(error.code, 102);
     [expectation fulfill];

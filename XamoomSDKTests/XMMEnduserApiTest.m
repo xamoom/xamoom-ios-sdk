@@ -593,7 +593,7 @@ NSString* apiVersion = @"3.6.0";
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);
