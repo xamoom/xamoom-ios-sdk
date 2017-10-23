@@ -202,7 +202,7 @@
 
 - (void)contentWithLocation {
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-  [self.api contentsWithLocation:location pageSize:1 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString* cursor, NSError *error) {
+  [self.api contentsWithLocation:location pageSize:1 cursor:nil sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString* cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
@@ -228,6 +228,25 @@
     
     NSLog(@"ContentWithTags: %@", contents);
   }];
+  
+  XMMFilter *filter = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
+    builder.relatedSpotID = @"5755996320301056|5739975890960384";
+  }];
+  
+  [self.api contentsWithTags:@[@"tests"] pageSize:10 cursor:nil sort:0 filter:filter completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    for (XMMContent *content in contents) {
+      [self.api contentWithID:content.ID completion:^(XMMContent *content2, NSError *error) {
+        [XMMCDContent insertNewObjectFrom:content2];
+      }];
+    }
+    
+    NSLog(@"ContentWithTags: %@", contents);
+  }];
 }
 
 - (void)contentWithDate {
@@ -235,9 +254,8 @@
   NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-19T07:02:01Z"];
   NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-21T08:00:01Z"];
 
-  [self.api contentsFrom:date to:toDate pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+  [self.api contentsFrom:date to:toDate relatedSpot:@"5755996320301056|5739975890960384" pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
     NSLog(@"ContentFromDate: %@", contents);
-    
     /*
      for (XMMContent *content in contents) {
       [content saveOffline];

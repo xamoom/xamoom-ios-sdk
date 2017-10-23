@@ -246,6 +246,8 @@ extern NSString * const kApiBaseURLString;
  */
 - (NSURLSessionDataTask *)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
+- (NSURLSessionDataTask *)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions filter:(XMMFilter *)filter completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+
 /**
  * API call to fulltext-search contents for name and tags.
  *
@@ -261,6 +263,8 @@ extern NSString * const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+
+- (NSURLSessionDataTask *)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions filter:(XMMFilter *)filter completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
 
 /**
  * API call to filter contents with a special date or between to dates.
@@ -279,7 +283,7 @@ extern NSString * const kApiBaseURLString;
  * - *param4* error NSError, can be null
  * @return SessionDataTask used to download from the backend.
  */
-- (NSURLSessionDataTask *)contentsFrom:(NSDate * _Nullable)fromDate to:(NSDate * _Nullable)toDate pageSize:(int)pageSize cursor:(NSString * _Nullable)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+- (NSURLSessionDataTask *)contentsFrom:(NSDate * _Nullable)fromDate to:(NSDate * _Nullable)toDate relatedSpot:(NSString *)relatedSpotID pageSize:(int)pageSize cursor:(NSString * _Nullable)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to get a spot with specific id.
