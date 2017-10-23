@@ -233,7 +233,12 @@ static XMMEnduserApi *sharedInstance;
     return nil;
   }
   
-  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language tags:tags];
+  XMMFilter *filters = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
+    builder.tags = tags;
+  }];
+  
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
+  params = [XMMParamHelper addFiltersToParams:params filters:filters];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addContentSortOptionsToParams:params options:sortOptions];
   
@@ -392,7 +397,12 @@ static XMMEnduserApi *sharedInstance;
     return nil;
   }
   
-  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language tags:tags];
+  XMMFilter *filters = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
+    builder.tags = tags;
+  }];
+  
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
+  params = [XMMParamHelper addFiltersToParams:params filters:filters];
   params = [XMMParamHelper addPagingToParams:params pageSize:pageSize cursor:cursor];
   params = [XMMParamHelper addSpotOptionsToParams:params options:options];
   params = [XMMParamHelper addSpotSortOptionsToParams:params options:sortOptions];

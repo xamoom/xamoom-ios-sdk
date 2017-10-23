@@ -22,9 +22,6 @@
                             location:(CLLocation *)location;
 
 + (NSDictionary *)paramsWithLanguage:(NSString *)language
-                                tags:(NSArray *)tags;
-
-+ (NSDictionary *)paramsWithLanguage:(NSString *)language
                             location:(CLLocation *)location
                               radius:(int) radius;
 

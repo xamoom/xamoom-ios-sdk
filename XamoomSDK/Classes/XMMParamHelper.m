@@ -31,13 +31,6 @@
   return params;
 }
 
-+ (NSDictionary *)paramsWithLanguage:(NSString *)language tags:(NSArray *)tags {
-  NSMutableDictionary *params = [[self paramsWithLanguage:language] mutableCopy];
-  NSString *tagsAsParameter = [NSString stringWithFormat:@"[\"%@\"]", [tags componentsJoinedByString:@"\",\""]];
-  [params setValue:tagsAsParameter forKey:@"filter[tags]"];
-  return params;
-}
-
 + (NSDictionary *)paramsWithLanguage:(NSString *)language location:(CLLocation *)location radius:(int) radius {
   NSMutableDictionary *params = [[self paramsWithLanguage:language] mutableCopy];
   [params setValue:[@(location.coordinate.latitude) stringValue] forKey:@"filter[lat]"];
@@ -77,7 +70,10 @@
   if (filters.name != nil) {
     [mutableParams setValue:filters.name forKey:@"filter[name]"];
   }
-  
+  if (filters.tags != nil) {
+    NSString *tagsAsParameter = [NSString stringWithFormat:@"[\"%@\"]", [filters.tags componentsJoinedByString:@"\",\""]];
+    [mutableParams setValue:tagsAsParameter forKey:@"filter[tags]"];
+  }
   
   return mutableParams;
 }
