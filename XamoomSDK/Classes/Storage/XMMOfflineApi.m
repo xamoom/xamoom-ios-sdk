@@ -204,12 +204,14 @@
   
   NSPredicate *predicate;
   if (fromDate != nil && toDate == nil) {
-    predicate = [NSPredicate predicateWithFormat:@"(fromDate < %@)", fromDate];
+    predicate = [NSPredicate predicateWithFormat:@"(fromDate > %@)", fromDate];
   } else if (toDate != nil && fromDate == nil) {
-    predicate = [NSPredicate predicateWithFormat:@"(toDate > %@)", toDate];
+    predicate = [NSPredicate predicateWithFormat:@"(toDate < %@)", toDate];
   } else {
     // fromDate and toDate are set
-    predicate = [NSPredicate predicateWithFormat:@"(fromDate < %@) AND (toDate > %@)", fromDate, toDate];
+    predicate = [NSPredicate predicateWithFormat:@"(fromDate > %@) AND (toDate < %@)", fromDate, toDate];
+  }
+  
   NSSortDescriptor *sort;
   if (sortOptions & XMMContentSortOptionsFromDate){
     sort = [[NSSortDescriptor alloc] initWithKey:@"fromDate" ascending:YES];

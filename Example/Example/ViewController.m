@@ -232,14 +232,17 @@
 
 - (void)contentWithDate {
   self.api.offline = NO;
-  NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:02:01Z"];
-  [self.api contentsFrom:date to:[[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:00:01Z"] pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+  NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-19T07:02:01Z"];
+  NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-21T08:00:01Z"];
+
+  [self.api contentsFrom:date to:toDate pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
     NSLog(@"ContentFromDate: %@", contents);
+    
     /*
      for (XMMContent *content in contents) {
       [content saveOffline];
     }
-     */
+   */
   }];
 }
 

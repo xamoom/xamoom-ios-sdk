@@ -353,8 +353,8 @@
   newContent.toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:02:01Z"];
   [XMMCDContent insertNewObjectFrom:newContent];
   
-  NSDate *fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:10:01Z"];
-  NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:00:01Z"];
+  NSDate *fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:00:01Z"];
+  NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:10:01Z"];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsFrom:fromDate to:toDate pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
@@ -373,7 +373,7 @@
   newContent.toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:02:01Z"];
   [XMMCDContent insertNewObjectFrom:newContent];
   
-  NSDate *fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:10:01Z"];
+  NSDate *fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:00:01Z"];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsFrom:fromDate to:nil pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
@@ -392,7 +392,7 @@
   newContent.toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:02:01Z"];
   [XMMCDContent insertNewObjectFrom:newContent];
   
-  NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:00:01Z"];
+  NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:10:01Z"];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   [self.offlineApi contentsFrom:nil to:toDate pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
