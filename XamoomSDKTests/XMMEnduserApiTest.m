@@ -748,7 +748,7 @@ NSString* apiVersion = @"3.6.0";
   
   [api contentsWithTags:tags pageSize:0 cursor:nil sort:0 completion:nil];
   
-  OCMVerify([mockOfflineApi contentsWithTags:[OCMArg isEqual:tags] pageSize:0 cursor:[OCMArg any] sort:0 completion:[OCMArg any]]);
+  OCMVerify([mockOfflineApi contentsWithTags:[OCMArg isEqual:tags] pageSize:0 cursor:[OCMArg any] sort:0 filter:nil completion:[OCMArg any]]);
 }
 
 - (void)testThatContentWithNameWithCursorSortCallsFetchResources {
@@ -825,9 +825,9 @@ NSString* apiVersion = @"3.6.0";
   
   api.offline = YES;
   
-  [api contentsWithName:name pageSize:0 cursor:nil sort:0 completion:nil];
+  [api contentsWithName:name pageSize:0 cursor:nil sort:0 filter:nil completion:nil];
   
-  OCMVerify([mockOfflineApi contentsWithName:[OCMArg isEqual:name] pageSize:0 cursor:[OCMArg any] sort:0 completion:[OCMArg any]]);
+  OCMVerify([mockOfflineApi contentsWithName:[OCMArg isEqual:name] pageSize:0 cursor:[OCMArg any] sort:0 filter:nil completion:[OCMArg any]]);
 }
 
 - (void)testThatContentWithDateCursorSortCallsFetchResources {
@@ -853,6 +853,7 @@ NSString* apiVersion = @"3.6.0";
   
   [api contentsFrom:date
                  to:date
+        relatedSpot:nil
            pageSize:10
              cursor:@"1234"
                sort:XMMContentSortOptionsFromDate|XMMContentSortOptionsFromDateDesc|XMMContentSortOptionsToDate|XMMContentSortOptionsToDateDesc

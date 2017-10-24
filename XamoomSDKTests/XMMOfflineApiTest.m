@@ -293,7 +293,7 @@
   [[XMMOfflineStorageManager sharedInstance] save];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:nil sort:XMMContentSortOptionsTitle completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.offlineApi contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:nil sort:XMMContentSortOptionsTitle filter:nil completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNotNil(contents);
     XCTAssertEqual(contents.count, 2);
     XMMContent *content = contents[0];
@@ -307,7 +307,7 @@
 
 - (void)testContentsWithTagsNil {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsWithTags:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.offlineApi contentsWithTags:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsNone filter:nil  completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(error.code, 102);
     [expectation fulfill];
   }];
@@ -326,7 +326,7 @@
   [XMMCDContent insertNewObjectFrom:newContent2];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsWithName:@"A" pageSize:10 cursor:nil sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.offlineApi contentsWithName:@"A" pageSize:10 cursor:nil sort:XMMContentSortOptionsTitleDesc filter:nil  completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNotNil(contents);
     XCTAssertEqual(contents.count, 2);
     XMMContent *content = contents[0];
@@ -338,7 +338,7 @@
 
 - (void)testContentsWithNameNil {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsWithName:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [self.offlineApi contentsWithName:nil pageSize:10 cursor:nil sort:XMMContentSortOptionsTitleDesc filter:nil  completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(contents);
     XCTAssertEqual(error.code, 102);
     [expectation fulfill];
@@ -358,7 +358,7 @@
   NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:10:01Z"];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsFrom:fromDate to:toDate pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+  [self.offlineApi contentsFrom:fromDate to:toDate pageSize:10 cursor:nil sort:0 filter:nil completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
     XCTAssertNotNil(contents);
     XCTAssertEqual(contents.count, 1);
     [expectation fulfill];
@@ -377,7 +377,7 @@
   NSDate *fromDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:00:01Z"];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsFrom:fromDate to:nil pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+  [self.offlineApi contentsFrom:fromDate to:nil pageSize:10 cursor:nil sort:0 filter:nil  completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
     XCTAssertNotNil(contents);
     XCTAssertEqual(contents.count, 1);
     [expectation fulfill];
@@ -396,7 +396,7 @@
   NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T08:10:01Z"];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  [self.offlineApi contentsFrom:nil to:toDate pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+  [self.offlineApi contentsFrom:nil to:toDate pageSize:10 cursor:nil sort:0 filter:nil completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
     XCTAssertNotNil(contents);
     XCTAssertEqual(contents.count, 1);
     [expectation fulfill];

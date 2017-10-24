@@ -232,11 +232,6 @@ static XMMEnduserApi *sharedInstance;
 
 - (NSURLSessionDataTask *)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions filter:(XMMFilter *)filter completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
   
-  if (self.isOffline) {
-    [self.offlineApi contentsWithTags:tags pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
-    return nil;
-  }
-  
   XMMFilter *filters = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
     builder.tags = tags;
     
@@ -245,6 +240,11 @@ static XMMEnduserApi *sharedInstance;
     builder.toDate = filter.toDate;
     builder.relatedSpotID = filter.relatedSpotID;
   }];
+  
+  if (self.isOffline) {
+    [self.offlineApi contentsWithTags:tags pageSize:pageSize cursor:cursor sort:sortOptions filter:filter completion:completion];
+    return nil;
+  }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   params = [XMMParamHelper addFiltersToParams:params filters:filters];
@@ -272,12 +272,6 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (NSURLSessionDataTask *)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions filter:(XMMFilter *)filter completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
-  
-  if (self.isOffline) {
-    [self.offlineApi contentsWithName:name pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
-    return nil;
-  }
-  
   XMMFilter *filters = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
     builder.name = name;
     
@@ -286,6 +280,11 @@ static XMMEnduserApi *sharedInstance;
     builder.toDate = filter.toDate;
     builder.relatedSpotID = filter.relatedSpotID;
   }];
+  
+  if (self.isOffline) {
+    [self.offlineApi contentsWithName:name pageSize:pageSize cursor:cursor sort:sortOptions filter:filter completion:completion];
+    return nil;
+  }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   params = [XMMParamHelper addFiltersToParams:params filters:filters];
@@ -309,16 +308,17 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (NSURLSessionDataTask *)contentsFrom:(NSDate *)fromDate to:(NSDate *)toDate relatedSpot:(NSString *)relatedSpotID pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
-  if (self.isOffline) {
-    [self.offlineApi contentsFrom:fromDate to:toDate pageSize:pageSize cursor:cursor sort:sortOptions completion:completion];
-    return nil;
-  }
   
   XMMFilter *filters = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
     builder.fromDate = fromDate;
     builder.toDate = toDate;
     builder.relatedSpotID = relatedSpotID;
   }];
+  
+  if (self.isOffline) {
+    [self.offlineApi contentsFrom:fromDate to:toDate pageSize:pageSize cursor:cursor sort:sortOptions filter:filters completion:completion];
+    return nil;
+  }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   

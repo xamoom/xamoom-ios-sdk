@@ -65,7 +65,7 @@
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(ANY markers.qr == %@) OR (ANY markers.nfc == %@) OR ((ANY markers.beaconMinor == %@) AND (ANY markers.beaconMajor == %@))", locationIdentifier, locationIdentifier, minor, major];
   NSArray *results =
   [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDSpot coreDataEntityName]
-                                         predicates:@[predicate]];
+                                        predicates:@[predicate]];
   
   if (results.count == 1) {
     XMMCDSpot *savedSpot = results[0];
@@ -124,7 +124,7 @@
   completion(pagedResult.items, pagedResult.hasMore, pagedResult.cursor, nil);
 }
 
-- (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+- (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions filter:(XMMFilter *)filter completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
   if (tags == nil) {
     completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
                                                   code:102
@@ -134,7 +134,7 @@
   
   NSArray *sortDescriptors = [self contentSortDescriptors:sortOptions];
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDContent coreDataEntityName]
-                                                           predicates:nil
+                                                           predicates:[self predicatesForFilter:filter]
                                                       sortDescriptors:sortDescriptors];
   results = [self.apiHelper entitiesWithTags:results tags:tags];
   
@@ -151,7 +151,7 @@
   completion(pagedResult.items, pagedResult.hasMore, pagedResult.cursor, nil);
 }
 
-- (void)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
+- (void)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions filter:(XMMFilter *)filter completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion {
   if (name == nil) {
     completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
                                                   code:102
@@ -159,11 +159,13 @@
     return;
   }
   
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", name];
   NSArray *sortDescriptors = [self contentSortDescriptors:sortOptions];
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDContent coreDataEntityName]
-                                                            predicates:@[predicate]
+                                                           predicates:[self predicatesForFilter:filter]
                                                       sortDescriptors:sortDescriptors];
+  if (filter.tags != nil) {
+    results = [self.apiHelper entitiesWithTags:results tags:filter.tags];
+  }
   
   NSMutableArray *contents = [[NSMutableArray alloc] init];
   for (XMMCDContent *savedContent in results) {
@@ -175,10 +177,10 @@
                                                           pageSize:pageSize
                                                             cursor:cursor];
   
-  completion(pagedResult.items, pagedResult.hasMore, pagedResult.cursor, nil);  
+  completion(pagedResult.items, pagedResult.hasMore, pagedResult.cursor, nil);
 }
 
-- (void)contentsFrom:(NSDate * _Nullable)fromDate to:(NSDate * _Nullable)toDate pageSize:(int)pageSize cursor:(NSString * _Nullable)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion {
+- (void)contentsFrom:(NSDate * _Nullable)fromDate to:(NSDate * _Nullable)toDate pageSize:(int)pageSize cursor:(NSString * _Nullable)cursor sort:(XMMContentSortOptions)sortOptions filter:(XMMFilter *)filter completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion {
   if (fromDate == nil && toDate == nil) {
     completion(nil, nil, nil, [NSError errorWithDomain:@"XMMOfflineError"
                                                   code:102
@@ -198,9 +200,12 @@
   
   NSArray *sortDescriptors = [self contentSortDescriptors:sortOptions];
   
-  NSArray *results = [[XMMOfflineStorageManager sharedInstance]
-                      fetch:[XMMCDContent coreDataEntityName]
-                      predicates:@[predicate] sortDescriptors:sortDescriptors];
+  NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDContent coreDataEntityName]
+                                                           predicates:[self predicatesForFilter:filter]
+                                                      sortDescriptors:sortDescriptors];
+  if (filter.tags != nil) {
+    results = [self.apiHelper entitiesWithTags:results tags:filter.tags];
+  }
   
   NSMutableArray *contents = [[NSMutableArray alloc] init];
   for (XMMCDContent *savedContent in results) {
@@ -309,8 +314,8 @@
   
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[cd] %@", name];
   NSArray *results = [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDSpot coreDataEntityName]
-                                                            predicates:@[predicate]];
-
+                                                           predicates:@[predicate]];
+  
   if (sortOptions & XMMContentSortOptionsTitle) {
     results = [self.apiHelper sortArrayByPropertyName:results
                                          propertyName:@"name"
@@ -444,6 +449,28 @@
 }
 
 # pragma mark - Helper
+
+- (NSArray *)predicatesForFilter:(XMMFilter *)filter {
+  NSMutableArray *predicates = [NSMutableArray new];
+  
+  if (filter.fromDate != nil && filter.toDate == nil) {
+    [predicates addObject:[NSPredicate predicateWithFormat:@"(fromDate > %@)", filter.fromDate]];
+  } else if (filter.toDate != nil && filter.fromDate == nil) {
+    [predicates addObject:[NSPredicate predicateWithFormat:@"(toDate < %@)", filter.toDate]];
+  } else if (filter.toDate != nil && filter.fromDate != nil) {
+    // fromDate and toDate are set
+    [predicates addObject:[NSPredicate predicateWithFormat:@"(fromDate > %@) AND (toDate < %@)", filter.fromDate, filter.toDate]];
+  }
+  
+  if (filter.name != nil) {
+    [predicates addObject:[NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", filter.name]];
+  }
+  
+  if (filter.relatedSpotID != nil) {
+    [predicates addObject:[NSPredicate predicateWithFormat:@"relatedSpot.jsonID == %@", filter.relatedSpotID]];
+  }
+  return predicates;
+}
 
 - (NSArray *)contentSortDescriptors:(XMMContentSortOptions)sortOptions {
   NSMutableArray *sortDesciptors = [NSMutableArray new];

@@ -64,17 +64,18 @@
 }
 
 - (void)displayContent {
+  /*
   [self contentWithID];
   [self contentWithIDOptions];
   [self contentWithLocationIdentifier];
   [self contentWithCondition];
   [self contentWithBeaconMajor];
-  [self contentWithLocation];
+  [self contentWithLocation];*/
   [self contentWithTags];
-  [self contentWithDate];
+  /*[self contentWithDate];
   [self spotsWithLocation];
   [self spotsWithTags];
-  [self loadSystem];
+  [self loadSystem];*/
 }
 
 - (IBAction)didClickLoad:(id)sender {
@@ -230,25 +231,19 @@
   }];
   
   XMMFilter *filter = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
-    builder.relatedSpotID = @"5755996320301056|5739975890960384";
+    builder.relatedSpotID = @"5755996320301056|5700735861784576";
   }];
   
+  self.api.offline = YES;
   [self.api contentsWithTags:@[@"tests"] pageSize:10 cursor:nil sort:0 filter:filter completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
-    for (XMMContent *content in contents) {
-      [self.api contentWithID:content.ID completion:^(XMMContent *content2, NSError *error) {
-        [XMMCDContent insertNewObjectFrom:content2];
-      }];
-    }
-    
     NSLog(@"ContentWithTags: %@", contents);
   }];
 }
-
 - (void)contentWithDate {
   self.api.offline = NO;
   NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-19T07:02:01Z"];

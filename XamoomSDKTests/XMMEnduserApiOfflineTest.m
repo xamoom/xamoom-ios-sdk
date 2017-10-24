@@ -63,7 +63,7 @@
 - (void)testContentsFromDateToDateCallsOfflineApi {
   NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-20T07:02:01Z"];
   
-  [self.enduserApi contentsFrom:date to:date pageSize:10 cursor:@"" sort:0
+  [self.enduserApi contentsFrom:date to:date relatedSpot:nil pageSize:10 cursor:@"" sort:0
                      completion:nil];
   
   OCMVerify([self.mockedOfflineApi
@@ -72,6 +72,7 @@
              pageSize:10
              cursor:[OCMArg isEqual:@""]
              sort:0
+             filter:[OCMArg isNotNil]
              completion:[OCMArg isNil]]);
 }
 

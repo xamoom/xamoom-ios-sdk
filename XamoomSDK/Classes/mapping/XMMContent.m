@@ -70,7 +70,9 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     self.tags = savedContent.tags;
     self.customMeta = savedContent.customMeta;
     self.sharingUrl = savedContent.sharingUrl;
-    self.relatedSpot = [[XMMSpot alloc] initWithCoreDataObject:savedContent.relatedSpot];
+    if (savedContent.relatedSpot != nil) {
+      self.relatedSpot = [[XMMSpot alloc] initWithCoreDataObject:savedContent.relatedSpot];
+    }
     self.toDate = savedContent.toDate;
     self.fromDate = savedContent.fromDate;
     
