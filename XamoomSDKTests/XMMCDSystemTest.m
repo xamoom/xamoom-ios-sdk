@@ -38,6 +38,7 @@
   system.ID = @"1";
   system.name = @"name";
   system.url = @"url";
+  system.webClientUrl = @"webClientUrl";
   
   XMMStyle *style = [[XMMStyle alloc] init];
   style.ID = @"2";
@@ -56,6 +57,7 @@
   XCTAssertTrue([savedSystem.jsonID isEqualToString:system.ID]);
   XCTAssertTrue([savedSystem.name isEqualToString:system.name]);
   XCTAssertTrue([savedSystem.url isEqualToString:system.url]);
+  XCTAssertTrue([savedSystem.webClientUrl isEqualToString:system.webClientUrl]);
   XCTAssertTrue([savedSystem.setting.jsonID isEqualToString:settings.ID]);
   XCTAssertTrue([savedSystem.menu.jsonID isEqualToString:menu.ID]);
   XCTAssertTrue([savedSystem.style.jsonID isEqualToString:style.ID]);

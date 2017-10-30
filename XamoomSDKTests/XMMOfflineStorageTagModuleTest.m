@@ -143,7 +143,7 @@
   OCMStub([self.mockSimpleStorage readTags]).andReturn([[NSMutableArray alloc] init]);
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
-  OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spots);
+  OCMStub([self.mockedManager fetch:[OCMArg any] predicates:[OCMArg any]]).andReturn(spots);
   OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"3"]]);
   OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"2"]]);
   
@@ -176,7 +176,7 @@
   NSArray *spots = @[[XMMCDSpot insertNewObjectFrom:spot1], [XMMCDSpot insertNewObjectFrom:spot2]];
   NSArray *spotsWithContent1 = @[spots[0]];
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
-  OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spotsWithContent1);
+  OCMStub([self.mockedManager fetch:[OCMArg any] predicates:[OCMArg any]]).andReturn(spotsWithContent1);
   
   OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"2"]]);
   OCMReject([self.mockedManager deleteEntity:[OCMArg any] ID:[OCMArg isEqual:@"4"]]);
@@ -210,7 +210,7 @@
   
   NSArray *spotsWithContent1 = @[spots[0]];
   OCMStub([self.mockedManager fetchAll:[OCMArg any]]).andReturn(spots);
-  OCMStub([self.mockedManager fetch:[OCMArg any] predicate:[OCMArg any]]).andReturn(spotsWithContent1);
+  OCMStub([self.mockedManager fetch:[OCMArg any] predicates:[OCMArg any]]).andReturn(spotsWithContent1);
   
   [self.offlineHelper downloadAndSaveWithTags:@[@"tag1", @"tag2"] downloadCompletion:nil completion:nil];
   NSError *error = [self.offlineHelper deleteSavedDataWithTags:@[@"tag1", @"tag2"]];
