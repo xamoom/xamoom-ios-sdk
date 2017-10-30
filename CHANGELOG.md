@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.6.0...3.7.0) - 30.10.2017
+
+- Added socialSharing url to content
+- Added eventPackage
+
+- Changed phone link color
+
 ## [3.6.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.5.4...3.6.0) - 13.10.2017
 
 - Added new content block: content list

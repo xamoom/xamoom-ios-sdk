@@ -72,10 +72,10 @@
   [self contentWithBeaconMajor];
   [self contentWithLocation];*/
   //[self contentWithTags];
-  /*[self contentWithDate];
-  [self spotsWithLocation];
-  [self spotsWithTags];
-  [self loadSystem];*/
+  //[self contentWithDate];
+  //[self spotsWithLocation];
+  //[self spotsWithTags];
+  //[self loadSystem];
 }
 
 - (IBAction)didClickLoad:(id)sender {
@@ -246,11 +246,16 @@
 }
 - (void)contentWithDate {
   self.api.offline = NO;
-  NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-19T07:02:01Z"];
+  NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-17T07:02:01Z"];
   NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-21T08:00:01Z"];
-
-  [self.api contentsFrom:date to:toDate relatedSpot:@"5755996320301056|5739975890960384" pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+  NSString *relatedSpotId = @"5755996320301056|5739975890960384";
+  
+  [self.api contentsFrom:date to:nil relatedSpot:nil pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
     NSLog(@"ContentFromDate: %@", contents);
+    
+    self.content = contents[0];
+    [self.blocks displayContent:contents[0]];
+    
     /*
      for (XMMContent *content in contents) {
       [content saveOffline];
