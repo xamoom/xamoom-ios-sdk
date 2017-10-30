@@ -64,14 +64,14 @@
 }
 
 - (void)displayContent {
-  /*
-  [self contentWithID];
+  
+  //[self contentWithID];
   [self contentWithIDOptions];
-  [self contentWithLocationIdentifier];
+  /*[self contentWithLocationIdentifier];
   [self contentWithCondition];
   [self contentWithBeaconMajor];
   [self contentWithLocation];*/
-  [self contentWithTags];
+  //[self contentWithTags];
   /*[self contentWithDate];
   [self spotsWithLocation];
   [self spotsWithTags];
@@ -139,14 +139,14 @@
 }
 
 - (void)contentWithIDOptions {
-  [self.api contentWithID:@"0737f96b520645cab6d71242cd43cdad" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
-    //self.content = content;
-    //[self.blocks displayContent:self.content];
+    self.content = content;
+    [self.blocks displayContent:self.content];
     
     NSLog(@"ContentWithIdOptions: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
