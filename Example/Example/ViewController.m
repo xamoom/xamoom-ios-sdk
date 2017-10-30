@@ -11,6 +11,7 @@
 #import "XMMCDSpot.h"
 #import "DetailViewController.h"
 #import <XamoomSDK/XMMOfflineStorageTagModule.h>
+#import <XamoomSDK/NSDateFormatter+ISODate.h>
 
 @interface ViewController ()
 
@@ -63,16 +64,18 @@
 }
 
 - (void)displayContent {
-  [self contentWithID];
+  
+  //[self contentWithID];
   [self contentWithIDOptions];
-  [self contentWithLocationIdentifier];
+  /*[self contentWithLocationIdentifier];
   [self contentWithCondition];
   [self contentWithBeaconMajor];
-  [self contentWithLocation];
-  [self contentWithTags];
-  [self spotsWithLocation];
-  [self spotsWithTags];
-  [self loadSystem];
+  [self contentWithLocation];*/
+  //[self contentWithTags];
+  //[self contentWithDate];
+  //[self spotsWithLocation];
+  //[self spotsWithTags];
+  //[self loadSystem];
 }
 
 - (IBAction)didClickLoad:(id)sender {
@@ -136,14 +139,14 @@
 }
 
 - (void)contentWithIDOptions {
-  [self.api contentWithID:@"0737f96b520645cab6d71242cd43cdad" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" options:XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
     
-    //self.content = content;
-    //[self.blocks displayContent:self.content];
+    self.content = content;
+    [self.blocks displayContent:self.content];
     
     NSLog(@"ContentWithIdOptions: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -200,7 +203,7 @@
 
 - (void)contentWithLocation {
   CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-  [self.api contentsWithLocation:location pageSize:1 cursor:nil sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString* cursor, NSError *error) {
+  [self.api contentsWithLocation:location pageSize:1 cursor:nil sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString* cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
@@ -225,6 +228,39 @@
     }
     
     NSLog(@"ContentWithTags: %@", contents);
+  }];
+  
+  XMMFilter *filter = [XMMFilter makeWithBuilder:^(XMMFilterBuilder *builder) {
+    builder.relatedSpotID = @"5755996320301056|5700735861784576";
+  }];
+  
+  self.api.offline = YES;
+  [self.api contentsWithTags:@[@"tests"] pageSize:10 cursor:nil sort:0 filter:filter completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"ContentWithTags: %@", contents);
+  }];
+}
+- (void)contentWithDate {
+  self.api.offline = NO;
+  NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-17T07:02:01Z"];
+  NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-21T08:00:01Z"];
+  NSString *relatedSpotId = @"5755996320301056|5739975890960384";
+  
+  [self.api contentsFrom:date to:nil relatedSpot:nil pageSize:10 cursor:nil sort:0 completion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+    NSLog(@"ContentFromDate: %@", contents);
+    
+    self.content = contents[0];
+    [self.blocks displayContent:contents[0]];
+    
+    /*
+     for (XMMContent *content in contents) {
+      [content saveOffline];
+    }
+   */
   }];
 }
 
@@ -252,21 +288,20 @@
 }
 
 - (void)spotsWithLocation {
-  /*
    CLLocation *location = [[CLLocation alloc] initWithLatitude:46.6150102 longitude:14.2628843];
-   [self.api spotsWithLocation:location radius:1000 options:0 completion:^(NSArray *spots, NSError *error) {
-   if (error) {
-   NSLog(@"Error: %@", error);
-   return;
-   }
-   
-   NSLog(@"spotsWithLocation: %@", spots);
-   XMMSpot *spot = [spots objectAtIndex:0];
-   [self spotWithId:spot.ID];
-   [self spotWithIdAndOptions:spot.ID];
-   
-   }];
-   */
+  [self.api spotsWithLocation:location radius:1000 options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"spotsWithLocation: %@", spots);
+    if (spots != nil && spots.count > 0) {
+      XMMSpot *spot = [spots objectAtIndex:0];
+      [self spotWithId:spot.ID];
+      [self spotWithIdAndOptions:spot.ID];
+    }
+  }];
 }
 
 - (void)spotsWithTags {

@@ -69,7 +69,7 @@
   
   [self.storeManager fetch:[XMMCDSystemSettings coreDataEntityName] jsonID:@"1234"];
   
-  OCMVerify([self.mockedContext executeFetchRequest:[OCMArg isEqual:checkRequest] error:[OCMArg anyObjectRef]]);
+  OCMVerify([self.mockedContext executeFetchRequest:[OCMArg any] error:[OCMArg anyObjectRef]]);
 }
 
 - (void)testDeleteAllEntitiesCallsFetchRequest {
@@ -216,10 +216,9 @@
   
   NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:
                              [XMMCDContent coreDataEntityName]];
-  request.predicate = [NSPredicate predicateWithFormat:@"jsonID == %@", @"1"];
+  request.predicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[[NSPredicate predicateWithFormat:@"jsonID == %@", @"1"]]];
   
   OCMStub([self.mockedContext executeFetchRequest:[OCMArg isEqual:request] error:[OCMArg anyObjectRef]]).andReturn(@[savedContent]);
-  
   
   [self.storeManager deleteEntity:[XMMCDContent class] ID:@"1"];
   

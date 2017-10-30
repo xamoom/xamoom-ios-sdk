@@ -11,6 +11,7 @@
 #import "XMMEnduserApi.h"
 #import "XMMOfflineApi.h"
 #import "NSDate+ISODate.h"
+#import "NSDateFormatter+ISODate.h"
 
 @interface XMMEnduserApiTest : XCTestCase
 
@@ -24,7 +25,7 @@
 
 @synthesize api, restClient, mockRestClient;
 
-NSString* apiVersion = @"3.6.0";
+NSString* apiVersion = @"3.7.0";
 
 - (void)setUp {
   [super setUp];
@@ -74,7 +75,7 @@ NSString* apiVersion = @"3.6.0";
 
 - (void)testCustomUserAgent {
   XMMEnduserApi *customApi = [[XMMEnduserApi alloc] initWithApiKey:@"apikey"];
-
+  
   NSString *checkUserAgent = [NSString stringWithFormat:@"XamoomSDK iOS|aou|%@", apiVersion];
   
   NSString *userAgent = [customApi customUserAgentFrom:@"äöü"];
@@ -135,7 +136,7 @@ NSString* apiVersion = @"3.6.0";
 - (void)testThatContentWithIdReturnsContentViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
-
+  
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 5];
@@ -185,7 +186,7 @@ NSString* apiVersion = @"3.6.0";
   self.api.offlineApi = mockOfflineApi;
   
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
-
+  
   self.api.offline = YES;
   
   [self.api contentWithID:contentID completion:nil];
@@ -202,9 +203,9 @@ NSString* apiVersion = @"3.6.0";
                                                                                   @"public-only":@"true"}];
   
   OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
-                                       id:[OCMArg isEqual:contentID]
-                               parameters:[OCMArg isEqual:params]
-                               completion:[OCMArg any]]);
+                                            id:[OCMArg isEqual:contentID]
+                                    parameters:[OCMArg isEqual:params]
+                                    completion:[OCMArg any]]);
   
   [self.api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
   }];
@@ -277,8 +278,8 @@ NSString* apiVersion = @"3.6.0";
 - (void)testThatContentWithLocationIdentifierCallsFetchResources {
   
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
-                                                                                @"filter[location-identifier]":@"7qpqr",
-                                                                                @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
+                                                                                  @"filter[location-identifier]":@"7qpqr",
+                                                                                  @"condition[x-datetime]":[[[NSDate alloc] init] ISO8601]}];
   NSString *qrMarker = @"7qpqr";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
@@ -428,7 +429,7 @@ NSString* apiVersion = @"3.6.0";
     XCTAssertNil(error);
     [expectation fulfill];
   }];
-   
+  
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
@@ -550,8 +551,8 @@ NSString* apiVersion = @"3.6.0";
                                                                                   @"page[size]":@"10"}];
   
   OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
-                               parameters:[OCMArg isEqual:params]
-                               completion:[OCMArg any]]);
+                                    parameters:[OCMArg isEqual:params]
+                                    completion:[OCMArg any]]);
   
   [self.api contentsWithLocation:location pageSize:10 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
   }];
@@ -569,8 +570,8 @@ NSString* apiVersion = @"3.6.0";
                                                                                   @"sort":@"name"}];
   
   OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
-                               parameters:[OCMArg isEqual:params]
-                               completion:[OCMArg any]]);
+                                    parameters:[OCMArg isEqual:params]
+                                    completion:[OCMArg any]]);
   
   [self.api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitle completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
   }];
@@ -592,7 +593,7 @@ NSString* apiVersion = @"3.6.0";
                                parameters:[OCMArg isEqual:params]
                                completion:[OCMArg any]]);
   
-  [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsNameDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
   }];
   
   OCMVerifyAll(mockRestClient);
@@ -747,11 +748,10 @@ NSString* apiVersion = @"3.6.0";
   
   [api contentsWithTags:tags pageSize:0 cursor:nil sort:0 completion:nil];
   
-  OCMVerify([mockOfflineApi contentsWithTags:[OCMArg isEqual:tags] pageSize:0 cursor:[OCMArg any] sort:0 completion:[OCMArg any]]);
+  OCMVerify([mockOfflineApi contentsWithTags:[OCMArg isEqual:tags] pageSize:0 cursor:[OCMArg any] sort:0 filter:nil completion:[OCMArg any]]);
 }
 
 - (void)testThatContentWithNameWithCursorSortCallsFetchResources {
-  
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"filter[name]":@"test",
                                                                                   @"page[size]":@"10",
@@ -785,6 +785,9 @@ NSString* apiVersion = @"3.6.0";
     XCTAssertTrue(contents.count == 10);
     XMMContent *content = [contents objectAtIndex:0];
     XCTAssertTrue([content.title isEqualToString:@"Testseite"]);
+    NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-18T13:00:01Z"];
+    XCTAssertTrue([content.fromDate isEqualToDate:date]);
+    XCTAssertTrue([content.toDate isEqualToDate:date]);
     content = [contents objectAtIndex:9];
     XCTAssertTrue([content.title isEqualToString:@"Vimeo Test"]);
     [expectation fulfill];
@@ -795,7 +798,6 @@ NSString* apiVersion = @"3.6.0";
 
 - (void)testThatContentsWithNameReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
-  
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
@@ -814,7 +816,7 @@ NSString* apiVersion = @"3.6.0";
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
 }
 
-- (void)testThatContentWithNameCallsOfflineApi {
+- (void)testThatContentsWithNameCallsOfflineApi {
   
   XMMOfflineApi *mockOfflineApi = OCMClassMock([XMMOfflineApi class]);
   api.offlineApi = mockOfflineApi;
@@ -823,9 +825,42 @@ NSString* apiVersion = @"3.6.0";
   
   api.offline = YES;
   
-  [api contentsWithName:name pageSize:0 cursor:nil sort:0 completion:nil];
+  [api contentsWithName:name pageSize:0 cursor:nil sort:0 filter:nil completion:nil];
   
-  OCMVerify([mockOfflineApi contentsWithName:[OCMArg isEqual:name] pageSize:0 cursor:[OCMArg any] sort:0 completion:[OCMArg any]]);
+  OCMVerify([mockOfflineApi contentsWithName:[OCMArg isEqual:name] pageSize:0 cursor:[OCMArg any] sort:0 filter:nil completion:[OCMArg any]]);
+}
+
+- (void)testThatContentWithDateCursorSortCallsFetchResources {
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en",
+                                                      @"filter[meta-datetime-from]":@"2017-06-01T18:21:00Z",
+                                                      @"filter[meta-datetime-to]":@"2017-06-01T18:21:00Z",
+                                                      @"page[size]":@"10",
+                                                      @"page[cursor]":@"1234",
+                                                      @"sort":@"meta-datetime-from,-meta-datetime-from,meta-datetime-to,-meta-datetime-to"
+                                                      }];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                               completion:[OCMArg any]]);
+  
+  
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
+  [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
+  NSDate *date = [dateFormatter dateFromString:@"2017-06-01T18:21:00Z"];
+  
+  
+  [api contentsFrom:date
+                 to:date
+        relatedSpot:nil
+           pageSize:10
+             cursor:@"1234"
+               sort:XMMContentSortOptionsFromDate|XMMContentSortOptionsFromDateDesc|XMMContentSortOptionsToDate|XMMContentSortOptionsToDateDesc
+         completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
 }
 
 - (void)testThatSpotWithIdReturnsSpotViaCallback {
@@ -1395,7 +1430,7 @@ NSString* apiVersion = @"3.6.0";
 - (void)testThatSystemReturnsError {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   
-
+  
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 4];
