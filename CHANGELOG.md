@@ -1,5 +1,10 @@
 # Changelog
 
+## [3.7.1](https://github.com/xamoom/xamoom-ios-sdk/compare/3.7.0...3.7.1) - 17.11.2017
+
+- Fixed contentListTags parsing
+- Added contentList localization 
+
 ## [3.7.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.6.0...3.7.0) - 30.10.2017
 
 - Added socialSharing url to content
