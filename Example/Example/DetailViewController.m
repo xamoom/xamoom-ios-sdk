@@ -28,6 +28,7 @@
   self.blocks = [[XMMContentBlocks alloc] initWithTableView:self.tableView api:self.api];
   self.blocks.delegate = self;
   self.blocks.offline = self.api.offline;
+  self.blocks.showAllStoreLinks = YES;
   
   if (self.contentID) {
     [self.api contentWithID:self.contentID completion:^(XMMContent *content, NSError *error) {
