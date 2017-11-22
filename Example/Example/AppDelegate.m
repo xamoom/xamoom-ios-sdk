@@ -74,6 +74,10 @@
   [XMMContentBlock4TableViewCell appearance].phoneColor = UIColor.brownColor;
   [XMMContentBlock4TableViewCell appearance].phoneTintColor = UIColor.blueColor;
   
+  [XMMContentBlock5TableViewCell appearance].ebookTintColor = UIColor.blueColor;
+  [XMMContentBlock5TableViewCell appearance].ebookColor = UIColor.brownColor;
+
+  
   UINavigationController *nav = (UINavigationController *) self.window.rootViewController;
   ViewController *vc = (ViewController *)nav.topViewController;
   vc.api = self.api;
