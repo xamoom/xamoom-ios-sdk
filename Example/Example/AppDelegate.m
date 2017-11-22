@@ -27,57 +27,60 @@
 
   [self setupApi];
   
-  
-  [XMMContentBlock1TableViewCell appearance].audioPlayerBackgroundColor = UIColor.blueColor;
-  [XMMContentBlock1TableViewCell appearance].audioPlayerProgressBarBackgroundColor = UIColor.darkGrayColor;
-  [XMMContentBlock1TableViewCell appearance].audioPlayerProgressBarColor = UIColor.lightGrayColor;
-  [XMMContentBlock1TableViewCell appearance].audioPlayerTintColor = UIColor.whiteColor;
-  
-  [XMMContentBlock4TableViewCell appearance].facebookColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].facebookTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].fallbackColor = UIColor.greenColor;
-  [XMMContentBlock4TableViewCell appearance].fallbackTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].webColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].webTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].mailColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].mailTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].wikipediaColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].wikipediaTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].itunesColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].itunesTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].appleColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].appleTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].twitterColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].twitterTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].shopColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].shopTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].linkedInColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].linkedInTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].flickrColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].flickrTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].soundcloudColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].soundcloudTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].youtubeColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].youtubeTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].googleColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].googleTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].spotifyColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].spotifyTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].navigationColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].navigationTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].androidColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].androidTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].windowsColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].windowsTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].instagramColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].instagramTintColor = UIColor.blueColor;
-  [XMMContentBlock4TableViewCell appearance].phoneColor = UIColor.brownColor;
-  [XMMContentBlock4TableViewCell appearance].phoneTintColor = UIColor.blueColor;
-  
-  [XMMContentBlock5TableViewCell appearance].ebookTintColor = UIColor.blueColor;
-  [XMMContentBlock5TableViewCell appearance].ebookColor = UIColor.brownColor;
+//  [XMMContentBlock1TableViewCell appearance].audioPlayerBackgroundColor = UIColor.blueColor;
+//  [XMMContentBlock1TableViewCell appearance].audioPlayerProgressBarBackgroundColor = UIColor.darkGrayColor;
+//  [XMMContentBlock1TableViewCell appearance].audioPlayerProgressBarColor = UIColor.lightGrayColor;
+//  [XMMContentBlock1TableViewCell appearance].audioPlayerTintColor = UIColor.whiteColor;
+//
+//  [XMMContentBlock4TableViewCell appearance].facebookColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].facebookTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].fallbackColor = UIColor.greenColor;
+//  [XMMContentBlock4TableViewCell appearance].fallbackTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].webColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].webTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].mailColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].mailTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].wikipediaColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].wikipediaTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].itunesColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].itunesTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].appleColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].appleTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].twitterColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].twitterTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].shopColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].shopTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].linkedInColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].linkedInTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].flickrColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].flickrTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].soundcloudColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].soundcloudTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].youtubeColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].youtubeTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].googleColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].googleTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].spotifyColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].spotifyTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].navigationColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].navigationTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].androidColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].androidTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].windowsColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].windowsTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].instagramColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].instagramTintColor = UIColor.blueColor;
+//  [XMMContentBlock4TableViewCell appearance].phoneColor = UIColor.brownColor;
+//  [XMMContentBlock4TableViewCell appearance].phoneTintColor = UIColor.blueColor;
+//
+//  [XMMContentBlock5TableViewCell appearance].ebookTintColor = UIColor.blueColor;
+//  [XMMContentBlock5TableViewCell appearance].ebookColor = UIColor.brownColor;
+//
+//  [XMMContentBlock8TableViewCell appearance].calendarColor = UIColor.redColor;
+//  [XMMContentBlock8TableViewCell appearance].calendarTintColor = UIColor.lightGrayColor;
+//  [XMMContentBlock8TableViewCell appearance].contactColor = UIColor.greenColor;
+//  [XMMContentBlock8TableViewCell appearance].contactTintColor = UIColor.darkGrayColor;
 
-  
   UINavigationController *nav = (UINavigationController *) self.window.rootViewController;
   ViewController *vc = (ViewController *)nav.topViewController;
   vc.api = self.api;
