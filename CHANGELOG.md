@@ -1,9 +1,19 @@
 # Changelog
 
+## [3.8.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.7.1...3.8.0) - 06.12.2017
+
+- Added UIAppearance to Audio-, Link-, Ebook- and Downloadblocks
+
+- Fixed textView spacing on ContentBlock0TableViewCell
+- Fixed label spacing on ContentBlock11TableViewCell
+
+- Removed placeholder on ContentBlock11TableViewCell
+
 ## [3.7.1](https://github.com/xamoom/xamoom-ios-sdk/compare/3.7.0...3.7.1) - 17.11.2017
 
 - Fixed contentListTags parsing
-- Added contentList localization 
+
+- Added contentList localization
 
 ## [3.7.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.6.0...3.7.0) - 30.10.2017
 

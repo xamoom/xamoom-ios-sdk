@@ -65,17 +65,17 @@
 
 - (void)displayContent {
   
-  //[self contentWithID];
+  [self contentWithID];
   [self contentWithIDOptions];
-  /*[self contentWithLocationIdentifier];
+  [self contentWithLocationIdentifier];
   [self contentWithCondition];
   [self contentWithBeaconMajor];
-  [self contentWithLocation];*/
-  //[self contentWithTags];
-  //[self contentWithDate];
-  //[self spotsWithLocation];
-  //[self spotsWithTags];
-  //[self loadSystem];
+  [self contentWithLocation];
+  [self contentWithTags];
+  [self contentWithDate];
+  [self spotsWithLocation];
+  [self spotsWithTags];
+  [self loadSystem];
 }
 
 - (IBAction)didClickLoad:(id)sender {
@@ -99,29 +99,11 @@
 }
 
 - (void)contentWithID {
-  self.blocks.offline = YES;
-  self.api.offline = YES;
-  
   [self.api contentWithID:@"7cf2c58e6d374ce3888c32eb80be53b5" completion:^(XMMContent *content, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
       return;
     }
-    
-    XMMContentBlock *block = [[XMMContentBlock alloc] init];
-    block.ID = @"21401059125125";
-    block.title = @"List";
-    block.blockType = 11;
-    block.contentListSortAsc = true;
-    block.contentListPageSize = 3;
-    block.contentListTags = @[@"tests"];
-    
-    NSMutableArray *contentBlocks = [content.contentBlocks mutableCopy];
-    [contentBlocks removeAllObjects];
-    [contentBlocks addObject:block];
-    [contentBlocks addObject:block];
-    [contentBlocks addObject:block];
-    content.contentBlocks = contentBlocks;
     
     if (self.api.offline == NO) {
       [content saveOffline:^(NSString *url, NSData *data, NSError *error) {
@@ -129,7 +111,7 @@
       }];
     }
     
-    [self.blocks displayContent:content addHeader:YES];
+    [self.blocks displayContent:content];
     
     NSLog(@"ContentWithId: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -146,7 +128,6 @@
     }
     
     self.content = content;
-    [self.blocks displayContent:self.content];
     
     NSLog(@"ContentWithIdOptions: %@", content.title);
     for (XMMContentBlock *block in content.contentBlocks) {
@@ -234,7 +215,6 @@
     builder.relatedSpotID = @"5755996320301056|5700735861784576";
   }];
   
-  self.api.offline = YES;
   [self.api contentsWithTags:@[@"tests"] pageSize:10 cursor:nil sort:0 filter:filter completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     if (error) {
       NSLog(@"Error: %@", error);
@@ -245,7 +225,6 @@
   }];
 }
 - (void)contentWithDate {
-  self.api.offline = NO;
   NSDate *date = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-17T07:02:01Z"];
   NSDate *toDate = [[NSDateFormatter ISO8601Formatter] dateFromString:@"2017-10-21T08:00:01Z"];
   NSString *relatedSpotId = @"5755996320301056|5739975890960384";
@@ -254,7 +233,7 @@
     NSLog(@"ContentFromDate: %@", contents);
     
     self.content = contents[0];
-    [self.blocks displayContent:contents[0]];
+    //[self.blocks displayContent:contents[0]];
     
     /*
      for (XMMContent *content in contents) {

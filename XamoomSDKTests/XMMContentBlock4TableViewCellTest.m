@@ -70,10 +70,10 @@
   NSLog(@"Test: %@", testCell.titleLabel.text);
   XCTAssert([testCell.linkTextLabel.text isEqualToString:@"Link"]);
   XCTAssert([testCell.linkUrl isEqualToString:@"www.xamoom.com"]);
-  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.standardGreyColor]);
-  XCTAssertEqual(testCell.icon.tintColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.titleLabel.textColor, testCell.standardTextColor);
+  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.fallbackColor]);
+  XCTAssertEqual(testCell.icon.tintColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.titleLabel.textColor, testCell.fallbackTintColor);
 }
 
 - (void)testThatContentBlock4CellConfigureType1 {
@@ -102,10 +102,10 @@
   XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title"]);
   XCTAssert([testCell.linkTextLabel.text isEqualToString:@"Link"]);
   XCTAssert([testCell.linkUrl isEqualToString:@"www.xamoom.com"]);
-  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.standardGreyColor]);
-  XCTAssertEqual(testCell.icon.tintColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.titleLabel.textColor, testCell.standardTextColor);
+  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.fallbackColor]);
+  XCTAssertEqual(testCell.icon.tintColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.titleLabel.textColor, testCell.fallbackTintColor);
 }
 
 - (void)testThatContentBlock4CellConfigureType3 {
@@ -134,10 +134,10 @@
   XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title"]);
   XCTAssert([testCell.linkTextLabel.text isEqualToString:@"Link"]);
   XCTAssert([testCell.linkUrl isEqualToString:@"www.xamoom.com"]);
-  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.standardGreyColor]);
-  XCTAssertEqual(testCell.icon.tintColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.titleLabel.textColor, testCell.standardTextColor);
+  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.fallbackColor]);
+  XCTAssertEqual(testCell.icon.tintColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.titleLabel.textColor, testCell.fallbackTintColor);
 }
 
 - (void)testThatContentBlock4CellConfigureType5 {
@@ -198,10 +198,10 @@
   XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title"]);
   XCTAssert([testCell.linkTextLabel.text isEqualToString:@"Link"]);
   XCTAssert([testCell.linkUrl isEqualToString:@"www.xamoom.com"]);
-  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.standardGreyColor]);
-  XCTAssertEqual(testCell.icon.tintColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.titleLabel.textColor, testCell.standardTextColor);
+  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.fallbackColor]);
+  XCTAssertEqual(testCell.icon.tintColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.titleLabel.textColor, testCell.fallbackTintColor);
 }
 
 - (void)testThatContentBlock4CellConfigureType9 {
@@ -262,10 +262,10 @@
   XCTAssert([testCell.titleLabel.text isEqualToString:@"Content Title"]);
   XCTAssert([testCell.linkTextLabel.text isEqualToString:@"Link"]);
   XCTAssert([testCell.linkUrl isEqualToString:@"www.xamoom.com"]);
-  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.standardGreyColor]);
-  XCTAssertEqual(testCell.icon.tintColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.standardTextColor);
-  XCTAssertEqual(testCell.titleLabel.textColor, testCell.standardTextColor);
+  XCTAssert([testCell.viewForBackgroundColor.backgroundColor isEqual:testCell.fallbackColor]);
+  XCTAssertEqual(testCell.icon.tintColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.linkTextLabel.textColor, testCell.fallbackTintColor);
+  XCTAssertEqual(testCell.titleLabel.textColor, testCell.fallbackTintColor);
 }
 
 - (void)testThatContentBlock4CellConfigureType13 {
