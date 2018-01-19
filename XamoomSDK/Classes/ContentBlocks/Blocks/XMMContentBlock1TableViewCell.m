@@ -40,6 +40,10 @@
   [super awakeFromNib];
 }
 
+- (void)prepareForReuse {
+  _progressBar.lineProgress = 0.0f;
+}
+
 - (void)setupImages {
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
@@ -60,25 +64,24 @@
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
-  self.audioPlayerControl.delegate = self;
-  if (offline) {
-    NSURL *filePath = [self.fileManager urlForSavedData:block.fileID];
-    [self.audioPlayerControl initAudioPlayerWithUrlString:filePath.absoluteString];
-  } else {
-    [self.audioPlayerControl initAudioPlayerWithUrlString:block.fileID];
-  }
+  //self.progressBar.delegate = self;
   self.titleLabel.text = block.title;
   self.artistLabel.text = block.artists;
+  
+  _progressBar.lineProgress = 0.5f;
+  
+  if (offline) {
+    NSURL *filePath = [self.fileManager urlForSavedData:block.fileID];
+  } else {
+  }
 }
 
 - (IBAction)playButtonTouched:(id)sender {
   if (!self.isPlaying) {
-    [self.audioPlayerControl play];
     self.playing = YES;
     [self.movingBarView start];
     [self.audioControlButton setImage:self.pauseImage forState:UIControlStateNormal];
   } else {
-    [self.audioPlayerControl pause];
     self.playing = NO;
     [self.movingBarView stop];
     [self.audioControlButton setImage:self.playImage forState:UIControlStateNormal];
@@ -86,11 +89,9 @@
 }
 
 - (IBAction)backwardButtonTouched:(id)sender {
-  [self.audioPlayerControl backward];
 }
 
 - (IBAction)forwardButtonTouched:(id)sender {
-  [self.audioPlayerControl forward];
 }
 
 #pragma mark - XMMMMusicPlayer delegate
@@ -139,19 +140,19 @@
 }
 
 - (void)setAudioPlayerProgressBarBackgroundColor:(UIColor *)audioPlayerProgressBarBackgroundColor {
-  _audioPlayerControl.backgroundLineColor = audioPlayerProgressBarBackgroundColor;
+  _progressBar.backgroundLineColor = audioPlayerProgressBarBackgroundColor;
 }
 
 - (UIColor *)audioPlayerProgressBarBackgroundColor {
-  return _audioPlayerControl.backgroundLineColor;
+  return _progressBar.backgroundLineColor;
 }
 
 - (void)setAudioPlayerProgressBarColor:(UIColor *)audioPlayerProgressBarColor {
-  _audioPlayerControl.foregroundLineColor = audioPlayerProgressBarColor;
+  _progressBar.foregroundLineColor = audioPlayerProgressBarColor;
 }
 
 - (UIColor *)audioPlayerProgressBarColor {
-  return _audioPlayerControl.foregroundLineColor;
+  return _progressBar.foregroundLineColor;
 }
 
 - (void)setAudioPlayerTintColor:(UIColor *)audioPlayerTextColors {
@@ -165,7 +166,6 @@
 #pragma mark - Notification Handler
 
 - (void)pauseAllXMMMusicPlayer {
-  [self.audioPlayerControl pause];
   [self.movingBarView stop];
   self.playing = NO;
 }

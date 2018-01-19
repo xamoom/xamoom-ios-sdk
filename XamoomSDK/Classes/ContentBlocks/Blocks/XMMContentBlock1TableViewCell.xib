@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -100,7 +100,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6D-Eu-ldB" customClass="MovingBarsView">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6D-Eu-ldB" customClass="XMMMovingBarsView">
                                 <rect key="frame" x="280" y="61" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="OuC-cd-za8"/>
@@ -133,7 +133,7 @@
                             <constraint firstItem="ZkP-O0-O4Y" firstAttribute="centerY" secondItem="spc-5G-TLl" secondAttribute="centerY" id="wzg-L5-xiq"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bNb-P6-22z" customClass="XMMMusicPlayer">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bNb-P6-22z" customClass="XMMProgressBar">
                         <rect key="frame" x="0.0" y="94" width="318" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="8" id="mO3-rO-Eax"/>
@@ -167,13 +167,13 @@
             <connections>
                 <outlet property="artistLabel" destination="NkC-Ma-2oK" id="vSb-JY-RQn"/>
                 <outlet property="audioControlButton" destination="spc-5G-TLl" id="z7e-wx-rBi"/>
-                <outlet property="audioPlayerControl" destination="bNb-P6-22z" id="Sqw-Jc-F6e"/>
                 <outlet property="audioPlayerView" destination="xcQ-PM-FgJ" id="JFZ-uT-046"/>
                 <outlet property="backwardButton" destination="09D-g9-lGe" id="BBZ-xa-m3W"/>
                 <outlet property="backwardLabel" destination="RTH-0X-FUw" id="v3W-1Q-4wE"/>
                 <outlet property="forwardButton" destination="beZ-yx-Axz" id="3bz-WF-fl0"/>
                 <outlet property="forwardLabel" destination="ZkP-O0-O4Y" id="bVd-p7-I4A"/>
                 <outlet property="movingBarView" destination="P6D-Eu-ldB" id="VYL-4M-yYB"/>
+                <outlet property="progressBar" destination="bNb-P6-22z" id="Sqw-Jc-F6e"/>
                 <outlet property="remainingTimeLabel" destination="s6P-Os-E9n" id="5tz-Fw-6ng"/>
                 <outlet property="titleLabel" destination="v0p-ky-YSc" id="hqh-74-Zo5"/>
             </connections>
