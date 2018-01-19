@@ -6,11 +6,11 @@
 // You may obtain a copy of the License at the root of this project.
 
 
-#import "MovingBarsView.h"
+#import "XMMMovingBarsView.h"
 
 #define ARC4RANDOM_MAX      0x100000000
 
-@interface MovingBarsView()
+@interface XMMMovingBarsView()
 
 @property Boolean running;
 @property float lineWidth;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation MovingBarsView
+@implementation XMMMovingBarsView
 
 -(void)awakeFromNib {
   [super awakeFromNib];
