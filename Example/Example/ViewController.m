@@ -12,6 +12,7 @@
 #import "DetailViewController.h"
 #import <XamoomSDK/XMMOfflineStorageTagModule.h>
 #import <XamoomSDK/NSDateFormatter+ISODate.h>
+#import <XamoomSDK/XMMMusicPlayer.h>
 
 @interface ViewController ()
 
@@ -26,6 +27,7 @@
 
 @property XMMOfflineStorageTagModule *module;
 
+@property XMMMusicPlayer *player;
 @end
 
 @implementation ViewController
@@ -44,7 +46,10 @@
   
   //self.module = [[XMMOfflineStorageTagModule alloc] initWithApi:self.api];
   
-  [self displayContent];
+  //[self displayContent];
+  
+  _player = [[XMMMusicPlayer alloc] init];
+  [_player prepareWith:[[NSURL alloc] initWithString:@"https://storage.googleapis.com/xamoom-files-dev/93b258c0c2d543759471cec6f102118d.mp3"]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

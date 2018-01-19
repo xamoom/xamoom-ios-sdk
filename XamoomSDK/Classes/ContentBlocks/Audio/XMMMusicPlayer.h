@@ -6,7 +6,7 @@
 // You may obtain a copy of the License at the root of this project.
 
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
 FOUNDATION_EXPORT double XMMMusicPlayerVersionNumber;
@@ -36,24 +36,14 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 /**
  * The XMMMusicPlayer is our audio-player for streaming audio from the xamoom system.
  */
-IB_DESIGNABLE
-@interface XMMMusicPlayer : UIView
+@interface XMMMusicPlayer : NSObject
 
-@property (nonatomic, strong) IBInspectable UIColor *backgroundLineColor;
-@property (nonatomic, strong) IBInspectable UIColor *foregroundLineColor;
-@property (nonatomic) IBInspectable float lineProgress;
-@property (nonatomic) IBInspectable int lineWidth;
 @property (nonatomic, strong) AVPlayer *audioPlayer;
-@property (nonatomic, strong) NSString *remainingSongTime;
 @property (nonatomic, weak) id<XMMMusicPlayerDelegate> delegate;
 
-/**
- * Initialize the avplayer and also add the periodicTimeObserver.
- * After initialization you are able to get the song duration.
- *
- * @param mediaUrlString - String of an url to a mediafile like www.xamoom.com/song.mp3
- */
-- (void)initAudioPlayerWithUrlString:(NSString*)mediaUrlString;
+- (id)init;
+
+- (void)prepareWith:(NSURL *)url;
 
 /**
  * Audioplayer starts playing.

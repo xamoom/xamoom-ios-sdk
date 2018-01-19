@@ -12,46 +12,35 @@
 
 @interface XMMMusicPlayerTests : XCTestCase
 
+@property id mockDelegate;
+
 @end
 
 @implementation XMMMusicPlayerTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+  _mockDelegate = OCMProtocolMock(@protocol(XMMMusicPlayerDelegate));
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testReturnWhenAlreadyHavingAVPlayer {
-  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWithFrame:CGRectZero];
-  AVPlayer *player = (AVPlayer *)OCMClassMock([AVPlayer class]);
-  musicPlayer.audioPlayer = player;
+- (void)testInit {
+  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] init];
   
-  [musicPlayer initAudioPlayerWithUrlString:@"www.xamoom.com"];
+  XCTAssertNotNil(musicPlayer);
 }
 
-- (void)testPlay {
-  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWithFrame:CGRectZero];
-  AVPlayer *player = OCMPartialMock([[AVPlayer alloc] init]);
-  musicPlayer.audioPlayer = player;
+- (void)testPrepareWithUrl {
+  NSURL *url = [[NSURL alloc] initWithString:@"www.xamoom.com"];
+  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] init];
+  musicPlayer.delegate = _mockDelegate;
   
-  [musicPlayer play];
-
-  OCMVerify([player play]);
-}
-
-- (void)testPause {
-  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWithFrame:CGRectZero];
-  AVPlayer *player = OCMPartialMock([[AVPlayer alloc] init]);
-  musicPlayer.audioPlayer = player;
+  [musicPlayer prepareWith:url];
   
-  [musicPlayer pause];
-  
-  OCMVerify([player pause]);
+  OCMVerify([_mockDelegate didLoadAsset:[OCMArg any]]);
 }
 
 @end

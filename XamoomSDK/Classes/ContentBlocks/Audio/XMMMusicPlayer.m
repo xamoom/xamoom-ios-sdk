@@ -10,30 +10,44 @@
 
 @interface XMMMusicPlayer ()
 
-@property (nonatomic) CGSize drawingFrameSize;
-@property (strong, nonatomic) UIImage *audioButtonPlayIcon;
-@property (strong, nonatomic) UIImage *audioButtonPauseIcon;
-
 @end
 
-IB_DESIGNABLE
 @implementation XMMMusicPlayer
-
-@synthesize audioPlayer;
 
 #pragma mark - Initialization
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-  self = [super initWithCoder:aDecoder];
-  
+- (id)init {
+  if (self = [super init]) {
+    _audioPlayer = [[AVPlayer alloc] init];
+    [_audioPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
+  }
   return self;
 }
 
-- (void)initAudioPlayerWithUrlString:(NSString*)mediaUrlString {
-  if (self.audioPlayer) {
-    return;
+- (void)prepareWith:(NSURL *)url {
+  NSLog(@"XMMMusicPlayer - prepare ");
+  AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
+  NSArray *keys = [NSArray arrayWithObject:@"playable"];
+  AVPlayerItem *item = [[AVPlayerItem alloc] initWithAsset:asset automaticallyLoadedAssetKeys:keys];
+  [_audioPlayer replaceCurrentItemWithPlayerItem:item];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+  if (object == _audioPlayer && [keyPath isEqualToString:@"status"]) {
+    if (_audioPlayer.status == AVPlayerStatusFailed) {
+      NSLog(@"XMMMusicPlayer - AVPlayer Failed");
+    } else if (_audioPlayer.status == AVPlayerStatusReadyToPlay) {
+      NSLog(@"XMMMusicPlayer - AVPlayerStatusReadyToPlay");
+      [_audioPlayer play];
+    } else if (_audioPlayer.status == AVPlayerItemStatusUnknown) {
+      NSLog(@"XMMMusicPlayer - AVPlayer Unknown");
+    }
   }
-  
+}
+
+/*
+- (void)initAudioPlayerWithUrlString:(NSString*)mediaUrlString {
+
   //init avplayer with URL
   NSURL *mediaURL = [NSURL URLWithString:mediaUrlString];
   
@@ -82,55 +96,13 @@ IB_DESIGNABLE
           }
         }
       }
-      
-      [weakSelf setNeedsDisplay];
     }];
   }];
 }
+*/
 
 - (void)reset {
   [self.audioPlayer seekToTime:kCMTimeZero];
-  self.lineProgress = 0;
-  [self setNeedsDisplay];
-}
-
-#pragma mark - Drawing
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-  
-  self.drawingFrameSize = self.bounds.size;
-  
-  CGContextRef context = UIGraphicsGetCurrentContext();
-  
-  //background of progress
-  CGContextSetLineWidth(context, self.lineWidth);
-  
-  CGColorRef color = self.backgroundLineColor.CGColor;
-  
-  CGContextSetStrokeColorWithColor(context, color);
-  
-  CGContextMoveToPoint(context, 0, self.drawingFrameSize.height - self.lineWidth/2);
-  CGContextAddLineToPoint(context, self.drawingFrameSize.width, self.drawingFrameSize.height - self.lineWidth/2);
-  
-  CGContextStrokePath(context);
-  
-  //progress
-  CGContextSetLineWidth(context, self.lineWidth);
-  
-  CGColorRef color2 = self.foregroundLineColor.CGColor;
-  
-  CGContextSetStrokeColorWithColor(context, color2);
-  
-  CGContextMoveToPoint(context, 0, self.drawingFrameSize.height - self.lineWidth/2);
-  CGContextAddLineToPoint(context, (self.drawingFrameSize.width * self.lineProgress), self.drawingFrameSize.height - self.lineWidth/2);
-  
-  CGContextStrokePath(context);
-}
-
-- (void)layoutSubviews {
-  [super layoutSubviews];
 }
 
 #pragma mark - Audioplayer Controls
