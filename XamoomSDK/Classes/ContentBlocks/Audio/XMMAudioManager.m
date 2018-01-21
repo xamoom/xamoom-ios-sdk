@@ -53,6 +53,32 @@
 }
 
 - (void)playFileAt:(int)position {
+  XMMMediaFile *mediaFile = [_mediaFiles objectForKey:[@(position) stringValue]];
+  if (_currentMediaFile != nil) {
+    [self pauseFileAt:_currentMediaFile.position];
+  }
+  
+  _currentMediaFile = mediaFile;
+  [_musicPlayer prepareWith:_currentMediaFile.url];
+}
+
+- (void)pauseFileAt:(int)position {
+  if (_currentMediaFile == nil) {
+    return;
+  }
+  
+  [_musicPlayer pause];
+}
+
+- (void)stopFileAt:(int)position {
+  
+}
+
+- (void)seekForwardFileAt:(int)position time:(long)seekTime {
+  
+}
+
+- (void)seekBackwardFileAt:(int)position time:(long)seekTime {
   
 }
 

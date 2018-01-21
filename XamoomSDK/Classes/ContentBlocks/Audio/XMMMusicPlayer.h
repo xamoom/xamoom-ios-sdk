@@ -19,7 +19,8 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
  */
 @protocol XMMMusicPlayerDelegate <NSObject>
 
-- (void)didLoadAsset:(AVURLAsset *)asset;
+- (void)didLoadAsset:(AVAsset *)asset;
+- (void)updatePlaybackPosition:(CMTime)time;
 - (void)finishedPlayback;
 
 /**
@@ -43,6 +44,8 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 
 - (id)init;
 
+- (id)initWith:(AVPlayer *)audioPlayer;
+
 - (void)prepareWith:(NSURL *)url;
 
 /**
@@ -56,13 +59,13 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 - (void)pause;
 
 /**
- * Seeks audio 30 seconds forward.
+ * Seeks audio forward.
  */
-- (void)forward;
+- (void)forward:(long)time;
 
 /**
  * Seeks audio 30 seconds backward.
  */
-- (void)backward;
+- (void)backward:(long)time;
 
 @end

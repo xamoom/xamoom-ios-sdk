@@ -7,9 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 #import "XMMAudioManager.h"
 
 @interface XMMAudioManagerTest : XCTestCase
+
+@property XMMMusicPlayer *mockMusicPlayer;
 
 @end
 
@@ -17,6 +20,8 @@
 
 - (void)setUp {
     [super setUp];
+  
+  _mockMusicPlayer = OCMClassMock([XMMMusicPlayer class]);
 }
 
 - (void)tearDown {
@@ -53,6 +58,45 @@
   XCTAssertEqual(mediaFile1, mediaFile2);
 }
 
+- (void)testStartFileAtPosition {
+  XMMAudioManager *manager = [[XMMAudioManager alloc] init];
+  manager.musicPlayer = _mockMusicPlayer;
+  NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
+  
+  XMMMediaFile *mediaFile = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
 
+  [mediaFile start];
+  
+  OCMVerify([_mockMusicPlayer prepareWith:[OCMArg isEqual:mediaFile.url]]);
+}
+
+- (void)testStartFileAtPositionWithCurrentMediaFile {
+  XMMAudioManager *manager = [[XMMAudioManager alloc] init];
+  manager.musicPlayer = _mockMusicPlayer;
+  NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
+  
+  XMMMediaFile *mediaFile1 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  
+  [mediaFile1 start];
+  [mediaFile2 start];
+  
+  OCMVerify([_mockMusicPlayer prepareWith:[OCMArg isEqual:mediaFile1.url]]);
+  OCMVerify([_mockMusicPlayer pause]);
+  OCMVerify([_mockMusicPlayer prepareWith:[OCMArg isEqual:mediaFile2.url]]);
+}
+
+- (void)testPauseFileAtPosition {
+  XMMAudioManager *manager = [[XMMAudioManager alloc] init];
+  manager.musicPlayer = _mockMusicPlayer;
+  NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
+  
+  XMMMediaFile *mediaFile = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  
+  [mediaFile start];
+  [mediaFile pause];
+  
+  OCMVerify([_mockMusicPlayer pause]);
+}
 
 @end
