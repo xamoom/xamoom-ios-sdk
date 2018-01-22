@@ -8,10 +8,11 @@
 
 #import "XMMContentBlock1TableViewCell.h"
 
-@interface XMMContentBlock1TableViewCell ()
+@interface XMMContentBlock1TableViewCell () <XMMMediaFileDelegate>
 
 @property (nonatomic, strong) UIImage *playImage;
 @property (nonatomic, strong) UIImage *pauseImage;
+@property (nonatomic, strong) XMMMediaFile *mediaFile;
 
 @end
 
@@ -29,18 +30,19 @@
   [self.audioControlButton setImage:self.playImage
                            forState:UIControlStateNormal];
   self.audioControlButton.tintColor = UIColor.blackColor;
-
+  
   [self.forwardButton setImage:[self.forwardButton.currentImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                       forState:UIControlStateNormal];
   self.forwardButton.tintColor = UIColor.blackColor;
   [self.backwardButton setImage:[self.backwardButton.currentImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-                      forState:UIControlStateNormal];
+                       forState:UIControlStateNormal];
   self.backwardButton.tintColor = UIColor.blackColor;
   
   [super awakeFromNib];
 }
 
 - (void)prepareForReuse {
+  [super prepareForReuse];
   _progressBar.lineProgress = 0.0f;
 }
 
@@ -64,47 +66,73 @@
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
-  //self.progressBar.delegate = self;
   self.titleLabel.text = block.title;
   self.artistLabel.text = block.artists;
-  
-  _progressBar.lineProgress = 0.5f;
-  
+  NSURL *url;
   if (offline) {
-    NSURL *filePath = [self.fileManager urlForSavedData:block.fileID];
+    url = [self.fileManager urlForSavedData:block.fileID];
   } else {
+    url = [[NSURL alloc] initWithString:block.fileID];
   }
+  
+  _mediaFile = [[XMMAudioManager sharedInstance] createMediaFileForPosition:(int)indexPath.row
+                                                                        url:url
+                                                                      title:block.title
+                                                                     artist:block.artists];
+  _mediaFile.delegate = self;
+  [self didUpdatePlaybackPosition:_mediaFile.playbackPosition];
+}
+
+- (void)didStart {
+  NSLog(@"didStart");
+  self.playing = YES;
+  [self.movingBarView start];
+  [self.audioControlButton setImage:self.pauseImage forState:UIControlStateNormal];
+}
+
+- (void)didPause {
+  NSLog(@"didPause");
+  self.playing = NO;
+  [self.movingBarView stop];
+  [self.audioControlButton setImage:self.playImage forState:UIControlStateNormal];
+}
+
+- (void)didStop {
+  NSLog(@"didStop");
+  self.playing = NO;
+  [self.movingBarView stop];
+  [self.audioControlButton setImage:self.playImage forState:UIControlStateNormal];
+}
+
+- (void)didUpdatePlaybackPosition:(long)playbackPosition {
+  float progress = (float)playbackPosition/(float)self.mediaFile.duration;
+  self.progressBar.lineProgress = progress;
+  
+   float songDurationInSeconds = self.mediaFile.playbackPosition;
+   self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
 }
 
 - (IBAction)playButtonTouched:(id)sender {
   if (!self.isPlaying) {
     self.playing = YES;
-    [self.movingBarView start];
     [self.audioControlButton setImage:self.pauseImage forState:UIControlStateNormal];
+    [_mediaFile start];
   } else {
     self.playing = NO;
-    [self.movingBarView stop];
     [self.audioControlButton setImage:self.playImage forState:UIControlStateNormal];
+    [_mediaFile pause];
   }
-}
-
-- (IBAction)backwardButtonTouched:(id)sender {
 }
 
 - (IBAction)forwardButtonTouched:(id)sender {
+  [_mediaFile seekForward:30];
+}
+
+- (IBAction)backwardButtonTouched:(id)sender {
+  [_mediaFile seekBackward:30];
 }
 
 #pragma mark - XMMMMusicPlayer delegate
-
-- (void)didLoadAsset:(AVURLAsset *)asset {
-  if (asset == nil) {
-    self.remainingTimeLabel.text = @"-";
-    return;
-  }
-  
-  float songDurationInSeconds = CMTimeGetSeconds(asset.duration);
-  self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
-}
 
 - (void)finishedPlayback {
   self.playing = NO;
