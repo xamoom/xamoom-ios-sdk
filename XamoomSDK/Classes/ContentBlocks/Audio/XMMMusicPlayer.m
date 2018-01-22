@@ -43,7 +43,7 @@
   
   XMMMusicPlayer * __weak weakSelf = self;
   [_audioPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:nil usingBlock:^(CMTime time) {
-    if (weakSelf.preparing) {
+    if (!weakSelf.preparing) {
       [weakSelf.delegate updatePlaybackPosition:weakSelf.audioPlayer.currentTime];
     }
   }];
