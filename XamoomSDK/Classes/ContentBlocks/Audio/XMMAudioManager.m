@@ -7,8 +7,9 @@
 //
 
 #import "XMMAudioManager.h"
+#include <math.h>
 
-@interface XMMAudioManager() <XMMPlaybackDelegate>
+@interface XMMAudioManager() <XMMPlaybackDelegate, XMMMusicPlayerDelegate>
 
 @property (nonatomic, strong) NSMutableDictionary *mediaFiles;
 @property (nonatomic, strong) XMMMediaFile *currentMediaFile;
@@ -30,6 +31,7 @@
 - (id)init {
   if (self = [super init]) {
     _musicPlayer = [[XMMMusicPlayer alloc] init];
+    _musicPlayer.delegate = self;
     _mediaFiles = [[NSMutableDictionary alloc] init];
   }
   return self;
@@ -68,11 +70,13 @@
   }
   
   [_musicPlayer pause];
+  [_currentMediaFile didPause];
 }
 
 - (void)stopFileAt:(int)position {
   [_musicPlayer pause];
   _currentMediaFile = nil;
+  [_currentMediaFile didStop];
 }
 
 - (void)seekForwardFileAt:(int)position time:(long)seekTime {
@@ -80,8 +84,30 @@
 }
 
 - (void)seekBackwardFileAt:(int)position time:(long)seekTime {
-  
   [_musicPlayer backward:seekTime];
+}
+
+- (void)didLoadAsset:(AVAsset *)asset {
+  _currentMediaFile.duration = CMTimeGetSeconds(asset.duration);
+  
+  NSLog(@"Restart mediaPlayback with position: %ld", _currentMediaFile.playbackPosition);
+  [_musicPlayer forward:_currentMediaFile.playbackPosition];
+  
+  [_musicPlayer play];
+  [_currentMediaFile didStart];
+}
+
+- (void)updatePlaybackPosition:(CMTime)time {
+  float seconds = CMTimeGetSeconds(time);
+  if (!isnan(seconds)) {
+    NSLog(@"updatePlaybackPosition %f", seconds);
+    _currentMediaFile.playbackPosition = seconds;
+    [_currentMediaFile.delegate didUpdatePlaybackPosition:seconds];
+  }
+}
+
+- (void)finishedPlayback {
+  [_currentMediaFile.delegate didStop];
 }
 
 @end
