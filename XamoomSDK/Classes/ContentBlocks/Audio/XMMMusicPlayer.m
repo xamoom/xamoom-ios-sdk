@@ -34,6 +34,10 @@
 
 - (void)registerObservers {
   [_audioPlayer addObserver:self forKeyPath:@"status" options:0 context:nil];
+  [NSNotificationCenter.defaultCenter addObserver:self
+                                         selector:@selector(itemDidFinishPlaying:)
+                                             name:AVPlayerItemDidPlayToEndTimeNotification
+                                           object:_audioPlayer.currentItem];
   
   XMMMusicPlayer * __weak weakSelf = self;
   [_audioPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:nil usingBlock:^(CMTime time) {
@@ -41,15 +45,18 @@
   }];
 }
 
-void (^periodicTimeObserver)(CMTime) = ^void(CMTime time) {
-};
-
 - (void)prepareWith:(NSURL *)url {
-  NSLog(@"XMMMusicPlayer - prepare ");
   AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
-  NSArray *keys = [NSArray arrayWithObject:@"playable"];
-  AVPlayerItem *item = [[AVPlayerItem alloc] initWithAsset:asset automaticallyLoadedAssetKeys:keys];
-  [_audioPlayer replaceCurrentItemWithPlayerItem:item];
+  
+  [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
+    NSArray *keys = [NSArray arrayWithObject:@"playable"];
+    AVPlayerItem *item = [[AVPlayerItem alloc] initWithAsset:asset automaticallyLoadedAssetKeys:keys];
+    [_audioPlayer replaceCurrentItemWithPlayerItem:item];
+    
+    if (_audioPlayer.status == AVPlayerStatusReadyToPlay) {
+      [_delegate didLoadAsset:_audioPlayer.currentItem.asset];
+    }
+  }];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
@@ -65,6 +72,17 @@ void (^periodicTimeObserver)(CMTime) = ^void(CMTime time) {
   }
 }
 
+- (void)itemDidFinishPlaying:(NSNotification *) notification {
+  [self pause];
+  [self seekToStart];
+  [_delegate finishedPlayback];
+}
+
+- (void)seekToStart {
+  CMTime time = CMTimeMake(0, _audioPlayer.currentTime.timescale);
+  [_audioPlayer seekToTime:time];
+}
+
 #pragma mark - Audioplayer Controls
 
 - (void)play {
@@ -76,12 +94,12 @@ void (^periodicTimeObserver)(CMTime) = ^void(CMTime time) {
 }
 
 - (void)forward:(long)time {
-  CMTime newTime = CMTimeAdd(self.audioPlayer.currentTime, CMTimeMake(30, self.audioPlayer.currentTime.timescale));
+  CMTime newTime = CMTimeAdd(self.audioPlayer.currentTime, CMTimeMakeWithSeconds(time, _audioPlayer.currentTime.timescale));
   [self.audioPlayer seekToTime:newTime];
 }
 
 - (void)backward:(long)time {
-  CMTime newTime = CMTimeSubtract(self.audioPlayer.currentTime, CMTimeMake(30, self.audioPlayer.currentTime.timescale));
+  CMTime newTime = CMTimeSubtract(self.audioPlayer.currentTime, CMTimeMakeWithSeconds(time, _audioPlayer.currentTime.timescale));
   [self.audioPlayer seekToTime:newTime];
 }
 
