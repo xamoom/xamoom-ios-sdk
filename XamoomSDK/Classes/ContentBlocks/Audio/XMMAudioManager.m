@@ -71,15 +71,17 @@
 }
 
 - (void)stopFileAt:(int)position {
-  
+  [_musicPlayer pause];
+  _currentMediaFile = nil;
 }
 
 - (void)seekForwardFileAt:(int)position time:(long)seekTime {
-  
+  [_musicPlayer forward:seekTime];
 }
 
 - (void)seekBackwardFileAt:(int)position time:(long)seekTime {
   
+  [_musicPlayer backward:seekTime];
 }
 
 @end
