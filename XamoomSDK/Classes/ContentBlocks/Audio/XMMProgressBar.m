@@ -62,4 +62,9 @@ IB_DESIGNABLE
   [super layoutSubviews];
 }
 
+- (void)setLineProgress:(float)lineProgress {
+  _lineProgress = lineProgress;
+  [self setNeedsDisplay];
+}
+
 @end
