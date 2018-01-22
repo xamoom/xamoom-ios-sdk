@@ -13,6 +13,7 @@
 @interface XMMAudioManager : NSObject <XMMPlaybackDelegate>
 
 @property (nonatomic, strong) XMMMusicPlayer *musicPlayer;
+@property (nonatomic, strong) NSNumber *seekTimeForControlCenter;
 
 + (id)sharedInstance;
 

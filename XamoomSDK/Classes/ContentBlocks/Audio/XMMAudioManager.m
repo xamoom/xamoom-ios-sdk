@@ -6,8 +6,10 @@
 //  Copyright © 2018 xamoom GmbH. All rights reserved.
 //
 
-#import "XMMAudioManager.h"
 #include <math.h>
+
+#import "XMMAudioManager.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface XMMAudioManager() <XMMPlaybackDelegate, XMMMusicPlayerDelegate>
 
@@ -33,8 +35,41 @@
     _musicPlayer = [[XMMMusicPlayer alloc] init];
     _musicPlayer.delegate = self;
     _mediaFiles = [[NSMutableDictionary alloc] init];
+    _seekTimeForControlCenter = @(30);
+    [self setupAudioSession];
+    [self setupControlCenterCommands];
   }
   return self;
+}
+
+- (void)setupAudioSession {
+  NSError *myErr;
+  if (![[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&myErr]) {
+    NSLog(@"Audio Session error %@, %@", myErr, [myErr userInfo]);
+  } else{
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+  }
+}
+
+- (void)setupControlCenterCommands {
+  MPRemoteCommandCenter *rcc = [MPRemoteCommandCenter sharedCommandCenter];
+  MPSkipIntervalCommand *skipBackwardIntervalCommand = [rcc skipBackwardCommand];
+  [skipBackwardIntervalCommand setEnabled:YES];
+  [skipBackwardIntervalCommand addTarget:self action:@selector(skipBackwardEvent:)];
+  skipBackwardIntervalCommand.preferredIntervals = @[_seekTimeForControlCenter];
+  
+  MPSkipIntervalCommand *skipForwardIntervalCommand = [rcc skipForwardCommand];
+  skipForwardIntervalCommand.preferredIntervals = @[_seekTimeForControlCenter];
+  [skipForwardIntervalCommand setEnabled:YES];
+  [skipForwardIntervalCommand addTarget:self action:@selector(skipForwardEvent:)];
+  
+  MPRemoteCommand *pauseCommand = [rcc pauseCommand];
+  [pauseCommand setEnabled:YES];
+  [pauseCommand addTarget:self action:@selector(pauseEvent:)];
+  
+  MPRemoteCommand *playCommand = [rcc playCommand];
+  [playCommand setEnabled:YES];
+  [playCommand addTarget:self action:@selector(playEvent:)];
 }
 
 - (XMMMediaFile *)createMediaFileForPosition:(int)position url:(NSURL *)url title:(NSString *)title artist:(NSString *)artist {
@@ -56,9 +91,7 @@
 
 - (void)playFileAt:(int)position {
   XMMMediaFile *mediaFile = [_mediaFiles objectForKey:[@(position) stringValue]];
-  if (_currentMediaFile == nil ||
-      _currentMediaFile != mediaFile) {
-    NSLog(@"prepare");
+  if (_currentMediaFile == nil || _currentMediaFile != mediaFile) {
     if (_currentMediaFile != nil) {
       [_currentMediaFile pause];
     }
@@ -84,6 +117,7 @@
   [_musicPlayer pause];
   _currentMediaFile = nil;
   [_currentMediaFile didStop];
+  [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
 }
 
 - (void)seekForwardFileAt:(int)position time:(long)seekTime {
@@ -97,24 +131,70 @@
 - (void)didLoadAsset:(AVAsset *)asset {
   _currentMediaFile.duration = CMTimeGetSeconds(asset.duration);
   
-  NSLog(@"Restart mediaPlayback with position: %ld", _currentMediaFile.playbackPosition);
   [_musicPlayer forward:_currentMediaFile.playbackPosition];
   
   [_musicPlayer play];
+  [self updateInfoCenterMedia];
   [_currentMediaFile didStart];
 }
 
 - (void)updatePlaybackPosition:(CMTime)time {
   float seconds = CMTimeGetSeconds(time);
   if (!isnan(seconds)) {
-    NSLog(@"updatePlaybackPosition %f", seconds);
     _currentMediaFile.playbackPosition = seconds;
+    [self updateInfoCenterMedia];
     [_currentMediaFile.delegate didUpdatePlaybackPosition:seconds];
   }
 }
 
 - (void)finishedPlayback {
   [_currentMediaFile.delegate didStop];
+}
+
+#pragma mark - MPRemoteControlCenter
+
+- (void)skipBackwardEvent:(MPSkipIntervalCommandEvent *)skipEvent {
+  [_currentMediaFile seekBackward:skipEvent.interval];
+}
+
+- (void)skipForwardEvent:(MPSkipIntervalCommandEvent *)skipEvent {
+  [_currentMediaFile seekForward:skipEvent.interval];
+}
+
+- (void)playEvent:(MPRemoteCommandEvent *)event {
+  [_currentMediaFile start];
+}
+
+- (void)pauseEvent:(MPRemoteCommandEvent *)event {
+  [_currentMediaFile pause];
+}
+
+- (void)updateInfoCenterMedia {
+  NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
+  if (_currentMediaFile.title != nil) {
+    [songInfo setObject:_currentMediaFile.title
+                 forKey:MPMediaItemPropertyTitle];
+  }
+  
+  if (_currentMediaFile.artist != nil) {
+    [songInfo setObject:_currentMediaFile.artist
+                 forKey:MPMediaItemPropertyArtist];
+  }
+  
+  if (_currentMediaFile.duration > 0) {
+    [songInfo setObject:@(_currentMediaFile.duration)
+                 forKey:MPMediaItemPropertyPlaybackDuration];
+  }
+  
+  if (_currentMediaFile.playbackPosition > 0) {
+    [songInfo setObject:@(_currentMediaFile.playbackPosition)
+                 forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+  }
+  
+  [songInfo setObject:@(1.0)
+               forKey:MPNowPlayingInfoPropertyPlaybackRate];
+  
+  [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
 }
 
 @end
