@@ -10,6 +10,8 @@
 
 @interface XMMMusicPlayer ()
 
+@property Boolean preparing;
+
 @end
 
 @implementation XMMMusicPlayer
@@ -41,20 +43,25 @@
   
   XMMMusicPlayer * __weak weakSelf = self;
   [_audioPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 60) queue:nil usingBlock:^(CMTime time) {
-    [weakSelf.delegate updatePlaybackPosition:weakSelf.audioPlayer.currentTime];
+    if (weakSelf.preparing) {
+      [weakSelf.delegate updatePlaybackPosition:weakSelf.audioPlayer.currentTime];
+    }
   }];
 }
 
 - (void)prepareWith:(NSURL *)url {
+  _preparing = YES;
   AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
   
   [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
     NSArray *keys = [NSArray arrayWithObject:@"playable"];
     AVPlayerItem *item = [[AVPlayerItem alloc] initWithAsset:asset automaticallyLoadedAssetKeys:keys];
+    
     [_audioPlayer replaceCurrentItemWithPlayerItem:item];
     
     if (_audioPlayer.status == AVPlayerStatusReadyToPlay) {
       [_delegate didLoadAsset:_audioPlayer.currentItem.asset];
+      _preparing = NO;
     }
   }];
 }
@@ -66,6 +73,7 @@
     } else if (_audioPlayer.status == AVPlayerStatusReadyToPlay) {
       NSLog(@"XMMMusicPlayer - AVPlayerStatusReadyToPlay");
       [_delegate didLoadAsset:_audioPlayer.currentItem.asset];
+      _preparing = NO;
     } else if (_audioPlayer.status == AVPlayerItemStatusUnknown) {
       NSLog(@"XMMMusicPlayer - AVPlayer Unknown");
     }
