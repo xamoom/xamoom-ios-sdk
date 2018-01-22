@@ -25,8 +25,8 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *artist;
 @property (nonatomic, strong) NSString *album;
-@property (nonatomic, assign) long duration;
-@property (nonatomic, assign) long playbackPosition;
+@property (nonatomic, assign) float duration;
+@property (nonatomic, assign) float playbackPosition;
 @property (nonatomic, strong) id<XMMMediaFileDelegate> delegate;
 @property (nonatomic, strong) id<XMMPlaybackDelegate> playbackDelegate;
 
