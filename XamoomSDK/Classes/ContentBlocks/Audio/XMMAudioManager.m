@@ -56,12 +56,19 @@
 
 - (void)playFileAt:(int)position {
   XMMMediaFile *mediaFile = [_mediaFiles objectForKey:[@(position) stringValue]];
-  if (_currentMediaFile != nil) {
-    [self pauseFileAt:_currentMediaFile.position];
+  if (_currentMediaFile == nil ||
+      _currentMediaFile != mediaFile) {
+    NSLog(@"prepare");
+    if (_currentMediaFile != nil) {
+      [_currentMediaFile pause];
+    }
+    
+    _currentMediaFile = mediaFile;
+    [_musicPlayer prepareWith:_currentMediaFile.url];
+  } else {
+    [_musicPlayer play];
+    [_currentMediaFile didStart];
   }
-  
-  _currentMediaFile = mediaFile;
-  [_musicPlayer prepareWith:_currentMediaFile.url];
 }
 
 - (void)pauseFileAt:(int)position {
