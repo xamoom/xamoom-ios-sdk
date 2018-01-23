@@ -198,4 +198,9 @@
   [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:songInfo];
 }
 
+- (void)resetMediaFiles {
+  [_mediaFiles removeAllObjects];
+  [_mediaFiles setObject:_currentMediaFile forKey:[@(_currentMediaFile.position) stringValue]];
+}
+
 @end

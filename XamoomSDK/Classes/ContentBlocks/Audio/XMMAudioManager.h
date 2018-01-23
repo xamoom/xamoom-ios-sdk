@@ -21,4 +21,6 @@
 
 - (XMMMediaFile *)mediaFileForPosition:(int)position;
 
+- (void)resetMediaFiles;
+
 @end

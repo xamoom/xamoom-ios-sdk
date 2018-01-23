@@ -99,4 +99,24 @@
   OCMVerify([_mockMusicPlayer pause]);
 }
 
+- (void)testReset {
+  XMMAudioManager *manager = [[XMMAudioManager alloc] init];
+  manager.musicPlayer = _mockMusicPlayer;
+  NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
+  
+  XMMMediaFile *mediaFile1 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:1 url:url title:@"title" artist:@"artist"];
+  
+  [mediaFile1 start];
+  [mediaFile2 start];
+  
+  [manager resetMediaFiles];
+  
+  XMMMediaFile *checkMediaFile1 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *checkMediaFile2 = [manager createMediaFileForPosition:1 url:url title:@"title" artist:@"artist"];
+
+  XCTAssertNotEqual(checkMediaFile1, mediaFile1);
+  XCTAssertEqual(checkMediaFile2, mediaFile2);
+}
+
 @end
