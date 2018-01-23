@@ -68,6 +68,11 @@
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   self.titleLabel.text = block.title;
   self.artistLabel.text = block.artists;
+  
+  if (block.fileID == nil) {
+    return;
+  }
+  
   NSURL *url;
   if (offline) {
     url = [self.fileManager urlForSavedData:block.fileID];
