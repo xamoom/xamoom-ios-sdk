@@ -67,7 +67,7 @@
 
   [mediaFile start];
   
-  OCMVerify([_mockMusicPlayer prepareWith:[OCMArg isEqual:mediaFile.url]]);
+  OCMVerify([_mockMusicPlayer prepareWith:[OCMArg any]]);
 }
 
 - (void)testStartFileAtPositionWithCurrentMediaFile {
@@ -76,14 +76,14 @@
   NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
   
   XMMMediaFile *mediaFile1 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
-  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:1 url:url title:@"title" artist:@"artist"];
   
   [mediaFile1 start];
   [mediaFile2 start];
   
-  OCMVerify([_mockMusicPlayer prepareWith:[OCMArg isEqual:mediaFile1.url]]);
+  OCMVerify([_mockMusicPlayer prepareWith:[OCMArg any]]);
   OCMVerify([_mockMusicPlayer pause]);
-  OCMVerify([_mockMusicPlayer prepareWith:[OCMArg isEqual:mediaFile2.url]]);
+  OCMVerify([_mockMusicPlayer prepareWith:[OCMArg any]]);
 }
 
 - (void)testPauseFileAtPosition {

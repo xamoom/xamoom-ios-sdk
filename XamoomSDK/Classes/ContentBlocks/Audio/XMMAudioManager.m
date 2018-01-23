@@ -97,7 +97,8 @@
     }
     
     _currentMediaFile = mediaFile;
-    [_musicPlayer prepareWith:_currentMediaFile.url];
+    [_musicPlayer prepareWith:
+     [[AVURLAsset alloc] initWithURL:_currentMediaFile.url options:nil]];
   } else {
     [_musicPlayer play];
     [_currentMediaFile didStart];

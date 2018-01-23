@@ -49,10 +49,8 @@
   }];
 }
 
-- (void)prepareWith:(NSURL *)url {
+- (void)prepareWith:(AVURLAsset *)asset {
   _preparing = YES;
-  AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
-  
   [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
     NSArray *keys = [NSArray arrayWithObject:@"playable"];
     AVPlayerItem *item = [[AVPlayerItem alloc] initWithAsset:asset automaticallyLoadedAssetKeys:keys];

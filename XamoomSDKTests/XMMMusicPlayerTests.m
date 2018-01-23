@@ -36,15 +36,19 @@
   XCTAssertNotNil(musicPlayer);
 }
 
-- (void)testPrepareWithUrl {
-  NSURL *url = [[NSURL alloc] initWithString:@"https://storage.googleapis.com/xamoom-files-dev/93b258c0c2d543759471cec6f102118d.mp3"];
+- (void)testPrepareWith {
   XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWith:_mockPlayer];
   musicPlayer.delegate = _mockDelegate;
+  NSURL *url = [[NSURL alloc] initWithString:@"https://storage.googleapis.com/xamoom-files-dev/93b258c0c2d543759471cec6f102118d.mp3"];
+  AVURLAsset *mockAsset = OCMPartialMock([[AVURLAsset alloc] initWithURL:url options:0]);
+  OCMStub([mockAsset loadValuesAsynchronouslyForKeys:[OCMArg any] completionHandler:[OCMArg any]]).
+  _andDo(^(NSInvocation *invoke) {
+    void (^stubResponse)(void);
+    [invoke getArgument:&stubResponse atIndex:3];
+    stubResponse();
+  });
   
-  [musicPlayer prepareWith:url];
-  [musicPlayer observeValueForKeyPath:@"status"
-                             ofObject:_mockPlayer
-                               change:nil context:nil];
+  [musicPlayer prepareWith:mockAsset];
   
   OCMVerify([_mockPlayer replaceCurrentItemWithPlayerItem:[OCMArg any]]);
 }

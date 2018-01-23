@@ -46,7 +46,7 @@ FOUNDATION_EXPORT const unsigned char XMMMusicPlayerVersionString[];
 
 - (id)initWith:(AVPlayer *)audioPlayer;
 
-- (void)prepareWith:(NSURL *)url;
+- (void)prepareWith:(AVURLAsset *)asset;
 
 /**
  * Audioplayer starts playing.
