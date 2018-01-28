@@ -34,14 +34,14 @@
 
 #pragma mark - XMMEnduserApi
 
-extern NSString * const kApiBaseURLString;
+extern NSString * _Nonnull const kApiBaseURLString;
 
 
 /**
  * `XMMEnduserApi` is the main part of the XamoomSDK. You can use it to send api request to the xamoom-api.
  *
  * Use initWithApiKey: to initialize.
- * 
+ *
  * Change the requested language by setting the language. The users language is
  * saved in systemLanguage.
  *
@@ -55,19 +55,19 @@ extern NSString * const kApiBaseURLString;
 /**
  * The preferred language of the user.
  */
-@property (strong, nonatomic) NSString *systemLanguage;
+@property (strong, nonatomic, nonnull) NSString *systemLanguage;
 /**
  * Language used in api calls.
  */
-@property (strong, nonatomic) NSString *language;
+@property (strong, nonatomic, nonnull) NSString *language;
 /**
  * XMMRestClient used to call rest api.
  */
-@property (strong, nonatomic) XMMRestClient *restClient;
+@property (strong, nonatomic, nonnull) XMMRestClient *restClient;
 /**
  * XMMOfflineApi used when offline is set.
  */
-@property (strong, nonatomic) XMMOfflineApi *offlineApi;
+@property (strong, nonatomic, nonnull) XMMOfflineApi *offlineApi;
 /**
  * Indicator to use the XMMOfflineApi.
  */
@@ -80,14 +80,14 @@ extern NSString * const kApiBaseURLString;
  * created with sharedInstanceWithKey:apikey or set via
  * saveSharedInstance:instance.
  */
-+ (instancetype)sharedInstance;
++ (instancetype _Nonnull)sharedInstance;
 
 /**
  * Get the sharedInstance, when there is none, creates a new one with apikey.
  *
  * @param apikey Your xamoom api key
  */
-+ (instancetype)sharedInstanceWithKey:(NSString *)apikey;
++ (instancetype _Nonnull)sharedInstanceWithKey:(NSString * _Nonnull)apikey;
 
 /**
  * Change the saved sharedInstance.
@@ -95,24 +95,24 @@ extern NSString * const kApiBaseURLString;
  * @param instance Your XMMEnduserApi instance you want to save
  * @warning will override old instance.
  */
-+ (void)saveSharedInstance:(XMMEnduserApi *)instance;
++ (void)saveSharedInstance:(XMMEnduserApi * _Nonnull)instance;
 
 /// @name Initializers
 
 /**
  * Initializes with a apikey. You find your apikey in your xamoom system in
  * Settings.
- * 
+ *
  * @param apikey Your xamoom api key
  */
-- (instancetype)initWithApiKey:(NSString *)apikey;
+- (instancetype _Nonnull)initWithApiKey:(NSString * _Nonnull)apikey;
 
 /**
  * Initializes with a custom XMMRestClient.
- * 
+ *
  * @param restClient Custom XMMRestClient
  */
-- (instancetype)initWithRestClient:(XMMRestClient *)restClient;
+- (instancetype _Nonnull)initWithRestClient:(XMMRestClient * _Nonnull)restClient;
 
 /// @name API Calls
 
@@ -126,7 +126,9 @@ extern NSString * const kApiBaseURLString;
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion;
+- (void)contentWithID:(NSString * _Nonnull)contentID
+           completion:(void(^_Nullable)(XMMContent * _Nullable content,
+                                        NSError * _Nullable error))completion;
 
 /**
  * API call to get content with specific ID and options.
@@ -137,7 +139,10 @@ extern NSString * const kApiBaseURLString;
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (void)contentWithID:(NSString * _Nonnull)contentID
+              options:(XMMContentOptions)options
+           completion:(void (^ _Nullable)(XMMContent * _Nullable content,
+                                          NSError * _Nullable error))completion;
 
 /**
  * API call to get content with specific location-identifier.
@@ -147,7 +152,9 @@ extern NSString * const kApiBaseURLString;
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (void)contentWithLocationIdentifier:(NSString * _Nonnull)locationIdentifier
+                           completion:(void (^ _Nullable)(XMMContent * _Nullable content,
+                                                          NSError * _Nullable error))completion;
 
 /**
  * API call to get content with specific location-identifier with options.
@@ -158,7 +165,10 @@ extern NSString * const kApiBaseURLString;
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (void)contentWithLocationIdentifier:(NSString * _Nonnull)locationIdentifier
+                              options:(XMMContentOptions)options
+                           completion:(void (^ _Nullable)(XMMContent * _Nullable content,
+                                                          NSError * _Nullable error))completion;
 
 /**
  * API call to get content with beacon.
@@ -169,7 +179,10 @@ extern NSString * const kApiBaseURLString;
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (void)contentWithBeaconMajor:(NSNumber * _Nonnull)major
+                         minor:(NSNumber * _Nonnull)minor
+                    completion:(void (^ _Nullable)(XMMContent * _Nullable content,
+                                                   NSError * _Nullable error))completion;
 
 /**
  * API call to get content with beacon.
@@ -181,7 +194,11 @@ extern NSString * const kApiBaseURLString;
  * - *param1* content Content from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion;
+- (void)contentWithBeaconMajor:(NSNumber * _Nonnull)major
+                         minor:(NSNumber * _Nonnull)minor
+                       options:(XMMContentOptions)options
+                    completion:(void (^ _Nullable)(XMMContent * _Nullable content,
+                                                   NSError * _Nullable error))completion;
 
 /**
  * API call to get contents around location (40m).
@@ -196,11 +213,18 @@ extern NSString * const kApiBaseURLString;
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)contentsWithLocation:(CLLocation *)location pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)contentsWithLocation:(CLLocation * _Nonnull)location
+                    pageSize:(int)pageSize
+                      cursor:(NSString * _Nullable)cursor
+                        sort:(XMMContentSortOptions)sortOptions
+                  completion:(void (^_Nullable)(NSArray * _Nullable contents,
+                                                bool hasMore,
+                                                NSString * _Nullable cursor,
+                                                NSError * _Nullable error))completion;
 
 /**
  * API call to get contents with specific tags.
- * 
+ *
  * @param tags Array of tags
  * @param pageSize PageSize you want to get from xamoom cloud
  * @param cursor Needed when paging, can be null
@@ -211,7 +235,14 @@ extern NSString * const kApiBaseURLString;
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)contentsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)contentsWithTags:(NSArray * _Nonnull)tags
+                pageSize:(int)pageSize
+                  cursor:(NSString * _Nullable)cursor
+                    sort:(XMMContentSortOptions)sortOptions
+              completion:(void (^ _Nullable)(NSArray * _Nullable contents,
+                                             bool hasMore,
+                                             NSString * _Nullable cursor,
+                                             NSError * _Nullable error))completion;
 
 /**
  * API call to fulltext-search contents for name and tags.
@@ -226,7 +257,14 @@ extern NSString * const kApiBaseURLString;
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)contentsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor sort:(XMMContentSortOptions)sortOptions completion:(void (^)(NSArray *contents, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)contentsWithName:(NSString * _Nonnull)name
+                pageSize:(int)pageSize
+                  cursor:(NSString * _Nullable)cursor
+                    sort:(XMMContentSortOptions)sortOptions
+              completion:(void (^ _Nullable)(NSArray * _Nullable contents,
+                                             bool hasMore,
+                                             NSString * _Nullable cursor,
+                                             NSError * _Nullable error))completion;
 
 /**
  * API call to get a spot with specific id.
@@ -236,7 +274,9 @@ extern NSString * const kApiBaseURLString;
  * - *param1* spot The returned spot
  * - *param2* error NSError, can be null
  */
-- (void)spotWithID:(NSString *)spotID completion:(void(^)(XMMSpot *spot, NSError *error))completion;
+- (void)spotWithID:(NSString * _Nonnull)spotID
+        completion:(void(^ _Nullable)(XMMSpot * _Nullable spot,
+                                      NSError * _Nullable error))completion;
 
 /**
  * API call to get a spot with specific id.
@@ -247,11 +287,14 @@ extern NSString * const kApiBaseURLString;
  * - *param1* spot The returned spot
  * - *param2* error NSError, can be null
  */
-- (void)spotWithID:(NSString *)spotID options:(XMMSpotOptions)options completion:(void(^)(XMMSpot *spot, NSError *error))completion;
+- (void)spotWithID:(NSString * _Nonnull)spotID
+           options:(XMMSpotOptions)options
+        completion:(void(^ _Nullable)(XMMSpot * _Nullable spot,
+                                      NSError *_Nullable error))completion;
 
 /**
  * API call to get spots inside radius of a location.
- * 
+ *
  * @param location Location of the user
  * @param radius Radius in meter
  * @param options XMMSpotOptions to get markers or content
@@ -260,7 +303,14 @@ extern NSString * const kApiBaseURLString;
  * - *param1* spots Spots from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)spotsWithLocation:(CLLocation * _Nonnull)location
+                   radius:(int)radius
+                  options:(XMMSpotOptions)options
+                     sort:(XMMSpotSortOptions)sortOptions
+               completion:(void (^ _Nullable)(NSArray * _Nullable spots,
+                                              bool hasMore,
+                                              NSString * _Nullable cursor,
+                                              NSError * _Nullable error))completion;
 
 /**
  * API call to get spots inside radius of a location.
@@ -277,7 +327,16 @@ extern NSString * const kApiBaseURLString;
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)spotsWithLocation:(CLLocation *)location radius:(int)radius options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions pageSize:(int)pageSize cursor:(NSString *)cursor completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)spotsWithLocation:(CLLocation * _Nonnull)location
+                   radius:(int)radius
+                  options:(XMMSpotOptions)options
+                     sort:(XMMSpotSortOptions)sortOptions
+                 pageSize:(int)pageSize
+                   cursor:(NSString * _Nullable)cursor
+               completion:(void (^ _Nullable)(NSArray * _Nullable spots,
+                                              bool hasMore,
+                                              NSString * _Nullable cursor,
+                                              NSError * _Nullable error))completion;
 
 /**
  * API call to get spots with specific tags. Returns max. 100 spots.
@@ -291,7 +350,13 @@ extern NSString * const kApiBaseURLString;
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)spotsWithTags:(NSArray *)tags options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)spotsWithTags:(NSArray * _Nonnull)tags
+              options:(XMMSpotOptions)options
+                 sort:(XMMSpotSortOptions)sortOptions
+           completion:(void (^ _Nullable)(NSArray * _Nullable spots,
+                                          bool hasMore,
+                                          NSString * _Nullable cursor,
+                                          NSError * _Nullable error))completion;
 
 /**
  * API call to get spots with specific tags.
@@ -307,7 +372,15 @@ extern NSString * const kApiBaseURLString;
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)spotsWithTags:(NSArray *)tags pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)spotsWithTags:(NSArray * _Nonnull)tags
+             pageSize:(int)pageSize
+               cursor:(NSString * _Nullable)cursor
+              options:(XMMSpotOptions)options
+                 sort:(XMMSpotSortOptions)sortOptions
+           completion:(void (^ _Nullable)(NSArray * _Nullable spots,
+                                          bool hasMore,
+                                          NSString * _Nullable cursor,
+                                          NSError * _Nullable error))completion;
 
 /**
  * API call to fulltext-search spots by name.
@@ -323,16 +396,25 @@ extern NSString * const kApiBaseURLString;
  * - *param3* cursor Cursor for paging
  * - *param4* error NSError, can be null
  */
-- (void)spotsWithName:(NSString *)name pageSize:(int)pageSize cursor:(NSString *)cursor options:(XMMSpotOptions)options sort:(XMMSpotSortOptions)sortOptions completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion;
+- (void)spotsWithName:(NSString * _Nonnull)name
+             pageSize:(int)pageSize
+               cursor:(NSString * _Nullable)cursor
+              options:(XMMSpotOptions)options
+                 sort:(XMMSpotSortOptions)sortOptions
+           completion:(void (^ _Nullable)(NSArray * _Nullable spots,
+                                          bool hasMore,
+                                          NSString * _Nullable cursor,
+                                          NSError * _Nullable error))completion;
 
 /**
  * API call that returns your system.
- * 
+ *
  * @param completion Completion block called after finishing network request
  * - *param1* system System from xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)systemWithCompletion:(void (^)(XMMSystem *system, NSError *error))completion;
+- (void)systemWithCompletion:(void (^ _Nullable)(XMMSystem * _Nullable system,
+                                                 NSError * _Nullable error))completion;
 
 /**
  * API call that returns your system settings.
@@ -342,7 +424,9 @@ extern NSString * const kApiBaseURLString;
  * - *param1* settings System settings from your xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)systemSettingsWithID:(NSString *)settingsID completion:(void (^)(XMMSystemSettings *settings, NSError *error))completion;
+- (void)systemSettingsWithID:(NSString * _Nonnull)settingsID
+                  completion:(void (^ _Nullable )(XMMSystemSettings * _Nullable settings,
+                                                  NSError * _Nullable error))completion;
 
 /**
  * API call that returns your system style.
@@ -352,7 +436,9 @@ extern NSString * const kApiBaseURLString;
  * - *param1* style System style from your xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)styleWithID:(NSString *)styleID completion:(void (^)(XMMStyle *style, NSError *error))completion;
+- (void)styleWithID:(NSString * _Nonnull)styleID
+         completion:(void (^ _Nullable )(XMMStyle * _Nullable style,
+                                         NSError * _Nullable error))completion;
 
 /**
  * API call that returns your menu.
@@ -362,6 +448,8 @@ extern NSString * const kApiBaseURLString;
  * - *param1* style System style from your xamoom system
  * - *param2* error NSError, can be null
  */
-- (void)menuWithID:(NSString *)menuID completion:(void (^)(XMMMenu *menu, NSError *error))completion;
+- (void)menuWithID:(NSString * _Nonnull)menuID
+        completion:(void (^ _Nullable)(XMMMenu * _Nullable menu,
+                                       NSError * _Nullable error))completion;
 
 @end
