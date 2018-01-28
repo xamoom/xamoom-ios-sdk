@@ -134,11 +134,11 @@
   
   [[[NSURLSession sharedSession] dataTaskWithURL:fileURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
     JAMSVGImage *svgImage = [JAMSVGImage imageWithSVGData:data];
-    
     float ratio = svgImage.size.width/svgImage.size.height;
-    UIImage *image = [svgImage imageAtSize:CGSizeMake(self.bounds.size.width, self.bounds.size.width*ratio)];
 
     dispatch_async(dispatch_get_main_queue(), ^{
+      UIImage *image = [svgImage imageAtSize:CGSizeMake(self.bounds.size.width, self.bounds.size.width*ratio)];
+      
       XMMContentBlock3TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
       cell.blockImageView.image = image;
       
