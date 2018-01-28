@@ -43,6 +43,7 @@ static UIColor *contentLinkColor;
 }
 
 - (void)prepareForReuse {
+  [super prepareForReuse];
   self.titleLabel.text = @"";
   self.contentTextView.text = @"";
 }

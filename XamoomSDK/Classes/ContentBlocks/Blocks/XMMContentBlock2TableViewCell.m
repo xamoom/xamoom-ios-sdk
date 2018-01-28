@@ -51,6 +51,7 @@
 }
 
 - (void)prepareForReuse {
+  [super prepareForReuse];
   self.videoPlayer = nil;
   self.titleLabel.text = nil;
   self.webView.hidden = YES;

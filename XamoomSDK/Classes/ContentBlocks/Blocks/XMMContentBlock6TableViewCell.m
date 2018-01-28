@@ -53,6 +53,7 @@ static NSString *contentLanguage;
 }
 
 - (void)prepareForReuse {
+  [super prepareForReuse];
   self.contentID = nil;
   self.contentImageView.image = nil;
   self.contentTitleLabel.text = nil;
