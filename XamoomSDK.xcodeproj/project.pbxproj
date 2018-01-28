@@ -168,6 +168,7 @@
 		88B3902D1DA3AF8600216478 /* XMMCDMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B3902B1DA3AF8600216478 /* XMMCDMenu.m */; };
 		88B90D491E1A974C00B99E10 /* XMMContentBlock9TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B90D481E1A974C00B99E10 /* XMMContentBlock9TableViewCellTest.m */; };
 		88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B962901C7F00530096993D /* UIColor+HexStringTests.m */; };
+		88C548EA201E7CBE001955E7 /* XamoomSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E46DE31C47E117004D8AC3 /* XamoomSDK.h */; };
 		88C5CCD01DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C5CCCF1DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m */; };
 		88CBA9651E93794200FC6B90 /* MovingBarsView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88CBA9631E93794200FC6B90 /* MovingBarsView.h */; };
 		88CBA9661E93794200FC6B90 /* MovingBarsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CBA9641E93794200FC6B90 /* MovingBarsView.m */; };
@@ -198,7 +199,6 @@
 		88E46F321C493453004D8AC3 /* XMMRestClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46F311C493453004D8AC3 /* XMMRestClientTest.m */; };
 		88E46F341C49345C004D8AC3 /* XMMQueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E46F331C49345C004D8AC3 /* XMMQueryTest.m */; };
 		88E46F361C49374A004D8AC3 /* XamoomSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 88E46F351C49374A004D8AC3 /* XamoomSDK.podspec */; };
-		88F0945F1DBD0CAF0072E9CA /* XMMOfflineStorageTagModule.h in Sources */ = {isa = PBXBuildFile; fileRef = 88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */; };
 		88F581FD1C5213D3003D7C49 /* contentPublicOnly.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F581FC1C5213D3003D7C49 /* contentPublicOnly.json */; };
 		88F582041C522AA0003D7C49 /* content.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F582031C522AA0003D7C49 /* content.json */; };
 		88FE68C11C4E380300E9A32A /* XMMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FE68BF1C4E380300E9A32A /* XMMMenu.h */; };
@@ -885,6 +885,7 @@
 				884937561C75C82100C53520 /* UIColor+HexString.h in Headers */,
 				88CBA9651E93794200FC6B90 /* MovingBarsView.h in Headers */,
 				88FE68C11C4E380300E9A32A /* XMMMenu.h in Headers */,
+				88C548EA201E7CBE001955E7 /* XamoomSDK.h in Headers */,
 				8853CBA01D9CEAE8009BD14E /* XMMParamHelper.h in Headers */,
 				88B3901F1DA294D600216478 /* XMMCDResource.h in Headers */,
 				888F4F681DA52C94000E49CE /* XMMCDSpot.h in Headers */,
@@ -1277,7 +1278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				88482D781E37961700B28293 /* XMMSimpleStorage.m in Sources */,
-				88F0945F1DBD0CAF0072E9CA /* XMMOfflineStorageTagModule.h in Sources */,
 				884937571C75C82100C53520 /* UIColor+HexString.m in Sources */,
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
@@ -1516,6 +1516,8 @@
 				INFOPLIST_FILE = XamoomSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
+				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.XamoomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1539,6 +1541,8 @@
 				INFOPLIST_FILE = XamoomSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
+				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xamoom.XamoomSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
