@@ -86,12 +86,14 @@
 }
 
 - (void)startAnimations {
+  [CATransaction begin];
   for (CAShapeLayer *layer in self.layers) {
     NSNumber *toValue = [NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)];
     CABasicAnimation *animation = [self strokeAnimationFrom:[NSNumber numberWithFloat:layer.strokeEnd]
                                                          to:toValue];
     [layer addAnimation:animation forKey:@"strokeEnd"];
   }
+  [CATransaction commit];
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
