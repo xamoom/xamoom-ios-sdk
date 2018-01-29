@@ -44,6 +44,9 @@
 - (void)prepareForReuse {
   [super prepareForReuse];
   _progressBar.lineProgress = 0.0f;
+  _mediaFile.delegate = nil;
+  [_movingBarView stop];
+  [_audioControlButton setImage:self.playImage forState:UIControlStateNormal];
 }
 
 - (void)setupImages {
@@ -86,6 +89,9 @@
                                                                      artist:block.artists];
   _mediaFile.delegate = self;
   [self didUpdatePlaybackPosition:_mediaFile.playbackPosition];
+  if (_mediaFile.isPlaying) {
+    [self didStart];
+  }
 }
 
 - (void)didStart {
@@ -113,8 +119,8 @@
   float progress = (float)playbackPosition/(float)self.mediaFile.duration;
   self.progressBar.lineProgress = progress;
   
-   float songDurationInSeconds = self.mediaFile.playbackPosition;
-   self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
+  float songDurationInSeconds = self.mediaFile.playbackPosition;
+  self.remainingTimeLabel.text = [NSString stringWithFormat:@"%d:%02d", (int)songDurationInSeconds / 60, (int)songDurationInSeconds % 60];
 }
 
 - (IBAction)playButtonTouched:(id)sender {
