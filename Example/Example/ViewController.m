@@ -46,10 +46,7 @@
   
   //self.module = [[XMMOfflineStorageTagModule alloc] initWithApi:self.api];
   
-  //[self displayContent];
-  
-  _player = [[XMMMusicPlayer alloc] init];
-  [_player prepareWith:[[NSURL alloc] initWithString:@"https://storage.googleapis.com/xamoom-files-dev/93b258c0c2d543759471cec6f102118d.mp3"]];
+  [self displayContent];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
