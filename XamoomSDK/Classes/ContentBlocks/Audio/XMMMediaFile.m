@@ -44,14 +44,17 @@
 
 - (void)didStart {
   [_delegate didStart];
+  _playing = YES;
 }
 
 - (void)didPause {
   [_delegate didPause];
+  _playing = NO;
 }
 
 - (void)didStop {
   [_delegate didStop];
+  _playing = NO;
 }
 
 - (void)didUpdatePlaybackPosition:(long)playbackPosition {

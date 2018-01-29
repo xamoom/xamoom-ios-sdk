@@ -29,6 +29,7 @@
 @property (nonatomic, assign) float playbackPosition;
 @property (nonatomic, strong) id<XMMMediaFileDelegate> delegate;
 @property (nonatomic, strong) id<XMMPlaybackDelegate> playbackDelegate;
+@property (nonatomic, getter=isPlaying) Boolean playing;
 
 - (id)initWithPlaybackDelegate:(id<XMMPlaybackDelegate>)playbackDelegate position:(int)position url:(NSURL *)url title:(NSString *)title artist:(NSString *)artist album:(NSString *)album;
 
