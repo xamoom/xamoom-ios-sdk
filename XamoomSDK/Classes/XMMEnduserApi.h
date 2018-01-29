@@ -62,6 +62,11 @@ extern NSString * const kApiBaseURLString;
  */
 @property (getter=isOffline, nonatomic) BOOL offline;
 
+/**
+ * Lazy initialized userDefaults.
+ */
+@property (strong, nonatomic) NSUserDefaults *userDefaults;
+
 /// @name Singleton
 
 /**
