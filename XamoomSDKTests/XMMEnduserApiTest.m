@@ -39,7 +39,6 @@ NSString* apiVersion = @"3.8.0";
   self.mockRestClient = OCMPartialMock(self.restClient);
   self.api = [[XMMEnduserApi alloc] initWithRestClient:self.mockRestClient];
   
-  
   // needed, because JSONAPIResourceDescriptors linkedTypeToResource dictionary is nil when setting api up
   [JSONAPIResourceDescriptor addResource:[XMMSystem class]];
   [JSONAPIResourceDescriptor addResource:[XMMSystemSettings class]];
@@ -119,15 +118,16 @@ NSString* apiVersion = @"3.8.0";
 }
 
 - (void)testThatContentWithIdCallsFetchResourceWithParamaters {
-  
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+  NSDictionary *checkHeaders = @{@"X-Ephemeral-Id":@"123"};
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                        id:[OCMArg isEqual:contentID]
                                parameters:[OCMArg isEqual:@{@"lang":@"en"}]
-                                  headers:[OCMArg any]
+                                  headers:[OCMArg isEqual:checkHeaders]
                                completion:[OCMArg any]]);
   
+  [api.restClient.delegate gotEphemeralId:@"123"];
   [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
   }];
   

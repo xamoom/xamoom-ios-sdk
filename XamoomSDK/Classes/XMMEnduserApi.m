@@ -12,6 +12,8 @@
 NSString * const kApiBaseURLString = @"https://xamoom-cloud.appspot.com/_api/v2/consumer";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
+NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
+NSString * const kEphemeralIdHttpHeaderName = @"X-Ephemeral-Id";
 
 @interface XMMEnduserApi () <XMMRestClientDelegate>
 
@@ -25,8 +27,6 @@ NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
  * Shared instance.
  */
 static XMMEnduserApi *sharedInstance;
-
-NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
 
 @implementation XMMEnduserApi : NSObject
 
@@ -115,7 +115,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   return [self.restClient fetchResource:[XMMContent class]
                                      id:contentID
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -142,7 +142,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   return [self.restClient fetchResource:[XMMContent class]
                                      id:contentID
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -186,7 +186,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   
   return [self.restClient fetchResource:[XMMContent class]
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -228,7 +228,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   
   return [self.restClient fetchResource:[XMMContent class]
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, NO, nil, error);
@@ -272,7 +272,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   
   return [self.restClient fetchResource:[XMMContent class]
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, NO, nil, error);
@@ -315,7 +315,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   
   return [self.restClient fetchResource:[XMMContent class]
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, NO, nil, error);
@@ -353,7 +353,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   
   return [self.restClient fetchResource:[XMMContent class]
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, NO, nil, error);
@@ -388,7 +388,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   return [self.restClient fetchResource:[XMMSpot class]
                                      id:spotID
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -423,7 +423,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   
   return [self.restClient fetchResource:[XMMSpot class]
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, false, nil, error);
@@ -463,7 +463,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   
   return [self.restClient fetchResource:[XMMSpot class]
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, false, nil, error);
@@ -498,7 +498,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   
   return [self.restClient fetchResource:[XMMSpot class]
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, false, nil, error);
@@ -526,7 +526,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   return [self.restClient fetchResource:[XMMSystem class]
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -552,7 +552,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   return [self.restClient fetchResource:[XMMSystemSettings class]
                                      id:settingsID
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -578,7 +578,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   return [self.restClient fetchResource:[XMMStyle class]
                                      id:styleID
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -604,7 +604,7 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
   return [self.restClient fetchResource:[XMMMenu class]
                                      id:menuID
                              parameters:params
-                                headers:nil
+                                headers:[self httpHeadersWithEphemeralId]
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -628,6 +628,16 @@ NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
     [userDefaults setObject:ephemeralId forKey:kEphemeralIdKey];
     [userDefaults synchronize];
   }
+}
+
+#pragma mark - EphemeralId
+
+- (NSMutableDictionary *)httpHeadersWithEphemeralId {
+  NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+  if (_ephemeralId != nil) {
+    [headers setObject:_ephemeralId forKey:kEphemeralIdHttpHeaderName];
+  }
+  return headers;
 }
 
 - (NSString *)getEphemeralId {
