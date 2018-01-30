@@ -622,7 +622,8 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark - XMMRestClientDelegate
 
 - (void)gotEphemeralId:(NSString *)ephemeralId {
-  if ([self getEphemeralId] == nil) {
+  if ([self getEphemeralId] == nil ||
+      ![[self getEphemeralId] isEqualToString:ephemeralId]) {
     _ephemeralId = ephemeralId;
     NSUserDefaults *userDefaults = [self getUserDefaults];
     [userDefaults setObject:ephemeralId forKey:kEphemeralIdKey];

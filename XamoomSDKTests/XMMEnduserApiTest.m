@@ -1837,7 +1837,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockUserDefaults setObject:[OCMArg isEqual:@"123"]
                                  forKey:@"com.xamoom.EphemeralId"]);
-  OCMReject([mockUserDefaults setObject:[OCMArg isEqual:@"1234"]
+  OCMExpect([mockUserDefaults setObject:[OCMArg isEqual:@"1234"]
                                  forKey:@"com.xamoom.EphemeralId"]);
   
   [api.restClient.delegate gotEphemeralId:@"123"];
