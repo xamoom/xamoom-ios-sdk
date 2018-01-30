@@ -14,6 +14,8 @@ NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
 NSString * const kEphemeralIdHttpHeaderName = @"X-Ephemeral-Id";
+NSString * const kReasonHttpHeaderName = @"X-Reason";
+
 
 @interface XMMEnduserApi () <XMMRestClientDelegate>
 
@@ -105,44 +107,35 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark content calls
 
 - (NSURLSessionDataTask *)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion {
-  if (self.isOffline) {
-    [self.offlineApi contentWithID:contentID completion:completion];
-    return nil;
-  }
-  
-  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
-  
-  return [self.restClient fetchResource:[XMMContent class]
-                                     id:contentID
-                             parameters:params
-                                headers:[self httpHeadersWithEphemeralId]
-                             completion:^(JSONAPI *result, NSError *error) {
-                               if (error && completion) {
-                                 completion(nil, error);
-                                 return;
-                               }
-                               
-                               XMMContent *content = result.resource;
-                               
-                               if (completion) {
-                                 completion(content, error);
-                               }
-                             }];
+  return [self contentWithID:contentID options:0 reason:0 completion:completion];
 }
 
 - (NSURLSessionDataTask *)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+  return [self contentWithID:contentID options:options reason:0 completion:completion];
+}
+
+- (NSURLSessionDataTask *)contentWithID:(NSString *)contentID
+                                options:(XMMContentOptions)options
+                                 reason:(XMMContentReason)reason
+                             completion:(void (^)(XMMContent *, NSError *))completion {
   if (self.isOffline) {
     [self.offlineApi contentWithID:contentID completion:completion];
     return nil;
   }
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
-  params = [XMMParamHelper addContentOptionsToParams:params options:options];
+  if (options > 0) {
+    params = [XMMParamHelper addContentOptionsToParams:params options:options];
+  }
+  
+  NSMutableDictionary *headers = [self httpHeadersWithEphemeralId];
+  headers = [self addHeaderForReason:headers
+                              reason:reason];
   
   return [self.restClient fetchResource:[XMMContent class]
                                      id:contentID
                              parameters:params
-                                headers:[self httpHeadersWithEphemeralId]
+                                headers:headers
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -158,14 +151,32 @@ static XMMEnduserApi *sharedInstance;
 }
 
 - (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion {
-  return [self contentWithLocationIdentifier:locationIdentifier options:0 completion:completion];
+  return [self contentWithLocationIdentifier:locationIdentifier
+                                     options:0
+                                  completion:completion];
 }
 
 - (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
-  return [self contentWithLocationIdentifier:locationIdentifier options:options conditions:nil completion:completion];
+  return [self contentWithLocationIdentifier:locationIdentifier
+                                     options:options
+                                  conditions:nil
+                                  completion:completion];
 }
 
 - (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options conditions:(NSDictionary *)conditions completion:(void (^)(XMMContent *, NSError *))completion {
+  return [self contentWithLocationIdentifier:locationIdentifier
+                                     options:options
+                                  conditions:conditions
+                                      reason:0
+                                  completion:completion];
+}
+
+- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier
+                                                options:(XMMContentOptions)options
+                                             conditions:(NSDictionary *)conditions
+                                                 reason:(XMMContentReason)reason
+                                             completion:(void (^)(XMMContent *,
+                                                                  NSError *))completion {
   if (self.isOffline) {
     [self.offlineApi contentWithLocationIdentifier:locationIdentifier completion:completion];
     return nil;
@@ -184,9 +195,13 @@ static XMMEnduserApi *sharedInstance;
   params = [XMMParamHelper addContentOptionsToParams:params options:options];
   params = [XMMParamHelper addConditionsToParams:params conditions:conditions];
   
+  NSMutableDictionary *headers = [self httpHeadersWithEphemeralId];
+  headers = [self addHeaderForReason:headers
+                              reason:reason];
+  
   return [self.restClient fetchResource:[XMMContent class]
                              parameters:params
-                                headers:[self httpHeadersWithEphemeralId]
+                                headers:headers
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
                                  completion(nil, error);
@@ -211,6 +226,14 @@ static XMMEnduserApi *sharedInstance;
 
 - (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options conditions:(NSDictionary *)conditions completion:(void (^)(XMMContent *, NSError *))completion {
   return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] options:options conditions:conditions completion:completion];
+}
+
+- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options conditions:(NSDictionary *)conditions reason:(XMMContentReason)reason completion:(void (^)(XMMContent *, NSError *))completion {
+  return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor]
+                                     options:options
+                                  conditions:conditions
+                                      reason:reason
+                                  completion:completion];
 }
 
 #pragma mark contents calls
@@ -632,6 +655,15 @@ static XMMEnduserApi *sharedInstance;
 }
 
 #pragma mark - EphemeralId
+
+- (NSMutableDictionary *)addHeaderForReason:(NSMutableDictionary *)headers
+                                     reason:(XMMContentReason)reason {
+  if (reason > 0) {
+    [headers setValue:[NSString stringWithFormat:@"%ld", (long)reason]
+               forKey:kReasonHttpHeaderName];
+  }
+  return headers;
+}
 
 - (NSMutableDictionary *)httpHeadersWithEphemeralId {
   NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];

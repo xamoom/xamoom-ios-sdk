@@ -210,14 +210,18 @@ NSString* apiVersion = @"3.8.0";
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"preview":@"true",
                                                                                   @"public-only":@"true"}];
+  NSDictionary *checkHeaders = @{@"X-Reason":@"3"};
   
   OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                             id:[OCMArg isEqual:contentID]
                                     parameters:[OCMArg isEqual:params]
-                                       headers:[OCMArg any]
+                                       headers:[OCMArg isEqual:checkHeaders]
                                     completion:[OCMArg any]]);
   
-  [self.api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:contentID
+                  options:XMMContentOptionsPreview|XMMContentOptionsPrivate
+                   reason:XMMContentReasonLinkedContent
+               completion:^(XMMContent *content, NSError *error) {
   }];
   
   OCMVerifyAll(self.mockRestClient);
