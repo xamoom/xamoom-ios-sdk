@@ -40,9 +40,12 @@
   cell.fileManager = mockFileManager;
   
   XMMEnduserApi *mockApi = OCMClassMock([XMMEnduserApi class]);
-  OCMStub([mockApi contentWithID:[OCMArg any] options:1 completion:[OCMArg any]] ).andDo(^(NSInvocation *invocation) {
+  OCMStub([mockApi contentWithID:[OCMArg any]
+                         options:1
+                          reason:XMMContentReasonLinkedContent
+                      completion:[OCMArg any]] ).andDo(^(NSInvocation *invocation) {
     void (^passedBlock)(XMMContent *content, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     XMMContent *content = [[XMMContent alloc] init];
     content.imagePublicUrl = block.fileID;
     passedBlock(content, nil);

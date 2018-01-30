@@ -227,7 +227,7 @@
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(XMMContent *content, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     XMMContent *content = [[XMMContent alloc] init];
     content.title = @"Content Title check";
     content.imagePublicUrl = @"www.xamoom.com";
@@ -235,7 +235,10 @@
     passedBlock(content, nil);
   };
   
-  [[[self.mockedApi stub] andDo:completion] contentWithID:[OCMArg isEqual:@"423hjk23h4k2j34"] options:XMMContentOptionsPreview completion:[OCMArg any]];
+  [[[self.mockedApi stub] andDo:completion] contentWithID:[OCMArg isEqual:@"423hjk23h4k2j34"]
+                                                  options:XMMContentOptionsPreview
+                                                   reason:XMMContentReasonLinkedContent
+                                               completion:[OCMArg any]];
   
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock6TableViewCell *testCell = (XMMContentBlock6TableViewCell *)cell;
@@ -255,12 +258,15 @@
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(XMMContent *content, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     XMMContent *content = [[XMMContent alloc] init];
     passedBlock(content, nil);
   };
   
-  [[[self.mockedApi stub] andDo:completion] contentWithID:[OCMArg any] options:XMMContentOptionsPreview completion:[OCMArg any]];
+  [[[self.mockedApi stub] andDo:completion] contentWithID:[OCMArg any]
+                                                  options:XMMContentOptionsPreview
+                                                   reason:XMMContentReasonLinkedContent
+                                               completion:[OCMArg any]];
   
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock6TableViewCell *testCell = (XMMContentBlock6TableViewCell *)cell;
