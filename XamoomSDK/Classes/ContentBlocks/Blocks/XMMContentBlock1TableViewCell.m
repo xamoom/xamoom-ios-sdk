@@ -83,7 +83,7 @@
     url = [[NSURL alloc] initWithString:block.fileID];
   }
   
-  _mediaFile = [[XMMAudioManager sharedInstance] createMediaFileForPosition:(int)indexPath.row
+  _mediaFile = [[XMMAudioManager sharedInstance] createMediaFileForPosition:block.ID
                                                                         url:url
                                                                       title:block.title
                                                                      artist:block.artists];

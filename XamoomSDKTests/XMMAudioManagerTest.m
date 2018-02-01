@@ -38,9 +38,9 @@
   XMMAudioManager *manager = [[XMMAudioManager alloc] init];
   NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
   
-  XMMMediaFile *mediaFile = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile = [manager createMediaFileForPosition:@"0" url:url title:@"title" artist:@"artist"];
   
-  XCTAssertEqual(0, mediaFile.position);
+  XCTAssertEqual(@"0", mediaFile.ID);
   XCTAssertEqual(url, mediaFile.url);
   XCTAssertTrue([mediaFile.title isEqualToString:@"title"]);
   XCTAssertTrue([mediaFile.artist isEqualToString:@"artist"]);
@@ -51,9 +51,9 @@
   XMMAudioManager *manager = [[XMMAudioManager alloc] init];
   NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
   
-  XMMMediaFile *mediaFile1 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile1 = [manager createMediaFileForPosition:@"0" url:url title:@"title" artist:@"artist"];
   
-  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:@"0" url:url title:@"title" artist:@"artist"];
   
   XCTAssertEqual(mediaFile1, mediaFile2);
 }
@@ -63,7 +63,7 @@
   manager.musicPlayer = _mockMusicPlayer;
   NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
   
-  XMMMediaFile *mediaFile = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile = [manager createMediaFileForPosition:@"0" url:url title:@"title" artist:@"artist"];
 
   [mediaFile start];
   
@@ -75,8 +75,8 @@
   manager.musicPlayer = _mockMusicPlayer;
   NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
   
-  XMMMediaFile *mediaFile1 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
-  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:1 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile1 = [manager createMediaFileForPosition:@"0" url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:@"1" url:url title:@"title" artist:@"artist"];
   
   [mediaFile1 start];
   [mediaFile2 start];
@@ -91,7 +91,7 @@
   manager.musicPlayer = _mockMusicPlayer;
   NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
   
-  XMMMediaFile *mediaFile = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile = [manager createMediaFileForPosition:@"0" url:url title:@"title" artist:@"artist"];
   
   [mediaFile start];
   [mediaFile pause];
@@ -104,16 +104,16 @@
   manager.musicPlayer = _mockMusicPlayer;
   NSURL *url = [NSURL URLWithString:@"www.xamoom.com"];
   
-  XMMMediaFile *mediaFile1 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
-  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:1 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile1 = [manager createMediaFileForPosition:@"0" url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *mediaFile2 = [manager createMediaFileForPosition:@"1" url:url title:@"title" artist:@"artist"];
   
   [mediaFile1 start];
   [mediaFile2 start];
   
   [manager resetMediaFiles];
   
-  XMMMediaFile *checkMediaFile1 = [manager createMediaFileForPosition:0 url:url title:@"title" artist:@"artist"];
-  XMMMediaFile *checkMediaFile2 = [manager createMediaFileForPosition:1 url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *checkMediaFile1 = [manager createMediaFileForPosition:@"0" url:url title:@"title" artist:@"artist"];
+  XMMMediaFile *checkMediaFile2 = [manager createMediaFileForPosition:@"1" url:url title:@"title" artist:@"artist"];
 
   XCTAssertNotEqual(checkMediaFile1, mediaFile1);
   XCTAssertEqual(checkMediaFile2, mediaFile2);

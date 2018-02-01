@@ -37,11 +37,11 @@
 - (void)testInit {
   XMMMediaFile *mediaFile = [[XMMMediaFile alloc]
                              initWithPlaybackDelegate:_playBackDelegateMock
-                             position:0 url:_url
+                             ID:@"0" url:_url
                              title:@"title" artist:@"artist" album:@"album"];
   
   XCTAssertEqual(_playBackDelegateMock, mediaFile.playbackDelegate);
-  XCTAssertEqual(0, mediaFile.position);
+  XCTAssertEqual(@"0", mediaFile.ID);
   XCTAssertEqual(_url, mediaFile.url);
   XCTAssertTrue([mediaFile.title isEqualToString:@"title"]);
   XCTAssertTrue([mediaFile.artist isEqualToString:@"artist"]);
@@ -52,62 +52,62 @@
 - (void)testStart {
   XMMMediaFile *mediaFile = [[XMMMediaFile alloc]
                              initWithPlaybackDelegate:_playBackDelegateMock
-                             position:0 url:_url
+                             ID:@"0" url:_url
                              title:@"title" artist:@"artist" album:@"album"];
   
   [mediaFile start];
   
-  OCMVerify([_playBackDelegateMock playFileAt:0]);
+  OCMVerify([_playBackDelegateMock playFileAt:@"0"]);
 }
 
 - (void)testPause {
   XMMMediaFile *mediaFile = [[XMMMediaFile alloc]
                              initWithPlaybackDelegate:_playBackDelegateMock
-                             position:0 url:_url
+                             ID:@"0" url:_url
                              title:@"title" artist:@"artist" album:@"album"];
   
   [mediaFile pause];
   
-  OCMVerify([_playBackDelegateMock pauseFileAt:0]);
+  OCMVerify([_playBackDelegateMock pauseFileAt:@"0"]);
 }
 
 - (void)testStop {
   XMMMediaFile *mediaFile = [[XMMMediaFile alloc]
                              initWithPlaybackDelegate:_playBackDelegateMock
-                             position:0 url:_url
+                             ID:@"0" url:_url
                              title:@"title" artist:@"artist" album:@"album"];
   
   [mediaFile stop];
   
-  OCMVerify([_playBackDelegateMock stopFileAt:0]);
+  OCMVerify([_playBackDelegateMock stopFileAt:@"0"]);
 }
 
 - (void)testSeekForward {
   XMMMediaFile *mediaFile = [[XMMMediaFile alloc]
                              initWithPlaybackDelegate:_playBackDelegateMock
-                             position:0 url:_url
+                             ID:@"0" url:_url
                              title:@"title" artist:@"artist" album:@"album"];
   
   [mediaFile seekForward:10];
   
-  OCMVerify([_playBackDelegateMock seekForwardFileAt:0 time:10]);
+  OCMVerify([_playBackDelegateMock seekForwardFileAt:@"0" time:10]);
 }
 
 - (void)testSeekBackward {
   XMMMediaFile *mediaFile = [[XMMMediaFile alloc]
                              initWithPlaybackDelegate:_playBackDelegateMock
-                             position:0 url:_url
+                             ID:@"0" url:_url
                              title:@"title" artist:@"artist" album:@"album"];
   
   [mediaFile seekBackward:10];
   
-  OCMVerify([_playBackDelegateMock seekBackwardFileAt:0 time:10]);
+  OCMVerify([_playBackDelegateMock seekBackwardFileAt:@"0" time:10]);
 }
 
 - (void)testDelegate {
   XMMMediaFile *mediaFile = [[XMMMediaFile alloc]
                              initWithPlaybackDelegate:_playBackDelegateMock
-                             position:0 url:_url
+                             ID:@"0" url:_url
                              title:@"title" artist:@"artist" album:@"album"];
   mediaFile.delegate = _mockMediaFileDelegate;
   

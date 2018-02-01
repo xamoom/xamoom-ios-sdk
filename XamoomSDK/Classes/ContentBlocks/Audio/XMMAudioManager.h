@@ -17,9 +17,12 @@
 
 + (id)sharedInstance;
 
-- (XMMMediaFile *)createMediaFileForPosition:(int)position url:(NSURL *)url title:(NSString *)title artist:(NSString *)artist;
+- (XMMMediaFile *)createMediaFileForPosition:(NSString *)ID
+                                         url:(NSURL *)url
+                                       title:(NSString *)title
+                                      artist:(NSString *)artist;
 
-- (XMMMediaFile *)mediaFileForPosition:(int)position;
+- (XMMMediaFile *)mediaFileForPosition:(NSString *)ID;
 
 - (void)resetMediaFiles;
 

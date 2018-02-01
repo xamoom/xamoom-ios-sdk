@@ -72,25 +72,25 @@
   [playCommand addTarget:self action:@selector(playEvent:)];
 }
 
-- (XMMMediaFile *)createMediaFileForPosition:(int)position url:(NSURL *)url title:(NSString *)title artist:(NSString *)artist {
-  XMMMediaFile *mediaFile = [self mediaFileForPosition:position];
+- (XMMMediaFile *)createMediaFileForPosition:(NSString *)ID url:(NSURL *)url title:(NSString *)title artist:(NSString *)artist {
+  XMMMediaFile *mediaFile = [self mediaFileForPosition:ID];
   
   if (mediaFile == nil ||
       ![mediaFile.url.absoluteString isEqualToString:url.absoluteString]) {
-    mediaFile = [[XMMMediaFile alloc] initWithPlaybackDelegate:self position:position url:url title:title artist:artist album:nil];
+    mediaFile = [[XMMMediaFile alloc] initWithPlaybackDelegate:self ID:ID url:url title:title artist:artist album:nil];
   }
   
-  [_mediaFiles setValue:mediaFile forKey:[@(position) stringValue]];
+  [_mediaFiles setValue:mediaFile forKey:ID];
   
   return mediaFile;
 }
 
-- (XMMMediaFile *)mediaFileForPosition:(int)position {
-  return [_mediaFiles objectForKey:[@(position) stringValue]];
+- (XMMMediaFile *)mediaFileForPosition:(NSString *)ID {
+  return [_mediaFiles objectForKey:ID];
 }
 
-- (void)playFileAt:(int)position {
-  XMMMediaFile *mediaFile = [_mediaFiles objectForKey:[@(position) stringValue]];
+- (void)playFileAt:(NSString *)ID {
+  XMMMediaFile *mediaFile = [_mediaFiles objectForKey:ID];
   if (_currentMediaFile == nil || _currentMediaFile != mediaFile) {
     if (_currentMediaFile != nil) {
       [_currentMediaFile pause];
@@ -105,7 +105,7 @@
   }
 }
 
-- (void)pauseFileAt:(int)position {
+- (void)pauseFileAt:(NSString *)ID {
   if (_currentMediaFile == nil) {
     return;
   }
@@ -114,18 +114,18 @@
   [_currentMediaFile didPause];
 }
 
-- (void)stopFileAt:(int)position {
+- (void)stopFileAt:(NSString *)ID {
   [_musicPlayer pause];
   _currentMediaFile = nil;
   [_currentMediaFile didStop];
   [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:nil];
 }
 
-- (void)seekForwardFileAt:(int)position time:(long)seekTime {
+- (void)seekForwardFileAt:(NSString *)ID time:(long)seekTime {
   [_musicPlayer forward:seekTime];
 }
 
-- (void)seekBackwardFileAt:(int)position time:(long)seekTime {
+- (void)seekBackwardFileAt:(NSString *)ID time:(long)seekTime {
   [_musicPlayer backward:seekTime];
 }
 
@@ -200,7 +200,7 @@
 
 - (void)resetMediaFiles {
   [_mediaFiles removeAllObjects];
-  [_mediaFiles setObject:_currentMediaFile forKey:[@(_currentMediaFile.position) stringValue]];
+  [_mediaFiles setObject:_currentMediaFile forKey:_currentMediaFile.ID];
 }
 
 @end

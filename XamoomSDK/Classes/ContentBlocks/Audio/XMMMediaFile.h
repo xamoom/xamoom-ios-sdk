@@ -20,7 +20,7 @@
 
 @interface XMMMediaFile : NSObject
 
-@property (nonatomic, assign) int position;
+@property (nonatomic, assign) NSString *ID;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *artist;
@@ -31,7 +31,12 @@
 @property (nonatomic, strong) id<XMMPlaybackDelegate> playbackDelegate;
 @property (nonatomic, getter=isPlaying) Boolean playing;
 
-- (id)initWithPlaybackDelegate:(id<XMMPlaybackDelegate>)playbackDelegate position:(int)position url:(NSURL *)url title:(NSString *)title artist:(NSString *)artist album:(NSString *)album;
+- (id)initWithPlaybackDelegate:(id<XMMPlaybackDelegate>)playbackDelegate
+                            ID:(NSString *)ID
+                           url:(NSURL *)url
+                         title:(NSString *)title
+                        artist:(NSString *)artist
+                         album:(NSString *)album;
 
 - (void)start;
 - (void)pause;

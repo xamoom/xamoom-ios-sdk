@@ -8,10 +8,10 @@
 
 @protocol XMMPlaybackDelegate <NSObject>
 
-- (void)playFileAt:(int)position;
-- (void)pauseFileAt:(int)position;
-- (void)stopFileAt:(int)position;
-- (void)seekForwardFileAt:(int)position time:(long)seekTime;
-- (void)seekBackwardFileAt:(int)position time:(long)seekTime;
+- (void)playFileAt:(NSString *)ID;
+- (void)pauseFileAt:(NSString *)ID;
+- (void)stopFileAt:(NSString *)ID;
+- (void)seekForwardFileAt:(NSString *)ID time:(long)seekTime;
+- (void)seekBackwardFileAt:(NSString *)ID time:(long)seekTime;
 
 @end

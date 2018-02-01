@@ -10,10 +10,10 @@
 
 @implementation XMMMediaFile
 
-- (id)initWithPlaybackDelegate:(id<XMMPlaybackDelegate>)playbackDelegate position:(int)position url:(NSURL *)url title:(NSString *)title artist:(NSString *)artist album:(NSString *)album {
+- (id)initWithPlaybackDelegate:(id<XMMPlaybackDelegate>)playbackDelegate ID:(NSString *)ID url:(NSURL *)url title:(NSString *)title artist:(NSString *)artist album:(NSString *)album {
   if (self = [super init]) {
     _playbackDelegate = playbackDelegate;
-    _position = position;
+    _ID = ID;
     _url = url;
     _title = title;
     _artist = artist;
@@ -23,23 +23,23 @@
 }
 
 - (void)start {
-  [_playbackDelegate playFileAt:_position];
+  [_playbackDelegate playFileAt:_ID];
 }
 
 - (void)pause {
-  [_playbackDelegate pauseFileAt:_position];
+  [_playbackDelegate pauseFileAt:_ID];
 }
 
 - (void)stop {
-  [_playbackDelegate stopFileAt:_position];
+  [_playbackDelegate stopFileAt:_ID];
 }
 
 - (void)seekForward:(long)seekTime {
-  [_playbackDelegate seekForwardFileAt:_position time:seekTime];
+  [_playbackDelegate seekForwardFileAt:_ID time:seekTime];
 }
 
 - (void)seekBackward:(long)seekTime {
-  [_playbackDelegate seekBackwardFileAt:_position time:seekTime];
+  [_playbackDelegate seekBackwardFileAt:_ID time:seekTime];
 }
 
 - (void)didStart {
