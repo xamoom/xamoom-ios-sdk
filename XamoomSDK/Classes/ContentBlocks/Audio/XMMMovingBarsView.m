@@ -6,11 +6,11 @@
 // You may obtain a copy of the License at the root of this project.
 
 
-#import "MovingBarsView.h"
+#import "XMMMovingBarsView.h"
 
 #define ARC4RANDOM_MAX      0x100000000
 
-@interface MovingBarsView()
+@interface XMMMovingBarsView()
 
 @property Boolean running;
 @property float lineWidth;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation MovingBarsView
+@implementation XMMMovingBarsView
 
 -(void)awakeFromNib {
   [super awakeFromNib];
@@ -86,12 +86,14 @@
 }
 
 - (void)startAnimations {
+  [CATransaction begin];
   for (CAShapeLayer *layer in self.layers) {
     NSNumber *toValue = [NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)];
     CABasicAnimation *animation = [self strokeAnimationFrom:[NSNumber numberWithFloat:layer.strokeEnd]
                                                          to:toValue];
     [layer addAnimation:animation forKey:@"strokeEnd"];
   }
+  [CATransaction commit];
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {

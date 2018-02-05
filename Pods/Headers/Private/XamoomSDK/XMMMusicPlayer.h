@@ -1,1 +1,1 @@
-../../../../XamoomSDK/Classes/ContentBlocks/XMMMusicPlayer.h
+../../../../XamoomSDK/Classes/ContentBlocks/Audio/XMMMusicPlayer.h

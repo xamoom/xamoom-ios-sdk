@@ -8,9 +8,13 @@
 
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
+#import <AVFoundation/AVFoundation.h>
 #import "XMMMusicPlayer.h"
 
 @interface XMMMusicPlayerTests : XCTestCase
+
+@property id mockDelegate;
+@property AVPlayer *mockPlayer;
 
 @end
 
@@ -18,40 +22,71 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+  _mockDelegate = OCMProtocolMock(@protocol(XMMMusicPlayerDelegate));
+  _mockPlayer = OCMClassMock([AVPlayer class]);
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
-- (void)testReturnWhenAlreadyHavingAVPlayer {
-  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWithFrame:CGRectZero];
-  AVPlayer *player = (AVPlayer *)OCMClassMock([AVPlayer class]);
-  musicPlayer.audioPlayer = player;
+- (void)testInit {
+  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] init];
   
-  [musicPlayer initAudioPlayerWithUrlString:@"www.xamoom.com"];
+  XCTAssertNotNil(musicPlayer);
+}
+
+- (void)testPrepareWith {
+  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWith:_mockPlayer];
+  musicPlayer.delegate = _mockDelegate;
+  NSURL *url = [[NSURL alloc] initWithString:@"https://storage.googleapis.com/xamoom-files-dev/93b258c0c2d543759471cec6f102118d.mp3"];
+  AVURLAsset *mockAsset = OCMPartialMock([[AVURLAsset alloc] initWithURL:url options:0]);
+  OCMStub([mockAsset loadValuesAsynchronouslyForKeys:[OCMArg any] completionHandler:[OCMArg any]]).
+  _andDo(^(NSInvocation *invoke) {
+    void (^stubResponse)(void);
+    [invoke getArgument:&stubResponse atIndex:3];
+    stubResponse();
+  });
+  
+  [musicPlayer prepareWith:mockAsset];
+  
+  OCMVerify([_mockPlayer replaceCurrentItemWithPlayerItem:[OCMArg any]]);
 }
 
 - (void)testPlay {
-  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWithFrame:CGRectZero];
-  AVPlayer *player = OCMPartialMock([[AVPlayer alloc] init]);
-  musicPlayer.audioPlayer = player;
-  
-  [musicPlayer play];
+  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWith:_mockPlayer];
 
-  OCMVerify([player play]);
+  [musicPlayer play];
+  
+  OCMVerify([_mockPlayer play]);
 }
 
 - (void)testPause {
-  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWithFrame:CGRectZero];
-  AVPlayer *player = OCMPartialMock([[AVPlayer alloc] init]);
-  musicPlayer.audioPlayer = player;
+  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWith:_mockPlayer];
   
   [musicPlayer pause];
   
-  OCMVerify([player pause]);
+  OCMVerify([_mockPlayer pause]);
+}
+
+- (void)testSeekForward {
+  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWith:_mockPlayer];
+  OCMExpect([_mockPlayer currentTime]).andReturn(CMTimeMake(0, 100));
+  AVPlayerItem *item = OCMClassMock([AVPlayerItem class]);
+  OCMExpect([item duration]).andReturn(CMTimeMake(50, 100));
+  OCMExpect([_mockPlayer currentItem]).andReturn(item);
+
+  [musicPlayer forward:30];
+  
+  OCMVerify([_mockPlayer seekToTime:CMTimeMake(0, 0)]);
+}
+
+- (void)testSeekBackward {
+  XMMMusicPlayer *musicPlayer = [[XMMMusicPlayer alloc] initWith:_mockPlayer];
+  
+  [musicPlayer backward:30];
+  
+  OCMVerify([_mockPlayer seekToTime:CMTimeMake(0, 0)]);
 }
 
 @end

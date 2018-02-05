@@ -25,7 +25,7 @@
 
 @synthesize api, restClient, mockRestClient;
 
-NSString* apiVersion = @"3.8.0";
+NSString* apiVersion = @"3.9.0";
 
 - (void)setUp {
   [super setUp];
@@ -38,7 +38,6 @@ NSString* apiVersion = @"3.8.0";
   self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"http://xamoom.test"] session:[NSURLSession sessionWithConfiguration:config]];
   self.mockRestClient = OCMPartialMock(self.restClient);
   self.api = [[XMMEnduserApi alloc] initWithRestClient:self.mockRestClient];
-  
   
   // needed, because JSONAPIResourceDescriptors linkedTypeToResource dictionary is nil when setting api up
   [JSONAPIResourceDescriptor addResource:[XMMSystem class]];
@@ -119,14 +118,16 @@ NSString* apiVersion = @"3.8.0";
 }
 
 - (void)testThatContentWithIdCallsFetchResourceWithParamaters {
-  
   NSString *contentID = @"28d13571a9614cc19d624528ed7c2bb8";
+  NSDictionary *checkHeaders = @{@"X-Ephemeral-Id":@"123"};
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                        id:[OCMArg isEqual:contentID]
                                parameters:[OCMArg isEqual:@{@"lang":@"en"}]
+                                  headers:[OCMArg isEqual:checkHeaders]
                                completion:[OCMArg any]]);
   
+  [api.restClient.delegate gotEphemeralId:@"123"];
   [api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
   }];
   
@@ -139,11 +140,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentJson]], nil);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                            id:[OCMArg any]
+                                                    parameters:[OCMArg any]
+                                                    headers:[OCMArg any]
+                                                    completion:[OCMArg any]];
   
   [self.api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
@@ -166,11 +171,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                            id:[OCMArg any]
+                                                    parameters:[OCMArg any]
+                                                    headers:[OCMArg any]
+                                                    completion:[OCMArg any]];
   
   [self.api contentWithID:contentID completion:^(XMMContent *content, NSError *error) {
     XCTAssertNil(content);
@@ -201,13 +210,18 @@ NSString* apiVersion = @"3.8.0";
   NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:@{@"lang":@"en",
                                                                                   @"preview":@"true",
                                                                                   @"public-only":@"true"}];
+  NSDictionary *checkHeaders = @{@"X-Reason":@"3"};
   
   OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                             id:[OCMArg isEqual:contentID]
                                     parameters:[OCMArg isEqual:params]
+                                       headers:[OCMArg isEqual:checkHeaders]
                                     completion:[OCMArg any]]);
   
-  [self.api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
+  [self.api contentWithID:contentID
+                  options:XMMContentOptionsPreview|XMMContentOptionsPrivate
+                   reason:XMMContentReasonLinkedContent
+               completion:^(XMMContent *content, NSError *error) {
   }];
   
   OCMVerifyAll(self.mockRestClient);
@@ -219,11 +233,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                            id:[OCMArg any]
+                                                    parameters:[OCMArg any]
+                                                       headers:[OCMArg any]
+                                                    completion:[OCMArg any]];
   
   [self.api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
@@ -245,11 +263,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                            id:[OCMArg any]
+                                                    parameters:[OCMArg any]
+                                                       headers:[OCMArg any]
+                                                    completion:[OCMArg any]];
   
   [self.api contentWithID:contentID options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
     XCTAssertNil(content);
@@ -284,6 +306,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+                                  headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
@@ -303,6 +326,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+                                  headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api contentWithLocationIdentifier:qrMarker options:XMMContentOptionsPreview|XMMContentOptionsPrivate completion:^(XMMContent *content, NSError *error) {
@@ -317,11 +341,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                    parameters:[OCMArg any]
+                                                    headers:[OCMArg any]
+                                                    completion:[OCMArg any]];
   
   [self.api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
@@ -346,12 +373,13 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
   [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
                                                     parameters:[OCMArg isEqual:checkDictionary]
+                                                       headers:[OCMArg any]
                                                     completion:[OCMArg any]];
   
   [self.api contentWithLocationIdentifier:qrMarker completion:^(XMMContent *content, NSError *error) {
@@ -398,6 +426,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api contentWithLocationIdentifier:qrMarker options:XMMContentOptionsPreview|XMMContentOptionsPrivate conditions:options completion:^(XMMContent *content, NSError *error) {
@@ -412,11 +441,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                    parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                                    completion:[OCMArg any]];
   
   
   [self.api contentWithLocationIdentifier:qrMarker options:0 conditions:nil completion:^(XMMContent *content, NSError *error) {
@@ -443,6 +475,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
@@ -463,6 +496,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api contentWithBeaconMajor:major minor:minor options:XMMContentOptionsPrivate|XMMContentOptionsPreview completion:^(XMMContent *content, NSError *error) {
@@ -479,11 +513,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                    parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                                    completion:[OCMArg any]];
   
   [self.api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
@@ -506,11 +543,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                    parameters:[OCMArg any]
+                                                    headers:[OCMArg any]
+                                                    completion:[OCMArg any]];
   
   [self.api contentWithBeaconMajor:major minor:minor completion:^(XMMContent *content, NSError *error) {
     XCTAssertNil(content);
@@ -528,11 +568,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentPublicOnlyJson]], nil);
   };
   
-  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[self.mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                    parameters:[OCMArg any]
+                                                    headers:[OCMArg any]
+                                                    completion:[OCMArg any]];
   
   [self.api contentWithBeaconMajor:major minor:minor options:0 conditions:nil completion:^(XMMContent *content, NSError *error) {
     XCTAssertNotNil(content);
@@ -552,6 +595,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                     parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                     completion:[OCMArg any]]);
   
   [self.api contentsWithLocation:location pageSize:10 cursor:nil sort:XMMContentSortOptionsNone completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
@@ -571,6 +615,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([self.mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                     parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                     completion:[OCMArg any]]);
   
   [self.api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitle completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
@@ -591,6 +636,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api contentsWithLocation:location pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitleDesc completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
@@ -606,11 +652,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentLocation]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api contentsWithLocation:location pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertFalse(hasMore);
@@ -643,11 +692,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api contentsWithLocation:location pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(contents);
@@ -666,6 +718,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
@@ -684,6 +737,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api contentsWithTags:@[@"tag1", @"tag2"] pageSize:10 cursor:@"1234" sort:XMMContentSortOptionsTitle completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
@@ -699,11 +753,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentLocation]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api contentsWithTags:tags pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertFalse(hasMore);
@@ -722,11 +779,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api contentsWithTags:tags pageSize:10 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(contents);
@@ -759,6 +819,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api contentsWithName:@"test" pageSize:10 cursor:@"1234" sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
@@ -773,11 +834,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self contentWithName]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api contentsWithName:@"test" pageSize:20 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertFalse(hasMore);
@@ -801,11 +865,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api contentsWithName:@"test" pageSize:20 cursor:nil sort:0 completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(contents);
@@ -842,6 +909,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   
@@ -870,11 +938,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self spotJson]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                       id:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotWithID:spotID completion:^(XMMSpot *spot, NSError *error) {
     XCTAssertTrue([spot.ID isEqualToString:spotID]);
@@ -903,11 +975,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                       id:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotWithID:spotID completion:^(XMMSpot *spot, NSError *error) {
     XCTAssertNil(spot);
@@ -930,6 +1006,7 @@ NSString* apiVersion = @"3.8.0";
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                        id:spotID
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api spotWithID:spotID options:XMMSpotOptionsWithLocation|XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent completion:^(XMMSpot *spot, NSError *error) {
@@ -946,11 +1023,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self spotWithContentAndMarkerJson]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                       id:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotWithID:spotID options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker completion:^(XMMSpot *spot, NSError *error) {
     XCTAssertTrue([spot.ID isEqualToString:spotID]);
@@ -984,6 +1065,7 @@ NSString* apiVersion = @"3.8.0";
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                        id:spotID
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api spotWithID:spotID completion:^(XMMSpot *spot, NSError *error) {
@@ -1018,6 +1100,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api spotsWithLocation:location radius:100 options:XMMSpotOptionsNone sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
@@ -1041,6 +1124,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation sort:XMMSpotSortOptionsDistanceDesc completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
@@ -1056,11 +1140,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self spotLocation]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotsWithLocation:location radius:100 options:0 sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
@@ -1077,11 +1164,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotsWithLocation:location radius:100 options:0 sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(spots);
@@ -1122,6 +1212,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api spotsWithLocation:location radius:100 options:XMMSpotOptionsIncludeMarker|XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation sort:XMMSpotSortOptionsNone pageSize:20 cursor:@"2" completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
@@ -1138,11 +1229,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self spotLocation]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotsWithLocation:location radius:10 options:0 sort:XMMSpotSortOptionsNone pageSize:10 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
@@ -1161,11 +1255,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotsWithLocation:location radius:10 options:0 sort:XMMSpotSortOptionsNone pageSize:10 cursor:nil completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(spots);
@@ -1192,6 +1289,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker|XMMSpotOptionsWithLocation sort:XMMSpotSortOptionsName completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
@@ -1208,11 +1306,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self spotLocation]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
@@ -1231,11 +1332,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+   headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotsWithTags:tags options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsNone completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(spots);
@@ -1262,6 +1366,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api spotsWithTags:tags pageSize:20 cursor:@"1" options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsName|XMMSpotSortOptionsDistance completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
@@ -1278,11 +1383,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self spotLocation]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotsWithTags:tags pageSize:20 cursor:nil options:XMMSpotOptionsIncludeContent|XMMSpotOptionsIncludeMarker sort:XMMSpotSortOptionsNameDesc|XMMSpotSortOptionsDistanceDesc completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertTrue(spots.count == 7);
@@ -1318,6 +1426,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSpot class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api spotsWithName:@"do not touch" pageSize:20 cursor:@"1" options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
@@ -1333,11 +1442,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self spotWithName]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotsWithName:@"do not touch" pageSize:20 cursor:nil options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertEqual(spots.count, 1);
@@ -1356,11 +1468,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api spotsWithName:@"do not touch" pageSize:20 cursor:nil options:0 sort:0 completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     XCTAssertNil(spots);
@@ -1394,6 +1509,7 @@ NSString* apiVersion = @"3.8.0";
   
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSystem class]]
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api systemWithCompletion:^(XMMSystem *system, NSError *error) {
@@ -1409,11 +1525,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self system]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api systemWithCompletion:^(XMMSystem *system, NSError *error) {
     XCTAssertTrue([system.url isEqualToString:@"http://testpavol.at"]);
@@ -1433,11 +1552,14 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 4];
+    [invocation getArgument: &passedBlock atIndex: 5];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api systemWithCompletion:^(XMMSystem *system, NSError *error) {
     XCTAssertNil(system);
@@ -1468,6 +1590,7 @@ NSString* apiVersion = @"3.8.0";
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMSystemSettings class]]
                                        id:@"12345"
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api systemSettingsWithID:@"12345" completion:^(XMMSystemSettings *settings, NSError *error) {
@@ -1483,11 +1606,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self systemSettings]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                       id:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api systemSettingsWithID:@"12345" completion:^(XMMSystemSettings *settings, NSError *error) {
     XCTAssertTrue([settings.itunesAppId isEqualToString:@"998504165"]);
@@ -1504,11 +1631,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                       id:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api systemSettingsWithID:@"12345" completion:^(XMMSystemSettings *settings, NSError *error) {
     XCTAssertNil(settings);
@@ -1527,6 +1658,7 @@ NSString* apiVersion = @"3.8.0";
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMStyle class]]
                                        id:@"12345"
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api styleWithID:@"12345" completion:^(XMMStyle *style, NSError *error) {
@@ -1556,11 +1688,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self style]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                       id:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api styleWithID:@"12345" completion:^(XMMStyle *style, NSError *error) {
     XCTAssertNotNil(style.icon);
@@ -1581,11 +1717,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                       id:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api styleWithID:@"12345" completion:^(XMMStyle *style, NSError *error) {
     XCTAssertNil(style);
@@ -1618,6 +1758,7 @@ NSString* apiVersion = @"3.8.0";
   OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMMenu class]]
                                        id:@"12345"
                                parameters:[OCMArg isEqual:params]
+             headers:[OCMArg any]
                                completion:[OCMArg any]]);
   
   [api menuWithID:@"12345" completion:^(XMMMenu *menu, NSError *error) {
@@ -1633,11 +1774,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock([[JSONAPI alloc] initWithDictionary:[self menu]], nil);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                       id:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api menuWithID:@"12345" completion:^(XMMMenu *menu, NSError *error) {
     XCTAssertNotNil(menu);
@@ -1654,11 +1799,15 @@ NSString* apiVersion = @"3.8.0";
   
   void (^completion)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(JSONAPI *result, NSError *error);
-    [invocation getArgument: &passedBlock atIndex: 5];
+    [invocation getArgument: &passedBlock atIndex: 6];
     passedBlock(nil, [[NSError alloc] init]);
   };
   
-  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any] id:[OCMArg any] parameters:[OCMArg any] completion:[OCMArg any]];
+  [[[mockRestClient stub] andDo:completion] fetchResource:[OCMArg any]
+                                                       id:[OCMArg any]
+                                               parameters:[OCMArg any]
+                                               headers:[OCMArg any]
+                                               completion:[OCMArg any]];
   
   [api menuWithID:@"12345" completion:^(XMMMenu *menu, NSError *error) {
     XCTAssertNil(menu);
@@ -1681,6 +1830,24 @@ NSString* apiVersion = @"3.8.0";
   [api menuWithID:systemId completion:nil];
   
   OCMVerify([mockOfflineApi menuWithID:[OCMArg isEqual:systemId] completion:[OCMArg any]]);
+}
+
+- (void)testGotEphemeralId {
+  id mockUserDefaults = OCMClassMock([NSUserDefaults class]);
+  api.userDefaults = mockUserDefaults;
+  
+  [[[mockUserDefaults stub] andReturn:nil]
+   objectForKey:[OCMArg isEqual:@"com.xamoom.EphemeralId"]];
+  
+  OCMExpect([mockUserDefaults setObject:[OCMArg isEqual:@"123"]
+                                 forKey:@"com.xamoom.EphemeralId"]);
+  OCMExpect([mockUserDefaults setObject:[OCMArg isEqual:@"1234"]
+                                 forKey:@"com.xamoom.EphemeralId"]);
+  
+  [api.restClient.delegate gotEphemeralId:@"123"];
+  [api.restClient.delegate gotEphemeralId:@"1234"];
+  
+  OCMVerifyAll(mockUserDefaults);
 }
 
 #pragma mark - Load json

@@ -36,26 +36,40 @@
 }
 
 - (void)testFetchResourceCallsCallback {
+  id mockDelegate = OCMProtocolMock(@protocol(XMMRestClientDelegate));
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
+  id mockUrlResponse = OCMClassMock([NSHTTPURLResponse class]);
+  [[[mockUrlResponse stub] andReturn:@{@"X-Ephemeral-Id":@"123"}] allHeaderFields];
   id session = OCMPartialMock([NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]]);
   XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:self.devApiUrl]
                                                              session:session];
+  restClient.delegate = mockDelegate;
   
   void (^proxyBlock)(NSInvocation *) = ^(NSInvocation *invocation) {
     void (^passedBlock)(NSData *data, NSURLResponse *response, NSError *error);
     [invocation getArgument: &passedBlock atIndex: 3];
-    passedBlock([NSData new], nil, nil);
+    
+    passedBlock([NSData new], mockUrlResponse, nil);
   };
   
-  [[[session stub] andDo:proxyBlock] dataTaskWithURL:[OCMArg any] completionHandler:[OCMArg any]];
+  [[[session stub] andDo:proxyBlock] dataTaskWithRequest:[OCMArg checkWithBlock:^BOOL(id obj) {
+    NSMutableURLRequest *request = obj;
+    XCTAssertNotNil(request);
+    XCTAssertTrue([[request valueForHTTPHeaderField:@"X-Ephemeral-Id"]
+                   isEqualToString:@"1234"]);
+    return YES;
+  }] completionHandler:[OCMArg any]];
   
-  [restClient fetchResource:[XMMSystem class] completion:^(JSONAPI *result, NSError *error) {
+  [restClient fetchResource:[XMMSystem class]
+                    headers:@{@"X-Ephemeral-Id":@"1234"}
+                 completion:^(JSONAPI *result, NSError *error) {
     XCTAssertNotNil(result);
     XCTAssertNil(error);
     [expectation fulfill];
   }];
   
   [self waitForExpectationsWithTimeout:1.0 handler:nil];
+  OCMVerify([mockDelegate gotEphemeralId:[OCMArg isEqual:@"123"]]);
 }
 
 - (void)testFetchResourceParamaterCallsCallback {
@@ -70,9 +84,12 @@
     passedBlock([NSData new], nil, nil);
   };
   
-  [[[session stub] andDo:proxyBlock] dataTaskWithURL:[OCMArg any] completionHandler:[OCMArg any]];
+  [[[session stub] andDo:proxyBlock] dataTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]];
   
-  [restClient fetchResource:[XMMSystem class] parameters:@{@"lang":@"de"} completion:^(JSONAPI *result, NSError *error) {
+  [restClient fetchResource:[XMMSystem class]
+                 parameters:@{@"lang":@"de"}
+                    headers:nil
+                 completion:^(JSONAPI *result, NSError *error) {
     XCTAssertNotNil(result);
     XCTAssertNil(error);
     [expectation fulfill];
@@ -93,9 +110,12 @@
     passedBlock([NSData new], nil, nil);
   };
   
-  [[[session stub] andDo:proxyBlock] dataTaskWithURL:[OCMArg any] completionHandler:[OCMArg any]];
+  [[[session stub] andDo:proxyBlock] dataTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]];
   
-  [restClient fetchResource:[XMMSystem class] id:@"1234" parameters:nil completion:^(JSONAPI *result, NSError *error) {
+  [restClient fetchResource:[XMMSystem class] id:@"1234"
+                 parameters:nil
+                    headers:nil
+                 completion:^(JSONAPI *result, NSError *error) {
     XCTAssertNotNil(result);
     XCTAssertNil(error);
     [expectation fulfill];
@@ -117,9 +137,13 @@
     passedBlock([NSData new], nil, [[NSError alloc] initWithDomain:@"com.xamoom.unittest" code:1 userInfo:nil]);
   };
   
-  [[[session stub] andDo:proxyBlock] dataTaskWithURL:[OCMArg any] completionHandler:[OCMArg any]];
+  [[[session stub] andDo:proxyBlock] dataTaskWithRequest:[OCMArg any] completionHandler:[OCMArg any]];
   
-  [restClient fetchResource:[XMMSystem class] id:@"1234" parameters:nil completion:^(JSONAPI *result, NSError *error) {
+  [restClient fetchResource:[XMMSystem class]
+                         id:@"1234"
+                 parameters:nil
+                    headers:nil
+                 completion:^(JSONAPI *result, NSError *error) {
     XCTAssertNotNil(error);
     XCTAssertNil(result);
     [expectation fulfill];

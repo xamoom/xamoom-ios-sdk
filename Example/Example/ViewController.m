@@ -12,6 +12,7 @@
 #import "DetailViewController.h"
 #import <XamoomSDK/XMMOfflineStorageTagModule.h>
 #import <XamoomSDK/NSDateFormatter+ISODate.h>
+#import <XamoomSDK/XMMMusicPlayer.h>
 
 @interface ViewController ()
 
@@ -26,6 +27,7 @@
 
 @property XMMOfflineStorageTagModule *module;
 
+@property XMMMusicPlayer *player;
 @end
 
 @implementation ViewController

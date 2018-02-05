@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MovingBarsView : UIView <CAAnimationDelegate>
+@interface XMMMovingBarsView : UIView <CAAnimationDelegate>
 
 @property (strong, nonatomic) UIColor* tintColor;
 
