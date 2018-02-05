@@ -40,7 +40,6 @@
 		8834405D2012025200CF501E /* XMMMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8834405B2012025200CF501E /* XMMMusicPlayer.m */; };
 		88399DD12010EEAD00625126 /* XMMMediaFileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88399DD02010EEAD00625126 /* XMMMediaFileTest.m */; };
 		88399DD42011DC0100625126 /* XMMProgressBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 88399DD22011DC0100625126 /* XMMProgressBar.h */; };
-		88399DD52011DC0100625126 /* XMMProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 88399DD32011DC0100625126 /* XMMProgressBar.m */; };
 		883AC7D51DB0BEF000AE7BA7 /* XMMOfflineFileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 883AC7D31DB0BEF000AE7BA7 /* XMMOfflineFileManager.h */; };
 		883AC7D61DB0BEF000AE7BA7 /* XMMOfflineFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 883AC7D41DB0BEF000AE7BA7 /* XMMOfflineFileManager.m */; };
 		883AC7D81DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 883AC7D71DB0C0CF00AE7BA7 /* XMMOfflineFileManagerTest.m */; };
