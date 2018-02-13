@@ -227,7 +227,6 @@
 		88E69F2D1F9DD2D2002C9FB2 /* XMMFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E69F2B1F9DD2D2002C9FB2 /* XMMFilter.h */; };
 		88E69F2E1F9DD2D2002C9FB2 /* XMMFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E69F2C1F9DD2D2002C9FB2 /* XMMFilter.m */; };
 		88E69F301F9DDC8B002C9FB2 /* XMMContentFilterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E69F2F1F9DDC8B002C9FB2 /* XMMContentFilterTest.m */; };
-		88F0945F1DBD0CAF0072E9CA /* XMMOfflineStorageTagModule.h in Sources */ = {isa = PBXBuildFile; fileRef = 88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */; };
 		88F581FD1C5213D3003D7C49 /* contentPublicOnly.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F581FC1C5213D3003D7C49 /* contentPublicOnly.json */; };
 		88F582041C522AA0003D7C49 /* content.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F582031C522AA0003D7C49 /* content.json */; };
 		88FE68C11C4E380300E9A32A /* XMMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FE68BF1C4E380300E9A32A /* XMMMenu.h */; };
@@ -1414,7 +1413,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				88482D781E37961700B28293 /* XMMSimpleStorage.m in Sources */,
-				88F0945F1DBD0CAF0072E9CA /* XMMOfflineStorageTagModule.h in Sources */,
 				884937571C75C82100C53520 /* UIColor+HexString.m in Sources */,
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
 				8834405D2012025200CF501E /* XMMMusicPlayer.m in Sources */,
@@ -1603,6 +1601,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1653,6 +1652,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MOMC_NO_INVERSE_RELATIONSHIP_WARNINGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

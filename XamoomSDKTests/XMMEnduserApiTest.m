@@ -25,7 +25,7 @@
 
 @synthesize api, restClient, mockRestClient;
 
-NSString* apiVersion = @"3.9.0";
+NSString* apiVersion = @"3.10.0";
 
 - (void)setUp {
   [super setUp];

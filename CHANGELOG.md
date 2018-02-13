@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.10.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.9.0...3.10.0) - 05.02.2018
+
+- Added rtl support
+
 ## [3.9.0](https://github.com/xamoom/xamoom-ios-sdk/compare/3.8.0...3.9.0) - 05.02.2018
 
 - Added ephemeralId
