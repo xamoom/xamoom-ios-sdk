@@ -14,14 +14,14 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="XMMContentBlock1TableViewCell" rowHeight="316" id="KGk-i7-Jjw" customClass="XMMContentBlock1TableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="318" height="117"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="318" height="116.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcQ-PM-FgJ">
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcQ-PM-FgJ">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="99"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0p-ky-YSc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v0p-ky-YSc">
                                 <rect key="frame" x="8" y="8" width="256" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="FTs-zP-oKB"/>
@@ -30,7 +30,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6P-Os-E9n">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" ambiguous="YES" text="0:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6P-Os-E9n">
                                 <rect key="frame" x="272" y="13" width="38" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="38" id="1jp-0E-rwJ"/>
@@ -40,7 +40,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkC-Ma-2oK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" ambiguous="YES" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkC-Ma-2oK">
                                 <rect key="frame" x="8" y="31" width="302" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="zja-jW-4lm"/>
@@ -49,10 +49,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="bOo-VA-S2f">
+                            <view contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOo-VA-S2f">
                                 <rect key="frame" x="8" y="65" width="117" height="26"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spc-5G-TLl">
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="spc-5G-TLl">
                                         <rect key="frame" x="41" y="0.0" width="34" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="34" id="Jlb-m0-lfQ"/>
@@ -65,7 +65,7 @@
                                             <action selector="playButtonTouched:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4xC-Rf-QCJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09D-g9-lGe">
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09D-g9-lGe">
                                         <rect key="frame" x="0.0" y="3" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="5ZV-9G-1IQ"/>
@@ -80,19 +80,19 @@
                                             <action selector="backwardButtonTouched:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8wx-1T-Jcs"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTH-0X-FUw">
-                                        <rect key="frame" x="20" y="6" width="16" height="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTH-0X-FUw">
+                                        <rect key="frame" x="22" y="6" width="16" height="14"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkP-O0-O4Y">
-                                        <rect key="frame" x="81" y="6" width="16" height="14"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkP-O0-O4Y">
+                                        <rect key="frame" x="79" y="6" width="16" height="14"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beZ-yx-Axz">
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beZ-yx-Axz">
                                         <rect key="frame" x="97" y="3" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="GTt-wb-3kw"/>
@@ -122,7 +122,7 @@
                                     <constraint firstItem="beZ-yx-Axz" firstAttribute="leading" secondItem="ZkP-O0-O4Y" secondAttribute="trailing" constant="2" id="rAI-Vp-zOn"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6D-Eu-ldB" customClass="XMMMovingBarsView">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6D-Eu-ldB" customClass="XMMMovingBarsView">
                                 <rect key="frame" x="280" y="71" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="OuC-cd-za8"/>
@@ -148,7 +148,7 @@
                             <constraint firstItem="s6P-Os-E9n" firstAttribute="top" secondItem="xcQ-PM-FgJ" secondAttribute="top" constant="13" id="voC-oP-JgV"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="bNb-P6-22z" customClass="XMMProgressBar">
+                    <view contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bNb-P6-22z" customClass="XMMProgressBar">
                         <rect key="frame" x="0.0" y="94" width="318" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="8" id="mO3-rO-Eax"/>
