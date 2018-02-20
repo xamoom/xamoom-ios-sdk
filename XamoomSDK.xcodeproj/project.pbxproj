@@ -227,13 +227,13 @@
 		88E69F2D1F9DD2D2002C9FB2 /* XMMFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 88E69F2B1F9DD2D2002C9FB2 /* XMMFilter.h */; };
 		88E69F2E1F9DD2D2002C9FB2 /* XMMFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E69F2C1F9DD2D2002C9FB2 /* XMMFilter.m */; };
 		88E69F301F9DDC8B002C9FB2 /* XMMContentFilterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E69F2F1F9DDC8B002C9FB2 /* XMMContentFilterTest.m */; };
+		88ECF2CA203C14C2000A7C18 /* XMMEnduserApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */; };
 		88F581FD1C5213D3003D7C49 /* contentPublicOnly.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F581FC1C5213D3003D7C49 /* contentPublicOnly.json */; };
 		88F582041C522AA0003D7C49 /* content.json in Resources */ = {isa = PBXBuildFile; fileRef = 88F582031C522AA0003D7C49 /* content.json */; };
 		88FE68C11C4E380300E9A32A /* XMMMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FE68BF1C4E380300E9A32A /* XMMMenu.h */; };
 		88FE68C21C4E380300E9A32A /* XMMMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE68C01C4E380300E9A32A /* XMMMenu.m */; };
 		88FE68C71C4E6F3500E9A32A /* XMMMarker.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FE68C51C4E6F3500E9A32A /* XMMMarker.h */; };
 		88FE68C81C4E6F3500E9A32A /* XMMMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE68C61C4E6F3500E9A32A /* XMMMarker.m */; };
-		88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FEC2A61C51070900228B45 /* XMMEnduserApiTest.m */; };
 		88FEF64E1F9631C500792DBF /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88FEF6461F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodeld */; };
 		88FEF6581F99F68E00792DBF /* NSDateFormatter+ISODate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FEF6571F99F68D00792DBF /* NSDateFormatter+ISODate.m */; };
 		B38F0D3EB51B1BE60120C076 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8796652F7A66500CFA6B310E /* libPods-XamoomSDKTests.a */; };
@@ -1484,6 +1484,7 @@
 				888F18BD1DA66CE400518DB8 /* XMMSystemSettingsTest.m in Sources */,
 				888F18C31DA6883B00518DB8 /* XMMMenuTest.m in Sources */,
 				8863987C1DB520FA00CBBAD7 /* XMMContentBlock2TableViewCellTest.m in Sources */,
+				88ECF2CA203C14C2000A7C18 /* XMMEnduserApiTest.m in Sources */,
 				88B962911C7F00530096993D /* UIColor+HexStringTests.m in Sources */,
 				88D5B1411DA3EFF60069E2E8 /* XMMCDMarkerTest.m in Sources */,
 				888F18C71DA78EC400518DB8 /* XMMMarkerTest.m in Sources */,
@@ -1510,7 +1511,6 @@
 				88B390231DA39EC700216478 /* XMMCDSystemSettingsTest.m in Sources */,
 				88C5CCD01DB734A9002A0D37 /* XMMContentBlock8TableViewCellTest.m in Sources */,
 				88A4A5641DB9EE6100BFDC35 /* XMMOfflineStorageTagModuleTest.m in Sources */,
-				88FEC2A71C51070900228B45 /* XMMEnduserApiTest.m in Sources */,
 				88344059201201CD00CF501E /* XMMMusicPlayerTests.m in Sources */,
 				88226E4C1DAFCD3200F33932 /* XMMEnduserApiOfflineTest.m in Sources */,
 				888F18CD1DA7A2B100518DB8 /* XMMContentTest.m in Sources */,

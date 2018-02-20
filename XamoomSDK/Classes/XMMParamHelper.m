@@ -243,4 +243,11 @@
   return nil;
 }
 
++ (NSDictionary *)addRecommendationsToParams:(NSDictionary *)params {
+  NSMutableDictionary *newParams = [[NSMutableDictionary alloc]
+                                    initWithDictionary:params];
+  [newParams setObject:@"true" forKey:@"recommend"];
+  return newParams;
+}
+
 @end

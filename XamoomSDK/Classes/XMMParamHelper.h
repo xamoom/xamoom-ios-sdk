@@ -47,4 +47,6 @@
 + (NSDictionary *)addConditionsToParams:(NSDictionary *)params
                              conditions:(NSDictionary *)conditions;
 
++ (NSDictionary *)addRecommendationsToParams:(NSDictionary *)params;
+
 @end

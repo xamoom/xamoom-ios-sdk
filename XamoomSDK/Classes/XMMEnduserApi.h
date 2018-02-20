@@ -31,7 +31,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * `XMMEnduserApi` is the main part of the XamoomSDK. You can use it to send api request to the xamoom-api.
  *
  * Use initWithApiKey: to initialize.
- * 
+ *
  * Change the requested language by setting the language. The users language is
  * saved in systemLanguage.
  *
@@ -97,14 +97,14 @@ extern NSString * _Nonnull const kApiBaseURLString;
 /**
  * Initializes with a apikey. You find your apikey in your xamoom system in
  * Settings.
- * 
+ *
  * @param apikey Your xamoom api key
  */
 - (instancetype _Nonnull)initWithApiKey:(NSString *_Nonnull)apikey;
 
 /**
  * Initializes with a custom XMMRestClient.
- * 
+ *
  * @param restClient Custom XMMRestClient
  */
 - (instancetype _Nonnull)initWithRestClient:(XMMRestClient *_Nonnull)restClient;
@@ -123,7 +123,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID
-                             completion:(void(^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                      completion:(void(^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
 
 /**
  * API call to get content with specific ID and options.
@@ -136,7 +136,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID
-                                options:(XMMContentOptions)options
+                                         options:(XMMContentOptions)options
                                       completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
 
 /**
@@ -151,10 +151,10 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID
-                                options:(XMMContentOptions)options
-                                 reason:(XMMContentReason)reason
+                                         options:(XMMContentOptions)options
+                                          reason:(XMMContentReason)reason
                                       completion:(void (^_Nullable)(XMMContent * _Nullable content,
-                                                  NSError * _Nullable error))completion;
+                                                                    NSError * _Nullable error))completion;
 
 /**
  * API call to get content with specific location-identifier.
@@ -166,7 +166,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithLocationIdentifier:(NSString *_Nonnull)locationIdentifier
-                                             completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
 
 /**
  * API call to get content with specific location-identifier with options.
@@ -179,8 +179,8 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithLocationIdentifier:(NSString *_Nonnull)locationIdentifier
-                                                options:(XMMContentOptions)options
-                                             completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                         options:(XMMContentOptions)options
+                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
 
 /**
  * API call to get content with specific location-identifier with options
@@ -188,7 +188,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  *
  * @param locationIdentifier Locationidentifier from xamoom marker
  * @param options XMMContentOptions for call
- * @param conditions NSDictionary with conditions to match. Allowed value types: 
+ * @param conditions NSDictionary with conditions to match. Allowed value types:
  * numbers, strings and dates.
  * @param completion Completion block called after finishing network request
  * - *param1* content Content from xamoom system
@@ -196,9 +196,9 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithLocationIdentifier:(NSString *_Nonnull)locationIdentifier
-                                                options:(XMMContentOptions)options
-                                             conditions:(NSDictionary *_Nullable)conditions
-                                             completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                         options:(XMMContentOptions)options
+                                                      conditions:(NSDictionary *_Nullable)conditions
+                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
 
 /**
  * API call to get content with specific location-identifier with options
@@ -215,11 +215,11 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithLocationIdentifier:(NSString *_Nonnull)locationIdentifier
-                                                options:(XMMContentOptions)options
-                                             conditions:(NSDictionary *_Nullable)conditions
-                                                 reason:(XMMContentReason)reason
-                                             completion:(void (^_Nullable)(XMMContent * _Nullable content,
-                                                                  NSError * _Nullable error))completion;
+                                                         options:(XMMContentOptions)options
+                                                      conditions:(NSDictionary *_Nullable)conditions
+                                                          reason:(XMMContentReason)reason
+                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content,
+                                                                                    NSError * _Nullable error))completion;
 
 /**
  * API call to get content with beacon.
@@ -232,8 +232,8 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithBeaconMajor:(NSNumber *_Nonnull)major
-                                           minor:(NSNumber *_Nonnull)minor
-                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                    minor:(NSNumber *_Nonnull)minor
+                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
 
 /**
  * API call to get content with beacon.
@@ -247,9 +247,9 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithBeaconMajor:(NSNumber *_Nonnull)major
-                                           minor:(NSNumber *_Nonnull)minor
-                                         options:(XMMContentOptions)options
-                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                    minor:(NSNumber *_Nonnull)minor
+                                                  options:(XMMContentOptions)options
+                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
 
 /**
  * API call to get content with beacon and condition.
@@ -267,10 +267,10 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithBeaconMajor:(NSNumber * _Nonnull)major
-                                           minor:(NSNumber *_Nonnull)minor
-                                         options:(XMMContentOptions)options
-                                      conditions:(NSDictionary *_Nullable)conditions
-                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                    minor:(NSNumber *_Nonnull)minor
+                                                  options:(XMMContentOptions)options
+                                               conditions:(NSDictionary *_Nullable)conditions
+                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
 
 /**
  * API call to get content with beacon, condition and reason.
@@ -289,11 +289,11 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithBeaconMajor:(NSNumber * _Nonnull)major
-                                           minor:(NSNumber *_Nonnull)minor
-                                         options:(XMMContentOptions)options
+                                                    minor:(NSNumber *_Nonnull)minor
+                                                  options:(XMMContentOptions)options
                                                conditions:(NSDictionary *_Nullable)conditions
-                                          reason:(XMMContentReason)reason
-                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                   reason:(XMMContentReason)reason
+                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
 
 /**
  * API call to get contents around location (40m).
@@ -310,14 +310,14 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentsWithLocation:(CLLocation * _Nonnull)location
-                                      pageSize:(int)pageSize
-                                        cursor:(NSString *_Nullable)cursor
-                                          sort:(XMMContentSortOptions)sortOptions
-                                    completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                               pageSize:(int)pageSize
+                                                 cursor:(NSString *_Nullable)cursor
+                                                   sort:(XMMContentSortOptions)sortOptions
+                                             completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to get contents with specific tags.
- * 
+ *
  * @param tags Array of tags
  * @param pageSize PageSize you want to get from xamoom cloud
  * @param cursor Needed when paging, can be null
@@ -330,17 +330,32 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentsWithTags:(NSArray * _Nonnull)tags
-                                  pageSize:(int)pageSize
-                                    cursor:(NSString *_Nullable)cursor
-                                      sort:(XMMContentSortOptions)sortOptions
-                                completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                           pageSize:(int)pageSize
+                                             cursor:(NSString *_Nullable)cursor
+                                               sort:(XMMContentSortOptions)sortOptions
+                                         completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
+/**
+ * API call to get contents with specific tags.
+ *
+ * @param tags Array of tags
+ * @param pageSize PageSize you want to get from xamoom cloud
+ * @param cursor Needed when paging, can be null
+ * @param sortOptions XMMContentSortOptions to sort result
+ * @param filter Add additional filter to query
+ * @param completion Completion block called after finishing network request
+ * - *param1* contents Contents from xamoom system
+ * - *param2* hasMore True if more items on xamoom cloud
+ * - *param3* cursor Cursor for paging
+ * - *param4* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
+ */
 - (NSURLSessionDataTask *_Nullable)contentsWithTags:(NSArray * _Nonnull)tags
-                                  pageSize:(int)pageSize
-                                    cursor:(NSString *_Nullable)cursor
-                                      sort:(XMMContentSortOptions)sortOptions
-                                    filter:(XMMFilter * _Nullable)filter
-                                completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                           pageSize:(int)pageSize
+                                             cursor:(NSString *_Nullable)cursor
+                                               sort:(XMMContentSortOptions)sortOptions
+                                             filter:(XMMFilter * _Nullable)filter
+                                         completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to fulltext-search contents for name and tags.
@@ -357,10 +372,10 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentsWithName:(NSString * _Nonnull)name
-                                  pageSize:(int)pageSize
-                                    cursor:(NSString *_Nullable)cursor
-                                      sort:(XMMContentSortOptions)sortOptions
-                                completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                           pageSize:(int)pageSize
+                                             cursor:(NSString *_Nullable)cursor
+                                               sort:(XMMContentSortOptions)sortOptions
+                                         completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to fulltext-search contents for name and tags.
@@ -378,11 +393,11 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentsWithName:(NSString * _Nonnull)name
-                                  pageSize:(int)pageSize
-                                    cursor:(NSString *_Nullable)cursor
-                                      sort:(XMMContentSortOptions)sortOptions
-                                    filter:(XMMFilter * _Nullable)filter
-                                completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                           pageSize:(int)pageSize
+                                             cursor:(NSString *_Nullable)cursor
+                                               sort:(XMMContentSortOptions)sortOptions
+                                             filter:(XMMFilter * _Nullable)filter
+                                         completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to filter contents with a special date or between to dates.
@@ -402,12 +417,24 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentsFrom:(NSDate * _Nullable)fromDate
-                                    to:(NSDate * _Nullable)toDate
-                           relatedSpot:(NSString * _Nullable)relatedSpotID
-                              pageSize:(int)pageSize
-                                cursor:(NSString *_Nullable)cursor
-                                  sort:(XMMContentSortOptions)sortOptions
-                            completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                             to:(NSDate * _Nullable)toDate
+                                    relatedSpot:(NSString * _Nullable)relatedSpotID
+                                       pageSize:(int)pageSize
+                                         cursor:(NSString *_Nullable)cursor
+                                           sort:(XMMContentSortOptions)sortOptions
+                                     completion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+
+/**
+ * Returns recommendated contents from the backend.
+ *
+ * @param completion Completion block called after finishing network request
+ * - *param1* contents Contents from xamoom system
+ * - *param2* hasMore True if more items on xamoom cloud
+ * - *param3* cursor Cursor for paging
+ * - *param4* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
+ */
+- (NSURLSessionDataTask *_Nullable)contentRecommendationsWithCompletion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to get a spot with specific id.
@@ -419,7 +446,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)spotWithID:(NSString * _Nonnull)spotID
-                          completion:(void(^_Nullable)(XMMSpot * _Nullable spot, NSError * _Nullable error))completion;
+                                   completion:(void(^_Nullable)(XMMSpot * _Nullable spot, NSError * _Nullable error))completion;
 
 /**
  * API call to get a spot with specific id.
@@ -432,12 +459,12 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)spotWithID:(NSString * _Nonnull)spotID
-                             options:(XMMSpotOptions)options
-                          completion:(void(^_Nullable)(XMMSpot * _Nullable spot, NSError * _Nullable error))completion;
+                                      options:(XMMSpotOptions)options
+                                   completion:(void(^_Nullable)(XMMSpot * _Nullable spot, NSError * _Nullable error))completion;
 
 /**
  * API call to get spots inside radius of a location.
- * 
+ *
  * @param location Location of the user
  * @param radius Radius in meter
  * @param options XMMSpotOptions to get markers or content
@@ -448,10 +475,10 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)spotsWithLocation:(CLLocation * _Nonnull)location
-                                     radius:(int)radius
-                                    options:(XMMSpotOptions)options
-                                       sort:(XMMSpotSortOptions)sortOptions
-                                 completion:(void (^_Nullable)(NSArray * _Nullable spots, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                              radius:(int)radius
+                                             options:(XMMSpotOptions)options
+                                                sort:(XMMSpotSortOptions)sortOptions
+                                          completion:(void (^_Nullable)(NSArray * _Nullable spots, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to get spots inside radius of a location.
@@ -470,11 +497,11 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)spotsWithLocation:(CLLocation * _Nonnull)location
-                                     radius:(int)radius
-                                    options:(XMMSpotOptions)options
-                                       sort:(XMMSpotSortOptions)sortOptions
-                                   pageSize:(int)pageSize cursor:(NSString *_Nullable)cursor
-                                 completion:(void (^_Nullable)(NSArray * _Nullable spots, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                              radius:(int)radius
+                                             options:(XMMSpotOptions)options
+                                                sort:(XMMSpotSortOptions)sortOptions
+                                            pageSize:(int)pageSize cursor:(NSString *_Nullable)cursor
+                                          completion:(void (^_Nullable)(NSArray * _Nullable spots, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to get spots with specific tags. Returns max. 100 spots.
@@ -490,9 +517,9 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)spotsWithTags:(NSArray * _Nonnull)tags
-                                options:(XMMSpotOptions)options
-                                   sort:(XMMSpotSortOptions)sortOptions
-                             completion:(void (^_Nullable)(NSArray * _Nullable spots, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                         options:(XMMSpotOptions)options
+                                            sort:(XMMSpotSortOptions)sortOptions
+                                      completion:(void (^_Nullable)(NSArray * _Nullable spots, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to get spots with specific tags.
@@ -510,11 +537,11 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)spotsWithTags:(NSArray * _Nonnull)tags
-                               pageSize:(int)pageSize
-                                 cursor:(NSString *_Nullable)cursor
-                                options:(XMMSpotOptions)options
-                                   sort:(XMMSpotSortOptions)sortOptions
-                             completion:(void (^_Nullable)(NSArray * _Nullable spots, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
+                                        pageSize:(int)pageSize
+                                          cursor:(NSString *_Nullable)cursor
+                                         options:(XMMSpotOptions)options
+                                            sort:(XMMSpotSortOptions)sortOptions
+                                      completion:(void (^_Nullable)(NSArray * _Nullable spots, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call to fulltext-search spots by name.
@@ -532,15 +559,15 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)spotsWithName:(NSString * _Nonnull)name
-                               pageSize:(int)pageSize
-                                 cursor:(NSString *_Nullable)cursor
-                                options:(XMMSpotOptions)options
-                                   sort:(XMMSpotSortOptions)sortOptions
+                                        pageSize:(int)pageSize
+                                          cursor:(NSString *_Nullable)cursor
+                                         options:(XMMSpotOptions)options
+                                            sort:(XMMSpotSortOptions)sortOptions
                                       completion:(void (^_Nullable)(NSArray * _Nullable spots, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion;
 
 /**
  * API call that returns your system.
- * 
+ *
  * @param completion Completion block called after finishing network request
  * - *param1* system System from xamoom system
  * - *param2* error NSError, can be null
@@ -558,7 +585,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)systemSettingsWithID:(NSString * _Nonnull)settingsID
-                                    completion:(void (^_Nullable)(XMMSystemSettings * _Nullable settings, NSError * _Nullable error))completion;
+                                             completion:(void (^_Nullable)(XMMSystemSettings * _Nullable settings, NSError * _Nullable error))completion;
 
 /**
  * API call that returns your system style.
@@ -570,7 +597,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)styleWithID:(NSString * _Nonnull)styleID
-                           completion:(void (^_Nullable)(XMMStyle * _Nullable style, NSError * _Nullable error))completion;
+                                    completion:(void (^_Nullable)(XMMStyle * _Nullable style, NSError * _Nullable error))completion;
 
 /**
  * API call that returns your menu.
@@ -582,7 +609,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)menuWithID:(NSString * _Nonnull)menuID
-                          completion:(void (^_Nullable)(XMMMenu * _Nullable menu, NSError * _Nullable error))completion;
+                                   completion:(void (^_Nullable)(XMMMenu * _Nullable menu, NSError * _Nullable error))completion;
 
 /**
  *
