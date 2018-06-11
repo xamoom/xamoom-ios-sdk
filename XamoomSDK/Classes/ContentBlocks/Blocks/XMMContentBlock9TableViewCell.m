@@ -19,7 +19,6 @@
 @property (nonatomic) bool showContent;
 @property (nonatomic) bool didLoadStyle;
 @property (nonatomic, strong) NSMutableArray *spots;
-@property (nonatomic, strong) MKMapView *mapView;
 
 @end
 
@@ -49,10 +48,6 @@ static int kPageSize = 100;
   
   self.mapView.showsUserLocation = NO;
 
-}
-
-- (void)setupMapView {
-  self.mapView.delegate = self;
 }
 
 - (void)setupLocationManager {
@@ -115,13 +110,21 @@ static int kPageSize = 100;
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
   if (![tableView.indexPathsForVisibleRows containsObject:indexPath]) {
     return;
-  } else {    
-    _mapView = _mapViewPlaceholder.subviews.firstObject;
+  } else {
+    for (UIView *view in _mapView.subviews) {
+      if ([view isKindOfClass:MKMapView.class]) {
+        _mapView = view;
+        break;
+      }
+    }
+    
     
     if (_mapView == nil) {
       _mapView = [[MKMapView alloc] init];
       _mapView.frame = _mapViewPlaceholder.bounds;
       [_mapViewPlaceholder addSubview:_mapView];
+      
+      self.mapView.delegate = self;
     }
   }
   
@@ -151,7 +154,6 @@ static int kPageSize = 100;
   NSArray *spots = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[spotMapTags componentsJoinedByString:@","]];
   if (spots) {
     [self.loadingIndicator stopAnimating];
-    [self setupMapView];
     [self showSpotMap:spots];
     
     XMMSpot *spot = spots.firstObject;
@@ -165,7 +167,6 @@ static int kPageSize = 100;
   self.spots = [[NSMutableArray alloc] init];
   [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     [self.loadingIndicator stopAnimating];
-    [self setupMapView];
     [self showSpotMap:spots];
   }];
 }
