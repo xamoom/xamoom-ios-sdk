@@ -114,7 +114,9 @@ static int kPageSize = 100;
     return;
   }
   
-  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  if (style.foregroundFontColor != nil) {
+    self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  }
   
   self.titleLabel.text = block.title;
   

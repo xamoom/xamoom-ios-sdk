@@ -41,7 +41,9 @@ static int kWebViewSoundcloudPadding = 8;
     return;
   }
   
-  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  if (style.foregroundFontColor != nil) {
+    self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  }
   
   [self.webView.scrollView setScrollEnabled:NO];
   [self.webView.scrollView setBounces:NO];
