@@ -7,15 +7,15 @@
 //
 
 #import "XMMContentBlock11TableViewCell.h"
-#import "XMMContentBlocks.h"
 #import "XMMListManager.h"
+#import "XMMContentBlocks.h"
 
 @interface XMMContentBlock11TableViewCell()
 
 @property (nonatomic, strong) UITableView *parentTableView;
+@property (nonatomic, strong) XMMContentBlocks *contentBlocks;
 @property (nonatomic, strong) XMMListManager *listManager;
 @property (nonatomic, strong) NSIndexPath *parentIndexPath;
-@property (nonatomic, strong) XMMContentBlocks *contentBlocks;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loadMoreButtonHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loadMoreButtonTopConstraint;
@@ -66,6 +66,13 @@ int tableViewTopConstant = 8;
     _contentBlocks.delegate = delegate;
     _contentBlocks.offline = offline;
     _contentBlocks.style = style;
+    
+    // copy registered tableview cells from parentTableView
+    NSDictionary *registeredCellClasses = [_parentTableView valueForKey:@"_cellClassDict"];
+    NSDictionary *registeredNibs = [_parentTableView valueForKey:@"_nibMap"];
+    
+    [_tableView setValue:registeredCellClasses forKey:@"_cellClassDict"];
+    [_tableView setValue:registeredNibs forKey:@"_nibMap"];
   }
   
   if (block.title != nil && ![block.title isEqualToString:@""]) {
