@@ -105,13 +105,17 @@ static UIColor *contentLinkColor;
   
   NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
   [paragraphStyle setBaseWritingDirection:NSWritingDirectionNatural];
+  
+  // set alignment from contentTextView
+  [paragraphStyle setAlignment:_contentTextView.textAlignment];
   [attributedString addAttribute:NSParagraphStyleAttributeName
                            value:paragraphStyle
                            range:NSMakeRange(0, [attributedString length])];
-  [attributedString addAttribute:NSForegroundColorAttributeName
-                           value:color
-                           range:NSMakeRange(0, attributedString.length)];
-  
+  if (color != nil) {
+    [attributedString addAttribute:NSForegroundColorAttributeName
+                             value:color
+                             range:NSMakeRange(0, attributedString.length)];
+  }
   return attributedString;
 }
 
