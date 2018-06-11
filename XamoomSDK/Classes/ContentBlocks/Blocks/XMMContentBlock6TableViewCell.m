@@ -11,7 +11,6 @@
 
 @interface XMMContentBlock6TableViewCell()
 
-@property (nonatomic) UIImage *angleImage;
 @property (nonatomic) BOOL offline;
 @property (nonatomic, weak) NSURLSessionDataTask *dataTask;
 
@@ -23,39 +22,11 @@ static NSString *contentLanguage;
 
 - (void)awakeFromNib {
   // Initialization code
-  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-  NSBundle *imageBundle = nil;
-  if (url) {
-    imageBundle = [NSBundle bundleWithURL:url];
-  } else {
-    imageBundle = bundle;
-  }
-  
   self.fileManager = [[XMMOfflineFileManager alloc] init];
   self.contentID = nil;
   self.contentImageView.image = nil;
   self.contentTitleLabel.text = nil;
   self.contentExcerptLabel.text = nil;
-  
-  self.angleImage = [UIImage imageNamed:@"angleRight"
-                                inBundle:imageBundle compatibleWithTraitCollection:nil];
-  if (@available(iOS 9.0, *)) {
-    if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:
-         self.angleImageView.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft) {
-      self.angleImage = [[UIImage imageNamed:@"angleRight"
-                                    inBundle:imageBundle compatibleWithTraitCollection:nil]
-                         imageFlippedForRightToLeftLayoutDirection];
-    }
-  } else {
-    if ([UIApplication sharedApplication].userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft) {
-      self.angleImage = [UIImage imageWithCGImage:self.angleImage.CGImage
-                                            scale:1.0
-                                      orientation: UIImageOrientationUpMirrored];
-    }
-  }
-  
-  
   
   [super awakeFromNib];
 }
@@ -82,7 +53,6 @@ static NSString *contentLanguage;
   
   //set content
   self.contentID = block.contentID;
-  self.angleImageView.image = self.angleImage;
   
   //init contentBlock
   [self downloadContentBlock:api];
