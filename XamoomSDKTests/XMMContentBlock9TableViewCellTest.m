@@ -36,6 +36,7 @@
 - (void)testThatContentBlock9CellConfigures {
   [self.contentBlocks displayContent:[self contentWithBlockType9]];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+  [self.contentBlocks.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:false];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock9TableViewCell *testCell = (XMMContentBlock9TableViewCell *)cell;
   
@@ -75,10 +76,6 @@
   
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock9TableViewCell *testCell = (XMMContentBlock9TableViewCell *)cell;
-  
-  MKMapView *mapView = testCell.mapView;
-  
-  XMMAnnotation *annotation = (XMMAnnotation *)[mapView.annotations firstObject];
   
   OCMVerify([self.mockedApi spotsWithTags:[OCMArg any] pageSize:100 cursor:[OCMArg isNil] options:XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation sort:0 completion:[OCMArg any]]);
   OCMVerify([self.mockedApi spotsWithTags:[OCMArg any] pageSize:100 cursor:[OCMArg isEqual:@"1"] options:XMMSpotOptionsIncludeContent|XMMSpotOptionsWithLocation sort:0 completion:[OCMArg any]]);
@@ -126,7 +123,8 @@
   [self.contentBlocks displayContent:[self contentWithBlockType9]];
   self.contentBlocks.style.customMarker = @"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAABuCAYAAAC0lERNAAAAAXNSR0IArs4c6QAAA51JREFUeAHt3b9u2lAcxXFjEwmWTCxZ2BO1S6Q+QdfmJSIixvRVGFHS5CHStU8QKVMEO0OzMLGABCa9P1RbJ3+aBp2qC18vPuB7LPmje21vzjK2fyLQeO0sl5eXH8qyPGs0GiePj48H6/W69dq4Xfkvz/NFsnhIFjdFUVz0er3759f+BHI4HO6lAYNUOu12u81Op1O02+0slZ/3dup3mlTZfD7PptNpOZlMVgn0KgGc9/v9ZQVRQwZiGvBjf3//0+HhYSsA2V4KLBaLbDQaLWaz2W2acJ8rzFyGDgLx+PgYREF5HlutVhZGYZWODarjG8i4J8ZyjplYHWD/tsDR0VErzMIuRm4g48ES90SW89t4ejRmZpiFXQ2ZZE/iwaIDyX8XCLOwqyHjFSeE2bYTCLOwqyHjPbHZbG53FkZnYVa9Y+tTGxpDAEgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpGBNPC0CqRqGBlIA0+rQKqGkYE08LQKpGoYGUgDT6tAqoaRgTTwtAqkahgZSANPq0CqhpE3kHmeL1arlXGa3ayGWdjF1W8g06eNH+KT8GzbCYRZgvwZrQ1k+rTxzXQ6Lbc7DaPDLH3N+HsNWRTFxWQyWTEr3z855vN5FmZhV0P2er37NCuvRqMR6/udluPxOKy+hV0N+bt7PpvNbu/u7tLExPNPnmETRmGVJt/XalyjCrEfDod7aTdID5/Tbrfb7HQ6RbvdztL01WE7l8uyzGIpxz0xlnOs3oRw3u/3lxXGE8jqz+vr64/L5fIsgX5JN9OD6vPw1fFd28crTrzZxEM57onVct41h/9yvb8Ac8Xb13FwJIEAAAAASUVORK5CYII=";
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-  
+  [self.contentBlocks.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:false];
+
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock9TableViewCell *testCell = (XMMContentBlock9TableViewCell *)cell;
   
@@ -138,6 +136,7 @@
   self.contentBlocks.style.customMarker = @"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE4LDIyQTIsMiAwIDAsMCAyMCwyMFY0QzIwLDIuODkgMTkuMSwyIDE4LDJIMTJWOUw5LjUsNy41TDcsOVYySDZBMiwyIDAgMCwwIDQsNFYyMEEyLDIgMCAwLDAgNiwyMkgxOFoiIC8+PC9zdmc+";
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
   
+  [self.contentBlocks.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:false];
   UITableViewCell *cell = [self.contentBlocks tableView:self.contentBlocks.tableView cellForRowAtIndexPath:indexPath];
   XMMContentBlock9TableViewCell *testCell = (XMMContentBlock9TableViewCell *)cell;
   

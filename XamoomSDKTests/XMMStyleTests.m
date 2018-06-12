@@ -29,9 +29,9 @@
   XMMStyle *style = [[XMMStyle alloc] init];
   
   XCTAssertNotNil(style);
-  XCTAssertTrue([style.foregroundFontColor isEqualToString:@"#000000"]);
-  XCTAssertTrue([style.highlightFontColor isEqualToString:@"#0000FF"]);
-  XCTAssertTrue([style.backgroundColor isEqualToString:@"#FFFFFF"]);
+  XCTAssertNil(style.foregroundFontColor);
+  XCTAssertNil(style.highlightFontColor);
+  XCTAssertNil(style.backgroundColor);
 }
 
 - (void)testInitWithColors {
