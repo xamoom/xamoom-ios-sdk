@@ -66,7 +66,6 @@
 }
 
 - (void)displayContent {
-  
   [self contentWithID];
   [self contentWithIDOptions];
   [self contentWithLocationIdentifier];
@@ -78,6 +77,7 @@
   [self spotsWithLocation];
   [self spotsWithTags];
   [self loadSystem];
+  [self contentRecommendations];
 }
 
 - (IBAction)didClickLoad:(id)sender {
@@ -242,6 +242,17 @@
       [content saveOffline];
     }
    */
+  }];
+}
+
+- (void)contentRecommendations {
+  [self.api contentRecommendationsWithCompletion:^(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error) {
+    if (error) {
+      NSLog(@"Error: %@", error);
+      return;
+    }
+    
+    NSLog(@"contentRecommendations: %@", contents);
   }];
 }
 

@@ -393,6 +393,49 @@ static XMMEnduserApi *sharedInstance;
                              }];
 }
 
+- (NSURLSessionDataTask *_Nullable)contentRecommendationsWithCompletion:(void (^_Nullable)(NSArray * _Nullable contents, bool hasMore, NSString * _Nullable cursor, NSError * _Nullable error))completion {
+  if (self.isOffline) {
+    NSLog(@"Content Recommendations not available when offline");
+    completion(nil, false, nil, [[NSError alloc]
+                                 initWithDomain:@"com.xamoom"
+                                 code:0
+                                 userInfo:@{@"detail":@"Content Recommendations not available when offline",}]);
+    return nil;
+  }
+  
+  if ([self getEphemeralId] == nil) {
+    NSLog(@"Content Recommendations not available without ephemeral id, please first call backend another way.");
+    completion(nil, false, nil, [[NSError alloc]
+                                 initWithDomain:@"com.xamoom"
+                                 code:0
+                                 userInfo:@{@"detail":@"Content Recommendations not available without ephemeral id, please first call backend another way",}]);
+    return nil;
+  }
+  
+  NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
+  params = [XMMParamHelper addRecommendationsToParams:params];
+  
+  NSMutableDictionary *headers = [self httpHeadersWithEphemeralId];
+  
+  return [self.restClient fetchResource:[XMMContent class]
+                             parameters:params
+                                headers:headers
+                             completion:^(JSONAPI *result, NSError *error) {
+                               if (error && completion) {
+                                 completion(nil, NO, nil, error);
+                                 return;
+                               }
+                               
+                               NSString *hasMoreValue = [result.meta objectForKey:@"has-more"];
+                               bool hasMore = [hasMoreValue boolValue];
+                               NSString *cursor = [result.meta objectForKey:@"cursor"];
+                               
+                               if (completion) {
+                                 completion(result.resources, hasMore, cursor, error);
+                               }
+                             }];
+}
+
 #pragma mark spot calls
 
 - (NSURLSessionDataTask *)spotWithID:(NSString *)spotID completion:(void (^)(XMMSpot *, NSError *))completion {

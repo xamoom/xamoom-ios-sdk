@@ -29,7 +29,7 @@ static NSString *kContentLanguage;
 static int kPageSize = 100;
 
 - (void)awakeFromNib {
-  // Initialization code
+  [super awakeFromNib];
   self.clipsToBounds = YES;
   
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
@@ -45,11 +45,9 @@ static int kPageSize = 100;
   self.mapHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   
   self.didLoadStyle = NO;
-  [super awakeFromNib];
-}
+  
+  self.mapView.showsUserLocation = NO;
 
-- (void)setupMapView {
-  self.mapView.delegate = self;
 }
 
 - (void)setupLocationManager {
@@ -84,7 +82,7 @@ static int kPageSize = 100;
    [NSLayoutConstraint constraintWithItem:self.mapAdditionView
                                 attribute:NSLayoutAttributeTrailing
                                 relatedBy:NSLayoutRelationEqual
-                                   toItem:self.mapView
+                                   toItem:self.mapViewPlaceholder
                                 attribute:NSLayoutAttributeTrailing
                                multiplier:1
                                  constant:0]];
@@ -92,10 +90,10 @@ static int kPageSize = 100;
   self.mapAdditionViewBottomConstraint = [NSLayoutConstraint constraintWithItem:self.mapAdditionView
                                                                       attribute:NSLayoutAttributeBottom
                                                                       relatedBy:NSLayoutRelationEqual
-                                                                         toItem:self.mapView
+                                                                         toItem:self.mapViewPlaceholder
                                                                       attribute:NSLayoutAttributeBottom
                                                                      multiplier:1
-                                                                       constant:self.mapView.bounds.size.height/2 + 10];
+                                                                       constant:self.mapViewPlaceholder.bounds.size.height/2 + 10];
   [self.contentView addConstraint:self.mapAdditionViewBottomConstraint];
   
   self.mapAdditionViewHeightConstraint = [NSLayoutConstraint constraintWithItem:self.mapAdditionView
@@ -104,17 +102,39 @@ static int kPageSize = 100;
                                                                       toItem:nil
                                                                    attribute:NSLayoutAttributeNotAnAttribute
                                                                   multiplier:1
-                                                                    constant:self.mapView.bounds.size.height/2];
+                                                                    constant:self.mapViewPlaceholder.bounds.size.height/2];
   
   [self.mapAdditionView addConstraint:self.mapAdditionViewHeightConstraint];
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
+  if (![tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+    return;
+  } else {
+    for (UIView *view in _mapView.subviews) {
+      if ([view isKindOfClass:MKMapView.class]) {
+        _mapView = view;
+        break;
+      }
+    }
+    
+    
+    if (_mapView == nil) {
+      _mapView = [[MKMapView alloc] init];
+      _mapView.frame = _mapViewPlaceholder.bounds;
+      [_mapViewPlaceholder addSubview:_mapView];
+      
+      self.mapView.delegate = self;
+    }
+  }
+  
   if (offline) {
     return;
   }
-  
-  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+    
+  if (style.foregroundFontColor != nil) {
+    self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  }
   
   self.titleLabel.text = block.title;
   
@@ -125,6 +145,7 @@ static int kPageSize = 100;
   
   self.showContent = block.showContent;
   
+  
   [self getSpotMap:api spotMapTags:block.spotMapTags];
   [self updateConstraints];
 }
@@ -133,7 +154,6 @@ static int kPageSize = 100;
   NSArray *spots = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[spotMapTags componentsJoinedByString:@","]];
   if (spots) {
     [self.loadingIndicator stopAnimating];
-    [self setupMapView];
     [self showSpotMap:spots];
     
     XMMSpot *spot = spots.firstObject;
@@ -147,7 +167,6 @@ static int kPageSize = 100;
   self.spots = [[NSMutableArray alloc] init];
   [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
     [self.loadingIndicator stopAnimating];
-    [self setupMapView];
     [self showSpotMap:spots];
   }];
 }
@@ -194,30 +213,38 @@ static int kPageSize = 100;
     [self.mapView removeAnnotations:self.mapView.annotations];
   }
   
-  for (XMMSpot *spot in spots) {
-    NSString *annotationTitle = nil;
-    if (spot.name != nil && ![spot.name isEqualToString:@""]) {
-      annotationTitle = spot.name;
-    } else {
-      annotationTitle = @"Spot";
+  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+  dispatch_async(queue, ^{
+    
+    NSMutableArray *annotations = [[NSMutableArray alloc] init];
+    for (XMMSpot *spot in spots) {
+      NSString *annotationTitle = nil;
+      if (spot.name != nil && ![spot.name isEqualToString:@""]) {
+        annotationTitle = spot.name;
+      } else {
+        annotationTitle = @"Spot";
+      }
+      
+      XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithName:annotationTitle withLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
+      annotation.spot = spot;
+      
+      //calculate
+      CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
+      CLLocationDistance distance = [self.locationManager.location distanceFromLocation:annotationLocation];
+      if (distance < 1000) {
+        annotation.distance = [NSString stringWithFormat:@"%@: %d m", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), (int)distance];
+      } else {
+        annotation.distance = [NSString stringWithFormat:@"%@: %0.1f km", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), distance/1000];
+      }
+      
+      [annotations addObject:annotation];
     }
     
-    XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithName:annotationTitle withLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
-    annotation.spot = spot;
-    
-    //calculate
-    CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude longitude:annotation.coordinate.longitude];
-    CLLocationDistance distance = [self.locationManager.location distanceFromLocation:annotationLocation];
-    if (distance < 1000) {
-      annotation.distance = [NSString stringWithFormat:@"%@: %d m", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), (int)distance];
-    } else {
-      annotation.distance = [NSString stringWithFormat:@"%@: %0.1f km", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), distance/1000];
-    }
-    
-    [self.mapView addAnnotation:annotation];
-  }
-  
-  [self zoomMapViewToFitAnnotations:self.mapView animated:YES];
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      [self.mapView addAnnotations:annotations];
+      [self zoomMapViewToFitAnnotations:self.mapView animated:YES];
+    });
+  });
 }
 
 - (void)mapMarkerFromBase64:(NSString*)base64String {
@@ -295,7 +322,7 @@ static int kPageSize = 100;
   CLLocation *location = [[CLLocation alloc] initWithLatitude:annotation.coordinate.latitude-0.003 longitude:annotation.coordinate.longitude];
   region.center=location.coordinate;
   
-  [self.mapView setRegion:region animated:TRUE];
+  [self.mapView setRegion:region animated:YES];
 }
 
 - (void)openMapAdditionView:(XMMAnnotation *)annotation {

@@ -931,6 +931,26 @@ NSString* apiVersion = @"3.10.1";
   OCMVerifyAll(mockRestClient);
 }
 
+- (void)testThatContentRecommendationsFetchResources {
+  NSMutableDictionary *params = [[NSMutableDictionary alloc]
+                                 initWithDictionary:@{@"lang":@"en",
+                                                      @"recommend":@"true"}];
+  
+  OCMExpect([mockRestClient fetchResource:[OCMArg isEqual:[XMMContent class]]
+                               parameters:[OCMArg isEqual:params]
+                                  headers:[OCMArg any]
+                               completion:[OCMArg any]]);
+  
+
+  
+  [api contentRecommendationsWithCompletion:^(NSArray * _Nullable contents,
+                                              bool hasMore, NSString * _Nullable cursor,
+                                              NSError * _Nullable error) {
+  }];
+  
+  OCMVerifyAll(mockRestClient);
+}
+
 - (void)testThatSpotWithIdReturnsSpotViaCallback {
   XCTestExpectation *expectation = [self expectationWithDescription:@"Handler called"];
   

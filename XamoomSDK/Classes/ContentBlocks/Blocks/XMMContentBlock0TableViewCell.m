@@ -38,8 +38,12 @@ static UIColor *contentLinkColor;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
-  self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
-  [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
+  if (style.foregroundFontColor != nil) {
+    self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
+  }
+  if (style.highlightFontColor != nil) {
+    [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
+  }
   
   [self displayTitle:block.title block:block];
   [self displayContent:block.text style:style];
@@ -57,7 +61,15 @@ static UIColor *contentLinkColor;
 - (void)displayContent:(NSString *)text style:(XMMStyle *)style {
   if (text != nil && ![text isEqualToString:@""]) {
     [self resetTextViewInsets:self.contentTextView];
-    self.contentTextView.attributedText = [self attributedStringFromHTML:text fontSize:[XMMContentBlock0TableViewCell fontSize] fontColor:[UIColor colorWithHexString:style.foregroundFontColor]];
+    
+    UIColor *color = [UIColor colorWithHexString:style.foregroundFontColor];
+    if (color == nil) {
+      color = _contentTextView.textColor;
+    }
+    
+    self.contentTextView.attributedText = [self attributedStringFromHTML:text
+                                                                fontSize:[XMMContentBlock0TableViewCell fontSize]
+                                                               fontColor:color];
     [self.contentTextView sizeToFit];
   } else {
     [self disappearTextView:self.contentTextView];
@@ -99,9 +111,12 @@ static UIColor *contentLinkColor;
   [attributedString addAttribute:NSParagraphStyleAttributeName
                            value:paragraphStyle
                            range:NSMakeRange(0, [attributedString length])];
-  [attributedString addAttribute:NSForegroundColorAttributeName
-                           value:color
-                           range:NSMakeRange(0, attributedString.length)];
+  
+  if (color != nil) {
+    [attributedString addAttribute:NSForegroundColorAttributeName
+                             value:color
+                             range:NSMakeRange(0, attributedString.length)];
+  }
   
   return attributedString;
 }

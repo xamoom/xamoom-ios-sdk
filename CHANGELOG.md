@@ -1,4 +1,15 @@
 # Changelog
+## [3.10.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.1...3.10.2) - 11.06.2018
+
+- Added recommendation calls
+
+- Fixed color setting for texts only when style foreground is available
+- Fixed color setting for ContentBlock100TableViewCell only when foregroundcolor is not nil
+- Fixed mapview for metallayer in iOS 11
+
+- Changed colors for constuctor in XMMStyle to nil values   
+
+- Removed angle mirroring for RTF languages
 
 ## [3.10.1](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.0...3.10.1) - 13.02.2018
 

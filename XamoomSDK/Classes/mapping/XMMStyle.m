@@ -14,9 +14,9 @@
 static JSONAPIResourceDescriptor *__descriptor = nil;
 
 - (instancetype)init {
-  return [self initWithBackgroundColor:@"#FFFFFF"
-                highlightTextColor:@"#0000FF"
-                textColor:@"#000000"];
+  return [self initWithBackgroundColor:nil
+                highlightTextColor:nil
+                             textColor: nil];
 }
 
 - (instancetype)initWithBackgroundColor:(NSString *)backgroundHexColor highlightTextColor:(NSString *)highlightFontHexColor textColor:(NSString *)foregroundFontHexColor {
