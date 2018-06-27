@@ -12,6 +12,7 @@
 @implementation XMMRestClient
 
 static const NSString *EPHEMERAL_ID_HEADER = @"X-Ephemeral-Id";
+static const NSString *AUTHORIZATION_ID_HEADER = @"Authorization";
 
 - (instancetype)initWithBaseUrl:(NSURL *)baseUrl session:(NSURLSession *)session {
   self = [super init];
@@ -109,6 +110,11 @@ static const NSString *EPHEMERAL_ID_HEADER = @"X-Ephemeral-Id";
   NSString *ephemeralId = [headers objectForKey:EPHEMERAL_ID_HEADER];
   if (ephemeralId != nil && _delegate != nil) {
     [_delegate gotEphemeralId:ephemeralId];
+  }
+  
+  NSString *authorizationId = [headers objectForKey:AUTHORIZATION_ID_HEADER];
+  if (authorizationId != nil && _delegate != nil) {
+    [_delegate gotAuthorizationId:authorizationId];
   }
 }
 

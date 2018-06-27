@@ -9,17 +9,20 @@
 #import "XMMEnduserApi.h"
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString = @"https://xamoom-cloud.appspot.com/_api/v2/consumer";
+NSString * const kApiBaseURLString = @"https://xamoom3-dev.appspot.com/consumer";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
+NSString * const kAuthorizationKey = @"com.xamoom.AuthorizationId";
 NSString * const kEphemeralIdHttpHeaderName = @"X-Ephemeral-Id";
+NSString * const kAuthorization = @"Authorization";
 NSString * const kReasonHttpHeaderName = @"X-Reason";
 
 
 @interface XMMEnduserApi () <XMMRestClientDelegate>
 
 @property (nonatomic, strong) NSString *ephemeralId;
+@property (nonatomic, strong) NSString *authorizationId;
 
 @end
 
@@ -412,6 +415,15 @@ static XMMEnduserApi *sharedInstance;
     return nil;
   }
   
+  if ([self getAuthorizationId] == nil) {
+    NSLog(@"Content Recommendations not available without authorization id, please first call backend another way.");
+    completion(nil, false, nil, [[NSError alloc]
+                                 initWithDomain:@"com.xamoom"
+                                 code:0
+                                 userInfo:@{@"detail":@"Content Recommendations not available without authorization id, please first call backend another way",}]);
+    return nil;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   params = [XMMParamHelper addRecommendationsToParams:params];
   
@@ -697,6 +709,16 @@ static XMMEnduserApi *sharedInstance;
   }
 }
 
+- (void)gotAuthorizationId:(NSString *)authorizationId {
+  if ([self getAuthorizationId] == nil ||
+      ![[self getAuthorizationId] isEqualToString:authorizationId]) {
+    _authorizationId = authorizationId;
+    NSUserDefaults *userDefaults = [self getUserDefaults];
+    [userDefaults setObject:authorizationId forKey:kAuthorizationKey];
+    [userDefaults synchronize];
+  }
+}
+
 #pragma mark - EphemeralId
 
 - (NSMutableDictionary *)addHeaderForReason:(NSMutableDictionary *)headers
@@ -713,6 +735,11 @@ static XMMEnduserApi *sharedInstance;
   if (_ephemeralId != nil) {
     [headers setObject:_ephemeralId forKey:kEphemeralIdHttpHeaderName];
   }
+  
+  if (_authorizationId != nil) {
+    [headers setObject:_authorizationId forKey:kAuthorization];
+  }
+  
   return headers;
 }
 
@@ -723,6 +750,15 @@ static XMMEnduserApi *sharedInstance;
   
   _ephemeralId = [[self getUserDefaults] objectForKey:kEphemeralIdKey];
   return _ephemeralId;
+}
+
+- (NSString *)getAuthorizationId {
+  if (_authorizationId != nil) {
+    return _authorizationId;
+  }
+  
+  _authorizationId = [[self getUserDefaults] objectForKey:kAuthorizationKey];
+  return _authorizationId;
 }
 
 - (NSUserDefaults *)getUserDefaults {

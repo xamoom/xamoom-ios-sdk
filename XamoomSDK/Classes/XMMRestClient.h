@@ -13,6 +13,7 @@
 @protocol XMMRestClientDelegate<NSObject>
 
 - (void)gotEphemeralId:(NSString *)ephemeralId;
+- (void)gotAuthorizationId:(NSString *)authorizationId;
 
 @end
 
