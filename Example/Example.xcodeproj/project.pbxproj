@@ -178,7 +178,6 @@
 				8888DDE11C47B16C0050A84C /* Sources */,
 				8888DDE21C47B16C0050A84C /* Frameworks */,
 				8888DDE31C47B16C0050A84C /* Resources */,
-				2F9DDEB6239DF3E0A066ED5A /* [CP] Embed Pods Frameworks */,
 				47A3B13C17510F0FBFB9A40E /* [CP] Copy Pods Resources */,
 				A50ADFE3E3192F53995BA201 /* 📦 Embed Pods Frameworks */,
 				7B6C0B27D32A077D2BF9EC07 /* 📦 Copy Pods Resources */,
@@ -294,21 +293,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		2F9DDEB6239DF3E0A066ED5A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		47A3B13C17510F0FBFB9A40E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,11 +301,12 @@
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh",
 				"${PODS_ROOT}/../XamoomSDK/Assets/Images.xcassets",
-				$PODS_CONFIGURATION_BUILD_DIR/XamoomSDK/XamoomSDK.bundle,
+				"${PODS_CONFIGURATION_BUILD_DIR}/XamoomSDK/XamoomSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/XamoomSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

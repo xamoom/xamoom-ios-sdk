@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
       'XamoomSDK/Classes/ContentBlocks/**/*.xib', 'XamoomSDK/Assets/*.xcdatamodeld']
     }
 
-    core.dependency 'JSONAPI', '~> 1.0.0'
+    core.dependency 'JSONAPI', '~> 1.0.7'
     core.dependency 'SDWebImage', '~>3.7'
     core.dependency 'JAMSVGImage'
   end

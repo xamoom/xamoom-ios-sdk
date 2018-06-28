@@ -21,6 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		627A37C120E4F09B007C83ED /* XMMPushDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 627A37BF20E4F09B007C83ED /* XMMPushDevice.h */; };
+		627A37C220E4F09B007C83ED /* XMMPushDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A37C020E4F09B007C83ED /* XMMPushDevice.m */; };
+		627A37C920E4F362007C83ED /* XMMCDPushDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 627A37C720E4F362007C83ED /* XMMCDPushDevice.h */; };
+		627A37CA20E4F362007C83ED /* XMMCDPushDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A37C820E4F362007C83ED /* XMMCDPushDevice.m */; };
 		880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */; };
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */; };
@@ -251,6 +255,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		627A37BF20E4F09B007C83ED /* XMMPushDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMPushDevice.h; path = XamoomSDK/Classes/mapping/XMMPushDevice.h; sourceTree = SOURCE_ROOT; };
+		627A37C020E4F09B007C83ED /* XMMPushDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = XMMPushDevice.m; path = XamoomSDK/Classes/mapping/XMMPushDevice.m; sourceTree = SOURCE_ROOT; };
+		627A37C720E4F362007C83ED /* XMMCDPushDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMCDPushDevice.h; sourceTree = "<group>"; };
+		627A37C820E4F362007C83ED /* XMMCDPushDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMCDPushDevice.m; sourceTree = "<group>"; };
 		672B23EE39E2A7B6555ECA0B /* Pods-XamoomSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		86421FBB40BBE7E6E9176A77 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8796652F7A66500CFA6B310E /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -513,6 +521,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		627A37BA20E4F00B007C83ED /* PushDevice */ = {
+			isa = PBXGroup;
+			children = (
+				627A37BF20E4F09B007C83ED /* XMMPushDevice.h */,
+				627A37C020E4F09B007C83ED /* XMMPushDevice.m */,
+			);
+			name = PushDevice;
+			sourceTree = "<group>";
+		};
 		880528EA1DE6D9A300241BC0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +587,7 @@
 		883B95F51C4D32D100DB8A6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				627A37BA20E4F00B007C83ED /* PushDevice */,
 				88E46F231C4933D8004D8AC3 /* XMMRestResource.h */,
 				88FE68BE1C4E36F800E9A32A /* Menu */,
 				883B95F61C4D32E200DB8A6B /* System */,
@@ -873,6 +891,8 @@
 				888F4F6B1DA53317000E49CE /* XMMCDContentBlock.m */,
 				888F4F701DA53FA8000E49CE /* XMMCDContent.h */,
 				888F4F711DA53FA8000E49CE /* XMMCDContent.m */,
+				627A37C720E4F362007C83ED /* XMMCDPushDevice.h */,
+				627A37C820E4F362007C83ED /* XMMCDPushDevice.m */,
 			);
 			name = OfflineResources;
 			sourceTree = "<group>";
@@ -994,6 +1014,7 @@
 				884937611C75F7E600C53520 /* UIImage+Scaling.h in Headers */,
 				883E558F1C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.h in Headers */,
 				88B3901C1DA2945900216478 /* XMMCDSystemSettings.h in Headers */,
+				627A37C120E4F09B007C83ED /* XMMPushDevice.h in Headers */,
 				885E21CC1F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.h in Headers */,
 				883E55831C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.h in Headers */,
 				88399DD42011DC0100625126 /* XMMProgressBar.h in Headers */,
@@ -1002,6 +1023,7 @@
 				885AC9F21F71517F00DDD9A8 /* NSDate+ISODate.h in Headers */,
 				88513C602010D3E000051719 /* XMMAudioManager.h in Headers */,
 				883E55A41C4A37FE000C4D09 /* UIImage+animatedGIF.h in Headers */,
+				627A37C920E4F362007C83ED /* XMMCDPushDevice.h in Headers */,
 				88E69F2D1F9DD2D2002C9FB2 /* XMMFilter.h in Headers */,
 				884937561C75C82100C53520 /* UIColor+HexString.h in Headers */,
 				88CBA9651E93794200FC6B90 /* XMMMovingBarsView.h in Headers */,
@@ -1066,7 +1088,6 @@
 				8888DDBE1C47B0FA0050A84C /* Frameworks */,
 				8888DDBF1C47B0FA0050A84C /* Headers */,
 				8888DDC01C47B0FA0050A84C /* Resources */,
-				C8EF11C7B46003B822846AAE /* [CP] Copy Pods Resources */,
 				A764C5D13A3EBF9FC45F76CA /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1088,8 +1109,6 @@
 				8888DDC81C47B0FA0050A84C /* Sources */,
 				8888DDC91C47B0FA0050A84C /* Frameworks */,
 				8888DDCA1C47B0FA0050A84C /* Resources */,
-				5FF292A4CDDEFF32FE9B9629 /* [CP] Embed Pods Frameworks */,
-				235E136BC4263816322E33B3 /* [CP] Copy Pods Resources */,
 				BBD0764F5FD79F5A9510D939 /* 📦 Embed Pods Frameworks */,
 				302D49DED8AF2F2E4CBB1A1D /* 📦 Copy Pods Resources */,
 			);
@@ -1224,21 +1243,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		235E136BC4263816322E33B3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		302D49DED8AF2F2E4CBB1A1D /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1270,21 +1274,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5FF292A4CDDEFF32FE9B9629 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		700FE395F0F579824CAB1041 /* [CP] Check Pods Manifest.lock */ = {
@@ -1390,21 +1379,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C8EF11C7B46003B822846AAE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1439,6 +1413,7 @@
 				885E21D21F850DB400F7F7E7 /* XMMListManager.m in Sources */,
 				880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */,
 				888F18D11DAB8ACE00518DB8 /* NSString+MD5.m in Sources */,
+				627A37CA20E4F362007C83ED /* XMMCDPushDevice.m in Sources */,
 				88E46EA31C47E348004D8AC3 /* XMMStyle.m in Sources */,
 				883B95FA1C4D32FF00DB8A6B /* XMMSystemSettings.m in Sources */,
 				883E55A91C4A37FE000C4D09 /* XMMContentBlocksCache.m in Sources */,
@@ -1446,6 +1421,7 @@
 				885E21D61F877B9700F7F7E7 /* XMMListItem.m in Sources */,
 				884B61511DACE78500572758 /* XMMOfflinePagedResult.m in Sources */,
 				88E46E9F1C47E348004D8AC3 /* XMMSpot.m in Sources */,
+				627A37C220E4F09B007C83ED /* XMMPushDevice.m in Sources */,
 				88E46E791C47E348004D8AC3 /* XMMContent.m in Sources */,
 				883E55501C4A2B66000C4D09 /* XMMSystem.m in Sources */,
 				882ED6851C63741000FC8BDB /* XMMContentBlocks.m in Sources */,
