@@ -7,9 +7,10 @@
 
 
 #import "XMMEnduserApi.h"
+#import "XMMPushDevice.h"
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString = @"https://xamoom3-dev.appspot.com/consumer";
+NSString * const kApiBaseURLString = @"https://xamoom3-dev.appspot.com/customer";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
@@ -103,6 +104,7 @@ static XMMEnduserApi *sharedInstance;
   [JSONAPIResourceDescriptor addResource:[XMMContentBlock class]];
   [JSONAPIResourceDescriptor addResource:[XMMSpot class]];
   [JSONAPIResourceDescriptor addResource:[XMMMarker class]];
+  [JSONAPIResourceDescriptor addResource:[XMMPushDevice class]];
 }
 
 #pragma mark - public methods
@@ -695,6 +697,16 @@ static XMMEnduserApi *sharedInstance;
                                  completion(menu, error);
                                }
                              }];
+}
+
+- (NSURLSessionDataTask *)pushDevice:(XMMPushDevice *)device {
+  
+  return [self.restClient postPushDevice:[XMMPushDevice class] id:device.uid parameters:nil headers:[self httpHeadersWithEphemeralId] pushDevice:device completion:^(JSONAPI *result, NSError *error) {
+    
+    if (error) {
+      NSError *e = error;
+    }
+  }];
 }
 
 #pragma mark - XMMRestClientDelegate
