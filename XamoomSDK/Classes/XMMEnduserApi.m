@@ -8,6 +8,7 @@
 
 #import "XMMEnduserApi.h"
 #import "XMMPushDevice.h"
+#import "XMMSimpleStorage.h"
 #import <dispatch/dispatch.h>
 
 NSString * const kApiBaseURLString = @"https://xamoom3-dev.appspot.com/customer";
@@ -699,14 +700,30 @@ static XMMEnduserApi *sharedInstance;
                              }];
 }
 
-- (NSURLSessionDataTask *)pushDevice:(XMMPushDevice *)device {
+- (NSURLSessionDataTask *)pushDevice {
   
-  return [self.restClient postPushDevice:[XMMPushDevice class] id:device.uid parameters:nil headers:[self httpHeadersWithEphemeralId] pushDevice:device completion:^(JSONAPI *result, NSError *error) {
+  XMMSimpleStorage *storage = [XMMSimpleStorage new];
+  NSDictionary *location = [storage getLocation];
+  NSString *token = [storage getUserToken];
+  NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+  NSString *appId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+
+  if (location != nil && token != nil && version != nil && appId != nil) {
+    XMMPushDevice *device = [[XMMPushDevice alloc] init];
+    device.uid = token;
+    device.location = location;
+    device.appId = appId;
+    device.appVersion = version;
     
-    if (error) {
-      NSError *e = error;
-    }
-  }];
+    return [self.restClient postPushDevice:[XMMPushDevice class] id:device.uid parameters:nil headers:[self httpHeadersWithEphemeralId] pushDevice:device completion:^(JSONAPI *result, NSError *error) {
+      
+      if (error) {
+        NSError *e = error;
+      }
+    }];
+  }
+  
+  return nil;
 }
 
 #pragma mark - XMMRestClientDelegate

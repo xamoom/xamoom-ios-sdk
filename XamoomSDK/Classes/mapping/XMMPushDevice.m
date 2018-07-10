@@ -12,15 +12,7 @@
 @implementation XMMPushDevice
 - (instancetype)init {
   self = [super init];
-  self.ID = @"token";
-  self.uid = @"test-token";
   self.os = @"iOS";
-  self.appVersion = @"1.0";
-  self.appId = @"iOS.test.version";
-  
-  NSNumber* num1 = [NSNumber numberWithFloat:2.1];
-  NSNumber* num2 = [NSNumber numberWithFloat:3.9];
-  self.location = @{@"lat" : num1, @"lon": num2};
   
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
   NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
@@ -46,7 +38,7 @@
   self = [self init];
   if (self && object != nil) {
     XMMCDPushDevice *savedPushDevice = (XMMCDPushDevice *)object;
-    self.ID = savedPushDevice.jsonID;
+    //self.ID = savedPushDevice.jsonID;
     self.uid = savedPushDevice.uid;
     self.os = savedPushDevice.os;
     self.appVersion = savedPushDevice.appVersion;
@@ -73,7 +65,6 @@
   [[XMMOfflineStorageManager sharedInstance] deleteEntity:[XMMCDPushDevice class] ID:self.ID];
 }
 
-
 static JSONAPIResourceDescriptor *__descriptor = nil;
 
 + (JSONAPIResourceDescriptor *)descriptor {
@@ -83,7 +74,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     
     [__descriptor setIdProperty:@"ID"];
     
-    [__descriptor addProperty:@"uid" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"id"]];
+    //[__descriptor addProperty:@"uid" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"id"]];
     [__descriptor addProperty:@"os" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"os"]];
     [__descriptor addProperty:@"appVersion" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"app-version"]];
     [__descriptor addProperty:@"appId" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"app-id"]];

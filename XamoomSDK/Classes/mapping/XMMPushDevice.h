@@ -10,6 +10,7 @@
 #import <JSONAPI/JSONAPIResourceBase.h>
 #import <JSONAPI/JSONAPIResourceDescriptor.h>
 #import <JSONAPI/JSONAPIPropertyDescriptor.h>
+#import <CoreLocation/CoreLocation.h>
 #import "XMMRestResource.h"
 
 @interface XMMPushDevice : JSONAPIResourceBase  <XMMRestResource>
