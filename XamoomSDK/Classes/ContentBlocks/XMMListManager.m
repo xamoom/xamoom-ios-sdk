@@ -45,6 +45,8 @@
   XMMContentSortOptions sorting = 0;
   if (ascending) {
     sorting = XMMContentSortOptionsTitle;
+  } else {
+    sorting = XMMContentSortOptionsTitleDesc;
   }
   
   if ([_tasks objectForKey:[NSNumber numberWithInt:position]] != nil) {
