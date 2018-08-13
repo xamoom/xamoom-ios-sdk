@@ -23,6 +23,7 @@
   self.lastAppOpen = [dateFormatter stringFromDate:now];
   self.updatedAt = @"";
   self.createdAt = @"";
+  self.language = [self systemLanguageWithoutRegionCode];
   return self;
 }
 
@@ -47,6 +48,7 @@
     self.lastAppOpen = savedPushDevice.lastAppOpen;
     self.updatedAt = savedPushDevice.updatedAt;
     self.createdAt = savedPushDevice.createdAt;
+    self.language = savedPushDevice.language;
   }
   return self;
 }
@@ -85,6 +87,11 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
   });
   
   return __descriptor;
+}
+
+- (NSString *)systemLanguageWithoutRegionCode {
+  NSString *preferredLanguage = [NSLocale preferredLanguages][0];
+  return [preferredLanguage substringWithRange:NSMakeRange(0, 2)];
 }
 
 @end

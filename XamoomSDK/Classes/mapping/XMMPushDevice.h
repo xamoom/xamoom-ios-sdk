@@ -22,4 +22,5 @@
 @property (nonatomic) NSString *updatedAt;
 @property (nonatomic) NSString *createdAt;
 @property (nonatomic) NSDictionary *location;
+@property (nonatomic) NSString *language;
 @end
