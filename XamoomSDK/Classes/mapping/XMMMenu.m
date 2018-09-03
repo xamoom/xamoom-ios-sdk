@@ -14,7 +14,7 @@
 @implementation XMMMenu
 
 + (NSString *)resourceName {
-  return @"menus";
+  return @"consumer/menus";
 }
 
 static JSONAPIResourceDescriptor *__descriptor = nil;

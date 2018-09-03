@@ -28,7 +28,7 @@
 }
 
 + (NSString *)resourceName {
-  return @"push-register";
+  return @"customer/push-register";
 }
 
 - (instancetype)initWithCoreDataObject:(id<XMMCDResource>)object {
@@ -84,6 +84,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"lastAppOpen" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"last-app-open"]];
     [__descriptor addProperty:@"updatedAt" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"updated-at"]];
     [__descriptor addProperty:@"createdAt" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"created-at"]];
+    [__descriptor addProperty:@"language" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"language"]];
   });
   
   return __descriptor;
