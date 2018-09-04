@@ -1,4 +1,7 @@
 # Changelog
+## [3.10.4-beta1](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.2...3.10.4-beta1) - 04.09.2018
+- Xamoom 3 API
+
 ## [3.10.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.1...3.10.2) - 11.06.2018
 
 - Added recommendation calls
