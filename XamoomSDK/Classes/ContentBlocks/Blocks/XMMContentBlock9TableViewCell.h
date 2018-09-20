@@ -26,7 +26,7 @@
  */
 @interface XMMContentBlock9TableViewCell : UITableViewCell <MKMapViewDelegate, CLLocationManagerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIView *mapViewPlaceholder;
+@property (weak, nonatomic) IBOutlet MKMapView *mapViewPlaceholder;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapHeightConstraint;
