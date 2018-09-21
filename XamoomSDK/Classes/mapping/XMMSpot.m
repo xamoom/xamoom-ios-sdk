@@ -45,7 +45,7 @@
 }
 
 + (NSString *)resourceName {
-  return @"spots";
+  return @"consumer/spots";
 }
 
 static JSONAPIResourceDescriptor *__descriptor = nil;

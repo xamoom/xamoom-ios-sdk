@@ -21,6 +21,7 @@
 #import "XMMContent.h"
 #import "XMMContentBlock.h"
 #import "XMMMarker.h"
+#import "XMMPushDevice.h"
 
 #pragma mark - XMMEnduserApi
 
@@ -611,6 +612,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
 - (NSURLSessionDataTask *_Nullable)menuWithID:(NSString * _Nonnull)menuID
                                    completion:(void (^_Nullable)(XMMMenu * _Nullable menu, NSError * _Nullable error))completion;
 
+- (NSURLSessionDataTask *)pushDevice;
 /**
  *
  */

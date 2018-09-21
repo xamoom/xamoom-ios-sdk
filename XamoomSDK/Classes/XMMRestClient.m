@@ -7,11 +7,13 @@
 
 
 #import "XMMRestClient.h"
+#import "JSONAPIResourceParser.h"
 #import "JSONAPIErrorResource.h"
 
 @implementation XMMRestClient
 
 static const NSString *EPHEMERAL_ID_HEADER = @"X-Ephemeral-Id";
+static const NSString *AUTHORIZATION_ID_HEADER = @"Authorization";
 
 - (instancetype)initWithBaseUrl:(NSURL *)baseUrl session:(NSURLSession *)session {
   self = [super init];
@@ -50,6 +52,84 @@ static const NSString *EPHEMERAL_ID_HEADER = @"X-Ephemeral-Id";
   return [self makeRestCall:requestUrl
                     headers:headers
                  completion:completion];
+}
+
+- (NSURLSessionDataTask *)postPushDevice:(Class)resourceClass
+                                     id:(NSString *)resourceId
+                             parameters:(NSDictionary *)parameters
+                                headers:(NSDictionary *)headers
+                              pushDevice:(XMMPushDevice *)device
+                             completion:(void (^)(JSONAPI *result, NSError *error))completion {
+  NSURL *requestUrl = [self.query urlWithResource:resourceClass id:resourceId];
+//  requestUrl = [self.query addQueryParametersToUrl:requestUrl parameters:parameters];
+  return [self postPushDevice:requestUrl
+                    headers:headers
+                 pushDevice:device
+                 completion:completion];
+}
+
+- (NSURLSessionDataTask *)postPushDevice:(NSURL *)url
+                               headers:(NSDictionary *)headers
+                              pushDevice:(XMMPushDevice *)device
+                            completion:(void (^)(JSONAPI *result, NSError *error))completion {
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: url];
+  [request setAllHTTPHeaderFields:headers];
+  [request setHTTPMethod:@"POST"];
+  
+  NSDictionary *jsonFromObject = [JSONAPIResourceParser dictionaryFor:device];
+  
+  if ([NSJSONSerialization isValidJSONObject:jsonFromObject]) {
+    NSDictionary *jsonBody = @{@"data" : jsonFromObject};
+    NSError *error;
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:jsonBody options:NSJSONWritingPrettyPrinted error:&error];
+    [request setHTTPBody:bodyData];
+  }
+
+  NSURLSessionDataTask *task =
+  [self.session
+   dataTaskWithRequest:request
+   completionHandler:^(NSData * _Nullable data,
+                       NSURLResponse * _Nullable response,
+                       NSError * _Nullable error) {
+     JSONAPI *jsonApi;
+     
+     NSHTTPURLResponse *urlResponse = ((NSHTTPURLResponse *)response);
+     [self checkHeaders:[urlResponse allHeaderFields]];
+     
+     if (error) {
+       dispatch_async(dispatch_get_main_queue(), ^{
+         completion(jsonApi, error);
+       });
+       
+       return;
+     }
+     
+     jsonApi = [self jsonApiFromData:data];
+     
+     if (jsonApi.errors != nil) {
+       NSLog(@"JSONAPI Error: %@", jsonApi.errors);
+       JSONAPIErrorResource *apierror = jsonApi.errors.firstObject;
+       
+       NSDictionary *userInfo = @{@"code":apierror.code,
+                                  @"status":apierror.status,
+                                  @"title":apierror.title,
+                                  @"detail":apierror.detail,};
+       NSError *error = [NSError errorWithDomain:@"com.xamoom"
+                                            code:[apierror.code intValue]
+                                        userInfo:userInfo];
+       
+       dispatch_async(dispatch_get_main_queue(), ^{
+         completion(jsonApi, error);
+       });
+       return;
+     }
+     
+     dispatch_async(dispatch_get_main_queue(), ^{
+       completion(jsonApi, error);
+     });
+   }];
+  [task resume];
+  return task;
 }
 
 - (NSURLSessionDataTask *)makeRestCall:(NSURL *)url
@@ -109,6 +189,11 @@ static const NSString *EPHEMERAL_ID_HEADER = @"X-Ephemeral-Id";
   NSString *ephemeralId = [headers objectForKey:EPHEMERAL_ID_HEADER];
   if (ephemeralId != nil && _delegate != nil) {
     [_delegate gotEphemeralId:ephemeralId];
+  }
+  
+  NSString *authorizationId = [headers objectForKey:AUTHORIZATION_ID_HEADER];
+  if (authorizationId != nil && _delegate != nil) {
+    [_delegate gotAuthorizationId:authorizationId];
   }
 }
 

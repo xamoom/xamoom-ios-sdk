@@ -14,7 +14,7 @@
 static JSONAPIResourceDescriptor *__descriptor = nil;
 
 + (NSString *)resourceName {
-  return @"settings";
+  return @"consumer/settings";
 }
 
 + (JSONAPIResourceDescriptor *)descriptor {

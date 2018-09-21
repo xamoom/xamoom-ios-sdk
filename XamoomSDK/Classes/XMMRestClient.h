@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "XMMQuery.h"
+#import "XMMPushDevice.h"
 #import <JSONAPI/JSONAPI.h>
 
 @protocol XMMRestClientDelegate<NSObject>
 
 - (void)gotEphemeralId:(NSString *)ephemeralId;
+- (void)gotAuthorizationId:(NSString *)authorizationId;
 
 @end
 
@@ -39,5 +41,12 @@
                              parameters:(NSDictionary *)parameters
                                 headers:(NSDictionary *)headers
                              completion:(void (^)(JSONAPI *result, NSError *error))completion;
+
+- (NSURLSessionDataTask *)postPushDevice:(Class)resourceClass
+                                      id:(NSString *)resourceId
+                              parameters:(NSDictionary *)parameters
+                                 headers:(NSDictionary *)headers
+                              pushDevice:(XMMPushDevice *)device
+                              completion:(void (^)(JSONAPI *result, NSError *error))completion;
 
 @end

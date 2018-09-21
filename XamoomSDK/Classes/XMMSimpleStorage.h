@@ -29,4 +29,11 @@
  */
 - (NSMutableArray *)readTags;
 
+- (void)saveLocation:(NSDictionary *)location;
+
+- (NSDictionary *)getLocation;
+
+- (void)saveUserToken:(NSString *)token;
+
+- (NSString *)getUserToken;
 @end
