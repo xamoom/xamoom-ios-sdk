@@ -1,4 +1,7 @@
 # Changelog
+## [3.10.5](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.4...3.10.5) - 24.09.2018
+- New Production Endpoint
+
 ## [3.10.4](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.4-beta1...3.10.4) - 21.09.2018
 - New Production Endpoint
 - Usability fixes
