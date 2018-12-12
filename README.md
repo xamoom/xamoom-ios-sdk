@@ -1,56 +1,73 @@
 ![](https://storage.googleapis.com/xamoom-files/cb9dcdd940f44b53baf5c27f331c4079.png)
 
-# xamoom-ios-sdk
-With the XamoomSDK we created a simple SDK to let you create apps based on our system.
+# Welcome iOS Developers
 
-More informations about xamoom and how xamoom works? Visit our Github page [xamoom Github Wiki](https://github.com/xamoom/xamoom.github.io/wiki)
+You decided to use the iOS SDK in your app? Then you are exactly right here. In the next few points you will be instructed how to use and implement our iOS SDK smoothly.
+
+But before you start, you should have read through ["Core Concepts](https://github.com/xamoom/xamoom.github.io/wiki/Core-Concepts) and [API Model Specifications](https://github.com/xamoom/xamoom.github.io/wiki/API-Model-Specifications) to better understand our system.
 
 # Getting Started
 
-* Read the ["Getting Started"](https://github.com/xamoom/xamoom-ios-sdk/wiki#getting-started) guide in the wiki
-* Check out the [XMMEnduserApi documentation](http://xamoom.github.io/xamoom-ios-sdk/3.7.0/index.html)
-* Check out our sample app: ["pingeborg App"](https://github.com/xamoom/xamoom-pingeborg-ios)
+Before you can start implementing our SDK, start your XCode project .During the project setup please implement CocoaPods. You can find detailed instructions [here] (https://cocoapods.org/).
+
+If you've successfully set up CocoaPods, then you're ready to install the xamoom iOS SDK. Before you begin, please check a few little things to get later no problems.
+* xamoom iOS SDK Getting Started [guide]()
+* xamoom iOS SDK [XMMEnduser Api]((https://github.com/xamoom/xamoom-ios-sdk/wiki/XMMEnduserApi-Documentation)
+* xamoom Sample App “[pingeborg App”](https://github.com/xamoom/xamoom-pingeborg-ios)
 
 # Installation
 
-## Manual Installation
-Download the XamoomSDK and add it to your project, build it and use the framework.
+The installation of our SDK works like any other Pod installation. Open your podfile in XCode and add the following line
 
-## Installation with [CocoaPods](https://cocoapods.org/)
+```swift
+pod 'XamoomSDK', '~> 3.10.5'
+```
 
-Add in your podfile
+Then you open the terminal, navigate to the folder of the podfile and install your pods
+```swift
+pod install
+```
 
-    pod 'XamoomSDK', '~> 3.10.5'
-
-Install pods via terminal
-
-    pod install
+After successfully installing the xamoom SDK, you are now ready to use xamoom in your app.
 
 # Usage
 
+If you want to use the [xamoom consumer endpoint] (https://github.com/xamoom/xamoom.github.io/wiki) and already have an API-KEY for our system, then you are now so far in your project the first "xammom" steps to put.
+
 ## Setup XMMEnduserApi
 
-```objective-c
-XMMEnduserApi *api = [[XMMEnduserApi alloc] initWithApiKey:@"your-api-key"];
+To place a call against the backend, you use the XMMEnduserApi class. In this class, all API calls which run against the backend are defined, no matter if you want to load contents, spots or markers.
+To load data from your system you need to create an XMMEnduserApi object with your system's API KEY. 
+
+First, import our SDK in the class where you want to use it.
+
+```swift
+import XamoomSDK
 ```
 
-## Make your first call
+After that, create a XMMEnduserApi object.
 
-Grab a contentID from your [xamoom-system](https://xamoom.net/) (open a page and copy the ID from url) and make your first call like this:
-
-```objective-c
-//make your call
-[self.api contentWithID:contentID completion:^(XMMContent \*content, NSError \*error) {
-    if (error) {
-      NSLog(@"Error: %@", error);
-      return;
-    }
-
-    NSLog(@"ContentWithID: %@", content.title);
-  }];
+```swift
+let api = XMMEnduserApi(apiKey: "API_KEY")
 ```
 
-Every call is also on our documentation: [XMMEnduserApi documentation](http://xamoom.github.io/xamoom-ios-sdk/3.1.0/html/Classes/XMMEnduserApi.html)
+Once you have created your XMMEnduserApi object, the world of xamoom is open to you.
+
+
+## Make your first experience
+
+After you have successfully created your XMMEnduserApi object you can make your first experience with xamoom. The easiest way is to load your system.
+For this you use the "system" function of the XMMEnduserApi class.
+
+```swift
+api.system(completion: { (system, error) in
+   if error == nil, let system = system {
+      print("System name: \(system.name)")
+   }
+})
+```
+
+For more detailed description for all of our API Calls, check [API Model Specifications](https://github.com/xamoom/xamoom.github.io/wiki/API-Model-Specifications) and [XMMEnduserApi documentation](https://github.com/xamoom/xamoom-ios-sdk/wiki/XMMEnduserApi-Documentation).
 
 # iBeacons
 
