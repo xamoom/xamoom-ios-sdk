@@ -77,7 +77,7 @@ XMMContentBlocks does a lot of things for you. You do not have to worry about a 
 # iBeacons
 
 You do not have to spend a lot of effort to work with iBeacons. You just have to take a look at the [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager), [CLLocation](https://developer.apple.com/documentation/corelocation/cllocation) and [CLBeaconRegion](https://developer.apple.com/documentation/corelocation/clbeaconregion) classes from Apple and then you're ready to go.
-The CLLocationManager just give the settings that fit to you. When you initialize the CLBeaconRegion class you just give your BEACON_UUID, your MAJOR_BEACON_ID and your BEACON_IDENTIFIER.
+The CLLocationManager just give the settings that fit to you. When you initialize the CLBeaconRegion class you just give your **BEACON_UUID**, your **MAJOR_BEACON_ID** and your **BEACON_IDENTIFIER**.
 To respond to the various beacon actions, such as leaving a region or entering a region, the [CLLocationManagerDelegate](https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate) with its functions is used.
 You can find an implementation statement [here] (https://github.com/xamoom/xamoom-ios-sdk/wiki/iBeacons)
 
@@ -91,35 +91,3 @@ But to show them in your app you need to implement a few things. Check out follo
 
 If you have completed the setup as described in the top two points, you just need to register the receiveing devices on our system. This is done with the **pushDevice()** call from [XMMEnduser Api](https://github.com/xamoom/xamoom-ios-sdk/wiki/XMMEnduserApi-Documentation).
 What you have exactly to do for registering a device, can be found in our [Push Notifications documentation](https://github.com/xamoom/xamoom-ios-sdk/wiki/Push-Notifications).
-
-# Offline
-
-## Save & get entities Offline
-
-You can save your entities offline and use them even if you are not connected
-to the internet.
-
-To save entities offline call its `saveOffline` method.
-For example to save a content works like this:
-
-```objective-c
-[content saveOffline];
-
-// with completionBlock for automatically downloaded files
-// XMMContent & XMMSpot will download their files
-[content saveOffline:^(NSString \*url, NSData \*data, NSError \*error) {
-  NSLog(@"Downloaded file %@", url);
-}];
-```
-
-To get offline saved entities use the `XMMEnduserApi` and set the offline property
-to true:
-```objective-c
-enduserApi.offline = YES;
-```
-All `XMMEnduserApi` calls will now return you the offline saved entities.
-
-# Requirements
-
-* ARC
-* Minimum iOS Target: iOS 8
