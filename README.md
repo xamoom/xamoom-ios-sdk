@@ -11,8 +11,8 @@ But before you start, you should have read through [Core Concepts](https://githu
 Before you can start implementing our SDK, start your XCode project .During the project setup please implement CocoaPods. You can find detailed instructions [here](https://cocoapods.org/).
 
 If you've successfully set up CocoaPods, then you're ready to install the xamoom iOS SDK. Before you begin, please check a few little things to get later no problems.
-* xamoom iOS SDK Getting Started [guide]()
-* xamoom iOS SDK [XMMEnduser Api](https://github.com/xamoom/xamoom-ios-sdk/wiki/XMMEnduserApi-Documentation)
+* xamoom iOS SDK [Getting Started Guide]()
+* xamoom iOS SDK [XMMEnduserApi](https://github.com/xamoom/xamoom-ios-sdk/wiki/XMMEnduserApi-Documentation)
 * xamoom Sample App “[pingeborg App”](https://github.com/xamoom/xamoom-pingeborg-ios)
 
 # Installation
@@ -48,7 +48,7 @@ import XamoomSDK
 After that, create a XMMEnduserApi object.
 
 ```swift
-let api = XMMEnduserApi(apiKey: "API_KEY")
+let api = XMMEnduserApi(apiKey: "API-KEY")
 ```
 
 Once you have created your XMMEnduserApi object, the world of xamoom is open to you.
