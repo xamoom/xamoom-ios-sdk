@@ -11,7 +11,7 @@ But before you start, you should have read through [Core Concepts](https://githu
 Before you can start implementing our SDK, start your XCode project .During the project setup please implement CocoaPods. You can find detailed instructions [here](https://cocoapods.org/).
 
 If you've successfully set up CocoaPods, then you're ready to install the xamoom iOS SDK. Before you begin, please check a few little things to get later no problems.
-* xamoom iOS SDK [Getting Started Guide]()
+* xamoom iOS SDK [Getting Started Guide](https://github.com/xamoom/xamoom-ios-sdk/wiki/Getting-started)
 * xamoom iOS SDK [XMMEnduserApi](https://github.com/xamoom/xamoom-ios-sdk/wiki/XMMEnduserApi-Documentation)
 * xamoom Sample App “[pingeborg App”](https://github.com/xamoom/xamoom-pingeborg-ios)
 
@@ -32,7 +32,7 @@ After successfully installing the xamoom SDK, you are now ready to use xamoom in
 
 # Usage
 
-If you want to use the [xamoom consumer endpoint](https://github.com/xamoom/xamoom.github.io/wiki) and already have an API-KEY for our system, then you are now so far in your project the first "xammom" steps to put.
+If you want to use the [xamoom consumer endpoint](https://github.com/xamoom/xamoom.github.io/wiki) and already have an API-KEY for our system, then you are now able to make your the first "xammom" steps.
 
 ## Setup XMMEnduserApi
 
