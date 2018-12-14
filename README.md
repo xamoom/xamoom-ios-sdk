@@ -12,7 +12,7 @@ To use the SDK please set up [CocoaPods](https://cocoapods.org/) to your project
 
 Once you've successfully set up CocoaPods, you're ready to integrate the xamoom iOS SDK. Before you begin, please read a few topics to better understand the world of xamoom.
 * xamoom iOS SDK [Getting Started Guide](https://github.com/xamoom/xamoom-ios-sdk/wiki/Getting-started)
-* xamoom iOS SDK [XMMEnduserApi](https://github.com/xamoom/xamoom-ios-sdk/wiki/XMMEnduserApi-Documentation)
+* xamoom iOS SDK [XMMEnduserApi](https://github.com/xamoom/xamoom-ios-sdk/blob/master/XamoomSDK/Classes/XMMEnduserApi.h)
 * xamoom Sample App “[pingeborg App”](https://github.com/xamoom/xamoom-pingeborg-ios)
 
 # Installation
@@ -59,7 +59,7 @@ api.system(completion: { (system, error) in
 
 Here we are calling the **system()** function of XMMEnduserApi. You are either getting back the System or an Error from the function.   
 
-For more detailed description for all of our API Calls, check [API Model Specifications](https://github.com/xamoom/xamoom.github.io/wiki/API-Model-Specifications) and [XMMEnduserApi documentation](https://github.com/xamoom/xamoom-ios-sdk/wiki/XMMEnduserApi-Documentation).
+For more detailed description for all of our API Calls, check [API Model Specifications](https://github.com/xamoom/xamoom.github.io/wiki/API-Model-Specifications) and [XMMEnduserApi](https://github.com/xamoom/xamoom-ios-sdk/blob/master/XamoomSDK/Classes/XMMEnduserApi.h).
 
 # XMMContentBlocks
 
@@ -78,7 +78,7 @@ You can find an implementation statement [here](https://github.com/xamoom/xamoom
 With our push notification service you can either send a notification to every user, or just a selected part of users who are in a certain radius around a point.
 To handle them in your app, you have to implement [Fire Base Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/ios/client) and register your app for [APN](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns).
 
-When you successfully set up Firebase to your project and registered your app for APN, you just have to register the receiveing devices in our system. This is would be done with the **pushDevice()** call from [XMMEnduserApi](https://github.com/xamoom/xamoom-ios-sdk/wiki/XMMEnduserApi-Documentation).
+When you successfully set up Firebase to your project and registered your app for APN, you just have to register the receiveing devices in our system. This is would be done with the **pushDevice()** call from [XMMEnduserApi](https://github.com/xamoom/xamoom-ios-sdk/blob/master/XamoomSDK/Classes/XMMEnduserApi.h).
 What you exactly have to do for registering a device, can be found in our [Push Notifications documentation](https://github.com/xamoom/xamoom-ios-sdk/wiki/Push-Notifications).
 
 # Offline
