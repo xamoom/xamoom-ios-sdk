@@ -59,6 +59,8 @@ api.system(completion: { (system, error) in
 
 Here we are calling the **system()** function of XMMEnduserApi. You are either getting back the System or an Error from the function.   
 
+**This is very important!** Never ever hardcode any Id in your application. Not even the one of your system. Always use your API key to get your system, without id and from there on use the relationships to get objects like Style or Settings. Also never hardcode Content Ids, always query for them by tags or use location identifiers to get content that is connected to a place or object. This will make your life a lot easier and makes your solution a lot more flexible.
+
 For more detailed description for all of our API Calls, check [API Model Specifications](https://github.com/xamoom/xamoom.github.io/wiki/API-Model-Specifications) and [XMMEnduserApi](https://github.com/xamoom/xamoom-ios-sdk/blob/master/XamoomSDK/Classes/XMMEnduserApi.h).
 
 # XMMContentBlocks
