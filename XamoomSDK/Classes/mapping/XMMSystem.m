@@ -15,7 +15,7 @@
 @implementation XMMSystem
 
 + (NSString *)resourceName {
-  return @"systems";
+  return @"consumer/systems";
 }
 
 static JSONAPIResourceDescriptor *__descriptor = nil;

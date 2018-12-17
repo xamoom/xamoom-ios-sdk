@@ -34,4 +34,35 @@
   return tags;
 }
 
+- (void)saveLocation:(NSDictionary *)location {
+  [self.userDefaults setObject:location forKey:@"com.xamoom.ios.location"];
+  [self.userDefaults synchronize];
+}
+
+- (NSDictionary *)getLocation {
+  NSDictionary *location = [self.userDefaults dictionaryForKey:@"com.xamoom.ios.location"];
+  
+  if (location == nil) {
+    return nil;
+  }
+  
+  return location;
+}
+
+- (void)saveUserToken:(NSString *)token {
+  [self.userDefaults setObject:token forKey:@"com.xamoom.ios.userToken"];
+  [self.userDefaults synchronize];
+}
+
+- (NSString *)getUserToken {
+  NSString *token = [self.userDefaults stringForKey:@"com.xamoom.ios.userToken"];
+  
+  if (token == nil) {
+    return nil;
+  }
+  
+  return token;
+}
+
+
 @end

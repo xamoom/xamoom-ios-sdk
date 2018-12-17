@@ -69,10 +69,10 @@
   
   if (youtubeVideoID != nil) {
     self.webView.hidden = NO;
-    self.thumbnailImageView.hidden = YES;
     self.playIconImageView.hidden = YES;
     self.openInYoutubeView.hidden = NO;
-    
+    self.thumbnailImageView.hidden = YES;
+
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openYoutubeUrl)];
     [self.openInYoutubeView addGestureRecognizer:gestureRecognizer];
 
@@ -165,8 +165,11 @@
 }
 
 - (void)showYoutubeWithId:(NSString *)videoId timeStamp:(NSInteger)seconds {
-  NSString *htmlString = [NSString stringWithFormat:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"100%%\" height=\"100%%\" src=\"https://www.youtube.com/embed/%@?start=%ld\" frameborder=\"0\" allowfullscreen></iframe>", videoId, (long)seconds];
-  [self.webView loadHTMLString:htmlString baseURL:nil];
+  
+  dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    NSString *htmlString = [NSString stringWithFormat:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"100%%\" height=\"100%%\" src=\"https://www.youtube.com/embed/%@?start=%ld\" frameborder=\"0\" allowfullscreen></iframe>", videoId, (long)seconds];
+    [self.webView loadHTMLString:htmlString baseURL:nil];
+  });
 }
 
 - (void)showVimeoFromUrl:(NSString *)vimeoUrl {

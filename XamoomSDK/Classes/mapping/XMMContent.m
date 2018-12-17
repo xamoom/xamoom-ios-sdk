@@ -22,7 +22,7 @@
 @implementation XMMContent
 
 + (NSString *)resourceName {
-  return @"contents";
+  return @"consumer/contents";
 }
 
 static JSONAPIResourceDescriptor *__descriptor = nil;

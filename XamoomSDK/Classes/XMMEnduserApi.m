@@ -7,19 +7,24 @@
 
 
 #import "XMMEnduserApi.h"
+#import "XMMPushDevice.h"
+#import "XMMSimpleStorage.h"
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString = @"https://xamoom-cloud.appspot.com/_api/v2/consumer";
+NSString * const kApiBaseURLString = @"https://xamoom-216912.appspot.com/";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
+NSString * const kAuthorizationKey = @"com.xamoom.AuthorizationId";
 NSString * const kEphemeralIdHttpHeaderName = @"X-Ephemeral-Id";
+NSString * const kAuthorization = @"Authorization";
 NSString * const kReasonHttpHeaderName = @"X-Reason";
 
 
 @interface XMMEnduserApi () <XMMRestClientDelegate>
 
 @property (nonatomic, strong) NSString *ephemeralId;
+@property (nonatomic, strong) NSString *authorizationId;
 
 @end
 
@@ -100,6 +105,7 @@ static XMMEnduserApi *sharedInstance;
   [JSONAPIResourceDescriptor addResource:[XMMContentBlock class]];
   [JSONAPIResourceDescriptor addResource:[XMMSpot class]];
   [JSONAPIResourceDescriptor addResource:[XMMMarker class]];
+  [JSONAPIResourceDescriptor addResource:[XMMPushDevice class]];
 }
 
 #pragma mark - public methods
@@ -412,6 +418,15 @@ static XMMEnduserApi *sharedInstance;
     return nil;
   }
   
+  if ([self getAuthorizationId] == nil) {
+    NSLog(@"Content Recommendations not available without authorization id, please first call backend another way.");
+    completion(nil, false, nil, [[NSError alloc]
+                                 initWithDomain:@"com.xamoom"
+                                 code:0
+                                 userInfo:@{@"detail":@"Content Recommendations not available without authorization id, please first call backend another way",}]);
+    return nil;
+  }
+  
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language];
   params = [XMMParamHelper addRecommendationsToParams:params];
   
@@ -685,6 +700,32 @@ static XMMEnduserApi *sharedInstance;
                              }];
 }
 
+- (NSURLSessionDataTask *)pushDevice {
+  
+  XMMSimpleStorage *storage = [XMMSimpleStorage new];
+  NSDictionary *location = [storage getLocation];
+  NSString *token = [storage getUserToken];
+  NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+  NSString *appId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+
+  if (location != nil && token != nil && version != nil && appId != nil) {
+    XMMPushDevice *device = [[XMMPushDevice alloc] init];
+    device.uid = token;
+    device.location = location;
+    device.appId = appId;
+    device.appVersion = version;
+    
+    return [self.restClient postPushDevice:[XMMPushDevice class] id:device.uid parameters:nil headers:[self httpHeadersWithEphemeralId] pushDevice:device completion:^(JSONAPI *result, NSError *error) {
+      
+      if (error) {
+        NSError *e = error;
+      }
+    }];
+  }
+  
+  return nil;
+}
+
 #pragma mark - XMMRestClientDelegate
 
 - (void)gotEphemeralId:(NSString *)ephemeralId {
@@ -693,6 +734,16 @@ static XMMEnduserApi *sharedInstance;
     _ephemeralId = ephemeralId;
     NSUserDefaults *userDefaults = [self getUserDefaults];
     [userDefaults setObject:ephemeralId forKey:kEphemeralIdKey];
+    [userDefaults synchronize];
+  }
+}
+
+- (void)gotAuthorizationId:(NSString *)authorizationId {
+  if ([self getAuthorizationId] == nil ||
+      ![[self getAuthorizationId] isEqualToString:authorizationId]) {
+    _authorizationId = authorizationId;
+    NSUserDefaults *userDefaults = [self getUserDefaults];
+    [userDefaults setObject:authorizationId forKey:kAuthorizationKey];
     [userDefaults synchronize];
   }
 }
@@ -713,6 +764,11 @@ static XMMEnduserApi *sharedInstance;
   if (_ephemeralId != nil) {
     [headers setObject:_ephemeralId forKey:kEphemeralIdHttpHeaderName];
   }
+  
+  if (_authorizationId != nil) {
+    [headers setObject:_authorizationId forKey:kAuthorization];
+  }
+  
   return headers;
 }
 
@@ -723,6 +779,15 @@ static XMMEnduserApi *sharedInstance;
   
   _ephemeralId = [[self getUserDefaults] objectForKey:kEphemeralIdKey];
   return _ephemeralId;
+}
+
+- (NSString *)getAuthorizationId {
+  if (_authorizationId != nil) {
+    return _authorizationId;
+  }
+  
+  _authorizationId = [[self getUserDefaults] objectForKey:kAuthorizationKey];
+  return _authorizationId;
 }
 
 - (NSUserDefaults *)getUserDefaults {

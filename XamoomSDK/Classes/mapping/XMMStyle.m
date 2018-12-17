@@ -30,7 +30,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
 }
 
 + (NSString *)resourceName {
-  return @"styles";
+  return @"consumer/styles";
 }
 
 + (JSONAPIResourceDescriptor *)descriptor {

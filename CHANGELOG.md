@@ -1,8 +1,13 @@
 # Changelog
+## [3.10.5](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.4...3.10.5) - 24.09.2018
+- New Production Endpoint
 
-## [3.10.3](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.2...3.10.3) - 16.07.2018
+## [3.10.4](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.4-beta1...3.10.4) - 21.09.2018
+- New Production Endpoint
+- Usability fixes
 
-- Fixed issue for ordering list descending
+## [3.10.4-beta1](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.2...3.10.4-beta1) - 04.09.2018
+- Xamoom 3 API
 
 ## [3.10.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.1...3.10.2) - 11.06.2018
 
