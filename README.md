@@ -13,7 +13,7 @@ To use the SDK please set up [CocoaPods](https://cocoapods.org/) to your project
 Once you've successfully set up CocoaPods, you're ready to integrate the xamoom iOS SDK. Before you begin, please read a few topics to better understand the world of xamoom.
 * xamoom iOS SDK [Getting Started Guide](https://github.com/xamoom/xamoom-ios-sdk/wiki/Getting-started)
 * xamoom iOS SDK [XMMEnduserApi](https://github.com/xamoom/xamoom-ios-sdk/blob/master/XamoomSDK/Classes/XMMEnduserApi.h)
-* xamoom Sample App “[pingeborg App”](https://github.com/xamoom/xamoom-pingeborg-ios)
+* xamoom [Demo App](https://github.com/xamoom/xamoom-demo)
 
 # Installation
 
