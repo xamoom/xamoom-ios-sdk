@@ -111,7 +111,7 @@ In order to show the content offline as well, you have to set the **isOffline** 
 api.isOffline = true
  ```
 
-For a detailed descriptin how offline usage works read the [offline documentation](https://github.com/xamoom/xamoom-ios-sdk/wiki/You-are-offline,-and-now%3F).
+For a detailed descriptin how offline usage works read the [offline documentation](https://github.com/xamoom/xamoom-ios-sdk/wiki/Offline-handling).
 
 # Requirements
 
