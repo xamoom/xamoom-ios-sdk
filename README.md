@@ -68,6 +68,10 @@ For more detailed description for all of our API Calls, check [API Model Specifi
 We offer a large number of different ContentBlocks, all of them displays different types of content. For a more detailed description of all types check out [ContentBlock](https://github.com/xamoom/xamoom.github.io/wiki/ContentBlock).
 XMMContentBlocks automatically shows all kind of loaded content data. For a detailed description how to use XMMContentBlocks in your UIViewController read [Working with XMMContentBlocks](https://github.com/xamoom/xamoom-ios-sdk/wiki/Working-with-XMMContentBlocks) documentation.
 
+# XMMSpots
+
+With the [XMMSpots](https://github.com/xamoom/xamoom-ios-sdk/blob/master/XamoomSDK/Classes/mapping/XMMSpot.h) class you can show annotations on a MKMapView. If you added a content to your spot you can show content data or open the content when clicking the spot. How to combine a XMMSpot with Apple´s MKAnnotation and customize the MKAnnotationView, read in our [Load and display spots](https://github.com/xamoom/xamoom-ios-sdk/wiki/Load-and-display-Spots) implementation guide.
+
 # iBeacons
 
 You do not have to spend a lot of effort to work with iBeacons. First, you have to read [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager), [CLLocation](https://developer.apple.com/documentation/corelocation/cllocation) and [CLBeaconRegion](https://developer.apple.com/documentation/corelocation/clbeaconregion) classes from Apple and then you're ready to go.
