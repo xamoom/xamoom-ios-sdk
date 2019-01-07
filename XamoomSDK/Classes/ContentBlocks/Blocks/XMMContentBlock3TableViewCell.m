@@ -70,6 +70,8 @@
   
   if (block.copyright != nil && ![block.title isEqualToString:@""]) {
     self.copyrightLabel.text = block.copyright;
+  } else {
+    self.copyrightLabel.text = @"";
   }
   
   if (block.altText != nil && ![block.title isEqualToString:@""]){
