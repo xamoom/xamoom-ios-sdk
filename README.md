@@ -11,6 +11,7 @@ But before you start, you should read the about the [Core Concepts](https://gith
 * [Getting Started](https://github.com/xamoom/xamoom-ios-sdk/wiki/Getting-started)
 * [API Calls](https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls)
 * [Working with Pages](https://github.com/xamoom/xamoom-ios-sdk/wiki/Working-with-pages)
+* * [ContentBlock Customizing](https://github.com/xamoom/xamoom-ios-sdk/wiki/Customize-XMMContentBlocks-cell)
 * [Working with Spots](https://github.com/xamoom/xamoom-ios-sdk/wiki/Working-with-spots)
 * [iBeacons](https://github.com/xamoom/xamoom-ios-sdk/wiki/iBeacons)
 * [Push Notifications](https://github.com/xamoom/xamoom-ios-sdk/wiki/Push-Notifications)
