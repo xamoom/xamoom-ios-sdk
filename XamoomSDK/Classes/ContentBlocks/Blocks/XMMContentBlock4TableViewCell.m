@@ -7,6 +7,7 @@
 
 
 #import "XMMContentBlock4TableViewCell.h"
+#import "XMMWebViewController.h"
 
 @interface XMMContentBlock4TableViewCell()
 
@@ -131,6 +132,38 @@
   self.linkTextLabel.text = nil;
   self.titleLabel.text = nil;
   self.linkUrl = nil;
+}
+
+- (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon {
+  //open link in safari
+  if (self.linkType == 11) {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self cleanPhoneNumber:self.linkUrl]]];
+  } else {
+    
+    if (urls.count == 0) {
+      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
+      return;
+    }
+    
+    BOOL openInternal = NO;
+    
+    for (int i = 0; i < urls.count; i++) {
+      NSString *url = urls[i];
+      if ([self.linkUrl containsString:url]) {
+        openInternal = YES;
+        break;
+      }
+    }
+    
+    if (openInternal) {
+      // open internal webview
+      XMMWebViewController *webViewController = [XMMWebViewController new];
+      webViewController.url = self.linkUrl;
+      [navCon pushViewController:webViewController animated:YES];
+    } else {
+      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
+    }
+  }
 }
 
 - (void)openLink {

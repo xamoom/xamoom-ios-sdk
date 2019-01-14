@@ -73,6 +73,8 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property (nonatomic) BOOL showAllStoreLinks;
 @property (nonatomic) BOOL showAllBlocksWhenOffline;
 @property (nonatomic, getter=isOffline) BOOL offline;
+@property (nonatomic, strong) NSArray *urls;
+@property (nonatomic, strong) UINavigationController *navController;
 
 /**
  * Initialize XMMContentBlocks with tableview and an api.
