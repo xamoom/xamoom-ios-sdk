@@ -32,6 +32,7 @@
 @property (strong, nonatomic) NSString *linkUrl;
 
 - (void)openLink;
+- (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon;
 
 @end
 

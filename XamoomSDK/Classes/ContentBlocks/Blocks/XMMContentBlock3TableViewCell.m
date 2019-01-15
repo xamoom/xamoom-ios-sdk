@@ -8,6 +8,7 @@
 
 #import "XMMContentBlock3TableViewCell.h"
 #import "XMMOfflineFileManager.h"
+#import "XMMWebViewController.h"
 
 @interface XMMContentBlock3TableViewCell()
 
@@ -209,6 +210,32 @@
   if (self.linkUrl != nil) {
     NSURL *url = [NSURL URLWithString:self.linkUrl];
     [[UIApplication sharedApplication] openURL:url];
+  }
+}
+
+- (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon {
+  if (urls.count == 0) {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
+    return;
+  }
+  
+  BOOL openInternal = NO;
+  
+  for (int i = 0; i < urls.count; i++) {
+    NSString *url = urls[i];
+    if ([self.linkUrl containsString:url]) {
+      openInternal = YES;
+      break;
+    }
+  }
+  
+  if (openInternal) {
+    // open internal webview
+    XMMWebViewController *webViewController = [XMMWebViewController new];
+    webViewController.url = self.linkUrl;
+    [navCon pushViewController:webViewController animated:YES];
+  } else {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
   }
 }
 
