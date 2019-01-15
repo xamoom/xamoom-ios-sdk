@@ -11,7 +11,7 @@
 #import "XMMSimpleStorage.h"
 #import <dispatch/dispatch.h>
 
-NSString * const kApiProdURLString = @"https://xamoom-217413.appspot.com/";
+NSString * const kApiProdURLString = @"https://api.xamoom.net/";
 NSString * const kApiDevBaseURLString = @"https://xamoom-dev.appspot.com/";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
