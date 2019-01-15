@@ -284,9 +284,17 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     [self.delegate didClickContentBlock:cell.contentID];
   }
   
-  if ([cell isKindOfClass:[XMMContentBlock3TableViewCell class]] || [cell isKindOfClass:[XMMContentBlock4TableViewCell class]] || [cell isKindOfClass:[XMMContentBlock8TableViewCell class]]) {
+  if ([cell isKindOfClass:[XMMContentBlock8TableViewCell class]]) {
     id cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell openLink];
+  }
+  
+  if ([cell isKindOfClass:[XMMContentBlock4TableViewCell class]] || [cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
+    if (self.navController != nil && self.urls != nil) {
+      [cell openLink:self.urls controller:self.navController];
+    } else {
+      [cell openLink];
+    }
   }
 }
 

@@ -66,8 +66,9 @@
 @property (nonatomic) UIColor *fallbackTintColor UI_APPEARANCE_SELECTOR;
 
 
-
 - (void)openLink;
+- (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon;
+
 
 -(void)setWebColor:(UIColor *)webColor;
 -(void)setWebTintColor:(UIColor *)webTintColor;
