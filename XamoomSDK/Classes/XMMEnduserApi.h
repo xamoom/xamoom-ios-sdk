@@ -98,10 +98,20 @@ extern NSString * _Nonnull const kApiBaseURLString;
 /**
  * Initializes with a apikey. You find your apikey in your xamoom system in
  * Settings.
+ * Uses production api url
  *
  * @param apikey Your xamoom api key
  */
-- (instancetype _Nonnull)initWithApiKey:(NSString *_Nonnull)apikey;
+- (instancetype)initWithApiKey:(NSString *)apikey;
+
+/**
+ * Initializes with a apikey. You find your apikey in your xamoom system in
+ * Settings.
+ *
+ * @param apikey Your xamoom api key
+ * @param isProduction True if production api url should be used, false if dev api url should be used.
+ */
+- (instancetype)initWithApiKey:(NSString *)apikey isProduction:(BOOL)isProduction;
 
 /**
  * Initializes with a custom XMMRestClient.
