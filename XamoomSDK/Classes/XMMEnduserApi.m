@@ -11,7 +11,8 @@
 #import "XMMSimpleStorage.h"
 #import <dispatch/dispatch.h>
 
-NSString * const kApiBaseURLString = @"https://xamoom-217413.appspot.com/";
+NSString * const kApiProdURLString = @"https://xamoom-217413.appspot.com/";
+NSString * const kApiDevBaseURLString = @"https://xamoom-dev.appspot.com/";
 NSString * const kHTTPContentType = @"application/vnd.api+json";
 NSString * const kHTTPUserAgent = @"XamoomSDK iOS";
 NSString * const kEphemeralIdKey = @"com.xamoom.EphemeralId";
@@ -60,6 +61,10 @@ static XMMEnduserApi *sharedInstance;
 #pragma mark - init
 
 - (instancetype)initWithApiKey:(NSString *)apikey {
+  return [self initWithApiKey:apikey isProduction:true];
+}
+
+- (instancetype)initWithApiKey:(NSString *)apikey isProduction:(BOOL)isProduction {
   self = [super init];
   self.systemLanguage = [self systemLanguageWithoutRegionCode];
   self.language = self.systemLanguage;
@@ -71,7 +76,14 @@ static XMMEnduserApi *sharedInstance;
                                      @"User-Agent":[self customUserAgentFrom:@""],
                                      @"APIKEY":apikey,}];
   
-  self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString: kApiBaseURLString]
+  NSString *apiUrl = @"";
+  if (isProduction) {
+    apiUrl = kApiProdURLString;
+  } else {
+    apiUrl = kApiDevBaseURLString;
+  }
+  
+  self.restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString: apiUrl]
                                                    session:[NSURLSession sessionWithConfiguration:config]];
   self.restClient.delegate = self;
   [self setupResources];
