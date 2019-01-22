@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="نقرت بالفأرة على لوحة المفاتيح الافتراض" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCE-yb-Hto">
-                        <rect key="frame" x="8" y="0.0" width="304" height="45.5"/>
+                        <rect key="frame" x="8" y="0.0" width="176" height="45.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -30,11 +30,19 @@
                         <textInputTraits key="textInputTraits"/>
                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pK-rd-hN1">
+                        <rect key="frame" x="192" y="0.0" width="120" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="YCE-yb-Hto" secondAttribute="trailing" constant="8" id="6f3-mg-7Ju"/>
+                    <constraint firstAttribute="trailing" secondItem="7pK-rd-hN1" secondAttribute="trailing" constant="8" id="1Wy-Of-kBY"/>
                     <constraint firstItem="hdI-Mw-WD2" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" constant="8" id="9qT-fc-VXr"/>
+                    <constraint firstItem="7pK-rd-hN1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FdV-7z-cfn"/>
                     <constraint firstAttribute="trailing" secondItem="hdI-Mw-WD2" secondAttribute="trailing" constant="8" id="ZSo-W8-BlY"/>
+                    <constraint firstItem="7pK-rd-hN1" firstAttribute="leading" secondItem="YCE-yb-Hto" secondAttribute="trailing" constant="8" id="a0d-3i-uR7"/>
                     <constraint firstAttribute="bottom" secondItem="hdI-Mw-WD2" secondAttribute="bottom" constant="8" id="hAY-0z-P0p"/>
                     <constraint firstItem="YCE-yb-Hto" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="i4b-LX-lBM"/>
                     <constraint firstItem="YCE-yb-Hto" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="m16-f7-vLJ"/>
@@ -44,6 +52,7 @@
             <connections>
                 <outlet property="contentTextView" destination="hdI-Mw-WD2" id="Pb4-kh-rxH"/>
                 <outlet property="contentTextViewTopConstraint" destination="9qT-fc-VXr" id="8OU-GQ-kx6"/>
+                <outlet property="copyrightLabel" destination="7pK-rd-hN1" id="7Kv-nH-Fwk"/>
                 <outlet property="titleLabel" destination="YCE-yb-Hto" id="oCq-7F-scg"/>
             </connections>
             <point key="canvasLocation" x="388" y="532"/>

@@ -129,6 +129,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     self.items = [self addContentHeader:content];
   } else {
     self.items = [content.contentBlocks mutableCopy];
+    XMMContentBlock *block = (XMMContentBlock *) self.items[0];
+    block.copyright = content.coverImageCopyRight;
+    self.items[0] = block;
   }
   
   if (!self.showAllStoreLinks) {
@@ -174,6 +177,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     image.publicStatus = YES;
     image.blockType = 3;
     image.fileID = content.imagePublicUrl;
+    image.copyright = content.coverImageCopyRight;
     [contentBlocks insertObject:image atIndex:1];
   }
   

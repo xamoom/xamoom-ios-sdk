@@ -69,6 +69,8 @@
 @property (nonatomic) NSDate *toDate;
 @property (nonatomic) NSDate *fromDate;
 
+@property (nonatomic, strong) NSString *coverImageCopyRight;
+
 /**
  * Save this entity for offline use with callback for downloaded files.
  *

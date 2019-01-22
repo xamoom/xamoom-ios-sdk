@@ -29,5 +29,6 @@
 @property (nonatomic) NSDate *fromDate;
 @property (nonatomic) XMMCDSystem *system;
 @property (nonatomic) XMMCDSpot *relatedSpot;
+@property (nonatomic, strong) NSString *coverImageCopyRight;
 
 @end

@@ -86,6 +86,7 @@
   savedContent.sharingUrl = content.sharingUrl;
   savedContent.toDate = content.toDate;
   savedContent.fromDate = content.fromDate;
+  savedContent.coverImageCopyRight = content.coverImageCopyRight;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   

@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTopConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *copyrightLabel;
 
 + (int)fontSize;
 + (void)setFontSize:(int)fontSize;

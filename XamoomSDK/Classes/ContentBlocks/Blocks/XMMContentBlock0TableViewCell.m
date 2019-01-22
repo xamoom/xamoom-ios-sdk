@@ -38,6 +38,8 @@ static UIColor *contentLinkColor;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
+  
+  self.copyrightLabel.hidden = YES;
   if (style.foregroundFontColor != nil) {
     self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   }
@@ -47,6 +49,11 @@ static UIColor *contentLinkColor;
   
   [self displayTitle:block.title block:block];
   [self displayContent:block.text style:style];
+  
+  if (block.copyright != nil && ![block.copyright isEqualToString:@""]) {
+    self.copyrightLabel.hidden = NO;
+    self.copyrightLabel.text = block.copyright;
+  }
 }
 
 - (void)displayTitle:(NSString *)title block:(XMMContentBlock *)block {

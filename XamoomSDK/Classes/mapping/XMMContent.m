@@ -47,6 +47,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor hasOne:[XMMSpot class] withName:@"spot"];
     [__descriptor hasOne:[XMMSpot class] withName:@"relatedSpot" withJsonName:@"related-spot"];
     [__descriptor hasMany:[XMMContentBlock class] withName:@"contentBlocks" withJsonName:@"blocks"];
+    [__descriptor addProperty:@"coverImageCopyRight" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"cover-image-copyright"]];
   });
   
   return __descriptor;
@@ -75,6 +76,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     }
     self.toDate = savedContent.toDate;
     self.fromDate = savedContent.fromDate;
+    self.coverImageCopyRight = savedContent.coverImageCopyRight;
     
     if (savedContent.contentBlocks != nil) {
       NSMutableArray *blocks = [[NSMutableArray alloc] init];
