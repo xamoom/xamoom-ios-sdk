@@ -28,17 +28,4 @@ Pod::Spec.new do |s|
     core.dependency 'SDWebImage', '~>3.7'
     core.dependency 'JAMSVGImage'
   end
-
-  s.subspec 'Push' do |push|
-    push.source_files = 'XamoomSDK/Classes/XMMPushManager.{h,m}'
-    push.libraries = 'stdc++', 'z'
-    push.dependency 'Pushwoosh'
-  end
-
-  s.subspec 'PushWorkaround' do |workaround|
-    # add the Pushwoosh dependency to your Podfile and
-    # copy the XMMPushManager files to your project
-    workaround.preserve_path = 'XamoomSDK/Classes/XMMPushManager.{h,m}'
-    workaround.libraries = 'stdc++', 'z'
-  end
 end
