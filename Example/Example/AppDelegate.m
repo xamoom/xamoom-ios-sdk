@@ -8,12 +8,10 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
-#import <XamoomSDK/XMMPushManager.h>
 
-@interface AppDelegate () <XMMPushNotificationDelegate>
+@interface AppDelegate ()
 
 @property (strong, nonatomic) XMMEnduserApi *api;
-@property (strong, nonatomic) XMMPushManager *pushManager;
 
 @end
 
@@ -21,9 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
-  
-  self.pushManager = [[XMMPushManager alloc] init];
-  self.pushManager.delegate = self;
 
   [self setupApi];
   
@@ -131,18 +126,15 @@
 
 // system push notification registration success callback, delegate to pushManager
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-  [self.pushManager handlePushRegistration:deviceToken];
 }
 
 // system push notification registration error callback, delegate to pushManager
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-  [self.pushManager handlePushRegistrationFailure:error];
 }
 
 // system push notifications callback, delegate to pushManager
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-  [self.pushManager handlePushReceived:userInfo];
   completionHandler(UIBackgroundFetchResultNoData);
 }
 
