@@ -3,6 +3,9 @@ PODS:
   - JSONAPI (1.0.7)
   - Nocilla (0.11.0)
   - OCMock (3.4)
+  - Pushwoosh (5.12.0):
+    - Pushwoosh/Core (= 5.12.0)
+  - Pushwoosh/Core (5.12.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -18,6 +21,7 @@ DEPENDENCIES:
   - JSONAPI (~> 1.0.0)
   - Nocilla
   - OCMock (~> 3.2)
+  - Pushwoosh
   - SDWebImage (~> 3.7)
   - XamoomSDK (from `./`)
 
@@ -27,6 +31,7 @@ SPEC REPOS:
     - JSONAPI
     - Nocilla
     - OCMock
+    - Pushwoosh
     - SDWebImage
 
 EXTERNAL SOURCES:
@@ -38,9 +43,10 @@ SPEC CHECKSUMS:
   JSONAPI: 8fed55fcfa08ee662674cd4f1bd03c37d8b34e03
   Nocilla: 7af7a386071150cc8aa5da4da97d060f049dd61c
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
+  Pushwoosh: 8caa2dd68d65ec6eb05acdc8655965c239ccf280
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   XamoomSDK: 2e5cb3b0616959a3aca884e1b80f7030f0bfeb5f
 
-PODFILE CHECKSUM: e3140c0276f8065cd4a6f04b5db9d8e0dcdcd5a6
+PODFILE CHECKSUM: 94a8338ec05a8410b34a5466030fa1380f172d66
 
 COCOAPODS: 1.5.3
