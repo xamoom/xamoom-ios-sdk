@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "XamoomSDK"
-  s.version          = "3.10.5"
+  s.version          = "3.10.6"
   s.summary          = "Integrate your app with your xamoom system. More information at www.xamoom.com"
   s.homepage         = "http://xamoom.github.io/xamoom-ios-sdk/"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -27,18 +27,5 @@ Pod::Spec.new do |s|
     core.dependency 'JSONAPI', '~> 1.0.7'
     core.dependency 'SDWebImage', '~>3.7'
     core.dependency 'JAMSVGImage'
-  end
-
-  s.subspec 'Push' do |push|
-    push.source_files = 'XamoomSDK/Classes/XMMPushManager.{h,m}'
-    push.libraries = 'stdc++', 'z'
-    push.dependency 'Pushwoosh'
-  end
-
-  s.subspec 'PushWorkaround' do |workaround|
-    # add the Pushwoosh dependency to your Podfile and
-    # copy the XMMPushManager files to your project
-    workaround.preserve_path = 'XamoomSDK/Classes/XMMPushManager.{h,m}'
-    workaround.libraries = 'stdc++', 'z'
   end
 end
