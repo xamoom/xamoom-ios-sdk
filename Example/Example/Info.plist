@@ -29,8 +29,6 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Need your location</string>
-	<key>Pushwoosh_APPID</key>
-	<string>8AF88-DDD2D</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
