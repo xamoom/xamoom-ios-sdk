@@ -9,7 +9,6 @@ target 'XamoomSDK' do
 	pod 'JSONAPI', '~> 1.0.0'
 	pod 'SDWebImage', '~>3.7'
   pod 'JAMSVGImage'
-	pod 'Pushwoosh'
 end
 
 target 'XamoomSDKTests' do
@@ -20,5 +19,4 @@ end
 target 'Example' do
 	xcodeproj 'Example/example.xcodeproj'
 	pod 'XamoomSDK', :path => './'
-	pod 'XamoomSDK/Push', :path => './'
 end
