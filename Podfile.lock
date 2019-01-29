@@ -7,14 +7,12 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - XamoomSDK (3.10.2):
-    - XamoomSDK/Core (= 3.10.2)
-  - XamoomSDK/Core (3.10.2):
+  - XamoomSDK (3.10.6):
+    - XamoomSDK/Core (= 3.10.6)
+  - XamoomSDK/Core (3.10.6):
     - JAMSVGImage
     - JSONAPI (~> 1.0.7)
     - SDWebImage (~> 3.7)
-  - XamoomSDK/Push (3.10.2):
-    - Pushwoosh
 
 DEPENDENCIES:
   - JAMSVGImage
@@ -24,7 +22,6 @@ DEPENDENCIES:
   - Pushwoosh
   - SDWebImage (~> 3.7)
   - XamoomSDK (from `./`)
-  - XamoomSDK/Push (from `./`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -46,8 +43,8 @@ SPEC CHECKSUMS:
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   Pushwoosh: 63ece3b160161aa7ce2926f864b2c5d7f0416615
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XamoomSDK: 1cfeb93a9cc47c625675be735ae00311db4274f7
+  XamoomSDK: 3264cda377fccc23de4df2339b047aff495126fb
 
-PODFILE CHECKSUM: 75c8197da2dcbf6b0a83e50b7744a7f9145a5119
+PODFILE CHECKSUM: a74b88078fe72b50bb7ef3888220ae21a20570c2
 
 COCOAPODS: 1.5.3

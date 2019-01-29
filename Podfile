@@ -20,5 +20,4 @@ end
 target 'Example' do
 	xcodeproj 'Example/example.xcodeproj'
 	pod 'XamoomSDK', :path => './'
-	pod 'XamoomSDK/Push', :path => './'
 end
