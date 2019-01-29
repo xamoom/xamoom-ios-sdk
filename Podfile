@@ -9,7 +9,7 @@ target 'XamoomSDK' do
 	pod 'JSONAPI', '~> 1.0.0'
 	pod 'SDWebImage', '~>3.7'
   pod 'JAMSVGImage'
-	pod 'Pushwoosh'
+  pod 'Pushwoosh'
 end
 
 target 'XamoomSDKTests' do
