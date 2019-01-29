@@ -26,7 +26,6 @@
       "source_files": "XamoomSDK/Classes/**/**/*.{h,m}",
       "public_header_files": "XamoomSDK/Classes/**/*.h",
       "resources": "XamoomSDK/Assets/Images.xcassets",
-      "exclude_files": "XamoomSDK/Classes/XMMPushManager.{h,m}",
       "resource_bundles": {
         "XamoomSDK": [
           "XamoomSDK/Assets/*.xcassets",
