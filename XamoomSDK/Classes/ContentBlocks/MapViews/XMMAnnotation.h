@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import "XMMEnduserApi.h"
+@import Mapbox;
 
 @class XMMSpot;
 
 /**
  * XMMAnnotation will be used to by XMMContentBlock9TableViewCell to create the map annotations.
  */
-@interface XMMAnnotation : NSObject <MKAnnotation>
+@interface XMMAnnotation : NSObject <MGLAnnotation>
 
 @property XMMSpot *spot;
 @property NSString *distance;

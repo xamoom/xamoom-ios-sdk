@@ -28,6 +28,7 @@ static UIColor *kContentLinkColor;
 static NSString *kContentLanguage;
 static int kPageSize = 100;
 
+/**
 - (void)awakeFromNib {
   [super awakeFromNib];
   self.clipsToBounds = YES;
@@ -386,5 +387,5 @@ static int kPageSize = 100;
   
   [mapView setRegion:region animated:animated];
 }
-
+*/ 
 @end

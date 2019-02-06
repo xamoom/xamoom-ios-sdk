@@ -1,30 +1,30 @@
 PODS:
   - JAMSVGImage (1.6.1)
   - JSONAPI (1.0.7)
+  - Mapbox-iOS-SDK (4.0.5)
   - Nocilla (0.11.0)
   - OCMock (3.4)
   - Pushwoosh (5.3.1)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - XamoomSDK (3.10.5):
-    - XamoomSDK/Core (= 3.10.5)
-  - XamoomSDK/Core (3.10.5):
+  - XamoomSDK (3.10.6):
+    - XamoomSDK/Core (= 3.10.6)
+  - XamoomSDK/Core (3.10.6):
     - JAMSVGImage
     - JSONAPI (~> 1.0.7)
+    - Mapbox-iOS-SDK
     - SDWebImage (~> 3.7)
-  - XamoomSDK/Push (3.10.5):
-    - Pushwoosh
 
 DEPENDENCIES:
   - JAMSVGImage
   - JSONAPI (~> 1.0.0)
+  - Mapbox-iOS-SDK
   - Nocilla
   - OCMock (~> 3.2)
   - Pushwoosh
   - SDWebImage (~> 3.7)
   - XamoomSDK (from `./`)
-  - XamoomSDK/Push (from `./`)
 
 EXTERNAL SOURCES:
   XamoomSDK:
@@ -33,12 +33,13 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2
   JSONAPI: 8fed55fcfa08ee662674cd4f1bd03c37d8b34e03
+  Mapbox-iOS-SDK: c6bab367011e441e7345d4fe9340633c6b476bf4
   Nocilla: 7af7a386071150cc8aa5da4da97d060f049dd61c
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   Pushwoosh: 63ece3b160161aa7ce2926f864b2c5d7f0416615
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XamoomSDK: d48d054684674053cc7459fb077b5e673f19282f
+  XamoomSDK: 6b42e4ec9ace5510a15b405c4419b0eaf49df165
 
-PODFILE CHECKSUM: 75c8197da2dcbf6b0a83e50b7744a7f9145a5119
+PODFILE CHECKSUM: 140a093f969e3f2dc7715e849de6b6464c261a47
 
 COCOAPODS: 1.4.0

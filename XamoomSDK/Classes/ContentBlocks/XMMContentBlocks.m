@@ -113,7 +113,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   nib = [UINib nibWithNibName:@"XMMContentBlock8TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock8TableViewCell"];
   
-  nib = [UINib nibWithNibName:@"XMMContentBlock9TableViewCell" bundle:nibBundle];
+  nib = [UINib nibWithNibName:@"XMMContentBlock91TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock9TableViewCell"];
   
   nib = [UINib nibWithNibName:@"XMMContentBlock11TableViewCell" bundle:nibBundle];

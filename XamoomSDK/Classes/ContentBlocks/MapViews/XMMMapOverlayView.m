@@ -14,6 +14,7 @@
 @property (nonatomic) CLLocationCoordinate2D locationCoordinate;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *spotImageAspectConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *spotImageWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *descriptionLabelTrailingConstraint;
 
 @end
 
@@ -32,7 +33,7 @@
   [self.openContentButton setTitle:NSLocalizedStringFromTableInBundle(@"Open", @"Localizable", libBundle, nil) forState:UIControlStateNormal];
   
   self.contentID = annotation.spot.content.ID;
-  self.locationCoordinate = annotation.coordinate;
+  self.locationCoordinate = CLLocationCoordinate2DMake(annotation.spot.latitude, annotation.spot.longitude) ;
   
   self.spotTitleLabel.text = annotation.spot.name;
   
@@ -43,9 +44,11 @@
   
   self.spotImageAspectConstraint.active = YES;
   self.spotImageWidthConstraint.constant = 153;
+  self.descriptionLabelTrailingConstraint.constant = 153 + 16;
   if (annotation.spot.image == nil) {
     self.spotImageAspectConstraint.active = NO;
     self.spotImageWidthConstraint.constant = 0;
+    self.descriptionLabelTrailingConstraint.constant = 0;
   }
   [self needsUpdateConstraints];
 
