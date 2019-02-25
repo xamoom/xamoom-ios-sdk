@@ -69,13 +69,13 @@
     self.horizontalSpacingImageTitleConstraint.constant = 0;
   }
   
-  if (block.copyright != nil && ![block.title isEqualToString:@""]) {
+  if (block.copyright != nil || ![block.copyright isEqualToString:@""]) {
     self.copyrightLabel.text = block.copyright;
   } else {
     self.copyrightLabel.text = @"";
   }
   
-  if (block.altText != nil && ![block.title isEqualToString:@""]){
+  if (block.altText != nil && ![block.altText isEqualToString:@""]){
     self.blockImageView.accessibilityHint = block.altText;
   } else {
     self.blockImageView.accessibilityHint = block.title;
