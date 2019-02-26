@@ -39,7 +39,8 @@ static UIColor *contentLinkColor;
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   
-  self.copyrightLabel.hidden = YES;
+  self.copyrightLabel.text = nil;
+  self.titleLabel.text = nil;
   if (style.foregroundFontColor != nil) {
     self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   }
@@ -47,12 +48,17 @@ static UIColor *contentLinkColor;
     [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
   }
   
-  [self displayTitle:block.title block:block];
+  if (block.title != nil && ![block.title isEqualToString:@""]) {
+    self.titleLabel.hidden = NO;
+    self.titleLabel.text = block.title;
+  }
+  
   [self displayContent:block.text style:style];
   
   if (block.copyright != nil && ![block.copyright isEqualToString:@""]) {
     self.copyrightLabel.hidden = NO;
     self.copyrightLabel.text = block.copyright;
+    [self.copyrightLabel sizeToFit];
   }
 }
 
@@ -99,11 +105,14 @@ static UIColor *contentLinkColor;
   
   NSString *style = [NSString stringWithFormat:@"<style>body{font-family: \"Helvetica Neue Light\", \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif; font-size:%d; margin:0 !important;} p:last-child{text-align:right;}, p:last-of-type{margin:0px !important;} </style>", fontSize];
   
-  html = [html stringByReplacingOccurrencesOfString:@"<br></p>" withString:@"</p>"];
   html = [html stringByReplacingOccurrencesOfString:@"<p></p>" withString:@""];
-  html = [html stringByReplacingOccurrencesOfString:@"</p>" withString:@"</p><br>"];
   html = [html stringByReplacingOccurrencesOfString:@"</ul>" withString:@"</ul><br>"];
   html = [NSString stringWithFormat:@"%@%@", style, html];
+  
+  if ([[html substringFromIndex:[html length] - 8] isEqual:@"</p><br>"] || [[html substringFromIndex:[html length] - 8] isEqual:@"<br></p>"]) {
+    html = [html substringToIndex:[html length] - 8];
+    html = [html stringByAppendingString:@"</p>"];
+  }
   
   NSMutableAttributedString *attributedString =
   [[NSMutableAttributedString alloc] initWithData: [html dataUsingEncoding:NSUTF8StringEncoding]
