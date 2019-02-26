@@ -107,10 +107,14 @@ static UIColor *contentLinkColor;
   
   html = [html stringByReplacingOccurrencesOfString:@"<p></p>" withString:@""];
   html = [html stringByReplacingOccurrencesOfString:@"</ul>" withString:@"</ul><br>"];
+  html = [html stringByReplacingOccurrencesOfString:@"</p>" withString:@"</p><br>"];
   html = [NSString stringWithFormat:@"%@%@", style, html];
   
   if ([[html substringFromIndex:[html length] - 8] isEqual:@"</p><br>"] || [[html substringFromIndex:[html length] - 8] isEqual:@"<br></p>"]) {
     html = [html substringToIndex:[html length] - 8];
+    html = [html stringByAppendingString:@"</p>"];
+  } else if ([[html substringFromIndex:[html length] - 12] isEqual:@"<br></p><br>"]) {
+    html = [html substringToIndex:[html length] - 12];
     html = [html stringByAppendingString:@"</p>"];
   }
   
