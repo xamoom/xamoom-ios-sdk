@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,25 +15,28 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="212.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="212.66666666666666"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-Ht-jrX">
-                        <rect key="frame" x="8" y="181.5" width="236" height="20.5"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="aelgö rwr rwg  kfgebwF fkwBFKS EWRKSBFS" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-Ht-jrX">
+                        <rect key="frame" x="8" y="158.33333333333334" width="208" height="38.333333333333343"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fvj-ka-sv0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="179.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="150.33333333333334"/>
                         <gestureRecognizers/>
                     </imageView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3na-Wc-qZL">
                         <rect key="frame" x="158" y="0.0" width="4" height="20"/>
                     </activityIndicatorView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COPYRIGHT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9U5-kK-DHR">
-                        <rect key="frame" x="252" y="181.5" width="60" height="12"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cwnfea-l" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9U5-kK-DHR">
+                        <rect key="frame" x="232" y="160.33333333333334" width="80" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Rnx-Xi-7ng"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,13 +48,14 @@
                     <constraint firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="top" id="Fv8-Wi-qGN"/>
                     <constraint firstItem="NfP-Ht-jrX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RgF-Pv-5ZS"/>
                     <constraint firstItem="Fvj-ka-sv0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rzk-49-ohI"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="NfP-Ht-jrX" secondAttribute="bottom" id="TfP-nb-E6d"/>
-                    <constraint firstItem="NfP-Ht-jrX" firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="bottom" constant="2" id="fTB-Ns-q00"/>
-                    <constraint firstItem="9U5-kK-DHR" firstAttribute="leading" secondItem="NfP-Ht-jrX" secondAttribute="trailing" constant="8" id="hjH-lr-2uT"/>
+                    <constraint firstItem="NfP-Ht-jrX" firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="bottom" constant="8" id="fTB-Ns-q00"/>
+                    <constraint firstItem="9U5-kK-DHR" firstAttribute="leading" secondItem="NfP-Ht-jrX" secondAttribute="trailing" constant="16" id="hjH-lr-2uT"/>
                     <constraint firstItem="3na-Wc-qZL" firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="top" id="sbp-sN-pXP"/>
+                    <constraint firstAttribute="bottom" secondItem="NfP-Ht-jrX" secondAttribute="bottom" constant="16" id="tYG-Sc-GF1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3na-Wc-qZL" secondAttribute="trailing" constant="142" id="tpH-X5-atq"/>
-                    <constraint firstItem="9U5-kK-DHR" firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="bottom" constant="2" id="wz3-fq-MlQ"/>
+                    <constraint firstItem="9U5-kK-DHR" firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="bottom" constant="10" id="wz3-fq-MlQ"/>
                     <constraint firstItem="Fvj-ka-sv0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" id="xl5-do-CiW"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9U5-kK-DHR" secondAttribute="bottom" constant="8" id="yxW-Dl-11o"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

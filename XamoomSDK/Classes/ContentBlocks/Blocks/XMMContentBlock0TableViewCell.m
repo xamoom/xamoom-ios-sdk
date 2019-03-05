@@ -58,6 +58,7 @@ static UIColor *contentLinkColor;
 
 - (void)displayTitle:(NSString *)title block:(XMMContentBlock *)block {
   if(title != nil && ![title isEqualToString:@""]) {
+    
     self.contentTextViewTopConstraint.constant = 8;
     self.titleLabel.text = title;
   } else {
@@ -100,6 +101,8 @@ static UIColor *contentLinkColor;
   
   html = [html stringByReplacingOccurrencesOfString:@"<br></p>" withString:@"</p>"];
   html = [html stringByReplacingOccurrencesOfString:@"<p></p>" withString:@""];
+  html = [html stringByReplacingOccurrencesOfString:@"</p>" withString:@"</p><br>"];
+  html = [html stringByReplacingOccurrencesOfString:@"</ul>" withString:@"</ul><br>"];
   html = [NSString stringWithFormat:@"%@%@", style, html];
   
   NSMutableAttributedString *attributedString =
@@ -118,8 +121,8 @@ static UIColor *contentLinkColor;
 
   if ([html containsString:@"<ul><li>"]) {
     [paragraphStyle addTabStop:[[NSTextTab alloc] initWithTextAlignment:NSTextAlignmentLeft location:10 options:nil]];
-    [paragraphStyle setDefaultTabInterval:0];
-    [paragraphStyle setHeadIndent:29];
+    [paragraphStyle setDefaultTabInterval:10];
+    //[paragraphStyle setHeadIndent:29];
   }
   
   [attributedString addAttribute:NSParagraphStyleAttributeName
