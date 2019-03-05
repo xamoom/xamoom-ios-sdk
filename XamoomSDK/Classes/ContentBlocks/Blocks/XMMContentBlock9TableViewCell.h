@@ -1,13 +1,12 @@
 //
-// Copyright (c) 2017 xamoom GmbH <apps@xamoom.com>
+//  XMMContentBlock9TableViewCell.h
+//  XamoomSDK
 //
-// Licensed under the MIT License (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at the root of this project.
-
+//  Created by Thomas Krainz-Mischitz on 05.02.19.
+//  Copyright © 2019 xamoom GmbH. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 #import <JAMSVGImage/JAMSVGImage.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "XMMEnduserApi.h"
@@ -18,19 +17,15 @@
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
 #import "UIImage+Scaling.h"
+@import Mapbox;
 
 @class XMMMapOverlayView;
 
-/**
- * XMMContentBlock0TableViewCell is used to display spotMap contentBlocks from the xamoom cloud.
- */
-@interface XMMContentBlock9TableViewCell : UITableViewCell <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface XMMContentBlock9TableViewCell : UITableViewCell<MGLMapViewDelegate, CLLocationManagerDelegate>
 
-@property (weak, nonatomic) IBOutlet MKMapView *mapViewPlaceholder;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapHeightConstraint;
-@property (nonatomic, strong) MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet MGLMapView *mapView;
+@property (weak, nonatomic) IBOutlet UILabel *titleView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewHeightConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;
 

@@ -19,7 +19,7 @@
 #import "XMMContentBlock6TableViewCell.h"
 #import "XMMContentBlock7TableViewCell.h"
 #import "XMMContentBlock8TableViewCell.h"
-#import "XMMContentBlock91TableViewCell.h"
+#import "XMMContentBlock9TableViewCell.h"
 #import "XMMContentBlock11TableViewCell.h"
 #import "UIImage+animatedGIF.h"
 #import "UIColor+HexString.h"
