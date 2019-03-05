@@ -45,6 +45,7 @@ static int kPageSize = 100;
   if (![tableView.indexPathsForVisibleRows containsObject:indexPath]) {
     return;
   } else {
+    _mapView.styleURL = _mapboxStyle;
     [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.7326808, -73.9843407)
                         zoomLevel:1
                          animated:NO];

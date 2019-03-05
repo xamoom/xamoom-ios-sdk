@@ -75,7 +75,8 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property (nonatomic, getter=isOffline) BOOL offline;
 @property (nonatomic, strong) NSArray *urls;
 @property (nonatomic, strong) UINavigationController *navController;
-
+@property (nonatomic, strong) NSURL *mapboxStyle;
+  
 /**
  * Initialize XMMContentBlocks with tableview and an api.
  * TableView will get set up.

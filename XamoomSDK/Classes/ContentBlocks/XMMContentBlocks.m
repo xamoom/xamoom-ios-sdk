@@ -255,6 +255,10 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     tableViewCell.backgroundColor = [UIColor clearColor];
   }
   
+  if ([cell isKindOfClass:[XMMContentBlock9TableViewCell class]] && self.mapboxStyle != nil) {
+    [(XMMContentBlock9TableViewCell *) cell setMapboxStyle:self.mapboxStyle];
+  }
+  
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style offline:self.offline];
     return cell;
