@@ -19,21 +19,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="TitleTitle Title Title Title Title Title Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCE-yb-Hto">
-                        <rect key="frame" x="8" y="0.0" width="216" height="45.5"/>
+                        <rect key="frame" x="8" y="16" width="304" height="45.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="2VU-ji-2pO"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalCompressionResistancePriority="749" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="نقرت بالفأرة على لوحة المفاتيح الافتراض" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-Mw-WD2">
-                        <rect key="frame" x="8" y="53.5" width="304" height="140"/>
+                        <rect key="frame" x="8" y="69.5" width="304" height="124"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="copyright wefn flewf WEF LWE" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pK-rd-hN1">
-                        <rect key="frame" x="232" y="0.0" width="80" height="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pK-rd-hN1">
+                        <rect key="frame" x="8" y="0.0" width="304" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="DqT-Xx-jn4"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="j8s-k1-t0e"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
@@ -44,18 +47,21 @@
                     <constraint firstAttribute="trailing" secondItem="7pK-rd-hN1" secondAttribute="trailing" constant="8" id="1Wy-Of-kBY"/>
                     <constraint firstItem="hdI-Mw-WD2" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" constant="8" id="9qT-fc-VXr"/>
                     <constraint firstItem="7pK-rd-hN1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="FdV-7z-cfn"/>
+                    <constraint firstAttribute="trailing" secondItem="YCE-yb-Hto" secondAttribute="trailing" constant="8" id="V3F-wy-AeK"/>
                     <constraint firstAttribute="trailing" secondItem="hdI-Mw-WD2" secondAttribute="trailing" constant="8" id="ZSo-W8-BlY"/>
-                    <constraint firstItem="7pK-rd-hN1" firstAttribute="leading" secondItem="YCE-yb-Hto" secondAttribute="trailing" constant="8" id="a0d-3i-uR7"/>
                     <constraint firstAttribute="bottom" secondItem="hdI-Mw-WD2" secondAttribute="bottom" constant="8" id="hAY-0z-P0p"/>
                     <constraint firstItem="YCE-yb-Hto" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="i4b-LX-lBM"/>
-                    <constraint firstItem="YCE-yb-Hto" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="m16-f7-vLJ"/>
+                    <constraint firstItem="7pK-rd-hN1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="mov-W9-XXD"/>
+                    <constraint firstItem="YCE-yb-Hto" firstAttribute="top" secondItem="7pK-rd-hN1" secondAttribute="bottom" constant="4" id="qJn-bX-ENB"/>
                     <constraint firstAttribute="leading" secondItem="hdI-Mw-WD2" secondAttribute="leading" constant="-8" id="ucX-SN-6T6"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentTextView" destination="hdI-Mw-WD2" id="Pb4-kh-rxH"/>
                 <outlet property="contentTextViewTopConstraint" destination="9qT-fc-VXr" id="8OU-GQ-kx6"/>
+                <outlet property="copyrightHeight" destination="j8s-k1-t0e" id="qzb-Mn-dp2"/>
                 <outlet property="copyrightLabel" destination="7pK-rd-hN1" id="7Kv-nH-Fwk"/>
+                <outlet property="titleHeight" destination="2VU-ji-2pO" id="AtG-eK-DMM"/>
                 <outlet property="titleLabel" destination="YCE-yb-Hto" id="oCq-7F-scg"/>
             </connections>
             <point key="canvasLocation" x="388" y="532"/>
