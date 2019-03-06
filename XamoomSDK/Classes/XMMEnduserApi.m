@@ -773,11 +773,17 @@ static XMMEnduserApi *sharedInstance;
 
 - (NSMutableDictionary *)httpHeadersWithEphemeralId {
   NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+  _ephemeralId = [self getEphemeralId];
   if (_ephemeralId != nil) {
+    NSLog(@"Ephemeral ID");
+    NSLog(_ephemeralId);
     [headers setObject:_ephemeralId forKey:kEphemeralIdHttpHeaderName];
   }
   
+  _authorizationId = [self getAuthorizationId];
   if (_authorizationId != nil) {
+    NSLog(@"Authirization ID");
+    NSLog(_authorizationId);
     [headers setObject:_authorizationId forKey:kAuthorization];
   }
   
