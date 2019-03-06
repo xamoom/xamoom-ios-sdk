@@ -10,6 +10,8 @@ target 'XamoomSDK' do
 	pod 'SDWebImage', '~>3.7'
   pod 'JAMSVGImage'
   pod 'Pushwoosh'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 end
 
 target 'XamoomSDKTests' do
