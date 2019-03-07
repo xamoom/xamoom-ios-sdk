@@ -49,6 +49,7 @@
     self.updatedAt = savedPushDevice.updatedAt;
     self.createdAt = savedPushDevice.createdAt;
     self.language = savedPushDevice.language;
+    self.sdkVersion = savedPushDevice.sdkVersion;
   }
   return self;
 }
@@ -85,6 +86,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"updatedAt" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"updated-at"]];
     [__descriptor addProperty:@"createdAt" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"created-at"]];
     [__descriptor addProperty:@"language" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"language"]];
+    [__descriptor addProperty:@"sdkVersion" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"sdk-version"]];
   });
   
   return __descriptor;

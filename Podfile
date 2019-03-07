@@ -12,6 +12,8 @@ target 'XamoomSDK' do
   pod 'Pushwoosh'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
+  pod 'GoogleAnalytics'
 end
 
 target 'XamoomSDKTests' do

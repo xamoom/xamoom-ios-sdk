@@ -1,4 +1,6 @@
 PODS:
+  - Firebase/Analytics (5.17.0):
+    - Firebase/Core
   - Firebase/Core (5.17.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.6.0)
@@ -30,6 +32,7 @@ PODS:
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Reachability (~> 5.2)
     - Protobuf (~> 3.1)
+  - GoogleAnalytics (3.17.0)
   - GoogleAppMeasurement (5.6.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -76,8 +79,10 @@ PODS:
     - SDWebImage (~> 3.7)
 
 DEPENDENCIES:
+  - Firebase/Analytics
   - Firebase/Core
   - Firebase/Messaging
+  - GoogleAnalytics
   - JAMSVGImage
   - JSONAPI (~> 1.0.0)
   - Nocilla
@@ -97,6 +102,7 @@ SPEC CHECKSUMS:
   FirebaseCore: c0c4befb82374d6aef64d800e569f47625352edc
   FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
   FirebaseMessaging: 08289db05bdc71d91fe70916de95bb0c3c86ca9b
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
   GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
   JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2
@@ -109,6 +115,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   XamoomSDK: 8ceed406835b78c7b97a0e8e8c8ebc5902d14ca7
 
-PODFILE CHECKSUM: 2691f1b3486c4f0357cfb7a3aeb0d4bd8ddaccad
+PODFILE CHECKSUM: 69bf0de0bc65b1afc8c7b03e82087fc241caafaa
 
 COCOAPODS: 1.4.0

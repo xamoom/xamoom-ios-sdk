@@ -11,7 +11,6 @@
 #import "XMMSimpleStorage.h"
 #import "XMMEnduserApi.h"
 
-
 @implementation PushHelper
 
 NSString *const XAMOOM_NOTIFICATION_RECEIVE = @"xamoom-push-notification";
