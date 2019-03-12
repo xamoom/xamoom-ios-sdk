@@ -40,7 +40,7 @@ NSString *const XAMOOM_NOTIFICATION_RECEIVE = @"xamoom-push-notification";
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler  API_AVAILABLE(ios(10.0)) {
   NSDictionary *userInfo = notification.request.content.userInfo;
-  NSString *wakeup = [userInfo valueForKey:@"wakeup"];
+  NSString *wakeup = [userInfo valueForKey:@"wake-up"];
   
   if (wakeup != nil) {
     [[XMMEnduserApi sharedInstanceWithKey:_apikey] pushDevice];
@@ -59,5 +59,4 @@ NSString *const XAMOOM_NOTIFICATION_RECEIVE = @"xamoom-push-notification";
   
   completionHandler();
 }
-  
 @end

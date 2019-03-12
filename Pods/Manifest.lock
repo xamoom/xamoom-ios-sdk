@@ -21,10 +21,10 @@ PODS:
   - FirebaseAnalyticsInterop (1.2.0)
   - FirebaseCore (5.3.0):
     - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseInstanceID (3.5.0):
-    - FirebaseCore (~> 5.3)
-    - GoogleUtilities/Environment (~> 5.3)
-    - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseInstanceID (3.7.0):
+    - FirebaseCore (~> 5.2)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/UserDefaults (~> 5.2)
   - FirebaseMessaging (3.3.1):
     - FirebaseAnalyticsInterop (~> 1.1)
     - FirebaseCore (~> 5.2)
@@ -100,7 +100,7 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 75e4bbc6417d190cc98ec1f17c41a4fad4c2c976
   FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
   FirebaseCore: c0c4befb82374d6aef64d800e569f47625352edc
-  FirebaseInstanceID: 4522aad88f69297622062c0e9ffccdee3dd9b151
+  FirebaseInstanceID: bd6fc5a258884e206fd5c474ebe4f5b00e21770e
   FirebaseMessaging: 08289db05bdc71d91fe70916de95bb0c3c86ca9b
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleAppMeasurement: 008e04ecd8efedd97a693aea8634aefe220bd26e
