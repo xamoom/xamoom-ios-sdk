@@ -11,6 +11,11 @@ target 'XamoomSDK' do
   pod 'JAMSVGImage'
   pod 'Pushwoosh'
   pod 'Mapbox-iOS-SDK'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
+  pod 'GoogleAnalytics'
+
 end
 
 target 'XamoomSDKTests' do
