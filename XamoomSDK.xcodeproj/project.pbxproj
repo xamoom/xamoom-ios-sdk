@@ -28,6 +28,10 @@
 		62CED5702209A5B2004198A3 /* XMMContentBlock91TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CED56D2209A5B2004198A3 /* XMMContentBlock91TableViewCell.h */; };
 		62CED5712209A5B2004198A3 /* XMMContentBlock91TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CED56E2209A5B2004198A3 /* XMMContentBlock91TableViewCell.m */; };
 		62CED5722209A5B2004198A3 /* XMMContentBlock91TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CED56F2209A5B2004198A3 /* XMMContentBlock91TableViewCell.xib */; };
+		62E5CF0F223F81A5006F06A9 /* LocationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E5CF0D223F81A5006F06A9 /* LocationHelper.h */; };
+		62E5CF10223F81A5006F06A9 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E5CF0E223F81A5006F06A9 /* LocationHelper.m */; };
+		62F16FF8222E9AF5000DBFB4 /* PushHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 62F16FF6222E9AF5000DBFB4 /* PushHelper.h */; };
+		62F16FF9222E9AF5000DBFB4 /* PushHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F16FF7222E9AF5000DBFB4 /* PushHelper.m */; };
 		880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */; };
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */; };
@@ -265,6 +269,10 @@
 		62CED56D2209A5B2004198A3 /* XMMContentBlock91TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock91TableViewCell.h; sourceTree = "<group>"; };
 		62CED56E2209A5B2004198A3 /* XMMContentBlock91TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock91TableViewCell.m; sourceTree = "<group>"; };
 		62CED56F2209A5B2004198A3 /* XMMContentBlock91TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMMContentBlock91TableViewCell.xib; sourceTree = "<group>"; };
+		62E5CF0D223F81A5006F06A9 /* LocationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocationHelper.h; path = XamoomSDK/Classes/mapping/LocationHelper.h; sourceTree = SOURCE_ROOT; };
+		62E5CF0E223F81A5006F06A9 /* LocationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocationHelper.m; path = XamoomSDK/Classes/mapping/LocationHelper.m; sourceTree = SOURCE_ROOT; };
+		62F16FF6222E9AF5000DBFB4 /* PushHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PushHelper.h; path = XamoomSDK/Classes/mapping/PushHelper.h; sourceTree = SOURCE_ROOT; };
+		62F16FF7222E9AF5000DBFB4 /* PushHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PushHelper.m; path = XamoomSDK/Classes/mapping/PushHelper.m; sourceTree = SOURCE_ROOT; };
 		672B23EE39E2A7B6555ECA0B /* Pods-XamoomSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 		86421FBB40BBE7E6E9176A77 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8796652F7A66500CFA6B310E /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -532,6 +540,10 @@
 			children = (
 				627A37BF20E4F09B007C83ED /* XMMPushDevice.h */,
 				627A37C020E4F09B007C83ED /* XMMPushDevice.m */,
+				62F16FF6222E9AF5000DBFB4 /* PushHelper.h */,
+				62F16FF7222E9AF5000DBFB4 /* PushHelper.m */,
+				62E5CF0D223F81A5006F06A9 /* LocationHelper.h */,
+				62E5CF0E223F81A5006F06A9 /* LocationHelper.m */,
 			);
 			name = PushDevice;
 			sourceTree = "<group>";
@@ -1029,6 +1041,7 @@
 				88399DD42011DC0100625126 /* XMMProgressBar.h in Headers */,
 				888F4F721DA53FA8000E49CE /* XMMCDContent.h in Headers */,
 				883E55A81C4A37FE000C4D09 /* XMMContentBlocksCache.h in Headers */,
+				62E5CF0F223F81A5006F06A9 /* LocationHelper.h in Headers */,
 				62CED5702209A5B2004198A3 /* XMMContentBlock91TableViewCell.h in Headers */,
 				885AC9F21F71517F00DDD9A8 /* NSDate+ISODate.h in Headers */,
 				88513C602010D3E000051719 /* XMMAudioManager.h in Headers */,
@@ -1041,6 +1054,7 @@
 				8853CBA01D9CEAE8009BD14E /* XMMParamHelper.h in Headers */,
 				88B3901F1DA294D600216478 /* XMMCDResource.h in Headers */,
 				888F4F681DA52C94000E49CE /* XMMCDSpot.h in Headers */,
+				62F16FF8222E9AF5000DBFB4 /* PushHelper.h in Headers */,
 				88E46E7A1C47E348004D8AC3 /* XMMContentBlock.h in Headers */,
 				88E46E9E1C47E348004D8AC3 /* XMMSpot.h in Headers */,
 				883E559E1C4A37FE000C4D09 /* XMMAnnotation.h in Headers */,
@@ -1467,6 +1481,7 @@
 				884937571C75C82100C53520 /* UIColor+HexString.m in Sources */,
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
 				8834405D2012025200CF501E /* XMMMusicPlayer.m in Sources */,
+				62E5CF10223F81A5006F06A9 /* LocationHelper.m in Sources */,
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
 				883AC7D61DB0BEF000AE7BA7 /* XMMOfflineFileManager.m in Sources */,
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,
@@ -1496,6 +1511,7 @@
 				883E55A91C4A37FE000C4D09 /* XMMContentBlocksCache.m in Sources */,
 				88FEF64E1F9631C500792DBF /* EnduserOfflineDatamodel.xcdatamodeld in Sources */,
 				885E21D61F877B9700F7F7E7 /* XMMListItem.m in Sources */,
+				62F16FF9222E9AF5000DBFB4 /* PushHelper.m in Sources */,
 				884B61511DACE78500572758 /* XMMOfflinePagedResult.m in Sources */,
 				88E46E9F1C47E348004D8AC3 /* XMMSpot.m in Sources */,
 				627A37C220E4F09B007C83ED /* XMMPushDevice.m in Sources */,

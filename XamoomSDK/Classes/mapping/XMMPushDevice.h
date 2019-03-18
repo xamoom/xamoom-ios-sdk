@@ -23,4 +23,5 @@
 @property (nonatomic) NSString *createdAt;
 @property (nonatomic) NSDictionary *location;
 @property (nonatomic) NSString *language;
+@property (nonatomic) NSString *sdkVersion;
 @end

@@ -20,6 +20,7 @@ NSString * const kAuthorizationKey = @"com.xamoom.AuthorizationId";
 NSString * const kEphemeralIdHttpHeaderName = @"X-Ephemeral-Id";
 NSString * const kAuthorization = @"Authorization";
 NSString * const kReasonHttpHeaderName = @"X-Reason";
+NSString * const kLastPushRegisterKey = @"com.xamoom.last-push-register";
 
 
 @interface XMMEnduserApi () <XMMRestClientDelegate>
@@ -714,11 +715,18 @@ static XMMEnduserApi *sharedInstance;
 
 - (NSURLSessionDataTask *)pushDevice {
   
+  double lastPush = [[self getUserDefaults] doubleForKey:kLastPushRegisterKey];
+  
+  if (lastPush != 0.0 && lastPush > [[NSDate date] timeIntervalSince1970] - 1.0) {
+    return nil;
+  }
+  
   XMMSimpleStorage *storage = [XMMSimpleStorage new];
   NSDictionary *location = [storage getLocation];
   NSString *token = [storage getUserToken];
   NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
   NSString *appId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+  NSString *sdkVersion = @"3.10.8";
 
   if (location != nil && token != nil && version != nil && appId != nil) {
     XMMPushDevice *device = [[XMMPushDevice alloc] init];
@@ -726,11 +734,20 @@ static XMMEnduserApi *sharedInstance;
     device.location = location;
     device.appId = appId;
     device.appVersion = version;
+    device.sdkVersion = sdkVersion;
     
+    double now = [[NSDate date] timeIntervalSince1970];
+    NSUserDefaults *userDefaults = [self getUserDefaults];
+    [userDefaults setDouble:now forKey:kLastPushRegisterKey];
+    [userDefaults synchronize];
+    
+    NSLog(@"Device Pushed");
     return [self.restClient postPushDevice:[XMMPushDevice class] id:device.uid parameters:nil headers:[self httpHeadersWithEphemeralId] pushDevice:device completion:^(JSONAPI *result, NSError *error) {
       
       if (error) {
         NSError *e = error;
+        [userDefaults setDouble:0.0 forKey:kLastPushRegisterKey];
+        [userDefaults synchronize];
       }
     }];
   }
@@ -773,11 +790,17 @@ static XMMEnduserApi *sharedInstance;
 
 - (NSMutableDictionary *)httpHeadersWithEphemeralId {
   NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+  _ephemeralId = [self getEphemeralId];
   if (_ephemeralId != nil) {
+    NSLog(@"Ephemeral ID");
+    NSLog(_ephemeralId);
     [headers setObject:_ephemeralId forKey:kEphemeralIdHttpHeaderName];
   }
   
+  _authorizationId = [self getAuthorizationId];
   if (_authorizationId != nil) {
+    NSLog(@"Authirization ID");
+    NSLog(_authorizationId);
     [headers setObject:_authorizationId forKey:kAuthorization];
   }
   
