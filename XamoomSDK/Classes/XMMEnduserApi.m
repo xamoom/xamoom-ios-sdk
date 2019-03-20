@@ -717,7 +717,7 @@ static XMMEnduserApi *sharedInstance;
   
   double lastPush = [[self getUserDefaults] doubleForKey:kLastPushRegisterKey];
   
-  if (lastPush != 0.0 && lastPush > [[NSDate date] timeIntervalSince1970] - 1.0) {
+  if (lastPush != 0.0 && lastPush > [[NSDate date] timeIntervalSince1970] - 30.0) {
     return nil;
   }
   

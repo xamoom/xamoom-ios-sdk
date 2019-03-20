@@ -8,12 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "XMMEnduserApi.h"
 
 extern NSString *const LOCATION_UPDATE;
 extern NSString *const BEACON_ENTER;
 extern NSString *const BEACON_EXIT;
 extern NSString *const BEACON_RANGE;
 extern NSString *const BEACON_CONTENTS;
+extern NSString *const XAMOOM_BEACONS_KEY;
+extern NSString *const XAMOOM_CONTENTS_KEY;
 
 @interface LocationHelper : NSObject
 
@@ -25,14 +28,12 @@ extern NSString *const BEACON_CONTENTS;
   @property (nonatomic, assign) BOOL firstTimeStart;
   @property (nonatomic, assign) BOOL filterSameBeaconScans;
   @property (nonatomic, assign) BOOL beaconsLoading;
-  @property (nonatomic, strong) NSString *beaconKey;
-  @property (nonatomic, strong) NSString *contentKey;
   @property (nonatomic, strong) NSString *majorBeaconID;
-  @property (nonatomic, strong) NSString *apiKey;
+  @property (nonatomic, strong) XMMEnduserApi *api;
 
   + (instancetype _Nonnull)sharedInstance;
 
-  - (id)initWithBeaconRegion:(NSUUID *)uuid beaconMajor:(NSNumber *)major beaconIdentifier:(NSString *)identifier apiKey:(NSString *)apiKey;
+  - (id)initWithBeaconRegion:(NSUUID *)uuid beaconMajor:(NSNumber *)major beaconIdentifier:(NSString *)identifier api:(XMMEnduserApi *)api;
   
   - (void)startLocationUpdateing;
   

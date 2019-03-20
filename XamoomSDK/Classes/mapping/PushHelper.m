@@ -15,12 +15,12 @@
 
 NSString *const XAMOOM_NOTIFICATION_RECEIVE = @"xamoom-push-notification";
 
-- (instancetype)initWithApiKey:(NSString *)apiKey {
+- (instancetype)initWithApi:(XMMEnduserApi *)api {
   self = [super init];
   if (self) {
-    _messagingDelegate = self;
-    _notificationDelegate = self;
-    _apikey = apiKey;
+    self.messagingDelegate = self;
+    self.notificationDelegate = self;
+    self.api = api;
   }
   return self;
 }
@@ -35,7 +35,7 @@ NSString *const XAMOOM_NOTIFICATION_RECEIVE = @"xamoom-push-notification";
     
     XMMSimpleStorage *storage = [XMMSimpleStorage new];
     [storage saveUserToken:fcmToken];
-    [[XMMEnduserApi sharedInstanceWithKey:_apikey] pushDevice];
+    [self.api pushDevice];
   }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler  API_AVAILABLE(ios(10.0)) {
@@ -43,7 +43,7 @@ NSString *const XAMOOM_NOTIFICATION_RECEIVE = @"xamoom-push-notification";
   NSString *wakeup = [userInfo valueForKey:@"wake-up"];
   
   if (wakeup != nil) {
-    [[XMMEnduserApi sharedInstanceWithKey:_apikey] pushDevice];
+    [self.api pushDevice];
   } else {
     completionHandler(UNNotificationPresentationOptionAlert);
   }

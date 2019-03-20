@@ -15,6 +15,8 @@ NSString *const BEACON_ENTER = @"BeaconEnterNotification";
 NSString *const BEACON_EXIT = @"BeaconExitNotification";
 NSString *const BEACON_RANGE = @"BeaconRangeNotification";
 NSString *const BEACON_CONTENTS = @"BeaconRangeContents";
+NSString *const XAMOOM_BEACONS_KEY = @"beacons";
+NSString *const XAMOOM_CONTENTS_KEY = @"contents";
 
 @interface LocationHelper () <CLLocationManagerDelegate>
 
@@ -32,17 +34,19 @@ static LocationHelper *sharedInstance;
     return sharedInstance;
   }
   
-  - (id)initWithBeaconRegion:(NSUUID *)uuid beaconMajor:(NSNumber *)major beaconIdentifier:(NSString *)identifier apiKey:(NSString *)apiKey {
+  - (id)initWithBeaconRegion:(NSUUID *)uuid beaconMajor:(NSNumber *)major beaconIdentifier:(NSString *)identifier api:(XMMEnduserApi *)api {
     self = [super init];
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    self.locationManager.distanceFilter = 600.0;
     self.locationManager.allowsBackgroundLocationUpdates = YES;
     self.locationManager.requestAlwaysAuthorization;
     
     self.majorBeaconID = [major stringValue];
     
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:major identifier:identifier];
+    int value = [major intValue];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:value identifier:identifier];
     self.beaconRegion.notifyOnEntry = YES;
     self.beaconRegion.notifyOnExit = YES;
     
@@ -50,15 +54,14 @@ static LocationHelper *sharedInstance;
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
     [self startLocationUpdateing];
     
-    self.apiKey = apiKey;
-    self.contentKey = @"contents";
-    self.beaconKey = @"beacons";
+    self.api = api;
     return self;
   }
   
   - (void)startLocationUpdateing {
     [self.locationManager startUpdatingLocation];
     [self.locationManager startMonitoringSignificantLocationChanges];
+    [self.api pushDevice];
   }
   
   - (void)stopLocationUpdating {
@@ -84,7 +87,7 @@ static LocationHelper *sharedInstance;
   
   - (void)sendNotificationWithName:(NSString *)name userInfo:(NSDictionary *)userInfo {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center postNotificationName:name object:userInfo];
+    [center postNotificationName:name object:nil userInfo:userInfo];
   }
   
   - (BOOL)sameBeaconsForBeacons:(NSArray *)newBeacons {
@@ -109,8 +112,8 @@ static LocationHelper *sharedInstance;
   }
   
   - (void)removeDuplicateBeacons:(NSArray *)beacons contents:(NSArray *)contents completion:(void (^)(NSArray *, NSArray *))completion {
-    NSMutableArray *cleanBeacons = @[];
-    NSMutableArray *cleanCotnents = @[];
+    NSMutableArray *cleanBeacons = [NSMutableArray new];
+    NSMutableArray *cleanCotnents = [NSMutableArray new];
 
     for (int i = 0; i < [beacons count]; i++) {
       CLBeacon *beacon = beacons[i];
@@ -137,20 +140,20 @@ static LocationHelper *sharedInstance;
       NSDictionary *locationDictionary = @{@"lat": [[NSNumber alloc] initWithDouble:location.coordinate.latitude], @"lon": [[NSNumber alloc] initWithDouble:location.coordinate.longitude]};
       XMMSimpleStorage *storage = [XMMSimpleStorage new];
       [storage saveLocation:locationDictionary];
-      [[XMMEnduserApi sharedInstanceWithKey:self.apiKey] pushDevice];
+      [self.api pushDevice];
     }
   }
     
   - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     
     [self sendBeaconNotificationWithRegion:region isEnter:YES];
-    [self.locationManager startRangingBeaconsInRegion:region];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
   }
   
   - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
-    self.beacons = @[];
+    self.beacons = [NSArray new];
     [self sendBeaconNotificationWithRegion:region isEnter:NO];
-    [self.locationManager startRangingBeaconsInRegion:region];
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
   }
   
   - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray<CLBeacon *> *)beacons inRegion:(CLBeaconRegion *)region {
@@ -164,11 +167,11 @@ static LocationHelper *sharedInstance;
       }
     }
     
-    [[XMMEnduserApi sharedInstanceWithKey:self.apiKey] pushDevice];
+    [self.api pushDevice];
 
-    if (self.beacons.count == 0) {
-      self.beacons = @[];
-      [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{self.contentKey: @[]}];
+    if (beacons.count == 0) {
+      self.beacons = [NSArray new];
+      [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_CONTENTS_KEY: [NSArray new]}];
       return;
     }
     
@@ -196,8 +199,8 @@ static LocationHelper *sharedInstance;
             
             self.beacons = cleanBeacons;
             self.contents = cleanContents;
-            [self sendNotificationWithName:BEACON_RANGE userInfo:@{self.beaconKey: cleanBeacons}];
-            [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{self.contentKey: cleanContents}];
+            [self sendNotificationWithName:BEACON_RANGE userInfo:@{XAMOOM_BEACONS_KEY: cleanBeacons}];
+            [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_CONTENTS_KEY: cleanContents}];
             self.beaconsLoading = false;
           }
           self.beaconsLoading = false;
@@ -207,24 +210,22 @@ static LocationHelper *sharedInstance;
       self.beaconsLoading = false;
 
     }];
-      
-    self.beaconsLoading = false;
   }
   
   - (void) beaconLogic:(NSArray *)beacons completion:(void (^)(NSArray *beacons, NSArray *contents))completion {
     self.beaconsLoading = YES;
-    NSMutableArray *loadedBeacons =@[];
-    NSMutableArray *loadedContents =@[];
+    NSMutableArray *loadedBeacons = [NSMutableArray new];
+    NSMutableArray *loadedContents = [NSMutableArray new];
     
-    for (int index = 0; index < beacons.count; index++) {
-      CLBeacon *beacon = beacons[index];
-      [[XMMEnduserApi sharedInstanceWithKey:self.apiKey] contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error) {
+    for (int i = 0; i < beacons.count; i++) {
+      CLBeacon *beacon = beacons[i];
+      [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error) {
         if (content != nil && error == nil) {
           [loadedBeacons addObject:beacon];
           [loadedContents addObject:content];
         }
         
-        if (index == beacons.count) {
+        if (i == beacons.count - 1) {
           completion(loadedBeacons, loadedContents);
         }
       }];
