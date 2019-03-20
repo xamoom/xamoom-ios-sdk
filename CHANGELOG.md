@@ -1,4 +1,7 @@
 # Changelog
+## [3.10.8](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.7...3.10.8) - 06.03.2019
+- Improvemnts for Enduserapi
+
 ## [3.10.7](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.6...3.10.7) - 25.02.2019
 - UI improvements
 
