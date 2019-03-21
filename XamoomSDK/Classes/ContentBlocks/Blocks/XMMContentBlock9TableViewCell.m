@@ -141,7 +141,7 @@ static int kPageSize = 100;
         annotationTitle = @"Spot";
       }
       
-      XMMAnnotation *anno = [[XMMAnnotation alloc] initWithName:annotationTitle withLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
+      XMMAnnotation *anno = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
       anno.spot = spot;
       
       //calculate
@@ -307,7 +307,6 @@ static int kPageSize = 100;
 - (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
   if ([annotation isKindOfClass:[XMMAnnotation class]]) {
     [self zoomToAnnotationWithAdditionView:annotation];
-    
     self.mapAdditionViewBottomConstraint.constant = self.mapView.bounds.size.height/2 + 10;
     self.mapAdditionViewHeightConstraint.constant = self.mapView.bounds.size.height/2;
     [self openMapAdditionView:annotation];
