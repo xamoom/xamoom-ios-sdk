@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import "XMMEnduserApi.h"
-@import Mapbox;
+#import <Mapbox-iOS-SDK/Mapbox/Mapbox.h>
 
 @class XMMSpot;
 
