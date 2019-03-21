@@ -1,5 +1,5 @@
 # Changelog
-## [3.10.10](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.8...3.10.10) - 21.03.2019
+## [3.10.10](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.8...3.11.0) - 21.03.2019
 - Mapbox instead of GoogleMaps
 - Added FCM logic
 - Added Beacon and Location logic 
