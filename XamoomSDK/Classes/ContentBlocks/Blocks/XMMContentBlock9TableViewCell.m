@@ -251,7 +251,7 @@ static int kPageSize = 100;
 - (void)zoomToAnnotationWithAdditionView:(XMMAnnotation *)annotation {
   
   double a = annotation.coordinate.latitude;
-  double d = a - 2;
+  double d = a - 0.003;
   
   if (d < -90) {
     d = -90;
@@ -260,7 +260,7 @@ static int kPageSize = 100;
   }
   
   [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(d, annotation.coordinate.longitude)
-                      zoomLevel:3
+                      zoomLevel:12
                        animated:YES];
 }
 
@@ -307,6 +307,7 @@ static int kPageSize = 100;
 - (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
   if ([annotation isKindOfClass:[XMMAnnotation class]]) {
     [self zoomToAnnotationWithAdditionView:annotation];
+    
     self.mapAdditionViewBottomConstraint.constant = self.mapView.bounds.size.height/2 + 10;
     self.mapAdditionViewHeightConstraint.constant = self.mapView.bounds.size.height/2;
     [self openMapAdditionView:annotation];

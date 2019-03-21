@@ -45,7 +45,7 @@ NSString *const XAMOOM_NOTIFICATION_RECEIVE = @"xamoom-push-notification";
   if (wakeup != nil) {
     [self.api pushDevice];
   } else {
-    completionHandler(UNNotificationPresentationOptionAlert);
+    completionHandler(UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionBadge);
   }
 }
 
