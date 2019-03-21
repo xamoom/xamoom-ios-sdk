@@ -21,13 +21,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		622777402243D3B200D550E1 /* XMMWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6227773F2243D3B200D550E1 /* XMMWebViewController.h */; };
+		622777422243D3D800D550E1 /* XMMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622777412243D3D800D550E1 /* XMMWebViewController.m */; };
 		627A37C120E4F09B007C83ED /* XMMPushDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 627A37BF20E4F09B007C83ED /* XMMPushDevice.h */; };
 		627A37C220E4F09B007C83ED /* XMMPushDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A37C020E4F09B007C83ED /* XMMPushDevice.m */; };
 		627A37C920E4F362007C83ED /* XMMCDPushDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 627A37C720E4F362007C83ED /* XMMCDPushDevice.h */; };
 		627A37CA20E4F362007C83ED /* XMMCDPushDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A37C820E4F362007C83ED /* XMMCDPushDevice.m */; };
-		62CED5702209A5B2004198A3 /* XMMContentBlock91TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 62CED56D2209A5B2004198A3 /* XMMContentBlock91TableViewCell.h */; };
-		62CED5712209A5B2004198A3 /* XMMContentBlock91TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 62CED56E2209A5B2004198A3 /* XMMContentBlock91TableViewCell.m */; };
-		62CED5722209A5B2004198A3 /* XMMContentBlock91TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CED56F2209A5B2004198A3 /* XMMContentBlock91TableViewCell.xib */; };
 		62E5CF0F223F81A5006F06A9 /* LocationHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 62E5CF0D223F81A5006F06A9 /* LocationHelper.h */; };
 		62E5CF10223F81A5006F06A9 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E5CF0E223F81A5006F06A9 /* LocationHelper.m */; };
 		62F16FF8222E9AF5000DBFB4 /* PushHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 62F16FF6222E9AF5000DBFB4 /* PushHelper.h */; };
@@ -185,8 +184,6 @@
 		888F4F751DA542CF000E49CE /* XMMCDContentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 888F4F741DA542CF000E49CE /* XMMCDContentTest.m */; };
 		889134A31DA3B5B10035109E /* XMMCDMenuTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 889134A21DA3B5B10035109E /* XMMCDMenuTest.m */; };
 		88960C252010EE29007EBE22 /* XMMAudioManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88960C242010EE29007EBE22 /* XMMAudioManagerTest.m */; };
-		889BA3E81F024CEA004AC15D /* XMMPushManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 889BA3E61F024CEA004AC15D /* XMMPushManager.h */; };
-		889BA3E91F024CEA004AC15D /* XMMPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 889BA3E71F024CEA004AC15D /* XMMPushManager.m */; };
 		88A047C71D250D1900960D9F /* spot.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C61D250D1900960D9F /* spot.json */; };
 		88A047C91D25219200960D9F /* spotWithContentAndMarker.json in Resources */ = {isa = PBXBuildFile; fileRef = 88A047C81D25219200960D9F /* spotWithContentAndMarker.json */; };
 		88A4A5611DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */; };
@@ -262,13 +259,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6227773F2243D3B200D550E1 /* XMMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMWebViewController.h; path = XamoomSDK/Classes/Web/XMMWebViewController.h; sourceTree = "<group>"; };
+		622777412243D3D800D550E1 /* XMMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = XMMWebViewController.m; path = XamoomSDK/Classes/Web/XMMWebViewController.m; sourceTree = "<group>"; };
 		627A37BF20E4F09B007C83ED /* XMMPushDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMPushDevice.h; path = XamoomSDK/Classes/mapping/XMMPushDevice.h; sourceTree = SOURCE_ROOT; };
 		627A37C020E4F09B007C83ED /* XMMPushDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = XMMPushDevice.m; path = XamoomSDK/Classes/mapping/XMMPushDevice.m; sourceTree = SOURCE_ROOT; };
 		627A37C720E4F362007C83ED /* XMMCDPushDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMCDPushDevice.h; sourceTree = "<group>"; };
 		627A37C820E4F362007C83ED /* XMMCDPushDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMCDPushDevice.m; sourceTree = "<group>"; };
-		62CED56D2209A5B2004198A3 /* XMMContentBlock91TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock91TableViewCell.h; sourceTree = "<group>"; };
-		62CED56E2209A5B2004198A3 /* XMMContentBlock91TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock91TableViewCell.m; sourceTree = "<group>"; };
-		62CED56F2209A5B2004198A3 /* XMMContentBlock91TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMMContentBlock91TableViewCell.xib; sourceTree = "<group>"; };
 		62E5CF0D223F81A5006F06A9 /* LocationHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocationHelper.h; path = XamoomSDK/Classes/mapping/LocationHelper.h; sourceTree = SOURCE_ROOT; };
 		62E5CF0E223F81A5006F06A9 /* LocationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocationHelper.m; path = XamoomSDK/Classes/mapping/LocationHelper.m; sourceTree = SOURCE_ROOT; };
 		62F16FF6222E9AF5000DBFB4 /* PushHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PushHelper.h; path = XamoomSDK/Classes/mapping/PushHelper.h; sourceTree = SOURCE_ROOT; };
@@ -435,8 +431,6 @@
 		88960C242010EE29007EBE22 /* XMMAudioManagerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMAudioManagerTest.m; sourceTree = "<group>"; };
 		889BA3DD1F014534004AC15D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		889BA3DF1F014540004AC15D /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
-		889BA3E61F024CEA004AC15D /* XMMPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMPushManager.h; path = Classes/XMMPushManager.h; sourceTree = "<group>"; };
-		889BA3E71F024CEA004AC15D /* XMMPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMPushManager.m; path = Classes/XMMPushManager.m; sourceTree = "<group>"; };
 		88A047C61D250D1900960D9F /* spot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spot.json; sourceTree = "<group>"; };
 		88A047C81D25219200960D9F /* spotWithContentAndMarker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spotWithContentAndMarker.json; sourceTree = "<group>"; };
 		88A4A55F1DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineStorageTagModule.h; path = Classes/XMMOfflineStorageTagModule.h; sourceTree = "<group>"; };
@@ -695,9 +689,6 @@
 				885E21C91F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.h */,
 				885E21CA1F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.m */,
 				885E21CB1F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.xib */,
-				62CED56D2209A5B2004198A3 /* XMMContentBlock91TableViewCell.h */,
-				62CED56E2209A5B2004198A3 /* XMMContentBlock91TableViewCell.m */,
-				62CED56F2209A5B2004198A3 /* XMMContentBlock91TableViewCell.xib */,
 			);
 			name = TableViewCells;
 			path = Blocks;
@@ -769,6 +760,8 @@
 		8888DDB81C47B0FA0050A84C = {
 			isa = PBXGroup;
 			children = (
+				622777412243D3D800D550E1 /* XMMWebViewController.m */,
+				6227773F2243D3B200D550E1 /* XMMWebViewController.h */,
 				88E46F351C49374A004D8AC3 /* XamoomSDK.podspec */,
 				884937521C74B1C600C53520 /* Localizable.strings */,
 				8888DDC41C47B0FA0050A84C /* XamoomSDK */,
@@ -804,8 +797,6 @@
 				88E46F281C4933F0004D8AC3 /* XMMRestClient.m */,
 				8853CB9E1D9CEAE8009BD14E /* XMMParamHelper.h */,
 				8853CB9F1D9CEAE8009BD14E /* XMMParamHelper.m */,
-				889BA3E61F024CEA004AC15D /* XMMPushManager.h */,
-				889BA3E71F024CEA004AC15D /* XMMPushManager.m */,
 				8821F6F11DBBEA3E00A29AC6 /* Modules */,
 				88AE0F371DA292A5009C588C /* Storage */,
 				883B95F51C4D32D100DB8A6B /* Resources */,
@@ -1028,6 +1019,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622777402243D3B200D550E1 /* XMMWebViewController.h in Headers */,
 				885E21D51F877B9700F7F7E7 /* XMMListItem.h in Headers */,
 				88B390261DA3A3E400216478 /* XMMCDStyle.h in Headers */,
 				88E46EA51C47E348004D8AC3 /* XMMEnduserApi.h in Headers */,
@@ -1042,7 +1034,6 @@
 				888F4F721DA53FA8000E49CE /* XMMCDContent.h in Headers */,
 				883E55A81C4A37FE000C4D09 /* XMMContentBlocksCache.h in Headers */,
 				62E5CF0F223F81A5006F06A9 /* LocationHelper.h in Headers */,
-				62CED5702209A5B2004198A3 /* XMMContentBlock91TableViewCell.h in Headers */,
 				885AC9F21F71517F00DDD9A8 /* NSDate+ISODate.h in Headers */,
 				88513C602010D3E000051719 /* XMMAudioManager.h in Headers */,
 				883E55A41C4A37FE000C4D09 /* UIImage+animatedGIF.h in Headers */,
@@ -1079,7 +1070,6 @@
 				883E55861C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.h in Headers */,
 				88E46EA21C47E348004D8AC3 /* XMMStyle.h in Headers */,
 				8834405C2012025200CF501E /* XMMMusicPlayer.h in Headers */,
-				889BA3E81F024CEA004AC15D /* XMMPushManager.h in Headers */,
 				88D4C6EC1C6CD3AE00615147 /* XMMMapOverlayView.h in Headers */,
 				88A4A5611DB9EE2800BFDC35 /* XMMOfflineStorageTagModule.h in Headers */,
 				8830FED91DB79F4C0072DCAC /* XMMOfflineDownloadManager.h in Headers */,
@@ -1206,7 +1196,6 @@
 				881CB3061C72124D00AD3AE3 /* XMMMapOverlayView.xib in Resources */,
 				883E55851C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.xib in Resources */,
 				883E55971C4A37FE000C4D09 /* XMMContentBlock7TableViewCell.xib in Resources */,
-				62CED5722209A5B2004198A3 /* XMMContentBlock91TableViewCell.xib in Resources */,
 				883E55821C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.xib in Resources */,
 				884937501C74B1C600C53520 /* Localizable.strings in Resources */,
 				8849374D1C731FB500C53520 /* Images.xcassets in Resources */,
@@ -1477,6 +1466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				622777422243D3D800D550E1 /* XMMWebViewController.m in Sources */,
 				88482D781E37961700B28293 /* XMMSimpleStorage.m in Sources */,
 				884937571C75C82100C53520 /* UIColor+HexString.m in Sources */,
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
@@ -1495,7 +1485,6 @@
 				883E55811C4A37FE000C4D09 /* XMMContentBlock0TableViewCell.m in Sources */,
 				88E46F221C4933CA004D8AC3 /* XMMQuery.m in Sources */,
 				885E21CD1F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.m in Sources */,
-				889BA3E91F024CEA004AC15D /* XMMPushManager.m in Sources */,
 				883E558A1C4A37FE000C4D09 /* XMMContentBlock3TableViewCell.m in Sources */,
 				883E55A51C4A37FE000C4D09 /* UIImage+animatedGIF.m in Sources */,
 				88E69F2E1F9DD2D2002C9FB2 /* XMMFilter.m in Sources */,
@@ -1521,7 +1510,6 @@
 				883E559C1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.m in Sources */,
 				88FE68C21C4E380300E9A32A /* XMMMenu.m in Sources */,
 				88617A521EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.m in Sources */,
-				62CED5712209A5B2004198A3 /* XMMContentBlock91TableViewCell.m in Sources */,
 				88D5B13F1DA3EED90069E2E8 /* XMMCDMarker.m in Sources */,
 				888F4F651DA4F7B3000E49CE /* XMMCDSystem.m in Sources */,
 				882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */,
