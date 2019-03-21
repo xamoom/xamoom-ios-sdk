@@ -75,11 +75,10 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - XamoomSDK (3.10.9):
-    - XamoomSDK/Core (= 3.10.9)
-  - XamoomSDK/Core (3.10.9):
+  - XamoomSDK (3.10.10):
+    - XamoomSDK/Core (= 3.10.10)
+  - XamoomSDK/Core (3.10.10):
     - Firebase
-    - Firebase/Analytics
     - Firebase/Core
     - Firebase/Messaging
     - JAMSVGImage
@@ -124,7 +123,7 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   Pushwoosh: 63ece3b160161aa7ce2926f864b2c5d7f0416615
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XamoomSDK: 9a2f5935692b149a1a251d2952ebef3ef121853e
+  XamoomSDK: 1889105fe62d2e61018f45509b9e54ff42215d15
 
 PODFILE CHECKSUM: 027dbfca813b1cf6144822d24bd8803da9956daf
 
