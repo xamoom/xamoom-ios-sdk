@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UserNotifications/UserNotifications.h>
 #import "XMMEnduserApi.h"
-#import <Firebase/Firebase.h>
+#import "Firebase.h"
 
 extern NSString *const XAMOOM_NOTIFICATION_RECEIVE;
 
