@@ -73,9 +73,9 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - XamoomSDK (3.10.7):
-    - XamoomSDK/Core (= 3.10.7)
-  - XamoomSDK/Core (3.10.7):
+  - XamoomSDK (3.10.9):
+    - XamoomSDK/Core (= 3.10.9)
+  - XamoomSDK/Core (3.10.9):
     - JAMSVGImage
     - JSONAPI (~> 1.0.7)
     - Mapbox-iOS-SDK
@@ -118,7 +118,7 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   Pushwoosh: 63ece3b160161aa7ce2926f864b2c5d7f0416615
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XamoomSDK: 28d81f41d99ece2c1aac065c2bf43c67c5efe48c
+  XamoomSDK: 782f93af31319f63cd9b5d4202d5d7bdf159d805
 
 PODFILE CHECKSUM: 027dbfca813b1cf6144822d24bd8803da9956daf
 
