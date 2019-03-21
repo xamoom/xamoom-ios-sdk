@@ -1,4 +1,6 @@
 PODS:
+  - Firebase (5.18.0):
+    - Firebase/Core (= 5.18.0)
   - Firebase/Analytics (5.18.0):
     - Firebase/Core
   - Firebase/Core (5.18.0):
@@ -76,6 +78,10 @@ PODS:
   - XamoomSDK (3.10.9):
     - XamoomSDK/Core (= 3.10.9)
   - XamoomSDK/Core (3.10.9):
+    - Firebase
+    - Firebase/Analytics
+    - Firebase/Core
+    - Firebase/Messaging
     - JAMSVGImage
     - JSONAPI (~> 1.0.7)
     - Mapbox-iOS-SDK
@@ -118,7 +124,7 @@ SPEC CHECKSUMS:
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   Pushwoosh: 63ece3b160161aa7ce2926f864b2c5d7f0416615
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XamoomSDK: 782f93af31319f63cd9b5d4202d5d7bdf159d805
+  XamoomSDK: 9a2f5935692b149a1a251d2952ebef3ef121853e
 
 PODFILE CHECKSUM: 027dbfca813b1cf6144822d24bd8803da9956daf
 

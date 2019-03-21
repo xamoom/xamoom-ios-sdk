@@ -46,6 +46,18 @@
         ],
         "Mapbox-iOS-SDK": [
 
+        ],
+        "Firebase": [
+
+        ],
+        "Firebase/Core": [
+
+        ],
+        "Firebase/Messaging": [
+
+        ],
+        "Firebase/Analytics": [
+
         ]
       }
     }
