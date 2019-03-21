@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6210EAC92243DF5900BD6C58 /* libFirebaseCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6210EAC82243DF5900BD6C58 /* libFirebaseCore.a */; };
 		622777402243D3B200D550E1 /* XMMWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6227773F2243D3B200D550E1 /* XMMWebViewController.h */; };
 		622777422243D3D800D550E1 /* XMMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622777412243D3D800D550E1 /* XMMWebViewController.m */; };
 		627A37C120E4F09B007C83ED /* XMMPushDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 627A37BF20E4F09B007C83ED /* XMMPushDevice.h */; };
@@ -259,6 +260,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6210EAC82243DF5900BD6C58 /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6227773F2243D3B200D550E1 /* XMMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMWebViewController.h; path = XamoomSDK/Classes/Web/XMMWebViewController.h; sourceTree = "<group>"; };
 		622777412243D3D800D550E1 /* XMMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = XMMWebViewController.m; path = XamoomSDK/Classes/Web/XMMWebViewController.m; sourceTree = "<group>"; };
 		627A37BF20E4F09B007C83ED /* XMMPushDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMPushDevice.h; path = XamoomSDK/Classes/mapping/XMMPushDevice.h; sourceTree = SOURCE_ROOT; };
@@ -508,6 +510,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6210EAC92243DF5900BD6C58 /* libFirebaseCore.a in Frameworks */,
 				88456DD81F026070001CC048 /* libz.tbd in Frameworks */,
 				88456DD71F026069001CC048 /* libstdc++.tbd in Frameworks */,
 				88D4C6E11C6CC39E00615147 /* MapKit.framework in Frameworks */,
@@ -992,6 +995,7 @@
 		E78609FFBE06C415020D12B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6210EAC82243DF5900BD6C58 /* libFirebaseCore.a */,
 				889BA3DF1F014540004AC15D /* libstdc++.tbd */,
 				889BA3DD1F014534004AC15D /* libz.tbd */,
 				88D4C6E01C6CC39E00615147 /* MapKit.framework */,

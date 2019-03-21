@@ -28,8 +28,5 @@ Pod::Spec.new do |s|
     core.dependency 'JAMSVGImage'
     core.dependency 'Mapbox-iOS-SDK'
     core.dependency 'Firebase'
-    core.dependency 'Firebase/Core'
-    core.dependency 'Firebase/Messaging'
-    core.dependency 'Firebase/Analytics'
   end
 end
