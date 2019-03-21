@@ -1,4 +1,9 @@
 # Changelog
+## [3.10.9](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.8...3.10.9) - 21.03.2019
+- Mapbox instead of GoogleMaps
+- Added FCM logic
+- Added Beacon and Location logic 
+
 ## [3.10.8](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.7...3.10.8) - 06.03.2019
 - Improvemnts for Enduserapi
 
