@@ -14,6 +14,9 @@
 @dynamic googlePlayId;
 @dynamic itunesAppId;
 @dynamic socialSharingEnabled;
+@dynamic cookieWarningEnabled;
+@dynamic recommendationEnabled;
+@dynamic eventPackageEnabled;
 
 + (NSString *)coreDataEntityName {
   return NSStringFromClass([self class]);
@@ -46,6 +49,9 @@
   savedSettings.googlePlayId = settings.googlePlayAppId;
   savedSettings.itunesAppId = settings.itunesAppId;
   savedSettings.socialSharingEnabled = [NSNumber numberWithBool:settings.socialSharingEnabled];
+  savedSettings.cookieWarningEnabled = [NSNumber numberWithBool:settings.cookieWarningEnabled];
+  savedSettings.recommendationEnabled = [NSNumber numberWithBool:settings.recommendationEnabled];
+  savedSettings.eventPackageEnabled = [NSNumber numberWithBool:settings.eventPackageEnabled];
   
   [[XMMOfflineStorageManager sharedInstance] save];
   
