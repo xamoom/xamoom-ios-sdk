@@ -252,7 +252,7 @@ static int kPageSize = 100;
 - (void)zoomToAnnotationWithAdditionView:(XMMAnnotation *)annotation {
   
   double a = annotation.coordinate.latitude;
-  double d = a - 0.003;
+  double d = a - 0.0002;
   
   if (d < -90) {
     d = -90;
