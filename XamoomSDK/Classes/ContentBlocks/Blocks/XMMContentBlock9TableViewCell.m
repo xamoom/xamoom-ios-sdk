@@ -37,6 +37,7 @@ static int kPageSize = 100;
   [self setupMapOverlayView];
   
   self.mapViewHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
+  [_mapView setMaximumZoomLevel:17.4];
   _mapView.delegate = self;
 }
 
@@ -141,7 +142,7 @@ static int kPageSize = 100;
         annotationTitle = @"Spot";
       }
       
-      XMMAnnotation *anno = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
+      XMMAnnotation *anno = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude + 0.00003, spot.longitude)];
       anno.spot = spot;
       
       //calculate
@@ -260,7 +261,7 @@ static int kPageSize = 100;
   }
   
   [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(d, annotation.coordinate.longitude)
-                      zoomLevel:12
+                      zoomLevel:_mapView.maximumZoomLevel
                        animated:YES];
 }
 
@@ -278,7 +279,6 @@ static int kPageSize = 100;
       annotationView.bounds = CGRectMake(0, 0, 30, 30);
       annotationView.annotation = annotation;
       annotationView.enabled = YES;
-      
       //set mapmarker
     } else {
       annotationView.annotation = annotation;
