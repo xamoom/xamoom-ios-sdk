@@ -61,7 +61,7 @@ static LocationHelper *sharedInstance;
   - (void)startLocationUpdateing{
     [self.locationManager startUpdatingLocation];
     [self.locationManager startMonitoringSignificantLocationChanges];
-    [self.api pushDevice:_pushSound];
+    [self.api pushDevice];
   }
   
   - (void)stopLocationUpdating {
@@ -140,7 +140,7 @@ static LocationHelper *sharedInstance;
       NSDictionary *locationDictionary = @{@"lat": [[NSNumber alloc] initWithDouble:location.coordinate.latitude], @"lon": [[NSNumber alloc] initWithDouble:location.coordinate.longitude]};
       XMMSimpleStorage *storage = [XMMSimpleStorage new];
       [storage saveLocation:locationDictionary];
-      [self.api pushDevice:_pushSound];
+      [self.api pushDevice];
     }
   }
     
@@ -167,7 +167,7 @@ static LocationHelper *sharedInstance;
       }
     }
     
-    [self.api pushDevice:_pushSound];
+    [self.api pushDevice];
 
     if (beacons.count == 0) {
       self.beacons = [NSArray new];

@@ -39,6 +39,8 @@ static XMMEnduserApi *sharedInstance;
 
 @implementation XMMEnduserApi : NSObject
 
+@synthesize pushSound = _pushSound;
+
 #pragma mark - shared instance
 
 + (instancetype)sharedInstanceWithKey:(NSString *)apikey {
@@ -88,6 +90,7 @@ static XMMEnduserApi *sharedInstance;
                                                    session:[NSURLSession sessionWithConfiguration:config]];
   self.restClient.delegate = self;
   [self setupResources];
+  self.pushSound = YES;
   return self;
 }
 
@@ -713,7 +716,7 @@ static XMMEnduserApi *sharedInstance;
                              }];
 }
 
-- (NSURLSessionDataTask *)pushDevice:(BOOL)sound {
+- (NSURLSessionDataTask *)pushDevice {
   
   double lastPush = [[self getUserDefaults] doubleForKey:kLastPushRegisterKey];
   
@@ -736,15 +739,10 @@ static XMMEnduserApi *sharedInstance;
     device.appVersion = version;
     device.sdkVersion = sdkVersion;
     
-    BOOL pushSound = NO;
-    if (sound == YES) {
-      pushSound = YES;
-    }
-    
-    NSString *pushLog = pushSound ? @"Push Device sound: YES" : @"Push Device sound: No";
+    NSString *pushLog = self.pushSound ? @"Push Device sound: YES" : @"Push Device sound: No";
     NSLog(pushLog);
     
-    device.sound = pushSound;
+    device.sound = self.pushSound;
     
     double now = [[NSDate date] timeIntervalSince1970];
     NSUserDefaults *userDefaults = [self getUserDefaults];
@@ -868,6 +866,20 @@ static XMMEnduserApi *sharedInstance;
                                appName,
                                sdkVersion];
   return customUserAgent;
+}
+
+-(void)setPushSound:(BOOL)s {
+  NSUserDefaults *userDefaults = [self getUserDefaults];
+  [userDefaults setBool:s forKey:@"pushSound"];
+  [userDefaults synchronize];
+  
+  [self pushDevice];
+}
+
+-(BOOL)pushSound {
+  NSUserDefaults *userDefaults = [self getUserDefaults];
+  BOOL sound = [userDefaults boolForKey:@"pushSound"];
+  return sound;
 }
 
 @end

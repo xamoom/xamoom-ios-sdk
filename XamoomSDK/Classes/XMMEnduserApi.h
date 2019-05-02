@@ -69,6 +69,9 @@ extern NSString * _Nonnull const kApiBaseURLString;
  */
 @property (strong, nonatomic) NSUserDefaults * _Nullable userDefaults;
 
+@property (assign, nonatomic) BOOL pushSound;
+
+
 /// @name Singleton
 
 /**
@@ -622,7 +625,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
 - (NSURLSessionDataTask *_Nullable)menuWithID:(NSString * _Nonnull)menuID
                                    completion:(void (^_Nullable)(XMMMenu * _Nullable menu, NSError * _Nullable error))completion;
 
-- (NSURLSessionDataTask *)pushDevice:(BOOL)sound;
+- (NSURLSessionDataTask *)pushDevice;
 /**
  *
  */
