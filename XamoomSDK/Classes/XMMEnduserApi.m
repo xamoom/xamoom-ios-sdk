@@ -169,7 +169,7 @@ static XMMEnduserApi *sharedInstance;
                                  int errorStatus = [errorStatusString intValue];
 
                                  if (errorCode == 93 && errorStatus == 404) {
-                                   [self contentsWithTags:@[@"x-forbiden"] pageSize:10 cursor:nil sort:nil completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *e) {
+                                   [self contentsWithTags:@[@"x-forbidden"] pageSize:10 cursor:nil sort:nil completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *e) {
                                      
                                      if (e) {
                                        completion(nil, e);
