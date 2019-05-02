@@ -159,9 +159,37 @@ static XMMEnduserApi *sharedInstance;
                              parameters:params
                                 headers:headers
                              completion:^(JSONAPI *result, NSError *error) {
+                               
                                if (error && completion) {
-                                 completion(nil, error);
-                                 return;
+                                 
+                                 NSString *errorCodeString = [error.userInfo objectForKey:@"code"];
+                                 NSString *errorStatusString = [error.userInfo objectForKey:@"status"];
+                                 
+                                 int errorCode = [errorCodeString intValue];
+                                 int errorStatus = [errorStatusString intValue];
+
+                                 if (errorCode == 93 && errorStatus == 404) {
+                                   [self contentsWithTags:@[@"x-forbiden"] pageSize:10 cursor:nil sort:nil completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *e) {
+                                     
+                                     if (e) {
+                                       completion(nil, e);
+                                       return;
+                                     }
+                                     
+                                     if (contents.firstObject != nil) {
+                                       completion(contents.firstObject, nil);
+                                       return;
+                                     } else {
+                                       completion(nil, error);
+                                       return;
+                                     }
+                                   }];
+                                   
+                                   return;
+                                 } else {
+                                   completion(nil, error);
+                                   return;
+                                 }
                                }
                                
                                XMMContent *content = result.resource;
