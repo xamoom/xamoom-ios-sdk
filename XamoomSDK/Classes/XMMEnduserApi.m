@@ -222,56 +222,27 @@ static XMMEnduserApi *sharedInstance;
                              }];
 }
 
-- (BOOL)shouldShowPasswordForContentId:(NSString *)contentID {
-  NSString *nextPasswordKey = [NSString stringWithFormat:@"next_%@", contentID];
-
-  NSUserDefaults *userDefaults = [self getUserDefaults];
-  int passwordEnters = [userDefaults integerForKey:contentID];
-  
-  NSDate *lastDate = [userDefaults objectForKey:nextPasswordKey];
-  
-  if (lastDate != nil) {
-    NSDate *now = [[NSDate alloc] init];
-    NSDate *earliestOpenDate = [lastDate dateByAddingTimeInterval:15 * 60];
-    
-    if ([earliestOpenDate compare:now] == NSOrderedDescending) {
-      return NO;
-    }
-  }
-  
-  if (passwordEnters < 3) {
-    passwordEnters = passwordEnters + 1;
-    [userDefaults setInteger:passwordEnters forKey:contentID];
-    [userDefaults synchronize];
-    return YES;
-  } else {
-    
-    NSDate *now = [[NSDate alloc] init];
-    [userDefaults setObject:now forKey:nextPasswordKey];
-    [userDefaults synchronize];
-  }
-  
-  return NO;
-}
-
-- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion {
+- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier password:(NSString *_Nullable)password completion:(void (^)(XMMContent *content, NSError *error, BOOL passwordRequired))completion {
   return [self contentWithLocationIdentifier:locationIdentifier
                                      options:0
+                                    password:password
                                   completion:completion];
 }
 
-- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
+- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options password:(NSString *_Nullable)password completion:(void (^)(XMMContent *content, NSError *error, BOOL passwordRequired))completion {
   return [self contentWithLocationIdentifier:locationIdentifier
                                      options:options
                                   conditions:nil
+                                    password:password
                                   completion:completion];
 }
 
-- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options conditions:(NSDictionary *)conditions completion:(void (^)(XMMContent *, NSError *))completion {
+- (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier options:(XMMContentOptions)options conditions:(NSDictionary *)conditions password:(NSString *_Nullable)password completion:(void (^)(XMMContent *, NSError *, BOOL passwordRequired))completion {
   return [self contentWithLocationIdentifier:locationIdentifier
                                      options:options
                                   conditions:conditions
                                       reason:0
+                                    password:password
                                   completion:completion];
 }
 
@@ -279,8 +250,9 @@ static XMMEnduserApi *sharedInstance;
                                                 options:(XMMContentOptions)options
                                              conditions:(NSDictionary *)conditions
                                                  reason:(XMMContentReason)reason
+                                              password:(NSString *_Nullable)password
                                              completion:(void (^)(XMMContent *,
-                                                                  NSError *))completion {
+                                                                  NSError *, BOOL passwordRequired))completion {
   if (self.isOffline) {
     [self.offlineApi contentWithLocationIdentifier:locationIdentifier completion:completion];
     return nil;
@@ -302,41 +274,71 @@ static XMMEnduserApi *sharedInstance;
   NSMutableDictionary *headers = [self httpHeadersWithEphemeralId];
   headers = [self addHeaderForReason:headers
                               reason:reason];
+  if (password != nil) {
+    [headers setValue:password forKey:@"X-Password"];
+  }
   
+  NSUserDefaults *userDefaults = [self getUserDefaults];
+
   return [self.restClient fetchResource:[XMMContent class]
                              parameters:params
                                 headers:headers
                              completion:^(JSONAPI *result, NSError *error) {
                                if (error && completion) {
-                                 completion(nil, error);
-                                 return;
+                                 
+                                 NSString *errorCodeString = [error.userInfo objectForKey:@"code"];
+                                 NSString *errorStatusString = [error.userInfo objectForKey:@"status"];
+                                 
+                                 int errorCode = [errorCodeString intValue];
+                                 int errorStatus = [errorStatusString intValue];
+                                 
+                                 if (errorCode == 92 && errorStatus == 401) {
+                                   
+                                   if ([self shouldShowPasswordForLocId:locationIdentifier]) {
+                                     completion(nil, error, YES);
+                                   } else {
+                                     [userDefaults setInteger:0 forKey:locationIdentifier];
+                                     [userDefaults synchronize];
+                                     completion(nil, error, NO);
+                                   }
+                                   
+                                   return;
+                                 } else {
+                                   [userDefaults setInteger:0 forKey:locationIdentifier];
+                                   [userDefaults synchronize];
+                                   completion(nil, error, NO);
+                                   return;
+                                 }
                                }
                                
                                XMMContent *content = result.resource;
                                
                                if (completion) {
-                                 completion(content, error);
+                                 [userDefaults setInteger:0 forKey:locationIdentifier];
+                                 [userDefaults synchronize];
+                                 completion(content, error, NO);
                                }
                              }];
 }
 
-- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error))completion {
-  return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] completion:completion];
+- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor completion:(void (^)(XMMContent *content, NSError *error, BOOL passwordRequired))completion {
+  return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] password:nil completion:completion];
 }
 
-- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
-  return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] options:options completion:completion];
+- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error, BOOL passwordRequired))completion {
+  return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] options:options  password:nil completion:completion];
 }
 
-- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options conditions:(NSDictionary *)conditions completion:(void (^)(XMMContent *, NSError *))completion {
-  return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] options:options conditions:conditions completion:completion];
+- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options conditions:(NSDictionary *)conditions completion:(void (^)(XMMContent *, NSError *, BOOL passwordRequired))completion {
+  return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor] options:options conditions:conditions password:nil completion:completion];
 }
 
-- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options conditions:(NSDictionary *)conditions reason:(XMMContentReason)reason completion:(void (^)(XMMContent *, NSError *))completion {
+- (NSURLSessionDataTask *)contentWithBeaconMajor:(NSNumber *)major minor:(NSNumber *)minor options:(XMMContentOptions)options conditions:(NSDictionary *)conditions reason:(XMMContentReason)reason completion:(void (^)(XMMContent *, NSError *, BOOL passwordRequired))completion {
   return [self contentWithLocationIdentifier:[NSString stringWithFormat:@"%@|%@", major, minor]
                                      options:options
                                   conditions:conditions
                                       reason:reason
+                                   password:nil
                                   completion:completion];
 }
 
@@ -962,6 +964,70 @@ static XMMEnduserApi *sharedInstance;
   NSUserDefaults *userDefaults = [self getUserDefaults];
   BOOL sound = [userDefaults boolForKey:@"pushSound"];
   return sound;
+}
+
+- (BOOL)shouldShowPasswordForContentId:(NSString *)contentID {
+  NSString *nextPasswordKey = [NSString stringWithFormat:@"next_%@", contentID];
+  
+  NSUserDefaults *userDefaults = [self getUserDefaults];
+  int passwordEnters = [userDefaults integerForKey:contentID];
+  
+  NSDate *lastDate = [userDefaults objectForKey:nextPasswordKey];
+  
+  if (lastDate != nil) {
+    NSDate *now = [[NSDate alloc] init];
+    NSDate *earliestOpenDate = [lastDate dateByAddingTimeInterval:15 * 60];
+    
+    if ([earliestOpenDate compare:now] == NSOrderedDescending) {
+      return NO;
+    }
+  }
+  
+  if (passwordEnters < 3) {
+    passwordEnters = passwordEnters + 1;
+    [userDefaults setInteger:passwordEnters forKey:contentID];
+    [userDefaults synchronize];
+    return YES;
+  } else {
+    
+    NSDate *now = [[NSDate alloc] init];
+    [userDefaults setObject:now forKey:nextPasswordKey];
+    [userDefaults synchronize];
+  }
+  
+  return NO;
+}
+
+- (BOOL)shouldShowPasswordForLocId:(NSString *)locationIdentifier {
+  NSString *nextPasswordKey = [NSString stringWithFormat:@"next_%@", locationIdentifier];
+  
+  NSUserDefaults *userDefaults = [self getUserDefaults];
+  int passwordEnters = [userDefaults integerForKey:locationIdentifier];
+  
+  NSDate *lastDate = [userDefaults objectForKey:nextPasswordKey];
+  
+  if (lastDate != nil) {
+    NSDate *now = [[NSDate alloc] init];
+    NSDate *earliestOpenDate = [lastDate dateByAddingTimeInterval:15 * 60];
+    
+    if ([earliestOpenDate compare:now] == NSOrderedDescending) {
+      return NO;
+    }
+  }
+  
+  if (passwordEnters < 3) {
+    passwordEnters = passwordEnters + 1;
+    [userDefaults setInteger:passwordEnters forKey:locationIdentifier];
+    [userDefaults synchronize];
+    return YES;
+  } else {
+    
+    NSDate *now = [[NSDate alloc] init];
+    [userDefaults setObject:now forKey:nextPasswordKey];
+    [userDefaults synchronize];
+  }
+  
+  return NO;
 }
 
 @end

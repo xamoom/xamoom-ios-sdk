@@ -219,7 +219,7 @@ static LocationHelper *sharedInstance;
     
     for (int i = 0; i < beacons.count; i++) {
       CLBeacon *beacon = beacons[i];
-      [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error) {
+      [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
         if (content != nil && error == nil) {
           [loadedBeacons addObject:beacon];
           [loadedContents addObject:content];
