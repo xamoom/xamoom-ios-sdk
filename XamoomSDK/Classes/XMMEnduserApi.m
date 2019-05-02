@@ -713,7 +713,7 @@ static XMMEnduserApi *sharedInstance;
                              }];
 }
 
-- (NSURLSessionDataTask *)pushDevice {
+- (NSURLSessionDataTask *)pushDevice:(BOOL)sound {
   
   double lastPush = [[self getUserDefaults] doubleForKey:kLastPushRegisterKey];
   
@@ -726,7 +726,7 @@ static XMMEnduserApi *sharedInstance;
   NSString *token = [storage getUserToken];
   NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
   NSString *appId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-  NSString *sdkVersion = @"3.11.0";
+  NSString *sdkVersion = @"3.11.1-dev";
 
   if (location != nil && token != nil && version != nil && appId != nil) {
     XMMPushDevice *device = [[XMMPushDevice alloc] init];
@@ -735,6 +735,16 @@ static XMMEnduserApi *sharedInstance;
     device.appId = appId;
     device.appVersion = version;
     device.sdkVersion = sdkVersion;
+    
+    BOOL pushSound = NO;
+    if (sound == YES) {
+      pushSound = YES;
+    }
+    
+    NSString *pushLog = pushSound ? @"Push Device sound: YES" : @"Push Device sound: No";
+    NSLog(pushLog);
+    
+    device.sound = pushSound;
     
     double now = [[NSDate date] timeIntervalSince1970];
     NSUserDefaults *userDefaults = [self getUserDefaults];

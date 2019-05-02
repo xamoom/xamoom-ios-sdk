@@ -50,6 +50,7 @@
     self.createdAt = savedPushDevice.createdAt;
     self.language = savedPushDevice.language;
     self.sdkVersion = savedPushDevice.sdkVersion;
+    self.sound =  savedPushDevice.sound;
   }
   return self;
 }
@@ -87,6 +88,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"createdAt" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"created-at"]];
     [__descriptor addProperty:@"language" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"language"]];
     [__descriptor addProperty:@"sdkVersion" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"sdk-version"]];
+    [__descriptor addProperty:@"sound" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"with-sound"]];
   });
   
   return __descriptor;

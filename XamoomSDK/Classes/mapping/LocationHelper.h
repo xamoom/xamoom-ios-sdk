@@ -28,6 +28,7 @@ extern NSString *const XAMOOM_CONTENTS_KEY;
   @property (nonatomic, assign) BOOL firstTimeStart;
   @property (nonatomic, assign) BOOL filterSameBeaconScans;
   @property (nonatomic, assign) BOOL beaconsLoading;
+  @property (nonatomic, assign) BOOL pushSound;
   @property (nonatomic, strong) NSString *majorBeaconID;
   @property (nonatomic, strong) XMMEnduserApi *api;
 
