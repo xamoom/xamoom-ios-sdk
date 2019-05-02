@@ -30,26 +30,26 @@
   return self;
 }
 
-- (void)contentWithID:(NSString *)contentID completion:(void (^)(XMMContent *, NSError *))completion {
+- (void)contentWithID:(NSString *)contentID completion:(void (^)(XMMContent *, NSError *, BOOL passwordRequired))completion {
   NSArray *results =
   [[XMMOfflineStorageManager sharedInstance] fetch:[XMMCDContent coreDataEntityName]
                                             jsonID:contentID];
   
   if (results.count == 1) {
-    completion([[XMMContent alloc] initWithCoreDataObject:results[0]], nil);
+    completion([[XMMContent alloc] initWithCoreDataObject:results[0]], nil, NO);
     return;
   } else if (results.count > 1) {
     // smt wrong
     completion(nil, [[NSError alloc] initWithDomain:@"XMMOfflineError"
                                                code:101
-                                           userInfo:@{@"description":@"More than one result found."}]);
+                                           userInfo:@{@"description":@"More than one result found."}], NO);
     return;
   }
   
   // nothing found
   completion(nil, [[NSError alloc] initWithDomain:@"XMMOfflineError"
                                              code:100
-                                         userInfo:@{@"description":@"No entry found."}]);
+                                         userInfo:@{@"description":@"No entry found."}], NO);
 }
 
 - (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *, NSError *))completion {

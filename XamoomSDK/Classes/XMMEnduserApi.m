@@ -128,18 +128,19 @@ static XMMEnduserApi *sharedInstance;
 
 #pragma mark content calls
 
-- (NSURLSessionDataTask *)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion {
-  return [self contentWithID:contentID options:0 reason:0 completion:completion];
+- (NSURLSessionDataTask *)contentWithID:(NSString *)contentID password:(NSString *_Nullable)password completion:(void(^)(XMMContent *content, NSError *error, BOOL passwordRequired))completion {
+  return [self contentWithID:contentID options:0 reason:0 password:password completion:completion];
 }
 
-- (NSURLSessionDataTask *)contentWithID:(NSString *)contentID options:(XMMContentOptions)options completion:(void (^)(XMMContent *content, NSError *error))completion {
-  return [self contentWithID:contentID options:options reason:0 completion:completion];
+- (NSURLSessionDataTask *)contentWithID:(NSString *)contentID options:(XMMContentOptions)options password:(NSString *_Nullable)password completion:(void (^)(XMMContent *content, NSError *error, BOOL passwordRequired))completion {
+  return [self contentWithID:contentID options:options reason:0 password:password completion:completion];
 }
 
 - (NSURLSessionDataTask *)contentWithID:(NSString *)contentID
                                 options:(XMMContentOptions)options
                                  reason:(XMMContentReason)reason
-                             completion:(void (^)(XMMContent *, NSError *))completion {
+                               password:(NSString *_Nullable)password
+                             completion:(void (^)(XMMContent *, NSError *, BOOL passwordRequired))completion {
   if (self.isOffline) {
     [self.offlineApi contentWithID:contentID completion:completion];
     return nil;
@@ -154,6 +155,12 @@ static XMMEnduserApi *sharedInstance;
   headers = [self addHeaderForReason:headers
                               reason:reason];
   
+  if (password != nil) {
+    [headers setValue:password forKey:@"X-Password"];
+  }
+  
+  NSUserDefaults *userDefaults = [self getUserDefaults];
+  
   return [self.restClient fetchResource:[XMMContent class]
                                      id:contentID
                              parameters:params
@@ -167,27 +174,40 @@ static XMMEnduserApi *sharedInstance;
                                  
                                  int errorCode = [errorCodeString intValue];
                                  int errorStatus = [errorStatusString intValue];
-
-                                 if (errorCode == 93 && errorStatus == 404) {
+                                 
+                                 if (errorCode == 92 && errorStatus == 401) {
+                                   
+                                   if ([self shouldShowPasswordForContentId:contentID]) {
+                                     completion(nil, error, YES);
+                                   } else {
+                                     [userDefaults setInteger:0 forKey:contentID];
+                                     [userDefaults synchronize];
+                                     completion(nil, error, NO);
+                                   }
+                                   
+                                   return;
+                                 } else if (errorCode == 93 && errorStatus == 404) {
                                    [self contentsWithTags:@[@"x-forbidden"] pageSize:10 cursor:nil sort:nil completion:^(NSArray *contents, bool hasMore, NSString *cursor, NSError *e) {
                                      
                                      if (e) {
-                                       completion(nil, e);
+                                       completion(nil, e, NO);
                                        return;
                                      }
                                      
                                      if (contents.firstObject != nil) {
-                                       completion(contents.firstObject, nil);
+                                       completion(contents.firstObject, nil, NO);
                                        return;
                                      } else {
-                                       completion(nil, error);
+                                       completion(nil, error, NO);
                                        return;
                                      }
                                    }];
                                    
                                    return;
                                  } else {
-                                   completion(nil, error);
+                                   [userDefaults setInteger:0 forKey:contentID];
+                                   [userDefaults synchronize];
+                                   completion(nil, error, NO);
                                    return;
                                  }
                                }
@@ -195,9 +215,43 @@ static XMMEnduserApi *sharedInstance;
                                XMMContent *content = result.resource;
                                
                                if (completion) {
-                                 completion(content, error);
+                                 [userDefaults setInteger:0 forKey:contentID];
+                                 [userDefaults synchronize];
+                                 completion(content, error, NO);
                                }
                              }];
+}
+
+- (BOOL)shouldShowPasswordForContentId:(NSString *)contentID {
+  NSString *nextPasswordKey = [NSString stringWithFormat:@"next_%@", contentID];
+
+  NSUserDefaults *userDefaults = [self getUserDefaults];
+  int passwordEnters = [userDefaults integerForKey:contentID];
+  
+  NSDate *lastDate = [userDefaults objectForKey:nextPasswordKey];
+  
+  if (lastDate != nil) {
+    NSDate *now = [[NSDate alloc] init];
+    NSDate *earliestOpenDate = [lastDate dateByAddingTimeInterval:15 * 60];
+    
+    if ([earliestOpenDate compare:now] == NSOrderedDescending) {
+      return NO;
+    }
+  }
+  
+  if (passwordEnters < 3) {
+    passwordEnters = passwordEnters + 1;
+    [userDefaults setInteger:passwordEnters forKey:contentID];
+    [userDefaults synchronize];
+    return YES;
+  } else {
+    
+    NSDate *now = [[NSDate alloc] init];
+    [userDefaults setObject:now forKey:nextPasswordKey];
+    [userDefaults synchronize];
+  }
+  
+  return NO;
 }
 
 - (NSURLSessionDataTask *)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion {

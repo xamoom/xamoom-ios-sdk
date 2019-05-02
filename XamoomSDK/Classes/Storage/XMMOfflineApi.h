@@ -19,7 +19,7 @@
 
 @interface XMMOfflineApi : NSObject
 
-- (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error))completion;
+- (void)contentWithID:(NSString *)contentID completion:(void(^)(XMMContent *content, NSError *error, BOOL passwordRequired))completion;
 
 - (void)contentWithLocationIdentifier:(NSString *)locationIdentifier completion:(void (^)(XMMContent *content, NSError *error))completion;
 

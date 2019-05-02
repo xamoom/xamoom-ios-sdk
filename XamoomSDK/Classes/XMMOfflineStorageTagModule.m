@@ -92,7 +92,7 @@ static int kPageSize = 100;
   
   for (XMMSpot *spot in spots) {
     if (spot.content != nil) {
-      [self.api contentWithID:spot.content.ID completion:^(XMMContent *content, NSError *error) {
+      [self.api contentWithID:spot.content.ID password:nil completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
         if (error) {
           completion(nil, error);
           return;

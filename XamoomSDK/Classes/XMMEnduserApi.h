@@ -136,8 +136,8 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * - *param2* error NSError, can be null
  * @return SessionDataTask used to download from the backend.
  */
-- (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID
-                                      completion:(void(^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+- (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID password:(NSString *_Nullable)password
+                                      completion:(void(^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with specific ID and options.
@@ -151,7 +151,8 @@ extern NSString * _Nonnull const kApiBaseURLString;
  */
 - (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID
                                          options:(XMMContentOptions)options
-                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                        password:(NSString *_Nullable)password
+                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with specific ID, options and reason.
@@ -167,8 +168,9 @@ extern NSString * _Nonnull const kApiBaseURLString;
 - (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID
                                          options:(XMMContentOptions)options
                                           reason:(XMMContentReason)reason
+                                        password:(NSString *_Nullable)password
                                       completion:(void (^_Nullable)(XMMContent * _Nullable content,
-                                                                    NSError * _Nullable error))completion;
+                                                                    NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with specific location-identifier.
