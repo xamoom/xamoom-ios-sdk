@@ -1,6 +1,6 @@
 {
   "name": "XamoomSDK",
-  "version": "3.10.10",
+  "version": "3.11.3",
   "summary": "Integrate your app with your xamoom system. More information at www.xamoom.com",
   "homepage": "http://xamoom.github.io/xamoom-ios-sdk/",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/xamoom/xamoom-ios-sdk.git",
-    "tag": "3.10.10"
+    "tag": "3.11.3"
   },
   "social_media_url": "https://twitter.com/xamoom",
   "platforms": {
@@ -49,13 +49,13 @@
 
         ],
         "Firebase": [
-
+          "~> 5.20.1"
         ],
-        "Firebase/Core": [
-
+        "FirebaseCore": [
+          "~> 5.4"
         ],
-        "Firebase/Messaging": [
-
+        "FirebaseMessaging": [
+          "~> 3.5"
         ]
       }
     }
