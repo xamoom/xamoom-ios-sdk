@@ -1,4 +1,10 @@
 # Changelog
+## [3.11.3](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.8...3.11.0) - 06.05.2019
+- Add function for "x-forbidden" handling
+- Add callback for content password protection
+
+- Improvements for Beacon ranging in XamoomBeaconService
+
 ## [3.10.10](https://github.com/xamoom/xamoom-ios-sdk/compare/3.10.8...3.11.0) - 21.03.2019
 - Mapbox instead of GoogleMaps
 - Added FCM logic
