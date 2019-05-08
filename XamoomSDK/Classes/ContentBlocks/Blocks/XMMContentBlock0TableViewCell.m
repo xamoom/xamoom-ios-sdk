@@ -110,13 +110,18 @@ static UIColor *contentLinkColor;
   html = [html stringByReplacingOccurrencesOfString:@"</p>" withString:@"</p><br>"];
   html = [NSString stringWithFormat:@"%@%@", style, html];
   
-  if ([[html substringFromIndex:[html length] - 8] isEqual:@"</p><br>"] || [[html substringFromIndex:[html length] - 8] isEqual:@"<br></p>"]) {
-    html = [html substringToIndex:[html length] - 8];
-    html = [html stringByAppendingString:@"</p>"];
-  } else if ([[html substringFromIndex:[html length] - 12] isEqual:@"<br></p><br>"]) {
+  if ([[html substringFromIndex:[html length] - 12] isEqualToString:@"<br></p><br>"]) {
     html = [html substringToIndex:[html length] - 12];
     html = [html stringByAppendingString:@"</p>"];
+  } else if ([[html substringFromIndex:[html length] - 4] isEqualToString:@"<br>"] ) {
+    html = [html substringToIndex:[html length] - 4];
+    html = [html stringByAppendingString:@"</p>"];
+  } else if ([[html substringFromIndex:[html length] - 8] isEqualToString:@"</p><br>"] || [[html substringFromIndex:[html length] - 8] isEqualToString:@"<br></p>"]) {
+    html = [html substringToIndex:[html length] - 8];
+    html = [html stringByAppendingString:@"</p>"];
   }
+  
+  html = [html stringByReplacingOccurrencesOfString:@"</p><br><p>" withString:@""];
   
   NSMutableAttributedString *attributedString =
   [[NSMutableAttributedString alloc] initWithData: [html dataUsingEncoding:NSUTF8StringEncoding]
