@@ -121,7 +121,8 @@ static UIColor *contentLinkColor;
     html = [html stringByAppendingString:@"</p>"];
   }
   
-  html = [html stringByReplacingOccurrencesOfString:@"</p><br><p>" withString:@""];
+  html = [html stringByReplacingOccurrencesOfString:@"</p></p>" withString:@"</p>"];
+  //html = [html stringByReplacingOccurrencesOfString:@"</p><br><p>" withString:@""];
   
   NSMutableAttributedString *attributedString =
   [[NSMutableAttributedString alloc] initWithData: [html dataUsingEncoding:NSUTF8StringEncoding]
@@ -151,6 +152,11 @@ static UIColor *contentLinkColor;
     [attributedString addAttribute:NSForegroundColorAttributeName
                              value:color
                              range:NSMakeRange(0, attributedString.length)];
+  }
+  
+  NSString *last = [attributedString.string substringFromIndex:[attributedString.string length] - 1];
+  if ([last isEqualToString:@"\n"]) {
+    [attributedString deleteCharactersInRange:NSMakeRange([attributedString.string length] - 1, 1)];
   }
   
   return attributedString;
