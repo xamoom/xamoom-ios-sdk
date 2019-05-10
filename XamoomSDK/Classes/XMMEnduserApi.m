@@ -184,6 +184,7 @@ static XMMEnduserApi *sharedInstance;
                                    
                                    if ([self shouldShowPasswordForContentId:contentID password:password error:error completion:completion]) {
                                      completion(nil, error, YES);
+                                     return;
                                    }
                                    
                                    return;
@@ -302,6 +303,7 @@ static XMMEnduserApi *sharedInstance;
                                    
                                    if ([self shouldShowPasswordForLocId:locationIdentifier password: password error:error completion:completion]) {
                                      completion(nil, error, YES);
+                                     return;
                                    }
                                  } else {
                                    [userDefaults setInteger:0 forKey:locationIdentifier];
