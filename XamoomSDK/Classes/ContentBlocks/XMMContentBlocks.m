@@ -33,6 +33,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     self.showAllStoreLinks = NO;
     self.showAllBlocksWhenOffline = NO;
     self.listManager = [[XMMListManager alloc] initWithApi:api];
+    self.navigationType = 0;
     
     [self setupTableView];
     [self defaultStyle];
@@ -257,6 +258,10 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   if ([cell isKindOfClass:[XMMContentBlock9TableViewCell class]] && self.mapboxStyle != nil) {
     [(XMMContentBlock9TableViewCell *) cell setMapboxStyle:self.mapboxStyle];
+  }
+  
+  if ([cell isKindOfClass:[XMMContentBlock9TableViewCell class]] && self.navigationType != nil) {
+    [(XMMContentBlock9TableViewCell *) cell setNavigationType:self.navigationType];
   }
   
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
