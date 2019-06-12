@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     }
     
     core.dependency 'JSONAPI', '~> 1.0.7'
-    core.dependency 'SDWebImage', '~>3.7'
+    core.dependency 'SDWebImage', '>= 3.7', '< 5.0'
     core.dependency 'JAMSVGImage'
     core.dependency 'Mapbox-iOS-SDK'
     core.dependency 'Firebase', '~> 5.20.1'

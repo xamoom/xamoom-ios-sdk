@@ -15,7 +15,6 @@ target 'XamoomSDK' do
   pod 'FirebaseCore', '~> 5.4'
   pod 'FirebaseMessaging', '~> 3.5'
   pod 'GoogleAnalytics'
-
 end
 
 target 'XamoomSDKTests' do
