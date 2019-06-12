@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.11.4](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.1...3.11.2) - 12.06.2019
+- Upgrading SDWebImage version to '>= 3.7', '< 5.0'
+
 ## [3.11.2](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.1...3.11.2) - 13.05.2019
 - Improvments for content password challange
 - Show x-forbidden after three times wrong password entry
