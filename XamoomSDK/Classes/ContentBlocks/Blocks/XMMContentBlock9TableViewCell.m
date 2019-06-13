@@ -230,7 +230,7 @@ static int kPageSize = 100;
 }
 
 - (void)openMapAdditionView:(XMMAnnotation *)annotation {
-  [self.mapAdditionView displayAnnotation:annotation showContent:self.showContent];
+  [self.mapAdditionView displayAnnotation:annotation showContent:self.showContent navigationType:self.navigationType];
   [self.mapAdditionView setHidden:NO];
 
   [self.contentView layoutIfNeeded];

@@ -30,7 +30,7 @@
   [self changeTextColors];
 }
 
-- (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent {
+- (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent navigationType:(NSNumber *)type{
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
   NSBundle *libBundle;
@@ -68,6 +68,8 @@
   if (self.contentID == nil || !showContent) {
     self.openContentButton.hidden = YES;
   }
+  
+  self.navigationType = type;
 }
 
 - (void)changeBackgroundColors {
@@ -86,7 +88,25 @@
   MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
   mapItem.name = self.spotTitleLabel.text;
   
-  NSDictionary *launchOptions = @{MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving};
+  NSString *directionMode = MKLaunchOptionsDirectionsModeDriving;
+  
+  switch ([self.navigationType intValue]) {
+    case 0:
+      directionMode = MKLaunchOptionsDirectionsModeWalking;
+      break;
+    case 1:
+      directionMode = MKLaunchOptionsDirectionsModeDriving;
+      break;
+    case 2:
+      directionMode = MKLaunchOptionsDirectionsModeTransit;
+      break;
+    default:
+      directionMode = MKLaunchOptionsDirectionsModeDriving;
+      break;
+  }
+  
+  NSDictionary *launchOptions = @{MKLaunchOptionsDirectionsModeKey : directionMode};
+  [mapItem setName: self.spotTitleLabel.text];
   [mapItem openInMapsWithLaunchOptions:launchOptions];
 }
 
