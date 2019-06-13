@@ -12,3 +12,5 @@
 "SaveImage" = "Bild in Fotos speichern?";
 "Open" = "Öffnen";  
 "Load more"="Mehr laden";
+
+"webviewcontroller.back" = "Zurück";
