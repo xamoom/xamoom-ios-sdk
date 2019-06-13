@@ -28,12 +28,13 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *horizontalSpacingImageTitleConstraint;
 @property (nonatomic) NSLayoutConstraint *imageRatioConstraint;
 @property (strong, nonatomic) XMMOfflineFileManager *fileManager;
+@property (nonatomic, strong) UIColor *webViewControllerNavigationTintColor;
 
 @property (strong, nonatomic) NSString *linkUrl;
 
 - (void)openLink;
 - (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon;
-
+- (void) setWebViewControllerNavigationTintColor:(UIColor *)webViewControllerNavigationTintColor;
 @end
 
 @interface XMMContentBlock3TableViewCell (XMMTableViewRepresentation)

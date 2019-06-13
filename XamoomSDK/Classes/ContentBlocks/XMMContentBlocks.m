@@ -297,8 +297,20 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     [cell openLink];
   }
   
-  if ([cell isKindOfClass:[XMMContentBlock4TableViewCell class]] || [cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
+  if ([cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
     if (self.navController != nil && self.urls != nil) {
+      cell = (XMMContentBlock3TableViewCell *)cell;
+      [cell setWebViewControllerNavigationTintColor: _webViewNavigationBarTintColor];
+      [cell openLink:self.urls controller:self.navController];
+    } else {
+      [cell openLink];
+    }
+  }
+  
+  if ([cell isKindOfClass:[XMMContentBlock4TableViewCell class]]) {
+    if (self.navController != nil && self.urls != nil) {
+      cell = (XMMContentBlock4TableViewCell *)cell;
+      [cell setWebViewControllerNavigationTintColor: _webViewNavigationBarTintColor];
       [cell openLink:self.urls controller:self.navController];
     } else {
       [cell openLink];

@@ -159,6 +159,8 @@
       // open internal webview
       XMMWebViewController *webViewController = [XMMWebViewController new];
       webViewController.url = self.linkUrl;
+      webViewController.navigationBarColor = _webViewControllerNavigationTintColor;
+      
       [navCon pushViewController:webViewController animated:YES];
     } else {
       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
@@ -741,6 +743,10 @@ return _currentWebColor;
 - (void)setFallbackTintColor:(UIColor *)fallbackTintColor {
   _currentFallbackTintColor = fallbackTintColor;
   [self changeStyleAccordingToLinkType:self.linkType];
+}
+
+-(void)setWebViewControllerNavigationTintColor:(UIColor *)webViewControllerNavigationTintColor {
+  _webViewControllerNavigationTintColor = webViewControllerNavigationTintColor;
 }
 
 @end
