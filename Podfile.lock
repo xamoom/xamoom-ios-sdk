@@ -66,23 +66,23 @@ PODS:
   - nanopb/encode (0.3.901)
   - Nocilla (0.11.0)
   - OCMock (3.4.3)
-  - Protobuf (3.7.0)
-  - Pushwoosh (5.13.1):
-    - Pushwoosh/Core (= 5.13.1)
-  - Pushwoosh/Core (5.13.1)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
-  - XamoomSDK (3.11.3):
-    - XamoomSDK/Core (= 3.11.3)
-  - XamoomSDK/Core (3.11.3):
+  - Protobuf (3.8.0)
+  - Pushwoosh (5.15.0):
+    - Pushwoosh/Core (= 5.15.0)
+  - Pushwoosh/Core (5.15.0)
+  - SDWebImage (3.8.3):
+    - SDWebImage/Core (= 3.8.3)
+  - SDWebImage/Core (3.8.3)
+  - XamoomSDK (3.11.2):
+    - XamoomSDK/Core (= 3.11.2)
+  - XamoomSDK/Core (3.11.2):
     - Firebase (~> 5.20.1)
     - FirebaseCore (~> 5.4)
     - FirebaseMessaging (~> 3.5)
     - JAMSVGImage
     - JSONAPI (~> 1.0.7)
     - Mapbox-iOS-SDK
-    - SDWebImage (~> 3.7)
+    - SDWebImage (< 5.0, >= 3.7)
 
 DEPENDENCIES:
   - Firebase (~> 5.20.1)
@@ -139,11 +139,11 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Nocilla: 7af7a386071150cc8aa5da4da97d060f049dd61c
   OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
-  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
-  Pushwoosh: 544dd299c95f60f7da8307332278b8971b54b1f7
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  XamoomSDK: c6f97667e83f8c0667076662a804ca37dd27a087
+  Protobuf: 3f617b9a6e73605565086864c9bc26b2bf2dd5a3
+  Pushwoosh: 352e876bc57c34cc2f1edad36c00a72b2e8bfb0f
+  SDWebImage: a72e880a8fe0f7fc31efe15aaed443c074d2a80c
+  XamoomSDK: 1cbf21d243940bbe776d77580d345ad1ac4a39e5
 
-PODFILE CHECKSUM: a6ed3b9ba29c8060e00a25e0c501e9e6ed3bef15
+PODFILE CHECKSUM: aadd89d8d75be47eb5b5bda13491d3d27821d468
 
 COCOAPODS: 1.6.1

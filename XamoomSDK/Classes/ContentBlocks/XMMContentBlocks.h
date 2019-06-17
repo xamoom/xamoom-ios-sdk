@@ -76,6 +76,8 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property (nonatomic, strong) NSArray *urls;
 @property (nonatomic, strong) UINavigationController *navController;
 @property (nonatomic, strong) NSURL *mapboxStyle;
+@property (weak, nonatomic) NSNumber *navigationType;
+@property (nonatomic, strong) UIColor* webViewNavigationBarTintColor;
   
 /**
  * Initialize XMMContentBlocks with tableview and an api.

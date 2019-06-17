@@ -233,10 +233,15 @@
     // open internal webview
     XMMWebViewController *webViewController = [XMMWebViewController new];
     webViewController.url = self.linkUrl;
+    webViewController.navigationBarColor = _webViewControllerNavigationTintColor;
     [navCon pushViewController:webViewController animated:YES];
   } else {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
   }
+}
+
+- (void) setWebViewControllerNavigationTintColor:(UIColor *)webViewControllerNavigationTintColor {
+  _webViewControllerNavigationTintColor = webViewControllerNavigationTintColor;
 }
 
 @end

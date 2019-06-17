@@ -19,10 +19,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *spotImageView;
 @property (weak, nonatomic) IBOutlet UIButton *openContentButton;
 @property (weak, nonatomic) IBOutlet UIButton *routeButton;
+@property (weak, nonatomic) NSNumber *navigationType;
+
 @property (nonatomic) UIColor *buttonBackgroundColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *buttonTextColor UI_APPEARANCE_SELECTOR;
 
-- (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent;
+- (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent navigationType:(NSNumber *)type;
 
 - (void)setButtonBackgroundColor:(UIColor *)buttonBackgroundColor;
 - (void)setButtonTextColor:(UIColor *)buttonTextColor;

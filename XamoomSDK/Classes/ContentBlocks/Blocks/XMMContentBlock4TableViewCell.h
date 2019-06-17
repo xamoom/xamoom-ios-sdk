@@ -64,7 +64,7 @@
 @property (nonatomic) UIColor *phoneTintColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *fallbackColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *fallbackTintColor UI_APPEARANCE_SELECTOR;
-
+@property (nonatomic) UIColor *webViewControllerNavigationTintColor;
 
 - (void)openLink;
 - (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon;
@@ -110,6 +110,7 @@
 -(void)setPhoneTintColor:(UIColor *)phoneTintColor;
 -(void)setFallbackColor:(UIColor *)fallbackColor;
 -(void)setFallbackTintColor:(UIColor *)fallbackTintColor;
+-(void)setWebViewControllerNavigationTintColor:(UIColor *)webViewControllerNavigationTintColor;
 
 -(UIColor *)webColor;
 -(UIColor *)webTintColor;
