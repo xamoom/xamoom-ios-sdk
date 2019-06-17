@@ -33,6 +33,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     self.showAllStoreLinks = NO;
     self.showAllBlocksWhenOffline = NO;
     self.listManager = [[XMMListManager alloc] initWithApi:api];
+    self.navigationType = 0;
     
     [self setupTableView];
     [self defaultStyle];
@@ -259,6 +260,10 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     [(XMMContentBlock9TableViewCell *) cell setMapboxStyle:self.mapboxStyle];
   }
   
+  if ([cell isKindOfClass:[XMMContentBlock9TableViewCell class]] && self.navigationType != nil) {
+    [(XMMContentBlock9TableViewCell *) cell setNavigationType:self.navigationType];
+  }
+  
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style offline:self.offline];
     return cell;
@@ -297,8 +302,20 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     [cell openLink];
   }
   
-  if ([cell isKindOfClass:[XMMContentBlock4TableViewCell class]] || [cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
+  if ([cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
     if (self.navController != nil && self.urls != nil) {
+      cell = (XMMContentBlock3TableViewCell *)cell;
+      [cell setWebViewControllerNavigationTintColor: _webViewNavigationBarTintColor];
+      [cell openLink:self.urls controller:self.navController];
+    } else {
+      [cell openLink];
+    }
+  }
+  
+  if ([cell isKindOfClass:[XMMContentBlock4TableViewCell class]]) {
+    if (self.navController != nil && self.urls != nil) {
+      cell = (XMMContentBlock4TableViewCell *)cell;
+      [cell setWebViewControllerNavigationTintColor: _webViewNavigationBarTintColor];
       [cell openLink:self.urls controller:self.navController];
     } else {
       [cell openLink];

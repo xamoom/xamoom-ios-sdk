@@ -32,6 +32,7 @@
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSURL *mapboxStyle;
+@property (weak, nonatomic)  NSNumber *navigationType;
 @end
 
 @interface XMMContentBlock9TableViewCell (XMMTableViewRepresentation)

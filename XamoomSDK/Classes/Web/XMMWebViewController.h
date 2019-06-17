@@ -9,4 +9,5 @@
 
 @interface XMMWebViewController : UIViewController
 @property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) UIColor *navigationBarColor;
 @end

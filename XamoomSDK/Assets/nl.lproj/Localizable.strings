@@ -12,3 +12,5 @@
 "SaveImage" = "Afbeelding opslaan?";
 "Open" = "Openen";
 "Load more"="Meer laden";
+
+"webviewcontroller.back" = "Terug";
