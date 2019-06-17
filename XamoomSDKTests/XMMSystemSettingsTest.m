@@ -35,6 +35,11 @@
   checkSettings.ID = @"1";
   checkSettings.googlePlayAppId = @"play";
   checkSettings.itunesAppId = @"itunes";
+  checkSettings.socialSharingEnabled = YES;
+  checkSettings.cookieWarningEnabled = YES;
+  checkSettings.recommendationEnabled = YES;
+  checkSettings.eventPackageEnabled = YES;
+
   
   XMMCDSystemSettings *offlineSettings = [XMMCDSystemSettings insertNewObjectFrom:checkSettings];
   
@@ -43,6 +48,11 @@
   XCTAssertTrue([checkSettings.ID isEqualToString:settings.ID]);
   XCTAssertTrue([checkSettings.googlePlayAppId isEqualToString:settings.googlePlayAppId]);
   XCTAssertTrue([checkSettings.itunesAppId isEqualToString:settings.itunesAppId]);
+  XCTAssertEqual(checkSettings.isSocialSharingEnabled, settings.isSocialSharingEnabled);
+  XCTAssertEqual(checkSettings.isCookieWarningEnabled, settings.isCookieWarningEnabled);
+  XCTAssertEqual(checkSettings.isRecommendationEnabled, settings.isRecommendationEnabled);
+  XCTAssertEqual(checkSettings.isEventPackageEnabled, settings.isEventPackageEnabled);
+
 }
 
 - (void)testSaveOffline {

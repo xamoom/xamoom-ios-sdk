@@ -71,7 +71,8 @@ static NSString *contentLanguage;
   self.dataTask = [api contentWithID:self.contentID
                              options:XMMContentOptionsPreview
                               reason:XMMContentReasonLinkedContent
-                          completion:^(XMMContent *content, NSError *error) {
+                            password:nil
+                          completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
     if (error) {
       return;
     }

@@ -61,6 +61,7 @@
   savedPushDevice.createdAt = pushDevice.createdAt;
   savedPushDevice.language = pushDevice.language;
   savedPushDevice.sdkVersion = pushDevice.sdkVersion;
+  savedPushDevice.sound = pushDevice.sound;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   

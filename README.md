@@ -11,9 +11,13 @@ But before you start, you should read the about the [Core Concepts](https://gith
 * [Getting Started](https://github.com/xamoom/xamoom-ios-sdk/wiki/Getting-started)
 * [API Calls](https://github.com/xamoom/xamoom-ios-sdk/wiki/API-Calls)
 * [Working with Pages](https://github.com/xamoom/xamoom-ios-sdk/wiki/Working-with-pages)
+  * [Custom ContentBlock Appearance](https://github.com/xamoom/xamoom-ios-sdk/wiki/ContentBlock-Cell-Appereance)
   * [ContentBlock Customizing](https://github.com/xamoom/xamoom-ios-sdk/wiki/Customize-XMMContentBlocks-cell)
+  * [Password Protection](https://github.com/xamoom/xamoom-ios-sdk/wiki/Password-Protection)
+  * [Open URLs](https://github.com/xamoom/xamoom-ios-sdk/wiki/Open-URLs-without-leaving-the-app)
 * [Working with Spots](https://github.com/xamoom/xamoom-ios-sdk/wiki/Working-with-spots)
 * [iBeacons](https://github.com/xamoom/xamoom-ios-sdk/wiki/iBeacons)
+* [Beacon Notification](https://github.com/xamoom/xamoom-ios-sdk/wiki/Show-Beacon-Notification)
 * [Push Notifications](https://github.com/xamoom/xamoom-ios-sdk/wiki/Push-Notifications)
 * [Offline usage](https://github.com/xamoom/xamoom-ios-sdk/wiki/Offline-usage)
 

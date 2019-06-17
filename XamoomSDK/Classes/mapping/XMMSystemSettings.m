@@ -27,6 +27,10 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"googlePlayAppId" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"app-id-google-play"]];
     [__descriptor addProperty:@"itunesAppId" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"app-id-itunes"]];
     [__descriptor addProperty:@"socialSharingEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-social-sharing-active"]];
+    [__descriptor addProperty:@"cookieWarningEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-cookie-warning-enabled"]];
+    [__descriptor addProperty:@"recommendationEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-recommendations-active"]];
+    [__descriptor addProperty:@"eventPackageEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-event-package-active"]];
+
   });
   
   return __descriptor;
@@ -44,6 +48,9 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     self.googlePlayAppId = savedSettings.googlePlayId;
     self.itunesAppId = savedSettings.itunesAppId;
     self.socialSharingEnabled = savedSettings.socialSharingEnabled.boolValue;
+    self.cookieWarningEnabled = savedSettings.cookieWarningEnabled.boolValue;
+    self.recommendationEnabled = savedSettings.recommendationEnabled.boolValue;
+    self.eventPackageEnabled = savedSettings.eventPackageEnabled.boolValue;
   }
   
   return self;

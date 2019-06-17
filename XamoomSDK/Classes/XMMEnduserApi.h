@@ -69,6 +69,9 @@ extern NSString * _Nonnull const kApiBaseURLString;
  */
 @property (strong, nonatomic) NSUserDefaults * _Nullable userDefaults;
 
+@property (assign, nonatomic) BOOL pushSound;
+
+
 /// @name Singleton
 
 /**
@@ -133,8 +136,8 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * - *param2* error NSError, can be null
  * @return SessionDataTask used to download from the backend.
  */
-- (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID
-                                      completion:(void(^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+- (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID password:(NSString *_Nullable)password
+                                      completion:(void(^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with specific ID and options.
@@ -148,7 +151,8 @@ extern NSString * _Nonnull const kApiBaseURLString;
  */
 - (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID
                                          options:(XMMContentOptions)options
-                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                        password:(NSString *_Nullable)password
+                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with specific ID, options and reason.
@@ -164,8 +168,9 @@ extern NSString * _Nonnull const kApiBaseURLString;
 - (NSURLSessionDataTask *_Nullable)contentWithID:(NSString *_Nonnull)contentID
                                          options:(XMMContentOptions)options
                                           reason:(XMMContentReason)reason
+                                        password:(NSString *_Nullable)password
                                       completion:(void (^_Nullable)(XMMContent * _Nullable content,
-                                                                    NSError * _Nullable error))completion;
+                                                                    NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with specific location-identifier.
@@ -177,7 +182,8 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)contentWithLocationIdentifier:(NSString *_Nonnull)locationIdentifier
-                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                      password:(NSString *_Nullable)password
+                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with specific location-identifier with options.
@@ -191,7 +197,8 @@ extern NSString * _Nonnull const kApiBaseURLString;
  */
 - (NSURLSessionDataTask *_Nullable)contentWithLocationIdentifier:(NSString *_Nonnull)locationIdentifier
                                                          options:(XMMContentOptions)options
-                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                        password:(NSString *_Nullable)password
+                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with specific location-identifier with options
@@ -209,7 +216,8 @@ extern NSString * _Nonnull const kApiBaseURLString;
 - (NSURLSessionDataTask *_Nullable)contentWithLocationIdentifier:(NSString *_Nonnull)locationIdentifier
                                                          options:(XMMContentOptions)options
                                                       conditions:(NSDictionary *_Nullable)conditions
-                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                                      password:(NSString *_Nullable)password
+                                                      completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with specific location-identifier with options
@@ -229,8 +237,9 @@ extern NSString * _Nonnull const kApiBaseURLString;
                                                          options:(XMMContentOptions)options
                                                       conditions:(NSDictionary *_Nullable)conditions
                                                           reason:(XMMContentReason)reason
+                                                      password:(NSString *_Nullable)password
                                                       completion:(void (^_Nullable)(XMMContent * _Nullable content,
-                                                                                    NSError * _Nullable error))completion;
+                                                                                    NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with beacon.
@@ -244,7 +253,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  */
 - (NSURLSessionDataTask *_Nullable)contentWithBeaconMajor:(NSNumber *_Nonnull)major
                                                     minor:(NSNumber *_Nonnull)minor
-                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with beacon.
@@ -260,7 +269,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
 - (NSURLSessionDataTask *_Nullable)contentWithBeaconMajor:(NSNumber *_Nonnull)major
                                                     minor:(NSNumber *_Nonnull)minor
                                                   options:(XMMContentOptions)options
-                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with beacon and condition.
@@ -281,7 +290,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
                                                     minor:(NSNumber *_Nonnull)minor
                                                   options:(XMMContentOptions)options
                                                conditions:(NSDictionary *_Nullable)conditions
-                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get content with beacon, condition and reason.
@@ -304,7 +313,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
                                                   options:(XMMContentOptions)options
                                                conditions:(NSDictionary *_Nullable)conditions
                                                    reason:(XMMContentReason)reason
-                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error))completion;
+                                               completion:(void (^_Nullable)(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired))completion;
 
 /**
  * API call to get contents around location (40m).

@@ -20,6 +20,16 @@
 
 @implementation XMMMapOverlayView
 
+- (void)setButtonBackgroundColor:(UIColor *)buttonBackgroundColor  {
+  _buttonBackgroundColor = buttonBackgroundColor;
+  [self changeBackgroundColors];
+}
+
+- (void)setButtonTextColor:(UIColor *)buttonTextColor  {
+  _buttonTextColor = buttonTextColor;
+  [self changeTextColors];
+}
+
 - (void)displayAnnotation:(XMMAnnotation *)annotation showContent:(bool)showContent {
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
@@ -58,6 +68,16 @@
   if (self.contentID == nil || !showContent) {
     self.openContentButton.hidden = YES;
   }
+}
+
+- (void)changeBackgroundColors {
+  [self.openContentButton setBackgroundColor:self.buttonBackgroundColor];
+  [self.routeButton setBackgroundColor:self.buttonBackgroundColor];
+}
+
+- (void)changeTextColors {
+  [self.openContentButton setTitleColor: _buttonTextColor forState:UIControlStateNormal];
+  [self.routeButton setTitleColor: _buttonTextColor forState:UIControlStateNormal];
 }
 
 - (IBAction)routeAction:(id)sender {

@@ -20,5 +20,8 @@
 @property (strong, nonatomic) NSString *googlePlayAppId;
 @property (strong, nonatomic) NSString *itunesAppId;
 @property (nonatomic, getter=isSocialSharingEnabled) BOOL socialSharingEnabled;
+@property (nonatomic, getter=isCookieWarningEnabled) BOOL cookieWarningEnabled;
+@property (nonatomic, getter=isRecommendationEnabled) BOOL recommendationEnabled;
+@property (nonatomic, getter=isEventPackageEnabled) BOOL eventPackageEnabled;
 
 @end

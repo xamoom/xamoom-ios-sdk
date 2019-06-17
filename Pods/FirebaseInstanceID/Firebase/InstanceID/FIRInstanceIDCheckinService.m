@@ -16,6 +16,7 @@
 
 #import "FIRInstanceIDCheckinService.h"
 
+#import <FirebaseCore/FIRAppInternal.h>
 #import "FIRInstanceIDCheckinPreferences+Internal.h"
 #import "FIRInstanceIDCheckinPreferences_Private.h"
 #import "FIRInstanceIDDefines.h"
@@ -34,6 +35,7 @@ NSString *const kFIRInstanceIDLastCheckinTimeKey = @"GMSInstanceIDLastCheckinTim
 NSString *const kFIRInstanceIDVersionInfoStringKey = @"GMSInstanceIDVersionInfo";
 NSString *const kFIRInstanceIDGServicesDictionaryKey = @"GMSInstanceIDGServicesData";
 NSString *const kFIRInstanceIDDeviceDataVersionKey = @"GMSInstanceIDDeviceDataVersion";
+NSString *const kFIRInstanceIDFirebaseUserAgentKey = @"X-firebase-client";
 
 static NSUInteger const kCheckinType = 2;  // DeviceType IOS in l/w/a/_checkin.proto
 static NSUInteger const kCheckinVersion = 2;
@@ -72,9 +74,22 @@ static FIRInstanceIDURLRequestTestBlock testBlock;
                         completion:(FIRInstanceIDDeviceCheckinCompletion)completion {
   _FIRInstanceIDDevAssert(completion != nil, @"completion required");
 
+  if (self.session == nil) {
+    FIRInstanceIDLoggerError(kFIRIntsanceIDInvalidNetworkSession,
+                             @"Inconsistent state: NSURLSession has been invalidated");
+    NSError *error =
+        [NSError errorWithFIRInstanceIDErrorCode:kFIRInstanceIDErrorCodeRegistrarFailedToCheckIn];
+    completion(nil, error);
+    return;
+  }
+
   NSURL *url = [NSURL URLWithString:kDeviceCheckinURL];
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+
   [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+  [request setValue:[FIRApp firebaseUserAgent]
+      forHTTPHeaderField:kFIRInstanceIDFirebaseUserAgentKey];
+
   NSDictionary *checkinParameters = [self checkinParametersWithExistingCheckin:existingCheckin];
   NSData *checkinData = [NSJSONSerialization dataWithJSONObject:checkinParameters
                                                         options:0
@@ -118,8 +133,9 @@ static FIRInstanceIDURLRequestTestBlock testBlock;
         // Somehow the server clock gets out of sync with the device clock.
         // Reset the last checkin timestamp in case this happens.
         if (lastCheckinTimestampMillis > currentTimestampMillis) {
-          FIRInstanceIDLoggerDebug(kFIRInstanceIDMessageCodeService002,
-                                   @"Invalid last checkin timestamp in future.");
+          FIRInstanceIDLoggerDebug(
+              kFIRInstanceIDMessageCodeService002, @"Invalid last checkin timestamp %@ in future.",
+              [NSDate dateWithTimeIntervalSince1970:lastCheckinTimestampMillis / 1000.0]);
           lastCheckinTimestampMillis = currentTimestampMillis;
         }
 
@@ -173,6 +189,8 @@ static FIRInstanceIDURLRequestTestBlock testBlock;
 
 - (void)stopFetching {
   [self.session invalidateAndCancel];
+  // The session cannot be reused after invalidation. Dispose it to prevent accident reusing.
+  self.session = nil;
 }
 
 #pragma mark - Private

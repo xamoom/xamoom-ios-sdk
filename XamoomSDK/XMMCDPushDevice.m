@@ -12,11 +12,13 @@
 
 @dynamic jsonID;
 @dynamic uid;
-@dynamic spotDescription;
-@dynamic image;
-@dynamic category;
-@dynamic locationDictionary;
-@dynamic tags;
+@dynamic os;
+@dynamic appVersion;
+@dynamic appId;
+@dynamic location;
+@dynamic lastAppOpen;
+@dynamic createdAt;
+@dynamic updatedAt;
 
 + (NSString *)coreDataEntityName {
   return NSStringFromClass([self class]);
@@ -33,36 +35,36 @@
 + (instancetype)insertNewObjectFrom:(id)entity
                         fileManager:(XMMOfflineFileManager *)fileManager
                          completion:(void (^)(NSString *url, NSData *, NSError *))completion {
-  XMMPushDevice *spot = (XMMPushDevice *)entity;
-  XMMCDPushDevice *savedSpot = nil;
+  XMMPushDevice *pushDevice = (XMMPushDevice *)entity;
+  XMMCDPushDevice *savedPushDevice = nil;
   
   // check if object already exists
   NSArray *objects = [[XMMOfflineStorageManager sharedInstance]
                       fetch:[[self class] coreDataEntityName]
-                      jsonID:spot.ID];
+                      jsonID:pushDevice.ID];
   if (objects.count > 0) {
-    savedSpot = objects.firstObject;
+    savedPushDevice = objects.firstObject;
   } else {
-    savedSpot = [NSEntityDescription
-                 insertNewObjectForEntityForName:[[self class] coreDataEntityName]
-                 inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
+    savedPushDevice = [NSEntityDescription
+                       insertNewObjectForEntityForName:[[self class] coreDataEntityName]
+                       inManagedObjectContext:[XMMOfflineStorageManager sharedInstance].managedObjectContext];
   }
   
-  savedSpot.jsonID = spot.ID;
-  
-  savedSpot.uid = spot.uid;
-  savedSpot.spotDescription = spot.spotDescription;
-  savedSpot.locationDictionary = spot.locationDictionary;
-  savedSpot.image = spot.image;
-  if (spot.image) {
-    [fileManager saveFileFromUrl:spot.image completion:completion];
-  }
-  savedSpot.category = [NSNumber numberWithInt:spot.category];
-  savedSpot.tags = spot.tags;
+  savedPushDevice.jsonID = pushDevice.ID;
+  savedPushDevice.uid = pushDevice.uid;
+  savedPushDevice.os = pushDevice.os;
+  savedPushDevice.appVersion = pushDevice.appVersion;
+  savedPushDevice.appId = pushDevice.appId;
+  savedPushDevice.location = pushDevice.location;
+  savedPushDevice.lastAppOpen = pushDevice.lastAppOpen;
+  savedPushDevice.updatedAt = pushDevice.updatedAt;
+  savedPushDevice.createdAt = pushDevice.createdAt;
+  savedPushDevice.language = pushDevice.language;
+  savedPushDevice.sdkVersion = pushDevice.sdkVersion;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   
-  return savedSpot;
+  return savedPushDevice;
 }
 
 @end

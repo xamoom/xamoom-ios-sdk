@@ -19,13 +19,15 @@ NSString *const XAMOOM_BEACONS_KEY = @"beacons";
 NSString *const XAMOOM_CONTENTS_KEY = @"contents";
 
 @interface LocationHelper () <CLLocationManagerDelegate>
+@property (nonatomic, retain) NSArray *lastBeacons;
+@property (nonatomic, retain) NSArray *lastContents;
 
 @end
 
 static LocationHelper *sharedInstance;
 
 @implementation LocationHelper : NSObject
-    
+
   + (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -54,11 +56,14 @@ static LocationHelper *sharedInstance;
     [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
     [self startLocationUpdateing];
     
+    _lastContents = [NSMutableArray new];
+    _lastBeacons = [NSMutableArray new];
+    
     self.api = api;
     return self;
   }
   
-  - (void)startLocationUpdateing {
+  - (void)startLocationUpdateing{
     [self.locationManager startUpdatingLocation];
     [self.locationManager startMonitoringSignificantLocationChanges];
     [self.api pushDevice];
@@ -171,6 +176,8 @@ static LocationHelper *sharedInstance;
 
     if (beacons.count == 0) {
       self.beacons = [NSArray new];
+      _lastBeacons = [NSArray new];
+      _lastContents = [NSArray new];
       [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_CONTENTS_KEY: [NSArray new]}];
       return;
     }
@@ -201,6 +208,8 @@ static LocationHelper *sharedInstance;
             self.contents = cleanContents;
             [self sendNotificationWithName:BEACON_RANGE userInfo:@{XAMOOM_BEACONS_KEY: cleanBeacons}];
             [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_CONTENTS_KEY: cleanContents}];
+            _lastBeacons = cleanBeacons;
+            _lastContents = cleanContents;
             self.beaconsLoading = false;
           }
           self.beaconsLoading = false;
@@ -219,16 +228,37 @@ static LocationHelper *sharedInstance;
     
     for (int i = 0; i < beacons.count; i++) {
       CLBeacon *beacon = beacons[i];
-      [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error) {
-        if (content != nil && error == nil) {
-          [loadedBeacons addObject:beacon];
-          [loadedContents addObject:content];
+      
+      BOOL shouldLoadBeacon = true;
+      for (CLBeacon *b in _lastBeacons) {
+        if (b.minor == beacon.minor) {
+          shouldLoadBeacon = false;
+          
+          [loadedBeacons addObject:b];
+          int index = [_lastBeacons indexOfObject:b];
+          
+          XMMContent *loadedContent = [_lastContents objectAtIndex:index];
+          [loadedContents addObject:loadedContent];
+          
+          if (i == beacons.count - 1) {
+            completion(loadedBeacons, loadedContents);
+          }
+          break;
         }
-        
-        if (i == beacons.count - 1) {
-          completion(loadedBeacons, loadedContents);
-        }
-      }];
+      }
+      
+      if (shouldLoadBeacon) {
+        [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
+          if (content != nil && error == nil) {
+            [loadedBeacons addObject:beacon];
+            [loadedContents addObject:content];
+          }
+          
+          if (i == beacons.count - 1) {
+            completion(loadedBeacons, loadedContents);
+          }
+        }];
+      }
     }
   }
 @end
