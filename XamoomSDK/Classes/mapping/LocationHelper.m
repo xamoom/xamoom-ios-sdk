@@ -142,6 +142,7 @@ static LocationHelper *sharedInstance;
     CLLocation *location = locations.firstObject;
     if (location != nil) {
       self.userLocation = location;
+      [self sendLocationNotificationWithLocation:location];
       NSDictionary *locationDictionary = @{@"lat": [[NSNumber alloc] initWithDouble:location.coordinate.latitude], @"lon": [[NSNumber alloc] initWithDouble:location.coordinate.longitude]};
       XMMSimpleStorage *storage = [XMMSimpleStorage new];
       [storage saveLocation:locationDictionary];
