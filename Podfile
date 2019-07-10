@@ -11,9 +11,6 @@ target 'XamoomSDK' do
   pod 'JAMSVGImage'
   pod 'Pushwoosh'
   pod 'Mapbox-iOS-SDK'
-  pod 'Firebase', '~> 5.20.1'
-  pod 'FirebaseCore', '~> 5.4'
-  pod 'FirebaseMessaging', '~> 3.5'
   pod 'GoogleAnalytics'
 end
 

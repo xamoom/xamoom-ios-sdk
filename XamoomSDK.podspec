@@ -28,8 +28,8 @@ Pod::Spec.new do |s|
     core.dependency 'SDWebImage', '>= 3.7', '< 5.0'
     core.dependency 'JAMSVGImage'
     core.dependency 'Mapbox-iOS-SDK'
-    core.dependency 'Firebase', '~> 5.20.1'
-    core.dependency 'FirebaseCore', '~> 5.4'
-    core.dependency 'FirebaseMessaging', '~> 3.5'
+    core.dependency 'Firebase', '>= 5.15.0'
+    core.dependency 'FirebaseCore', '>= 5.1.0'
+    core.dependency 'FirebaseMessaging'
   end
 end

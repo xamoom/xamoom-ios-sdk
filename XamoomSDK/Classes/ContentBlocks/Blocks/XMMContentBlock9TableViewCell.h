@@ -17,7 +17,7 @@
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
 #import "UIImage+Scaling.h"
-#import <Mapbox-iOS-SDK/Mapbox/Mapbox.h>
+#import <Mapbox/Mapbox.h>
 
 @class XMMMapOverlayView;
 
