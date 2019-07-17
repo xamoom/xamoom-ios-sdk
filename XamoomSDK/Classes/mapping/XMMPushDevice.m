@@ -51,6 +51,7 @@
     self.language = savedPushDevice.language;
     self.sdkVersion = savedPushDevice.sdkVersion;
     self.sound =  savedPushDevice.sound;
+    self.noNotification = savedPushDevice.noNotification;
   }
   return self;
 }
@@ -89,6 +90,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"language" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"language"]];
     [__descriptor addProperty:@"sdkVersion" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"sdk-version"]];
     [__descriptor addProperty:@"sound" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"with-sound"]];
+    [__descriptor addProperty:@"noNotification" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"no-notification"]];
   });
   
   return __descriptor;

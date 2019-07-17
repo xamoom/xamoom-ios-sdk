@@ -22,4 +22,5 @@
 @property (nonatomic) NSString* language;
 @property (nonatomic) NSString* sdkVersion;
 @property(nonatomic) BOOL sound;
+@property (nonatomic) BOOL noNotification;
 @end
