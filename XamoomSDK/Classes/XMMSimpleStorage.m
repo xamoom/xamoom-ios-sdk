@@ -7,6 +7,7 @@
 
 
 #import "XMMSimpleStorage.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation XMMSimpleStorage
 
@@ -39,14 +40,17 @@
   [self.userDefaults synchronize];
 }
 
-- (NSDictionary *)getLocation {
+- (CLLocation *)getLocation {
   NSDictionary *location = [self.userDefaults dictionaryForKey:@"com.xamoom.ios.location"];
   
   if (location == nil) {
     return nil;
   }
   
-  return location;
+  double lat = [location[@"lat"] doubleValue];
+  double lon = [location[@"lon"] doubleValue];
+  CLLocation *l = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+  return l;
 }
 
 - (void)saveUserToken:(NSString *)token {
