@@ -41,7 +41,7 @@ static LocationHelper *sharedInstance;
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    self.locationManager.distanceFilter = 600.0;
+    self.locationManager.distanceFilter = 50.0;
     self.locationManager.allowsBackgroundLocationUpdates = YES;
     self.locationManager.requestAlwaysAuthorization;
     
