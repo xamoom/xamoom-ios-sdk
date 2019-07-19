@@ -14,3 +14,5 @@
 "Load more"="Meer laden";
 
 "webviewcontroller.back" = "Terug";
+"contentblock8.alert.error.title" = "Error";
+"contentblock8.alert.error.message" = "This file is not valid";

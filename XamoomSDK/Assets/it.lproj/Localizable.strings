@@ -14,3 +14,5 @@
 "Load more"="Carica di più";
 
 "webviewcontroller.back" = "Indietro";
+"contentblock8.alert.error.title" = "Error";
+"contentblock8.alert.error.message" = "This file is not valid";
