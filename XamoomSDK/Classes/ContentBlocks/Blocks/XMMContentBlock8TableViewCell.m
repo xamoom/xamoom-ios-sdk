@@ -100,13 +100,7 @@
 
 - (void)openLink {
   if (self.offline) {
-    NSURL *localURL = [self.fileManager urlForSavedData:self.fileID];
-    
-    if (localURL != nil) {
-      self.docController = [UIDocumentInteractionController interactionControllerWithURL:localURL];
-      self.docController.delegate = self;
-      [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.contentView animated:YES];
-    }
+    [self openLocalURL];
   } else {
     NSURL *url = [NSURL URLWithString:self.fileID];
     NSData *data = [NSData dataWithContentsOfURL:url];
@@ -119,48 +113,13 @@
         CNContactStore *store = [CNContactStore new];
         [store requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError *error) {
           if (granted) {
-            NSArray *contacts = [CNContactVCardSerialization contactsWithData:data error:nil];
-            CNContact *c = contacts[0];
-            CNMutableContact *contact = [CNMutableContact new];
-            contact = [(CNMutableContact *) c mutableCopy];
-            
-            CNSaveRequest *request = [CNSaveRequest new];
-            
-            @try {
-              [request addContact:contact toContainerWithIdentifier:nil];
-              [store executeSaveRequest:request error:&error];
-              
-              NSString *alertMessage = [NSString stringWithFormat:@"%@ %@ %@ %@", @"Successfully added", contact.familyName, contact.givenName, @"to your contacts"];
-              UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Finished"
-                                                                             message:alertMessage
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-              
-              UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                    handler:^(UIAlertAction * action) {}];
-              
-              [alert addAction:defaultAction];
-              [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-              printf("Contact save succeed");
-            }
-            @catch (NSException *exception) {
-              [self showErrorAlert];
-              printf("Contact save failed");
-            }
+            [self parseContact:data store:store];
           }
         }];
-        
       } else {
-        NSURL *localURL = [self.fileManager urlForSavedData:self.fileID];
-        
-        if (localURL != nil) {
-          self.docController = [UIDocumentInteractionController interactionControllerWithURL:localURL];
-          self.docController.delegate = self;
-          [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.contentView animated:YES];
-        }
+        [self openLocalURL];
       }
-      printf("test");
      } else if (_downloadType == 1) {
-       
        EKEventStore *store = [EKEventStore new];
        [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
          if (granted) {
@@ -173,28 +132,37 @@
            }
          }
        }];
-       printf("test");
      } else {
-       NSString *gpxString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-       NSURL *dir = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
-       
-       NSString *fileName = [[self.fileID componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"/"]] lastObject];
-       NSURL *fileURL = [dir URLByAppendingPathComponent:fileName];
-       
-       @try {
-         [gpxString writeToFile:fileURL atomically:NO encoding:NSUTF8StringEncoding error:nil];
-         NSArray *objectsToShare = @[fileURL];
-         
-         UIActivityViewController *aVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
-         [self.window.rootViewController presentViewController:aVC animated:YES completion:nil];
-       } @catch (NSException *exception) {
+       if (!data) {
          [self showErrorAlert];
+         return;
        }
-       printf("test");
+       
+       [self shareGPXData:data];
     }
   }
 }
 
+/**
+ * Opens the local url (self.fileID) in a UIDocumentInteractionController.
+ */
+-(void)openLocalURL {
+  NSURL *localURL = [self.fileManager urlForSavedData:self.fileID];
+  
+  if (localURL != nil) {
+    self.docController = [UIDocumentInteractionController interactionControllerWithURL:localURL];
+    self.docController.delegate = self;
+    [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.contentView animated:YES];
+  }
+}
+
+/**
+ * Parse the given ics file string and returns an EKEvent or nil.
+ *
+ * @param icsString The string to parse.
+ * @param store The EKEventStore to create the EKEvent.
+ * @return An EKEvent or if parsing failed nil.
+ */
 -(EKEvent *)parseICSStringToEvent:(NSString *)icsString andEventStore:(EKEventStore*)store {
   NSError *error = nil;
   NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\n +" options:NSRegularExpressionCaseInsensitive error:&error];
@@ -220,7 +188,7 @@
   NSScanner *eventScanner;
   
   // For each event, extract the data
-  for (NSString *event in eventsArray) {
+  for (NSString *e in eventsArray) {
     NSString *timezoneIDString;
     NSString *startDateTimeString;
     NSString *endDateTimeString;
@@ -238,6 +206,8 @@
     NSString *repetitionString;
     NSString *exceptionRuleString;
     NSMutableArray *exceptionDates = [[NSMutableArray alloc] init];
+    
+    NSString *event = [e stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     // Extract event time zone ID
     eventScanner = [NSScanner scannerWithString:event];
@@ -398,7 +368,7 @@
     EKEvent *newEvent = [EKEvent eventWithEventStore:store];
     newEvent.startDate = [dateFormatter dateFromString:startDateTimeString];
     newEvent.endDate = [dateFormatter dateFromString:endDateTimeString];
-    newEvent.title = descriptionString;
+    newEvent.title = summaryString;
     newEvent.location = locationString;
     
     return newEvent;
@@ -407,6 +377,12 @@
   return nil;
 }
 
+/**
+ * Save the given event. Shows an UIAlertController for choosing an calendar.
+ *
+ * @param event The given event to save.
+ * @param store The EKEventStore to save the event.
+ */
 -(void)saveEvent:(EKEvent *)event withStore:(EKEventStore*)store {
   NSArray *calendars = [store calendarsForEntityType: EKEntityTypeEvent];
   NSMutableArray *res =[[NSMutableArray alloc] init];
@@ -419,12 +395,13 @@
   
   if (res.count > 0){
   
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Title" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"contentblock8.alert.choose.calendar", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     for (EKCalendar *cal in res) {
       UIAlertAction *calAction = [UIAlertAction actionWithTitle: cal.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        [event setCalendar:[store defaultCalendarForNewEvents]];
+        [event setCalendar:cal];
         [store saveEvent:event span:EKSpanThisEvent error:nil];
+        [self showAddCalenderSuccess:cal event:event];
       }];
       
       [alert addAction:calAction];
@@ -437,24 +414,90 @@
     [alert addAction:cancel];
     
     [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-  } else {
-    //TODO: No calendar available.
   }
 }
 
+/**
+ * Parse a CNContact from the given data.
+ *
+ * @param data The given data to parse.
+ * @param store The CNContactStore to add the contact.
+ */
+-(void)parseContact:(NSData *)data store:(CNContactStore *)store {
+  NSArray *contacts = [CNContactVCardSerialization contactsWithData:data error:nil];
+  CNContact *c = contacts[0];
+  CNMutableContact *contact = [CNMutableContact new];
+  contact = [(CNMutableContact *) c mutableCopy];
+  
+  CNSaveRequest *request = [CNSaveRequest new];
+  
+  @try {
+    [request addContact:contact toContainerWithIdentifier:nil];
+    [store executeSaveRequest:request error:nil];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self showContactRequestAlert:contact];
+    });
+    
+    printf("Contact save succeed");
+  }
+  @catch (NSException *exception) {
+    [self showErrorAlert];
+    printf("Contact save failed");
+  }
+}
+
+/**
+ * Opens a UIActivityViewController for sharing the gpx file for the given data.
+ *
+ * @param data The given data to share.
+ */
+-(void)shareGPXData:(NSData *)data {
+  NSString *gpxString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  NSURL *dir = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+  
+  NSString *fileName = [[self.fileID componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"/"]] lastObject];
+  NSURL *fileURL = [dir URLByAppendingPathComponent:fileName];
+  
+  @try {
+    [gpxString writeToFile:fileURL atomically:NO encoding:NSUTF8StringEncoding error:nil];
+    NSArray *objectsToShare = @[fileURL];
+    
+    UIActivityViewController *aVC = [[UIActivityViewController alloc] initWithActivityItems:objectsToShare applicationActivities:nil];
+    [self.window.rootViewController presentViewController:aVC animated:YES completion:nil];
+  } @catch (NSException *exception) {
+    [self showErrorAlert];
+  }
+  printf("test");
+}
+
+/// Shows a default error message.
 -(void)showErrorAlert {
   dispatch_async(dispatch_get_main_queue(), ^{
     
     NSString *title = NSLocalizedString(@"contentblock8.alert.error.title", nil);
     NSString *message = NSLocalizedString(@"contentblock8.alert.error.message", nil);
+  
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
+                                                    message: message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+  });
+}
+
+/**
+ * Shows a UIAlertView to notify the user that the event was added successfully.
+ *
+ * @param calendar The calendar which was used to save the event.
+ * @param event The saved event.
+ */
+-(void)showAddCalenderSuccess:(EKCalendar *)calendar event:(EKEvent*)event {
+  dispatch_async(dispatch_get_main_queue(), ^{
     
-    if ([title isEqualToString:@"contentblock8.alert.error.title"]) {
-      title = @"Error";
-    }
-    
-    if ([message isEqualToString:@"contentblock8.alert.error.message"]) {
-      message = @"This is not a valid file";
-    }
+    NSString *title = NSLocalizedString(@"contentblock8.alert.hint.title", nil);
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"contentblock8.alert.calendar.success.message", nil), event.title, calendar.title];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
                                                     message: message
@@ -463,6 +506,48 @@
                                           otherButtonTitles:nil];
     [alert show];
   });
+}
+
+/**
+ * Shows a UIAlertController to request the user if given contact should be added to contacts.
+ *
+ * @param contact The contact to save.
+ */
+-(void)showContactRequestAlert:(CNMutableContact *)contact {
+  NSString *alertMessage = [NSString stringWithFormat:NSLocalizedString(@"contentblock8.alert.contact.request.message", nil), contact.givenName, contact.familyName];
+  
+  UIAlertController *alert = [UIAlertController alertControllerWithTitle:alertMessage message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+  
+  UIAlertAction *add = [UIAlertAction actionWithTitle: NSLocalizedString(@"contentblock8.alert.add", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    [self showAddContactSuccessAlert:contact];
+  }];
+  
+  [alert addAction:add];
+  
+  UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"contentblock8.alert.cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+    [alert dismissViewControllerAnimated:YES completion:nil];
+  }];
+  
+  [alert addAction:cancel];
+  
+  [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+}
+
+/**
+ * Shows a UIAlertView to notify the user if that the contact was added to the contacts.
+ *
+ * @param contact The contact to save.
+ */
+-(void)showAddContactSuccessAlert:(CNMutableContact *)contact {
+  NSString *alertMessage = [NSString stringWithFormat:NSLocalizedString(@"contentblock8.alert.contact.success.message", nil), contact.givenName, contact.familyName];
+  NSString *title = NSLocalizedString(@"contentblock8.alert.hint.title", nil);
+  
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
+                                                  message: alertMessage
+                                                 delegate:self
+                                        cancelButtonTitle:@"OK"
+                                        otherButtonTitles:nil];
+  [alert show];
 }
 
 - (XMMOfflineFileManager *)fileManager {
