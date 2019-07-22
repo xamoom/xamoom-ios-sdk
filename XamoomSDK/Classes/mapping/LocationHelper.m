@@ -41,7 +41,7 @@ static LocationHelper *sharedInstance;
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    self.locationManager.distanceFilter = 600.0;
+    self.locationManager.distanceFilter = 50.0;
     self.locationManager.allowsBackgroundLocationUpdates = YES;
     self.locationManager.requestAlwaysAuthorization;
     
@@ -66,7 +66,7 @@ static LocationHelper *sharedInstance;
   - (void)startLocationUpdateing{
     [self.locationManager startUpdatingLocation];
     [self.locationManager startMonitoringSignificantLocationChanges];
-    [self.api pushDevice];
+    [self.api pushDevice:NO];
   }
   
   - (void)stopLocationUpdating {
@@ -142,10 +142,11 @@ static LocationHelper *sharedInstance;
     CLLocation *location = locations.firstObject;
     if (location != nil) {
       self.userLocation = location;
+      [self sendLocationNotificationWithLocation:location];
       NSDictionary *locationDictionary = @{@"lat": [[NSNumber alloc] initWithDouble:location.coordinate.latitude], @"lon": [[NSNumber alloc] initWithDouble:location.coordinate.longitude]};
       XMMSimpleStorage *storage = [XMMSimpleStorage new];
       [storage saveLocation:locationDictionary];
-      [self.api pushDevice];
+      [self.api pushDevice:NO];
     }
   }
     
@@ -172,8 +173,6 @@ static LocationHelper *sharedInstance;
       }
     }
     
-    [self.api pushDevice];
-
     if (beacons.count == 0) {
       self.beacons = [NSArray new];
       _lastBeacons = [NSArray new];
@@ -216,6 +215,8 @@ static LocationHelper *sharedInstance;
         }];
       }
       
+      [self sendNotificationWithName:BEACON_RANGE userInfo:@{XAMOOM_BEACONS_KEY: _lastBeacons}];
+      [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_CONTENTS_KEY: _lastContents}];
       self.beaconsLoading = false;
 
     }];
@@ -243,7 +244,17 @@ static LocationHelper *sharedInstance;
           if (i == beacons.count - 1) {
             completion(loadedBeacons, loadedContents);
           }
-          break;
+        } else {
+          [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
+            if (content != nil && error == nil) {
+              [loadedBeacons addObject:beacon];
+              [loadedContents addObject:content];
+            }
+            
+            if (i == beacons.count - 1) {
+              completion(loadedBeacons, loadedContents);
+            }
+          }];
         }
       }
       

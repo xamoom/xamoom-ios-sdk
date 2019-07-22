@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "XamoomSDK"
-  s.version          = "3.11.5"
+  s.version          = "3.11.7"
   s.summary          = "Integrate your app with your xamoom system. More information at www.xamoom.com"
   s.homepage         = "http://xamoom.github.io/xamoom-ios-sdk/"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -28,8 +28,8 @@ Pod::Spec.new do |s|
     core.dependency 'SDWebImage', '>= 3.7', '< 5.0'
     core.dependency 'JAMSVGImage'
     core.dependency 'Mapbox-iOS-SDK'
-    core.dependency 'Firebase', '~> 5.20.1'
-    core.dependency 'FirebaseCore', '~> 5.4'
-    core.dependency 'FirebaseMessaging', '~> 3.5'
+    core.dependency 'Firebase', '>= 5.15.0'
+    core.dependency 'FirebaseCore', '>= 5.1.0'
+    core.dependency 'FirebaseMessaging'
   end
 end

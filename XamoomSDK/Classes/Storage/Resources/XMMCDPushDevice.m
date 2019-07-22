@@ -62,6 +62,7 @@
   savedPushDevice.language = pushDevice.language;
   savedPushDevice.sdkVersion = pushDevice.sdkVersion;
   savedPushDevice.sound = pushDevice.sound;
+  savedPushDevice.noNotification = pushDevice.noNotification;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   

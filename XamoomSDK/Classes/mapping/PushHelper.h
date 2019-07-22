@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UserNotifications/UserNotifications.h>
+#import <Firebase/Firebase.h>
 #import "XMMEnduserApi.h"
-#import "Firebase.h"
 
 extern NSString *const XAMOOM_NOTIFICATION_RECEIVE;
 
@@ -18,7 +18,6 @@ extern NSString *const XAMOOM_NOTIFICATION_RECEIVE;
 @property (nonatomic, retain) id<FIRMessagingDelegate> messagingDelegate;
 @property (nonatomic, retain) id <UNUserNotificationCenterDelegate> notificationDelegate;
 @property (nonatomic, strong) XMMEnduserApi *api;
-@property (nonatomic, assign) BOOL pushSound;
 
 - (instancetype)initWithApi:(XMMEnduserApi *)api;
 

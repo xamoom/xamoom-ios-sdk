@@ -40,6 +40,8 @@ static XMMEnduserApi *sharedInstance;
 @implementation XMMEnduserApi : NSObject
 
 @synthesize pushSound = _pushSound;
+@synthesize noNotification = _noNotification;
+@synthesize lastLocation = _lastLocation;
 
 #pragma mark - shared instance
 
@@ -91,6 +93,8 @@ static XMMEnduserApi *sharedInstance;
   self.restClient.delegate = self;
   [self setupResources];
   self.pushSound = YES;
+  self.noNotification = NO;
+  self.lastLocation = [[CLLocation alloc] initWithLatitude:0.0 longitude:0.0];
   return self;
 }
 
@@ -802,25 +806,36 @@ static XMMEnduserApi *sharedInstance;
                              }];
 }
 
-- (NSURLSessionDataTask *)pushDevice {
+- (NSURLSessionDataTask *)pushDevice:(BOOL)instantPush {
   
   double lastPush = [[self getUserDefaults] doubleForKey:kLastPushRegisterKey];
+  XMMSimpleStorage *storage = [XMMSimpleStorage new];
+  CLLocation *location = [storage getLocation];
   
-  if (lastPush != 0.0 && lastPush > [[NSDate date] timeIntervalSince1970] - 30.0) {
+  if (location == nil) {
+    location = [[CLLocation alloc] initWithLatitude:0.0 longitude:0.0];
+  }
+  
+  // Checks if new location distance less than 100 meters. If true do nothing.
+  if (!instantPush && [self.lastLocation distanceFromLocation:location] < 100) {
     return nil;
   }
   
-  XMMSimpleStorage *storage = [XMMSimpleStorage new];
-  NSDictionary *location = [storage getLocation];
+  if (!instantPush && lastPush != 0.0 && lastPush > [[NSDate date] timeIntervalSince1970] - 30.0 * 60.0) {
+    return nil;
+  }
+  
   NSString *token = [storage getUserToken];
   NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
   NSString *appId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-  NSString *sdkVersion = @"3.11.5";
+  NSString *sdkVersion = @"3.11.7";
   
-  if (location != nil && token != nil && version != nil && appId != nil) {
+  if (token != nil && version != nil && appId != nil) {
     XMMPushDevice *device = [[XMMPushDevice alloc] init];
     device.uid = token;
-    device.location = location;
+    
+    NSDictionary *locationDictionary = @{@"lat": [[NSNumber alloc] initWithDouble:location.coordinate.latitude], @"lon": [[NSNumber alloc] initWithDouble:location.coordinate.longitude]};
+    device.location = locationDictionary;
     device.appId = appId;
     device.appVersion = version;
     device.sdkVersion = sdkVersion;
@@ -829,11 +844,19 @@ static XMMEnduserApi *sharedInstance;
     NSLog(pushLog);
     
     device.sound = self.pushSound;
+
+    NSString *notificationLog = self.noNotification ? @"Disabled push" : @"Enabled push";
+    NSLog(notificationLog);
+    
+    device.noNotification = self.noNotification;
+    self.lastLocation = location;
     
     double now = [[NSDate date] timeIntervalSince1970];
     NSUserDefaults *userDefaults = [self getUserDefaults];
     [userDefaults setDouble:now forKey:kLastPushRegisterKey];
     [userDefaults synchronize];
+    
+    _lastLocation = location;
     
     NSLog(@"Device Pushed");
     return [self.restClient postPushDevice:[XMMPushDevice class] id:device.uid parameters:nil headers:[self httpHeadersWithEphemeralId] pushDevice:device completion:^(JSONAPI *result, NSError *error) {
@@ -958,14 +981,24 @@ static XMMEnduserApi *sharedInstance;
   NSUserDefaults *userDefaults = [self getUserDefaults];
   [userDefaults setBool:s forKey:@"pushSound"];
   [userDefaults synchronize];
-  
-  [self pushDevice];
 }
 
 -(BOOL)pushSound {
   NSUserDefaults *userDefaults = [self getUserDefaults];
   BOOL sound = [userDefaults boolForKey:@"pushSound"];
   return sound;
+}
+
+-(void)setNoNotification:(BOOL)noNotification {
+  NSUserDefaults *userDefaults = [self getUserDefaults];
+  [userDefaults setBool:noNotification forKey:@"noNotification"];
+  [userDefaults synchronize];
+}
+
+-(BOOL)noNotification {
+  NSUserDefaults *userDefaults = [self getUserDefaults];
+  BOOL n = [userDefaults boolForKey:@"noNotification"];
+  return n;
 }
 
 - (BOOL)shouldShowPasswordForContentId:(NSString *)contentID password:(NSString *)password error:(NSError *)error completion:(void (^)(XMMContent *, NSError *, BOOL passwordRequired))completion {

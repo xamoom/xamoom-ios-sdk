@@ -71,7 +71,9 @@ extern NSString * _Nonnull const kApiBaseURLString;
 
 @property (assign, nonatomic) BOOL pushSound;
 
+@property (assign, nonatomic) BOOL noNotification;
 
+@property (strong, nonatomic) CLLocation *lastLocation;
 /// @name Singleton
 
 /**
@@ -631,7 +633,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
 - (NSURLSessionDataTask *_Nullable)menuWithID:(NSString * _Nonnull)menuID
                                    completion:(void (^_Nullable)(XMMMenu * _Nullable menu, NSError * _Nullable error))completion;
 
-- (NSURLSessionDataTask *)pushDevice;
+- (NSURLSessionDataTask *)pushDevice:(BOOL)instantPush;
 /**
  *
  */

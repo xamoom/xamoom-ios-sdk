@@ -18,6 +18,7 @@
 #import "UIColor+HexString.h"
 #import "UIImage+Scaling.h"
 #import <Mapbox/Mapbox.h>
+
 @class XMMMapOverlayView;
 
 @interface XMMContentBlock9TableViewCell : UITableViewCell<MGLMapViewDelegate, CLLocationManagerDelegate>

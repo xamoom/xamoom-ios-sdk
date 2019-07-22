@@ -1,4 +1,12 @@
 # Changelog
+## [3.11.7](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.6...3.11.7) - 22.07.2019
+- Add functonalitty for download type 2 (.gpx)
+- Improvements for XMMContentBlock8 (saving vCard and ics)
+
+- Fixing iBeacon issue
+
+## [3.11.6](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.5...3.11.6) - 10.07.2019
+- Improving Firebase verisons in podspec
 
 ## [3.11.5](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.4...3.11.5) - 17.06.2019
 - XMMWebViewController customizable NavigationBar tint color

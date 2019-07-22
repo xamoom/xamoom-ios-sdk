@@ -24,11 +24,14 @@
 @property (strong, nonatomic) NSString *fileID;
 @property (strong, nonatomic) UIImage *contactImage;
 @property (strong, nonatomic) UIImage *calendarImage;
+@property (strong, nonatomic) UIImage *gpxImage;
 @property (strong, nonatomic) XMMOfflineFileManager *fileManager;
 @property (nonatomic) UIColor *calendarColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *calendarTintColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *contactColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *contactTintColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIColor *gpxColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIColor *gpxTintColor UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic) BOOL offline;
 
@@ -38,11 +41,15 @@
 - (UIColor *)calendarTintColor;
 - (UIColor *)contactColor;
 - (UIColor *)contactTintColor;
+- (UIColor *)gpxColor;
+- (UIColor *)gpxTintColor;
 
 - (void)setCalendarColor:(UIColor *)calendarColor;
 - (void)setCalendarTintColor:(UIColor *)calendarTintColor;
 - (void)setContactColor:(UIColor *)contactColor;
 - (void)setContactTintColor:(UIColor *)contactTintColor;
+- (void)setGpxColor:(UIColor *)gpxColor;
+- (void)setGpxTintColor:(UIColor *)gpxTintColor;
 
 @end
 
