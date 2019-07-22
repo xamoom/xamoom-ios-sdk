@@ -828,7 +828,7 @@ static XMMEnduserApi *sharedInstance;
   NSString *token = [storage getUserToken];
   NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
   NSString *appId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-  NSString *sdkVersion = @"3.11.6";
+  NSString *sdkVersion = @"3.11.7";
   
   if (token != nil && version != nil && appId != nil) {
     XMMPushDevice *device = [[XMMPushDevice alloc] init];
