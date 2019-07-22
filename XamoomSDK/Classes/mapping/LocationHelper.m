@@ -215,6 +215,8 @@ static LocationHelper *sharedInstance;
         }];
       }
       
+      [self sendNotificationWithName:BEACON_RANGE userInfo:@{XAMOOM_BEACONS_KEY: _lastBeacons}];
+      [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_CONTENTS_KEY: _lastContents}];
       self.beaconsLoading = false;
 
     }];
@@ -242,7 +244,17 @@ static LocationHelper *sharedInstance;
           if (i == beacons.count - 1) {
             completion(loadedBeacons, loadedContents);
           }
-          break;
+        } else {
+          [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
+            if (content != nil && error == nil) {
+              [loadedBeacons addObject:beacon];
+              [loadedContents addObject:content];
+            }
+            
+            if (i == beacons.count - 1) {
+              completion(loadedBeacons, loadedContents);
+            }
+          }];
         }
       }
       
