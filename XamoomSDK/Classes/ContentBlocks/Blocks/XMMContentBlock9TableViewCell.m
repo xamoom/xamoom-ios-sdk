@@ -177,8 +177,22 @@ static int kPageSize = 100;
     self.customMapMarker = [UIImage imageWithData:imageData];
   }
   
-  self.customMapMarker = [UIImage imageWithImage:self.customMapMarker scaledToMaxWidth:30.0f maxHeight:30.0f];
+  self.customMapMarker = [self resizeImage:self.customMapMarker width:23];
 }
+  
+  - (UIImage*)resizeImage:(UIImage*)image width:(CGFloat)width {
+    CGSize size = image.size;
+    double imageRatio = size.width / size.height;
+    double newHeight = width / imageRatio;
+    CGSize newSize = CGSizeMake(width, newHeight);
+    CGRect rect = CGRectMake(0, 0, newSize.width, newSize.height);
+    
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 1.0);
+    [image drawInRect:rect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+  }
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
   return YES;
@@ -265,30 +279,6 @@ static int kPageSize = 100;
                        animated:YES];
 }
 
-- (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id<MGLAnnotation>)annotation {
-  if ([annotation isKindOfClass:[MKUserLocation class]]) {
-    return nil;
-  }
-  
-  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
-    static NSString *identifier = @"xamoomAnnotation";
-    MGLAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-    
-    if (annotationView == nil) {
-      annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-      annotationView.bounds = CGRectMake(0, 0, 30, 30);
-      annotationView.annotation = annotation;
-      annotationView.enabled = YES;
-      //set mapmarker
-    } else {
-      annotationView.annotation = annotation;
-    }
-    return annotationView;
-  }
-  
-  return nil;
-}
-
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation {
   MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"whatever"];
   
@@ -307,8 +297,6 @@ static int kPageSize = 100;
 - (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
   if ([annotation isKindOfClass:[XMMAnnotation class]]) {
     [self zoomToAnnotationWithAdditionView:annotation];
-    self.mapAdditionViewBottomConstraint.constant = self.mapView.bounds.size.height/2 + 10;
-    self.mapAdditionViewHeightConstraint.constant = self.mapView.bounds.size.height/2;
     [self openMapAdditionView:annotation];
   }
 }
