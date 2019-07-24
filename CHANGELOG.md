@@ -1,4 +1,7 @@
 # Changelog
+## [3.11.8](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.7...3.11.8) - 24.07.2019
+- Fix Mapbox issue
+
 ## [3.11.7](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.6...3.11.7) - 22.07.2019
 - Add functonalitty for download type 2 (.gpx)
 - Improvements for XMMContentBlock8 (saving vCard and ics)
