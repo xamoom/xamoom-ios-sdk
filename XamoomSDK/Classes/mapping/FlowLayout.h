@@ -1,5 +1,5 @@
 //
-//  Test.h
+//  FlowLayout.h
 //  XamoomSDK
 //
 //  Created by Thomas Krainz-Mischitz on 31.07.19.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Test : UICollectionViewFlowLayout
+@interface FlowLayout : UICollectionViewFlowLayout
 
 @end
 

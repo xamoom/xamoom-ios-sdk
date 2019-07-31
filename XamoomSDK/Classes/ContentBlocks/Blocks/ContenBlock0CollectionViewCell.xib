@@ -20,22 +20,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iSn-tB-U4n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PyI-To-uWP">
-                                <rect key="frame" x="8" y="8" width="398" height="34"/>
-                                <string key="text">aöb ökwrfwö  öhw   ö  wh wg wöBG JRBAGAJER EAGÖ AR GRAG AG SEBGLAG ELAB GAREÖGA ER Ö\n\n \n\n \n\n \n\n aöb ökwrfwö  öhw   ö  wh wg wöBG JRBAGAJER EAGÖ AR GRAG AG SEBGLAG ELAB GAREÖGA ER Ö</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="PyI-To-uWP" secondAttribute="trailing" constant="8" id="Gzf-AJ-fDV"/>
-                            <constraint firstItem="PyI-To-uWP" firstAttribute="leading" secondItem="iSn-tB-U4n" secondAttribute="leading" constant="8" id="fv7-14-IET"/>
-                            <constraint firstAttribute="bottom" secondItem="PyI-To-uWP" secondAttribute="bottom" constant="8" id="fyr-MJ-hCo"/>
-                            <constraint firstAttribute="width" constant="414" id="pgX-X3-BxM"/>
-                            <constraint firstItem="PyI-To-uWP" firstAttribute="top" secondItem="iSn-tB-U4n" secondAttribute="top" constant="8" id="xHI-WI-BCL"/>
-                        </constraints>
                     </view>
                 </subviews>
             </view>
@@ -48,8 +33,6 @@
             </constraints>
             <connections>
                 <outlet property="contentCellView" destination="iSn-tB-U4n" id="evy-2E-kny"/>
-                <outlet property="contentViewWidth" destination="pgX-X3-BxM" id="any-Xu-YCk"/>
-                <outlet property="label" destination="PyI-To-uWP" id="9qR-IK-Sos"/>
             </connections>
         </collectionViewCell>
     </objects>

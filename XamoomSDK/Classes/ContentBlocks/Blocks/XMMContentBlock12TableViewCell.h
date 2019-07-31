@@ -15,9 +15,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XMMContentBlock12TableViewCell : UITableViewCell<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-  @property (weak, nonatomic) IBOutlet UIView *containerView;
   @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-  @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHEoght;
+  @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeight;
   @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
   @property (nonatomic, strong) UITableView *tv;
   @end
