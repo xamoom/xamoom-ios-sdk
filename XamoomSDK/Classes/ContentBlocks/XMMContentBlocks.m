@@ -119,6 +119,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   nib = [UINib nibWithNibName:@"XMMContentBlock11TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock11TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock12TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock12TableViewCell"];
 }
 
 - (void)displayContent:(XMMContent *)content {
@@ -128,6 +131,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
 - (void)displayContent:(XMMContent *)content addHeader:(Boolean)addHeader {
   if (addHeader) {
     self.items = [self addContentHeader:content];
+    XMMContentBlock *gallery = [XMMContentBlock new];
+    gallery.blockType = 12;
+    [self.items addObject:gallery];
   } else {
     self.items = [content.contentBlocks mutableCopy];
     XMMContentBlock *block = (XMMContentBlock *) self.items[0];
@@ -142,6 +148,10 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   if (!self.showAllBlocksWhenOffline && self.offline) {
     self.items = [self removeNonOfflineBlocks:self.items];
   }
+  
+  XMMContentBlock *gallery = [XMMContentBlock new];
+  gallery.blockType = 12;
+  [self.items addObject:gallery];
   
   dispatch_async(dispatch_get_main_queue(), ^{
     [self.tableView reloadData];
