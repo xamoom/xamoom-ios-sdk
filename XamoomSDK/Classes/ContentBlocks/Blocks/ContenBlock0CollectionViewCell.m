@@ -19,18 +19,7 @@
     self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.contentView.translatesAutoresizingMaskIntoConstraints = YES;
     
-    _testLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _testLabel.numberOfLines = 0;
-    _testLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     
-    [self.contentView addSubview:_testLabel];
-    _testLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [[_testLabel.topAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.topAnchor constant:0] setActive: YES];
-    [[_testLabel.leadingAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.leadingAnchor constant:0] setActive: YES];
-    [[_testLabel.trailingAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.trailingAnchor constant:0] setActive: YES];
-    [[_testLabel.bottomAnchor constraintEqualToAnchor:self.contentView.layoutMarginsGuide.bottomAnchor constant:0] setActive: YES];
-    [_testLabel setBackgroundColor:[UIColor greenColor]];
   }
 
   - (void)prepareForReuse {
