@@ -283,7 +283,9 @@ static int kPageSize = 100;
   MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"whatever"];
   
   if (!annotationImage){
-    UIImage *image = [UIImage imageNamed:@"info"];
+    UIImage *image = [UIImage imageNamed:@"default_marker"];
+    image = [self resizeImage:image width:23];
+
     if (self.customMapMarker != nil) {
       image = self.customMapMarker;
     }
