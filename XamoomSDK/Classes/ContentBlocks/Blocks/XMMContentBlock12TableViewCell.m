@@ -10,7 +10,6 @@
 #import "XMMContentBlock0TableViewCell.h"
 
 @interface XMMContentBlock12TableViewCell()
-@property (nonatomic, strong) NSArray *strings;
 @property (nonatomic, strong) NSMutableArray *contentBlocks;
 @property (nonatomic, strong) NSString *contentID;
 @property (nonatomic, assign) int position;
@@ -23,8 +22,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-  
-  _strings = @[@"aöb ökwrfwö  öhw   ö  wh wg wöBG JRBAGAJER EAGÖ AR GRAG AG SEBGLAG ELAB GAREÖGA ER Ö aöb ökwrfwö  öhw   ö  wh wg wöBG JRBAGAJER EAGÖ AR GRAG AG SEBGLAG ELAB GAREÖGA ER 1 aelbg lb lrgb reb bbg öö bö börebgaletslbl geltebhlte", @"aöb ökwrfwö  öhw   ö  wh wg wöBG  EAGÖ AR GRAG AG SEBGLAG ELAB GAREÖGA ER Ö aöb ökwrfwö  öhw   ö  wh wg wöBG JRBAGAJER EAGÖ AR GRAG AG SEBGLAG ELAB GAREÖGA ER 4"];
   
   UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
   swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
@@ -140,10 +137,11 @@
 }
 
 - (IBAction)swipeLeft:(UISwipeGestureRecognizer*)recognizer {
-  _position = _position + 1;
-  if (_position >= self.contentBlocks.count) {
+  if (_position == self.contentBlocks.count - 1) {
     return;
   }
+  
+  _position = _position + 1;
  
   for (UIView *subView in [self.containerView subviews]) {
     if ([subView isKindOfClass:[XMMContentBlock1TableViewCell class]]) {
@@ -166,10 +164,11 @@
 }
 
 - (IBAction)swipeRight:(UISwipeGestureRecognizer*)recognizer {
-  _position = _position - 1;
-  if (_position < 0) {
+  if (_position == 0) {
     return;
   }
+  
+  _position = _position - 1;
   
   for (UIView *subView in [self.containerView subviews]) {
     if ([subView isKindOfClass:[XMMContentBlock1TableViewCell class]]) {
@@ -193,6 +192,7 @@
 
 - (void)downloadContentBlock:(XMMEnduserApi *)api {
   
+  [self.contentBlocks removeAllObjects];
  [api contentWithID:self.contentID options:XMMContentOptionsPreview reason:XMMContentReasonLinkedContent password:nil completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
    if (error && !content) {
      return;
@@ -281,17 +281,33 @@
   
   XMMContentBlock *block = (XMMContentBlock *) self.contentBlocks[_position];
 
-  if (block.title != nil && ![block.title isEqualToString:@""]) {
-    cell.titleLabel.text = block.title;
-    cell.horizontalSpacingImageTitleConstraint.constant = 8;
+  BOOL hasBottomSpace = NO;
+  
+  if (block.title != nil) {
+    if ([block.title isEqualToString:@""]) {
+      [cell.titleLabel setHidden:YES];
+      cell.horizontalSpacingImageTitleConstraint.constant = 0;
+    } else {
+      cell.titleLabel.text = block.title;
+      cell.horizontalSpacingImageTitleConstraint.constant = 8;
+      hasBottomSpace = YES;
+    }
   } else {
+    [cell.titleLabel setHidden:YES];
     cell.horizontalSpacingImageTitleConstraint.constant = 0;
   }
   
-  if (block.copyright != nil || ![block.copyright isEqualToString:@""]) {
-    cell.copyrightLabel.text = block.copyright;
+  [cell.copyrightLabel setHidden:NO];
+
+  if (block.copyright != nil) {
+    if ([block.copyright isEqualToString:@""]) {
+      [cell.copyrightLabel setHidden:YES];
+    } else {
+      cell.copyrightLabel.text = block.copyright;
+      hasBottomSpace = YES;
+    }
   } else {
-    cell.copyrightLabel.text = @"";
+    [cell.copyrightLabel setHidden:YES];
   }
   
   if (block.altText != nil && ![block.altText isEqualToString:@""]){
@@ -304,7 +320,12 @@
     [self calculateImageScaling:block.scaleX blockCell:cell];
   }
   
-  cell.frame = CGRectMake(0, 0, imageWidth, imageHeight + 40);
+  double cellHeight = imageHeight;
+  if (hasBottomSpace) {
+    cellHeight = cellHeight + 40;
+  }
+  
+  cell.frame = CGRectMake(0, 0, imageWidth, cellHeight);
   _containerHeight.constant = CGRectGetMaxY(cell.frame);
   [self.containerView addSubview:cell];
   _curentSubview = cell;
