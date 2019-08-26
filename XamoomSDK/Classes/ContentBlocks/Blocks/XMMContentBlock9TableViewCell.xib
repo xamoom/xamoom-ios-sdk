@@ -37,7 +37,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsScrolling" value="YES"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsZooming" value="YES"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="NO"/>
                             <userDefinedRuntimeAttribute type="number" keyPath="maximumZoomLevel">
                                 <real key="value" value="5"/>
                             </userDefinedRuntimeAttribute>

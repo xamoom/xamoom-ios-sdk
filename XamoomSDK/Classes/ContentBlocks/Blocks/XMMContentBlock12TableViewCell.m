@@ -144,13 +144,6 @@
   _position = _position + 1;
  
   for (UIView *subView in [self.containerView subviews]) {
-    if ([subView isKindOfClass:[XMMContentBlock1TableViewCell class]]) {
-      XMMContentBlock1TableViewCell *c = (XMMContentBlock1TableViewCell *)subView;
-      
-      if (c.playing) {
-        [c.audioControlButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-      }
-    }
     
     if ([subView isKindOfClass:[XMMContentBlock2TableViewCell class]]) {
       XMMContentBlock2TableViewCell *c = (XMMContentBlock2TableViewCell *)subView;
@@ -171,13 +164,6 @@
   _position = _position - 1;
   
   for (UIView *subView in [self.containerView subviews]) {
-    if ([subView isKindOfClass:[XMMContentBlock1TableViewCell class]]) {
-      XMMContentBlock1TableViewCell *c = (XMMContentBlock1TableViewCell *)subView;
-      
-      if (c.playing) {
-        [c.audioControlButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-      }
-    }
     
     if ([subView isKindOfClass:[XMMContentBlock2TableViewCell class]]) {
       XMMContentBlock2TableViewCell *c = (XMMContentBlock2TableViewCell *)subView;

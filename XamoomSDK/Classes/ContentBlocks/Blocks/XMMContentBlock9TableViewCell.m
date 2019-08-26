@@ -284,7 +284,7 @@ static int kPageSize = 100;
   
   if (!annotationImage){
     UIImage *image = [UIImage imageNamed:@"default_marker"];
-    image = [self resizeImage:image width:23];
+    image = [self resizeImage:image width:20];
 
     if (self.customMapMarker != nil) {
       image = self.customMapMarker;
