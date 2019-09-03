@@ -145,16 +145,6 @@ static int kPageSize = 100;
       XMMAnnotation *anno = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude + 0.00003, spot.longitude)];
       anno.spot = spot;
       
-      //calculate
-      
-      CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:spot.latitude longitude:spot.longitude];
-      CLLocationDistance distance = [self.locationManager.location distanceFromLocation:annotationLocation];
-      if (distance < 1000) {
-        anno.distance = [NSString stringWithFormat:@"%@: %d m", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), (int)distance];
-      } else {
-        anno.distance = [NSString stringWithFormat:@"%@: %0.1f km", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), distance/1000];
-      }
-      
       [annotations addObject:anno];
     }
     
@@ -200,7 +190,8 @@ static int kPageSize = 100;
 
 - (void)setupMapOverlayView {
   self.mapAdditionView = [[self.bundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
-  
+  [self.contentView addSubview:self.mapAdditionView];
+
   self.mapAdditionView.translatesAutoresizingMaskIntoConstraints = NO;
   [self.contentView addSubview:self.mapAdditionView];
   
@@ -208,7 +199,7 @@ static int kPageSize = 100;
    [NSLayoutConstraint constraintWithItem:self.mapAdditionView
                                 attribute:NSLayoutAttributeLeading
                                 relatedBy:NSLayoutRelationEqual
-                                   toItem:self.contentView
+                                   toItem:self.mapView
                                 attribute:NSLayoutAttributeLeading
                                multiplier:1
                                  constant:0]];
@@ -237,7 +228,7 @@ static int kPageSize = 100;
                                                                          toItem:nil
                                                                       attribute:NSLayoutAttributeNotAnAttribute
                                                                      multiplier:1
-                                                                       constant:self.mapView.bounds.size.height/2];
+                                                                       constant:([UIScreen mainScreen].bounds.size.width - 8 * 2) / 2];
   
   [self.mapAdditionView addConstraint:self.mapAdditionViewHeightConstraint];
   [self.mapAdditionView setHidden:YES];

@@ -19,7 +19,6 @@
 @interface XMMAnnotation : NSObject<MGLAnnotation>
 
 @property XMMSpot *spot;
-@property NSString *distance;
 
 - (instancetype)initWithLocation:(CLLocationCoordinate2D)coord NS_DESIGNATED_INITIALIZER;
 

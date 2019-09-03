@@ -12,6 +12,7 @@
 "SaveImage" = "Afbeelding opslaan?";
 "Open" = "Openen";
 "Load more"="Meer laden";
+"Route" = "Route";
 
 "webviewcontroller.back" = "Terug";
 "contentblock8.alert.error.title" = "Error";

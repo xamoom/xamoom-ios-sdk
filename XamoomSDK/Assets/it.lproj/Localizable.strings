@@ -12,6 +12,7 @@
 "SaveImage" = "Salva in Foto?";
 "Open" = "Apri";
 "Load more"="Carica di più";
+"Route" = "Route";
 
 "webviewcontroller.back" = "Indietro";
 "contentblock8.alert.error.title" = "Error";
