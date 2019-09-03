@@ -15,6 +15,7 @@
 @property (nonatomic) bool showContent;
 @property (nonatomic) bool didLoadStyle;
 @property (nonatomic, strong) NSMutableArray *spots;
+@property (nonatomic, strong) CLLocation *userLocation;
 @end
 
 @implementation XMMContentBlock9TableViewCell
@@ -39,6 +40,8 @@ static int kPageSize = 100;
   self.mapViewHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   [_mapView setMaximumZoomLevel:17.4];
   _mapView.delegate = self;
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocationWithNotification:) name:@"LocationUpdateNotification" object:nil];
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
@@ -71,25 +74,28 @@ static int kPageSize = 100;
 }
 
 - (void)getSpotMap:(XMMEnduserApi *)api spotMapTags:(NSArray *)spotMapTags {
-  NSArray *spots = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[spotMapTags componentsJoinedByString:@","]];
-  if (spots) {
-    
-    XMMSpot *spot = spots.firstObject;
+  NSArray *loadedSpots = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[spotMapTags componentsJoinedByString:@","]];
+  if (loadedSpots) {
+    [self.spots addObjectsFromArray:loadedSpots];
+    XMMSpot *spot = self.spots.firstObject;
     if (self.didLoadStyle == NO) {
-      [self getStyleWithId:spot.system.ID api:api spots: spots];
+      [self getStyleWithId:spot.system.ID api:api spots: self.spots];
     } else {
-      [self showSpotMap:spots];
+      [self showSpotMap:self.spots];
     }
     return;
   }
   
   self.spots = [[NSMutableArray alloc] init];
-  [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
-    if (self.didLoadStyle == NO && spots.count > 0) {
-      XMMSpot *spot = spots.firstObject;
-      [self getStyleWithId:spot.system.ID api:api spots:spots];
-    } else if (spots.count > 0) {
-      [self showSpotMap:spots];
+  [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *loadedSpots, bool hasMore, NSString *cursor, NSError *error) {
+    if (self.didLoadStyle == NO && loadedSpots.count > 0) {
+      [self.spots addObjectsFromArray:loadedSpots];
+      XMMSpot *spot = self.spots.firstObject;
+      [self getStyleWithId:spot.system.ID api:api spots:self.spots];
+    } else if (loadedSpots.count > 0) {
+      [self.spots addObjectsFromArray:loadedSpots];
+
+      [self showSpotMap:self.spots];
     }
   }];
 }
@@ -104,8 +110,6 @@ static int kPageSize = 100;
     if (error != nil) {
       completion(nil, false, nil, error);
     }
-    
-    [self.spots arrayByAddingObjectsFromArray:spots];
     
     if (hasMore) {
       [self downloadAllSpotsWithSpots:tags cursor:cursor api:api completion:completion];
@@ -300,4 +304,18 @@ static int kPageSize = 100;
   }
 }
 
+- (void)didUpdateLocationWithNotification:(NSNotification *)notification {
+  _userLocation = notification.userInfo[@"location"];
+}
+
+- (IBAction)centerUserButtonAction:(id)sender {
+  if (_userLocation != nil) {
+    CLLocationCoordinate2D userCoordinates = _userLocation.coordinate;
+    [self.mapView setCenterCoordinate:userCoordinates zoomLevel:16.0 animated:YES];
+  }
+}
+
+- (IBAction)centerSpotBoundsAction:(id)sender {
+  [self showSpotMap:self.spots];
+}
 @end
