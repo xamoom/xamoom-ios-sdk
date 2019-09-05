@@ -309,13 +309,54 @@ static int kPageSize = 100;
 }
 
 - (IBAction)centerUserButtonAction:(id)sender {
-  if (_userLocation != nil) {
-    CLLocationCoordinate2D userCoordinates = _userLocation.coordinate;
-    [self.mapView setCenterCoordinate:userCoordinates zoomLevel:16.0 animated:YES];
+  
+  BOOL isLocationGranted = ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways ||
+                            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse);
+  
+  if (![CLLocationManager locationServicesEnabled] || !isLocationGranted) {
+    // Show altert for settings
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"App Permission Denied" message:@"To re-enable, please go to Settings and turn on Location Service for this app." preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction: [UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+      [self openSettings];
+    }]];
+    [alert addAction: [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    UIViewController *parentViewController = [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentedViewController];
+    if (parentViewController != nil) {
+      [parentViewController presentViewController:alert animated:YES completion:nil];
+    }
+    return;
   }
+  
+  if (_userLocation == nil) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No User Location" message:@"Please check if location service is enabled" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction: [UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+      [self openSettings];
+    }]];
+    [alert addAction: [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    UIViewController *parentViewController = [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentedViewController];
+    if (parentViewController != nil) {
+      [parentViewController presentViewController:alert animated:YES completion:nil];
+    }
+    return;
+  }
+  
+  CLLocationCoordinate2D userCoordinates = _userLocation.coordinate;
+  [self.mapView setCenterCoordinate:userCoordinates zoomLevel:16.0 animated:YES];
 }
 
 - (IBAction)centerSpotBoundsAction:(id)sender {
   [self showSpotMap:self.spots];
+}
+
+- (void)openSettings {
+  NSURL *url = [[NSURL alloc] initWithString: UIApplicationOpenSettingsURLString];
+  if (url != nil) {
+    [[UIApplication sharedApplication] openURL:url];
+  }
 }
 @end
