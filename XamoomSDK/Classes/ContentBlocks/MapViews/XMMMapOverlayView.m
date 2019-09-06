@@ -51,11 +51,13 @@
   self.spotDescriptionLabel.text = annotation.spot.spotDescription;
   
   self.spotImageAspectConstraint.active = YES;
- /* if (annotation.spot.image == nil) {
-    self.spotImageAspectConstraint.active = NO;
-    self.spotImageWidthConstraint.constant = 0;
-    self.descriptionLabelTrailingConstraint.constant = 0;
-  } */
+  
+  [self.spotImageView setHidden:NO];
+
+  if (annotation.spot.image == nil) {
+    [self.spotImageView setHidden:YES];
+  }
+  
   self.descriptionLabelTrailingConstraint.constant = 0;
   [self needsUpdateConstraints];
 

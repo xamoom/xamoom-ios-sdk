@@ -24,7 +24,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="240" verticalHuggingPriority="240" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="fsm-YU-gpI">
                                 <rect key="frame" x="0.0" y="39" width="153" height="153"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="fsm-YU-gpI" secondAttribute="height" multiplier="1:1" id="7mp-3I-oV6"/>
+                                    <constraint firstAttribute="width" secondItem="fsm-YU-gpI" secondAttribute="height" multiplier="1:1" id="GbG-EH-A02"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="261" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="STW | Haltestelle und so" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3l-C9-bSd">
@@ -52,6 +52,9 @@
                                     <constraint firstAttribute="height" constant="30" id="wcL-IR-qBK"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="openAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="R6X-TS-OpO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HV8-kr-EW6">
                                 <rect key="frame" x="280.66666666666669" y="162" width="111.33333333333331" height="30"/>
@@ -59,6 +62,9 @@
                                     <constraint firstAttribute="height" constant="30" id="Cfl-3e-qPE"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="routeAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="9p6-Io-HZZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,7 +104,6 @@
                 <outlet property="openContentButton" destination="NtO-dh-1g3" id="Bls-kU-qj0"/>
                 <outlet property="routeButton" destination="HV8-kr-EW6" id="3Sz-hQ-Dh8"/>
                 <outlet property="spotDescriptionLabel" destination="uc8-VD-Ib0" id="Sh8-a5-A5I"/>
-                <outlet property="spotImageAspectConstraint" destination="7mp-3I-oV6" id="Fp4-4e-FbY"/>
                 <outlet property="spotImageView" destination="fsm-YU-gpI" id="9rC-bv-CHb"/>
                 <outlet property="spotTitleLabel" destination="i3l-C9-bSd" id="V3C-g6-1CL"/>
             </connections>
