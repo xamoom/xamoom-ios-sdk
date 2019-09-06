@@ -25,3 +25,10 @@
 "contentblock8.alert.cancel" = "Cancel";
 "contentblock8.alert.calendar.request.message" = "Do you want to add \"%@\" to \"%@\"?";
 "contentblock8.alert.calendar.success.message" = "Successfully added \"%@\" to \"%@\"";
+
+"contentblock9.no.location.title" = "Wir benötigen Ihren Standort";
+"contentblock9.no.location.message" = "Die Ortungsdienste sind deaktiviert. Bitte gehen Sie in die Einstellungen, um diese einzuschalten.";
+"contentblock9.no.permission.title" = "Wir benötigen die Standortberechtigung";
+"contentblock9.no.permission.message" = "Die Standorterlaubnis wurde verweigert. Bitte gehen Sie zu den Einstellungen, um diese für unsere App zu erlauben.";
+"contentblock9.alert.cancel" = "Abbrechen";
+"contentblock9.alert.settings" = "Einstellungen";

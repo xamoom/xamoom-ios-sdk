@@ -25,3 +25,10 @@
 "contentblock8.alert.cancel" = "Cancel";
 "contentblock8.alert.calendar.request.message" = "Do you want to add \"%@\" to \"%@\"?";
 "contentblock8.alert.calendar.success.message" = "Successfully added \"%@\" to \"%@\"";
+
+"contentblock9.no.location.title" = "Abbiamo bisogno della tua posizione";
+"contentblock9.no.location.message" = "I servizi di localizzazione sono disabilitati. Vai alle impostazioni per attivarle.";
+"contentblock9.no.permission.title" = "Abbiamo bisogno del permesso di localizzazione";
+"contentblock9.no.permission.message" = "Il permesso di localizzazione è stato negato. Vai alle impostazioni per consentire ciò per la nostra app.";
+"contentblock9.alert.cancel" = "Abortire";
+"contentblock9.alert.settings" = "Impostazioni";

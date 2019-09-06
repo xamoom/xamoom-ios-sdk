@@ -25,3 +25,10 @@
 "contentblock8.alert.cancel" = "Cancel";
 "contentblock8.alert.calendar.request.message" = "Do you want to add \"%@\" to \"%@\"?";
 "contentblock8.alert.calendar.success.message" = "Successfully added \"%@\" to \"%@\"";
+
+"contentblock9.no.location.title" = "We hebben uw locatie nodig";
+"contentblock9.no.location.message" = "De locatieservices zijn uitgeschakeld. Ga naar de instellingen om ze in te schakelen.";
+"contentblock9.no.permission.title" = "We hebben locatietoestemming nodig";
+"contentblock9.no.permission.message" = "De locatievergunning is geweigerd. Ga naar de instellingen om dit toe te staan voor onze app.";
+"contentblock9.alert.cancel" = "Afbreken";
+"contentblock9.alert.settings" = "Instellingen";
