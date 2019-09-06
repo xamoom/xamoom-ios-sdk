@@ -16,6 +16,7 @@
 @property (nonatomic) bool didLoadStyle;
 @property (nonatomic, strong) NSMutableArray *spots;
 @property (nonatomic, strong) CLLocation *userLocation;
+@property (nonatomic) bool isLocationGranted;
 @end
 
 @implementation XMMContentBlock9TableViewCell
@@ -42,6 +43,8 @@ static int kPageSize = 100;
   _mapView.delegate = self;
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocationWithNotification:) name:@"LocationUpdateNotification" object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateUserLocationButtonIcon:) name:UIApplicationWillEnterForegroundNotification object:nil];
+
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
@@ -98,6 +101,8 @@ static int kPageSize = 100;
       [self showSpotMap:self.spots];
     }
   }];
+  
+  [self didUpdateUserLocationButtonIcon:nil];
 }
 
 - (void)downloadAllSpotsWithSpots:(NSArray *)tags cursor:(NSString *)cursor api:(XMMEnduserApi *)api completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
@@ -270,7 +275,7 @@ static int kPageSize = 100;
   }
   
   [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(d, annotation.coordinate.longitude)
-                      zoomLevel:_mapView.maximumZoomLevel
+                      zoomLevel:16.0
                        animated:YES];
 }
 
@@ -306,24 +311,63 @@ static int kPageSize = 100;
 
 - (void)didUpdateLocationWithNotification:(NSNotification *)notification {
   _userLocation = notification.userInfo[@"location"];
+  
+  _mapView.showsUserLocation = NO;
+
+  if (_userLocation != nil) {
+    _mapView.showsUserLocation = YES;
+    [self didUpdateUserLocationButtonIcon:nil];
+  }
+}
+
+- (void)didUpdateUserLocationButtonIcon:(NSNotification *)notification {
+  _isLocationGranted = ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways ||
+                        [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse);
+  
+  UIColor *imageColor = [UIColor blackColor];
+  
+  _userLocation = _mapView.userLocation;
+  
+  if (!_isLocationGranted || _userLocation == nil) {
+    imageColor = [UIColor grayColor];
+  }
+  
+  UIImage *image = [UIImage imageNamed:@"ic_user_location"];
+  CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+  UIGraphicsBeginImageContext(rect.size);
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  CGContextClipToMask(context, rect, image.CGImage);
+  CGContextSetFillColorWithColor(context, [imageColor CGColor]);
+  CGContextFillRect(context, rect);
+  UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+  
+  [_centerUserLocationButton setImage:img forState:UIControlStateNormal];
 }
 
 - (IBAction)centerUserButtonAction:(id)sender {
+  [self closeMapAdditionView];
+
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *libBundle;
+  if (url != nil) {
+    libBundle = [NSBundle bundleWithURL:url];
+  } else {
+    libBundle = bundle;
+  }
   
-  BOOL isLocationGranted = ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways ||
-                            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse);
-  
-  if (![CLLocationManager locationServicesEnabled] || !isLocationGranted) {
+  if (![CLLocationManager locationServicesEnabled] || !_isLocationGranted) {
     // Show altert for settings
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"App Permission Denied" message:@"To re-enable, please go to Settings and turn on Location Service for this app." preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.no.permission.title", @"Localizable", libBundle, nil)  message:NSLocalizedStringFromTableInBundle(@"contentblock9.no.permission.message", @"Localizable", libBundle, nil)  preferredStyle:UIAlertControllerStyleAlert];
     
-    [alert addAction: [UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    [alert addAction: [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.alert.settings", @"Localizable", libBundle, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
       [self openSettings];
     }]];
-    [alert addAction: [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction: [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.alert.cancel", @"Localizable", libBundle, nil) style:UIAlertActionStyleCancel handler:nil]];
     
-    UIViewController *parentViewController = [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentedViewController];
+    UIViewController *parentViewController = self.window.rootViewController;
     if (parentViewController != nil) {
       [parentViewController presentViewController:alert animated:YES completion:nil];
     }
@@ -331,14 +375,14 @@ static int kPageSize = 100;
   }
   
   if (_userLocation == nil) {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No User Location" message:@"Please check if location service is enabled" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.no.location.title", @"Localizable", libBundle, nil)  message:NSLocalizedStringFromTableInBundle(@"contentblock9.no.location.message", @"Localizable", libBundle, nil)  preferredStyle:UIAlertControllerStyleAlert];
     
-    [alert addAction: [UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+    [alert addAction: [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.alert.settings", @"Localizable", libBundle, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
       [self openSettings];
     }]];
-    [alert addAction: [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction: [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.alert.cancel", @"Localizable", libBundle, nil) style:UIAlertActionStyleCancel handler:nil]];
     
-    UIViewController *parentViewController = [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentedViewController];
+    UIViewController *parentViewController = self.window.rootViewController;
     if (parentViewController != nil) {
       [parentViewController presentViewController:alert animated:YES completion:nil];
     }

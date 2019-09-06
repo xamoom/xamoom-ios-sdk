@@ -31,45 +31,53 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkc-db-5aY" customClass="MGLMapView">
                         <rect key="frame" x="8" y="39.666666666666657" width="282" height="282"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kay-ys-kZG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kay-ys-kZG">
                                 <rect key="frame" x="234" y="8" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="RKW-E4-GrB"/>
                                     <constraint firstAttribute="width" constant="40" id="dW3-7u-USy"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" title="Button" image="scan_filled"/>
+                                <state key="normal" image="ic_user_location"/>
                                 <connections>
                                     <action selector="centerUserButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7CB-CO-4Ik"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OmR-bB-azl">
-                                <rect key="frame" x="234" y="48" width="40" height="40"/>
+                                <rect key="frame" x="234" y="49" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Abv-cU-rh0"/>
                                     <constraint firstAttribute="width" constant="40" id="mCj-dU-axl"/>
                                 </constraints>
-                                <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                <state key="normal" image="pausebutton"/>
+                                <state key="normal" image="ic_spot_bounds"/>
                                 <connections>
                                     <action selector="centerSpotBoundsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sBh-lA-srP"/>
                                 </connections>
                             </button>
+                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="1LZ-tD-7WL">
+                                <rect key="frame" x="234" y="48.000000000000007" width="40" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="LDi-6V-UqU"/>
+                                    <constraint firstAttribute="height" constant="1" id="RtY-EG-Fwa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Kay-ys-kZG" secondAttribute="trailing" constant="8" id="7zp-Nu-mCY"/>
-                            <constraint firstItem="OmR-bB-azl" firstAttribute="top" secondItem="Kay-ys-kZG" secondAttribute="bottom" id="Aq3-Va-9cZ"/>
+                            <constraint firstItem="1LZ-tD-7WL" firstAttribute="top" secondItem="Kay-ys-kZG" secondAttribute="bottom" id="ByR-dc-Y5N"/>
                             <constraint firstAttribute="trailing" secondItem="OmR-bB-azl" secondAttribute="trailing" constant="8" id="MqI-Q7-b5f"/>
                             <constraint firstAttribute="width" secondItem="dkc-db-5aY" secondAttribute="height" multiplier="1:1" id="OOw-m9-fHE"/>
+                            <constraint firstItem="OmR-bB-azl" firstAttribute="top" secondItem="1LZ-tD-7WL" secondAttribute="bottom" id="aPl-C9-bo6"/>
+                            <constraint firstAttribute="trailing" secondItem="1LZ-tD-7WL" secondAttribute="trailing" constant="8" id="kUM-Kr-mpB"/>
                             <constraint firstItem="Kay-ys-kZG" firstAttribute="top" secondItem="dkc-db-5aY" secondAttribute="top" constant="8" id="siS-gY-CKI"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsScrolling" value="YES"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="allowsZooming" value="YES"/>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="NO"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="YES"/>
                             <userDefinedRuntimeAttribute type="number" keyPath="maximumZoomLevel">
                                 <real key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
@@ -96,7 +104,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="pausebutton" width="20" height="37"/>
-        <image name="scan_filled" width="38" height="30"/>
+        <image name="ic_spot_bounds" width="15" height="15"/>
+        <image name="ic_user_location" width="15" height="15"/>
     </resources>
 </document>
