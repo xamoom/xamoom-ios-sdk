@@ -119,6 +119,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   nib = [UINib nibWithNibName:@"XMMContentBlock11TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock11TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock12TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock12TableViewCell"];
 }
 
 - (void)displayContent:(XMMContent *)content {
@@ -142,6 +145,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   if (!self.showAllBlocksWhenOffline && self.offline) {
     self.items = [self removeNonOfflineBlocks:self.items];
   }
+
+  self.items = [self validContentBlockItems];
   
   dispatch_async(dispatch_get_main_queue(), ^{
     [self.tableView reloadData];
@@ -234,6 +239,30 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     NSString *contentID = [userInfo objectForKey:@"contentID"];
     [self.delegate didClickContentBlock:contentID];
   }
+}
+
+/**
+ * Checks if XMMContentBlock blockType has a XMMContentBlockTableViewCell class.
+ * @return Array of XMMContentBlock items with valid blockTypes.
+ */
+- (NSMutableArray *)validContentBlockItems {
+  NSUInteger index = 0;
+  NSMutableArray *newItems = [NSMutableArray new];
+  
+  for (XMMContentBlock *block in self.items) {
+    @try {
+      NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
+      id cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+      [newItems addObject:block];
+    }
+    @catch (NSException *exception) {
+      NSString *logException = [[NSString alloc] initWithFormat:@"Block Type %i not supported. ContentBlock at position %lu will not be shown", block.blockType, index];
+      NSLog(logException);
+    }
+    index++;
+  }
+  
+  return newItems;
 }
 
 #pragma mark - UITableViewDataSource

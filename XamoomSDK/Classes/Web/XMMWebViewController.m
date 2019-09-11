@@ -8,13 +8,21 @@
 #import "XMMWebViewController.h"
 
 @interface XMMWebViewController ()
-
+@property (nonatomic) NSBundle *bundle;
 @end
 
 @implementation XMMWebViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  if (url) {
+    self.bundle = [NSBundle bundleWithURL:url];
+  } else {
+    self.bundle = bundle;
+  }
   
   if (_navigationBarColor == nil) {
     _navigationBarColor = UIColor.whiteColor;
@@ -25,11 +33,7 @@
   [self.navigationController.navigationBar setShadowImage:nil];
   [self.navigationController.navigationBar setTranslucent: YES];
   
-  NSString* title = NSLocalizedString(@"webviewcontroller.back", @"");
-  if ([title isEqualToString:@"webviewcontroller.back"]) {
-    title = @"";
-  }
-  
+  NSString* title = NSLocalizedStringFromTableInBundle(@"webviewcontroller.back", @"Localizable", self.bundle, nil);
   self.navigationController.navigationBar.topItem.title = title;
 
   UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];

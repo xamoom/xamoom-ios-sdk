@@ -39,27 +39,26 @@
   } else {
     libBundle = bundle;
   }
-  
+    
   [self.openContentButton setTitle:NSLocalizedStringFromTableInBundle(@"Open", @"Localizable", libBundle, nil) forState:UIControlStateNormal];
-  
+  [self.routeButton setTitle:NSLocalizedStringFromTableInBundle(@"Route", @"Localizable", libBundle, nil) forState:UIControlStateNormal];
+
   self.contentID = annotation.spot.content.ID;
   self.locationCoordinate = CLLocationCoordinate2DMake(annotation.spot.latitude, annotation.spot.longitude) ;
   
   self.spotTitleLabel.text = annotation.spot.name;
   
   self.spotDescriptionLabel.text = annotation.spot.spotDescription;
-  [self.spotDistanceLabel sizeToFit];
-  
-  self.spotDistanceLabel.text = annotation.distance;
   
   self.spotImageAspectConstraint.active = YES;
-  self.spotImageWidthConstraint.constant = 153;
-  self.descriptionLabelTrailingConstraint.constant = 153 + 16;
+  
+  [self.spotImageView setHidden:NO];
+
   if (annotation.spot.image == nil) {
-    self.spotImageAspectConstraint.active = NO;
-    self.spotImageWidthConstraint.constant = 0;
-    self.descriptionLabelTrailingConstraint.constant = 0;
+    [self.spotImageView setHidden:YES];
   }
+  
+  self.descriptionLabelTrailingConstraint.constant = 0;
   [self needsUpdateConstraints];
 
   [self.spotImageView sd_setImageWithURL:[NSURL URLWithString:annotation.spot.image] completed:nil];

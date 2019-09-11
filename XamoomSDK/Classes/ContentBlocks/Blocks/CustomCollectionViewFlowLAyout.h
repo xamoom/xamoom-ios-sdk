@@ -1,6 +1,6 @@
 //
-//  Test.h
-//  XamoomSDK
+//  CustomCollectionViewFlowLAyout.h
+//  Pods
 //
 //  Created by Thomas Krainz-Mischitz on 31.07.19.
 //
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Test : UICollectionViewFlowLayout
+@interface CustomCollectionViewFlowLAyout : UICollectionViewFlowLayout
 
 @end
 

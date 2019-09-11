@@ -14,7 +14,6 @@
 @interface XMMMapOverlayView : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *spotTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *spotDistanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *spotDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *spotImageView;
 @property (weak, nonatomic) IBOutlet UIButton *openContentButton;

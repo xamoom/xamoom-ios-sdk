@@ -24,6 +24,8 @@
 @interface XMMContentBlock9TableViewCell : UITableViewCell<MGLMapViewDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet MGLMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *centerUserLocationButton;
+@property (weak, nonatomic) IBOutlet UIButton *centerSpotBoundsButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mapViewHeightConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;

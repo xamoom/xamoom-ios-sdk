@@ -15,6 +15,8 @@
 @property (nonatomic) bool showContent;
 @property (nonatomic) bool didLoadStyle;
 @property (nonatomic, strong) NSMutableArray *spots;
+@property (nonatomic, strong) CLLocation *userLocation;
+@property (nonatomic) bool isLocationGranted;
 @end
 
 @implementation XMMContentBlock9TableViewCell
@@ -39,6 +41,10 @@ static int kPageSize = 100;
   self.mapViewHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   [_mapView setMaximumZoomLevel:17.4];
   _mapView.delegate = self;
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocationWithNotification:) name:@"LocationUpdateNotification" object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateUserLocationButtonIcon:) name:UIApplicationWillEnterForegroundNotification object:nil];
+
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
@@ -71,27 +77,32 @@ static int kPageSize = 100;
 }
 
 - (void)getSpotMap:(XMMEnduserApi *)api spotMapTags:(NSArray *)spotMapTags {
-  NSArray *spots = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[spotMapTags componentsJoinedByString:@","]];
-  if (spots) {
-    
-    XMMSpot *spot = spots.firstObject;
+  NSArray *loadedSpots = [[XMMContentBlocksCache sharedInstance] cachedSpotMap:[spotMapTags componentsJoinedByString:@","]];
+  if (loadedSpots) {
+    [self.spots addObjectsFromArray:loadedSpots];
+    XMMSpot *spot = self.spots.firstObject;
     if (self.didLoadStyle == NO) {
-      [self getStyleWithId:spot.system.ID api:api spots: spots];
+      [self getStyleWithId:spot.system.ID api:api spots: self.spots];
     } else {
-      [self showSpotMap:spots];
+      [self showSpotMap:self.spots];
     }
     return;
   }
   
   self.spots = [[NSMutableArray alloc] init];
-  [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *spots, bool hasMore, NSString *cursor, NSError *error) {
-    if (self.didLoadStyle == NO && spots.count > 0) {
-      XMMSpot *spot = spots.firstObject;
-      [self getStyleWithId:spot.system.ID api:api spots:spots];
-    } else if (spots.count > 0) {
-      [self showSpotMap:spots];
+  [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *loadedSpots, bool hasMore, NSString *cursor, NSError *error) {
+    if (self.didLoadStyle == NO && loadedSpots.count > 0) {
+      [self.spots addObjectsFromArray:loadedSpots];
+      XMMSpot *spot = self.spots.firstObject;
+      [self getStyleWithId:spot.system.ID api:api spots:self.spots];
+    } else if (loadedSpots.count > 0) {
+      [self.spots addObjectsFromArray:loadedSpots];
+
+      [self showSpotMap:self.spots];
     }
   }];
+  
+  [self didUpdateUserLocationButtonIcon:nil];
 }
 
 - (void)downloadAllSpotsWithSpots:(NSArray *)tags cursor:(NSString *)cursor api:(XMMEnduserApi *)api completion:(void (^)(NSArray *spots, bool hasMore, NSString *cursor, NSError *error))completion {
@@ -104,8 +115,6 @@ static int kPageSize = 100;
     if (error != nil) {
       completion(nil, false, nil, error);
     }
-    
-    [self.spots arrayByAddingObjectsFromArray:spots];
     
     if (hasMore) {
       [self downloadAllSpotsWithSpots:tags cursor:cursor api:api completion:completion];
@@ -145,16 +154,6 @@ static int kPageSize = 100;
       XMMAnnotation *anno = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude + 0.00003, spot.longitude)];
       anno.spot = spot;
       
-      //calculate
-      
-      CLLocation *annotationLocation = [[CLLocation alloc] initWithLatitude:spot.latitude longitude:spot.longitude];
-      CLLocationDistance distance = [self.locationManager.location distanceFromLocation:annotationLocation];
-      if (distance < 1000) {
-        anno.distance = [NSString stringWithFormat:@"%@: %d m", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), (int)distance];
-      } else {
-        anno.distance = [NSString stringWithFormat:@"%@: %0.1f km", NSLocalizedStringFromTableInBundle(@"Distance", @"Localizable", self.bundle, nil), distance/1000];
-      }
-      
       [annotations addObject:anno];
     }
     
@@ -177,8 +176,22 @@ static int kPageSize = 100;
     self.customMapMarker = [UIImage imageWithData:imageData];
   }
   
-  self.customMapMarker = [UIImage imageWithImage:self.customMapMarker scaledToMaxWidth:30.0f maxHeight:30.0f];
+  self.customMapMarker = [self resizeImage:self.customMapMarker width:23];
 }
+  
+  - (UIImage*)resizeImage:(UIImage*)image width:(CGFloat)width {
+    CGSize size = image.size;
+    double imageRatio = size.width / size.height;
+    double newHeight = width / imageRatio;
+    CGSize newSize = CGSizeMake(width, newHeight);
+    CGRect rect = CGRectMake(0, 0, newSize.width, newSize.height);
+    
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 1.0);
+    [image drawInRect:rect];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+  }
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
   return YES;
@@ -186,7 +199,8 @@ static int kPageSize = 100;
 
 - (void)setupMapOverlayView {
   self.mapAdditionView = [[self.bundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
-  
+  [self.contentView addSubview:self.mapAdditionView];
+
   self.mapAdditionView.translatesAutoresizingMaskIntoConstraints = NO;
   [self.contentView addSubview:self.mapAdditionView];
   
@@ -194,7 +208,7 @@ static int kPageSize = 100;
    [NSLayoutConstraint constraintWithItem:self.mapAdditionView
                                 attribute:NSLayoutAttributeLeading
                                 relatedBy:NSLayoutRelationEqual
-                                   toItem:self.contentView
+                                   toItem:self.mapView
                                 attribute:NSLayoutAttributeLeading
                                multiplier:1
                                  constant:0]];
@@ -223,7 +237,7 @@ static int kPageSize = 100;
                                                                          toItem:nil
                                                                       attribute:NSLayoutAttributeNotAnAttribute
                                                                      multiplier:1
-                                                                       constant:self.mapView.bounds.size.height/2];
+                                                                       constant:([UIScreen mainScreen].bounds.size.width - 8 * 2) / 2];
   
   [self.mapAdditionView addConstraint:self.mapAdditionViewHeightConstraint];
   [self.mapAdditionView setHidden:YES];
@@ -261,39 +275,17 @@ static int kPageSize = 100;
   }
   
   [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(d, annotation.coordinate.longitude)
-                      zoomLevel:_mapView.maximumZoomLevel
+                      zoomLevel:16.0
                        animated:YES];
-}
-
-- (MGLAnnotationView *)mapView:(MGLMapView *)mapView viewForAnnotation:(id<MGLAnnotation>)annotation {
-  if ([annotation isKindOfClass:[MKUserLocation class]]) {
-    return nil;
-  }
-  
-  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
-    static NSString *identifier = @"xamoomAnnotation";
-    MGLAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-    
-    if (annotationView == nil) {
-      annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-      annotationView.bounds = CGRectMake(0, 0, 30, 30);
-      annotationView.annotation = annotation;
-      annotationView.enabled = YES;
-      //set mapmarker
-    } else {
-      annotationView.annotation = annotation;
-    }
-    return annotationView;
-  }
-  
-  return nil;
 }
 
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation {
   MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"whatever"];
   
   if (!annotationImage){
-    UIImage *image = [UIImage imageNamed:@"info"];
+    UIImage *image = [UIImage imageNamed:@"default_marker"];
+    image = [self resizeImage:image width:20];
+
     if (self.customMapMarker != nil) {
       image = self.customMapMarker;
     }
@@ -307,8 +299,6 @@ static int kPageSize = 100;
 - (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
   if ([annotation isKindOfClass:[XMMAnnotation class]]) {
     [self zoomToAnnotationWithAdditionView:annotation];
-    self.mapAdditionViewBottomConstraint.constant = self.mapView.bounds.size.height/2 + 10;
-    self.mapAdditionViewHeightConstraint.constant = self.mapView.bounds.size.height/2;
     [self openMapAdditionView:annotation];
   }
 }
@@ -319,4 +309,98 @@ static int kPageSize = 100;
   }
 }
 
+- (void)didUpdateLocationWithNotification:(NSNotification *)notification {
+  _userLocation = notification.userInfo[@"location"];
+  
+  _mapView.showsUserLocation = NO;
+
+  if (_userLocation != nil) {
+    _mapView.showsUserLocation = YES;
+    [self didUpdateUserLocationButtonIcon:nil];
+  }
+}
+
+- (void)didUpdateUserLocationButtonIcon:(NSNotification *)notification {
+  _isLocationGranted = ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedAlways ||
+                        [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse);
+  
+  UIColor *imageColor = [UIColor blackColor];
+  
+  _userLocation = _mapView.userLocation;
+  
+  if (!_isLocationGranted || _userLocation == nil) {
+    imageColor = [UIColor grayColor];
+  }
+  
+  UIImage *image = [UIImage imageNamed:@"ic_user_location"];
+  CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+  UIGraphicsBeginImageContext(rect.size);
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  CGContextClipToMask(context, rect, image.CGImage);
+  CGContextSetFillColorWithColor(context, [imageColor CGColor]);
+  CGContextFillRect(context, rect);
+  UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+  
+  [_centerUserLocationButton setImage:img forState:UIControlStateNormal];
+}
+
+- (IBAction)centerUserButtonAction:(id)sender {
+  [self closeMapAdditionView];
+
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  NSBundle *libBundle;
+  if (url != nil) {
+    libBundle = [NSBundle bundleWithURL:url];
+  } else {
+    libBundle = bundle;
+  }
+  
+  if (![CLLocationManager locationServicesEnabled] || !_isLocationGranted) {
+    // Show altert for settings
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.no.permission.title", @"Localizable", libBundle, nil)  message:NSLocalizedStringFromTableInBundle(@"contentblock9.no.permission.message", @"Localizable", libBundle, nil)  preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction: [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.alert.settings", @"Localizable", libBundle, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+      [self openSettings];
+    }]];
+    [alert addAction: [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.alert.cancel", @"Localizable", libBundle, nil) style:UIAlertActionStyleCancel handler:nil]];
+    
+    UIViewController *parentViewController = self.window.rootViewController;
+    if (parentViewController != nil) {
+      [parentViewController presentViewController:alert animated:YES completion:nil];
+    }
+    return;
+  }
+  
+  if (_userLocation == nil) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.no.location.title", @"Localizable", libBundle, nil)  message:NSLocalizedStringFromTableInBundle(@"contentblock9.no.location.message", @"Localizable", libBundle, nil)  preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction: [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.alert.settings", @"Localizable", libBundle, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+      [self openSettings];
+    }]];
+    [alert addAction: [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock9.alert.cancel", @"Localizable", libBundle, nil) style:UIAlertActionStyleCancel handler:nil]];
+    
+    UIViewController *parentViewController = self.window.rootViewController;
+    if (parentViewController != nil) {
+      [parentViewController presentViewController:alert animated:YES completion:nil];
+    }
+    return;
+  }
+  
+  CLLocationCoordinate2D userCoordinates = _userLocation.coordinate;
+  [self.mapView setCenterCoordinate:userCoordinates zoomLevel:16.0 animated:YES];
+}
+
+- (IBAction)centerSpotBoundsAction:(id)sender {
+  [self showSpotMap:self.spots];
+}
+
+- (void)openSettings {
+  NSURL *url = [[NSURL alloc] initWithString: UIApplicationOpenSettingsURLString];
+  if (url != nil) {
+    [[UIApplication sharedApplication] openURL:url];
+  }
+}
 @end

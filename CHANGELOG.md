@@ -1,4 +1,12 @@
 # Changelog
+## [3.11.12](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.11...3.11.12) - 11.09.2019
+- New Spot Map UI in ContentBlock 9
+- Improve Beacon scan logic (number of request)
+
+## [3.11.11](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.8...3.11.11) - 26.08.2019
+- Add ContentBlock Gallery
+- Default marker when none is set
+
 ## [3.11.7](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.6...3.11.7) - 22.07.2019
 - Add functonalitty for download type 2 (.gpx)
 - Improvements for XMMContentBlock8 (saving vCard and ics)

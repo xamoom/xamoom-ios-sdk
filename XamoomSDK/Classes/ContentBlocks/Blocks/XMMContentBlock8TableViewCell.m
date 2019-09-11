@@ -19,6 +19,7 @@
 @property (nonatomic) UIColor *currentContactTintColor;
 @property (nonatomic) UIColor *currentGpxColor;
 @property (nonatomic) UIColor *currentGpxTintColor;
+@property (nonatomic) NSBundle *bundle;
 @end
 
 @implementation XMMContentBlock8TableViewCell
@@ -30,20 +31,19 @@
   
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-  NSBundle *imageBundle = nil;
   if (url) {
-    imageBundle = [NSBundle bundleWithURL:url];
+    self.bundle = [NSBundle bundleWithURL:url];
   } else {
-    imageBundle = bundle;
+    self.bundle = bundle;
   }
   
   self.calendarImage = [[UIImage imageNamed:@"cal"
-                                  inBundle:imageBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                                  inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   self.contactImage = [[UIImage imageNamed:@"contact"
-                                 inBundle:imageBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                                 inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   
   self.gpxImage = [[UIImage imageNamed:@"gpx"
-                                  inBundle:imageBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                                  inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   
   _currentCalendarColor = [UIColor colorWithRed:0.23 green:0.35 blue:0.60 alpha:1.0];
   _currentCalendarTintColor = UIColor.whiteColor;
@@ -394,8 +394,7 @@
   }
   
   if (res.count > 0){
-  
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"contentblock8.alert.choose.calendar", nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.choose.calendar", @"Localizable", self.bundle, nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     for (EKCalendar *cal in res) {
       UIAlertAction *calAction = [UIAlertAction actionWithTitle: cal.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -407,7 +406,7 @@
       [alert addAction:calAction];
     }
     
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
       [alert dismissViewControllerAnimated:YES completion:nil];
     }];
     
@@ -475,13 +474,14 @@
 -(void)showErrorAlert {
   dispatch_async(dispatch_get_main_queue(), ^{
     
-    NSString *title = NSLocalizedString(@"contentblock8.alert.error.title", nil);
-    NSString *message = NSLocalizedString(@"contentblock8.alert.error.message", nil);
+    
+    NSString *title = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.error.title", @"Localizable", self.bundle, nil);
+    NSString *message = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.error.message", @"Localizable", self.bundle, nil);
   
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
                                                     message: message
                                                    delegate:self
-                                          cancelButtonTitle:@"OK"
+                                          cancelButtonTitle:NSLocalizedStringFromTableInBundle(@"OK", @"Localizable", self.bundle, nil)
                                           otherButtonTitles:nil];
     [alert show];
   });
@@ -496,13 +496,14 @@
 -(void)showAddCalenderSuccess:(EKCalendar *)calendar event:(EKEvent*)event {
   dispatch_async(dispatch_get_main_queue(), ^{
     
-    NSString *title = NSLocalizedString(@"contentblock8.alert.hint.title", nil);
-    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"contentblock8.alert.calendar.success.message", nil), event.title, calendar.title];
+    
+    NSString *title = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.hint.title", @"Localizable", self.bundle, nil);
+    NSString *message = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.calendar.success.message", @"Localizable", self.bundle, nil), event.title, calendar.title];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
                                                     message: message
                                                    delegate:self
-                                          cancelButtonTitle:@"OK"
+                                          cancelButtonTitle:NSLocalizedStringFromTableInBundle(@"OK", @"Localizable", self.bundle, nil)
                                           otherButtonTitles:nil];
     [alert show];
   });
@@ -514,17 +515,17 @@
  * @param contact The contact to save.
  */
 -(void)showContactRequestAlert:(CNMutableContact *)contact {
-  NSString *alertMessage = [NSString stringWithFormat:NSLocalizedString(@"contentblock8.alert.contact.request.message", nil), contact.givenName, contact.familyName];
+  
+  NSString *alertMessage = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.contact.request.message", @"Localizable", self.bundle, nil), contact.givenName, contact.familyName];
   
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:alertMessage message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-  
-  UIAlertAction *add = [UIAlertAction actionWithTitle: NSLocalizedString(@"contentblock8.alert.add", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+  UIAlertAction *add = [UIAlertAction actionWithTitle: NSLocalizedStringFromTableInBundle(@"contentblock8.alert.add", @"Localizable", self.bundle, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
     [self showAddContactSuccessAlert:contact];
   }];
   
   [alert addAction:add];
   
-  UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"contentblock8.alert.cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+  UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
     [alert dismissViewControllerAnimated:YES completion:nil];
   }];
   
@@ -539,13 +540,14 @@
  * @param contact The contact to save.
  */
 -(void)showAddContactSuccessAlert:(CNMutableContact *)contact {
-  NSString *alertMessage = [NSString stringWithFormat:NSLocalizedString(@"contentblock8.alert.contact.success.message", nil), contact.givenName, contact.familyName];
-  NSString *title = NSLocalizedString(@"contentblock8.alert.hint.title", nil);
+  
+  NSString *title = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.hint.title", @"Localizable", self.bundle, nil);
+  NSString *alertMessage = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.contact.success.message", @"Localizable", self.bundle, nil), contact.givenName, contact.familyName];
   
   UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
                                                   message: alertMessage
                                                  delegate:self
-                                        cancelButtonTitle:@"OK"
+                                        cancelButtonTitle:NSLocalizedStringFromTableInBundle(@"OK", @"Localizable", self.bundle, nil)
                                         otherButtonTitles:nil];
   [alert show];
 }
