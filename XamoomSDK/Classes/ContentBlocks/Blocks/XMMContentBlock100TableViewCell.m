@@ -9,6 +9,7 @@
 #import "XMMContentBlock100TableViewCell.h"
 
 @interface XMMContentBlock100TableViewCell()
+@property (nonatomic) NSString *locationTitle;
 @end
 
 @implementation XMMContentBlock100TableViewCell
@@ -38,6 +39,7 @@ static UIColor *contentLinkColor;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
+
   if (style.foregroundFontColor != nil) {
     self.titleLabel.textColor = [UIColor colorWithHexString:style.foregroundFontColor];
   }
@@ -46,8 +48,35 @@ static UIColor *contentLinkColor;
     [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
   }
   
+  [self displayEvent];
   [self displayTitle:block.title block:block];
   [self displayContent:block.text style:style];
+}
+
+- (void)displayEvent {
+  if (!self.relatedSpot) {
+    _eventLocationLabel.frame = CGRectZero;
+    _eventDateLabel.frame = CGRectZero;
+    _eventTimeImageView.frame = CGRectZero;
+    _eventLocationImageView.frame = CGRectZero;
+  } else {
+    UIColor *testTimeColor = [UIColor orangeColor];
+    UIColor *testLocationColor = [UIColor darkGrayColor];
+    
+    [_eventTimeImageView setImage:[self coloredImageWithColor:testTimeColor image:_eventTimeImageView.image]];
+    [_eventLocationImageView setImage:[self coloredImageWithColor:testLocationColor image:_eventLocationImageView.image]];
+    [_eventLocationLabel setTextColor:testLocationColor];
+    [_eventDateLabel setTextColor:testTimeColor];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *locale = [NSLocale currentLocale];
+    [dateFormatter setLocale:locale];
+    [dateFormatter setDateFormat:@"E d MMM HH:mm"];
+    NSString *eventDateString = [NSString stringWithFormat:@"%@ -\n%@", [dateFormatter stringFromDate:self.eventStartDate], [dateFormatter stringFromDate:self.eventEndDate]];
+    
+    [_eventLocationLabel setText:self.relatedSpot.name];
+    [_eventDateLabel setText:eventDateString];
+  }
 }
 
 - (void)displayTitle:(NSString *)title block:(XMMContentBlock *)block {
@@ -117,6 +146,19 @@ static UIColor *contentLinkColor;
                              range:NSMakeRange(0, attributedString.length)];
   }
   return attributedString;
+}
+
+- (UIImage*)coloredImageWithColor:(UIColor *)color image:(UIImage *)image {
+  CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+  UIGraphicsBeginImageContext(rect.size);
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  CGContextClipToMask(context, rect, image.CGImage);
+  CGContextSetFillColorWithColor(context, [color CGColor]);
+  CGContextFillRect(context, rect);
+  UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+  
+  return img;
 }
 
 @end

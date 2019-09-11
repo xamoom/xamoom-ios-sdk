@@ -10,6 +10,7 @@
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
+#import "XMMSpot.h"
 
 /**
  * XMMContentBlock0TableViewCell is used to display text contentBlocks from the xamoom cloud.
@@ -19,6 +20,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTopConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *eventDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventLocationLabel;
+@property (strong, nonatomic) XMMSpot *relatedSpot;
+@property (strong, nonatomic) NSDate *eventStartDate;
+@property (strong, nonatomic) NSDate *eventEndDate;
+@property (weak, nonatomic) IBOutlet UIImageView *eventTimeImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *eventLocationImageView;
 
 + (int)fontSize;
 + (void)setFontSize:(int)fontSize;
