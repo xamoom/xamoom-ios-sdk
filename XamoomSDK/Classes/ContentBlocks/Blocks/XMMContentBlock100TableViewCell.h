@@ -27,6 +27,7 @@
 @property (strong, nonatomic) NSDate *eventEndDate;
 @property (weak, nonatomic) IBOutlet UIImageView *eventTimeImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *eventLocationImageView;
+@property (weak, nonatomic) NSNumber *navigationType;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *timeImageViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *locationImageViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *locationLabelHeightConstraint;

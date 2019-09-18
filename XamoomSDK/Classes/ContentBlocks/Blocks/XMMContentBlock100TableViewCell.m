@@ -7,9 +7,12 @@
 
 
 #import "XMMContentBlock100TableViewCell.h"
+#import "XMMAnnotation.h"
+#import <EventKit/EventKit.h>
 
 @interface XMMContentBlock100TableViewCell()
 @property (nonatomic) NSString *locationTitle;
+@property (nonatomic) NSBundle *bundle;
 @end
 
 @implementation XMMContentBlock100TableViewCell
@@ -21,6 +24,15 @@ static UIColor *contentLinkColor;
   // Initialization code
   self.titleLabel.text = @"";
   self.contentTextView.text = @"";
+  
+  NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  if (url) {
+    self.bundle = [NSBundle bundleWithURL:url];
+  } else {
+    self.bundle = bundle;
+  }
+  
   [super awakeFromNib];
 }
 
@@ -84,6 +96,13 @@ static UIColor *contentLinkColor;
                                                                    constrainedToSize: CGSizeMake(self.eventDateLabel.frame.size.width, FLT_MAX)
                                                                        lineBreakMode:self.eventDateLabel.lineBreakMode].height;
     
+    _eventLocationLabel.userInteractionEnabled = YES;
+    _eventDateLabel.userInteractionEnabled = YES;
+    UITapGestureRecognizer *navigationAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navigateToEvent)];
+    [_eventLocationLabel addGestureRecognizer:navigationAction];
+    
+    UITapGestureRecognizer *calendarAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveEventInCalendar)];
+    [_eventDateLabel addGestureRecognizer:calendarAction];
   }
 }
 
@@ -170,6 +189,128 @@ static UIColor *contentLinkColor;
   UIGraphicsEndImageContext();
   
   return img;
+}
+
+- (void)navigateToEvent {
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(self.relatedSpot.latitude, self.relatedSpot.longitude);
+  MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate addressDictionary:nil];
+  MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+  
+  NSString *directionMode = MKLaunchOptionsDirectionsModeDriving;
+  
+  switch ([self.navigationType intValue]) {
+    case 0:
+      directionMode = MKLaunchOptionsDirectionsModeWalking;
+      break;
+    case 1:
+      directionMode = MKLaunchOptionsDirectionsModeDriving;
+      break;
+    case 2:
+      directionMode = MKLaunchOptionsDirectionsModeTransit;
+      break;
+    default:
+      directionMode = MKLaunchOptionsDirectionsModeDriving;
+      break;
+  }
+  
+  NSDictionary *launchOptions = @{MKLaunchOptionsDirectionsModeKey : directionMode};
+  [mapItem setName: self.relatedSpot.name];
+  [mapItem openInMapsWithLaunchOptions:launchOptions];
+}
+
+- (void)saveEventInCalendar {
+  EKEventStore *store = [EKEventStore new];
+  [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+    if (granted) {
+      NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+      [dateFormatter setDateFormat:@"yyyyMMdd'T'HHmmss"];
+      EKEvent *newEvent = [EKEvent eventWithEventStore:store];
+      newEvent.startDate = self.eventStartDate;
+      newEvent.endDate = self.eventEndDate;
+      newEvent.title = self.relatedSpot.name;
+      if (newEvent != nil) {
+        [self saveEvent:newEvent withStore:store];
+      } else {
+        [self showErrorAlert];
+      }
+    }
+  }];
+}
+
+/**
+ * Save the given event. Shows an UIAlertController for choosing an calendar.
+ *
+ * @param event The given event to save.
+ * @param store The EKEventStore to save the event.
+ */
+-(void)saveEvent:(EKEvent *)event withStore:(EKEventStore*)store {
+  NSArray *calendars = [store calendarsForEntityType: EKEntityTypeEvent];
+  NSMutableArray *res =[[NSMutableArray alloc] init];
+  
+  for (EKCalendar *cal in calendars) {
+    if (cal.type == EKCalendarTypeCalDAV || cal.type == EKCalendarTypeLocal){
+      [res addObject: cal];
+    }
+  }
+  
+  if (res.count > 0){
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.choose.calendar", @"Localizable", self.bundle, nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    for (EKCalendar *cal in res) {
+      UIAlertAction *calAction = [UIAlertAction actionWithTitle: cal.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [event setCalendar:cal];
+        [store saveEvent:event span:EKSpanThisEvent error:nil];
+        [self showAddCalenderSuccess:cal event:event];
+      }];
+      
+      [alert addAction:calAction];
+    }
+    
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+      [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alert addAction:cancel];
+    
+    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+  }
+}
+
+/**
+ * Shows a UIAlertView to notify the user that the event was added successfully.
+ *
+ * @param calendar The calendar which was used to save the event.
+ * @param event The saved event.
+ */
+-(void)showAddCalenderSuccess:(EKCalendar *)calendar event:(EKEvent*)event {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    NSString *title = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.hint.title", @"Localizable", self.bundle, nil);
+    NSString *message = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.calendar.success.message", @"Localizable", self.bundle, nil), event.title, calendar.title];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
+                                                    message: message
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedStringFromTableInBundle(@"OK", @"Localizable", self.bundle, nil)
+                                          otherButtonTitles:nil];
+    [alert show];
+  });
+}
+
+/// Shows a default error message.
+-(void)showErrorAlert {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    
+    
+    NSString *title = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.error.title", @"Localizable", self.bundle, nil);
+    NSString *message = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.error.message", @"Localizable", self.bundle, nil);
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
+                                                    message: message
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedStringFromTableInBundle(@"OK", @"Localizable", self.bundle, nil)
+                                          otherButtonTitles:nil];
+    [alert show];
+  });
 }
 
 @end

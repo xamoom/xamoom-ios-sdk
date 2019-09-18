@@ -300,6 +300,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     [(XMMContentBlock100TableViewCell *) cell setRelatedSpot: self.relatedSpot];
     [(XMMContentBlock100TableViewCell *) cell setEventStartDate:self.content.fromDate];
     [(XMMContentBlock100TableViewCell *) cell setEventEndDate:self.content.toDate];
+    [(XMMContentBlock100TableViewCell *) cell setNavigationType:self.navigationType];
   }
   
   if ([cell isKindOfClass:[XMMContentBlock9TableViewCell class]] && self.mapboxStyle != nil) {
