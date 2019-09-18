@@ -25,6 +25,7 @@
 @property (strong, nonatomic) XMMSpot *relatedSpot;
 @property (strong, nonatomic) NSDate *eventStartDate;
 @property (strong, nonatomic) NSDate *eventEndDate;
+@property (strong, nonatomic) NSString *chromeColor;
 @property (weak, nonatomic) IBOutlet UIImageView *eventTimeImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *eventLocationImageView;
 @property (weak, nonatomic) NSNumber *navigationType;

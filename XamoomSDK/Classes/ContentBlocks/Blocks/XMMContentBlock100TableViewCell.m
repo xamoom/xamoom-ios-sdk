@@ -72,13 +72,14 @@ static UIColor *contentLinkColor;
     _locationLabelHeightConstraint.constant = 0;
     _dateLabelHeightConstraint.constant = 0;
   } else {
-    UIColor *testTimeColor = [UIColor orangeColor];
     UIColor *testLocationColor = [UIColor darkGrayColor];
+    UIColor *locationColor = [UIColor colorWithHexString:self.chromeColor];
     
-    [_eventTimeImageView setImage:[self coloredImageWithColor:testTimeColor image:_eventTimeImageView.image]];
+    [_eventTimeImageView setImage:[self coloredImageWithColor:locationColor image:_eventTimeImageView.image]];
+    [_eventDateLabel setTextColor:locationColor];
+
     [_eventLocationImageView setImage:[self coloredImageWithColor:testLocationColor image:_eventLocationImageView.image]];
     [_eventLocationLabel setTextColor:testLocationColor];
-    [_eventDateLabel setTextColor:testTimeColor];
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSLocale *locale = [NSLocale currentLocale];

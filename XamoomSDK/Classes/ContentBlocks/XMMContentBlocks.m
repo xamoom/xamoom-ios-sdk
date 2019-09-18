@@ -69,10 +69,15 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
 }
 
 - (void)defaultStyle {
+  
+  if (self.chromeColor == nil || [self.chromeColor isEqualToString:@""]) {
+    self.chromeColor = @"#999999";
+  }
   _style = [[XMMStyle alloc] init];
   self.style.backgroundColor = @"#FFFFFF";
   self.style.highlightFontColor = @"#0000FF";
   self.style.foregroundFontColor = @"#000000";
+  self.style.chromeHeaderColor = self.chromeColor;
 }
 
 - (void)registerNibs {
@@ -301,6 +306,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     [(XMMContentBlock100TableViewCell *) cell setEventStartDate:self.content.fromDate];
     [(XMMContentBlock100TableViewCell *) cell setEventEndDate:self.content.toDate];
     [(XMMContentBlock100TableViewCell *) cell setNavigationType:self.navigationType];
+    if (self.chromeColor != nil) {
+      [(XMMContentBlock100TableViewCell *) cell setChromeColor:self.chromeColor];
+    }
   }
   
   if ([cell isKindOfClass:[XMMContentBlock9TableViewCell class]] && self.mapboxStyle != nil) {
