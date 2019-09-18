@@ -55,10 +55,10 @@ static UIColor *contentLinkColor;
 
 - (void)displayEvent {
   if (!self.relatedSpot) {
-    _eventLocationLabel.frame = CGRectZero;
-    _eventDateLabel.frame = CGRectZero;
-    _eventTimeImageView.frame = CGRectZero;
-    _eventLocationImageView.frame = CGRectZero;
+    _timeImageViewHeightConstraint.constant = 0;
+    _locationImageViewHeightConstraint.constant = 0;
+    _locationLabelHeightConstraint.constant = 0;
+    _dateLabelHeightConstraint.constant = 0;
   } else {
     UIColor *testTimeColor = [UIColor orangeColor];
     UIColor *testLocationColor = [UIColor darkGrayColor];
@@ -76,6 +76,14 @@ static UIColor *contentLinkColor;
     
     [_eventLocationLabel setText:self.relatedSpot.name];
     [_eventDateLabel setText:eventDateString];
+    
+    _locationLabelHeightConstraint.constant = [self.eventLocationLabel.text sizeWithFont:self.eventLocationLabel.font
+                                                                       constrainedToSize: CGSizeMake(self.eventLocationLabel.frame.size.width, FLT_MAX)
+                                                                       lineBreakMode:self.eventLocationLabel.lineBreakMode].height;
+    _dateLabelHeightConstraint.constant = [self.eventDateLabel.text sizeWithFont:self.eventDateLabel.font
+                                                                   constrainedToSize: CGSizeMake(self.eventDateLabel.frame.size.width, FLT_MAX)
+                                                                       lineBreakMode:self.eventDateLabel.lineBreakMode].height;
+    
   }
 }
 

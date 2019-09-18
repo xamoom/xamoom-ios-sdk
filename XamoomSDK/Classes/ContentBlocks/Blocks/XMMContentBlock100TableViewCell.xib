@@ -32,6 +32,9 @@
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P41-Ig-Xrp">
                         <rect key="frame" x="29" y="42.5" width="283" height="37.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37.5" id="XIp-Sh-Esq"/>
+                        </constraints>
                         <string key="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki.</string>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <nil key="textColor"/>
@@ -39,22 +42,25 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egX-U7-FST">
                         <rect key="frame" x="29" y="88" width="283" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="ORs-Xy-J5T"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal" translatesAutoresizingMaskIntoConstraints="NO" id="ZX4-yC-23B">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_time" translatesAutoresizingMaskIntoConstraints="NO" id="ZX4-yC-23B">
                         <rect key="frame" x="8" y="45.5" width="13" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="13" id="Hi4-9v-E0T"/>
                             <constraint firstAttribute="height" constant="13" id="q0i-3g-R5q"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal" translatesAutoresizingMaskIntoConstraints="NO" id="q0U-mV-QJr">
-                        <rect key="frame" x="8" y="91" width="13" height="13"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location" translatesAutoresizingMaskIntoConstraints="NO" id="q0U-mV-QJr">
+                        <rect key="frame" x="8" y="89" width="13" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="13" id="7gK-Bm-z0L"/>
-                            <constraint firstAttribute="height" constant="13" id="uJq-o4-BNM"/>
+                            <constraint firstAttribute="height" constant="18" id="uJq-o4-BNM"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -64,7 +70,7 @@
                     <constraint firstAttribute="trailing" secondItem="YCE-yb-Hto" secondAttribute="trailing" constant="8" id="6f3-mg-7Ju"/>
                     <constraint firstItem="egX-U7-FST" firstAttribute="leading" secondItem="q0U-mV-QJr" secondAttribute="trailing" constant="8" id="ATX-MA-Lrj"/>
                     <constraint firstItem="ZX4-yC-23B" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" constant="11" id="DC3-BL-k8R"/>
-                    <constraint firstItem="q0U-mV-QJr" firstAttribute="top" secondItem="P41-Ig-Xrp" secondAttribute="bottom" constant="11" id="FAf-qO-0eh"/>
+                    <constraint firstItem="q0U-mV-QJr" firstAttribute="top" secondItem="P41-Ig-Xrp" secondAttribute="bottom" constant="9" id="FAf-qO-0eh"/>
                     <constraint firstItem="P41-Ig-Xrp" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" constant="8" id="JEO-DI-HXh"/>
                     <constraint firstAttribute="trailing" secondItem="hdI-Mw-WD2" secondAttribute="trailing" constant="8" id="ZSo-W8-BlY"/>
                     <constraint firstAttribute="trailing" secondItem="egX-U7-FST" secondAttribute="trailing" constant="8" id="ZcK-oC-2tn"/>
@@ -81,16 +87,21 @@
             <connections>
                 <outlet property="contentTextView" destination="hdI-Mw-WD2" id="Pb4-kh-rxH"/>
                 <outlet property="contentTextViewTopConstraint" destination="3aE-rr-ToO" id="N09-ku-Ujg"/>
+                <outlet property="dateLabelHeightConstraint" destination="XIp-Sh-Esq" id="rQE-9l-38b"/>
                 <outlet property="eventDateLabel" destination="P41-Ig-Xrp" id="mJ4-lv-ZFA"/>
                 <outlet property="eventLocationImageView" destination="q0U-mV-QJr" id="IGa-Qa-URp"/>
                 <outlet property="eventLocationLabel" destination="egX-U7-FST" id="Cxc-zr-TYf"/>
                 <outlet property="eventTimeImageView" destination="ZX4-yC-23B" id="V4H-ZA-sSI"/>
+                <outlet property="locationImageViewHeightConstraint" destination="uJq-o4-BNM" id="LWR-Ie-y53"/>
+                <outlet property="locationLabelHeightConstraint" destination="ORs-Xy-J5T" id="g2Q-z2-NH1"/>
+                <outlet property="timeImageViewHeightConstraint" destination="q0i-3g-R5q" id="Lsz-s8-Jrp"/>
                 <outlet property="titleLabel" destination="YCE-yb-Hto" id="oCq-7F-scg"/>
             </connections>
             <point key="canvasLocation" x="387.19999999999999" y="531.63418290854577"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cal" width="32" height="33"/>
+        <image name="ic_location" width="13" height="17"/>
+        <image name="ic_time" width="13" height="13"/>
     </resources>
 </document>
