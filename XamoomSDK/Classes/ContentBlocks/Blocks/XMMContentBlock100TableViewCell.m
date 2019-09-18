@@ -151,9 +151,12 @@ static UIColor *contentLinkColor;
 - (UIImage*)coloredImageWithColor:(UIColor *)color image:(UIImage *)image {
   CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
   UIGraphicsBeginImageContext(rect.size);
+  [color setFill];
   CGContextRef context = UIGraphicsGetCurrentContext();
+  CGContextTranslateCTM(context, 0, rect.size.height);
+  CGContextScaleCTM(context, 1.0, -1.0);
+  CGContextSetBlendMode(context, kCGBlendModeNormal);
   CGContextClipToMask(context, rect, image.CGImage);
-  CGContextSetFillColorWithColor(context, [color CGColor]);
   CGContextFillRect(context, rect);
   UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
