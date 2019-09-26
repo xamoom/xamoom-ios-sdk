@@ -16,6 +16,8 @@
 @property (nonatomic) UIColor *currentNavigationColor;
 @property (nonatomic) UIColor *currentCalendarTintColor;
 @property (nonatomic) UIColor *currentNavigationTintColor;
+@property (nonatomic) UIImage *calendarImage;
+@property (nonatomic) UIImage *navigationImage;
 @end
 
 @implementation XMMContentBlockEventTableViewCell
@@ -39,6 +41,11 @@
   _currentCalendarTintColor = UIColor.whiteColor;
   _currentNavigationColor = [UIColor colorWithRed:0.05 green:0.64 blue:0.38 alpha:1.0f];
   _currentNavigationTintColor = UIColor.whiteColor;
+  
+  self.calendarImage = [[UIImage imageNamed:@"cal"
+                                  inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+  self.navigationImage = [[UIImage imageNamed:@"directional"
+                                 inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   
   [super awakeFromNib];
 }
@@ -80,6 +87,9 @@
 }
 
 - (void)styleUI {
+  [self.calendarImageView setImage:self.calendarImage];
+  [self.navigationImageView setImage:self.navigationImage];
+  
   self.calendarView.backgroundColor = _currentCalendarColor;
   self.calendarTitleLabel.textColor = _currentCalendarTintColor;
   self.calendarImageView.tintColor = _currentCalendarTintColor;

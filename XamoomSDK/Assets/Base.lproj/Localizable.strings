@@ -33,5 +33,5 @@
 "contentblock9.alert.cancel" = "Cancel";
 "contentblock9.alert.settings" = "Settings";
 
-"event.navigation.title" = "EN nav";
-"event.calendar.title" = "EN cal";
+"event.navigation.title" = "Navigate to the location";
+"event.calendar.title" = "Add to calendar";

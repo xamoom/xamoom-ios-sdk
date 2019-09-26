@@ -33,5 +33,5 @@
 "contentblock9.alert.cancel" = "Afbreken";
 "contentblock9.alert.settings" = "Instellingen";
 
-"event.navigation.title" = "NL nav";
-"event.calendar.title" = "NL cal";
+"event.navigation.title" = "Navigeer naar deze locatie";
+"event.calendar.title" = "Voer de kalender in";
