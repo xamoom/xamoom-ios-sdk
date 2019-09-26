@@ -154,20 +154,24 @@
 
 #pragma mark - MPRemoteControlCenter
 
-- (void)skipBackwardEvent:(MPSkipIntervalCommandEvent *)skipEvent {
+- (MPRemoteCommandHandlerStatus)skipBackwardEvent:(MPSkipIntervalCommandEvent *)skipEvent {
   [_currentMediaFile seekBackward:skipEvent.interval];
+  return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (void)skipForwardEvent:(MPSkipIntervalCommandEvent *)skipEvent {
+- (MPRemoteCommandHandlerStatus)skipForwardEvent:(MPSkipIntervalCommandEvent *)skipEvent {
   [_currentMediaFile seekForward:skipEvent.interval];
+  return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (void)playEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatus)playEvent:(MPRemoteCommandEvent *)event {
   [_currentMediaFile start];
+  return MPRemoteCommandHandlerStatusSuccess;
 }
 
-- (void)pauseEvent:(MPRemoteCommandEvent *)event {
+- (MPRemoteCommandHandlerStatus)pauseEvent:(MPRemoteCommandEvent *)event {
   [_currentMediaFile pause];
+  return MPRemoteCommandHandlerStatusSuccess;
 }
 
 - (void)updateInfoCenterMedia {

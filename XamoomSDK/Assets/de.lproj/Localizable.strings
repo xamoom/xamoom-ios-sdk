@@ -32,3 +32,6 @@
 "contentblock9.no.permission.message" = "Die Standorterlaubnis wurde verweigert. Bitte gehen Sie zu den Einstellungen, um diese für unsere App zu erlauben.";
 "contentblock9.alert.cancel" = "Abbrechen";
 "contentblock9.alert.settings" = "Einstellungen";
+
+"event.navigation.title" = "DE nav";
+"event.calendar.title" = "DE cal";

@@ -11,7 +11,7 @@
 #import <EventKit/EventKit.h>
 
 @interface XMMContentBlock100TableViewCell()
-@property (nonatomic) NSString *locationTitle;
+@property (nonatomic) NSString *title;
 @property (nonatomic) NSBundle *bundle;
 @end
 
@@ -72,8 +72,8 @@ static UIColor *contentLinkColor;
     _locationLabelHeightConstraint.constant = 0;
     _dateLabelHeightConstraint.constant = 0;
   } else {
-    UIColor *testLocationColor = [UIColor darkGrayColor];
-    UIColor *locationColor = [UIColor colorWithHexString:self.chromeColor];
+    UIColor *testLocationColor = [UIColor colorWithHexString:@"#444444"];
+    UIColor *locationColor = [UIColor colorNamed:@"event_time_color"];
     
     [_eventTimeImageView setImage:[self coloredImageWithColor:locationColor image:_eventTimeImageView.image]];
     [_eventDateLabel setTextColor:locationColor];
@@ -228,7 +228,8 @@ static UIColor *contentLinkColor;
       EKEvent *newEvent = [EKEvent eventWithEventStore:store];
       newEvent.startDate = self.eventStartDate;
       newEvent.endDate = self.eventEndDate;
-      newEvent.title = self.relatedSpot.name;
+      newEvent.title = self.contentTilte;
+      newEvent.location = self.relatedSpot.name;
       if (newEvent != nil) {
         [self saveEvent:newEvent withStore:store];
       } else {

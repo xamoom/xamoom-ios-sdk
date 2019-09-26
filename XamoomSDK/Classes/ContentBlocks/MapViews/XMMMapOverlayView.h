@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *spotImageView;
 @property (weak, nonatomic) IBOutlet UIButton *openContentButton;
 @property (weak, nonatomic) IBOutlet UIButton *routeButton;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *visualEffectView;
 @property (weak, nonatomic) NSNumber *navigationType;
 
 @property (nonatomic) UIColor *buttonBackgroundColor UI_APPEARANCE_SELECTOR;

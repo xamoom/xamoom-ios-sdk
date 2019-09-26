@@ -69,6 +69,12 @@
   }
   
   self.navigationType = type;
+  
+  if (@available(iOS 13.0, *)) {
+    [_visualEffectView setEffect: [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+  } else {
+    [_visualEffectView setEffect: [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+  }
 }
 
 - (void)changeBackgroundColors {

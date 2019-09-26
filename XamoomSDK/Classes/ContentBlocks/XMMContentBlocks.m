@@ -39,7 +39,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     [self setupTableView];
     [self defaultStyle];
     
-    self.tableView.backgroundColor = [UIColor colorWithHexString:self.style.backgroundColor];
+    //self.tableView.backgroundColor = [UIColor colorWithHexString:self.style.backgroundColor];
     
     [XMMContentBlock0TableViewCell setFontSize:NormalFontSize];
     [XMMContentBlock100TableViewCell setFontSize:NormalFontSize + 1];
@@ -74,10 +74,19 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     self.chromeColor = @"#999999";
   }
   _style = [[XMMStyle alloc] init];
+  
   self.style.backgroundColor = @"#FFFFFF";
   self.style.highlightFontColor = @"#0000FF";
   self.style.foregroundFontColor = @"#000000";
   self.style.chromeHeaderColor = self.chromeColor;
+  
+  if (@available(iOS 13.0, *)) {
+    UIUserInterfaceStyle *userInterfaceStyle = [[UITraitCollection currentTraitCollection] userInterfaceStyle];
+    if (userInterfaceStyle == UIUserInterfaceStyleDark) {
+      self.style.backgroundColor = @"#000000";
+      self.style.foregroundFontColor = @"#FFFFFF";
+    }
+  }
 }
 
 - (void)registerNibs {
@@ -92,6 +101,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   UINib *nib = [UINib nibWithNibName:@"XMMContentBlock100TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock100TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlockEventTableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlockEventTableViewCell"];
   
   nib = [UINib nibWithNibName:@"XMMContentBlock0TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock0TableViewCell"];
@@ -155,9 +167,17 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   self.items = [self validContentBlockItems];
   self.content = content;
   
-  if (content.relatedSpot != nil && content.relatedSpot.ID != nil) {
+  if (content.relatedSpot != nil && content.relatedSpot.ID != nil && content.toDate != nil && content.fromDate != nil) {
     [self.api spotWithID:content.relatedSpot.ID completion:^(XMMSpot *spot, NSError *error) {
       self.relatedSpot = spot;
+      
+      XMMContentBlock *event = [[XMMContentBlock alloc] init];
+      event.publicStatus = YES;
+      event.blockType = -2;
+      event.title = content.title;
+      event.text = content.contentDescription;
+      [self.items addObject:event];
+
       dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
       });
@@ -293,6 +313,13 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   }
   
   XMMContentBlock *block = [self.items objectAtIndex:indexPath.row];
+  if (block.blockType == -2) {
+    XMMContentBlockEventTableViewCell *eventCell = [tableView dequeueReusableCellWithIdentifier:@"XMMContentBlockEventTableViewCell" forIndexPath:indexPath];
+    [eventCell setNavigationType:self.navigationType];
+    [eventCell setupCellWithContent:self.content spot:self.relatedSpot];
+    return eventCell;
+  }
+  
   NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
   
   id cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
@@ -306,6 +333,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     [(XMMContentBlock100TableViewCell *) cell setEventStartDate:self.content.fromDate];
     [(XMMContentBlock100TableViewCell *) cell setEventEndDate:self.content.toDate];
     [(XMMContentBlock100TableViewCell *) cell setNavigationType:self.navigationType];
+    [(XMMContentBlock100TableViewCell *) cell setContentTilte:self.content.title];
     if (self.chromeColor != nil) {
       [(XMMContentBlock100TableViewCell *) cell setChromeColor:self.chromeColor];
     }
