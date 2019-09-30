@@ -33,5 +33,5 @@
 "contentblock9.alert.cancel" = "Abbrechen";
 "contentblock9.alert.settings" = "Einstellungen";
 
-"event.navigation.title" = "Im Kalender eintragen";
-"event.calendar.title" = "Zum Ort navigieren";
+"event.navigation.title" = "Zum Ort navigieren";
+"event.calendar.title" = "Im Kalender eintragen";

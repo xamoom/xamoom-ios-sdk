@@ -166,7 +166,7 @@
 
 - (void)showYoutubeWithId:(NSString *)videoId timeStamp:(NSInteger)seconds {
   
-  dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+  dispatch_async(dispatch_get_main_queue(), ^{
     NSString *htmlString = [NSString stringWithFormat:@"<style>html, body {margin: 0;padding:0;}</style><iframe width=\"100%%\" height=\"100%%\" src=\"https://www.youtube.com/embed/%@?start=%ld\" frameborder=\"0\" allowfullscreen></iframe>", videoId, (long)seconds];
     [self.webView loadHTMLString:htmlString baseURL:nil];
   });
@@ -181,7 +181,9 @@
   NSString *videoId =[vimeoUrl substringWithRange:array.range];
   NSString *htmlString = [NSString stringWithFormat:@"<style>html,body{margin:0;padding:0;}</style><iframe src=\"https://player.vimeo.com/video/%@?color=ffffff&title=0&byline=0&portrait=0\" width=\"100%%\" height=\"100%%\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>", videoId];
   
-  [self.webView loadHTMLString:htmlString baseURL:nil];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.webView loadHTMLString:htmlString baseURL:nil];
+  });
 }
 
 - (void)videoPlayerWithURL:(NSURL *)videoUrl {
@@ -189,7 +191,7 @@
 }
 
 - (void)thumbnailFromUrl:(NSURL *)videoUrl completion:(void (^)(UIImage* image))completion {
-  dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+  dispatch_async(dispatch_get_main_queue(), ^{
     AVAssetImageGenerator *imageGenerator = [[AVAssetImageGenerator alloc]initWithAsset:[AVAsset assetWithURL:videoUrl]];
     CMTime time = CMTimeMake(1, 1);
     CGImageRef imageRef = [imageGenerator copyCGImageAtTime:time actualTime:NULL error:NULL];

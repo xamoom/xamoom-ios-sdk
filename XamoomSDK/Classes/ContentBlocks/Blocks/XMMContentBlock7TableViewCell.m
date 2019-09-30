@@ -55,9 +55,11 @@ static int kWebViewSoundcloudPadding = 8;
     self.webViewTopConstraint.constant = 0;
   }
   
-  NSString *soundcloudHTML = [NSString stringWithFormat:@"<style>body{margin:0 !important;}</style><iframe width='100%%' height='%f' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=%@&auto_play=false&hide_related=true&show_comments=false&show_comments=false&show_user=false&show_reposts=false&sharing=false&download=false&buying=false&visual=true'></iframe> <script src=\"https://w.soundcloud.com/player/api.js\" type=\"text/javascript\"></script>",self.webView.frame.size.height-kWebViewSoundcloudPadding, block.soundcloudUrl];
-  
-  [self.webView loadHTMLString:soundcloudHTML baseURL:nil];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    NSString *soundcloudHTML = [NSString stringWithFormat:@"<style>body{margin:0 !important;}</style><iframe width='100%%' height='%f' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=%@&auto_play=false&hide_related=true&show_comments=false&show_comments=false&show_user=false&show_reposts=false&sharing=false&download=false&buying=false&visual=true'></iframe> <script src=\"https://w.soundcloud.com/player/api.js\" type=\"text/javascript\"></script>",self.webView.frame.size.height-kWebViewSoundcloudPadding, block.soundcloudUrl];
+    
+    [self.webView loadHTMLString:soundcloudHTML baseURL:nil];
+  });
 }
 
 @end

@@ -72,14 +72,13 @@ static UIColor *contentLinkColor;
     _locationLabelHeightConstraint.constant = 0;
     _dateLabelHeightConstraint.constant = 0;
   } else {
-    UIColor *testLocationColor = [UIColor colorWithHexString:@"#444444"];
     UIColor *locationColor = [UIColor colorNamed:@"event_time_color"];
     
     [_eventTimeImageView setImage:[self coloredImageWithColor:locationColor image:_eventTimeImageView.image]];
     [_eventDateLabel setTextColor:locationColor];
 
-    [_eventLocationImageView setImage:[self coloredImageWithColor:testLocationColor image:_eventLocationImageView.image]];
-    [_eventLocationLabel setTextColor:testLocationColor];
+    [_eventLocationImageView setImage:[self coloredImageWithColor:locationColor image:_eventLocationImageView.image]];
+    [_eventLocationLabel setTextColor:locationColor];
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSLocale *locale = [NSLocale currentLocale];
@@ -256,25 +255,27 @@ static UIColor *contentLinkColor;
   }
   
   if (res.count > 0){
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.choose.calendar", @"Localizable", self.bundle, nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    for (EKCalendar *cal in res) {
-      UIAlertAction *calAction = [UIAlertAction actionWithTitle: cal.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        [event setCalendar:cal];
-        [store saveEvent:event span:EKSpanThisEvent error:nil];
-        [self showAddCalenderSuccess:cal event:event];
-      }];
-      
-      [alert addAction:calAction];
-    }
-    
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-      [alert dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
-    [alert addAction:cancel];
-    
-    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.choose.calendar", @"Localizable", self.bundle, nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+       for (EKCalendar *cal in res) {
+          UIAlertAction *calAction = [UIAlertAction actionWithTitle: cal.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [event setCalendar:cal];
+            [store saveEvent:event span:EKSpanThisEvent error:nil];
+            [self showAddCalenderSuccess:cal event:event];
+          }];
+          
+          [alert addAction:calAction];
+        }
+        
+        UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+          [alert dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [alert addAction:cancel];
+        
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    });
   }
 }
 

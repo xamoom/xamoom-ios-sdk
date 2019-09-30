@@ -78,10 +78,9 @@
   [self.calendarDescriptionLabel setText:[dateFormatter stringFromDate:eventStartDate]];
   
   UITapGestureRecognizer *navigationAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navigateToEvent)];
-  [self.navigationView addGestureRecognizer:navigationAction];
-  
   UITapGestureRecognizer *calendarAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveEventInCalendar)];
   [self.calendarView addGestureRecognizer:calendarAction];
+  [self.navigationView addGestureRecognizer:navigationAction];
   
   [self styleUI];
 }
@@ -162,25 +161,27 @@
   }
   
   if (res.count > 0){
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.choose.calendar", @"Localizable", self.bundle, nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    for (EKCalendar *cal in res) {
-      UIAlertAction *calAction = [UIAlertAction actionWithTitle: cal.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        [event setCalendar:cal];
-        [store saveEvent:event span:EKSpanThisEvent error:nil];
-        [self showAddCalenderSuccess:cal event:event];
-      }];
-      
-      [alert addAction:calAction];
-    }
-    
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-      [alert dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
-    [alert addAction:cancel];
-    
-    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.choose.calendar", @"Localizable", self.bundle, nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+       for (EKCalendar *cal in res) {
+          UIAlertAction *calAction = [UIAlertAction actionWithTitle: cal.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            [event setCalendar:cal];
+            [store saveEvent:event span:EKSpanThisEvent error:nil];
+            [self showAddCalenderSuccess:cal event:event];
+          }];
+          
+          [alert addAction:calAction];
+        }
+        
+        UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+          [alert dismissViewControllerAnimated:YES completion:nil];
+        }];
+        
+        [alert addAction:cancel];
+        
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    });
   }
 }
 
