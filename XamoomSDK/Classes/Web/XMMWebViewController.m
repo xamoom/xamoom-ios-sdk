@@ -37,7 +37,8 @@
   self.navigationController.navigationBar.topItem.title = title;
 
   UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-  NSURL *urlFromString = [NSURL URLWithString:self.url];
+  NSString *secureUrlString = [self.url stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
+  NSURL *urlFromString = [NSURL URLWithString:secureUrlString];
   NSURLRequest *request = [NSURLRequest requestWithURL:urlFromString];
   [web loadRequest:request];
   [self.view addSubview:web];
