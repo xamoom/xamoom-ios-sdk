@@ -1,4 +1,7 @@
 # Changelog
+## [3.11.13](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.12...3.11.13) - 01.10.2019
+- Add Event Package to XMMcontentBlock100TableViewCell
+
 ## [3.11.12](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.11...3.11.12) - 11.09.2019
 - New Spot Map UI in ContentBlock 9
 - Improve Beacon scan logic (number of request)
