@@ -313,7 +313,6 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   }
   
   XMMContentBlock *block = [self.items objectAtIndex:indexPath.row];
-  block.contentID = self.content.ID;
   if (block.blockType == -2) {
     XMMContentBlockEventTableViewCell *eventCell = [tableView dequeueReusableCellWithIdentifier:@"XMMContentBlockEventTableViewCell" forIndexPath:indexPath];
     [eventCell setNavigationType:self.navigationType];
