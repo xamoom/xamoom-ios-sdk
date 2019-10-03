@@ -69,8 +69,8 @@
   }
   
   self.navigationType = type;
-  
-  if (@available(iOS 13.0, *)) {
+
+  if (@available(iOS 13.0, *) && [[UITraitCollection currentTraitCollection] userInterfaceStyle] == UIUserInterfaceStyleDark) {
     [_visualEffectView setEffect: [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
   } else {
     [_visualEffectView setEffect: [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];

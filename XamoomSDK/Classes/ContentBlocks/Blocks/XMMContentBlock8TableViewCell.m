@@ -394,25 +394,28 @@
   }
   
   if (res.count > 0){
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.choose.calendar", @"Localizable", self.bundle, nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    for (EKCalendar *cal in res) {
-      UIAlertAction *calAction = [UIAlertAction actionWithTitle: cal.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        [event setCalendar:cal];
-        [store saveEvent:event span:EKSpanThisEvent error:nil];
-        [self showAddCalenderSuccess:cal event:event];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.choose.calendar", @"Localizable", self.bundle, nil) message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+      
+      for (EKCalendar *cal in res) {
+        
+        UIAlertAction *calAction = [UIAlertAction actionWithTitle: cal.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+          [event setCalendar:cal];
+          [store saveEvent:event span:EKSpanThisEvent error:nil];
+          [self showAddCalenderSuccess:cal event:event];
+        }];
+        
+        [alert addAction:calAction];
+      }
+      
+      UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+        [alert dismissViewControllerAnimated:YES completion:nil];
       }];
       
-      [alert addAction:calAction];
-    }
-    
-    UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-      [alert dismissViewControllerAnimated:YES completion:nil];
-    }];
-    
-    [alert addAction:cancel];
-    
-    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+      [alert addAction:cancel];
+      
+      [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    });
   }
 }
 
@@ -473,8 +476,6 @@
 /// Shows a default error message.
 -(void)showErrorAlert {
   dispatch_async(dispatch_get_main_queue(), ^{
-    
-    
     NSString *title = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.error.title", @"Localizable", self.bundle, nil);
     NSString *message = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.error.message", @"Localizable", self.bundle, nil);
   
@@ -496,7 +497,6 @@
 -(void)showAddCalenderSuccess:(EKCalendar *)calendar event:(EKEvent*)event {
   dispatch_async(dispatch_get_main_queue(), ^{
     
-    
     NSString *title = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.hint.title", @"Localizable", self.bundle, nil);
     NSString *message = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.calendar.success.message", @"Localizable", self.bundle, nil), event.title, calendar.title];
     
@@ -515,23 +515,24 @@
  * @param contact The contact to save.
  */
 -(void)showContactRequestAlert:(CNMutableContact *)contact {
-  
-  NSString *alertMessage = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.contact.request.message", @"Localizable", self.bundle, nil), contact.givenName, contact.familyName];
-  
-  UIAlertController *alert = [UIAlertController alertControllerWithTitle:alertMessage message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-  UIAlertAction *add = [UIAlertAction actionWithTitle: NSLocalizedStringFromTableInBundle(@"contentblock8.alert.add", @"Localizable", self.bundle, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-    [self showAddContactSuccessAlert:contact];
-  }];
-  
-  [alert addAction:add];
-  
-  UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
-    [alert dismissViewControllerAnimated:YES completion:nil];
-  }];
-  
-  [alert addAction:cancel];
-  
-  [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    NSString *alertMessage = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.contact.request.message", @"Localizable", self.bundle, nil), contact.givenName, contact.familyName];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:alertMessage message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *add = [UIAlertAction actionWithTitle: NSLocalizedStringFromTableInBundle(@"contentblock8.alert.add", @"Localizable", self.bundle, nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+      [self showAddContactSuccessAlert:contact];
+    }];
+    
+    [alert addAction:add];
+    
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.cancel", @"Localizable", self.bundle, nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+      [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    [alert addAction:cancel];
+    
+    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+  });
 }
 
 /**
@@ -540,16 +541,18 @@
  * @param contact The contact to save.
  */
 -(void)showAddContactSuccessAlert:(CNMutableContact *)contact {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    NSString *title = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.hint.title", @"Localizable", self.bundle, nil);
+    NSString *alertMessage = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.contact.success.message", @"Localizable", self.bundle, nil), contact.givenName, contact.familyName];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
+                                                    message: alertMessage
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedStringFromTableInBundle(@"OK", @"Localizable", self.bundle, nil)
+                                          otherButtonTitles:nil];
+    [alert show];
+  });
   
-  NSString *title = NSLocalizedStringFromTableInBundle(@"contentblock8.alert.hint.title", @"Localizable", self.bundle, nil);
-  NSString *alertMessage = [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"contentblock8.alert.contact.success.message", @"Localizable", self.bundle, nil), contact.givenName, contact.familyName];
-  
-  UIAlertView *alert = [[UIAlertView alloc] initWithTitle: title
-                                                  message: alertMessage
-                                                 delegate:self
-                                        cancelButtonTitle:NSLocalizedStringFromTableInBundle(@"OK", @"Localizable", self.bundle, nil)
-                                        otherButtonTitles:nil];
-  [alert show];
 }
 
 - (XMMOfflineFileManager *)fileManager {
