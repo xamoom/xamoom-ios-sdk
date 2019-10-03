@@ -140,7 +140,7 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self cleanPhoneNumber:self.linkUrl]]];
   } else {
     
-    if (urls.count == 0) {
+    if (urls.count == 0 || self.linkType == 12) {
       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
       return;
     }
