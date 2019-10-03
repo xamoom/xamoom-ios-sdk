@@ -1,4 +1,8 @@
 # Changelog
+## [3.11.14](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.13...3.11.14) - 03.10.2019
+- Fix issue with ContentBlock4, do not open XMMWebViewController if lonktype is "email"
+- Fix issue when open an alert. async handling
+
 ## [3.11.13](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.12...3.11.13) - 01.10.2019
 - Add Event Package to XMMcontentBlock100TableViewCell
 
