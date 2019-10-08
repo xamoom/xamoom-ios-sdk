@@ -10,6 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <JAMSVGImage/JAMSVGImage.h>
 #import <JAMSVGImage/JAMSVGImageView.h>
+#import <SDWebImage/UIImage+GIF.h>
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
