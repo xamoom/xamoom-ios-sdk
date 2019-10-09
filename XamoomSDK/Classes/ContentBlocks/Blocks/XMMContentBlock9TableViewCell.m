@@ -97,7 +97,6 @@ static int kPageSize = 100;
       [self getStyleWithId:spot.system.ID api:api spots:self.spots];
     } else if (loadedSpots.count > 0) {
       [self.spots addObjectsFromArray:loadedSpots];
-
       [self showSpotMap:self.spots];
     }
   }];
@@ -151,16 +150,14 @@ static int kPageSize = 100;
         annotationTitle = @"Spot";
       }
       
-      XMMAnnotation *anno = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude + 0.00003, spot.longitude)];
+      XMMAnnotation *anno = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
       anno.spot = spot;
-      
       [annotations addObject:anno];
     }
     
     dispatch_sync(dispatch_get_main_queue(), ^{
-      [_mapView addAnnotations:annotations];
-      //[self zoomMapViewToFitAnnotations:self.mapView animated:YES];
-      [_mapView showAnnotations:annotations animated:YES];
+      [self.mapView addAnnotations:annotations];
+      [self zoomMapViewToFitAnnotations];
     });
   });
 }
@@ -407,5 +404,44 @@ static int kPageSize = 100;
   if (url != nil) {
     [[UIApplication sharedApplication] openURL:url];
   }
+}
+
+- (void)zoomMapViewToFitAnnotations {
+  NSMutableArray *latArray = [NSMutableArray new];
+  NSMutableArray *lonArray = [NSMutableArray new];
+  
+  for (XMMSpot *location in self.spots) {
+    [latArray addObject:[NSNumber numberWithDouble:location.latitude]];
+    [lonArray addObject:[NSNumber numberWithDouble:location.longitude]];
+  }
+  
+  if (latArray.count == 0 || lonArray.count == 0) {
+    if (_userLocation != nil) {
+      [self centerUserButtonAction:nil];
+    }
+    return;
+  }
+
+  float maxLat = [[latArray valueForKeyPath:@"@max.floatValue"] floatValue];
+  float minLat = [[latArray valueForKeyPath:@"@min.floatValue"] floatValue];
+  float maxLon = [[lonArray valueForKeyPath:@"@max.floatValue"] floatValue];
+  float minLon = [[lonArray valueForKeyPath:@"@min.floatValue"] floatValue];
+
+  CGSize mapMarkerSize = self.customMapMarker.size;
+  double latOffset = [self getDegreeOffsetForMarkerWithMax:maxLat min:minLat markerLength:mapMarkerSize.height];
+  double lonOffset = [self getDegreeOffsetForMarkerWithMax:maxLon min:minLon markerLength:mapMarkerSize.width];
+
+  CLLocationCoordinate2D ne = CLLocationCoordinate2DMake(minLat - latOffset, minLon - lonOffset);
+  CLLocationCoordinate2D sw = CLLocationCoordinate2DMake(maxLat + latOffset, maxLon + lonOffset);
+  
+  MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(sw, ne);
+  self.mapView.visibleCoordinateBounds = bounds;
+}
+
+-(float)getDegreeOffsetForMarkerWithMax:(float)max min:(float)min markerLength:(float)markerLength {
+  float mapWidth = self.mapView.frame.size.width;
+  float widthDegrees = max-min;
+  float degreesPerPixel = widthDegrees / mapWidth;
+  return degreesPerPixel * markerLength;
 }
 @end
