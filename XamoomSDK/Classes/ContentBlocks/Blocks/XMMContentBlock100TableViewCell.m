@@ -60,12 +60,12 @@ static UIColor *contentLinkColor;
     [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
   }
   
-  [self displayEvent];
+  [self displayEvent:tableView];
   [self displayTitle:block.title block:block];
   [self displayContent:block.text style:style];
 }
 
-- (void)displayEvent {
+- (void)displayEvent:(UITableView *)tableView {
   if (!self.relatedSpot) {
     _timeImageViewHeightConstraint.constant = 0;
     _locationImageViewHeightConstraint.constant = 0;
@@ -103,6 +103,10 @@ static UIColor *contentLinkColor;
     
     UITapGestureRecognizer *calendarAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveEventInCalendar)];
     [_eventDateLabel addGestureRecognizer:calendarAction];
+    
+    if ([tableView.visibleCells containsObject:self]) {
+      [tableView reloadData];
+    }
   }
 }
 
