@@ -270,7 +270,12 @@ static XMMEnduserApi *sharedInstance;
     mutableConditions = [conditions mutableCopy];
   }
   
-  [mutableConditions setObject:[[NSDate alloc] init] forKey:@"x-datetime"];
+  NSCalendar *cal = [NSCalendar currentCalendar];
+  NSDateComponents *components = [cal components:(NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:[[NSDate alloc] init]];
+  
+  NSDate *dateTime = [cal dateFromComponents:components];
+  [mutableConditions setObject:[cal dateFromComponents:components] forKey:@"x-datetime"];
+  
   conditions = mutableConditions;
   
   NSDictionary *params = [XMMParamHelper paramsWithLanguage:self.language locationIdentifier:locationIdentifier];
