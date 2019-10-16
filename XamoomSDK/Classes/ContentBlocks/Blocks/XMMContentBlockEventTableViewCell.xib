@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -110,10 +110,12 @@
                 <outlet property="calendarImageView" destination="PU0-d1-01R" id="4oG-mJ-9sC"/>
                 <outlet property="calendarTitleLabel" destination="ftT-kj-Xcb" id="Jct-dq-3Rb"/>
                 <outlet property="calendarView" destination="f0F-Ht-Xgb" id="xSa-YX-Xgw"/>
+                <outlet property="calendarViewHeightConstraint" destination="GWI-km-4jG" id="zjT-M4-lfF"/>
                 <outlet property="navigationDescriptionLabel" destination="Apc-Zx-ALq" id="INW-YK-raR"/>
                 <outlet property="navigationImageView" destination="QJY-NK-tjP" id="cDY-Pe-8AG"/>
                 <outlet property="navigationTitleLabel" destination="g9S-xq-7s4" id="Pvd-OM-LTl"/>
                 <outlet property="navigationView" destination="Ju0-Qe-PRG" id="0Rl-9f-8IJ"/>
+                <outlet property="navigationViewHeightConstraint" destination="NZd-Ne-Fbi" id="2Qv-tc-YzE"/>
             </connections>
             <point key="canvasLocation" x="139" y="143"/>
         </tableViewCell>

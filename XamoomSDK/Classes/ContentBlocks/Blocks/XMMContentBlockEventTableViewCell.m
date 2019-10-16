@@ -64,23 +64,19 @@
   self.relatedSpot = spot;
   self.relatedContent = content;
   
-  NSDate *eventStartDate = content.fromDate;
-  
-  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-  NSLocale *locale = [NSLocale currentLocale];
-  [dateFormatter setLocale:locale];
-  [dateFormatter setDateFormat:@"E d MMM HH:mm"];
-  
-  [self.navigationTitleLabel setText:NSLocalizedStringFromTableInBundle(@"event.navigation.title", @"Localizable", self.bundle, nil)];
-  [self.navigationDescriptionLabel setText:spot.name];
-  
-  [self.calendarTitleLabel setText:NSLocalizedStringFromTableInBundle(@"event.calendar.title", @"Localizable", self.bundle, nil)];
-  [self.calendarDescriptionLabel setText:[dateFormatter stringFromDate:eventStartDate]];
-  
-  UITapGestureRecognizer *navigationAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navigateToEvent)];
-  UITapGestureRecognizer *calendarAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveEventInCalendar)];
-  [self.calendarView addGestureRecognizer:calendarAction];
-  [self.navigationView addGestureRecognizer:navigationAction];
+  if (self.relatedSpot && self.relatedContent.fromDate && self.relatedContent.toDate) {
+    [self showCalendarView];
+    [self showNavigationView];
+  } else if (self.relatedSpot && (!self.relatedContent.fromDate || self.relatedContent.toDate)) {
+    [self showNavigationView];
+    [self hideCalendarView];
+  } else if (!self.relatedSpot && self.relatedContent.fromDate && self.relatedContent.toDate) {
+    [self showCalendarView];
+    [self hideNavigationView];
+  } else {
+    [self hideNavigationView];
+    [self hideCalendarView];
+  }
   
   [self styleUI];
 }
@@ -95,6 +91,34 @@
   self.navigationView.backgroundColor = _currentNavigationColor;
   self.navigationTitleLabel.textColor = _currentNavigationTintColor;
   self.navigationImageView.tintColor = _currentNavigationTintColor;
+}
+
+- (void)showCalendarView {
+  NSDate *eventStartDate = self.relatedContent.fromDate;
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  NSLocale *locale = [NSLocale currentLocale];
+  [dateFormatter setLocale:locale];
+  [dateFormatter setDateFormat:@"E d MMM HH:mm"];
+  [self.calendarTitleLabel setText:NSLocalizedStringFromTableInBundle(@"event.calendar.title", @"Localizable", self.bundle, nil)];
+  [self.calendarDescriptionLabel setText:[dateFormatter stringFromDate:eventStartDate]];
+  
+  UITapGestureRecognizer *calendarAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveEventInCalendar)];
+  [self.calendarView addGestureRecognizer:calendarAction];
+}
+
+- (void)showNavigationView {
+  [self.navigationTitleLabel setText:NSLocalizedStringFromTableInBundle(@"event.navigation.title", @"Localizable", self.bundle, nil)];
+  [self.navigationDescriptionLabel setText:self.relatedSpot.name];
+  UITapGestureRecognizer *navigationAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navigateToEvent)];
+  [self.navigationView addGestureRecognizer:navigationAction];
+}
+
+- (void)hideCalendarView {
+  self.calendarViewHeightConstraint.constant = 0;
+}
+
+- (void)hideNavigationView {
+  self.navigationViewHeightConstraint.constant = 0;
 }
 
 - (void)navigateToEvent {
@@ -134,7 +158,7 @@
       newEvent.startDate = self.relatedContent.fromDate;
       newEvent.endDate = self.relatedContent.toDate;
       newEvent.title = self.relatedContent.title;
-      newEvent.location = self.relatedSpot.name;
+      newEvent.location = self.relatedSpot ? self.relatedSpot.name : self.relatedContent.title;
       if (newEvent != nil) {
         [self saveEvent:newEvent withStore:store];
       } else {
