@@ -13,6 +13,7 @@
 @interface XMMContentBlock100TableViewCell()
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSBundle *bundle;
+@property (nonatomic) NSString *calendarLocationName;
 @end
 
 @implementation XMMContentBlock100TableViewCell
@@ -60,54 +61,74 @@ static UIColor *contentLinkColor;
     [self.contentTextView setLinkTextAttributes:@{NSForegroundColorAttributeName : [UIColor colorWithHexString:style.highlightFontColor], }];
   }
   
-  [self displayEvent:tableView];
+  [self displayEvent:tableView block:block];
   [self displayTitle:block.title block:block];
   [self displayContent:block.text style:style];
 }
 
-- (void)displayEvent:(UITableView *)tableView {
-  if (!self.relatedSpot) {
-    _timeImageViewHeightConstraint.constant = 0;
-    _locationImageViewHeightConstraint.constant = 0;
-    _locationLabelHeightConstraint.constant = 0;
-    _dateLabelHeightConstraint.constant = 0;
+- (void)displayEvent:(UITableView *)tableView block:(XMMContentBlock *)block {
+  UIColor *locationColor = [UIColor colorNamed:@"event_time_color"];
+  if (self.relatedSpot && self.eventStartDate && self.eventEndDate) {
+    self.calendarLocationName = self.relatedSpot.name;
+    [self showEventTimeLayout:locationColor];
+    [self showEventLocationLayout:locationColor];
+  } else if (!self.relatedSpot && self.eventStartDate && self.eventEndDate) {
+    self.calendarLocationName = block.title;
+    [self hideEventLocationLayout];
+    [self showEventTimeLayout:locationColor];
+  } else if (self.relatedSpot && (!self.eventStartDate || !self.eventEndDate)) {
+    self.calendarLocationName = self.relatedSpot.name;
+    [self hideEventTimeLayout];
+    [self showEventLocationLayout:locationColor];
   } else {
-    UIColor *locationColor = [UIColor colorNamed:@"event_time_color"];
-    
-    [_eventTimeImageView setImage:[self coloredImageWithColor:locationColor image:_eventTimeImageView.image]];
-    [_eventDateLabel setTextColor:locationColor];
-
-    [_eventLocationImageView setImage:[self coloredImageWithColor:locationColor image:_eventLocationImageView.image]];
-    [_eventLocationLabel setTextColor:locationColor];
-
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    NSLocale *locale = [NSLocale currentLocale];
-    [dateFormatter setLocale:locale];
-    [dateFormatter setDateFormat:@"E d MMM HH:mm"];
-    NSString *eventDateString = [NSString stringWithFormat:@"%@ -\n%@", [dateFormatter stringFromDate:self.eventStartDate], [dateFormatter stringFromDate:self.eventEndDate]];
-    
-    [_eventLocationLabel setText:self.relatedSpot.name];
-    [_eventDateLabel setText:eventDateString];
-    
-    _locationLabelHeightConstraint.constant = [self.eventLocationLabel.text sizeWithFont:self.eventLocationLabel.font
-                                                                       constrainedToSize: CGSizeMake(self.eventLocationLabel.frame.size.width, FLT_MAX)
-                                                                       lineBreakMode:self.eventLocationLabel.lineBreakMode].height;
-    _dateLabelHeightConstraint.constant = [self.eventDateLabel.text sizeWithFont:self.eventDateLabel.font
-                                                                   constrainedToSize: CGSizeMake(self.eventDateLabel.frame.size.width, FLT_MAX)
-                                                                       lineBreakMode:self.eventDateLabel.lineBreakMode].height;
-    
-    _eventLocationLabel.userInteractionEnabled = YES;
-    _eventDateLabel.userInteractionEnabled = YES;
-    UITapGestureRecognizer *navigationAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navigateToEvent)];
-    [_eventLocationLabel addGestureRecognizer:navigationAction];
-    
-    UITapGestureRecognizer *calendarAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveEventInCalendar)];
-    [_eventDateLabel addGestureRecognizer:calendarAction];
-    
-    if ([tableView.visibleCells containsObject:self]) {
-      [tableView reloadData];
-    }
+    [self hideEventTimeLayout];
+    [self hideEventLocationLayout];
   }
+  
+  if ([tableView.visibleCells containsObject:self]) {
+    [tableView reloadData];
+  }
+}
+
+- (void)showEventTimeLayout:(UIColor *)tintColor {
+  [_eventTimeImageView setImage:[self coloredImageWithColor:tintColor image:_eventTimeImageView.image]];
+  [_eventDateLabel setTextColor:tintColor];
+  
+  NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+  NSLocale *locale = [NSLocale currentLocale];
+  [dateFormatter setLocale:locale];
+  [dateFormatter setDateFormat:@"E d MMM HH:mm"];
+  NSString *eventDateString = [NSString stringWithFormat:@"%@ -\n%@", [dateFormatter stringFromDate:self.eventStartDate], [dateFormatter stringFromDate:self.eventEndDate]];
+  [_eventDateLabel setText:eventDateString];
+  _dateLabelHeightConstraint.constant = [self.eventDateLabel.text sizeWithFont:self.eventDateLabel.font
+  constrainedToSize: CGSizeMake(self.eventDateLabel.frame.size.width, FLT_MAX)
+      lineBreakMode:self.eventDateLabel.lineBreakMode].height;
+  _eventDateLabel.userInteractionEnabled = YES;
+  UITapGestureRecognizer *calendarAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(saveEventInCalendar)];
+  [_eventDateLabel addGestureRecognizer:calendarAction];
+}
+
+- (void)showEventLocationLayout:(UIColor *)tintColor {
+  [_eventLocationImageView setImage:[self coloredImageWithColor:tintColor image:_eventLocationImageView.image]];
+  [_eventLocationLabel setTextColor:tintColor];
+  [_eventLocationLabel setText:self.relatedSpot.name];
+  _locationLabelHeightConstraint.constant = [self.eventLocationLabel.text sizeWithFont:self.eventLocationLabel.font
+                                                                     constrainedToSize: CGSizeMake(self.eventLocationLabel.frame.size.width, FLT_MAX)
+                                                                     lineBreakMode:self.eventLocationLabel.lineBreakMode].height;
+  
+  _eventLocationLabel.userInteractionEnabled = YES;
+  UITapGestureRecognizer *navigationAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navigateToEvent)];
+  [_eventLocationLabel addGestureRecognizer:navigationAction];
+}
+
+- (void)hideEventTimeLayout {
+  _timeImageViewHeightConstraint.constant = 0;
+  _dateLabelHeightConstraint.constant = 0;
+}
+
+- (void)hideEventLocationLayout {
+  _locationImageViewHeightConstraint.constant = 0;
+  _locationLabelHeightConstraint.constant = 0;
 }
 
 - (void)displayTitle:(NSString *)title block:(XMMContentBlock *)block {
@@ -232,7 +253,7 @@ static UIColor *contentLinkColor;
       newEvent.startDate = self.eventStartDate;
       newEvent.endDate = self.eventEndDate;
       newEvent.title = self.contentTilte;
-      newEvent.location = self.relatedSpot.name;
+      newEvent.location = self.calendarLocationName;
       if (newEvent != nil) {
         [self saveEvent:newEvent withStore:store];
       } else {
