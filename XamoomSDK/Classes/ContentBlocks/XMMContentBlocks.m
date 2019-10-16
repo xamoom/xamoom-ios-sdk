@@ -167,7 +167,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   self.items = [self validContentBlockItems];
   self.content = content;
   
-  if (content.relatedSpot != nil && content.relatedSpot.ID != nil && content.toDate != nil && content.fromDate != nil) {
+  if (content.relatedSpot != nil && content.relatedSpot.ID != nil) {
     [self.api spotWithID:content.relatedSpot.ID completion:^(XMMSpot *spot, NSError *error) {
       self.relatedSpot = spot;
       
@@ -182,6 +182,17 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
         [self.tableView reloadData];
       });
     }];
+  } else if (content.toDate != nil && content.fromDate != nil) {
+    XMMContentBlock *event = [[XMMContentBlock alloc] init];
+    event.publicStatus = YES;
+    event.blockType = -2;
+    event.title = content.title;
+    event.text = content.contentDescription;
+    [self.items addObject:event];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self.tableView reloadData];
+    });
   } else {
     dispatch_async(dispatch_get_main_queue(), ^{
       [self.tableView reloadData];
@@ -328,7 +339,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     tableViewCell.backgroundColor = [UIColor clearColor];
   }
   
-  if ([cell isKindOfClass:[XMMContentBlock100TableViewCell class]] && self.relatedSpot != nil && self.relatedSpot.ID != nil) {
+  if ([cell isKindOfClass:[XMMContentBlock100TableViewCell class]]) {
     [(XMMContentBlock100TableViewCell *) cell setRelatedSpot: self.relatedSpot];
     [(XMMContentBlock100TableViewCell *) cell setEventStartDate:self.content.fromDate];
     [(XMMContentBlock100TableViewCell *) cell setEventEndDate:self.content.toDate];
