@@ -182,7 +182,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
         [self.tableView reloadData];
       });
     }];
-  } else if (content.toDate != nil && content.fromDate != nil) {
+  } else if (content.fromDate != nil) {
     XMMContentBlock *event = [[XMMContentBlock alloc] init];
     event.publicStatus = YES;
     event.blockType = -2;

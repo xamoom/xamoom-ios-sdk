@@ -68,15 +68,14 @@ static UIColor *contentLinkColor;
 
 - (void)displayEvent:(UITableView *)tableView block:(XMMContentBlock *)block {
   UIColor *locationColor = [UIColor colorNamed:@"event_time_color"];
-  if (self.relatedSpot && self.eventStartDate && self.eventEndDate) {
+  if (self.relatedSpot && self.eventStartDate) {
     self.calendarLocationName = self.relatedSpot.name;
     [self showEventTimeLayout:locationColor];
     [self showEventLocationLayout:locationColor];
-  } else if (!self.relatedSpot && self.eventStartDate && self.eventEndDate) {
-    self.calendarLocationName = block.title;
+  } else if (!self.relatedSpot && self.eventStartDate) {
     [self hideEventLocationLayout];
     [self showEventTimeLayout:locationColor];
-  } else if (self.relatedSpot && (!self.eventStartDate || !self.eventEndDate)) {
+  } else if (self.relatedSpot && !self.eventStartDate) {
     self.calendarLocationName = self.relatedSpot.name;
     [self hideEventTimeLayout];
     [self showEventLocationLayout:locationColor];
@@ -98,7 +97,12 @@ static UIColor *contentLinkColor;
   NSLocale *locale = [NSLocale currentLocale];
   [dateFormatter setLocale:locale];
   [dateFormatter setDateFormat:@"E d MMM HH:mm"];
-  NSString *eventDateString = [NSString stringWithFormat:@"%@ -\n%@", [dateFormatter stringFromDate:self.eventStartDate], [dateFormatter stringFromDate:self.eventEndDate]];
+  
+  NSString *eventDateString = [dateFormatter stringFromDate:self.eventStartDate];
+  if (self.eventEndDate != nil) {
+    eventDateString = [NSString stringWithFormat:@"%@ -\n%@", [dateFormatter stringFromDate:self.eventStartDate], [dateFormatter stringFromDate:self.eventEndDate]];
+  }
+  
   [_eventDateLabel setText:eventDateString];
   _dateLabelHeightConstraint.constant = [self.eventDateLabel.text sizeWithFont:self.eventDateLabel.font
   constrainedToSize: CGSizeMake(self.eventDateLabel.frame.size.width, FLT_MAX)
@@ -251,9 +255,19 @@ static UIColor *contentLinkColor;
       [dateFormatter setDateFormat:@"yyyyMMdd'T'HHmmss"];
       EKEvent *newEvent = [EKEvent eventWithEventStore:store];
       newEvent.startDate = self.eventStartDate;
-      newEvent.endDate = self.eventEndDate;
+      
+      if (self.eventEndDate) {
+        newEvent.endDate = self.eventEndDate;
+      } else {
+        newEvent.endDate = self.eventStartDate;
+      }
+           
       newEvent.title = self.contentTilte;
-      newEvent.location = self.calendarLocationName;
+      
+      if (self.calendarLocationName != nil && [self.calendarLocationName isEqualToString:@""]) {
+        newEvent.location = self.calendarLocationName;
+      }
+      
       if (newEvent != nil) {
         [self saveEvent:newEvent withStore:store];
       } else {

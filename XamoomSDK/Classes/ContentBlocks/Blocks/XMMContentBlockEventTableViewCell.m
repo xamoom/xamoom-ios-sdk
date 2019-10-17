@@ -64,13 +64,13 @@
   self.relatedSpot = spot;
   self.relatedContent = content;
   
-  if (self.relatedSpot && self.relatedContent.fromDate && self.relatedContent.toDate) {
+  if (self.relatedSpot && self.relatedContent.fromDate) {
     [self showCalendarView];
     [self showNavigationView];
-  } else if (self.relatedSpot && (!self.relatedContent.fromDate || self.relatedContent.toDate)) {
+  } else if (self.relatedSpot && !self.relatedContent.fromDate) {
     [self showNavigationView];
     [self hideCalendarView];
-  } else if (!self.relatedSpot && self.relatedContent.fromDate && self.relatedContent.toDate) {
+  } else if (!self.relatedSpot && self.relatedContent.fromDate) {
     [self showCalendarView];
     [self hideNavigationView];
   } else {
@@ -156,9 +156,19 @@
       [dateFormatter setDateFormat:@"yyyyMMdd'T'HHmmss"];
       EKEvent *newEvent = [EKEvent eventWithEventStore:store];
       newEvent.startDate = self.relatedContent.fromDate;
-      newEvent.endDate = self.relatedContent.toDate;
+      
+      if (self.relatedContent.toDate) {
+        newEvent.endDate = self.relatedContent.toDate;
+      } else {
+        newEvent.endDate = self.relatedContent.fromDate;
+      }
+      
       newEvent.title = self.relatedContent.title;
-      newEvent.location = self.relatedSpot ? self.relatedSpot.name : self.relatedContent.title;
+      
+      if (self.relatedSpot != nil && self.relatedSpot.name != nil) {
+        newEvent.location = self.relatedSpot ? self.relatedSpot.name : self.relatedContent.title;
+      }
+      
       if (newEvent != nil) {
         [self saveEvent:newEvent withStore:store];
       } else {
