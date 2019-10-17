@@ -166,7 +166,7 @@
       newEvent.title = self.relatedContent.title;
       
       if (self.relatedSpot != nil && self.relatedSpot.name != nil) {
-        newEvent.location = self.relatedSpot ? self.relatedSpot.name : self.relatedContent.title;
+        newEvent.location = self.relatedSpot.name;
       }
       
       if (newEvent != nil) {

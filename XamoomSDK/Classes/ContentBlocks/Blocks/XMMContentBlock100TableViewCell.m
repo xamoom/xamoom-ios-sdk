@@ -264,7 +264,7 @@ static UIColor *contentLinkColor;
            
       newEvent.title = self.contentTilte;
       
-      if (self.calendarLocationName != nil && [self.calendarLocationName isEqualToString:@""]) {
+      if (self.calendarLocationName != nil && ![self.calendarLocationName isEqualToString:@""]) {
         newEvent.location = self.calendarLocationName;
       }
       
