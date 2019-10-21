@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,38 +13,93 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="202"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="201.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="202"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="The Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCE-yb-Hto">
                         <rect key="frame" x="8" y="8" width="304" height="26.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalCompressionResistancePriority="749" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdI-Mw-WD2">
-                        <rect key="frame" x="8" y="42.5" width="304" height="151"/>
+                        <rect key="frame" x="8" y="115" width="304" height="79"/>
                         <string key="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki.</string>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P41-Ig-Xrp">
+                        <rect key="frame" x="29" y="42.5" width="283" height="37.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37.5" id="XIp-Sh-Esq"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki.</string>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egX-U7-FST">
+                        <rect key="frame" x="29" y="88" width="283" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="ORs-Xy-J5T"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" translatesAutoresizingMaskIntoConstraints="NO" id="ZX4-yC-23B">
+                        <rect key="frame" x="8" y="45.5" width="13" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="Hi4-9v-E0T"/>
+                            <constraint firstAttribute="height" constant="13" id="q0i-3g-R5q"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="q0U-mV-QJr">
+                        <rect key="frame" x="8" y="89" width="13" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="7gK-Bm-z0L"/>
+                            <constraint firstAttribute="height" constant="18" id="uJq-o4-BNM"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="P41-Ig-Xrp" secondAttribute="trailing" constant="8" id="1Pv-Gc-tHW"/>
+                    <constraint firstItem="hdI-Mw-WD2" firstAttribute="top" secondItem="egX-U7-FST" secondAttribute="bottom" constant="8" id="3aE-rr-ToO"/>
                     <constraint firstAttribute="trailing" secondItem="YCE-yb-Hto" secondAttribute="trailing" constant="8" id="6f3-mg-7Ju"/>
-                    <constraint firstItem="hdI-Mw-WD2" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" constant="8" id="9qT-fc-VXr"/>
+                    <constraint firstItem="egX-U7-FST" firstAttribute="leading" secondItem="q0U-mV-QJr" secondAttribute="trailing" constant="8" id="ATX-MA-Lrj"/>
+                    <constraint firstItem="ZX4-yC-23B" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" constant="11" id="DC3-BL-k8R"/>
+                    <constraint firstItem="q0U-mV-QJr" firstAttribute="top" secondItem="P41-Ig-Xrp" secondAttribute="bottom" constant="9" id="FAf-qO-0eh"/>
+                    <constraint firstItem="P41-Ig-Xrp" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" constant="8" id="JEO-DI-HXh"/>
                     <constraint firstAttribute="trailing" secondItem="hdI-Mw-WD2" secondAttribute="trailing" constant="8" id="ZSo-W8-BlY"/>
+                    <constraint firstAttribute="trailing" secondItem="egX-U7-FST" secondAttribute="trailing" constant="8" id="ZcK-oC-2tn"/>
                     <constraint firstAttribute="bottom" secondItem="hdI-Mw-WD2" secondAttribute="bottom" constant="8" id="hAY-0z-P0p"/>
                     <constraint firstItem="YCE-yb-Hto" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="i4b-LX-lBM"/>
+                    <constraint firstItem="egX-U7-FST" firstAttribute="top" secondItem="P41-Ig-Xrp" secondAttribute="bottom" constant="8" id="luV-Qf-DGz"/>
+                    <constraint firstItem="ZX4-yC-23B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="qne-Hu-qkd"/>
+                    <constraint firstItem="P41-Ig-Xrp" firstAttribute="leading" secondItem="ZX4-yC-23B" secondAttribute="trailing" constant="8" id="rh7-oo-JWz"/>
+                    <constraint firstItem="q0U-mV-QJr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="sbN-RY-k6C"/>
                     <constraint firstAttribute="leading" secondItem="hdI-Mw-WD2" secondAttribute="leading" constant="-8" id="ucX-SN-6T6"/>
                     <constraint firstItem="YCE-yb-Hto" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="wkf-Th-yub"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentTextView" destination="hdI-Mw-WD2" id="Pb4-kh-rxH"/>
-                <outlet property="contentTextViewTopConstraint" destination="9qT-fc-VXr" id="8OU-GQ-kx6"/>
+                <outlet property="contentTextViewTopConstraint" destination="3aE-rr-ToO" id="N09-ku-Ujg"/>
+                <outlet property="dateLabelHeightConstraint" destination="XIp-Sh-Esq" id="rQE-9l-38b"/>
+                <outlet property="eventDateLabel" destination="P41-Ig-Xrp" id="mJ4-lv-ZFA"/>
+                <outlet property="eventLocationImageView" destination="q0U-mV-QJr" id="IGa-Qa-URp"/>
+                <outlet property="eventLocationLabel" destination="egX-U7-FST" id="Cxc-zr-TYf"/>
+                <outlet property="eventTimeImageView" destination="ZX4-yC-23B" id="V4H-ZA-sSI"/>
+                <outlet property="locationImageViewHeightConstraint" destination="uJq-o4-BNM" id="LWR-Ie-y53"/>
+                <outlet property="locationLabelHeightConstraint" destination="ORs-Xy-J5T" id="g2Q-z2-NH1"/>
+                <outlet property="timeImageViewHeightConstraint" destination="q0i-3g-R5q" id="Lsz-s8-Jrp"/>
                 <outlet property="titleLabel" destination="YCE-yb-Hto" id="oCq-7F-scg"/>
             </connections>
-            <point key="canvasLocation" x="388" y="532"/>
+            <point key="canvasLocation" x="387.19999999999999" y="531.63418290854577"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="clock" width="14" height="14"/>
+        <image name="location" width="14" height="19"/>
+    </resources>
 </document>

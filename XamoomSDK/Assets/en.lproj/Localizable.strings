@@ -31,3 +31,6 @@
 "contentblock9.no.permission.message" = "The location permission is denied. Please go to the settings to grant them for our app.";
 "contentblock9.alert.cancel" = "Cancel";
 "contentblock9.alert.settings" = "Settings";
+
+"event.navigation.title" = "Navigate to the location";
+"event.calendar.title" = "Add to calendar";

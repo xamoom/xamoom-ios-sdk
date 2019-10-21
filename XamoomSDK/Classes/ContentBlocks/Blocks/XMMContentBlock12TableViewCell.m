@@ -15,6 +15,7 @@
 @property (nonatomic, assign) int position;
 @property (nonatomic, strong) UIView *curentSubview;
 @property (nonatomic, assign) BOOL hardcodeLoadImage;
+@property (nonatomic, strong) XMMStyle *style;
 
 @end
 
@@ -48,6 +49,7 @@
     _position = 0;
     
     self.contentID = block.contentID;
+    self.style = style;
     
     [self downloadContentBlock:api];
   }
@@ -72,7 +74,7 @@
     XMMContentBlock0TableViewCell *c = (XMMContentBlock0TableViewCell *)cell;
     
     c.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, CGRectGetMaxY(c.frame));
-    [c configureForCell:block tableView:nil indexPath:nil style:nil offline:NO];
+    [c configureForCell:block tableView:nil indexPath:nil style:_style offline:NO];
     
     CGFloat height = c.contentTextView.frame.size.height + c.contentTextView.frame.origin.y;
     
@@ -96,7 +98,7 @@
     XMMContentBlock2TableViewCell *c = (XMMContentBlock2TableViewCell *)cell;
     
     c.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, CGRectGetMaxY(c.frame));
-    [c configureForCell:block tableView:nil indexPath:nil style:nil offline:NO];
+    [c configureForCell:block tableView:nil indexPath:nil style:_style offline:NO];
     
     CGFloat height = c.webView.frame.size.height + c.webView.frame.origin.y;
     
@@ -112,7 +114,7 @@
     XMMContentBlock1TableViewCell *c = (XMMContentBlock1TableViewCell *)cell;
     
     c.frame = CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, CGRectGetMaxY(c.frame));
-    [c configureForCell:block tableView:nil indexPath:nil style:nil offline:NO];
+    [c configureForCell:block tableView:nil indexPath:nil style:_style offline:NO];
     
     CGFloat height = c.audioPlayerView.frame.size.height + c.audioPlayerView.frame.origin.y;
     

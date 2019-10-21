@@ -21,6 +21,7 @@
 #import "XMMContentBlock8TableViewCell.h"
 #import "XMMContentBlock9TableViewCell.h"
 #import "XMMContentBlock11TableViewCell.h"
+#import "XMMContentBlockEventTableViewCell.h"
 #import "UIImage+animatedGIF.h"
 #import "UIColor+HexString.h"
 
@@ -78,6 +79,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property (nonatomic, strong) NSURL *mapboxStyle;
 @property (weak, nonatomic) NSNumber *navigationType;
 @property (nonatomic, strong) UIColor* webViewNavigationBarTintColor;
+@property (strong, nonatomic) NSString *chromeColor;
   
 /**
  * Initialize XMMContentBlocks with tableview and an api.

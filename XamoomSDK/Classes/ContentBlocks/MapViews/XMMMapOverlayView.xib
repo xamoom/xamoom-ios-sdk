@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -33,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="23" id="3x7-ws-Wjj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uc8-VD-Ib0">
@@ -43,7 +41,7 @@
                                 </constraints>
                                 <string key="text">Lorem Ipsum Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum  Lorem Ipsum Lorem Ipsum </string>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NtO-dh-1g3">
@@ -67,7 +65,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="fsm-YU-gpI" secondAttribute="bottom" constant="8" id="2N1-vD-Leb"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uc8-VD-Ib0" secondAttribute="bottom" constant="46" id="Biv-aX-gIb"/>
@@ -87,11 +84,9 @@
                             <constraint firstItem="NtO-dh-1g3" firstAttribute="leading" secondItem="fsm-YU-gpI" secondAttribute="trailing" constant="8" id="shc-QW-mp0"/>
                         </constraints>
                     </view>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <blurEffect style="light"/>
                 </visualEffectView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="F1V-g1-Fa1" secondAttribute="trailing" id="Elc-Pz-Hau"/>
                 <constraint firstItem="F1V-g1-Fa1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dNz-UX-2cl"/>
@@ -106,6 +101,7 @@
                 <outlet property="spotDescriptionLabel" destination="uc8-VD-Ib0" id="Sh8-a5-A5I"/>
                 <outlet property="spotImageView" destination="fsm-YU-gpI" id="9rC-bv-CHb"/>
                 <outlet property="spotTitleLabel" destination="i3l-C9-bSd" id="V3C-g6-1CL"/>
+                <outlet property="visualEffectView" destination="F1V-g1-Fa1" id="Ru5-eR-Uof"/>
             </connections>
             <point key="canvasLocation" x="418.84057971014494" y="267.85714285714283"/>
         </view>

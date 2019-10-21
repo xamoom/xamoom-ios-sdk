@@ -32,3 +32,6 @@
 "contentblock9.no.permission.message" = "De locatievergunning is geweigerd. Ga naar de instellingen om dit toe te staan voor onze app.";
 "contentblock9.alert.cancel" = "Afbreken";
 "contentblock9.alert.settings" = "Instellingen";
+
+"event.navigation.title" = "Navigeer naar deze locatie";
+"event.calendar.title" = "Voer de kalender in";

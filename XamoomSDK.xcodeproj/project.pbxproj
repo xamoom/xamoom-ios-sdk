@@ -24,6 +24,9 @@
 		6210EAC92243DF5900BD6C58 /* libFirebaseCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6210EAC82243DF5900BD6C58 /* libFirebaseCore.a */; };
 		622777402243D3B200D550E1 /* XMMWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6227773F2243D3B200D550E1 /* XMMWebViewController.h */; };
 		622777422243D3D800D550E1 /* XMMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622777412243D3D800D550E1 /* XMMWebViewController.m */; };
+		6242DA8B233C86D5008CD983 /* XMMContentBlockEventTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6242DA88233C86D5008CD983 /* XMMContentBlockEventTableViewCell.h */; };
+		6242DA8C233C86D5008CD983 /* XMMContentBlockEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6242DA89233C86D5008CD983 /* XMMContentBlockEventTableViewCell.m */; };
+		6242DA8D233C86D5008CD983 /* XMMContentBlockEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6242DA8A233C86D5008CD983 /* XMMContentBlockEventTableViewCell.xib */; };
 		627A37C120E4F09B007C83ED /* XMMPushDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 627A37BF20E4F09B007C83ED /* XMMPushDevice.h */; };
 		627A37C220E4F09B007C83ED /* XMMPushDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 627A37C020E4F09B007C83ED /* XMMPushDevice.m */; };
 		627A37C920E4F362007C83ED /* XMMCDPushDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 627A37C720E4F362007C83ED /* XMMCDPushDevice.h */; };
@@ -269,6 +272,9 @@
 		6210EAC82243DF5900BD6C58 /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6227773F2243D3B200D550E1 /* XMMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMWebViewController.h; path = XamoomSDK/Classes/Web/XMMWebViewController.h; sourceTree = "<group>"; };
 		622777412243D3D800D550E1 /* XMMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = XMMWebViewController.m; path = XamoomSDK/Classes/Web/XMMWebViewController.m; sourceTree = "<group>"; };
+		6242DA88233C86D5008CD983 /* XMMContentBlockEventTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMContentBlockEventTableViewCell.h; sourceTree = "<group>"; };
+		6242DA89233C86D5008CD983 /* XMMContentBlockEventTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlockEventTableViewCell.m; sourceTree = "<group>"; };
+		6242DA8A233C86D5008CD983 /* XMMContentBlockEventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMMContentBlockEventTableViewCell.xib; sourceTree = "<group>"; };
 		627A37BF20E4F09B007C83ED /* XMMPushDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMPushDevice.h; path = XamoomSDK/Classes/mapping/XMMPushDevice.h; sourceTree = SOURCE_ROOT; };
 		627A37C020E4F09B007C83ED /* XMMPushDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = XMMPushDevice.m; path = XamoomSDK/Classes/mapping/XMMPushDevice.m; sourceTree = SOURCE_ROOT; };
 		627A37C720E4F362007C83ED /* XMMCDPushDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMCDPushDevice.h; sourceTree = "<group>"; };
@@ -710,6 +716,9 @@
 				62ACD9A522CDEFB800F55C23 /* ContenBlock0CollectionViewCell.h */,
 				62ACD9A622CDEFB800F55C23 /* ContenBlock0CollectionViewCell.m */,
 				62ACD9A722CDEFB800F55C23 /* ContenBlock0CollectionViewCell.xib */,
+				6242DA88233C86D5008CD983 /* XMMContentBlockEventTableViewCell.h */,
+				6242DA89233C86D5008CD983 /* XMMContentBlockEventTableViewCell.m */,
+				6242DA8A233C86D5008CD983 /* XMMContentBlockEventTableViewCell.xib */,
 			);
 			name = TableViewCells;
 			path = Blocks;
@@ -1098,6 +1107,7 @@
 				8830FED91DB79F4C0072DCAC /* XMMOfflineDownloadManager.h in Headers */,
 				88B3902C1DA3AF8600216478 /* XMMCDMenu.h in Headers */,
 				888F4F641DA4F7B3000E49CE /* XMMCDSystem.h in Headers */,
+				6242DA8B233C86D5008CD983 /* XMMContentBlockEventTableViewCell.h in Headers */,
 				883E55921C4A37FE000C4D09 /* XMMContentBlock6TableViewCell.h in Headers */,
 				888F4F6C1DA53317000E49CE /* XMMCDContentBlock.h in Headers */,
 				883E554F1C4A2B66000C4D09 /* XMMSystem.h in Headers */,
@@ -1214,6 +1224,7 @@
 				883E55881C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.xib in Resources */,
 				883E559A1C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.xib in Resources */,
 				883E559D1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.xib in Resources */,
+				6242DA8D233C86D5008CD983 /* XMMContentBlockEventTableViewCell.xib in Resources */,
 				62ACD9AA22CDEFB800F55C23 /* ContenBlock0CollectionViewCell.xib in Resources */,
 				62ACD9A022CDE46100F55C23 /* XMMContentBlock12TableViewCell.xib in Resources */,
 				881CB3061C72124D00AD3AE3 /* XMMMapOverlayView.xib in Resources */,
@@ -1454,6 +1465,7 @@
 				883B95FA1C4D32FF00DB8A6B /* XMMSystemSettings.m in Sources */,
 				883E55A91C4A37FE000C4D09 /* XMMContentBlocksCache.m in Sources */,
 				88FEF64E1F9631C500792DBF /* EnduserOfflineDatamodel.xcdatamodeld in Sources */,
+				6242DA8C233C86D5008CD983 /* XMMContentBlockEventTableViewCell.m in Sources */,
 				885E21D61F877B9700F7F7E7 /* XMMListItem.m in Sources */,
 				62F16FF9222E9AF5000DBFB4 /* PushHelper.m in Sources */,
 				884B61511DACE78500572758 /* XMMOfflinePagedResult.m in Sources */,

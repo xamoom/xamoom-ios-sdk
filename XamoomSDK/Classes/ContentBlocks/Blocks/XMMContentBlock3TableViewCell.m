@@ -105,6 +105,15 @@
 - (void)displayImageFromURL:(NSURL *)fileURL tableView:(UITableView *)tableView indexPath:(NSIndexPath *) indexPath {
   if ([fileURL.absoluteString containsString:@".svg"]) {
     [self displaySVGFromURL:fileURL tableView:tableView indexPath:indexPath];
+  } else if ([fileURL.absoluteString containsString:@".gif"]) {
+    [self.imageLoadingIndicator startAnimating];
+
+    NSData *gifData = [NSData dataWithContentsOfURL:fileURL];
+    self.blockImageView.image = [UIImage sd_animatedGIFWithData:gifData];
+    [self.imageLoadingIndicator stopAnimating];
+    [self createAspectConstraintFromImage:self.blockImageView.image.size];
+    [self setNeedsUpdateConstraints];
+
   } else {
     [self.imageLoadingIndicator startAnimating];
     [self.blockImageView sd_setImageWithURL:fileURL
