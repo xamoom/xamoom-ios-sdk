@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loadMoreButtonHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loadMoreButtonTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopConstraint;
+@property (nonatomic) BOOL isFirstPage;
 @property (nonatomic, strong) NSBundle *bundle;
 
 @end
@@ -45,6 +46,8 @@ int tableViewTopConstant = 8;
   
   [_loadMoreButton setTitle:NSLocalizedStringFromTableInBundle(@"Load more", @"Localizable", _bundle, nil)
                    forState:UIControlStateNormal];
+    
+    self.isFirstPage = TRUE;
 }
 
 - (void)prepareForReuse {
@@ -131,7 +134,13 @@ int tableViewTopConstant = 8;
     [_contentBlocks displayContent: [self generateContentsFrom:contents]];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:position inSection:0];
-    [_parentTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+      if(!self.isFirstPage){
+          //[_parentTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+          [_parentTableView reloadData];
+          [_parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+      } else {
+          self.isFirstPage = FALSE;
+      }
   }];
 }
 

@@ -35,6 +35,8 @@
   _hardcodeLoadImage = YES;
   
   self.contentBlocks = [NSMutableArray new];
+    
+    self.isLoading = FALSE;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -80,11 +82,12 @@
     
     c.contentView.frame = CGRectMake(0, 0, c.frame.size.width, height);
     c.frame = CGRectMake(0, 0, c.frame.size.width, height);
-
+      
     _containerHeight.constant = CGRectGetMaxY(c.contentTextView.frame);
     
     [self.containerView addSubview:c];
     _curentSubview = c;
+      
     
   } else if ([cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
     
@@ -129,13 +132,13 @@
   
   _pageControl.currentPage = _position;
   
-  [_tv beginUpdates];
+  /*[_tv beginUpdates];
   [self setNeedsLayout];
   [self layoutSubviews];
   [self layoutIfNeeded];
   [self updateConstraints];
   [self setNeedsUpdateConstraints];
-  [_tv endUpdates];
+  [_tv endUpdates];*/
 }
 
 - (IBAction)swipeLeft:(UISwipeGestureRecognizer*)recognizer {
@@ -179,7 +182,15 @@
 }
 
 - (void)downloadContentBlock:(XMMEnduserApi *)api {
+    if (self.isLoading){
+        return;
+    }
+    
+    self.isLoading = TRUE;
   
+    if ([self.contentBlocks count] > 0){
+        return;
+    }
   [self.contentBlocks removeAllObjects];
  [api contentWithID:self.contentID options:XMMContentOptionsPreview reason:XMMContentReasonLinkedContent password:nil completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
    if (error && !content) {
@@ -195,6 +206,8 @@
    
    self.pageControl.numberOfPages = self.contentBlocks.count;
   [self addSubviewForPosition: self.position];
+     
+     self.isLoading = FALSE;
    return;
  }];
 
@@ -325,6 +338,7 @@
   
   _hardcodeLoadImage = NO;
   
+
   for (UIView *subView in [self.containerView subviews]) {
     [subView removeFromSuperview];
   }
