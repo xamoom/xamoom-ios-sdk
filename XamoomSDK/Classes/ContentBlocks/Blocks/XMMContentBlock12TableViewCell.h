@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, strong) UITableView *tv;
+@property (nonatomic) BOOL isLoading;
 @end
 
 @interface XMMContentBlock12TableViewCell (XMMTableViewRepresentation)

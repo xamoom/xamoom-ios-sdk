@@ -1,4 +1,8 @@
 # Changelog
+## [3.11.16](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.15...3.11.16) - 10.12.2019
+- Fixed Gallery Contentblock loading
+- FixedContent List Contentblock loading
+
 ## [3.11.15](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.14...3.11.15) - 17.10.2019
 - New design for event package
 - Bounds calculation for maps in contents
