@@ -23,6 +23,10 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
 
 @implementation XMMContentBlocks
 
+- (NSURL *) mapboxStyle {
+    return _mapboxStyle ? _mapboxStyle : [NSURL URLWithString:@"mapbox://styles/xamoom-georg/ck4zb0mei1l371coyi41snaww"];
+}
+
 - (instancetype)initWithTableView:(UITableView *)tableView api:(XMMEnduserApi *)api {
   self = [super init];
   
