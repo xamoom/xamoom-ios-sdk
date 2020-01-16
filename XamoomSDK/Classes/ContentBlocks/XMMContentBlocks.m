@@ -23,6 +23,10 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
 
 @implementation XMMContentBlocks
 
+- (NSURL *) mapboxStyle {
+    return _mapboxStyle ? _mapboxStyle : [NSURL URLWithString:@"mapbox://styles/xamoom-georg/ck4zb0mei1l371coyi41snaww"];
+}
+
 - (instancetype)initWithTableView:(UITableView *)tableView api:(XMMEnduserApi *)api {
   self = [super init];
   
@@ -35,6 +39,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     self.showAllBlocksWhenOffline = NO;
     self.listManager = [[XMMListManager alloc] initWithApi:api];
     self.navigationType = 0;
+    self.cellHeightsDictionary = @{}.mutableCopy;
     
     [self setupTableView];
     [self defaultStyle];
@@ -299,8 +304,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   for (XMMContentBlock *block in self.items) {
     @try {
       NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
-      id cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
-      [newItems addObject:block];
+      //id cell = [self.tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:[NSIndexPath indexPathForRow:index inSection:0]];
+      [newItems addObject:block]; 
     }
     @catch (NSException *exception) {
       NSString *logException = [[NSString alloc] initWithFormat:@"Block Type %i not supported. ContentBlock at position %lu will not be shown", block.blockType, index];
@@ -417,7 +422,21 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   }
 }
 
+// save height
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.cellHeightsDictionary setObject:@(cell.frame.size.height) forKey:indexPath];
+}
+
+// give exact height value
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSNumber *height = [self.cellHeightsDictionary objectForKey:indexPath];
+    if (height) return height.doubleValue;
+    return UITableViewAutomaticDimension;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  NSNumber *height = [self.cellHeightsDictionary objectForKey:indexPath];
+  if (height) return height.doubleValue;
   return UITableViewAutomaticDimension;
 }
 
