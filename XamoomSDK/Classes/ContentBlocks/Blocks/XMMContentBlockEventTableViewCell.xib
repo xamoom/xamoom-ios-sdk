@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -116,6 +116,7 @@
                 <outlet property="navigationTitleLabel" destination="g9S-xq-7s4" id="Pvd-OM-LTl"/>
                 <outlet property="navigationView" destination="Ju0-Qe-PRG" id="0Rl-9f-8IJ"/>
                 <outlet property="navigationViewHeightConstraint" destination="NZd-Ne-Fbi" id="2Qv-tc-YzE"/>
+                <outlet property="navigationViewTopSpaceConstraint" destination="Rq3-yt-cDD" id="aHi-ZA-iCl"/>
             </connections>
             <point key="canvasLocation" x="139" y="143"/>
         </tableViewCell>

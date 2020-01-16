@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *calendarImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *navigationImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *navigationViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navigationViewTopSpaceConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarViewHeightConstraint;
 @property (weak, nonatomic) NSNumber *navigationType;
 @property (nonatomic) UIColor *calendarColor UI_APPEARANCE_SELECTOR;
