@@ -14,8 +14,6 @@
 
 @property (nonatomic, strong) UITableView *parentTableView;
 @property (nonatomic, strong) XMMContentBlocks *contentBlocks;
-@property (nonatomic) UIColor *currentLoadMoreButtonColor;
-@property (nonatomic) UIColor *currentLoadMoreButtonTintColor;
 @property (nonatomic, strong) XMMListManager *listManager;
 @property (nonatomic, strong) NSIndexPath *parentIndexPath;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
@@ -181,22 +179,12 @@ int tableViewTopConstant = 8;
   return content;
 }
 
--(UIColor *)loadMoreButtonColor {
-return _currentLoadMoreButtonColor;
-}
-
--(UIColor *)loadMoreButtonTintColor {
-  return _currentLoadMoreButtonTintColor;
-}
-
 -(void)setLoadMoreButtonColor:(UIColor *)loadMoreButtonColor {
-    _currentLoadMoreButtonColor = loadMoreButtonColor;
-    [self.loadMoreButton setBackgroundColor:_currentLoadMoreButtonColor];
+    [self.loadMoreButton setBackgroundColor:loadMoreButtonColor];
 }
 
 -(void)setLoadMoreButtonTintColor:(UIColor *)loadMoreButtonTintColor {
-    _currentLoadMoreButtonTintColor = loadMoreButtonTintColor;
-    [self.loadMoreButton setTintColor:_currentLoadMoreButtonTintColor];
+    [self.loadMoreButton setTintColor:loadMoreButtonTintColor];
 }
 
 @end
