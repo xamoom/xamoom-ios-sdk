@@ -172,7 +172,7 @@
     CGFloat height = cell.webView.frame.size.height + cell.webView.frame.origin.y;
     cell.contentView.frame = CGRectMake(0, 0, cell.frame.size.width, height);
     cell.frame = CGRectMake(0, 0, cell.frame.size.width, height);
-    _containerHeight.constant = CGRectGetMaxY(cell.webView.frame);
+    _containerHeight.constant = CGRectGetMaxY(cell.webView.frame) + 8;//8 -> bottom offset for page indicator (dots)
     
     CGPoint loc = self->_tv.contentOffset;
     [self removeSubViews];
@@ -326,9 +326,9 @@
       [self calculateImageScaling:block.scaleX blockCell:cell];
     }
     
-    double cellHeight = imageHeight;
+    double cellHeight = imageHeight + 14; //14 -> we need to add this exact amount to compensate height of page indicator (dots)
     if (hasBottomSpace) {
-      cellHeight = cellHeight + 40;
+      cellHeight = cellHeight + 19; //19 -> height of text + margin top
     }
     
     cell.frame = CGRectMake(0, 0, imageWidth, cellHeight);
