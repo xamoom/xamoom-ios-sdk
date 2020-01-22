@@ -179,4 +179,12 @@ int tableViewTopConstant = 8;
   return content;
 }
 
+-(void)setLoadMoreButtonColor:(UIColor *)loadMoreButtonColor {
+    [self.loadMoreButton setBackgroundColor:loadMoreButtonColor];
+}
+
+-(void)setLoadMoreButtonTintColor:(UIColor *)loadMoreButtonTintColor {
+    [self.loadMoreButton setTintColor:loadMoreButtonTintColor];
+}
+
 @end

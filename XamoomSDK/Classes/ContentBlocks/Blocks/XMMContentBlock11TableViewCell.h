@@ -11,12 +11,21 @@
 #import "XMMStyle.h"
 #import "XMMEnduserApi.h"
 #import "XMMListManager.h"
+#import "UIKit/UIColor.h"
 
 @interface XMMContentBlock11TableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) UIColor *loadMoreButtonColor UI_APPEARANCE_SELECTOR;
+@property (strong, nonatomic) UIColor *loadMoreButtonTintColor UI_APPEARANCE_SELECTOR;
 @property (weak, nonatomic) IBOutlet UIButton *loadMoreButton;
+
+-(void)setLoadMoreButtonColor:(UIColor *)loadMoreButtonColor;
+-(void)setLoadMoreButtonTintColor:(UIColor *)loadMoreButtonTintColor;
+
+-(UIColor *)loadMoreButtonColor;
+-(UIColor *)loadMoreButtonTintColor;
 
 @end
 
