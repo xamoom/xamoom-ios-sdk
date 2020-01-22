@@ -115,6 +115,7 @@
 
 - (void)hideCalendarView {
   self.calendarViewHeightConstraint.constant = 0;
+  self.navigationViewTopSpaceConstraint.constant = 0;
 }
 
 - (void)hideNavigationView {
