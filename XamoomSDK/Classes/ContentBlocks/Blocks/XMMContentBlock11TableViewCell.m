@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loadMoreButtonTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopConstraint;
 @property (nonatomic) BOOL isFirstPage;
+@property (nonatomic) long loadedContentItems;
 @property (nonatomic, strong) NSBundle *bundle;
 
 @end
@@ -48,6 +49,7 @@ int tableViewTopConstant = 8;
                    forState:UIControlStateNormal];
     
     self.isFirstPage = TRUE;
+    self.loadedContentItems = 0;
 }
 
 - (void)prepareForReuse {
@@ -90,17 +92,21 @@ int tableViewTopConstant = 8;
   
   XMMListItem *listItem = [listManager listItemFor: (int)indexPath.row];
   if (listItem != nil && listItem.contents.count > 0) {
-    _activityIndicator.hidden = YES;
-    if (listItem.hasMore) {
-      _loadMoreButton.hidden = NO;
-    } else {
-      [self hideLoadMoreButtonWithConstraints];
-    }
-    
-    _tableViewHeightConstraint.constant = 89 * listItem.contents.count;
-    [self setNeedsLayout];
-    
-    [_contentBlocks displayContent: [self generateContentsFrom:listItem.contents]];
+        _activityIndicator.hidden = YES;
+        if (listItem.hasMore) {
+          _loadMoreButton.hidden = NO;
+        } else {
+          [self hideLoadMoreButtonWithConstraints];
+        }
+          
+      if (listItem.contents.count != self.loadedContentItems){
+        self.loadedContentItems = listItem.contents.count;
+        
+        _tableViewHeightConstraint.constant = 89 * listItem.contents.count;
+        [self setNeedsLayout];
+          
+        [_contentBlocks displayContent: [self generateContentsFrom:listItem.contents]];
+      }
   } else {
     [self loadContentWith:block.contentListTags pageSize:block.contentListPageSize ascending:block.contentListSortAsc position:(int)indexPath.row];
   }
@@ -135,10 +141,10 @@ int tableViewTopConstant = 8;
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:position inSection:0];
       if(!self.isFirstPage){
-          //[_parentTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
           [_parentTableView reloadData];
           [_parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
       } else {
+          [_parentTableView reloadData];
           self.isFirstPage = FALSE;
       }
   }];
@@ -171,6 +177,14 @@ int tableViewTopConstant = 8;
   content.contentBlocks = contentBlocks;
   
   return content;
+}
+
+-(void)setLoadMoreButtonColor:(UIColor *)loadMoreButtonColor {
+    [self.loadMoreButton setBackgroundColor:loadMoreButtonColor];
+}
+
+-(void)setLoadMoreButtonTintColor:(UIColor *)loadMoreButtonTintColor {
+    [self.loadMoreButton setTintColor:loadMoreButtonTintColor];
 }
 
 @end

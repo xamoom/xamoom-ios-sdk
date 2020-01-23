@@ -70,6 +70,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property (nonatomic, strong) XMMListManager *listManager;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSMutableDictionary *cellHeightsDictionary;
 @property (nonatomic, strong) UIColor *linkColor;
 @property (nonatomic) BOOL showAllStoreLinks;
 @property (nonatomic) BOOL showAllBlocksWhenOffline;
