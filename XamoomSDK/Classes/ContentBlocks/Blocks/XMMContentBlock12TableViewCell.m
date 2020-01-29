@@ -38,6 +38,7 @@
     self.contentBlocks = [NSMutableArray new];
     self.isLoading = FALSE;
     self.position = 0;
+    self.pageControl.hidesForSinglePage = TRUE;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -45,7 +46,11 @@
 
     // Configure the view for the selected state
 }
-  
+
+- (void)hidePageControlForSingleItem {
+    self.containerViewBottomConstraint.constant = 0;
+}
+
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(id)style api:(id)api offline:(BOOL)offline {
     _tv = tableView;
     self.position = 0;
@@ -82,6 +87,9 @@
         }
         
         self.pageControl.numberOfPages = self.contentBlocks.count;
+        if (self.pageControl.numberOfPages == 1) {
+            [self hidePageControlForSingleItem];
+        }
         self.isLoading = FALSE;
         [self addSubviewForPosition:self.position];
         return;
@@ -144,6 +152,10 @@
         XMMContentBlock1TableViewCell *c = (XMMContentBlock1TableViewCell *)cell;
         [self displayAudio:block blockCell:c];
     }
+}
+
+- (void)updateCurrentPageInPageControl:(int)position {
+      self.pageControl.currentPage = position;
 }
 
 - (void)displayAudio:(XMMContentBlock *)contentBlock blockCell:(XMMContentBlock1TableViewCell *)cell{
@@ -342,7 +354,7 @@
   }
   
   self.position = self.position + 1;
-  
+  [self updateCurrentPageInPageControl:self.position];
   [self addSubviewForPosition:self.position];
 }
 
@@ -352,7 +364,7 @@
   }
   
   self.position = self.position - 1;
-  
+  [self updateCurrentPageInPageControl:self.position];
   [self addSubviewForPosition:self.position];
 }
 @end
