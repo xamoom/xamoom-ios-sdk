@@ -128,11 +128,15 @@ static UIColor *contentLinkColor;
 - (void)hideEventTimeLayout {
   _timeImageViewHeightConstraint.constant = 0;
   _dateLabelHeightConstraint.constant = 0;
+  self.eventDateLabelTopConstraint.constant = 0;
+  self.eventTimeImageViewTopConstraint.constant = 0;
 }
 
 - (void)hideEventLocationLayout {
   _locationImageViewHeightConstraint.constant = 0;
   _locationLabelHeightConstraint.constant = 0;
+  self.eventLocationImageViewTopConstraint.constant = 0;
+  self.evenLocationLabelTopConstraint.constant = 0;
 }
 
 - (void)displayTitle:(NSString *)title block:(XMMContentBlock *)block {
@@ -156,6 +160,8 @@ static UIColor *contentLinkColor;
     self.contentTextView.attributedText = [self attributedStringFromHTML:text fontSize:[XMMContentBlock100TableViewCell fontSize] fontColor:color];
     [self.contentTextView sizeToFit];
   } else {
+    self.contentTextViewBottomConstraint.constant = 0;
+    self.contentTextViewTopConstraint.constant = 0;
     [self disappearTextView:self.contentTextView];
   }
 }

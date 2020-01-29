@@ -20,6 +20,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *evenLocationLabelTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *eventDateLabelTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *eventTimeImageViewTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *eventLocationImageViewTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewBottomConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *eventDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *eventLocationLabel;
 @property (strong, nonatomic) XMMSpot *relatedSpot;
