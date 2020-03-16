@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,16 +28,6 @@
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P41-Ig-Xrp">
-                        <rect key="frame" x="29" y="42.5" width="283" height="37.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="37.5" id="XIp-Sh-Esq"/>
-                        </constraints>
-                        <string key="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki.</string>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egX-U7-FST">
                         <rect key="frame" x="29" y="88" width="283" height="19"/>
                         <constraints>
@@ -61,18 +51,28 @@
                             <constraint firstAttribute="height" constant="18" id="uJq-o4-BNM"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P41-Ig-Xrp">
+                        <rect key="frame" x="29" y="42.5" width="283" height="37.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="37.5" id="XIp-Sh-Esq"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea taki.</string>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="P41-Ig-Xrp" secondAttribute="trailing" constant="8" id="1Pv-Gc-tHW"/>
-                    <constraint firstItem="hdI-Mw-WD2" firstAttribute="top" secondItem="egX-U7-FST" secondAttribute="bottom" constant="8" id="3aE-rr-ToO"/>
+                    <constraint firstItem="hdI-Mw-WD2" firstAttribute="top" secondItem="egX-U7-FST" secondAttribute="bottom" priority="999" constant="8" id="3aE-rr-ToO"/>
                     <constraint firstAttribute="trailing" secondItem="YCE-yb-Hto" secondAttribute="trailing" constant="8" id="6f3-mg-7Ju"/>
                     <constraint firstItem="egX-U7-FST" firstAttribute="leading" secondItem="q0U-mV-QJr" secondAttribute="trailing" constant="8" id="ATX-MA-Lrj"/>
-                    <constraint firstItem="ZX4-yC-23B" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" constant="11" id="DC3-BL-k8R"/>
+                    <constraint firstItem="ZX4-yC-23B" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" priority="999" constant="11" id="DC3-BL-k8R"/>
                     <constraint firstItem="q0U-mV-QJr" firstAttribute="top" secondItem="P41-Ig-Xrp" secondAttribute="bottom" constant="9" id="FAf-qO-0eh"/>
-                    <constraint firstItem="P41-Ig-Xrp" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" constant="8" id="JEO-DI-HXh"/>
+                    <constraint firstItem="P41-Ig-Xrp" firstAttribute="top" secondItem="YCE-yb-Hto" secondAttribute="bottom" priority="999" constant="8" id="JEO-DI-HXh"/>
                     <constraint firstAttribute="trailing" secondItem="hdI-Mw-WD2" secondAttribute="trailing" constant="8" id="ZSo-W8-BlY"/>
                     <constraint firstAttribute="trailing" secondItem="egX-U7-FST" secondAttribute="trailing" constant="8" id="ZcK-oC-2tn"/>
-                    <constraint firstAttribute="bottom" secondItem="hdI-Mw-WD2" secondAttribute="bottom" constant="8" id="hAY-0z-P0p"/>
+                    <constraint firstAttribute="bottom" secondItem="hdI-Mw-WD2" secondAttribute="bottom" priority="999" constant="8" id="hAY-0z-P0p"/>
                     <constraint firstItem="YCE-yb-Hto" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="i4b-LX-lBM"/>
                     <constraint firstItem="egX-U7-FST" firstAttribute="top" secondItem="P41-Ig-Xrp" secondAttribute="bottom" constant="8" id="luV-Qf-DGz"/>
                     <constraint firstItem="ZX4-yC-23B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="qne-Hu-qkd"/>
@@ -84,12 +84,18 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentTextView" destination="hdI-Mw-WD2" id="Pb4-kh-rxH"/>
+                <outlet property="contentTextViewBottomConstraint" destination="hAY-0z-P0p" id="bWI-XL-LP9"/>
                 <outlet property="contentTextViewTopConstraint" destination="3aE-rr-ToO" id="N09-ku-Ujg"/>
+                <outlet property="contentView" destination="H2p-sc-9uM" id="HKa-Vv-hgb"/>
                 <outlet property="dateLabelHeightConstraint" destination="XIp-Sh-Esq" id="rQE-9l-38b"/>
+                <outlet property="evenLocationLabelTopConstraint" destination="luV-Qf-DGz" id="4Me-cU-vBC"/>
                 <outlet property="eventDateLabel" destination="P41-Ig-Xrp" id="mJ4-lv-ZFA"/>
+                <outlet property="eventDateLabelTopConstraint" destination="JEO-DI-HXh" id="DgW-kb-2u7"/>
                 <outlet property="eventLocationImageView" destination="q0U-mV-QJr" id="IGa-Qa-URp"/>
+                <outlet property="eventLocationImageViewTopConstraint" destination="FAf-qO-0eh" id="MdH-cX-W75"/>
                 <outlet property="eventLocationLabel" destination="egX-U7-FST" id="Cxc-zr-TYf"/>
                 <outlet property="eventTimeImageView" destination="ZX4-yC-23B" id="V4H-ZA-sSI"/>
+                <outlet property="eventTimeImageViewTopConstraint" destination="DC3-BL-k8R" id="W0p-7r-n0x"/>
                 <outlet property="locationImageViewHeightConstraint" destination="uJq-o4-BNM" id="LWR-Ie-y53"/>
                 <outlet property="locationLabelHeightConstraint" destination="ORs-Xy-J5T" id="g2Q-z2-NH1"/>
                 <outlet property="timeImageViewHeightConstraint" destination="q0i-3g-R5q" id="Lsz-s8-Jrp"/>

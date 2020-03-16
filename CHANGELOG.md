@@ -1,4 +1,8 @@
 # Changelog
+## [3.11.18](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.17...3.11.18) - 16.03.2020
+- Several UI Fixes
+- Fixed Gallery indicator
+
 ## [3.11.17](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.16...3.11.17) - 23.01.2020
 - New Map Style
 - Fixed Gallery and List Contentblocks

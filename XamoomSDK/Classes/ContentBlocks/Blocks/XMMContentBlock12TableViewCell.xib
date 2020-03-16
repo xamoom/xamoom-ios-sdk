@@ -47,6 +47,7 @@
             <connections>
                 <outlet property="containerHeight" destination="Rxu-LD-9Oe" id="hx6-mJ-Lvz"/>
                 <outlet property="containerView" destination="BRc-NG-HxS" id="hKD-xR-eeX"/>
+                <outlet property="containerViewBottomConstraint" destination="BaV-1C-Lrb" id="Fb2-wv-Z2J"/>
                 <outlet property="containerViewHeightConstrait" destination="Rxu-LD-9Oe" id="Ezv-Bq-AeF"/>
                 <outlet property="pageControl" destination="N3H-dH-Tdm" id="qJa-je-z5A"/>
             </connections>
