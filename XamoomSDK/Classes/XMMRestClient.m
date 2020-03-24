@@ -54,14 +54,40 @@ static const NSString *AUTHORIZATION_ID_HEADER = @"Authorization";
                  completion:completion];
 }
 
+- (NSURLSessionDataTask *)voucherStatusWithContentID:(NSString *)contentID
+                                            clientID:(NSString *)clientID
+                                             headers:(NSDictionary *)headers
+                                          completion:(void (^)(JSONAPI *result, NSError *error))completion {
+
+  NSString *resourcePath = @"consumer/voucher/status";
+  NSURL *requestUrl = [[[self.query.baseUrl URLByAppendingPathComponent:resourcePath] URLByAppendingPathComponent:contentID] URLByAppendingPathComponent:clientID];
+  return [self makeRestCall:requestUrl
+                    headers:headers
+                 completion:completion];
+}
+
+- (NSURLSessionDataTask *)redeemVoucherWithContentID:(NSString *)contentID
+                                            clientID:(NSString *)clientID
+                                          redeemCode:(NSString *)redeemCode
+                                             headers:(NSDictionary *)headers
+                                          completion:(void (^)(JSONAPI *result, NSError *error))completion {
+  
+  NSString *resourcePath = @"consumer/voucher/redeem";
+  NSURL *requestUrl = [[[[self.query.baseUrl URLByAppendingPathComponent:resourcePath] URLByAppendingPathComponent:contentID]     URLByAppendingPathComponent:clientID] URLByAppendingPathComponent:redeemCode];
+  
+  return [self makeRestCall:requestUrl
+                    headers:headers
+                 completion:completion];
+}
+
 - (NSURLSessionDataTask *)postPushDevice:(Class)resourceClass
                                      id:(NSString *)resourceId
                              parameters:(NSDictionary *)parameters
                                 headers:(NSDictionary *)headers
                               pushDevice:(XMMPushDevice *)device
                              completion:(void (^)(JSONAPI *result, NSError *error))completion {
+  
   NSURL *requestUrl = [self.query urlWithResource:resourceClass id:resourceId];
-//  requestUrl = [self.query addQueryParametersToUrl:requestUrl parameters:parameters];
   return [self postPushDevice:requestUrl
                     headers:headers
                  pushDevice:device
@@ -198,6 +224,7 @@ static const NSString *AUTHORIZATION_ID_HEADER = @"Authorization";
 }
 
 - (JSONAPI *)jsonApiFromData:(NSData *)data {
+  NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
   NSError *jsonError;
   NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
   JSONAPI *jsonApi = [JSONAPI jsonAPIWithDictionary:jsonDict];

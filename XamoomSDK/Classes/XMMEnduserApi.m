@@ -811,6 +811,53 @@ static XMMEnduserApi *sharedInstance;
                              }];
 }
 
+- (NSURLSessionDataTask *)voucherStatusWithContendID:(NSString *)contentID
+                                                    clientID:(NSString *)clientID
+                                                   completion:(void (^)(BOOL isRedeemable, NSError * error))completion {
+  if (self.isOffline) {
+    return nil;
+  }
+  return [self.restClient voucherStatusWithContentID:contentID
+                                            clientID:clientID
+                                             headers:[self httpHeadersWithEphemeralId]
+                                          completion:^(JSONAPI *result, NSError *error) {
+  
+    if (error && completion) {
+      completion(nil, error);
+      return;
+    }
+    
+    BOOL isRedeemable = [result.dictionary[@"data"][@"attributes"][@"is-redeemable"] boolValue];
+    if (completion) {
+      completion(isRedeemable, error);
+    }
+  }];
+}
+
+- (NSURLSessionDataTask *)redeemVoucherWithContendID:(NSString *)contentID
+                                                    clientID:(NSString *)clientID
+                                                    redeemCode:(NSString *)redeemCode
+                                                   completion:(void (^)(BOOL isRedeemable, NSError * error))completion{
+  if (self.isOffline) {
+     return nil;
+  }
+  return [self.restClient redeemVoucherWithContentID:contentID
+                                            clientID:clientID
+                                          redeemCode:redeemCode
+                                             headers:[self httpHeadersWithEphemeralId]
+                                          completion:^(JSONAPI *result, NSError *error) {
+   if (error && completion) {
+     completion(nil, error);
+     return;
+   }
+   BOOL isRedeemableNextTime = [result.dictionary[@"data"][@"attributes"][@"is-redeemable"] boolValue];
+   if (completion) {
+     completion(isRedeemableNextTime, error);
+   }
+  }];
+}
+
+
 - (NSURLSessionDataTask *)pushDevice:(BOOL)instantPush {
   
   double lastPush = [[self getUserDefaults] doubleForKey:kLastPushRegisterKey];
