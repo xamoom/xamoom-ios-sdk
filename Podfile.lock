@@ -28,7 +28,7 @@ PODS:
     - GoogleUtilities/Logger (~> 6.5)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.2.0)
-  - FirebaseInstallations (1.1.0):
+  - FirebaseInstallations (1.1.1):
     - FirebaseCore (~> 6.6)
     - GoogleUtilities/UserDefaults (~> 6.5)
     - PromisesObjC (~> 1.2)
@@ -53,9 +53,9 @@ PODS:
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (= 0.3.9011)
-  - GoogleDataTransport (5.0.0)
-  - GoogleDataTransportCCTSupport (2.0.0):
-    - GoogleDataTransport (~> 5.0)
+  - GoogleDataTransport (5.1.0)
+  - GoogleDataTransportCCTSupport (2.0.1):
+    - GoogleDataTransport (~> 5.1)
     - nanopb (~> 0.3.901)
   - GoogleUtilities/AppDelegateSwizzler (6.5.2):
     - GoogleUtilities/Environment
@@ -87,9 +87,9 @@ PODS:
   - OCMock (3.6)
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.4)
-  - Pushwoosh (5.22.3):
-    - Pushwoosh/Core (= 5.22.3)
-  - Pushwoosh/Core (5.22.3)
+  - Pushwoosh (5.23.0):
+    - Pushwoosh/Core (= 5.23.0)
+  - Pushwoosh/Core (5.23.0)
   - SDWebImage (3.8.3):
     - SDWebImage/Core (= 3.8.3)
   - SDWebImage/Core (3.8.3)
@@ -156,13 +156,13 @@ SPEC CHECKSUMS:
   FirebaseCore: ed0a24c758a57c2b88c5efa8e6a8195e868af589
   FirebaseCoreDiagnostics: e9b4cd8ba60dee0f2d13347332e4b7898cca5b61
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
-  FirebaseInstallations: 575cd32f2aec0feeb0e44f5d0110a09e5e60b47b
+  FirebaseInstallations: acb3216eb9784d3b1d2d2d635ff74fa892cc0c44
   FirebaseInstanceID: 7ee0d6777013bb952f377b41965bf132b6a075be
   FirebaseMessaging: 4ec33842d36b3319e062e51fb8b35a74f726950d
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleAppMeasurement: c29d405ff76e18551b5d158eaba6753fda8c7542
-  GoogleDataTransport: a857c6a002d201b524dd4bc2ed7e7355ed07e785
-  GoogleDataTransportCCTSupport: 32f75fbe904c82772fcbb6b6bd4525bfb6f2a862
+  GoogleDataTransport: b29a21d813e906014ca16c00897827e40e4a24ab
+  GoogleDataTransportCCTSupport: 6f15a89b0ca35d6fa523e1f752ef818588885988
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
   JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2
   JSONAPI: 8fed55fcfa08ee662674cd4f1bd03c37d8b34e03
@@ -172,7 +172,7 @@ SPEC CHECKSUMS:
   OCMock: 5ea90566be239f179ba766fd9fbae5885040b992
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
-  Pushwoosh: a24c5fae592781a6a9a009ffd68d9d456d15d044
+  Pushwoosh: 2ba8bb366274da96b85533980b66a6a07826ed84
   SDWebImage: a72e880a8fe0f7fc31efe15aaed443c074d2a80c
   XamoomSDK: 14b3bfa427cca8724332e93fee0cdd2390f6bf73
 

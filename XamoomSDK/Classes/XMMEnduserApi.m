@@ -291,8 +291,7 @@ static XMMEnduserApi *sharedInstance;
     passwordEnters = passwordEnters + 1;
     [userDefaults setInteger:passwordEnters forKey:locationIdentifier];
     [userDefaults synchronize];
-    [headers setValue:password forKey:@"X-Password"];
-  }
+    [headers setValue:password forKey:@"X-Password"];  }
   
   NSUserDefaults *userDefaults = [self getUserDefaults];
   
@@ -817,6 +816,7 @@ static XMMEnduserApi *sharedInstance;
   if (self.isOffline) {
     return nil;
   }
+  if (clientID == nil) clientID = [self getEphemeralId];
   return [self.restClient voucherStatusWithContentID:contentID
                                             clientID:clientID
                                              headers:[self httpHeadersWithEphemeralId]
@@ -841,6 +841,7 @@ static XMMEnduserApi *sharedInstance;
   if (self.isOffline) {
      return nil;
   }
+  if (clientID == nil) clientID = [self getEphemeralId];
   return [self.restClient redeemVoucherWithContentID:contentID
                                             clientID:clientID
                                           redeemCode:redeemCode
