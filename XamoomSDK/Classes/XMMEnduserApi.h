@@ -643,7 +643,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)voucherStatusWithContendID:(NSString * _Nonnull)contentID
-                                                    clientID:(NSString * _Nonnull)clientID
+                                                    clientID:(NSString * _Nullable)clientID
                                    completion:(void (^_Nullable)(BOOL isRedeemable, NSError * _Nullable error))completion;
 
 /**
@@ -657,7 +657,7 @@ extern NSString * _Nonnull const kApiBaseURLString;
  * @return SessionDataTask used to download from the backend.
  */
 - (NSURLSessionDataTask *_Nullable)redeemVoucherWithContendID:(NSString * _Nonnull)contentID
-                                                    clientID:(NSString * _Nonnull)clientID
+                                                    clientID:(NSString * _Nullable)clientID
                                                     redeemCode:(NSString * _Nonnull)redeemCode
                                    completion:(void (^_Nullable)(BOOL isRedeemable, NSError * _Nullable error))completion;
 
