@@ -633,6 +633,34 @@ extern NSString * _Nonnull const kApiBaseURLString;
 - (NSURLSessionDataTask *_Nullable)menuWithID:(NSString * _Nonnull)menuID
                                    completion:(void (^_Nullable)(XMMMenu * _Nullable menu, NSError * _Nullable error))completion;
 
+/**
+ * API call to get voucher status.
+ *
+ * @param contentID content ID that is marked as a voucher
+ * @param clientID client app identifier
+ * - *param1* if voucher can be used by client
+ * - *param2* error NSError, can be null
+ * @return SessionDataTask used to download from the backend.
+ */
+- (NSURLSessionDataTask *_Nullable)voucherStatusWithContendID:(NSString * _Nonnull)contentID
+                                                    clientID:(NSString * _Nullable)clientID
+                                   completion:(void (^_Nullable)(BOOL isRedeemable, NSError * _Nullable error))completion;
+
+/**
+ * API call to redeem voucher.
+ *
+ * @param contentID content ID that is marked as a voucher
+ * @param clientID client app identifier
+ * @param redeemCode voucher redemption code
+ * - *param1* if voucher can be used next time by this client
+ * - *param2* error NSError, null if redeemed successfuly
+ * @return SessionDataTask used to download from the backend.
+ */
+- (NSURLSessionDataTask *_Nullable)redeemVoucherWithContendID:(NSString * _Nonnull)contentID
+                                                    clientID:(NSString * _Nullable)clientID
+                                                    redeemCode:(NSString * _Nonnull)redeemCode
+                                   completion:(void (^_Nullable)(BOOL isRedeemable, NSError * _Nullable error))completion;
+
 - (NSURLSessionDataTask *)pushDevice:(BOOL)instantPush;
 /**
  *
