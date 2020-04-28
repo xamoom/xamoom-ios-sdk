@@ -6,6 +6,7 @@
 //
 
 #import "XMMWebViewController.h"
+#import <WebKit/WebKit.h>
 
 @interface XMMWebViewController ()
 @property (nonatomic) NSBundle *bundle;
@@ -36,7 +37,9 @@
   NSString* title = NSLocalizedStringFromTableInBundle(@"webviewcontroller.back", @"Localizable", self.bundle, nil);
   self.navigationController.navigationBar.topItem.title = title;
 
-  UIWebView *web = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+  WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+  WKWebView *web = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height) configuration: configuration];
+  web.navigationDelegate = self;
   NSString *secureUrlString = [self.url stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
   NSURL *urlFromString = [NSURL URLWithString:secureUrlString];
   NSURLRequest *request = [NSURLRequest requestWithURL:urlFromString];
