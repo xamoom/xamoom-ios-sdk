@@ -61,6 +61,13 @@ static const NSString *AUTHORIZATION_ID_HEADER = @"Authorization";
 
   NSString *resourcePath = @"consumer/voucher/status";
   NSURL *requestUrl = [[[self.query.baseUrl URLByAppendingPathComponent:resourcePath] URLByAppendingPathComponent:contentID] URLByAppendingPathComponent:clientID];
+  
+  NSURLComponents *components = [NSURLComponents componentsWithURL:requestUrl resolvingAgainstBaseURL:NO];
+  components.queryItems = [NSArray arrayWithObject: [NSURLQueryItem queryItemWithName:@"timestamp" value:[NSString stringWithFormat:@"%f",
+                                                                                 [[NSDate date] timeIntervalSince1970]]]];
+  
+  requestUrl = components.URL;
+  
   return [self makeRestCall:requestUrl
                     headers:headers
                  completion:completion];
@@ -74,6 +81,12 @@ static const NSString *AUTHORIZATION_ID_HEADER = @"Authorization";
   
   NSString *resourcePath = @"consumer/voucher/redeem";
   NSURL *requestUrl = [[[[self.query.baseUrl URLByAppendingPathComponent:resourcePath] URLByAppendingPathComponent:contentID]     URLByAppendingPathComponent:clientID] URLByAppendingPathComponent:redeemCode];
+  
+  NSURLComponents *components = [NSURLComponents componentsWithURL:requestUrl resolvingAgainstBaseURL:NO];
+  components.queryItems = [NSArray arrayWithObject: [NSURLQueryItem queryItemWithName:@"timestamp" value:[NSString stringWithFormat:@"%f",
+                                                                                 [[NSDate date] timeIntervalSince1970]]]];
+  
+  requestUrl = components.URL;
   
   return [self makeRestCall:requestUrl
                     headers:headers
