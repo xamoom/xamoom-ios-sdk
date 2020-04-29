@@ -847,14 +847,19 @@ static XMMEnduserApi *sharedInstance;
                                           redeemCode:redeemCode
                                              headers:[self httpHeadersWithEphemeralId]
                                           completion:^(JSONAPI *result, NSError *error) {
-   if (error && completion) {
+    if (error && completion) {
      completion(nil, error);
      return;
-   }
-   BOOL isRedeemableNextTime = [result.dictionary[@"data"][@"attributes"][@"is-redeemable"] boolValue];
-   if (completion) {
+    }
+    if (result.dictionary == nil) {
+      completion(nil, [NSError errorWithDomain:@"com.xamoom" code:500 userInfo:@{@"detail": @"Invalid response from server"}]);
+      return;
+    }
+      
+    BOOL isRedeemableNextTime = [result.dictionary[@"data"][@"attributes"][@"is-redeemable"] boolValue];
+    if (completion) {
      completion(isRedeemableNextTime, error);
-   }
+    }
   }];
 }
 
