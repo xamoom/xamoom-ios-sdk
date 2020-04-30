@@ -24,6 +24,7 @@
 #import "XMMContentBlockEventTableViewCell.h"
 #import "UIImage+animatedGIF.h"
 #import "UIColor+HexString.h"
+#import <WebKit/WebKit.h>
 
 @class XMMEnduserApi;
 
@@ -62,7 +63,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 /**
  * Use XMMContentBlocks to display all our contentBlocks from xamoom cloud.
  */
-@interface XMMContentBlocks : NSObject <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
+@interface XMMContentBlocks : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) id<XMMContentBlocksDelegate> delegate;
 @property (nonatomic, strong) XMMEnduserApi *api;
