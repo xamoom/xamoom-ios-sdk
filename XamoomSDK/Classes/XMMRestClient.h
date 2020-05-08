@@ -42,6 +42,17 @@
                                 headers:(NSDictionary *)headers
                              completion:(void (^)(JSONAPI *result, NSError *error))completion;
 
+- (NSURLSessionDataTask *)voucherStatusWithContentID:(NSString *)contentID
+                                            clientID:(NSString *)clientID
+                                             headers:(NSDictionary *)headers
+                                          completion:(void (^)(JSONAPI *result, NSError *error))completion;
+
+- (NSURLSessionDataTask *)redeemVoucherWithContentID:(NSString *)contentID
+                                            clientID:(NSString *)clientID
+                                          redeemCode:(NSString *)redeemCode
+                                             headers:(NSDictionary *)headers
+                                          completion:(void (^)(JSONAPI *result, NSError *error))completion;
+
 - (NSURLSessionDataTask *)postPushDevice:(Class)resourceClass
                                       id:(NSString *)resourceId
                               parameters:(NSDictionary *)parameters

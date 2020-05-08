@@ -10,13 +10,14 @@
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
+#import <WebKit/WebKit.h>
 
 /**
  * XMMContentBlock0TableViewCell is used to display soundcloud contentBlocks from the xamoom cloud.
  */
 @interface XMMContentBlock7TableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet WKWebView *webView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *webViewTopConstraint;
 

@@ -1,4 +1,8 @@
 # Changelog
+## [3.11.19](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.18...3.11.19) - 08.05.2020
+- implement Voucher functionality 
+- Fixed issues with Gallery
+
 ## [3.11.18](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.17...3.11.18) - 16.03.2020
 - Several UI Fixes
 - Fixed Gallery indicator

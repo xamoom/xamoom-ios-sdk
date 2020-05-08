@@ -291,8 +291,7 @@ static XMMEnduserApi *sharedInstance;
     passwordEnters = passwordEnters + 1;
     [userDefaults setInteger:passwordEnters forKey:locationIdentifier];
     [userDefaults synchronize];
-    [headers setValue:password forKey:@"X-Password"];
-  }
+    [headers setValue:password forKey:@"X-Password"];  }
   
   NSUserDefaults *userDefaults = [self getUserDefaults];
   
@@ -811,6 +810,60 @@ static XMMEnduserApi *sharedInstance;
                              }];
 }
 
+- (NSURLSessionDataTask *)voucherStatusWithContendID:(NSString *)contentID
+                                                    clientID:(NSString *)clientID
+                                                   completion:(void (^)(BOOL isRedeemable, NSError * error))completion {
+  if (self.isOffline) {
+    return nil;
+  }
+  if (clientID == nil) clientID = [self getEphemeralId];
+  return [self.restClient voucherStatusWithContentID:contentID
+                                            clientID:clientID
+                                             headers:[self httpHeadersWithEphemeralId]
+                                          completion:^(JSONAPI *result, NSError *error) {
+  
+    if (error && completion) {
+      completion(nil, error);
+      return;
+    }
+    
+    BOOL isRedeemable = [result.dictionary[@"data"][@"attributes"][@"is-redeemable"] boolValue];
+    if (completion) {
+      completion(isRedeemable, error);
+    }
+  }];
+}
+
+- (NSURLSessionDataTask *)redeemVoucherWithContendID:(NSString *)contentID
+                                                    clientID:(NSString *)clientID
+                                                    redeemCode:(NSString *)redeemCode
+                                                   completion:(void (^)(BOOL isRedeemable, NSError * error))completion{
+  if (self.isOffline) {
+     return nil;
+  }
+  if (clientID == nil) clientID = [self getEphemeralId];
+  return [self.restClient redeemVoucherWithContentID:contentID
+                                            clientID:clientID
+                                          redeemCode:redeemCode
+                                             headers:[self httpHeadersWithEphemeralId]
+                                          completion:^(JSONAPI *result, NSError *error) {
+    if (error && completion) {
+     completion(nil, error);
+     return;
+    }
+    if (result.dictionary == nil) {
+      completion(nil, [NSError errorWithDomain:@"com.xamoom" code:500 userInfo:@{@"detail": @"Invalid response from server"}]);
+      return;
+    }
+      
+    BOOL isRedeemableNextTime = [result.dictionary[@"data"][@"attributes"][@"is-redeemable"] boolValue];
+    if (completion) {
+     completion(isRedeemableNextTime, error);
+    }
+  }];
+}
+
+
 - (NSURLSessionDataTask *)pushDevice:(BOOL)instantPush {
   
   double lastPush = [[self getUserDefaults] doubleForKey:kLastPushRegisterKey];
@@ -833,7 +886,7 @@ static XMMEnduserApi *sharedInstance;
   NSString *token = [storage getUserToken];
   NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
   NSString *appId = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
-  NSString *sdkVersion = @"3.11.18";
+  NSString *sdkVersion = @"3.11.19";
   
   if (token != nil && version != nil && appId != nil) {
     XMMPushDevice *device = [[XMMPushDevice alloc] init];

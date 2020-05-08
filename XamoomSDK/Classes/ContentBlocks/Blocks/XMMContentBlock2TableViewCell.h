@@ -13,6 +13,7 @@
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
+#import <WebKit/WebKit.h>
 
 /**
  * XMMContentBlock2TableViewCell is used to display video contentBlocks from the xamoom cloud.
@@ -20,7 +21,7 @@
 @interface XMMContentBlock2TableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet WKWebView *webView;
 @property (nonatomic, strong) AVPlayer *videoPlayer;
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *playIconImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnailImageView;

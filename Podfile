@@ -12,6 +12,9 @@ target 'XamoomSDK' do
   pod 'Pushwoosh'
   pod 'Mapbox-iOS-SDK'
   pod 'GoogleAnalytics'
+  pod 'Firebase', '~> 6.20.0'
+  pod 'FirebaseCore', '~> 6.6.4'
+  pod 'FirebaseMessaging', '~> 4.3.0'
 end
 
 target 'XamoomSDKTests' do
@@ -20,6 +23,6 @@ target 'XamoomSDKTests' do
 end
 
 target 'Example' do
-	xcodeproj 'Example/example.xcodeproj'
+	project 'Example/example.xcodeproj'
 	pod 'XamoomSDK', :path => './'
 end

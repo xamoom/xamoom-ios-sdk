@@ -11,6 +11,7 @@
 
 @interface XMMContentBlock12TableViewCell()
 @property (nonatomic, strong) NSMutableArray *contentBlocks;
+@property (nonatomic, strong) NSMutableDictionary *loadedGalleriesBlocks;
 @property (nonatomic, strong) NSString *contentID;
 @property (nonatomic, assign) int position;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewHeightConstrait;
@@ -68,9 +69,18 @@
     
     self.isLoading = TRUE;
   
-    if ([self.contentBlocks count] > 0){
-        [self addSubviewForPosition: self.position];
-        return;
+    NSMutableArray *storedBlocks = [self.loadedGalleriesBlocks objectForKey:self.contentID];
+    if (storedBlocks != nil) {
+      self.contentBlocks = storedBlocks;
+      self.pageControl.numberOfPages = self.contentBlocks.count;
+      if (self.pageControl.numberOfPages == 1) {
+         [self hidePageControlForSingleItem];
+      }
+      self.isLoading = FALSE;
+      if (self.contentBlocks.count > self.position) {
+          [self addSubviewForPosition:self.position];
+      }
+      return;
     }
     
     [api contentWithID:self.contentID options:XMMContentOptionsPreview reason:XMMContentReasonLinkedContent password:nil completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
@@ -78,20 +88,25 @@
             return;
         }
         
+        NSMutableArray *filteredBlocks = [NSMutableArray new];
+        
         for (XMMContentBlock *cb in content.contentBlocks) {
             int type = cb.blockType;
             if (type == 0 || type == 3 || type == 2 || type == 1) {
-                [self.contentBlocks addObject:cb];
+                [filteredBlocks addObject:cb];
             }
-            
         }
-        
+        self.contentBlocks = filteredBlocks;
+        [self.loadedGalleriesBlocks setObject: filteredBlocks forKey: self.contentID];
+      
         self.pageControl.numberOfPages = self.contentBlocks.count;
         if (self.pageControl.numberOfPages == 1) {
             [self hidePageControlForSingleItem];
         }
         self.isLoading = FALSE;
-        [self addSubviewForPosition:self.position];
+        if (self.contentBlocks.count > self.position) {
+            [self addSubviewForPosition:self.position];
+        }
         return;
  }];
 }
@@ -349,7 +364,7 @@
 }
 
 - (IBAction)swipeLeft:(UISwipeGestureRecognizer*)recognizer {
-  if (self.position == self.contentBlocks.count - 1) {
+  if (self.position + 1 >= self.contentBlocks.count) {
     return;
   }
   
