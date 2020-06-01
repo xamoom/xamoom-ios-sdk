@@ -41,7 +41,7 @@ int tableViewTopConstant = 8;
     self.bundle = bundle;
   }
   
-  _tableView.contentInset = UIEdgeInsetsMake(-16, 0, 0, 0);
+  _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
   _tableView.scrollEnabled = NO;
   _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
