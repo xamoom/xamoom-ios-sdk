@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0475DADA249D14EA008D9DF6 /* NSBundle+Localized.h in Headers */ = {isa = PBXBuildFile; fileRef = 0475DAD8249D14E9008D9DF6 /* NSBundle+Localized.h */; };
+		0475DADB249D14EA008D9DF6 /* NSBundle+Localized.m in Sources */ = {isa = PBXBuildFile; fileRef = 0475DAD9249D14EA008D9DF6 /* NSBundle+Localized.m */; };
 		21C05D07C44CA82E4ED9AC4E /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B61FA060640C14D5C712CB /* libPods-XamoomSDKTests.a */; };
 		6210EAC92243DF5900BD6C58 /* libFirebaseCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6210EAC82243DF5900BD6C58 /* libFirebaseCore.a */; };
 		622777402243D3B200D550E1 /* XMMWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6227773F2243D3B200D550E1 /* XMMWebViewController.h */; };
@@ -269,6 +271,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0475DAD8249D14E9008D9DF6 /* NSBundle+Localized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+Localized.h"; path = "Classes/NSBundle+Localized.h"; sourceTree = "<group>"; };
+		0475DAD9249D14EA008D9DF6 /* NSBundle+Localized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+Localized.m"; path = "Classes/NSBundle+Localized.m"; sourceTree = "<group>"; };
 		048DAD512426705E00423E0A /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B61FA060640C14D5C712CB /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		218FBF819559D0C6396724E2 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -572,7 +576,6 @@
 				218FBF819559D0C6396724E2 /* Pods-XamoomSDKTests.debug.xcconfig */,
 				FEE83AC8B25AE5B23BAB217A /* Pods-XamoomSDKTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -827,6 +830,8 @@
 		8888DDC41C47B0FA0050A84C /* XamoomSDK */ = {
 			isa = PBXGroup;
 			children = (
+				0475DAD8249D14E9008D9DF6 /* NSBundle+Localized.h */,
+				0475DAD9249D14EA008D9DF6 /* NSBundle+Localized.m */,
 				8888DDC71C47B0FA0050A84C /* Info.plist */,
 				8849374C1C731FB500C53520 /* Images.xcassets */,
 				88E46DE31C47E117004D8AC3 /* XamoomSDK.h */,
@@ -1062,6 +1067,7 @@
 				883E558F1C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.h in Headers */,
 				88B3901C1DA2945900216478 /* XMMCDSystemSettings.h in Headers */,
 				627A37C120E4F09B007C83ED /* XMMPushDevice.h in Headers */,
+				0475DADA249D14EA008D9DF6 /* NSBundle+Localized.h in Headers */,
 				885E21CC1F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.h in Headers */,
 				62ACD9A822CDEFB800F55C23 /* ContenBlock0CollectionViewCell.h in Headers */,
 				883E55831C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.h in Headers */,
@@ -1369,6 +1375,7 @@
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
 				8834405D2012025200CF501E /* XMMMusicPlayer.m in Sources */,
 				62E5CF10223F81A5006F06A9 /* LocationHelper.m in Sources */,
+				0475DADB249D14EA008D9DF6 /* NSBundle+Localized.m in Sources */,
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
 				883AC7D61DB0BEF000AE7BA7 /* XMMOfflineFileManager.m in Sources */,
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,

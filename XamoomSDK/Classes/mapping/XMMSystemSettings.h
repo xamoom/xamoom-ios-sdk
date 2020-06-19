@@ -23,5 +23,7 @@
 @property (nonatomic, getter=isCookieWarningEnabled) BOOL cookieWarningEnabled;
 @property (nonatomic, getter=isRecommendationEnabled) BOOL recommendationEnabled;
 @property (nonatomic, getter=isEventPackageEnabled) BOOL eventPackageEnabled;
+@property (nonatomic, getter=isLanguagePickerEnabled) BOOL languagePickerEnabled;
+@property (nonatomic, getter=languages) NSMutableArray<NSString *> *languages;
 
 @end

@@ -58,6 +58,10 @@
     self.copyrightLabel.textColor = textColor;
   }
 
+  if (![block.contentID isEqualToString:@""]) {
+    self.contentID = block.contentID;
+  }
+  
   if (![block.linkUrl isEqualToString:@""]) {
     self.linkUrl = block.linkUrl;
   }

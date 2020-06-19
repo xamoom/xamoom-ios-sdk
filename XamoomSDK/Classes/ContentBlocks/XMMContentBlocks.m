@@ -402,7 +402,11 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   }
   
   if ([cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
-    if (self.navController != nil && self.urls != nil) {
+    XMMContentBlock3TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.contentID != nil) {
+      [self.delegate didClickContentBlock:cell.contentID];
+    }
+    else if (self.navController != nil && self.urls != nil) {
       cell = (XMMContentBlock3TableViewCell *)cell;
       [cell setWebViewControllerNavigationTintColor: _webViewNavigationBarTintColor];
       [cell openLink:self.urls controller:self.navController];
