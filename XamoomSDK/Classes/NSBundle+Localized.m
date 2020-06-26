@@ -7,6 +7,7 @@
 //
 
 #import "NSBundle+Localized.h"
+#import "XMMEnduserApi.h"
 #import <objc/runtime.h>
 
 static const char kBundleKey = 0;
@@ -39,6 +40,10 @@ static const char kBundleKey = 0;
         object_setClass([NSBundle mainBundle],[BundleEx class]);
     });
     id value = language ? [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:language ofType:@"lproj"]] : nil;
+    if (value == nil) {
+      NSString* language = [[NSLocale preferredLanguages][0] substringWithRange:NSMakeRange(0, 2)];
+      value = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:language ofType:@"lproj"]];
+    }
     objc_setAssociatedObject([NSBundle mainBundle], &kBundleKey, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
