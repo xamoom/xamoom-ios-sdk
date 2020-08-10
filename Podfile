@@ -6,6 +6,7 @@ platform :ios, '8.0'
 workspace 'XamoomSDK'
 
 target 'XamoomSDK' do
+  pod 'HCLineChartView'
 	pod 'JSONAPI', '~> 1.0.0'
 	pod 'SDWebImage', '~>3.7'
   pod 'JAMSVGImage'

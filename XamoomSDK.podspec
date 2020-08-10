@@ -31,5 +31,6 @@ Pod::Spec.new do |s|
     core.dependency 'Firebase', '>= 5.15.0'
     core.dependency 'FirebaseCore', '>= 5.1.0'
     core.dependency 'FirebaseMessaging'
+    core.dependency 'HCLineChartView' 
   end
 end

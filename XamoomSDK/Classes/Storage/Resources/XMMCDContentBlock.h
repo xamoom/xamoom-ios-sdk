@@ -33,4 +33,5 @@
 @property (nonatomic) NSArray *contentListTags;
 @property (nonatomic) NSNumber *contentListPageSize;
 @property (nonatomic) NSNumber *contentListSortAsc;
+@property (nonatomic) NSNumber *showElevation;
 @end

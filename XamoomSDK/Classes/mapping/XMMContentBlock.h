@@ -68,4 +68,6 @@
 
 @property (nonatomic) BOOL contentListSortAsc;
 
+@property (nonatomic) BOOL showElevation;
+
 @end
