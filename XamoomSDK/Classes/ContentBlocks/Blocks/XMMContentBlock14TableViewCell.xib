@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,7 +11,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="XMMContentBlock14TableViewCell" rowHeight="330" id="CeQ-lz-5F2" customClass="XMMContentBlock14TableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="298" height="330"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="CeQ-lz-5F2" id="dvc-A2-vZk">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CeQ-lz-5F2" id="dvc-A2-vZk">
                 <rect key="frame" x="0.0" y="0.0" width="298" height="330"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -22,10 +21,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAF-Va-33V" customClass="MGLMapView">
-                        <rect key="frame" x="8" y="40" width="282" height="175"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAF-Va-33V" customClass="MGLMapView">
+                        <rect key="frame" x="8" y="26" width="282" height="282"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0F-NH-Ft1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0F-NH-Ft1">
                                 <rect key="frame" x="234" y="8" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -37,7 +36,7 @@
                                     <action selector="centerUserButtonAction:" destination="CeQ-lz-5F2" eventType="touchUpInside" id="EcM-qh-5jd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJo-Ce-PRc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJo-Ce-PRc">
                                 <rect key="frame" x="234" y="49" width="40" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -49,7 +48,7 @@
                                     <action selector="centerSpotBoundsAction:" destination="CeQ-lz-5F2" eventType="touchUpInside" id="hYB-CM-LRN"/>
                                 </connections>
                             </button>
-                            <view contentMode="center" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OiG-nL-BrF">
+                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="OiG-nL-BrF">
                                 <rect key="frame" x="234" y="48" width="40" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -57,8 +56,8 @@
                                     <constraint firstAttribute="width" constant="40" id="BGs-kv-eov"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQV-Wp-qNn">
-                                <rect key="frame" x="175" y="139" width="75" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQV-Wp-qNn">
+                                <rect key="frame" x="175" y="246" width="75" height="30"/>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.44313725490196076" blue="0.81960784313725488" alpha="0.79727632705479456" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3pa-RF-Dfx"/>
@@ -72,8 +71,8 @@
                                     <action selector="onMetricButtonClick:" destination="CeQ-lz-5F2" eventType="touchUpInside" id="Lth-Fx-MDD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-yv-RRB">
-                                <rect key="frame" x="100" y="139" width="75" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZ5-yv-RRB">
+                                <rect key="frame" x="92" y="246" width="75" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TJ4-ZU-zo6"/>
@@ -95,7 +94,6 @@
                             <constraint firstAttribute="trailing" secondItem="kJo-Ce-PRc" secondAttribute="trailing" constant="8" id="BVT-cb-wrJ"/>
                             <constraint firstAttribute="bottom" secondItem="eQV-Wp-qNn" secondAttribute="bottom" constant="6" id="Ern-Lh-c6N"/>
                             <constraint firstItem="kJo-Ce-PRc" firstAttribute="top" secondItem="OiG-nL-BrF" secondAttribute="bottom" id="Pa0-W5-qEe"/>
-                            <constraint firstItem="eQV-Wp-qNn" firstAttribute="leading" secondItem="xZ5-yv-RRB" secondAttribute="trailing" constant="8" symbolic="YES" id="T3g-Ms-Ylm"/>
                             <constraint firstAttribute="trailing" secondItem="l0F-NH-Ft1" secondAttribute="trailing" constant="8" id="TLF-RQ-zhv"/>
                             <constraint firstItem="OiG-nL-BrF" firstAttribute="top" secondItem="l0F-NH-Ft1" secondAttribute="bottom" id="Udu-iT-l9W"/>
                             <constraint firstAttribute="width" constant="282" id="X5J-Hp-KIR"/>
@@ -113,36 +111,37 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afg-ur-pie" customClass="HCLineChartView">
-                        <rect key="frame" x="8" y="215" width="282" height="108"/>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afg-ur-pie" customClass="HCLineChartView">
+                        <rect key="frame" x="0.0" y="312" width="298" height="160"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <rect key="contentStretch" x="0.0" y="0.0" width="0.40000000000000002" height="1"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="108" id="Ir6-FN-6tL"/>
+                            <constraint firstAttribute="height" constant="160" id="Ir6-FN-6tL" userLabel="height = 150"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="showYValueAsCurrency" value="NO"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="underLineChartGradientBottomColorIsTransparent" value="NO"/>
                             <userDefinedRuntimeAttribute type="number" keyPath="chartLineWidth">
-                                <real key="value" value="0.0"/>
+                                <integer key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalValuesOnXAxis" value="YES"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="drawHorizontalLinesForYTicks" value="YES"/>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="showXValueAsCurrency" value="NO"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isValueChartWithRealXAxisDistribution" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="VAF-Va-33V" firstAttribute="leading" secondItem="dvc-A2-vZk" secondAttribute="leading" constant="8" id="4bK-uG-aFq"/>
                     <constraint firstItem="Rty-kw-grz" firstAttribute="leading" secondItem="dvc-A2-vZk" secondAttribute="leading" constant="8" id="64g-BV-RvO"/>
-                    <constraint firstItem="afg-ur-pie" firstAttribute="leading" secondItem="dvc-A2-vZk" secondAttribute="leading" constant="8" id="IEA-nb-6zs"/>
+                    <constraint firstItem="afg-ur-pie" firstAttribute="leading" secondItem="dvc-A2-vZk" secondAttribute="leading" id="IEA-nb-6zs"/>
                     <constraint firstItem="afg-ur-pie" firstAttribute="top" secondItem="VAF-Va-33V" secondAttribute="bottom" constant="4" id="Nfm-Lv-JM1"/>
                     <constraint firstAttribute="trailing" secondItem="Rty-kw-grz" secondAttribute="trailing" constant="8" id="QQ2-eC-YHq"/>
                     <constraint firstAttribute="bottom" secondItem="afg-ur-pie" secondAttribute="bottom" constant="20" symbolic="YES" id="UCB-8n-gA8"/>
                     <constraint firstItem="Rty-kw-grz" firstAttribute="top" secondItem="dvc-A2-vZk" secondAttribute="top" constant="3" id="XoG-Ff-hai"/>
                     <constraint firstAttribute="trailing" secondItem="VAF-Va-33V" secondAttribute="trailing" constant="8" id="ZqU-wu-IAK"/>
                     <constraint firstItem="VAF-Va-33V" firstAttribute="top" secondItem="Rty-kw-grz" secondAttribute="bottom" id="fxb-dN-lOq"/>
-                    <constraint firstAttribute="trailing" secondItem="afg-ur-pie" secondAttribute="trailing" constant="8" id="r6H-02-lw8"/>
+                    <constraint firstAttribute="trailing" secondItem="afg-ur-pie" secondAttribute="trailing" id="r6H-02-lw8"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

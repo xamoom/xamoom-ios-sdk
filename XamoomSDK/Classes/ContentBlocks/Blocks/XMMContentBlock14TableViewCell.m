@@ -19,6 +19,8 @@
 @property (nonatomic, strong) CLLocation *userLocation;
 @property (nonatomic) bool isLocationGranted;
 @property (nonatomic) NSString *graphColor;
+@property (nonatomic) double scaleX;
+@property (nonatomic, strong) NSMutableArray *graphCoordinates;
 @end
 
 @implementation XMMContentBlock14TableViewCell
@@ -26,7 +28,6 @@ static UIColor *kContentLinkColor;
 static NSString *kContentLanguage;
 static int kPageSize = 100;
 static NSString *activeElevationButtonBackground = @"#2371D1";
-static NSMutableArray *graphCoordinates;
 static NSMutableArray *metricXElements;
 static NSMutableArray *metricYElements;
 static NSMutableArray *imperialXElements;
@@ -34,13 +35,6 @@ static NSMutableArray *imperialYElements;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-  graphCoordinates = [NSMutableArray new];
-  metricXElements = [NSMutableArray new];
-  metricYElements = [NSMutableArray new];
-  imperialXElements = [NSMutableArray new];
-  imperialYElements = [NSMutableArray new];
-    [self setRoundedButtons];
-  
   
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
   NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
@@ -56,6 +50,15 @@ static NSMutableArray *imperialYElements;
   self.mapViewHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   [_mapView setMaximumZoomLevel:17.4];
   _mapView.delegate = self;
+  
+  
+  [self.contentView addConstraints:@[
+    [NSLayoutConstraint constraintWithItem: self.mapView.attributionButton attribute: NSLayoutAttributeWidth relatedBy: NSLayoutRelationEqual toItem: nil attribute: NSLayoutAttributeWidth multiplier: 1.0 constant: 22],
+    [NSLayoutConstraint constraintWithItem: self.mapView.attributionButton attribute: NSLayoutAttributeHeight relatedBy: NSLayoutRelationEqual toItem: nil attribute: NSLayoutAttributeHeight multiplier: 1.0 constant: 22],
+    [NSLayoutConstraint constraintWithItem: self.mapView.attributionButton attribute: NSLayoutAttributeLeft relatedBy: NSLayoutRelationEqual toItem: self.mapView attribute: NSLayoutAttributeLeft multiplier: 1.0 constant: 7],
+    [NSLayoutConstraint constraintWithItem: self.mapView.attributionButton attribute: NSLayoutAttributeBottom relatedBy: NSLayoutRelationEqual toItem: self.mapView attribute: NSLayoutAttributeBottom multiplier: 1.0 constant: -30],
+  ]];
+  
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocationWithNotification:) name:@"LocationUpdateNotification" object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateUserLocationButtonIcon:) name:UIApplicationWillEnterForegroundNotification object:nil];
@@ -82,6 +85,13 @@ static NSMutableArray *imperialYElements;
                          animated:NO];
       self.lineChartView.chartTitle = @"Elevation chart";
     
+    self.graphCoordinates = [NSMutableArray new];
+    metricXElements = [NSMutableArray new];
+    metricYElements = [NSMutableArray new];
+    imperialXElements = [NSMutableArray new];
+    imperialYElements = [NSMutableArray new];
+    [self setRoundedButtons];
+    self.scaleX = block.scaleX;
     self.titleView.text = block.title;
     self.showContent = block.showContent;
     [self showRoute:block.fileID];
@@ -153,7 +163,7 @@ static NSMutableArray *imperialYElements;
         double longitude = [[coordinate objectAtIndex:0] doubleValue];
         double latitude = [[coordinate objectAtIndex:1] doubleValue];
         NSLog(@"longitude %f latitude %f \n", longitude, latitude);
-        [graphCoordinates addObject:[[CLLocation alloc] initWithLatitude:latitude longitude:longitude]];
+        [self.graphCoordinates addObject:[[CLLocation alloc] initWithLatitude:latitude longitude:longitude]];
         
         
         
@@ -201,10 +211,9 @@ static NSMutableArray *imperialYElements;
     self.lineChartView.chartTitle = @"";
     if(_graphColor != nil) self.lineChartView.chartLineColor = [self colorFromHexString:_graphColor alpha:1.0];
     else self.lineChartView.chartLineColor =  [self colorFromHexString:@"#8522df" alpha:1.0];
-    self.lineChartView.xElements = [[NSMutableArray alloc] initWithObjects: metricXElements];
-    self.lineChartView.yElements = [[NSMutableArray alloc] initWithObjects: metricYElements];
+    self.lineChartView.xElements = metricXElements;
+    self.lineChartView.yElements = metricYElements;
     [self.lineChartView drawChart];
-    [self.lineChartView updateChartWithXElements:metricXElements yElements:metricYElements];
 }
 
 - (double) getDistanceBetweenLocations:(CLLocation *) locA :(CLLocation *) locB {
@@ -214,23 +223,19 @@ static NSMutableArray *imperialYElements;
 }
 
 - (IBAction)onMetricButtonClick:(UIButton *)sender {
-    self.metricButton.titleLabel.textColor = [UIColor whiteColor];
-    self.metricButton.tintColor = [self colorFromHexString:activeElevationButtonBackground alpha:0.8];
+    [self.metricButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
     self.metricButton.backgroundColor = [self colorFromHexString:activeElevationButtonBackground alpha:0.8];
-    self.imperialButton.tintColor = [UIColor whiteColor];
     self.imperialButton.backgroundColor = [UIColor whiteColor];
-    self.imperialButton.titleLabel.textColor = [UIColor blackColor];
+    [self.imperialButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
     [self.lineChartView updateChartWithXElements:metricXElements yElements:metricYElements];
     
 }
 
 
 - (IBAction)onImperialButtonClick:(UIButton *)sender {
-    self.imperialButton.titleLabel.textColor = [UIColor whiteColor];
-    self.imperialButton.tintColor = [self colorFromHexString:activeElevationButtonBackground alpha:0.8];
+    [self.imperialButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
     self.imperialButton.backgroundColor = [self colorFromHexString:activeElevationButtonBackground alpha:0.8];
-    self.metricButton.titleLabel.textColor = [UIColor blackColor];
-    self.metricButton.tintColor = [UIColor whiteColor];
+    [self.metricButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
     self.metricButton.backgroundColor = [UIColor whiteColor];
     [self.lineChartView updateChartWithXElements:imperialXElements yElements:imperialYElements];
 }
@@ -352,7 +357,7 @@ static NSMutableArray *imperialYElements;
     
     dispatch_sync(dispatch_get_main_queue(), ^{
       [self.mapView addAnnotations:annotations];
-        if(graphCoordinates != nil) {
+      if(self.graphCoordinates != nil) {
             [self zoomToFitAnnotationsAndRoute];
         }
     });
@@ -613,7 +618,7 @@ static NSMutableArray *imperialYElements;
         [lonArray addObject:[NSNumber numberWithDouble:location.longitude]];
     }
     
-    for(CLLocation *location in graphCoordinates){
+  for(CLLocation *location in self.graphCoordinates){
         [latArray addObject:[NSNumber numberWithDouble:location.coordinate.latitude]];
         [lonArray addObject:[NSNumber numberWithDouble:location.coordinate.longitude]];
     }
@@ -630,10 +635,10 @@ static NSMutableArray *imperialYElements;
     float maxLon = [[lonArray valueForKeyPath:@"@max.floatValue"] floatValue];
     float minLon = [[lonArray valueForKeyPath:@"@min.floatValue"] floatValue];
     
-    
     CGSize mapMarkerSize = self.customMapMarker.size;
-    double latOffset = [self getDegreeOffsetForMarkerWithMax:maxLat min:minLat markerLength:mapMarkerSize.height];
-    double lonOffset = [self getDegreeOffsetForMarkerWithMax:maxLon min:minLon markerLength:mapMarkerSize.width];
+  
+    double latOffset = (maxLat - minLat) * (1 - self.scaleX / 100);
+    double lonOffset = (maxLon - minLon) * (1 - self.scaleX / 100);
 
     CLLocationCoordinate2D ne = CLLocationCoordinate2DMake(minLat - latOffset, minLon - lonOffset);
     CLLocationCoordinate2D sw = CLLocationCoordinate2DMake(maxLat + latOffset, maxLon + lonOffset);
