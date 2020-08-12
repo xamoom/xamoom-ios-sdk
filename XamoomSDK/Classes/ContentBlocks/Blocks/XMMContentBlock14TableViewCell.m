@@ -21,6 +21,8 @@
 @property (nonatomic) NSString *graphColor;
 @property (nonatomic) double scaleX;
 @property (nonatomic, strong) NSMutableArray *graphCoordinates;
+@property (nonatomic, strong) NSString *tourGeoJsonUrl;
+@property (nonatomic, strong) NSData *tourGeoJsonData;
 @end
 
 @implementation XMMContentBlock14TableViewCell
@@ -101,10 +103,10 @@ static BOOL isCurrentmetric = YES;
     imperialXElements = [NSMutableArray new];
     imperialYElements = [NSMutableArray new];
     [self setRoundedButtons];
+    self.tourGeoJsonUrl = block.fileID;
     self.scaleX = block.scaleX;
     self.titleView.text = block.title;
     self.showContent = block.showContent;
-    [self showRoute:block.fileID];
     [self calculateCoordinates:block.fileID showGraph:block.showElevation];
     [self getSpotMap:api spotMapTags:block.spotMapTags];
     [self showCompass];
@@ -132,19 +134,30 @@ static BOOL isCurrentmetric = YES;
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:alpha];
 }
 
-
-- (void)showRoute: (NSString*)url {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSData *jsonData=[NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
-            dispatch_async(dispatch_get_main_queue(), ^{
-        [self drawPolyline:jsonData];
-            });
-        });
+- (void) setChartValues {
+    
 }
 
-
+- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
+  if (self.tourGeoJsonUrl != nil) {
+    if (self.tourGeoJsonData != nil) {
+      [self drawPolyline:self.tourGeoJsonData];
+    } else {
+      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+          NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString: self.tourGeoJsonUrl]];
+          dispatch_async(dispatch_get_main_queue(), ^{
+            self.tourGeoJsonData = jsonData;
+            [self drawPolyline: jsonData];
+          });
+      });
+    }
+  }
+}
 
 - (void)drawPolyline:(NSData *)geoJson {
+  
+    if ([self.mapView.style sourceWithIdentifier:@"polyline"] != nil) return;
+  
     MGLShape *shape = [MGLShape shapeWithData:geoJson encoding:NSUTF8StringEncoding error:nil];
     MGLSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"polyline" shape:shape options:nil];
     [self.mapView.style addSource:source];
@@ -275,6 +288,7 @@ static BOOL isCurrentmetric = YES;
 
 - (void) drawGraph {
     [self.lineChartView setHidden:NO];
+    [self.lineChartHeightConstraint setConstant:160.0];
     self.lineChartView.showSubtitle = NO;
     self.lineChartView.chartTitle = @"";
     if(_graphColor != nil) self.lineChartView.chartLineColor = [self colorFromHexString:_graphColor alpha:1.0];
@@ -721,7 +735,7 @@ static BOOL isCurrentmetric = YES;
     CLLocationCoordinate2D sw = CLLocationCoordinate2DMake(maxLat + latOffset, maxLon + lonOffset);
     
     MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(sw, ne);
-    self.mapView.visibleCoordinateBounds = bounds;
+    [self.mapView setVisibleCoordinateBounds: bounds];
     
 }
 

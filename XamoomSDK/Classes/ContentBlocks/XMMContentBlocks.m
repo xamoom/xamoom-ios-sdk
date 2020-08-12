@@ -146,8 +146,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   nib = [UINib nibWithNibName:@"XMMContentBlock12TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock12TableViewCell"];
   
-//  nib = [UINib nibWithNibName:@"XMMContentBlock14TableViewCell" bundle:nibBundle];
-//  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock14TableViewCell"];
+  nib = [UINib nibWithNibName:@"XMMContentBlock14TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock14TableViewCell"];
     
 }
 
@@ -376,13 +376,13 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     [(XMMContentBlock9TableViewCell *) cell setNavigationType:self.navigationType];
   }
     
-//  if ([cell isKindOfClass:[XMMContentBlock14TableViewCell class]] && self.mapboxStyle != nil) {
-//      [(XMMContentBlock14TableViewCell *) cell setMapboxStyle:self.mapboxStyle];
-//  }
-//
-//  if ([cell isKindOfClass:[XMMContentBlock14TableViewCell class]] && self.navigationType != nil) {
-//      [(XMMContentBlock14TableViewCell *) cell setNavigationType:self.navigationType];
-//  }
+  if ([cell isKindOfClass:[XMMContentBlock14TableViewCell class]] && self.mapboxStyle != nil) {
+      [(XMMContentBlock14TableViewCell *) cell setMapboxStyle:self.mapboxStyle];
+  }
+
+  if ([cell isKindOfClass:[XMMContentBlock14TableViewCell class]] && self.navigationType != nil) {
+      [(XMMContentBlock14TableViewCell *) cell setNavigationType:self.navigationType];
+  }
   
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style offline:self.offline];

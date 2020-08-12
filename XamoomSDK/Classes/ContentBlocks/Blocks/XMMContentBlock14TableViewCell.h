@@ -38,6 +38,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *zoomOut;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineChartHeightConstraint;
 @property (nonatomic) XMMMapOverlayView *mapAdditionView;
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
