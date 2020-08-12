@@ -112,21 +112,14 @@ static BOOL isCurrentmetric = YES;
 }
 
 - (void) showCompass {
-//    _mapView.compassView.hidden = NO;
-//    _mapView.compassViewMargins = CGPointMake(50.0, 50.0);
 }
 
 - (IBAction)onZoomInButtonClick:(UIButton *)sender {
-//    MGLMapCamera *currentcamera = _mapView.camera;
-//    currentcamera.pitch = currentcamera.pitch + 1;
-//    [_mapView setCamera:currentcamera];
+    [self.mapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel + 1 animated:YES];
 }
 
 - (IBAction)onZoomOutButtonClick:(UIButton *)sender {
-//    MGLMapCamera *currentcamera = _mapView.camera;
-//    currentcamera.pitch = currentcamera.pitch - 1;
-//    [_mapView setCamera:<#(nonnull MGLMapCamera *)#> withDuration:<#(NSTimeInterval)#> animationTimingFunction:<#(nullable CAMediaTimingFunction *)#>];
-    
+    [self.mapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel - 1 animated:YES];
 }
 
 
@@ -476,10 +469,8 @@ static BOOL isCurrentmetric = YES;
 }
 
 - (void) showInfoAlertView {
-    _infoAlertView = [self initWithFrame:CGRectMake(100, 100, 400, 400)];
-    [_mapView addSubview:_infoAlertView];
-//    self.infoAlertView.contentView.frame = self.mapView.bounds;
-    
+//    _infoAlertView = [[InfoAlertView alloc] initWithFrame:CGRectMake(100, 100, 400, 400)];
+//    _infoAlertView.hidden = NO;
 }
 
 - (void)setupMapOverlayView {

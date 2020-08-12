@@ -39,7 +39,6 @@
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;
 @property (nonatomic) XMMMapOverlayView *mapAdditionView;
-@property (nonatomic) InfoAlertView *infoAlertView;
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSURL *mapboxStyle;

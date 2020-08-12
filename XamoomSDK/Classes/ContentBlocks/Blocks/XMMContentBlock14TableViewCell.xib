@@ -160,6 +160,14 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUE-tG-MDt" customClass="InfoAlertView">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="128" id="bvh-Gp-0Sy"/>
+                            <constraint firstAttribute="width" constant="240" id="hEd-pZ-dRu"/>
+                        </constraints>
+                    </view>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afg-ur-pie" customClass="HCLineChartView">
                         <rect key="frame" x="0.0" y="312" width="298" height="160"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -184,8 +192,10 @@
                     <constraint firstItem="VAF-Va-33V" firstAttribute="leading" secondItem="dvc-A2-vZk" secondAttribute="leading" constant="8" id="4bK-uG-aFq"/>
                     <constraint firstItem="Rty-kw-grz" firstAttribute="leading" secondItem="dvc-A2-vZk" secondAttribute="leading" constant="8" id="64g-BV-RvO"/>
                     <constraint firstItem="afg-ur-pie" firstAttribute="leading" secondItem="dvc-A2-vZk" secondAttribute="leading" id="IEA-nb-6zs"/>
+                    <constraint firstItem="MUE-tG-MDt" firstAttribute="leading" secondItem="dvc-A2-vZk" secondAttribute="leading" constant="20" symbolic="YES" id="IhY-Gl-rsA"/>
                     <constraint firstItem="afg-ur-pie" firstAttribute="top" secondItem="VAF-Va-33V" secondAttribute="bottom" constant="4" id="Nfm-Lv-JM1"/>
                     <constraint firstAttribute="trailing" secondItem="Rty-kw-grz" secondAttribute="trailing" constant="8" id="QQ2-eC-YHq"/>
+                    <constraint firstItem="MUE-tG-MDt" firstAttribute="top" secondItem="dvc-A2-vZk" secondAttribute="top" constant="20" symbolic="YES" id="TBD-Qq-Bn4"/>
                     <constraint firstAttribute="bottom" secondItem="afg-ur-pie" secondAttribute="bottom" constant="20" symbolic="YES" id="UCB-8n-gA8"/>
                     <constraint firstItem="Rty-kw-grz" firstAttribute="top" secondItem="dvc-A2-vZk" secondAttribute="top" constant="3" id="XoG-Ff-hai"/>
                     <constraint firstAttribute="trailing" secondItem="VAF-Va-33V" secondAttribute="trailing" constant="8" id="ZqU-wu-IAK"/>
