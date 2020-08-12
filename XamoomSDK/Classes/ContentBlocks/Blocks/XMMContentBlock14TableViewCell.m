@@ -32,6 +32,15 @@ static NSMutableArray *metricXElements;
 static NSMutableArray *metricYElements;
 static NSMutableArray *imperialXElements;
 static NSMutableArray *imperialYElements;
+static double metricTotalDistance;
+static double imperialTotalDistance;
+static double ascentMetres;
+static double ascentFeet;
+static double descentMetres;
+static double descentFeet;
+static NSString *routeSpentTime;
+static NSString *infoTitle;
+static BOOL isCurrentmetric = YES;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -72,6 +81,7 @@ static NSMutableArray *imperialYElements;
     self.metricButton.layer.cornerRadius = 5;
     self.metricButton.layer.borderWidth = 1;
     self.metricButton.layer.borderColor = CFBridgingRetain([UIColor whiteColor]);
+    self.infoButton.layer.cornerRadius = 15;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
@@ -97,8 +107,29 @@ static NSMutableArray *imperialYElements;
     [self showRoute:block.fileID];
     [self calculateCoordinates:block.fileID showGraph:block.showElevation];
     [self getSpotMap:api spotMapTags:block.spotMapTags];
+    [self showCompass];
   }
 }
+
+- (void) showCompass {
+//    _mapView.compassView.hidden = NO;
+//    _mapView.compassViewMargins = CGPointMake(50.0, 50.0);
+}
+
+- (IBAction)onZoomInButtonClick:(UIButton *)sender {
+//    MGLMapCamera *currentcamera = _mapView.camera;
+//    currentcamera.pitch = currentcamera.pitch + 1;
+//    [_mapView setCamera:currentcamera];
+}
+
+- (IBAction)onZoomOutButtonClick:(UIButton *)sender {
+//    MGLMapCamera *currentcamera = _mapView.camera;
+//    currentcamera.pitch = currentcamera.pitch - 1;
+//    [_mapView setCamera:<#(nonnull MGLMapCamera *)#> withDuration:<#(NSTimeInterval)#> animationTimingFunction:<#(nullable CAMediaTimingFunction *)#>];
+    
+}
+
+
 
 - (UIColor *)colorFromHexString:(NSString *)hexString alpha: (double) alpha {
     unsigned rgbValue = 0;
@@ -118,10 +149,6 @@ static NSMutableArray *imperialYElements;
         });
 }
 
-- (void) setChartValues {
-    
-    
-}
 
 
 - (void)drawPolyline:(NSData *)geoJson {
@@ -147,6 +174,9 @@ static NSMutableArray *imperialYElements;
     NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:jsonData options:nil error:&e];
     NSDictionary *firstFeature = [responseDictionary[@"features"] objectAtIndex:0];
     NSDictionary *geometry = firstFeature[@"geometry"];
+    
+    infoTitle = firstFeature[@"properties"][@"name"];
+    
     NSArray *coordinates = geometry[@"coordinates"];
     
     
@@ -156,6 +186,8 @@ static NSMutableArray *imperialYElements;
     double previousLtd = 0.0;
     double previousLong = 0.0;
     
+    double previoudAltitudeMetres = 0.0;
+    double previousAltitudeFeet = 0.0;
     
     for(int i = 0; i < coordinates.count; i++){
         NSArray *coordinate = [coordinates objectAtIndex:i];
@@ -168,40 +200,83 @@ static NSMutableArray *imperialYElements;
         
         
         double altitude;
+        double feet;
         
-        if(coordinate.count > 2) altitude = [[coordinate objectAtIndex:2] doubleValue];
+        if(coordinate.count > 2) {
+          altitude = [[coordinate objectAtIndex:2] doubleValue];
+          feet = altitude * 3.281;
+        }
         else {
             showGraph = false;
-            continue;
+            altitude = -100.0;
+            feet = -100.0;
         }
         
         if(i != 0){
             double kilometres = [self getDistanceBetweenLocations:[[CLLocation alloc] initWithLatitude:previousLtd longitude:previousLong] :[[CLLocation alloc] initWithLatitude:latitude longitude:longitude]];
             distanceMetric += kilometres;
             distanceImperial += kilometres / 1.609344;
+            if(altitude != -100.0 && feet != -100.0) {
+                if(altitude - previoudAltitudeMetres > 0) {
+                    ascentMetres += altitude - previoudAltitudeMetres;
+                    ascentFeet += feet - previousAltitudeFeet;
+                } else if(previoudAltitudeMetres - altitude > 0){
+                    descentMetres += previoudAltitudeMetres - altitude;
+                    descentFeet += previousAltitudeFeet - feet;
+                }
+            }
             
         }
-        double feet = altitude * 3.281;
         
         NSLog(@"x(dist) in kilomeres is %f", distanceMetric);
         NSLog(@"y(alt) in metres is %f", altitude);
         NSLog(@"x(dist) in miles is %f", distanceImperial);
         NSLog(@"y(alt) in feet is %f", feet);
-        [metricXElements addObject: [NSNumber numberWithDouble:distanceMetric]];
-        [metricYElements addObject: [NSNumber numberWithDouble:altitude]];
-        [imperialXElements addObject:[NSNumber numberWithDouble:distanceImperial]];
-        [imperialYElements addObject: [NSNumber numberWithDouble:feet]];
         
         previousLong = longitude;
         previousLtd = latitude;
         
+        if(altitude != -100.0 && feet != -100.0) {
+            [metricXElements addObject: [NSNumber numberWithDouble:distanceMetric]];
+            [metricYElements addObject: [NSNumber numberWithDouble:altitude]];
+            [imperialXElements addObject:[NSNumber numberWithDouble:distanceImperial]];
+            [imperialYElements addObject: [NSNumber numberWithDouble:feet]];
+            previoudAltitudeMetres = altitude;
+            previousAltitudeFeet = feet;
+        }
     }
     
+    metricTotalDistance = distanceMetric;
+    imperialTotalDistance = distanceImperial;
+    routeSpentTime = [self getTimeInHours:distanceImperial/3.1];
     
+    NSLog(@"ascent metres&feet %f %f ", ascentMetres, ascentFeet);
+    NSLog(@"descent metres%feet %f %f ", descentMetres, descentFeet);
+    NSLog(@"total distance metres&feet %f %f ", metricTotalDistance, imperialTotalDistance);
+    NSLog(@"spent time is %@", routeSpentTime);
+    
+    
+    isCurrentmetric = YES;
     if(showElevationGraph && showGraph) {
         [self drawGraph];
-    } 
-//    [self zoomToFitAnnotationsAndRoute];
+    }
+    
+}
+
+- (NSString *) getTimeInHours: (double)timeInDec {
+    NSNumber *doubleNumber = [NSNumber numberWithDouble:timeInDec];
+    NSString *doubleAsString = [doubleNumber stringValue];
+    NSRange dotIndex = [doubleAsString rangeOfString:@"."];
+    NSString *wholePart = [doubleAsString substringToIndex:dotIndex.location];
+    NSString *fractionalPart = @"0";
+    fractionalPart = [fractionalPart stringByAppendingString:[doubleAsString substringFromIndex:dotIndex.location]];
+    fractionalPart = [fractionalPart substringToIndex:4];
+    double fractionalDoubleMinutes = ceil([fractionalPart doubleValue] * 60);
+    int fractionalMinutes = [[[NSNumber numberWithDouble:fractionalDoubleMinutes] stringValue] intValue];
+    NSString *result = [[[wholePart stringByAppendingString: @":"] stringByAppendingString:
+                        [[NSNumber numberWithInt:fractionalMinutes] stringValue]]
+                        stringByAppendingString:@" h"];
+    return result;
     
 }
 
@@ -228,7 +303,7 @@ static NSMutableArray *imperialYElements;
     self.imperialButton.backgroundColor = [UIColor whiteColor];
     [self.imperialButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
     [self.lineChartView updateChartWithXElements:metricXElements yElements:metricYElements];
-    
+    isCurrentmetric = YES;
 }
 
 
@@ -238,8 +313,12 @@ static NSMutableArray *imperialYElements;
     [self.metricButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
     self.metricButton.backgroundColor = [UIColor whiteColor];
     [self.lineChartView updateChartWithXElements:imperialXElements yElements:imperialYElements];
+    isCurrentmetric = NO;
 }
 
+- (IBAction)onInfoButtonClick:(UIButton *)sender {
+    [self showInfoAlertView];
+}
 
 - (NSData *) getDataFrom:(NSString *)url{
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -394,6 +473,13 @@ static NSMutableArray *imperialYElements;
 
 - (BOOL)mapView:(MGLMapView *)mapView annotationCanShowCallout:(id<MGLAnnotation>)annotation {
   return YES;
+}
+
+- (void) showInfoAlertView {
+    _infoAlertView = [self initWithFrame:CGRectMake(100, 100, 400, 400)];
+    [_mapView addSubview:_infoAlertView];
+//    self.infoAlertView.contentView.frame = self.mapView.bounds;
+    
 }
 
 - (void)setupMapOverlayView {

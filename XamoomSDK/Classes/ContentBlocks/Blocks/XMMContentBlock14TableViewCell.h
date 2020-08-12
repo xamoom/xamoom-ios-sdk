@@ -14,6 +14,7 @@
 #import "XMMContentBlocksCache.h"
 #import "XMMAnnotation.h"
 #import "XMMMapOverlayView.h"
+#import "InfoAlertView.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
 #import "UIImage+Scaling.h"
@@ -32,9 +33,13 @@
 @property (weak, nonatomic) IBOutlet HCLineChartView *lineChartView;
 @property (weak, nonatomic) IBOutlet UIButton *metricButton;
 @property (weak, nonatomic) IBOutlet UIButton *imperialButton;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
+@property (weak, nonatomic) IBOutlet UIButton *zoomIn;
+@property (weak, nonatomic) IBOutlet UIButton *zoomOut;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;
 @property (nonatomic) XMMMapOverlayView *mapAdditionView;
+@property (nonatomic) InfoAlertView *infoAlertView;
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSURL *mapboxStyle;
