@@ -299,7 +299,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
         self.infoDistance.text = [NSString stringWithFormat:@"%.2f km", self.metricTotalDistance];
         self.infoAscent.text = [NSString stringWithFormat:@"%d m", (int)self.ascentMetres];
         self.infoDescent.text = [NSString stringWithFormat:@"%d m", (int)self.descentMetres];
-        self.infoTimeDescription.text = @"Duration at 5 kph";
+        self.infoTimeDescription.text = @"Duration at 5 km/h";
     } else {
         self.infoDistance.text = [NSString stringWithFormat:@"%.2f mi", self.imperialTotalDistance];
         self.infoAscent.text = [NSString stringWithFormat:@"%d ft", (int)self.ascentFeet];
