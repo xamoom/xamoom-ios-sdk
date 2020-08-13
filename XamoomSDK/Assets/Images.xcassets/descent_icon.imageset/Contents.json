@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "descent_icon.png",
+      "filename" : "icons8-вниз-48.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "descent_icon-1.png",
+      "filename" : "icons8-вниз-49.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "descent_icon-2.png",
+      "filename" : "icons8-вниз-50.png",
       "scale" : "3x"
     }
   ],

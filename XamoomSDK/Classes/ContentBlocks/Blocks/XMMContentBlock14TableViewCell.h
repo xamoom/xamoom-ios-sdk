@@ -37,10 +37,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *zoomOut;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
 @property (weak, nonatomic) IBOutlet UILabel *infoTitle;
-@property (weak, nonatomic) IBOutlet UIButton *infoDistance;
-@property (weak, nonatomic) IBOutlet UIButton *infoAscent;
-@property (weak, nonatomic) IBOutlet UIButton *infoDescent;
-@property (weak, nonatomic) IBOutlet UIButton *infoTime;
+@property (weak, nonatomic) IBOutlet UILabel *infoDistance;
+@property (weak, nonatomic) IBOutlet UILabel *infoAscent;
+@property (weak, nonatomic) IBOutlet UILabel *infoDescent;
+@property (weak, nonatomic) IBOutlet UILabel *infoTime;
 @property (weak, nonatomic) IBOutlet UILabel *infoTimeDescription;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;

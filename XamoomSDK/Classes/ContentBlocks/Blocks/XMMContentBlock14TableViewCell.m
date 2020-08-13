@@ -90,10 +90,10 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     self.metricButton.layer.borderWidth = 1;
     self.metricButton.layer.borderColor = CFBridgingRetain([UIColor whiteColor]);
     self.infoButton.layer.cornerRadius = 15;
-    self.infoAscent.titleLabel.adjustsFontSizeToFitWidth = true;
-    self.infoDescent.titleLabel.adjustsFontSizeToFitWidth = true;
-    self.infoDistance.titleLabel.adjustsFontSizeToFitWidth = true;
-    self.infoTime.titleLabel.adjustsFontSizeToFitWidth = true;
+    self.infoDistance.adjustsFontSizeToFitWidth = true;
+    self.infoAscent.adjustsFontSizeToFitWidth = true;
+    self.infoDescent.adjustsFontSizeToFitWidth = true;
+    self.infoTime.adjustsFontSizeToFitWidth = true;
     
 }
 
@@ -125,8 +125,8 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
 }
 
 - (void) showCompass {
-    self.mapView.compassView.compassVisibility = MGLOrnamentVisibilityVisible;
-    self.mapView.compassViewPosition = MGLOrnamentPositionTopLeft;
+//    self.mapView.compassView.compassVisibility = MGLOrnamentVisibilityVisible;
+//    self.mapView.compassViewPosition = MGLOrnamentPositionTopLeft;
 }
 
 - (IBAction)onZoomInButtonClick:(UIButton *)sender {
@@ -294,17 +294,16 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
 
 - (void) setInfoValues {
     self.infoTitle.text = self.infoTitleFromReponse;
-    [self.infoTime setTitle: self.routeSpentTime forState:UIControlStateNormal];
-    self.infoTime.titleLabel.text = self.routeSpentTime;
+    self.infoTime.text = self.routeSpentTime;
     if(self.isCurrentmetric) {
-        [self.infoDistance setTitle:[NSString stringWithFormat:@"%.2f km", self.metricTotalDistance] forState:UIControlStateNormal];
-        [self.infoAscent setTitle:[NSString stringWithFormat:@"%d m", (int)self.ascentMetres] forState:UIControlStateNormal];
-        [self.infoDescent setTitle:[NSString stringWithFormat:@"%d m", (int)self.descentMetres] forState:UIControlStateNormal];
+        self.infoDistance.text = [NSString stringWithFormat:@"%.2f km", self.metricTotalDistance];
+        self.infoAscent.text = [NSString stringWithFormat:@"%d m", (int)self.ascentMetres];
+        self.infoDescent.text = [NSString stringWithFormat:@"%d m", (int)self.descentMetres];
         self.infoTimeDescription.text = @"Duration at 5 kph";
     } else {
-        [self.infoDistance setTitle:[NSString stringWithFormat:@"%.2f mi", self.imperialTotalDistance] forState:UIControlStateNormal];
-        [self.infoAscent setTitle:[NSString stringWithFormat:@"%d ft", (int)self.ascentFeet] forState:UIControlStateNormal];
-        [self.infoDescent setTitle:[NSString stringWithFormat:@"%d ft", (int)self.descentFeet] forState:UIControlStateNormal];
+        self.infoDistance.text = [NSString stringWithFormat:@"%.2f mi", self.imperialTotalDistance];
+        self.infoAscent.text = [NSString stringWithFormat:@"%d ft", (int)self.ascentFeet];
+        self.infoDescent.text = [NSString stringWithFormat:@"%d ft", (int)self.descentFeet];
         self.infoTimeDescription.text = @"Duration at 3.1 mph";
     }
 }

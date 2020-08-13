@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ascent_icon.png",
+      "filename" : "icons8-вверх-48.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ascent_icon-1.png",
+      "filename" : "icons8-вверх-49.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "ascent_icon-2.png",
+      "filename" : "icons8-вверх-50.png",
       "scale" : "3x"
     }
   ],
