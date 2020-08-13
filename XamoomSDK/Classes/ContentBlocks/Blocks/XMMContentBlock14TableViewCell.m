@@ -278,6 +278,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     NSLog(@"spent time is %@", self.routeSpentTime);
     
     
+    [self closeInfoAlertView];
     [self.metricButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
     self.metricButton.backgroundColor = [self colorFromHexString:activeElevationButtonBackground alpha:0.8];
     self.imperialButton.backgroundColor = [UIColor whiteColor];
@@ -370,7 +371,6 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
         self.isInfoShown = YES;
     } else {
         [self closeInfoAlertView];
-        self.isInfoShown = NO;
     }
 }
 
@@ -532,10 +532,12 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
 - (void) showInfoAlertView {
     [self setInfoValues];
     self.infoView.hidden = NO;
+    self.isInfoShown = YES;
 }
 
 - (void) closeInfoAlertView {
     self.infoView.hidden = YES;
+    self.isInfoShown = NO;
 }
 
 
