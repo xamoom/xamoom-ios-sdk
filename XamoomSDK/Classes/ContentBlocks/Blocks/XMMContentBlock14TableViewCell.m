@@ -23,6 +23,21 @@
 @property (nonatomic, strong) NSMutableArray *graphCoordinates;
 @property (nonatomic, strong) NSString *tourGeoJsonUrl;
 @property (nonatomic, strong) NSData *tourGeoJsonData;
+@property (nonatomic) bool isInfoShown;
+@property (nonatomic) bool isCurrentmetric;
+@property (nonatomic) NSString *infoTitleFromReponse;
+@property (nonatomic) NSString *routeSpentTime;
+@property (nonatomic) double descentFeet;
+@property (nonatomic) double descentMetres;
+@property (nonatomic) double ascentFeet;
+@property (nonatomic) double ascentMetres;
+@property (nonatomic) double imperialTotalDistance;
+@property (nonatomic) double metricTotalDistance;
+@property (nonatomic, strong) NSMutableArray *imperialYElements;
+@property (nonatomic, strong) NSMutableArray *imperialXElements;
+@property (nonatomic, strong) NSMutableArray *metricYElements;
+@property (nonatomic, strong) NSMutableArray *metricXElements;
+
 @end
 
 @implementation XMMContentBlock14TableViewCell
@@ -30,19 +45,8 @@ static UIColor *kContentLinkColor;
 static NSString *kContentLanguage;
 static int kPageSize = 100;
 static NSString *activeElevationButtonBackground = @"#2371D1";
-static NSMutableArray *metricXElements;
-static NSMutableArray *metricYElements;
-static NSMutableArray *imperialXElements;
-static NSMutableArray *imperialYElements;
-static double metricTotalDistance;
-static double imperialTotalDistance;
-static double ascentMetres;
-static double ascentFeet;
-static double descentMetres;
-static double descentFeet;
-static NSString *routeSpentTime;
-static NSString *infoTitle;
-static BOOL isCurrentmetric = YES;
+
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -57,6 +61,8 @@ static BOOL isCurrentmetric = YES;
   
   [self setupLocationManager];
   [self setupMapOverlayView];
+  self.isInfoShown = NO;
+  self.isCurrentmetric = YES;
   
   self.mapViewHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   [_mapView setMaximumZoomLevel:17.4];
@@ -76,7 +82,7 @@ static BOOL isCurrentmetric = YES;
 
 }
 
-- (void) setRoundedButtons {
+- (void) setButtonsParams {
     self.imperialButton.layer.cornerRadius = 5;
     self.imperialButton.layer.borderWidth = 1;
     self.imperialButton.layer.borderColor = CFBridgingRetain([UIColor whiteColor]);
@@ -84,6 +90,11 @@ static BOOL isCurrentmetric = YES;
     self.metricButton.layer.borderWidth = 1;
     self.metricButton.layer.borderColor = CFBridgingRetain([UIColor whiteColor]);
     self.infoButton.layer.cornerRadius = 15;
+    self.infoAscent.titleLabel.adjustsFontSizeToFitWidth = true;
+    self.infoDescent.titleLabel.adjustsFontSizeToFitWidth = true;
+    self.infoDistance.titleLabel.adjustsFontSizeToFitWidth = true;
+    self.infoTime.titleLabel.adjustsFontSizeToFitWidth = true;
+    
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
@@ -98,11 +109,11 @@ static BOOL isCurrentmetric = YES;
       self.lineChartView.chartTitle = @"Elevation chart";
     
     self.graphCoordinates = [NSMutableArray new];
-    metricXElements = [NSMutableArray new];
-    metricYElements = [NSMutableArray new];
-    imperialXElements = [NSMutableArray new];
-    imperialYElements = [NSMutableArray new];
-    [self setRoundedButtons];
+    self.metricXElements = [NSMutableArray new];
+    self.metricYElements = [NSMutableArray new];
+    self.imperialXElements = [NSMutableArray new];
+    self.imperialYElements = [NSMutableArray new];
+    [self setButtonsParams];
     self.tourGeoJsonUrl = block.fileID;
     self.scaleX = block.scaleX;
     self.titleView.text = block.title;
@@ -114,6 +125,8 @@ static BOOL isCurrentmetric = YES;
 }
 
 - (void) showCompass {
+    self.mapView.compassView.compassVisibility = MGLOrnamentVisibilityVisible;
+    self.mapView.compassViewPosition = MGLOrnamentPositionTopLeft;
 }
 
 - (IBAction)onZoomInButtonClick:(UIButton *)sender {
@@ -181,7 +194,7 @@ static BOOL isCurrentmetric = YES;
     NSDictionary *firstFeature = [responseDictionary[@"features"] objectAtIndex:0];
     NSDictionary *geometry = firstFeature[@"geometry"];
     
-    infoTitle = firstFeature[@"properties"][@"name"];
+    self.infoTitleFromReponse = firstFeature[@"properties"][@"name"];
     
     NSArray *coordinates = geometry[@"coordinates"];
     
@@ -224,11 +237,11 @@ static BOOL isCurrentmetric = YES;
             distanceImperial += kilometres / 1.609344;
             if(altitude != -100.0 && feet != -100.0) {
                 if(altitude - previoudAltitudeMetres > 0) {
-                    ascentMetres += altitude - previoudAltitudeMetres;
-                    ascentFeet += feet - previousAltitudeFeet;
+                    self.ascentMetres += altitude - previoudAltitudeMetres;
+                    self.ascentFeet += feet - previousAltitudeFeet;
                 } else if(previoudAltitudeMetres - altitude > 0){
-                    descentMetres += previoudAltitudeMetres - altitude;
-                    descentFeet += previousAltitudeFeet - feet;
+                    self.descentMetres += previoudAltitudeMetres - altitude;
+                    self.descentFeet += previousAltitudeFeet - feet;
                 }
             }
             
@@ -243,30 +256,48 @@ static BOOL isCurrentmetric = YES;
         previousLtd = latitude;
         
         if(altitude != -100.0 && feet != -100.0) {
-            [metricXElements addObject: [NSNumber numberWithDouble:distanceMetric]];
-            [metricYElements addObject: [NSNumber numberWithDouble:altitude]];
-            [imperialXElements addObject:[NSNumber numberWithDouble:distanceImperial]];
-            [imperialYElements addObject: [NSNumber numberWithDouble:feet]];
+            [self.metricXElements addObject: [NSNumber numberWithDouble:distanceMetric]];
+            [self.metricYElements addObject: [NSNumber numberWithDouble:altitude]];
+            [self.imperialXElements addObject:[NSNumber numberWithDouble:distanceImperial]];
+            [self.imperialYElements addObject: [NSNumber numberWithDouble:feet]];
             previoudAltitudeMetres = altitude;
             previousAltitudeFeet = feet;
         }
     }
     
-    metricTotalDistance = distanceMetric;
-    imperialTotalDistance = distanceImperial;
-    routeSpentTime = [self getTimeInHours:distanceImperial/3.1];
+    self.metricTotalDistance = distanceMetric;
+    self.imperialTotalDistance = distanceImperial;
+    self.routeSpentTime = [self getTimeInHours:distanceImperial/3.1];
     
-    NSLog(@"ascent metres&feet %f %f ", ascentMetres, ascentFeet);
-    NSLog(@"descent metres%feet %f %f ", descentMetres, descentFeet);
-    NSLog(@"total distance metres&feet %f %f ", metricTotalDistance, imperialTotalDistance);
-    NSLog(@"spent time is %@", routeSpentTime);
+    NSLog(@"ascent metres&feet %f %f ", self.ascentMetres, self.ascentFeet);
+    NSLog(@"descent metres%feet %f %f ", self.descentMetres, self.descentFeet);
+    NSLog(@"total distance metres&feet %f %f ", self.metricTotalDistance, self.imperialTotalDistance);
+    NSLog(@"spent time is %@", self.routeSpentTime);
     
     
-    isCurrentmetric = YES;
+    self.isCurrentmetric = YES;
+    [self setInfoValues];
     if(showElevationGraph && showGraph) {
         [self drawGraph];
     }
     
+}
+
+- (void) setInfoValues {
+    self.infoTitle.text = self.infoTitleFromReponse;
+    [self.infoTime setTitle: self.routeSpentTime forState:UIControlStateNormal];
+    self.infoTime.titleLabel.text = self.routeSpentTime;
+    if(self.isCurrentmetric) {
+        [self.infoDistance setTitle:[NSString stringWithFormat:@"%.2f km", self.metricTotalDistance] forState:UIControlStateNormal];
+        [self.infoAscent setTitle:[NSString stringWithFormat:@"%d m", (int)self.ascentMetres] forState:UIControlStateNormal];
+        [self.infoDescent setTitle:[NSString stringWithFormat:@"%d m", (int)self.descentMetres] forState:UIControlStateNormal];
+        self.infoTimeDescription.text = @"Duration at 5 kph";
+    } else {
+        [self.infoDistance setTitle:[NSString stringWithFormat:@"%.2f mi", self.imperialTotalDistance] forState:UIControlStateNormal];
+        [self.infoAscent setTitle:[NSString stringWithFormat:@"%d ft", (int)self.ascentFeet] forState:UIControlStateNormal];
+        [self.infoDescent setTitle:[NSString stringWithFormat:@"%d ft", (int)self.descentFeet] forState:UIControlStateNormal];
+        self.infoTimeDescription.text = @"Duration at 3.1 mph";
+    }
 }
 
 - (NSString *) getTimeInHours: (double)timeInDec {
@@ -293,8 +324,8 @@ static BOOL isCurrentmetric = YES;
     self.lineChartView.chartTitle = @"";
     if(_graphColor != nil) self.lineChartView.chartLineColor = [self colorFromHexString:_graphColor alpha:1.0];
     else self.lineChartView.chartLineColor =  [self colorFromHexString:@"#8522df" alpha:1.0];
-    self.lineChartView.xElements = metricXElements;
-    self.lineChartView.yElements = metricYElements;
+    self.lineChartView.xElements = self.metricXElements;
+    self.lineChartView.yElements = self.metricYElements;
     [self.lineChartView drawChart];
 }
 
@@ -309,8 +340,9 @@ static BOOL isCurrentmetric = YES;
     self.metricButton.backgroundColor = [self colorFromHexString:activeElevationButtonBackground alpha:0.8];
     self.imperialButton.backgroundColor = [UIColor whiteColor];
     [self.imperialButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
-    [self.lineChartView updateChartWithXElements:metricXElements yElements:metricYElements];
-    isCurrentmetric = YES;
+    [self.lineChartView updateChartWithXElements:self.metricXElements yElements:self.metricYElements];
+    self.isCurrentmetric = YES;
+    [self setInfoValues];
 }
 
 
@@ -319,12 +351,19 @@ static BOOL isCurrentmetric = YES;
     self.imperialButton.backgroundColor = [self colorFromHexString:activeElevationButtonBackground alpha:0.8];
     [self.metricButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
     self.metricButton.backgroundColor = [UIColor whiteColor];
-    [self.lineChartView updateChartWithXElements:imperialXElements yElements:imperialYElements];
-    isCurrentmetric = NO;
+    [self.lineChartView updateChartWithXElements:self.imperialXElements yElements:self.imperialYElements];
+   self.isCurrentmetric = NO;
+    [self setInfoValues];
 }
 
 - (IBAction)onInfoButtonClick:(UIButton *)sender {
-    [self showInfoAlertView];
+    if(!self.isInfoShown) {
+        [self showInfoAlertView];
+        self.isInfoShown = YES;
+    } else {
+        [self closeInfoAlertView];
+        self.isInfoShown = NO;
+    }
 }
 
 - (NSData *) getDataFrom:(NSString *)url{
@@ -483,9 +522,14 @@ static BOOL isCurrentmetric = YES;
 }
 
 - (void) showInfoAlertView {
-//    _infoAlertView = [[InfoAlertView alloc] initWithFrame:CGRectMake(100, 100, 400, 400)];
-//    _infoAlertView.hidden = NO;
+    [self setInfoValues];
+    self.infoView.hidden = NO;
 }
+
+- (void) closeInfoAlertView {
+    self.infoView.hidden = YES;
+}
+
 
 - (void)setupMapOverlayView {
   self.mapAdditionView = [[self.bundle loadNibNamed:@"XMMMapOverlayView" owner:self options:nil] firstObject];
@@ -739,38 +783,6 @@ static BOOL isCurrentmetric = YES;
     
 }
 
-
-//- (void)zoomMapViewToFitAnnotations {
-//  NSMutableArray *latArray = [NSMutableArray new];
-//  NSMutableArray *lonArray = [NSMutableArray new];
-//
-//  for (XMMSpot *location in self.spots) {
-//    [latArray addObject:[NSNumber numberWithDouble:location.latitude]];
-//    [lonArray addObject:[NSNumber numberWithDouble:location.longitude]];
-//  }
-//
-//  if (latArray.count == 0 || lonArray.count == 0) {
-//    if (_userLocation != nil) {
-//      [self centerUserButtonAction:nil];
-//    }
-//    return;
-//  }
-//
-//  float maxLat = [[latArray valueForKeyPath:@"@max.floatValue"] floatValue];
-//  float minLat = [[latArray valueForKeyPath:@"@min.floatValue"] floatValue];
-//  float maxLon = [[lonArray valueForKeyPath:@"@max.floatValue"] floatValue];
-//  float minLon = [[lonArray valueForKeyPath:@"@min.floatValue"] floatValue];
-//
-//  CGSize mapMarkerSize = self.customMapMarker.size;
-//  double latOffset = [self getDegreeOffsetForMarkerWithMax:maxLat min:minLat markerLength:mapMarkerSize.height];
-//  double lonOffset = [self getDegreeOffsetForMarkerWithMax:maxLon min:minLon markerLength:mapMarkerSize.width];
-//
-//  CLLocationCoordinate2D ne = CLLocationCoordinate2DMake(minLat - latOffset, minLon - lonOffset);
-//  CLLocationCoordinate2D sw = CLLocationCoordinate2DMake(maxLat + latOffset, maxLon + lonOffset);
-//
-//  MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(sw, ne);
-//  self.mapView.visibleCoordinateBounds = bounds;
-//}
 
 -(float)getDegreeOffsetForMarkerWithMax:(float)max min:(float)min markerLength:(float)markerLength {
   float mapWidth = self.mapView.frame.size.width;
