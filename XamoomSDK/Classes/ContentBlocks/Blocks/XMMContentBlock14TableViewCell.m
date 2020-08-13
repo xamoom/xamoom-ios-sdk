@@ -206,8 +206,10 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     double previousLong = 0.0;
     
     double previoudAltitudeMetres = 0.0;
-    double previousAltitudeFeet = 0.0;
-    
+    self.ascentFeet = 0.0;
+    self.ascentMetres = 0.0;
+    self.descentFeet = 0.0;
+    self.descentMetres = 0.0;
     for(int i = 0; i < coordinates.count; i++){
         NSArray *coordinate = [coordinates objectAtIndex:i];
         
@@ -219,29 +221,31 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
         
         
         double altitude;
-        double feet;
+        double altitudeFeet;
         
         if(coordinate.count > 2) {
           altitude = [[coordinate objectAtIndex:2] doubleValue];
-          feet = altitude * 3.281;
+          altitudeFeet = altitude * 3.281;
         }
         else {
             showGraph = false;
             altitude = -100.0;
-            feet = -100.0;
+            altitudeFeet = -100.0;
         }
         
         if(i != 0){
             double kilometres = [self getDistanceBetweenLocations:[[CLLocation alloc] initWithLatitude:previousLtd longitude:previousLong] :[[CLLocation alloc] initWithLatitude:latitude longitude:longitude]];
             distanceMetric += kilometres;
             distanceImperial += kilometres / 1.609344;
-            if(altitude != -100.0 && feet != -100.0) {
+            if(altitude != -100.0 && altitudeFeet != -100.0) {
                 if(altitude - previoudAltitudeMetres > 0) {
                     self.ascentMetres += altitude - previoudAltitudeMetres;
-                    self.ascentFeet += feet - previousAltitudeFeet;
+                    self.ascentFeet += altitudeFeet - previoudAltitudeMetres * 3.281;
+                    NSLog(@"ascent alt prevAlt ascent %.2f %.2f %.2f\n", altitude, previoudAltitudeMetres, self.ascentMetres);
                 } else if(previoudAltitudeMetres - altitude > 0){
                     self.descentMetres += previoudAltitudeMetres - altitude;
-                    self.descentFeet += previousAltitudeFeet - feet;
+                    self.descentFeet += previoudAltitudeMetres * 3.281 - altitudeFeet;
+                    NSLog(@"descent alt prevAlt ascent %.2f %.2f %.2f \n", altitude, previoudAltitudeMetres, self.descentMetres);
                 }
             }
             
@@ -250,18 +254,17 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
         NSLog(@"x(dist) in kilomeres is %f", distanceMetric);
         NSLog(@"y(alt) in metres is %f", altitude);
         NSLog(@"x(dist) in miles is %f", distanceImperial);
-        NSLog(@"y(alt) in feet is %f", feet);
+        NSLog(@"y(alt) in feet is %f", altitudeFeet);
         
         previousLong = longitude;
         previousLtd = latitude;
         
-        if(altitude != -100.0 && feet != -100.0) {
+        if(altitude != -100.0 && altitudeFeet    != -100.0) {
             [self.metricXElements addObject: [NSNumber numberWithDouble:distanceMetric]];
             [self.metricYElements addObject: [NSNumber numberWithDouble:altitude]];
             [self.imperialXElements addObject:[NSNumber numberWithDouble:distanceImperial]];
-            [self.imperialYElements addObject: [NSNumber numberWithDouble:feet]];
+            [self.imperialYElements addObject: [NSNumber numberWithDouble:altitudeFeet]];
             previoudAltitudeMetres = altitude;
-            previousAltitudeFeet = feet;
         }
     }
     
@@ -275,6 +278,11 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     NSLog(@"spent time is %@", self.routeSpentTime);
     
     
+    [self.metricButton setTitleColor: [UIColor whiteColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
+    self.metricButton.backgroundColor = [self colorFromHexString:activeElevationButtonBackground alpha:0.8];
+    self.imperialButton.backgroundColor = [UIColor whiteColor];
+    [self.imperialButton setTitleColor: [UIColor blackColor] forState:UIControlStateNormal & UIControlStateSelected & UIControlStateHighlighted];
+    [self.lineChartView updateChartWithXElements:self.metricXElements yElements:self.metricYElements];
     self.isCurrentmetric = YES;
     [self setInfoValues];
     if(showElevationGraph && showGraph) {
