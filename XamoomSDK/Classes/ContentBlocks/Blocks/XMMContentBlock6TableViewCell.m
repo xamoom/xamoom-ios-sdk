@@ -18,7 +18,7 @@
 
 @implementation XMMContentBlock6TableViewCell
 
-static NSString *contentLanguage;
+static NSString *language;
 
 - (void)awakeFromNib {
   // Initialization code
@@ -60,13 +60,13 @@ static NSString *contentLanguage;
 
 - (void)downloadContentBlock:(XMMEnduserApi *)api {
   [self.loadingIndicator startAnimating];
-  
-  XMMContent *content = [[XMMContentBlocksCache sharedInstance] cachedContent:self.contentID];
-  if (content) {
-    [self.loadingIndicator stopAnimating];
-    [self showBlockData:content];
-    return;
-  }
+    
+//  XMMContent *content = [[XMMContentBlocksCache sharedInstance] cachedContent:self.contentID];
+//  if (content && [currentLanguage isEqualToString:language]) {
+//    [self.loadingIndicator stopAnimating];
+//    [self showBlockData:content];
+//    return;
+//  }
   
   self.dataTask = [api contentWithID:self.contentID
                              options:XMMContentOptionsPreview

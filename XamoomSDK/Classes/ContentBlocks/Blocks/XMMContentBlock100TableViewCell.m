@@ -67,7 +67,7 @@ static UIColor *contentLinkColor;
 }
 
 - (void)displayEvent:(UITableView *)tableView block:(XMMContentBlock *)block {
-  UIColor *locationColor = [UIColor colorNamed:@"event_time_color"];
+  UIColor *locationColor = [UIColor darkGrayColor];
   if (self.relatedSpot && self.eventStartDate) {
     self.calendarLocationName = self.relatedSpot.name;
     [self showEventTimeLayout:locationColor];

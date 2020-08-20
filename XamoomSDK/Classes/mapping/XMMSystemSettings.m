@@ -30,6 +30,8 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"cookieWarningEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-cookie-warning-enabled"]];
     [__descriptor addProperty:@"recommendationEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-recommendations-active"]];
     [__descriptor addProperty:@"eventPackageEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-event-package-active"]];
+    [__descriptor addProperty:@"languagePickerEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-language-switcher-enabled"]];
+    [__descriptor addProperty:@"languages" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"languages"]];
 
   });
   
@@ -51,6 +53,8 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     self.cookieWarningEnabled = savedSettings.cookieWarningEnabled.boolValue;
     self.recommendationEnabled = savedSettings.recommendationEnabled.boolValue;
     self.eventPackageEnabled = savedSettings.eventPackageEnabled.boolValue;
+    self.languagePickerEnabled = savedSettings.languagePickerEnabled.boolValue;
+    self.languages = savedSettings.languages;
   }
   
   return self;

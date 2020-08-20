@@ -123,8 +123,18 @@
 }
 
 - (id)getCellFor:(int)contentBlockType by:(NSBundle *)nibBundle {
-    NSString *nibName = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", contentBlockType];
-    return [nibBundle loadNibNamed:nibName owner:self options:nil].firstObject;
+    
+    NSString *nibName;
+    @try {
+      NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", contentBlockType];
+        nibName = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", contentBlockType];
+        return [nibBundle loadNibNamed:nibName owner:self options:nil].firstObject;
+    }
+    @catch (NSException *exception) {
+        NSString *logException = [[NSString alloc] initWithFormat:@"Block Type %i not supported. ContentBlock will not be shown", contentBlockType];
+        NSLog(logException);
+        return nil;
+    }
 }
 
 - (void)removeSubViews {

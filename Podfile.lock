@@ -75,6 +75,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.5.2):
     - GoogleUtilities/Logger
+  - HCLineChartView (1.0.2)
   - JAMSVGImage (1.6.1)
   - JSONAPI (1.0.7)
   - Mapbox-iOS-SDK (4.0.5)
@@ -93,12 +94,13 @@ PODS:
   - SDWebImage (3.8.3):
     - SDWebImage/Core (= 3.8.3)
   - SDWebImage/Core (3.8.3)
-  - XamoomSDK (3.11.18):
-    - XamoomSDK/Core (= 3.11.18)
-  - XamoomSDK/Core (3.11.18):
+  - XamoomSDK (3.11.19):
+    - XamoomSDK/Core (= 3.11.19)
+  - XamoomSDK/Core (3.11.19):
     - Firebase (>= 5.15.0)
     - FirebaseCore (>= 5.1.0)
     - FirebaseMessaging
+    - HCLineChartView
     - JAMSVGImage
     - JSONAPI (~> 1.0.7)
     - Mapbox-iOS-SDK
@@ -109,6 +111,7 @@ DEPENDENCIES:
   - FirebaseCore (~> 6.6.4)
   - FirebaseMessaging (~> 4.3.0)
   - GoogleAnalytics
+  - HCLineChartView
   - JAMSVGImage
   - JSONAPI (~> 1.0.0)
   - Mapbox-iOS-SDK
@@ -134,6 +137,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
+    - HCLineChartView
     - JAMSVGImage
     - JSONAPI
     - Mapbox-iOS-SDK
@@ -164,6 +168,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: b29a21d813e906014ca16c00897827e40e4a24ab
   GoogleDataTransportCCTSupport: 6f15a89b0ca35d6fa523e1f752ef818588885988
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
+  HCLineChartView: a57d519fc937bc9e17d870d61fca2703d30e1a28
   JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2
   JSONAPI: 8fed55fcfa08ee662674cd4f1bd03c37d8b34e03
   Mapbox-iOS-SDK: c6bab367011e441e7345d4fe9340633c6b476bf4
@@ -174,8 +179,8 @@ SPEC CHECKSUMS:
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   Pushwoosh: 2ba8bb366274da96b85533980b66a6a07826ed84
   SDWebImage: a72e880a8fe0f7fc31efe15aaed443c074d2a80c
-  XamoomSDK: 14b3bfa427cca8724332e93fee0cdd2390f6bf73
+  XamoomSDK: 42c6e100ddf8fd7bed0ca5e101e55c8f4e6ecd42
 
-PODFILE CHECKSUM: 5987bc11969a899f5c451e94359b607b6eafab4b
+PODFILE CHECKSUM: afdb7e8ce1ab08ade4df61308fe3aec149c45f7d
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.0

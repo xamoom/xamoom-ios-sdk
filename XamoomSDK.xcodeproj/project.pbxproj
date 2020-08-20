@@ -21,7 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		21C05D07C44CA82E4ED9AC4E /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B61FA060640C14D5C712CB /* libPods-XamoomSDKTests.a */; };
+		0475DADA249D14EA008D9DF6 /* NSBundle+Localized.h in Headers */ = {isa = PBXBuildFile; fileRef = 0475DAD8249D14E9008D9DF6 /* NSBundle+Localized.h */; };
+		0475DADB249D14EA008D9DF6 /* NSBundle+Localized.m in Sources */ = {isa = PBXBuildFile; fileRef = 0475DAD9249D14EA008D9DF6 /* NSBundle+Localized.m */; };
+		260689C3AFE522D563006737 /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A6D4D4F6C16E6275B1866E3 /* libPods-XamoomSDK.a */; };
+		409463502758EE6F517261E1 /* libPods-XamoomSDKTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CDC7EA3A0E31B31B78FE99F /* libPods-XamoomSDKTests.a */; };
 		6210EAC92243DF5900BD6C58 /* libFirebaseCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6210EAC82243DF5900BD6C58 /* libFirebaseCore.a */; };
 		622777402243D3B200D550E1 /* XMMWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6227773F2243D3B200D550E1 /* XMMWebViewController.h */; };
 		622777422243D3D800D550E1 /* XMMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 622777412243D3D800D550E1 /* XMMWebViewController.m */; };
@@ -42,6 +45,9 @@
 		62E5CF10223F81A5006F06A9 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E5CF0E223F81A5006F06A9 /* LocationHelper.m */; };
 		62F16FF8222E9AF5000DBFB4 /* PushHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 62F16FF6222E9AF5000DBFB4 /* PushHelper.h */; };
 		62F16FF9222E9AF5000DBFB4 /* PushHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F16FF7222E9AF5000DBFB4 /* PushHelper.m */; };
+		87146E4524DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 87146E4224DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h */; };
+		87146E4624DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87146E4324DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m */; };
+		87146E4724DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87146E4424DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib */; };
 		880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */; };
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */; };
@@ -255,7 +261,6 @@
 		88FE68C81C4E6F3500E9A32A /* XMMMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE68C61C4E6F3500E9A32A /* XMMMarker.m */; };
 		88FEF64E1F9631C500792DBF /* EnduserOfflineDatamodel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88FEF6461F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodeld */; };
 		88FEF6581F99F68E00792DBF /* NSDateFormatter+ISODate.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FEF6571F99F68D00792DBF /* NSDateFormatter+ISODate.m */; };
-		8C96894D25D8BC33D7DCACDB /* libPods-XamoomSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77228C0E242F460807B1097A /* libPods-XamoomSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -269,10 +274,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0475DAD8249D14E9008D9DF6 /* NSBundle+Localized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+Localized.h"; path = "Classes/NSBundle+Localized.h"; sourceTree = "<group>"; };
+		0475DAD9249D14EA008D9DF6 /* NSBundle+Localized.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+Localized.m"; path = "Classes/NSBundle+Localized.m"; sourceTree = "<group>"; };
 		048DAD512426705E00423E0A /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		14B61FA060640C14D5C712CB /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		218FBF819559D0C6396724E2 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4521DEDCB6B9076787D06BE4 /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.debug.xcconfig"; path = "Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		165B776334AC3DB96FA5D9E0 /* Pods-XamoomSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.release.xcconfig"; path = "Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.release.xcconfig"; sourceTree = "<group>"; };
+		4A6D4D4F6C16E6275B1866E3 /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		547B52AF2202D693CB04009B /* Pods-XamoomSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.debug.xcconfig"; path = "Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		5AAB628D65989DB2A86FFED9 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6210EAC82243DF5900BD6C58 /* libFirebaseCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirebaseCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6227773F2243D3B200D550E1 /* XMMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMMWebViewController.h; path = XamoomSDK/Classes/Web/XMMWebViewController.h; sourceTree = "<group>"; };
 		622777412243D3D800D550E1 /* XMMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = XMMWebViewController.m; path = XamoomSDK/Classes/Web/XMMWebViewController.m; sourceTree = "<group>"; };
@@ -293,7 +301,11 @@
 		62E5CF0E223F81A5006F06A9 /* LocationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocationHelper.m; path = XamoomSDK/Classes/mapping/LocationHelper.m; sourceTree = SOURCE_ROOT; };
 		62F16FF6222E9AF5000DBFB4 /* PushHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PushHelper.h; path = XamoomSDK/Classes/mapping/PushHelper.h; sourceTree = SOURCE_ROOT; };
 		62F16FF7222E9AF5000DBFB4 /* PushHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PushHelper.m; path = XamoomSDK/Classes/mapping/PushHelper.m; sourceTree = SOURCE_ROOT; };
-		77228C0E242F460807B1097A /* libPods-XamoomSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D194716F6D5D2DF2A558BBA /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.release.xcconfig"; path = "Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
+		7CDC7EA3A0E31B31B78FE99F /* libPods-XamoomSDKTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XamoomSDKTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87146E4224DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock14TableViewCell.h; sourceTree = "<group>"; };
+		87146E4324DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock14TableViewCell.m; sourceTree = "<group>"; };
+		87146E4424DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMMContentBlock14TableViewCell.xib; sourceTree = "<group>"; };
 		880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineStorageManager.h; path = Classes/XMMOfflineStorageManager.h; sourceTree = "<group>"; };
 		880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineStorageManager.m; path = Classes/XMMOfflineStorageManager.m; sourceTree = "<group>"; };
 		88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock1TableViewCellTest.m; sourceTree = "<group>"; };
@@ -520,8 +532,6 @@
 		88FEF64B1F962D1E00792DBF /* EnduserOfflineDatamodel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnduserOfflineDatamodel.xcdatamodel; sourceTree = "<group>"; };
 		88FEF6561F99F68D00792DBF /* NSDateFormatter+ISODate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+ISODate.h"; path = "Classes/NSDateFormatter+ISODate.h"; sourceTree = "<group>"; };
 		88FEF6571F99F68D00792DBF /* NSDateFormatter+ISODate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+ISODate.m"; path = "Classes/NSDateFormatter+ISODate.m"; sourceTree = "<group>"; };
-		EA7A99191E9BB4F89C1F54E0 /* Pods-XamoomSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDK.release.xcconfig"; path = "Target Support Files/Pods-XamoomSDK/Pods-XamoomSDK.release.xcconfig"; sourceTree = "<group>"; };
-		FEE83AC8B25AE5B23BAB217A /* Pods-XamoomSDKTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.release.xcconfig"; path = "Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -533,7 +543,7 @@
 				88456DD81F026070001CC048 /* libz.tbd in Frameworks */,
 				88456DD71F026069001CC048 /* libstdc++.tbd in Frameworks */,
 				88D4C6E11C6CC39E00615147 /* MapKit.framework in Frameworks */,
-				8C96894D25D8BC33D7DCACDB /* libPods-XamoomSDK.a in Frameworks */,
+				260689C3AFE522D563006737 /* libPods-XamoomSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,7 +554,7 @@
 				8844B0461F03CB0800038D9F /* libz.tbd in Frameworks */,
 				8844B0451F03CB0200038D9F /* libstdc++.tbd in Frameworks */,
 				8888DDCD1C47B0FA0050A84C /* XamoomSDK.framework in Frameworks */,
-				21C05D07C44CA82E4ED9AC4E /* libPods-XamoomSDKTests.a in Frameworks */,
+				409463502758EE6F517261E1 /* libPods-XamoomSDKTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,12 +577,11 @@
 		730A0FDB67725449029974E5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4521DEDCB6B9076787D06BE4 /* Pods-XamoomSDK.debug.xcconfig */,
-				EA7A99191E9BB4F89C1F54E0 /* Pods-XamoomSDK.release.xcconfig */,
-				218FBF819559D0C6396724E2 /* Pods-XamoomSDKTests.debug.xcconfig */,
-				FEE83AC8B25AE5B23BAB217A /* Pods-XamoomSDKTests.release.xcconfig */,
+				547B52AF2202D693CB04009B /* Pods-XamoomSDK.debug.xcconfig */,
+				6D194716F6D5D2DF2A558BBA /* Pods-XamoomSDK.release.xcconfig */,
+				5AAB628D65989DB2A86FFED9 /* Pods-XamoomSDKTests.debug.xcconfig */,
+				165B776334AC3DB96FA5D9E0 /* Pods-XamoomSDKTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -732,6 +741,9 @@
 				6242DA88233C86D5008CD983 /* XMMContentBlockEventTableViewCell.h */,
 				6242DA89233C86D5008CD983 /* XMMContentBlockEventTableViewCell.m */,
 				6242DA8A233C86D5008CD983 /* XMMContentBlockEventTableViewCell.xib */,
+				87146E4224DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h */,
+				87146E4324DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m */,
+				87146E4424DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib */,
 			);
 			name = TableViewCells;
 			path = Blocks;
@@ -827,6 +839,8 @@
 		8888DDC41C47B0FA0050A84C /* XamoomSDK */ = {
 			isa = PBXGroup;
 			children = (
+				0475DAD8249D14E9008D9DF6 /* NSBundle+Localized.h */,
+				0475DAD9249D14EA008D9DF6 /* NSBundle+Localized.m */,
 				8888DDC71C47B0FA0050A84C /* Info.plist */,
 				8849374C1C731FB500C53520 /* Images.xcassets */,
 				88E46DE31C47E117004D8AC3 /* XamoomSDK.h */,
@@ -1040,8 +1054,8 @@
 				889BA3DF1F014540004AC15D /* libstdc++.tbd */,
 				889BA3DD1F014534004AC15D /* libz.tbd */,
 				88D4C6E01C6CC39E00615147 /* MapKit.framework */,
-				77228C0E242F460807B1097A /* libPods-XamoomSDK.a */,
-				14B61FA060640C14D5C712CB /* libPods-XamoomSDKTests.a */,
+				4A6D4D4F6C16E6275B1866E3 /* libPods-XamoomSDK.a */,
+				7CDC7EA3A0E31B31B78FE99F /* libPods-XamoomSDKTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1062,6 +1076,7 @@
 				883E558F1C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.h in Headers */,
 				88B3901C1DA2945900216478 /* XMMCDSystemSettings.h in Headers */,
 				627A37C120E4F09B007C83ED /* XMMPushDevice.h in Headers */,
+				0475DADA249D14EA008D9DF6 /* NSBundle+Localized.h in Headers */,
 				885E21CC1F84FB2100F7F7E7 /* XMMContentBlock11TableViewCell.h in Headers */,
 				62ACD9A822CDEFB800F55C23 /* ContenBlock0CollectionViewCell.h in Headers */,
 				883E55831C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.h in Headers */,
@@ -1091,6 +1106,7 @@
 				886BACF920207EFD00BA31EE /* XamoomSDK.h in Headers */,
 				883E558C1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.h in Headers */,
 				88D5B13E1DA3EED90069E2E8 /* XMMCDMarker.h in Headers */,
+				87146E4524DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h in Headers */,
 				88617A511EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h in Headers */,
 				885E21D11F850DB400F7F7E7 /* XMMListManager.h in Headers */,
 				886BACFB2020974100BA31EE /* XMMReasons.h in Headers */,
@@ -1132,7 +1148,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8888DDD61C47B0FA0050A84C /* Build configuration list for PBXNativeTarget "XamoomSDK" */;
 			buildPhases = (
-				CF83A42D9BBC813E7AFDC3F2 /* [CP] Check Pods Manifest.lock */,
+				8A851B1FB6B81692EA87BEB5 /* [CP] Check Pods Manifest.lock */,
 				8888DDBD1C47B0FA0050A84C /* Sources */,
 				8888DDBE1C47B0FA0050A84C /* Frameworks */,
 				8888DDBF1C47B0FA0050A84C /* Headers */,
@@ -1151,11 +1167,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8888DDD91C47B0FA0050A84C /* Build configuration list for PBXNativeTarget "XamoomSDKTests" */;
 			buildPhases = (
-				E94E4A90B76BA6F4E8A75D66 /* [CP] Check Pods Manifest.lock */,
+				2D1555467825B8EB7A84863E /* [CP] Check Pods Manifest.lock */,
 				8888DDC81C47B0FA0050A84C /* Sources */,
 				8888DDC91C47B0FA0050A84C /* Frameworks */,
 				8888DDCA1C47B0FA0050A84C /* Resources */,
-				68C6D557864D9772206F92BD /* [CP] Embed Pods Frameworks */,
+				5E49B6F1E6C0B261EAC6A4E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1224,6 +1240,7 @@
 				883E559D1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.xib in Resources */,
 				6242DA8D233C86D5008CD983 /* XMMContentBlockEventTableViewCell.xib in Resources */,
 				62ACD9AA22CDEFB800F55C23 /* ContenBlock0CollectionViewCell.xib in Resources */,
+				87146E4724DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib in Resources */,
 				62ACD9A022CDE46100F55C23 /* XMMContentBlock12TableViewCell.xib in Resources */,
 				881CB3061C72124D00AD3AE3 /* XMMMapOverlayView.xib in Resources */,
 				883E55851C4A37FE000C4D09 /* XMMContentBlock1TableViewCell.xib in Resources */,
@@ -1275,7 +1292,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		68C6D557864D9772206F92BD /* [CP] Embed Pods Frameworks */ = {
+		2D1555467825B8EB7A84863E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XamoomSDKTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E49B6F1E6C0B261EAC6A4E5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1312,7 +1351,7 @@
 			shellPath = /bin/sh;
 			shellScript = "#appledoc Xcode script\n# Start constants\ncompany=\"xamoom\";\ncompanyID=\"com.xamoom\";\ncompanyURL=\"http://xamoom.com\";\ntarget=\"iphoneos\";\n#target=\"macosx\";\noutputPath=\"./gendocs\";\n# End constants\n/usr/local/bin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"${company}\" \\\n--company-id \"${companyID}\" \\\n--ignore \"Pods\" \\\n--ignore \"XamoomSDKTests\" \\\n--docset-atom-filename \"${company}.atom\" \\\n--docset-feed-url \"${companyURL}/${company}/%DOCSETATOMFILENAME\" \\\n--docset-package-url \"${companyURL}/${company}/%DOCSETPACKAGEFILENAME\" \\\n--docset-fallback-url \"${companyURL}/${company}\" \\\n--output \"${outputPath}\" \\\n--publish-docset \\\n--docset-platform-family \"${target}\" \\\n--logformat xcode \\\n--keep-intermediate-files \\\n--no-repeat-first-par \\\n--no-warn-invalid-crossref \\\n--exit-threshold 2 \\\n\"${PROJECT_DIR}/\" \\";
 		};
-		CF83A42D9BBC813E7AFDC3F2 /* [CP] Check Pods Manifest.lock */ = {
+		8A851B1FB6B81692EA87BEB5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1334,28 +1373,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E94E4A90B76BA6F4E8A75D66 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-XamoomSDKTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1369,6 +1386,7 @@
 				884937621C75F7E600C53520 /* UIImage+Scaling.m in Sources */,
 				8834405D2012025200CF501E /* XMMMusicPlayer.m in Sources */,
 				62E5CF10223F81A5006F06A9 /* LocationHelper.m in Sources */,
+				0475DADB249D14EA008D9DF6 /* NSBundle+Localized.m in Sources */,
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
 				883AC7D61DB0BEF000AE7BA7 /* XMMOfflineFileManager.m in Sources */,
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,
@@ -1388,6 +1406,7 @@
 				88D4C6ED1C6CD3AE00615147 /* XMMMapOverlayView.m in Sources */,
 				88FE68C81C4E6F3500E9A32A /* XMMMarker.m in Sources */,
 				8853CBA11D9CEAE8009BD14E /* XMMParamHelper.m in Sources */,
+				87146E4624DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m in Sources */,
 				885E21D21F850DB400F7F7E7 /* XMMListManager.m in Sources */,
 				880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */,
 				888F18D11DAB8ACE00518DB8 /* NSString+MD5.m in Sources */,
@@ -1622,7 +1641,7 @@
 		};
 		8888DDD71C47B0FA0050A84C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4521DEDCB6B9076787D06BE4 /* Pods-XamoomSDK.debug.xcconfig */;
+			baseConfigurationReference = 547B52AF2202D693CB04009B /* Pods-XamoomSDK.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1701,7 +1720,7 @@
 		};
 		8888DDD81C47B0FA0050A84C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA7A99191E9BB4F89C1F54E0 /* Pods-XamoomSDK.release.xcconfig */;
+			baseConfigurationReference = 6D194716F6D5D2DF2A558BBA /* Pods-XamoomSDK.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1754,7 +1773,7 @@
 		};
 		8888DDDA1C47B0FA0050A84C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 218FBF819559D0C6396724E2 /* Pods-XamoomSDKTests.debug.xcconfig */;
+			baseConfigurationReference = 5AAB628D65989DB2A86FFED9 /* Pods-XamoomSDKTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1769,7 +1788,7 @@
 		};
 		8888DDDB1C47B0FA0050A84C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEE83AC8B25AE5B23BAB217A /* Pods-XamoomSDKTests.release.xcconfig */;
+			baseConfigurationReference = 165B776334AC3DB96FA5D9E0 /* Pods-XamoomSDKTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

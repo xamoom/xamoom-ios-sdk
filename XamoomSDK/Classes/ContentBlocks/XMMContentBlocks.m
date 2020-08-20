@@ -145,6 +145,10 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   nib = [UINib nibWithNibName:@"XMMContentBlock12TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock12TableViewCell"];
+  
+  nib = [UINib nibWithNibName:@"XMMContentBlock14TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock14TableViewCell"];
+    
 }
 
 - (void)displayContent:(XMMContent *)content {
@@ -336,13 +340,22 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
     return eventCell;
   }
   
-  NSString *reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
-  
-  id cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
-  if (cell) {
-    UITableViewCell *tableViewCell = (UITableViewCell *)cell;
-    tableViewCell.backgroundColor = [UIColor clearColor];
-  }
+    NSString *reuseIdentifier;
+      id cell;
+      @try {
+          reuseIdentifier = [NSString stringWithFormat:@"XMMContentBlock%dTableViewCell", block.blockType];
+          cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+      }
+      @catch (NSException *exception){
+          NSString *logException = [[NSString alloc] initWithFormat:@"Block Type %i not supported. ContentBlock will not be shown", block.blockType];
+          NSLog(logException);
+      }
+      
+
+    if (cell) {
+      UITableViewCell *tableViewCell = (UITableViewCell *)cell;
+      tableViewCell.backgroundColor = [UIColor clearColor];
+    }
   
   if ([cell isKindOfClass:[XMMContentBlock100TableViewCell class]]) {
     [(XMMContentBlock100TableViewCell *) cell setRelatedSpot: self.relatedSpot];
@@ -361,6 +374,14 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   if ([cell isKindOfClass:[XMMContentBlock9TableViewCell class]] && self.navigationType != nil) {
     [(XMMContentBlock9TableViewCell *) cell setNavigationType:self.navigationType];
+  }
+    
+  if ([cell isKindOfClass:[XMMContentBlock14TableViewCell class]] && self.mapboxStyle != nil) {
+      [(XMMContentBlock14TableViewCell *) cell setMapboxStyle:self.mapboxStyle];
+  }
+
+  if ([cell isKindOfClass:[XMMContentBlock14TableViewCell class]] && self.navigationType != nil) {
+      [(XMMContentBlock14TableViewCell *) cell setNavigationType:self.navigationType];
   }
   
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
@@ -402,7 +423,11 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   }
   
   if ([cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
-    if (self.navController != nil && self.urls != nil) {
+    XMMContentBlock3TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.contentID != nil) {
+      [self.delegate didClickContentBlock:cell.contentID];
+    }
+    else if (self.navController != nil && self.urls != nil) {
       cell = (XMMContentBlock3TableViewCell *)cell;
       [cell setWebViewControllerNavigationTintColor: _webViewNavigationBarTintColor];
       [cell openLink:self.urls controller:self.navController];

@@ -17,6 +17,7 @@
 @dynamic cookieWarningEnabled;
 @dynamic recommendationEnabled;
 @dynamic eventPackageEnabled;
+@dynamic languagePickerEnabled;
 
 + (NSString *)coreDataEntityName {
   return NSStringFromClass([self class]);
@@ -52,6 +53,8 @@
   savedSettings.cookieWarningEnabled = [NSNumber numberWithBool:settings.cookieWarningEnabled];
   savedSettings.recommendationEnabled = [NSNumber numberWithBool:settings.recommendationEnabled];
   savedSettings.eventPackageEnabled = [NSNumber numberWithBool:settings.eventPackageEnabled];
+  savedSettings.languagePickerEnabled = [NSNumber numberWithBool:settings.languagePickerEnabled];
+  savedSettings.languages = settings.languages;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   

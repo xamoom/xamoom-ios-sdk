@@ -1,4 +1,7 @@
 # Changelog
+## [3.11.20](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.19...3.11.20) - 20.08.2020
+- implement Contentblock Tour
+
 ## [3.11.19](https://github.com/xamoom/xamoom-ios-sdk/compare/3.11.18...3.11.19) - 08.05.2020
 - implement Voucher functionality 
 - Fixed issues with Gallery

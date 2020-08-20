@@ -43,6 +43,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"contentListTags" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"content-list-tags"]];
     [__descriptor addProperty:@"contentListPageSize" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"content-list-page-size"]];
     [__descriptor addProperty:@"contentListSortAsc" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"content-list-sort-asc"]];
+    [__descriptor addProperty:@"showElevation" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"show-elevation"]];
   });
   
   return __descriptor;
@@ -73,6 +74,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     self.contentListTags = savedBlock.contentListTags;
     self.contentListPageSize = [savedBlock.contentListPageSize intValue];
     self.contentListSortAsc = [savedBlock.contentListSortAsc boolValue];
+    self.showElevation = [savedBlock.showElevation boolValue];
   }
   return self;
 }

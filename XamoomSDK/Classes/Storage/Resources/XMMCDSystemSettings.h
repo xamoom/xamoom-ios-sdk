@@ -19,5 +19,7 @@
 @property (nonatomic, nonatomic) NSNumber *cookieWarningEnabled;
 @property (nonatomic, nonatomic) NSNumber *recommendationEnabled;
 @property (nonatomic, nonatomic) NSNumber *eventPackageEnabled;
+@property (nonatomic, nonatomic) NSNumber *languagePickerEnabled;
+@property (nonatomic, nonatomic) NSMutableArray<NSString *> *languages;
 
 @end

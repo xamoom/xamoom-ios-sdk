@@ -31,6 +31,7 @@
 @property (strong, nonatomic) XMMOfflineFileManager *fileManager;
 @property (nonatomic, strong) UIColor *webViewControllerNavigationTintColor;
 
+@property (strong, nonatomic) NSString *contentID;
 @property (strong, nonatomic) NSString *linkUrl;
 
 - (void)openLink;
