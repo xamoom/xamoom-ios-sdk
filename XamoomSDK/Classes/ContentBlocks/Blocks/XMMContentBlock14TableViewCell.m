@@ -152,19 +152,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
 }
 
 - (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-  if (self.tourGeoJsonUrl != nil) {
-    if (self.tourGeoJsonData != nil) {
-      [self drawPolyline:self.tourGeoJsonData];
-    } else {
-      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-          NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString: self.tourGeoJsonUrl]];
-          dispatch_async(dispatch_get_main_queue(), ^{
-            self.tourGeoJsonData = jsonData;
-            [self drawPolyline: jsonData];
-          });
-      });
-    }
-  }
+  
 }
 
 - (void)drawPolyline:(NSData *)geoJson {
@@ -180,7 +168,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     } else layer.lineColor = [NSExpression expressionForConstantValue:[self colorFromHexString:@"#8522df" alpha:1.0]];
     
     layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
-    @{@14: @5, @18: @20}];
+    @{@5: @3, @10: @5}];
     [self.mapView.style addLayer:layer];
 }
 
@@ -232,6 +220,36 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
             altitude = -100.0;
             altitudeFeet = -100.0;
         }
+        if(i == 0) {
+            if (self.tourGeoJsonUrl != nil) {
+              if (self.tourGeoJsonData != nil) {
+                [self drawPolyline:self.tourGeoJsonData];
+              } else {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString: self.tourGeoJsonUrl]];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                      self.tourGeoJsonData = jsonData;
+                      [self drawPolyline: jsonData];
+                        
+                      MGLPointAnnotation *point = [[MGLPointAnnotation alloc] init];
+                      point.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+                      
+                      MGLShapeSource *shapeSource = [[MGLShapeSource alloc] initWithIdentifier:@"start-tour-source" shape:point options:nil];
+                      MGLSymbolStyleLayer *shapeLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"start-tour-layer-background" source:shapeSource];
+                      
+                      
+                      [self.mapView.style setImage:[UIImage imageNamed:@"ic_route_begin"] forName:@"ic_start_tour"];
+                      shapeLayer.iconImageName = [NSExpression expressionForConstantValue:@"ic_start_tour"];
+                      shapeLayer.iconScale = [NSExpression expressionForConstantValue:[NSNumber numberWithFloat:0.15]];
+                      
+                      [self.mapView.style addSource:shapeSource];
+                      [self.mapView.style addLayer:shapeLayer];
+                    });
+                });
+              }
+            }
+        }
+        
         
         if(i != 0){
             double kilometres = [self getDistanceBetweenLocations:[[CLLocation alloc] initWithLatitude:previousLtd longitude:previousLong] :[[CLLocation alloc] initWithLatitude:latitude longitude:longitude]];
