@@ -424,7 +424,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   if ([cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
     XMMContentBlock3TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell.contentID != nil) {
+    NSString *id = cell.contentID;
+      if (id != nil && ![id  isEqual: @"None"]) {
       [self.delegate didClickContentBlock:cell.contentID];
     }
     else if (self.navController != nil && self.urls != nil) {
