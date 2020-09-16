@@ -18,7 +18,6 @@
 @property (nonatomic, strong) NSMutableArray *spots;
 @property (nonatomic, strong) CLLocation *userLocation;
 @property (nonatomic) bool isLocationGranted;
-@property (nonatomic) NSString *graphColor;
 @property (nonatomic) double scaleX;
 @property (nonatomic, strong) NSMutableArray *graphCoordinates;
 @property (nonatomic, strong) NSString *tourGeoJsonUrl;
@@ -37,6 +36,7 @@
 @property (nonatomic, strong) NSMutableArray *imperialXElements;
 @property (nonatomic, strong) NSMutableArray *metricYElements;
 @property (nonatomic, strong) NSMutableArray *metricXElements;
+@property (nonatomic) UIColor *currentRouteColor;
 
 @end
 
@@ -63,6 +63,13 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
   [self setupMapOverlayView];
   self.isInfoShown = NO;
   self.isCurrentmetric = YES;
+  if(![[NSUserDefaults standardUserDefaults] stringForKey:@"template_primaryColor"]) {
+      _currentRouteColor = [UIColor colorWithHexString:@"7401df"];
+  } else {
+      NSLog(@"template color is %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"template_primaryColor"]);
+      _currentRouteColor = [[NSUserDefaults standardUserDefaults] stringForKey:@"template_primaryColor"];
+  }
+
   
   self.mapViewHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   [_mapView setMaximumZoomLevel:17.4];
@@ -163,9 +170,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     MGLSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"polyline" shape:shape options:nil];
     [self.mapView.style addSource:source];
     MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
-    if(_graphColor != nil) {
-        layer.lineColor = [NSExpression expressionForConstantValue:[self colorFromHexString:_graphColor alpha:1.0]];
-    } else layer.lineColor = [NSExpression expressionForConstantValue:[self colorFromHexString:@"#8522df" alpha:1.0]];
+    layer.lineColor = [NSExpression expressionForConstantValue:[self colorFromHexString:_currentRouteColor alpha:1.0]];
     
     layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
     @{@5: @3, @10: @5}];
@@ -240,7 +245,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
                       
                       [self.mapView.style setImage:[UIImage imageNamed:@"ic_route_begin"] forName:@"ic_start_tour"];
                       shapeLayer.iconImageName = [NSExpression expressionForConstantValue:@"ic_start_tour"];
-                      shapeLayer.iconScale = [NSExpression expressionForConstantValue:[NSNumber numberWithFloat:0.15]];
+                      shapeLayer.iconScale = [NSExpression expressionForConstantValue:[NSNumber numberWithFloat:0.1]];
                       
                       [self.mapView.style addSource:shapeSource];
                       [self.mapView.style addLayer:shapeLayer];
@@ -348,8 +353,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     [self.lineChartHeightConstraint setConstant:160.0];
     self.lineChartView.showSubtitle = NO;
     self.lineChartView.chartTitle = @"";
-    if(_graphColor != nil) self.lineChartView.chartLineColor = [self colorFromHexString:_graphColor alpha:1.0];
-    else self.lineChartView.chartLineColor =  [self colorFromHexString:@"#8522df" alpha:1.0];
+    self.lineChartView.chartLineColor = [UIColor colorWithHexString:_currentRouteColor];
     self.lineChartView.xElements = self.metricXElements;
     self.lineChartView.yElements = self.metricYElements;
     [self.lineChartView drawChart];
@@ -474,7 +478,6 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
 - (void)getStyleWithId:(NSString *)systemId api:(XMMEnduserApi *)api spots:(NSArray *)spots {
   [api styleWithID:systemId completion:^(XMMStyle *style, NSError *error) {
     self.didLoadStyle = YES;
-      _graphColor = style.highlightFontColor;
     [self mapMarkerFromBase64:style.customMarker];
     [self showSpotMap:spots];
    // [self getSpotMap:api spotMapTags:spotMapTags]; // reloads data to use custom marker

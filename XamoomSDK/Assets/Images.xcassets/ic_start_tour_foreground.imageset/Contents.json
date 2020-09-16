@@ -1,26 +1,26 @@
 {
   "images" : [
     {
-      "filename" : "play-circle-solid.png",
       "idiom" : "universal",
+      "filename" : "baseline_play_arrow_white_18dp.png",
       "scale" : "1x"
     },
     {
-      "filename" : "play-circle-solid-1.png",
       "idiom" : "universal",
+      "filename" : "baseline_play_arrow_white_18dp-1.png",
       "scale" : "2x"
     },
     {
-      "filename" : "play-circle-solid-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "author" : "xcode",
-    "version" : 1
+    "version" : 1,
+    "author" : "xcode"
   },
   "properties" : {
-    "template-rendering-intent" : "original"
+    "compression-type" : "automatic",
+    "template-rendering-intent" : "template"
   }
 }

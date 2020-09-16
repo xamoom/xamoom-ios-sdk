@@ -64,6 +64,10 @@
 @property (nonatomic) UIColor *phoneTintColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *fallbackColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *fallbackTintColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIColor *whatsAppColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIColor *whatsAppTintColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIColor *smsColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) UIColor *smsTintColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) UIColor *webViewControllerNavigationTintColor;
 
 - (void)openLink;
@@ -110,6 +114,10 @@
 -(void)setPhoneTintColor:(UIColor *)phoneTintColor;
 -(void)setFallbackColor:(UIColor *)fallbackColor;
 -(void)setFallbackTintColor:(UIColor *)fallbackTintColor;
+-(void)setWhatsAppColor:(UIColor *)whatsAppColor;
+-(void)setWhatsAppTintColor:(UIColor *)whatsAppTintColor;
+-(void)setSmsColor:(UIColor *)smsColor;
+-(void)setSmsTintColor:(UIColor *)smsTintColor;
 -(void)setWebViewControllerNavigationTintColor:(UIColor *)webViewControllerNavigationTintColor;
 
 -(UIColor *)webColor;
@@ -152,6 +160,10 @@
 -(UIColor *)phoneTintColor;
 -(UIColor *)fallbackColor;
 -(UIColor *)fallbackTintColor;
+-(UIColor *)whatsAppColor;
+-(UIColor *)whatsAppTintColor;
+-(UIColor *)smsColor;
+-(UIColor *)smsTintColor;
 
 @end
 
