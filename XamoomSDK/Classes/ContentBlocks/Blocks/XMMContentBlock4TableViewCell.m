@@ -213,20 +213,13 @@
 - (void)changeStyleAccordingToLinkType:(int)linkType {
   switch (linkType) {
     case 0: {
-//      [self.viewForBackgroundColor setBackgroundColor:_currentFacebookColor];
-//      [self.icon setImage:[UIImage imageNamed:@"facebook" inBundle:self.bundle compatibleWithTraitCollection:nil]];
-//      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//      [self.icon setTintColor:_currentFacebookTintColor];
-//      [self.linkTextLabel setTextColor:_currentFacebookTintColor];
-//      [self.titleLabel setTextColor:_currentFacebookTintColor];
-//      break;
-        [self.viewForBackgroundColor setBackgroundColor:_currentSmsColor];
-        [self.icon setImage:[UIImage imageNamed:@"ic_sms" inBundle:self.bundle compatibleWithTraitCollection:nil]];
-        self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [self.icon setTintColor:_currentSmsTintColor];
-        [self.linkTextLabel setTextColor:_currentSmsTintColor];
-        [self.titleLabel setTextColor:_currentSmsTintColor];
-        break;
+      [self.viewForBackgroundColor setBackgroundColor:_currentFacebookColor];
+      [self.icon setImage:[UIImage imageNamed:@"facebook" inBundle:self.bundle compatibleWithTraitCollection:nil]];
+      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+      [self.icon setTintColor:_currentFacebookTintColor];
+      [self.linkTextLabel setTextColor:_currentFacebookTintColor];
+      [self.titleLabel setTextColor:_currentFacebookTintColor];
+      break;
     }
     case 1: {
       [self.viewForBackgroundColor setBackgroundColor:_currentTwitterColor];
@@ -256,20 +249,13 @@
       break;
     }
     case 4: {
-//      [self.viewForBackgroundColor setBackgroundColor:_currentWikipediaColor];
-//      [self.icon setImage:[UIImage imageNamed:@"wikipedia" inBundle:self.bundle compatibleWithTraitCollection:nil]];
-//      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-//      [self.icon setTintColor:_currentWikipediaTintColor];
-//      [self.linkTextLabel setTextColor:_currentWikipediaTintColor];
-//      [self.titleLabel setTextColor:_currentWikipediaTintColor];
-//      break;
-        [self.viewForBackgroundColor setBackgroundColor:_currentWhatsAppColor];
-        [self.icon setImage:[UIImage imageNamed:@"ic_whatsapp" inBundle:self.bundle compatibleWithTraitCollection:nil]];
-        self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [self.icon setTintColor:_currentWhatsAppTintColor];
-        [self.linkTextLabel setTextColor:_currentWhatsAppTintColor];
-        [self.titleLabel setTextColor:_currentWhatsAppTintColor];
-        break;
+      [self.viewForBackgroundColor setBackgroundColor:_currentWikipediaColor];
+      [self.icon setImage:[UIImage imageNamed:@"wikipedia" inBundle:self.bundle compatibleWithTraitCollection:nil]];
+      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+      [self.icon setTintColor:_currentWikipediaTintColor];
+      [self.linkTextLabel setTextColor:_currentWikipediaTintColor];
+      [self.titleLabel setTextColor:_currentWikipediaTintColor];
+      break;
     }
     case 5: {
       [self.viewForBackgroundColor setBackgroundColor:_currentLinkedInColor];
