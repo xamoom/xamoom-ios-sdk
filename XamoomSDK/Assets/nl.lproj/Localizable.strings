@@ -33,5 +33,13 @@
 "contentblock9.alert.cancel" = "Afbreken";
 "contentblock9.alert.settings" = "Instellingen";
 
+"contentblock14.distance" = "Afstand";
+"contentblock14.ascent" = "Beklimming";
+"contentblock14.descent" = "Afdaling";
+"contentblock14.durationAtKm" = "duur bij 5 km/u";
+"contentblock14.durationAtM" = "duur bij 3 mph";
+"contentblock14.elevation" = "Hoogtetabel";
+"contentblock14.eleavationChart" = "Verhoging";
+
 "event.navigation.title" = "Navigeer naar deze locatie";
 "event.calendar.title" = "Voer de kalender in";

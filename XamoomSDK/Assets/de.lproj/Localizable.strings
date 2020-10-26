@@ -33,5 +33,13 @@
 "contentblock9.alert.cancel" = "Abbrechen";
 "contentblock9.alert.settings" = "Einstellungen";
 
+"contentblock14.distance" = "Distanz";
+"contentblock14.ascent" = "Aufstieg";
+"contentblock14.descent" = "Abstieg";
+"contentblock14.durationAtKm" = "Dauer bei 5 km/h";
+"contentblock14.durationAtM" = "Dauer bei 3 mph";
+"contentblock14.elevation" = "Höhendiagramm";
+"contentblock14.eleavationChart" = "Höhe";
+
 "event.navigation.title" = "Zum Ort navigieren";
 "event.calendar.title" = "Im Kalender eintragen";

@@ -141,7 +141,8 @@ static UIColor *contentLinkColor;
   if ([html containsString:@"<ul><li>"]) {
     [paragraphStyle addTabStop:[[NSTextTab alloc] initWithTextAlignment:NSTextAlignmentLeft location:10 options:nil]];
     [paragraphStyle setDefaultTabInterval:10];
-    //[paragraphStyle setHeadIndent:29];
+    [paragraphStyle setHeadIndent:28];
+    [paragraphStyle setParagraphSpacing:5];
   }
   
   [attributedString addAttribute:NSParagraphStyleAttributeName

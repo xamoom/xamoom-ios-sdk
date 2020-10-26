@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,24 +12,24 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="212.66666666666666"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="aelgö rwr rwg  kfgebwF fkwBFKS EWRKSBFS" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-Ht-jrX">
-                        <rect key="frame" x="8" y="170.33333333333334" width="208" height="38.333333333333343"/>
+                        <rect key="frame" x="8" y="170.66666666666666" width="208" height="38.333333333333343"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fvj-ka-sv0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="162.33333333333334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="162.66666666666666"/>
                         <gestureRecognizers/>
                     </imageView>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3na-Wc-qZL">
                         <rect key="frame" x="158" y="0.0" width="4" height="20"/>
                     </activityIndicatorView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cwnfea-l" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9U5-kK-DHR">
-                        <rect key="frame" x="232" y="170.33333333333334" width="80" height="12"/>
+                        <rect key="frame" x="232" y="170.66666666666666" width="80" height="12"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="Rnx-Xi-7ng"/>
                         </constraints>
@@ -47,9 +44,9 @@
                     <constraint firstItem="3na-Wc-qZL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="142" id="Err-du-34P"/>
                     <constraint firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="top" id="Fv8-Wi-qGN"/>
                     <constraint firstItem="NfP-Ht-jrX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RgF-Pv-5ZS"/>
-                    <constraint firstItem="Fvj-ka-sv0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rzk-49-ohI"/>
-                    <constraint firstItem="NfP-Ht-jrX" firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="bottom" constant="8" id="fTB-Ns-q00"/>
+                    <constraint firstItem="NfP-Ht-jrX" firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="bottom" constant="8" id="UYR-Yf-k5u"/>
                     <constraint firstItem="9U5-kK-DHR" firstAttribute="leading" secondItem="NfP-Ht-jrX" secondAttribute="trailing" constant="16" id="hjH-lr-2uT"/>
+                    <constraint firstItem="Fvj-ka-sv0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qjc-we-JZH"/>
                     <constraint firstItem="3na-Wc-qZL" firstAttribute="top" secondItem="Fvj-ka-sv0" secondAttribute="top" id="sbp-sN-pXP"/>
                     <constraint firstAttribute="bottom" secondItem="NfP-Ht-jrX" secondAttribute="bottom" constant="4" id="tYG-Sc-GF1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3na-Wc-qZL" secondAttribute="trailing" constant="142" id="tpH-X5-atq"/>
@@ -61,7 +58,6 @@
             <connections>
                 <outlet property="blockImageView" destination="Fvj-ka-sv0" id="ouH-OK-aJe"/>
                 <outlet property="copyrightLabel" destination="9U5-kK-DHR" id="2CC-FZ-qrS"/>
-                <outlet property="imageLeftHorizontalSpaceConstraint" destination="Rzk-49-ohI" id="idy-MJ-qIE"/>
                 <outlet property="imageLoadingIndicator" destination="3na-Wc-qZL" id="Fle-Na-nx0"/>
                 <outlet property="imageRightHorizontalSpaceConstraint" destination="xl5-do-CiW" id="RrQ-b4-tvW"/>
                 <outlet property="titleLabel" destination="NfP-Ht-jrX" id="X1m-MY-cGj"/>

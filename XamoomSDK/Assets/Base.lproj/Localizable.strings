@@ -33,5 +33,13 @@
 "contentblock9.alert.cancel" = "Cancel";
 "contentblock9.alert.settings" = "Settings";
 
+"contentblock14.distance" = "Distance";
+"contentblock14.ascent" = "Ascent";
+"contentblock14.descent" = "Descent";
+"contentblock14.durationAtKm" = "duration at 5/km/h";
+"contentblock14.durationAtM" = "duration at 3 mph";
+"contentblock14.elevation" = "elevation";
+"contentblock14.eleavationChart" = "eleavation chart";
+
 "event.navigation.title" = "Navigate to the location";
 "event.calendar.title" = "Add to calendar";

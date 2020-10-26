@@ -91,10 +91,6 @@ static UIColor *contentLinkColor;
 
 - (void)showEventTimeLayout:(UIColor *)tintColor {
   [_eventTimeImageView setImage:[self coloredImageWithColor:tintColor image:_eventTimeImageView.image]];
-    
-    
-    
-    
   [_eventDateLabel setTextColor:tintColor];
   
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -118,8 +114,6 @@ static UIColor *contentLinkColor;
 
 - (void)showEventLocationLayout:(UIColor *)tintColor {
   [_eventLocationImageView setImage:[self coloredImageWithColor:tintColor image:_eventLocationImageView.image]];
-    
-    
   [_eventLocationLabel setTextColor:tintColor];
   [_eventLocationLabel setText:self.relatedSpot.name];
   _locationLabelHeightConstraint.constant = [self.eventLocationLabel.text sizeWithFont:self.eventLocationLabel.font

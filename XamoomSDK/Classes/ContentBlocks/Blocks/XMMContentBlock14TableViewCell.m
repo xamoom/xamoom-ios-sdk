@@ -113,7 +113,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.7326808, -73.9843407)
                         zoomLevel:1
                          animated:NO];
-      self.lineChartView.chartTitle = @"Elevation chart";
+      self.lineChartView.chartTitle = NSLocalizedStringFromTableInBundle(@"contentblock14.eleavationChart", @"Localizable", self.bundle, nil);;
     
     self.graphCoordinates = [NSMutableArray new];
     self.metricXElements = [NSMutableArray new];
@@ -127,14 +127,9 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     self.showContent = block.showContent;
     [self calculateCoordinates:block.fileID showGraph:block.showElevation];
     [self getSpotMap:api spotMapTags:block.spotMapTags];
-    [self showCompass];
   }
 }
 
-- (void) showCompass {
-//    self.mapView.compassView.compassVisibility = MGLOrnamentVisibilityVisible;
-//    self.mapView.compassViewPosition = MGLOrnamentPositionTopLeft;
-}
 
 - (IBAction)onZoomInButtonClick:(UIButton *)sender {
     [self.mapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel + 1 animated:YES];
@@ -152,14 +147,6 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     [scanner setScanLocation:1]; // bypass '#' character
     [scanner scanHexInt:&rgbValue];
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:alpha];
-}
-
-- (void) setChartValues {
-    
-}
-
-- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-  
 }
 
 - (void)drawPolyline:(NSData *)geoJson {
@@ -227,9 +214,6 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
         }
         if(i == 0) {
             if (self.tourGeoJsonUrl != nil) {
-              if (self.tourGeoJsonData != nil) {
-                [self drawPolyline:self.tourGeoJsonData];
-              } else {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                     NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString: self.tourGeoJsonUrl]];
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -251,7 +235,6 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
                       [self.mapView.style addLayer:shapeLayer];
                     });
                 });
-              }
             }
         }
         
@@ -318,16 +301,18 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
 - (void) setInfoValues {
     self.infoTitle.text = self.infoTitleFromReponse;
     self.infoTime.text = self.routeSpentTime;
+    self.infoDistanceDescription = NSLocalizedStringFromTableInBundle(@"contentblock14.distance", @"Localizable", self.bundle, nil);
+    self.infoAscentDescentDescription = [NSString stringWithFormat:@"%@ | %@", NSLocalizedStringFromTableInBundle(@"contentblock14.ascent", @"Localizable", self.bundle, nil), NSLocalizedStringFromTableInBundle(@"contentblock14.descent", @"Localizable", self.bundle, nil)];
     if(self.isCurrentmetric) {
         self.infoDistance.text = [NSString stringWithFormat:@"%.2f km", self.metricTotalDistance];
         self.infoAscent.text = [NSString stringWithFormat:@"%d m", (int)self.ascentMetres];
         self.infoDescent.text = [NSString stringWithFormat:@"%d m", (int)self.descentMetres];
-        self.infoTimeDescription.text = @"Duration at 5 km/h";
+        self.infoTimeDescription.text = NSLocalizedStringFromTableInBundle(@"contentblock14.durationAtKm", @"Localizable", self.bundle, nil);
     } else {
         self.infoDistance.text = [NSString stringWithFormat:@"%.2f mi", self.imperialTotalDistance];
         self.infoAscent.text = [NSString stringWithFormat:@"%d ft", (int)self.ascentFeet];
         self.infoDescent.text = [NSString stringWithFormat:@"%d ft", (int)self.descentFeet];
-        self.infoTimeDescription.text = @"Duration at 3.1 mph";
+        self.infoTimeDescription.text = NSLocalizedStringFromTableInBundle(@"contentblock14.durationAtM", @"Localizable", self.bundle, nil);
     }
 }
 
