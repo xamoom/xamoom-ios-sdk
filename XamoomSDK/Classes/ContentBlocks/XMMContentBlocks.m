@@ -149,6 +149,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   nib = [UINib nibWithNibName:@"XMMContentBlock14TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock14TableViewCell"];
     
+  nib = [UINib nibWithNibName:@"XMMContentBlock15TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock15TableViewCell"];
+    
 }
 
 - (void)displayContent:(XMMContent *)content {

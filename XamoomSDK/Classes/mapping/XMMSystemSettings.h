@@ -25,5 +25,7 @@
 @property (nonatomic, getter=isEventPackageEnabled) BOOL eventPackageEnabled;
 @property (nonatomic, getter=isLanguagePickerEnabled) BOOL languagePickerEnabled;
 @property (nonatomic, getter=languages) NSMutableArray<NSString *> *languages;
+@property (nonatomic, getter=isFormActive) BOOL isFormActive;
+@property (nonatomic, getter=formsBaseUrl) NSString *formsBaseUrl;
 
 @end

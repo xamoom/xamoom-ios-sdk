@@ -22,6 +22,7 @@
 #import "XMMContentBlock9TableViewCell.h"
 #import "XMMContentBlock11TableViewCell.h"
 #import "XMMContentBlock14TableViewCell.h"
+#import "XMMContentBlock15TableViewCell.h"
 #import "XMMContentBlockEventTableViewCell.h"
 #import "UIImage+animatedGIF.h"
 #import "UIColor+HexString.h"

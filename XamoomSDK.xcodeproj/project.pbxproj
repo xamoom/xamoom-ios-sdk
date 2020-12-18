@@ -47,6 +47,9 @@
 		87146E4524DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 87146E4224DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h */; };
 		87146E4624DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87146E4324DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m */; };
 		87146E4724DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87146E4424DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib */; };
+		875344C02583487F0054B330 /* XMMContentBlock15TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 875344BD2583487F0054B330 /* XMMContentBlock15TableViewCell.h */; };
+		875344C12583487F0054B330 /* XMMContentBlock15TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 875344BE2583487F0054B330 /* XMMContentBlock15TableViewCell.m */; };
+		875344C22583487F0054B330 /* XMMContentBlock15TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 875344BF2583487F0054B330 /* XMMContentBlock15TableViewCell.xib */; };
 		880E828C1D9D1C7E00A0213B /* XMMOfflineStorageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */; };
 		880E828D1D9D1C7E00A0213B /* XMMOfflineStorageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */; };
 		88117C981DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */; };
@@ -303,6 +306,9 @@
 		87146E4224DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock14TableViewCell.h; sourceTree = "<group>"; };
 		87146E4324DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock14TableViewCell.m; sourceTree = "<group>"; };
 		87146E4424DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMMContentBlock14TableViewCell.xib; sourceTree = "<group>"; };
+		875344BD2583487F0054B330 /* XMMContentBlock15TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock15TableViewCell.h; sourceTree = "<group>"; };
+		875344BE2583487F0054B330 /* XMMContentBlock15TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock15TableViewCell.m; sourceTree = "<group>"; };
+		875344BF2583487F0054B330 /* XMMContentBlock15TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XMMContentBlock15TableViewCell.xib; sourceTree = "<group>"; };
 		880E828A1D9D1C7E00A0213B /* XMMOfflineStorageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMMOfflineStorageManager.h; path = Classes/XMMOfflineStorageManager.h; sourceTree = "<group>"; };
 		880E828B1D9D1C7E00A0213B /* XMMOfflineStorageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMMOfflineStorageManager.m; path = Classes/XMMOfflineStorageManager.m; sourceTree = "<group>"; };
 		88117C971DB4C76B0046A8DC /* XMMContentBlock1TableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock1TableViewCellTest.m; sourceTree = "<group>"; };
@@ -744,6 +750,9 @@
 				87146E4224DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h */,
 				87146E4324DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m */,
 				87146E4424DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib */,
+				875344BD2583487F0054B330 /* XMMContentBlock15TableViewCell.h */,
+				875344BE2583487F0054B330 /* XMMContentBlock15TableViewCell.m */,
+				875344BF2583487F0054B330 /* XMMContentBlock15TableViewCell.xib */,
 			);
 			name = TableViewCells;
 			path = Blocks;
@@ -1129,6 +1138,7 @@
 				6242DA8B233C86D5008CD983 /* XMMContentBlockEventTableViewCell.h in Headers */,
 				883E55921C4A37FE000C4D09 /* XMMContentBlock6TableViewCell.h in Headers */,
 				888F4F6C1DA53317000E49CE /* XMMCDContentBlock.h in Headers */,
+				875344C02583487F0054B330 /* XMMContentBlock15TableViewCell.h in Headers */,
 				883E554F1C4A2B66000C4D09 /* XMMSystem.h in Headers */,
 				88E46F251C4933D8004D8AC3 /* XMMRestResource.h in Headers */,
 				884B614A1DACD74400572758 /* XMMOfflineApiHelper.h in Headers */,
@@ -1233,6 +1243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				875344C22583487F0054B330 /* XMMContentBlock15TableViewCell.xib in Resources */,
 				883E55911C4A37FE000C4D09 /* XMMContentBlock5TableViewCell.xib in Resources */,
 				883E558B1C4A37FE000C4D09 /* XMMContentBlock3TableViewCell.xib in Resources */,
 				883E55881C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.xib in Resources */,
@@ -1431,6 +1442,7 @@
 				888F4F651DA4F7B3000E49CE /* XMMCDSystem.m in Sources */,
 				882888601C64A3C400CE66A3 /* XMMContentBlock1TableViewCell.m in Sources */,
 				88B390271DA3A3E400216478 /* XMMCDStyle.m in Sources */,
+				875344C12583487F0054B330 /* XMMContentBlock15TableViewCell.m in Sources */,
 				883E55961C4A37FE000C4D09 /* XMMContentBlock7TableViewCell.m in Sources */,
 				88E46F2A1C4933F0004D8AC3 /* XMMRestClient.m in Sources */,
 				62ACD99F22CDE46100F55C23 /* XMMContentBlock12TableViewCell.m in Sources */,

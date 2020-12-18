@@ -18,6 +18,7 @@
 @dynamic recommendationEnabled;
 @dynamic eventPackageEnabled;
 @dynamic languagePickerEnabled;
+@dynamic isFormActive;
 
 + (NSString *)coreDataEntityName {
   return NSStringFromClass([self class]);
@@ -55,6 +56,8 @@
   savedSettings.eventPackageEnabled = [NSNumber numberWithBool:settings.eventPackageEnabled];
   savedSettings.languagePickerEnabled = [NSNumber numberWithBool:settings.languagePickerEnabled];
   savedSettings.languages = settings.languages;
+  savedSettings.isFormActive = [NSNumber numberWithBool:settings.isFormActive];
+  savedSettings.formsBaseUrl = settings.formsBaseUrl;
   
   [[XMMOfflineStorageManager sharedInstance] save];
   
