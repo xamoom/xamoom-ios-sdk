@@ -8,6 +8,12 @@
 
 #import "XMMContentBlock15TableViewCell.h"
 
+@interface XMMContentBlock15TableViewCell()
+
+@property (nonatomic, strong) WKWebView *webView;
+
+@end
+
 @implementation XMMContentBlock15TableViewCell
 
 - (void)awakeFromNib {
@@ -34,11 +40,9 @@
     
     if (isFormActive) {
         NSMutableString *url = [NSMutableString new];
-        [url appendString:@"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header><iframe src=\""];
         [url appendString:formUrl];
         [url appendString:@"/gfembed/?f="];
         [url appendString:formId];
-        [url appendString:@"\" width=\"100%\"  height =\"850\" frameBorder=\"0\" scrolling=\"no\" onload=\"resizeIframe(this)\" class=\"gfiframe\"></iframe><script src=\"https://forms.xamoom.com/wp-content/plugins/gravity-forms-iframe-develop/assets/scripts/gfembed.js\" type=\"text/javascript\"></script><script>function resizeIframe(obj) {obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';}</script>"];
         [self addWebView:url];
         
     } else {
@@ -49,37 +53,73 @@
    
 - (void) addWebView:(NSString *) url {
     
-    NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+    
+    //TODO: rename printhelloworld function
+    NSString *resizeScript = @"function printHelloWorld() { window.webkit.messageHandlers.test.postMessage(document.body.scrollHeight);} window.onload = printHelloWorld;";
+    
+    NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width, shrink-to-fit=YES'); meta.setAttribute('initial-scale', '1.0'); meta.setAttribute('maximum-scale', '1.0'); meta.setAttribute('minimum-scale', '1.0'); meta.setAttribute('user-scalable', 'no'); document.getElementsByTagName('head')[0].appendChild(meta);";
+    
 
     WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+    WKUserScript *wkUScriptResize = [[WKUserScript alloc] initWithSource:resizeScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
     WKUserContentController *wkUController = [[WKUserContentController alloc] init];
     [wkUController addUserScript:wkUScript];
+    [wkUController addUserScript:wkUScriptResize];
+    [wkUController addScriptMessageHandler:self name:@"test"];
 
     WKWebViewConfiguration *webConfiguration = [[WKWebViewConfiguration alloc] init];
     webConfiguration.userContentController = wkUController;
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, self.webViewContainer.bounds.size.width) configuration: webConfiguration];
-    if (webView != nil) {
-        webView.navigationDelegate = self;
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, self.webViewContainer.bounds.size.height) configuration: webConfiguration];
+    if (self.webView != nil) {
+        self.webView.navigationDelegate = self;
+        self.webView.UIDelegate = self;
         [self.progressIndicator startAnimating];
-        [webView loadHTMLString:url baseURL:nil];
-        [self.webViewContainer addSubview:webView];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+//        [self.webView loadHTMLString:url baseURL:nil];
+        [self.webViewContainer addSubview:self.webView];
     }
 }
 
 
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    if([message.name isEqualToString:@"test"]) {
+        if(message.body != nil) {
+           
+            self.webViewContainerHeightConstraint.constant = [message.body floatValue];
+            self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webView.frame.size.width, [message.body floatValue]);
+            self.webView.scrollView.contentSize = CGSizeMake(self.webView.scrollView.contentSize.width, [message.body floatValue]);
+            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, [message.body floatValue]);
+                               
+            [self.webView updateConstraints];
+            [self.webViewContainer updateConstraints];
+            [self.contentView updateConstraints];
+            [self updateConstraints];
+            [super updateConstraints];
+                       
+            [self.webView layoutSubviews];
+            [self.webViewContainer layoutSubviews];
+            [self.contentView layoutSubviews];
+            [self layoutSubviews];
+            [super layoutSubviews];
+                               
+            [self.webView layoutIfNeeded];
+            [self.webViewContainer layoutIfNeeded];
+            [self.contentView layoutIfNeeded];
+            [self layoutIfNeeded];
+            [super layoutIfNeeded];
+        }
+    }
+}
+
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self.progressIndicator stopAnimating];
-    [webView evaluateJavaScript:@"document.readyState" completionHandler:^(NSString *result, NSError *error){
-        [webView evaluateJavaScript:@"document.body.scrollHeight" completionHandler:^(NSString *height, NSError *error) {
-            webView.scrollView.contentSize = CGSizeMake(webView.scrollView.contentSize.width, [height floatValue]);
-        }];
-    }];
 }
+
 
 - (UIColor *)colorFromHexString:(NSString *)hexString alpha: (double) alpha {
     unsigned rgbValue = 0;
     NSScanner *scanner = [NSScanner scannerWithString:hexString];
-    [scanner setScanLocation:1]; 
+    [scanner setScanLocation:1];
     [scanner scanHexInt:&rgbValue];
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:alpha];
 }
