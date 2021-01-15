@@ -84,11 +84,22 @@
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     if([message.name isEqualToString:@"test"]) {
         if(message.body != nil) {
-           
-            self.webViewContainerHeightConstraint.constant = [message.body floatValue];
-            self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webView.frame.size.width, [message.body floatValue]);
-            self.webView.scrollView.contentSize = CGSizeMake(self.webView.scrollView.contentSize.width, [message.body floatValue]);
-            self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, [message.body floatValue]);
+            float newHeight = [message.body floatValue] + 10;
+            float oldHeight = self.webViewContainerHeightConstraint.constant;
+            if(newHeight != oldHeight) {
+                self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webView.frame.size.width, newHeight);
+                self.webView.scrollView.contentSize = CGSizeMake(self.webView.scrollView.contentSize.width, newHeight);
+                if(fabs([message.body floatValue] -                 self.webViewContainerHeightConstraint.constant) > 3) {
+                    self.webViewContainerHeightConstraint.constant = newHeight;
+                    id view = [self superview];
+                    while (view && [view isKindOfClass:[UITableView class]] == NO) {
+                        view = [view superview];
+                    }
+                    UITableView *parentTableView = (UITableView *)view;
+                    [parentTableView beginUpdates];
+                    [parentTableView endUpdates];
+                }
+            }
                                
             [self.webView updateConstraints];
             [self.webViewContainer updateConstraints];
