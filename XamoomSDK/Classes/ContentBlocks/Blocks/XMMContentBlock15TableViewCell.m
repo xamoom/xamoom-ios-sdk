@@ -53,9 +53,7 @@
    
 - (void) addWebView:(NSString *) url {
     
-    
-    //TODO: rename printhelloworld function
-    NSString *resizeScript = @"function printHelloWorld() { window.webkit.messageHandlers.test.postMessage(document.body.scrollHeight);} window.onload = printHelloWorld;";
+    NSString *resizeScript = @"function resize() { window.webkit.messageHandlers.test.postMessage(document.body.scrollHeight);} window.onload = resize;";
     
     NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width, shrink-to-fit=YES'); meta.setAttribute('initial-scale', '1.0'); meta.setAttribute('maximum-scale', '1.0'); meta.setAttribute('minimum-scale', '1.0'); meta.setAttribute('user-scalable', 'no'); document.getElementsByTagName('head')[0].appendChild(meta);";
     
@@ -75,7 +73,6 @@
         self.webView.UIDelegate = self;
         [self.progressIndicator startAnimating];
         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
-//        [self.webView loadHTMLString:url baseURL:nil];
         [self.webViewContainer addSubview:self.webView];
     }
 }
@@ -100,24 +97,6 @@
                     [parentTableView endUpdates];
                 }
             }
-                               
-            [self.webView updateConstraints];
-            [self.webViewContainer updateConstraints];
-            [self.contentView updateConstraints];
-            [self updateConstraints];
-            [super updateConstraints];
-                       
-            [self.webView layoutSubviews];
-            [self.webViewContainer layoutSubviews];
-            [self.contentView layoutSubviews];
-            [self layoutSubviews];
-            [super layoutSubviews];
-                               
-            [self.webView layoutIfNeeded];
-            [self.webViewContainer layoutIfNeeded];
-            [self.contentView layoutIfNeeded];
-            [self layoutIfNeeded];
-            [super layoutIfNeeded];
         }
     }
 }
