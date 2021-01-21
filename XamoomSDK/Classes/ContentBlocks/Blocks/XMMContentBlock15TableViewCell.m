@@ -68,6 +68,7 @@
     WKWebViewConfiguration *webConfiguration = [[WKWebViewConfiguration alloc] init];
     webConfiguration.userContentController = wkUController;
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, self.webViewContainer.bounds.size.height) configuration: webConfiguration];
+    self.webView.scrollView.scrollEnabled = NO;
     if (self.webView != nil) {
         self.webView.navigationDelegate = self;
         self.webView.UIDelegate = self;
@@ -85,7 +86,6 @@
             float oldHeight = self.webViewContainerHeightConstraint.constant;
             if(newHeight != oldHeight) {
                 self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webView.frame.size.width, newHeight);
-                self.webView.scrollView.contentSize = CGSizeMake(self.webView.scrollView.contentSize.width, newHeight);
                 if(fabs([message.body floatValue] -                 self.webViewContainerHeightConstraint.constant) > 3) {
                     self.webViewContainerHeightConstraint.constant = newHeight;
                     id view = [self superview];

@@ -11,6 +11,8 @@
 
 int const kHorizontalSpaceToSubview = 32;
 NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kContentBlock9MapContentLinkNotification";
+NSString* const keyboardWillShowNotificatoin = @"UIKeyboardWillShowNotification";
+NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification";
 
 #pragma mark - XMMContentBlocks Interface
 
@@ -58,6 +60,41 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
                                            selector:@selector(clickContentNotification:)
                                                name:kContentBlock9MapContentLinkNotification
                                              object:nil];
+    
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardWillShow:)
+                                               name:keyboardWillShowNotificatoin
+                                             object:nil];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                            selector:@selector(keyboardWillHide:)
+                                                name:keyboardWillHideNotification
+                                            object:nil];
+}
+
+
+- (void) keyboardWillHide:(NSNotification *)notification {
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    [self.tableView setContentInset:contentInsets];
+    [self.tableView setScrollIndicatorInsets:contentInsets];
+}
+
+-(void)keyboardWillShow:(NSNotification *)notification {
+    if(notification.userInfo != nil) {
+        NSDictionary *userInfo = [notification userInfo];
+        CGRect keyboardRect = [userInfo[@"UIKeyboardBoundsUserInfoKey"] CGRectValue];
+        float keyboardHeight = keyboardRect.size.height;
+        
+        if (@available(iOS 13.0, *)) {
+            [self.tableView setAutomaticallyAdjustsScrollIndicatorInsets:NO];
+        }
+        if (@available(iOS 11.0, *)) {
+            [self.tableView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+        }
+        UIEdgeInsets contentInsets = UIEdgeInsetsMake(0, 0, keyboardHeight, 0);
+        [self.tableView setContentInset:contentInsets];
+        [self.tableView setScrollIndicatorInsets:contentInsets];
+    }
 }
 
 - (void)viewWillDisappear {
