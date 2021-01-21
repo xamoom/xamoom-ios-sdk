@@ -19,6 +19,7 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
 @interface XMMContentBlocks ()
 @property (nonatomic) XMMSpot *relatedSpot;
 @property (nonatomic) XMMContent *content;
+@property (nonatomic) CGFloat keyboardHeight;
 @end
 
 #pragma mark - XMMContentBlocks Implementation
@@ -74,9 +75,9 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
 
 
 - (void) keyboardWillHide:(NSNotification *)notification {
-    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
-    [self.tableView setContentInset:contentInsets];
-    [self.tableView setScrollIndicatorInsets:contentInsets];
+    UIEdgeInsets currentInset = self.tableView.contentInset;
+    [self.tableView setContentInset:UIEdgeInsetsMake(currentInset.top, currentInset.left, currentInset.bottom - self.keyboardHeight, currentInset.right)];
+    [self.tableView setScrollIndicatorInsets:currentInset];
 }
 
 -(void)keyboardWillShow:(NSNotification *)notification {
@@ -84,14 +85,9 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
         NSDictionary *userInfo = [notification userInfo];
         CGRect keyboardRect = [userInfo[@"UIKeyboardBoundsUserInfoKey"] CGRectValue];
         float keyboardHeight = keyboardRect.size.height;
-        
-        if (@available(iOS 13.0, *)) {
-            [self.tableView setAutomaticallyAdjustsScrollIndicatorInsets:NO];
-        }
-        if (@available(iOS 11.0, *)) {
-            [self.tableView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
-        }
-        UIEdgeInsets contentInsets = UIEdgeInsetsMake(0, 0, keyboardHeight, 0);
+        self.keyboardHeight = keyboardHeight;
+        UIEdgeInsets currentInsets = self.tableView.contentInset;
+        UIEdgeInsets contentInsets = UIEdgeInsetsMake(currentInsets.top, currentInsets.left, keyboardHeight, currentInsets.right);
         [self.tableView setContentInset:contentInsets];
         [self.tableView setScrollIndicatorInsets:contentInsets];
     }

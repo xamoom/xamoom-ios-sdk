@@ -11,6 +11,7 @@
 @interface XMMContentBlock15TableViewCell()
 
 @property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, strong) UITableView *parentTableView;
 
 @end
 
@@ -25,6 +26,7 @@
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
+    self.parentTableView = tableView;
     NSString* formId = block.text;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* formUrl = [self getModifiedFormUrl:(NSString *)([defaults objectForKey:@"formUrl"])];
@@ -88,13 +90,12 @@
                 self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webView.frame.size.width, newHeight);
                 if(fabs([message.body floatValue] -                 self.webViewContainerHeightConstraint.constant) > 3) {
                     self.webViewContainerHeightConstraint.constant = newHeight;
-                    id view = [self superview];
-                    while (view && [view isKindOfClass:[UITableView class]] == NO) {
-                        view = [view superview];
-                    }
-                    UITableView *parentTableView = (UITableView *)view;
-                    [parentTableView beginUpdates];
-                    [parentTableView endUpdates];
+                    
+                    [self.parentTableView beginUpdates];
+                    [self.parentTableView endUpdates];
+                    
+                    [self.parentTableView layoutIfNeeded];
+                        
                 }
             }
         }
