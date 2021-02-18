@@ -45,6 +45,9 @@ static UIColor *kContentLinkColor;
 static NSString *kContentLanguage;
 static int kPageSize = 100;
 static NSString *activeElevationButtonBackground = @"#2371D1";
+static const NSString *markersSourceIdentifier = @"markersSourceIdentifier";
+static const NSString *markersLayerIdentifier = @"markersLayerIdentifier";
+static const NSString *routeLayerIdentifier = @"polyline";
 
 
 
@@ -86,6 +89,14 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocationWithNotification:) name:@"LocationUpdateNotification" object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateUserLocationButtonIcon:) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
+    for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
+        if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+            [singleTap requireGestureRecognizerToFail:recognizer];
+        }
+    }
+    [self.mapView addGestureRecognizer:singleTap];
 
 }
 
@@ -139,6 +150,35 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     [self.mapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel - 1 animated:YES];
 }
 
+- (IBAction)handleMapTap:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+
+
+        NSArray *layerIdentifiers = @[markersLayerIdentifier];
+
+        CGPoint point = [sender locationInView:sender.view];
+        for (id feature in [self.mapView visibleFeaturesAtPoint:point inStyleLayersWithIdentifiers:[NSSet setWithArray:layerIdentifiers]]) {
+            if ([feature isKindOfClass:[MGLPointFeature class]]) {
+                MGLPointFeature *selectedFeature = (MGLPointFeature *) feature;
+                NSString *featureTitle = (NSString *) [selectedFeature.attributes objectForKey:@"title"];
+                for(XMMSpot *spot in self.spots) {
+                    if([spot.name isEqualToString:featureTitle]) {
+                        NSLog(@"");
+                        XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
+                        annotation.spot = spot;
+                        [self zoomToAnnotationWithAdditionView:annotation];
+                        [self openMapAdditionView:annotation];
+                    }
+                }
+
+                return;
+            }
+        }
+
+        [self closeMapAdditionView];
+    }
+}
+
 
 
 - (UIColor *)colorFromHexString:(NSString *)hexString alpha: (double) alpha {
@@ -156,7 +196,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     MGLShape *shape = [MGLShape shapeWithData:geoJson encoding:NSUTF8StringEncoding error:nil];
     MGLSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"polyline" shape:shape options:nil];
     [self.mapView.style addSource:source];
-    MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
+    MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:routeLayerIdentifier source:source];
     layer.lineColor = [NSExpression expressionForConstantValue:[self colorFromHexString:_currentRouteColor alpha:1.0]];
     
     layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
@@ -465,41 +505,56 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     self.didLoadStyle = YES;
     [self mapMarkerFromBase64:style.customMarker];
     [self showSpotMap:spots];
-   // [self getSpotMap:api spotMapTags:spotMapTags]; // reloads data to use custom marker
   }];
 }
 
 
 - (void)showSpotMap:(NSArray *)spots {
-  // Add annotations
-  if (_mapView.annotations != nil) {
-    [_mapView removeAnnotations:_mapView.annotations];
-  }
   
-  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-  dispatch_async(queue, ^{
+    UIImage *markerImage = [UIImage imageNamed:@"default_marker"];
+    markerImage = [self resizeImage:markerImage width:20];
     
-    NSMutableArray *annotations = [[NSMutableArray alloc] init];
-    for (XMMSpot *spot in spots) {
-      NSString *annotationTitle = nil;
-      if (spot.name != nil && ![spot.name isEqualToString:@""]) {
-        annotationTitle = spot.name;
-      } else {
-        annotationTitle = @"Spot";
-      }
-      
-      XMMAnnotation *anno = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
-      anno.spot = spot;
-      [annotations addObject:anno];
+    if (self.customMapMarker != nil) {
+        markerImage = self.customMapMarker;
     }
     
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      [self.mapView addAnnotations:annotations];
+    NSMutableArray *featuresArray = [[NSMutableArray alloc] init];
+    for(XMMSpot *spot in spots) {
+        MGLPointFeature *feature = [[MGLPointFeature alloc] init];
+        feature.title = spot.name;
+        feature.coordinate = CLLocationCoordinate2DMake(spot.latitude, spot.longitude);
+        feature.attributes = [[NSDictionary alloc] initWithObjectsAndKeys: spot.name, @"title", nil];
+        [featuresArray addObject:feature];
+    }
+    
+    MGLShapeSource *previousSource = [self.mapView.style sourceWithIdentifier:markersSourceIdentifier];
+    if (previousSource != nil) {
+        MGLSymbolStyleLayer *previousMarkerLayer = [self.mapView.style layerWithIdentifier:markersLayerIdentifier];
+        if (previousMarkerLayer != nil) {
+            [self.mapView.style removeLayer:previousMarkerLayer];
+        }
+        
+        [self.mapView.style removeSource:previousSource];
+    }
+    
+    MGLShapeSource *markerSource = [[MGLShapeSource alloc] initWithIdentifier:markersSourceIdentifier features:featuresArray options:nil];
+    
+    [self.mapView.style addSource:markerSource];
+    
+    
+    MGLSymbolStyleLayer *markerLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:markersLayerIdentifier source:markerSource];
+
+    [self.mapView.style setImage:markerImage forName:@"markerImage"];
+    markerLayer.iconImageName = [NSExpression expressionForConstantValue:@"markerImage"];
+
+    MGLSymbolStyleLayer *startRouteIconLayer = [self.mapView.style layerWithIdentifier:@"start-tour-layer-background"];
+    [self.mapView.style insertLayer:markerLayer belowLayer:startRouteIconLayer];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
       if(self.graphCoordinates != nil) {
             [self zoomToFitAnnotationsAndRoute];
         }
     });
-  });
 }
 
 - (void)mapMarkerFromBase64:(NSString*)base64String {
@@ -628,35 +683,38 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
                        animated:YES];
 }
 
-- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation {
-  MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"whatever"];
-  
-  if (!annotationImage){
-    UIImage *image = [UIImage imageNamed:@"default_marker"];
-    image = [self resizeImage:image width:20];
 
-    if (self.customMapMarker != nil) {
-      image = self.customMapMarker;
-    }
-    
-    annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"whatever"];
-  }
-  
-  return annotationImage;
-}
+//
+//- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation {
+//  MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"whatever"];
+//
+//  if (!annotationImage){
+//    UIImage *image = [UIImage imageNamed:@"default_marker"];
+//    image = [self resizeImage:image width:20];
+//
+//    if (self.customMapMarker != nil) {
+//      image = self.customMapMarker;
+//    }
+//
+//    annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"whatever"];
+//  }
+//
+//  return annotationImage;
+//}
 
-- (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
-  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
-    [self zoomToAnnotationWithAdditionView:annotation];
-    [self openMapAdditionView:annotation];
-  }
-}
+//- (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
+//  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
+//    [self zoomToAnnotationWithAdditionView:annotation];
+//    [self openMapAdditionView:annotation];
+//  }
+//}
 
-- (void)mapView:(MGLMapView *)mapView didDeselectAnnotation:(id<MGLAnnotation>)annotation {
-  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
-    [self closeMapAdditionView];
-  }
-}
+//- (void)mapView:(MGLMapView *)mapView didDeselectAnnotation:(id<MGLAnnotation>)annotation {
+//  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
+//    [self closeMapAdditionView];
+//  }
+//}
+
 
 - (void)didUpdateLocationWithNotification:(NSNotification *)notification {
   _userLocation = notification.userInfo[@"location"];
