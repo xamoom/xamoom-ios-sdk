@@ -684,38 +684,6 @@ static const NSString *routeLayerIdentifier = @"polyline";
 }
 
 
-//
-//- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation {
-//  MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"whatever"];
-//
-//  if (!annotationImage){
-//    UIImage *image = [UIImage imageNamed:@"default_marker"];
-//    image = [self resizeImage:image width:20];
-//
-//    if (self.customMapMarker != nil) {
-//      image = self.customMapMarker;
-//    }
-//
-//    annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"whatever"];
-//  }
-//
-//  return annotationImage;
-//}
-
-//- (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
-//  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
-//    [self zoomToAnnotationWithAdditionView:annotation];
-//    [self openMapAdditionView:annotation];
-//  }
-//}
-
-//- (void)mapView:(MGLMapView *)mapView didDeselectAnnotation:(id<MGLAnnotation>)annotation {
-//  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
-//    [self closeMapAdditionView];
-//  }
-//}
-
-
 - (void)didUpdateLocationWithNotification:(NSNotification *)notification {
   _userLocation = notification.userInfo[@"location"];
   
