@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIView *webViewContainer;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *webViewContainerHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *progressIndicator;
+@property (weak, nonatomic) IBOutlet UIView *coverView;
+@property (nonatomic) BOOL showCBFormOverlay;
 
 @end
 

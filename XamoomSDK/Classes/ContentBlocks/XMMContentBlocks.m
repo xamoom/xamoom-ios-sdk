@@ -419,6 +419,11 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
   if ([cell isKindOfClass:[XMMContentBlock14TableViewCell class]] && self.navigationType != nil) {
       [(XMMContentBlock14TableViewCell *) cell setNavigationType:self.navigationType];
   }
+    
+    if ([cell isKindOfClass:[XMMContentBlock15TableViewCell class]] && self.showCBFormOverlay != nil) {
+        [(XMMContentBlock15TableViewCell *) cell
+         setShowCBFormOverlay:self.showCBFormOverlay];
+    }
   
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style offline:self.offline];
