@@ -56,6 +56,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @protocol XMMContentBlocksDelegate <NSObject>
 
 - (void)didClickContentBlock:(NSString *)contentID;
+- (void)onQuizHTMLResponse: (NSString *)htmlResponse;
 
 @end
 

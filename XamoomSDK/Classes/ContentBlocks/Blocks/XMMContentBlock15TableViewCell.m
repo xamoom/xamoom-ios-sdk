@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) UITableView *parentTableView;
+@property (nonatomic, retain) id<XMMContentBlocksDelegate> contentBlocksDelegate;
 
 @end
 
@@ -25,7 +26,8 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
+- (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api listManager:(XMMListManager *)listManager offline:(BOOL)offline delegate:(id)delegate {
+    self.contentBlocksDelegate = delegate;
     self.parentTableView = tableView;
     NSString* formId = block.text;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -83,6 +85,9 @@
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     if([message.name isEqualToString:@"test"]) {
+        [self.webView evaluateJavaScript:@"document.documentElement.outerHTML.toString()" completionHandler:^(id html, NSError *error) {
+            [self.contentBlocksDelegate onQuizHTMLResponse:html];
+        }];
         if(message.body != nil) {
             float newHeight = [message.body floatValue] + 10;
             float oldHeight = self.webViewContainerHeightConstraint.constant;
