@@ -29,6 +29,11 @@
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api listManager:(XMMListManager *)listManager offline:(BOOL)offline delegate:(id)delegate {
     self.contentBlocksDelegate = delegate;
     self.parentTableView = tableView;
+    
+    if(self.showCBFormOverlay == YES) {
+        [self.coverView setHidden:NO];
+        self.userInteractionEnabled = NO;
+    }
     NSString* formId = block.text;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* formUrl = [self getModifiedFormUrl:(NSString *)([defaults objectForKey:@"formUrl"])];
