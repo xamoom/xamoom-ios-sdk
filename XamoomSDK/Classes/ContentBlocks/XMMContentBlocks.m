@@ -455,6 +455,7 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
   
   if ([cell isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
     XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [[XMMContentBlockListsCache sharedInstance] removeCache];
     [self.delegate didClickContentBlock:cell.contentID];
   }
   
