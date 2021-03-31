@@ -97,7 +97,7 @@
             float newHeight = [message.body floatValue] + 10;
             float oldHeight = self.webViewContainerHeightConstraint.constant;
             if(newHeight != oldHeight) {
-                self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webView.frame.size.width, newHeight);
+                self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webViewContainer.frame.size.width, newHeight);
                 if(fabs([message.body floatValue] -                 self.webViewContainerHeightConstraint.constant) > 3) {
                     self.webViewContainerHeightConstraint.constant = newHeight;
                     
