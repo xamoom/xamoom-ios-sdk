@@ -15,16 +15,16 @@
 "Route" = "Route";
 
 "webviewcontroller.back" = "Terug";
-"contentblock8.alert.error.title" = "Error";
-"contentblock8.alert.error.message" = "This is not a valid file";
-"contentblock8.alert.hint.title" = "Note";
-"contentblock8.alert.choose.calendar" = "Choose a calendar";
-"contentblock8.alert.contact.request.message" = "Do you want to add \"%@ %@\" to your contacts?";
-"contentblock8.alert.contact.success.message" = "Successfully added \"%@ %@\" to your contacts.";
-"contentblock8.alert.add" = "Add";
-"contentblock8.alert.cancel" = "Cancel";
-"contentblock8.alert.calendar.request.message" = "Do you want to add \"%@\" to \"%@\"?";
-"contentblock8.alert.calendar.success.message" = "Successfully added \"%@\" to \"%@\"";
+"contentblock8.alert.error.title" = "Fout";
+"contentblock8.alert.error.message" = "Dit bestand is niet geldig.";
+"contentblock8.alert.hint.title" = "Notitie";
+"contentblock8.alert.choose.calendar" = "Kies een kalender";
+"contentblock8.alert.contact.request.message" = "Wil je er \"%@ %@\" aan je contacten toevoegen?";
+"contentblock8.alert.contact.success.message" = "\"%@ %@\" toegevoegd aan je contacten.";
+"contentblock8.alert.add" = "Toevoegen";
+"contentblock8.alert.cancel" = "Annuleren";
+"contentblock8.alert.calendar.request.message" = "Wil je \"%@\" bij \"%@\" optellen?";
+"contentblock8.alert.calendar.success.message" = "\"%@\" tot en met \"%@\" succesvol toegevoegd.";
 
 "contentblock9.no.location.title" = "We hebben uw locatie nodig";
 "contentblock9.no.location.message" = "De locatieservices zijn uitgeschakeld. Ga naar de instellingen om ze in te schakelen.";

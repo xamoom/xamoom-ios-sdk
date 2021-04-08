@@ -16,7 +16,7 @@
 
 "webviewcontroller.back" = "Back";
 "contentblock8.alert.error.title" = "Error";
-"contentblock8.alert.error.message" = "This is not a valid file";
+"contentblock8.alert.error.message" = "This file is not valid.";
 "contentblock8.alert.hint.title" = "Note";
 "contentblock8.alert.choose.calendar" = "Choose a calendar";
 "contentblock8.alert.contact.request.message" = "Do you want to add \"%@ %@\" to your contacts?";

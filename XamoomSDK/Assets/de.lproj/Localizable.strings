@@ -15,16 +15,16 @@
 "Route" = "Route";
 
 "webviewcontroller.back" = "Zurück";
-"contentblock8.alert.error.title" = "Error";
-"contentblock8.alert.error.message" = "This is not a valid file";
-"contentblock8.alert.hint.title" = "Note";
-"contentblock8.alert.choose.calendar" = "Choose a calendar";
-"contentblock8.alert.contact.request.message" = "Do you want to add \"%@ %@\" to your contacts?";
-"contentblock8.alert.contact.success.message" = "Successfully added \"%@ %@\" to your contacts.";
-"contentblock8.alert.add" = "Add";
-"contentblock8.alert.cancel" = "Cancel";
-"contentblock8.alert.calendar.request.message" = "Do you want to add \"%@\" to \"%@\"?";
-"contentblock8.alert.calendar.success.message" = "Successfully added \"%@\" to \"%@\"";
+"contentblock8.alert.error.title" = "Fehler";
+"contentblock8.alert.error.message" = "Diese Datei ist nicht gültig.";
+"contentblock8.alert.hint.title" = "Hinweis";
+"contentblock8.alert.choose.calendar" = "Kalender auswählen";
+"contentblock8.alert.contact.request.message" = "Möchten Sie \"%@ %@\" zu Ihren Kontakten hinzufügen?";
+"contentblock8.alert.contact.success.message" = "\"%@ %@\" wurde erfolgreich zu den Kontakten hinzugefügt.";
+"contentblock8.alert.add" = "Hinzufügen";
+"contentblock8.alert.cancel" = "Abbrechen";
+"contentblock8.alert.calendar.request.message" = "Möchten Sie \"%@\" zu \"%@\" hinzufügen?";
+"contentblock8.alert.calendar.success.message" = "\"%@\" erfolgreich zu \"%@\" hinzugefügt.";
 
 "contentblock9.no.location.title" = "Wir benötigen Ihren Standort";
 "contentblock9.no.location.message" = "Die Ortungsdienste sind deaktiviert. Bitte gehen Sie in die Einstellungen, um diese einzuschalten.";
