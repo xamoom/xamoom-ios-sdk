@@ -24,6 +24,7 @@
 #import "XMMContentBlock14TableViewCell.h"
 #import "XMMContentBlock15TableViewCell.h"
 #import "XMMContentBlockEventTableViewCell.h"
+#import "XMMContentBlockListsCache.h"
 #import "UIImage+animatedGIF.h"
 #import "UIColor+HexString.h"
 #import <WebKit/WebKit.h>

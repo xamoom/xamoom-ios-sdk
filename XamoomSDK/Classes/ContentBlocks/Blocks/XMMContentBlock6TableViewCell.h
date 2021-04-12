@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XMMContentBlocks.h"
 #import "XMMContentBlocksCache.h"
+#import "XMMContentBlockListsCache.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
 
