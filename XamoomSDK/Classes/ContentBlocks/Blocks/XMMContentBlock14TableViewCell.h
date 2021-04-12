@@ -41,6 +41,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *infoAscent;
 @property (weak, nonatomic) IBOutlet UILabel *infoDescent;
 @property (weak, nonatomic) IBOutlet UILabel *infoTime;
+@property (weak, nonatomic) IBOutlet UILabel *infoDistanceDescription;
+@property (weak, nonatomic) IBOutlet UILabel *infoAscentDescentDescription;
 @property (weak, nonatomic) IBOutlet UILabel *infoTimeDescription;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewBottomConstraint;
 @property (nonatomic) NSLayoutConstraint *mapAdditionViewHeightConstraint;

@@ -32,6 +32,8 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"eventPackageEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-event-package-active"]];
     [__descriptor addProperty:@"languagePickerEnabled" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-language-switcher-enabled"]];
     [__descriptor addProperty:@"languages" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"languages"]];
+    [__descriptor addProperty:@"isFormActive" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-forms-active"]];
+    [__descriptor addProperty:@"formsBaseUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"forms-base-url"]];
 
   });
   
@@ -55,6 +57,8 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     self.eventPackageEnabled = savedSettings.eventPackageEnabled.boolValue;
     self.languagePickerEnabled = savedSettings.languagePickerEnabled.boolValue;
     self.languages = savedSettings.languages;
+    self.isFormActive = savedSettings.isFormActive;
+    self.formsBaseUrl = savedSettings.formsBaseUrl;
   }
   
   return self;

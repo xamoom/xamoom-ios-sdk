@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
@@ -414,9 +414,11 @@
                 <outlet property="centerUserLocationButton" destination="l0F-NH-Ft1" id="OyC-bh-Ct8"/>
                 <outlet property="imperialButton" destination="xZ5-yv-RRB" id="wp2-w6-ktR"/>
                 <outlet property="infoAscent" destination="Aj2-21-XzS" id="PDF-6M-TYr"/>
+                <outlet property="infoAscentDescentDescription" destination="fsN-hP-drL" id="GLC-R5-bqK"/>
                 <outlet property="infoButton" destination="Aos-4C-sJN" id="uxB-rJ-KUt"/>
                 <outlet property="infoDescent" destination="ZVY-cL-ZEh" id="PWj-Us-1AS"/>
                 <outlet property="infoDistance" destination="22z-mg-E5D" id="PI2-lE-FDa"/>
+                <outlet property="infoDistanceDescription" destination="bIj-QN-4cJ" id="cCh-ZQ-nuR"/>
                 <outlet property="infoTime" destination="kvB-1C-5h3" id="m3l-Qh-IBA"/>
                 <outlet property="infoTimeDescription" destination="BjS-rV-OSF" id="cVp-Lh-bYr"/>
                 <outlet property="infoTitle" destination="Rem-aq-5pT" id="wKm-pI-bIQ"/>

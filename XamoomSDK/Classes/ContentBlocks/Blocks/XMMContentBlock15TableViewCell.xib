@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="XMMContentBlock15TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdJ-6v-mJo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="250" id="0ae-Gm-auh"/>
+                        </constraints>
+                    </view>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Cqg-Ei-VCh">
+                        <rect key="frame" x="150" y="115" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU5-GG-9yr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                        <color key="backgroundColor" white="1" alpha="0.70061001712328763" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ZdJ-6v-mJo" secondAttribute="bottom" id="37g-jH-pNr"/>
+                    <constraint firstAttribute="trailing" secondItem="ZdJ-6v-mJo" secondAttribute="trailing" id="4Rt-Ul-F8x"/>
+                    <constraint firstItem="GU5-GG-9yr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="F0F-Ub-lfy"/>
+                    <constraint firstItem="Cqg-Ei-VCh" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Gxk-HG-DYt"/>
+                    <constraint firstItem="Cqg-Ei-VCh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Hhf-R2-OWi"/>
+                    <constraint firstItem="ZdJ-6v-mJo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="JXl-Cs-gXx"/>
+                    <constraint firstAttribute="bottom" secondItem="GU5-GG-9yr" secondAttribute="bottom" id="Oo3-B2-fKt"/>
+                    <constraint firstAttribute="trailing" secondItem="GU5-GG-9yr" secondAttribute="trailing" id="SFT-PM-qqj"/>
+                    <constraint firstItem="ZdJ-6v-mJo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Wqp-Rr-zHu"/>
+                    <constraint firstItem="GU5-GG-9yr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="plE-hk-qzS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentView" destination="H2p-sc-9uM" id="Rxr-Rq-wfg"/>
+                <outlet property="coverView" destination="GU5-GG-9yr" id="XFl-HP-mPU"/>
+                <outlet property="progressIndicator" destination="Cqg-Ei-VCh" id="bKG-rS-iFw"/>
+                <outlet property="webViewContainer" destination="ZdJ-6v-mJo" id="c0M-Iu-mb3"/>
+                <outlet property="webViewContainerHeightConstraint" destination="0ae-Gm-auh" id="rcP-eM-yYV"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
+        </tableViewCell>
+    </objects>
+</document>

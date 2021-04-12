@@ -21,5 +21,7 @@
 @property (nonatomic, nonatomic) NSNumber *eventPackageEnabled;
 @property (nonatomic, nonatomic) NSNumber *languagePickerEnabled;
 @property (nonatomic, nonatomic) NSMutableArray<NSString *> *languages;
+@property (nonatomic, nonatomic) NSNumber *isFormActive;
+@property (nonatomic, nonatomic) NSString *formsBaseUrl;
 
 @end

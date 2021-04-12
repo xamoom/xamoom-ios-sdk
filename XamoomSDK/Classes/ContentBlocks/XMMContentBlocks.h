@@ -22,7 +22,9 @@
 #import "XMMContentBlock9TableViewCell.h"
 #import "XMMContentBlock11TableViewCell.h"
 #import "XMMContentBlock14TableViewCell.h"
+#import "XMMContentBlock15TableViewCell.h"
 #import "XMMContentBlockEventTableViewCell.h"
+#import "XMMContentBlockListsCache.h"
 #import "UIImage+animatedGIF.h"
 #import "UIColor+HexString.h"
 #import <WebKit/WebKit.h>
@@ -55,6 +57,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @protocol XMMContentBlocksDelegate <NSObject>
 
 - (void)didClickContentBlock:(NSString *)contentID;
+- (void)onQuizHTMLResponse: (NSString *)htmlResponse;
 
 @end
 
@@ -83,6 +86,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property (weak, nonatomic) NSNumber *navigationType;
 @property (nonatomic, strong) UIColor* webViewNavigationBarTintColor;
 @property (strong, nonatomic) NSString *chromeColor;
+@property (nonatomic) BOOL showCBFormOverlay;
   
 /**
  * Initialize XMMContentBlocks with tableview and an api.

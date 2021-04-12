@@ -55,6 +55,11 @@
 @property (nonatomic) UIColor *currentPhoneTintColor;
 @property (nonatomic) UIColor *currentFallbackColor;
 @property (nonatomic) UIColor *currentFallbackTintColor;
+@property (nonatomic) UIColor *currentWhatsAppColor;
+@property (nonatomic) UIColor *currentWhatsAppTintColor;
+@property (nonatomic) UIColor *currentSmsColor;
+@property (nonatomic) UIColor *currentSmsTintColor;
+
 
 @end
 
@@ -115,6 +120,11 @@
   _currentPhoneTintColor = UIColor.blackColor;
   _currentAppleColor = UIColor.blackColor;
   _currentAppleTintColor = UIColor.whiteColor;
+  _currentWhatsAppColor = [UIColor colorWithRed:0 green:230 blue:118 alpha:1.0];
+  _currentWhatsAppTintColor = UIColor.whiteColor;
+  _currentSmsColor = [UIColor colorWithRed:209 green:209 blue:209 alpha:1.0];
+  _currentSmsTintColor = UIColor.blackColor;
+    
 }
 
 - (void)setupBundle {
@@ -136,7 +146,7 @@
 
 - (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon {
   //open link in safari
-  if (self.linkType == 11) {
+    if (self.linkType == 11 || self.linkType == 19) {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self cleanPhoneNumber:self.linkUrl]]];
   } else {
     
@@ -158,7 +168,9 @@
     if (openInternal) {
       // open internal webview
       XMMWebViewController *webViewController = [XMMWebViewController new];
-      webViewController.url = self.linkUrl;
+      if(self.linkType == 20) {
+          webViewController.url = [self cleanPhoneNumber:self.linkUrl];
+      } else { webViewController.url = self.linkUrl; }
       webViewController.navigationBarColor = _webViewControllerNavigationTintColor;
       
       [navCon pushViewController:webViewController animated:YES];
@@ -170,10 +182,10 @@
 
 - (void)openLink {
   //open link in safari
-  if (self.linkType == 11) {
+    if (self.linkType == 11 || self.linkType == 19 || self.linkType == 20) {
      [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[self cleanPhoneNumber:self.linkUrl]]];
   } else {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
+     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
   }
 }
 
@@ -371,6 +383,25 @@
       [self.titleLabel setTextColor:_currentInstagramTintColor];
       break;
     }
+    case 19: {
+      [self.viewForBackgroundColor setBackgroundColor:_currentSmsColor];
+      [self.icon setImage:[UIImage imageNamed:@"ic_sms" inBundle:self.bundle compatibleWithTraitCollection:nil]];
+      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+      [self.icon setTintColor:_currentSmsTintColor];
+      [self.linkTextLabel setTextColor:_currentSmsTintColor];
+      [self.titleLabel setTextColor:_currentSmsTintColor];
+      break;
+    }
+    case 20: {
+      [self.viewForBackgroundColor setBackgroundColor:_currentWhatsAppColor];
+      [self.icon setImage:[UIImage imageNamed:@"ic_whatsapp" inBundle:self.bundle compatibleWithTraitCollection:nil]];
+      self.icon.image = [self.icon.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+      [self.icon setTintColor:_currentWhatsAppTintColor];
+      [self.linkTextLabel setTextColor:_currentWhatsAppTintColor];
+      [self.titleLabel setTextColor:_currentWhatsAppTintColor];
+      break;
+    }
+          
     default:
       NSLog(@"Linktype not recognized.");
       [self.viewForBackgroundColor setBackgroundColor:_currentFallbackColor];
@@ -543,6 +574,22 @@ return _currentWebColor;
 
 - (UIColor *)fallbackTintColor {
   return _currentFallbackTintColor;
+}
+
+- (UIColor *)smsColor {
+  return _currentSmsColor;
+}
+
+- (UIColor *)smsTintColor {
+  return _currentSmsTintColor;
+}
+
+- (UIColor *)whatsAppColor {
+  return _currentWhatsAppColor;
+}
+
+- (UIColor *)whatsAppTintColor {
+  return _currentWhatsAppTintColor;
 }
 
 -(void)setWebColor:(UIColor *)webColor {
@@ -744,6 +791,28 @@ return _currentWebColor;
   _currentFallbackTintColor = fallbackTintColor;
   [self changeStyleAccordingToLinkType:self.linkType];
 }
+
+-(void)setWhatsAppColor:(UIColor *)whatsAppColor {
+  _currentWhatsAppColor = whatsAppColor;
+  [self changeStyleAccordingToLinkType:self.linkType];
+}
+
+-(void)setWhatsAppTintColor:(UIColor *)whatsAppTintColor {
+  _currentWhatsAppTintColor = whatsAppTintColor;
+  [self changeStyleAccordingToLinkType:self.linkType];
+}
+
+
+- (void)setSmsColor:(UIColor *)smsColor {
+    _currentSmsColor = smsColor;
+    [self changeStyleAccordingToLinkType:self.linkType];
+}
+
+- (void)setSmsTintColor:(UIColor *)smsTintColor {
+    _currentSmsTintColor = smsTintColor;
+    [self changeStyleAccordingToLinkType:self.linkType];
+}
+
 
 -(void)setWebViewControllerNavigationTintColor:(UIColor *)webViewControllerNavigationTintColor {
   _webViewControllerNavigationTintColor = webViewControllerNavigationTintColor;

@@ -18,7 +18,6 @@
 @property (nonatomic, strong) NSMutableArray *spots;
 @property (nonatomic, strong) CLLocation *userLocation;
 @property (nonatomic) bool isLocationGranted;
-@property (nonatomic) NSString *graphColor;
 @property (nonatomic) double scaleX;
 @property (nonatomic, strong) NSMutableArray *graphCoordinates;
 @property (nonatomic, strong) NSString *tourGeoJsonUrl;
@@ -37,6 +36,7 @@
 @property (nonatomic, strong) NSMutableArray *imperialXElements;
 @property (nonatomic, strong) NSMutableArray *metricYElements;
 @property (nonatomic, strong) NSMutableArray *metricXElements;
+@property (nonatomic) UIColor *currentRouteColor;
 
 @end
 
@@ -45,6 +45,9 @@ static UIColor *kContentLinkColor;
 static NSString *kContentLanguage;
 static int kPageSize = 100;
 static NSString *activeElevationButtonBackground = @"#2371D1";
+static const NSString *markersSourceIdentifier = @"markersSourceIdentifier";
+static const NSString *markersLayerIdentifier = @"markersLayerIdentifier";
+static const NSString *routeLayerIdentifier = @"polyline";
 
 
 
@@ -63,6 +66,13 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
   [self setupMapOverlayView];
   self.isInfoShown = NO;
   self.isCurrentmetric = YES;
+  if(![[NSUserDefaults standardUserDefaults] stringForKey:@"template_primaryColor"]) {
+      _currentRouteColor = [UIColor colorWithHexString:@"7401df"];
+  } else {
+      NSLog(@"template color is %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"template_primaryColor"]);
+      _currentRouteColor = [[NSUserDefaults standardUserDefaults] stringForKey:@"template_primaryColor"];
+  }
+
   
   self.mapViewHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   [_mapView setMaximumZoomLevel:17.4];
@@ -79,6 +89,14 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocationWithNotification:) name:@"LocationUpdateNotification" object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateUserLocationButtonIcon:) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleMapTap:)];
+    for (UIGestureRecognizer *recognizer in self.mapView.gestureRecognizers) {
+        if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+            [singleTap requireGestureRecognizerToFail:recognizer];
+        }
+    }
+    [self.mapView addGestureRecognizer:singleTap];
 
 }
 
@@ -106,7 +124,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.7326808, -73.9843407)
                         zoomLevel:1
                          animated:NO];
-      self.lineChartView.chartTitle = @"Elevation chart";
+      self.lineChartView.chartTitle = NSLocalizedStringFromTableInBundle(@"contentblock14.eleavationChart", @"Localizable", self.bundle, nil);;
     
     self.graphCoordinates = [NSMutableArray new];
     self.metricXElements = [NSMutableArray new];
@@ -120,14 +138,9 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     self.showContent = block.showContent;
     [self calculateCoordinates:block.fileID showGraph:block.showElevation];
     [self getSpotMap:api spotMapTags:block.spotMapTags];
-    [self showCompass];
   }
 }
 
-- (void) showCompass {
-//    self.mapView.compassView.compassVisibility = MGLOrnamentVisibilityVisible;
-//    self.mapView.compassViewPosition = MGLOrnamentPositionTopLeft;
-}
 
 - (IBAction)onZoomInButtonClick:(UIButton *)sender {
     [self.mapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel + 1 animated:YES];
@@ -135,6 +148,35 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
 
 - (IBAction)onZoomOutButtonClick:(UIButton *)sender {
     [self.mapView setCenterCoordinate:self.mapView.centerCoordinate zoomLevel:self.mapView.zoomLevel - 1 animated:YES];
+}
+
+- (IBAction)handleMapTap:(UITapGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+
+
+        NSArray *layerIdentifiers = @[markersLayerIdentifier];
+
+        CGPoint point = [sender locationInView:sender.view];
+        for (id feature in [self.mapView visibleFeaturesAtPoint:point inStyleLayersWithIdentifiers:[NSSet setWithArray:layerIdentifiers]]) {
+            if ([feature isKindOfClass:[MGLPointFeature class]]) {
+                MGLPointFeature *selectedFeature = (MGLPointFeature *) feature;
+                NSString *featureTitle = (NSString *) [selectedFeature.attributes objectForKey:@"title"];
+                for(XMMSpot *spot in self.spots) {
+                    if([spot.name isEqualToString:featureTitle]) {
+                        NSLog(@"");
+                        XMMAnnotation *annotation = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
+                        annotation.spot = spot;
+                        [self zoomToAnnotationWithAdditionView:annotation];
+                        [self openMapAdditionView:annotation];
+                    }
+                }
+
+                return;
+            }
+        }
+
+        [self closeMapAdditionView];
+    }
 }
 
 
@@ -147,26 +189,6 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:alpha];
 }
 
-- (void) setChartValues {
-    
-}
-
-- (void)mapView:(MGLMapView *)mapView didFinishLoadingStyle:(MGLStyle *)style {
-  if (self.tourGeoJsonUrl != nil) {
-    if (self.tourGeoJsonData != nil) {
-      [self drawPolyline:self.tourGeoJsonData];
-    } else {
-      dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-          NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString: self.tourGeoJsonUrl]];
-          dispatch_async(dispatch_get_main_queue(), ^{
-            self.tourGeoJsonData = jsonData;
-            [self drawPolyline: jsonData];
-          });
-      });
-    }
-  }
-}
-
 - (void)drawPolyline:(NSData *)geoJson {
   
     if ([self.mapView.style sourceWithIdentifier:@"polyline"] != nil) return;
@@ -174,13 +196,11 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     MGLShape *shape = [MGLShape shapeWithData:geoJson encoding:NSUTF8StringEncoding error:nil];
     MGLSource *source = [[MGLShapeSource alloc] initWithIdentifier:@"polyline" shape:shape options:nil];
     [self.mapView.style addSource:source];
-    MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:@"polyline" source:source];
-    if(_graphColor != nil) {
-        layer.lineColor = [NSExpression expressionForConstantValue:[self colorFromHexString:_graphColor alpha:1.0]];
-    } else layer.lineColor = [NSExpression expressionForConstantValue:[self colorFromHexString:@"#8522df" alpha:1.0]];
+    MGLLineStyleLayer *layer = [[MGLLineStyleLayer alloc] initWithIdentifier:routeLayerIdentifier source:source];
+    layer.lineColor = [NSExpression expressionForConstantValue:[self colorFromHexString:_currentRouteColor alpha:1.0]];
     
     layer.lineWidth = [NSExpression expressionWithFormat:@"mgl_interpolate:withCurveType:parameters:stops:($zoomLevel, 'linear', nil, %@)",
-    @{@14: @5, @18: @20}];
+    @{@5: @3, @10: @5}];
     [self.mapView.style addLayer:layer];
 }
 
@@ -232,6 +252,32 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
             altitude = -100.0;
             altitudeFeet = -100.0;
         }
+        if(i == 0) {
+            if (self.tourGeoJsonUrl != nil) {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    NSData *jsonData = [NSData dataWithContentsOfURL: [NSURL URLWithString: self.tourGeoJsonUrl]];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                      self.tourGeoJsonData = jsonData;
+                      [self drawPolyline: jsonData];
+                        
+                      MGLPointAnnotation *point = [[MGLPointAnnotation alloc] init];
+                      point.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+                      
+                      MGLShapeSource *shapeSource = [[MGLShapeSource alloc] initWithIdentifier:@"start-tour-source" shape:point options:nil];
+                      MGLSymbolStyleLayer *shapeLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"start-tour-layer-background" source:shapeSource];
+                      
+                      
+                      [self.mapView.style setImage:[UIImage imageNamed:@"ic_route_begin"] forName:@"ic_start_tour"];
+                      shapeLayer.iconImageName = [NSExpression expressionForConstantValue:@"ic_start_tour"];
+                      shapeLayer.iconScale = [NSExpression expressionForConstantValue:[NSNumber numberWithFloat:0.1]];
+                      
+                      [self.mapView.style addSource:shapeSource];
+                      [self.mapView.style addLayer:shapeLayer];
+                    });
+                });
+            }
+        }
+        
         
         if(i != 0){
             double kilometres = [self getDistanceBetweenLocations:[[CLLocation alloc] initWithLatitude:previousLtd longitude:previousLong] :[[CLLocation alloc] initWithLatitude:latitude longitude:longitude]];
@@ -295,16 +341,18 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
 - (void) setInfoValues {
     self.infoTitle.text = self.infoTitleFromReponse;
     self.infoTime.text = self.routeSpentTime;
+    self.infoDistanceDescription = NSLocalizedStringFromTableInBundle(@"contentblock14.distance", @"Localizable", self.bundle, nil);
+    self.infoAscentDescentDescription = [NSString stringWithFormat:@"%@ | %@", NSLocalizedStringFromTableInBundle(@"contentblock14.ascent", @"Localizable", self.bundle, nil), NSLocalizedStringFromTableInBundle(@"contentblock14.descent", @"Localizable", self.bundle, nil)];
     if(self.isCurrentmetric) {
         self.infoDistance.text = [NSString stringWithFormat:@"%.2f km", self.metricTotalDistance];
         self.infoAscent.text = [NSString stringWithFormat:@"%d m", (int)self.ascentMetres];
         self.infoDescent.text = [NSString stringWithFormat:@"%d m", (int)self.descentMetres];
-        self.infoTimeDescription.text = @"Duration at 5 km/h";
+        self.infoTimeDescription.text = NSLocalizedStringFromTableInBundle(@"contentblock14.durationAtKm", @"Localizable", self.bundle, nil);
     } else {
         self.infoDistance.text = [NSString stringWithFormat:@"%.2f mi", self.imperialTotalDistance];
         self.infoAscent.text = [NSString stringWithFormat:@"%d ft", (int)self.ascentFeet];
         self.infoDescent.text = [NSString stringWithFormat:@"%d ft", (int)self.descentFeet];
-        self.infoTimeDescription.text = @"Duration at 3.1 mph";
+        self.infoTimeDescription.text = NSLocalizedStringFromTableInBundle(@"contentblock14.durationAtM", @"Localizable", self.bundle, nil);
     }
 }
 
@@ -330,8 +378,7 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
     [self.lineChartHeightConstraint setConstant:160.0];
     self.lineChartView.showSubtitle = NO;
     self.lineChartView.chartTitle = @"";
-    if(_graphColor != nil) self.lineChartView.chartLineColor = [self colorFromHexString:_graphColor alpha:1.0];
-    else self.lineChartView.chartLineColor =  [self colorFromHexString:@"#8522df" alpha:1.0];
+    self.lineChartView.chartLineColor = [UIColor colorWithHexString:_currentRouteColor];
     self.lineChartView.xElements = self.metricXElements;
     self.lineChartView.yElements = self.metricYElements;
     [self.lineChartView drawChart];
@@ -456,44 +503,58 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
 - (void)getStyleWithId:(NSString *)systemId api:(XMMEnduserApi *)api spots:(NSArray *)spots {
   [api styleWithID:systemId completion:^(XMMStyle *style, NSError *error) {
     self.didLoadStyle = YES;
-      _graphColor = style.highlightFontColor;
     [self mapMarkerFromBase64:style.customMarker];
     [self showSpotMap:spots];
-   // [self getSpotMap:api spotMapTags:spotMapTags]; // reloads data to use custom marker
   }];
 }
 
 
 - (void)showSpotMap:(NSArray *)spots {
-  // Add annotations
-  if (_mapView.annotations != nil) {
-    [_mapView removeAnnotations:_mapView.annotations];
-  }
   
-  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-  dispatch_async(queue, ^{
+    UIImage *markerImage = [UIImage imageNamed:@"default_marker"];
+    markerImage = [self resizeImage:markerImage width:20];
     
-    NSMutableArray *annotations = [[NSMutableArray alloc] init];
-    for (XMMSpot *spot in spots) {
-      NSString *annotationTitle = nil;
-      if (spot.name != nil && ![spot.name isEqualToString:@""]) {
-        annotationTitle = spot.name;
-      } else {
-        annotationTitle = @"Spot";
-      }
-      
-      XMMAnnotation *anno = [[XMMAnnotation alloc] initWithLocation:CLLocationCoordinate2DMake(spot.latitude, spot.longitude)];
-      anno.spot = spot;
-      [annotations addObject:anno];
+    if (self.customMapMarker != nil) {
+        markerImage = self.customMapMarker;
     }
     
-    dispatch_sync(dispatch_get_main_queue(), ^{
-      [self.mapView addAnnotations:annotations];
+    NSMutableArray *featuresArray = [[NSMutableArray alloc] init];
+    for(XMMSpot *spot in spots) {
+        MGLPointFeature *feature = [[MGLPointFeature alloc] init];
+        feature.title = spot.name;
+        feature.coordinate = CLLocationCoordinate2DMake(spot.latitude, spot.longitude);
+        feature.attributes = [[NSDictionary alloc] initWithObjectsAndKeys: spot.name, @"title", nil];
+        [featuresArray addObject:feature];
+    }
+    
+    MGLShapeSource *previousSource = [self.mapView.style sourceWithIdentifier:markersSourceIdentifier];
+    if (previousSource != nil) {
+        MGLSymbolStyleLayer *previousMarkerLayer = [self.mapView.style layerWithIdentifier:markersLayerIdentifier];
+        if (previousMarkerLayer != nil) {
+            [self.mapView.style removeLayer:previousMarkerLayer];
+        }
+        
+        [self.mapView.style removeSource:previousSource];
+    }
+    
+    MGLShapeSource *markerSource = [[MGLShapeSource alloc] initWithIdentifier:markersSourceIdentifier features:featuresArray options:nil];
+    
+    [self.mapView.style addSource:markerSource];
+    
+    
+    MGLSymbolStyleLayer *markerLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:markersLayerIdentifier source:markerSource];
+
+    [self.mapView.style setImage:markerImage forName:@"markerImage"];
+    markerLayer.iconImageName = [NSExpression expressionForConstantValue:@"markerImage"];
+
+    MGLSymbolStyleLayer *startRouteIconLayer = [self.mapView.style layerWithIdentifier:@"start-tour-layer-background"];
+    [self.mapView.style insertLayer:markerLayer belowLayer:startRouteIconLayer];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
       if(self.graphCoordinates != nil) {
             [self zoomToFitAnnotationsAndRoute];
         }
     });
-  });
 }
 
 - (void)mapMarkerFromBase64:(NSString*)base64String {
@@ -622,35 +683,6 @@ static NSString *activeElevationButtonBackground = @"#2371D1";
                        animated:YES];
 }
 
-- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id<MGLAnnotation>)annotation {
-  MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"whatever"];
-  
-  if (!annotationImage){
-    UIImage *image = [UIImage imageNamed:@"default_marker"];
-    image = [self resizeImage:image width:20];
-
-    if (self.customMapMarker != nil) {
-      image = self.customMapMarker;
-    }
-    
-    annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"whatever"];
-  }
-  
-  return annotationImage;
-}
-
-- (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
-  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
-    [self zoomToAnnotationWithAdditionView:annotation];
-    [self openMapAdditionView:annotation];
-  }
-}
-
-- (void)mapView:(MGLMapView *)mapView didDeselectAnnotation:(id<MGLAnnotation>)annotation {
-  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
-    [self closeMapAdditionView];
-  }
-}
 
 - (void)didUpdateLocationWithNotification:(NSNotification *)notification {
   _userLocation = notification.userInfo[@"location"];

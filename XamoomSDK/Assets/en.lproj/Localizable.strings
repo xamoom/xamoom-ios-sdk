@@ -15,7 +15,7 @@
 
 "webviewcontroller.back" = "Back";
 "contentblock8.alert.error.title" = "Error";
-"contentblock8.alert.error.message" = "This is not a valid file";
+"contentblock8.alert.error.message" = "This file is not valid.";
 "contentblock8.alert.hint.title" = "Note";
 "contentblock8.alert.choose.calendar" = "Choose a calendar";
 "contentblock8.alert.contact.request.message" = "Do you want to add \"%@ %@\" to your contacts?";
@@ -31,6 +31,14 @@
 "contentblock9.no.permission.message" = "The location permission is denied. Please go to the settings to grant them for our app.";
 "contentblock9.alert.cancel" = "Cancel";
 "contentblock9.alert.settings" = "Settings";
+
+"contentblock14.distance" = "Distance";
+"contentblock14.ascent" = "Ascent";
+"contentblock14.descent" = "Descent";
+"contentblock14.durationAtKm" = "duration at 5/km/h";
+"contentblock14.durationAtM" = "duration at 3 mph";
+"contentblock14.elevation" = "elevation";
+"contentblock14.eleavationChart" = "eleavation chart";
 
 "event.navigation.title" = "Navigate to the location";
 "event.calendar.title" = "Add to calendar";

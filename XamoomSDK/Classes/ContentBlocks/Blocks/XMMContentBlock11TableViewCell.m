@@ -104,9 +104,8 @@ int tableViewTopConstant = 8;
         
         _tableViewHeightConstraint.constant = 89 * listItem.contents.count;
         [self setNeedsLayout];
-          
-        [_contentBlocks displayContent: [self generateContentsFrom:listItem.contents]];
       }
+        [_contentBlocks displayContent: [self generateContentsFrom:listItem.contents]];
   } else {
     [self loadContentWith:block.contentListTags pageSize:block.contentListPageSize ascending:block.contentListSortAsc position:(int)indexPath.row];
   }

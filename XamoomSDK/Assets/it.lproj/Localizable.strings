@@ -15,16 +15,16 @@
 "Route" = "Route";
 
 "webviewcontroller.back" = "Indietro";
-"contentblock8.alert.error.title" = "Error";
-"contentblock8.alert.error.message" = "This is not a valid file";
-"contentblock8.alert.hint.title" = "Note";
-"contentblock8.alert.choose.calendar" = "Choose a calendar";
-"contentblock8.alert.contact.request.message" = "Do you want to add \"%@ %@\" to your contacts?";
-"contentblock8.alert.contact.success.message" = "Successfully added \"%@ %@\" to your contacts.";
-"contentblock8.alert.add" = "Add";
-"contentblock8.alert.cancel" = "Cancel";
-"contentblock8.alert.calendar.request.message" = "Do you want to add \"%@\" to \"%@\"?";
-"contentblock8.alert.calendar.success.message" = "Successfully added \"%@\" to \"%@\"";
+"contentblock8.alert.error.title" = "Errore";
+"contentblock8.alert.error.message" = "Questo file non è valido.";
+"contentblock8.alert.hint.title" = "Nota";
+"contentblock8.alert.choose.calendar" = "Scegli un calendario";
+"contentblock8.alert.contact.request.message" = "Vuoi aggiungere \"%@ %@\" ai tuoi contatti?";
+"contentblock8.alert.contact.success.message" = "\"%@ %@\" aggiunti correttamente ai tuoi contatti.";
+"contentblock8.alert.add" = "Inserisci";
+"contentblock8.alert.cancel" = "Annulla";
+"contentblock8.alert.calendar.request.message" = "Vuoi aggiungere da \"%@\" a \"%@\"?";
+"contentblock8.alert.calendar.success.message" = "Aggiunti con successo da \"%@\" a \"%@\".";
 
 "contentblock9.no.location.title" = "Abbiamo bisogno della tua posizione";
 "contentblock9.no.location.message" = "I servizi di localizzazione sono disabilitati. Vai alle impostazioni per attivarle.";
@@ -32,6 +32,14 @@
 "contentblock9.no.permission.message" = "Il permesso di localizzazione è stato negato. Vai alle impostazioni per consentire ciò per la nostra app.";
 "contentblock9.alert.cancel" = "Abortire";
 "contentblock9.alert.settings" = "Impostazioni";
+
+"contentblock14.distance" = "Distanza";
+"contentblock14.ascent" = "Salita";
+"contentblock14.descent" = "Discesa";
+"contentblock14.durationAtKm" = "durata a 5 km/h";
+"contentblock14.durationAtM" = "durata a 3 mph";
+"contentblock14.elevation" = "Grafico di altezza";
+"contentblock14.eleavationChart" = "Elevazione";
 
 "event.navigation.title" = "Accedi a questa posizione";
 "event.calendar.title" = "Entra nel calendario";

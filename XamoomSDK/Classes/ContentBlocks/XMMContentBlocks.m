@@ -11,12 +11,15 @@
 
 int const kHorizontalSpaceToSubview = 32;
 NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kContentBlock9MapContentLinkNotification";
+NSString* const keyboardWillShowNotificatoin = @"UIKeyboardWillShowNotification";
+NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification";
 
 #pragma mark - XMMContentBlocks Interface
 
 @interface XMMContentBlocks ()
 @property (nonatomic) XMMSpot *relatedSpot;
 @property (nonatomic) XMMContent *content;
+@property (nonatomic) CGFloat keyboardHeight;
 @end
 
 #pragma mark - XMMContentBlocks Implementation
@@ -58,6 +61,36 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
                                            selector:@selector(clickContentNotification:)
                                                name:kContentBlock9MapContentLinkNotification
                                              object:nil];
+    
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardWillShow:)
+                                               name:keyboardWillShowNotificatoin
+                                             object:nil];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                            selector:@selector(keyboardWillHide:)
+                                                name:keyboardWillHideNotification
+                                            object:nil];
+}
+
+
+- (void) keyboardWillHide:(NSNotification *)notification {
+    UIEdgeInsets currentInset = self.tableView.contentInset;
+    [self.tableView setContentInset:UIEdgeInsetsMake(currentInset.top, currentInset.left, currentInset.bottom - self.keyboardHeight, currentInset.right)];
+    [self.tableView setScrollIndicatorInsets:currentInset];
+}
+
+-(void)keyboardWillShow:(NSNotification *)notification {
+    if(notification.userInfo != nil) {
+        NSDictionary *userInfo = [notification userInfo];
+        CGRect keyboardRect = [userInfo[@"UIKeyboardBoundsUserInfoKey"] CGRectValue];
+        float keyboardHeight = keyboardRect.size.height;
+        self.keyboardHeight = keyboardHeight;
+        UIEdgeInsets currentInsets = self.tableView.contentInset;
+        UIEdgeInsets contentInsets = UIEdgeInsetsMake(currentInsets.top, currentInsets.left, keyboardHeight, currentInsets.right);
+        [self.tableView setContentInset:contentInsets];
+        [self.tableView setScrollIndicatorInsets:contentInsets];
+    }
 }
 
 - (void)viewWillDisappear {
@@ -148,6 +181,9 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   nib = [UINib nibWithNibName:@"XMMContentBlock14TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock14TableViewCell"];
+    
+  nib = [UINib nibWithNibName:@"XMMContentBlock15TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock15TableViewCell"];
     
 }
 
@@ -383,6 +419,11 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   if ([cell isKindOfClass:[XMMContentBlock14TableViewCell class]] && self.navigationType != nil) {
       [(XMMContentBlock14TableViewCell *) cell setNavigationType:self.navigationType];
   }
+    
+    if ([cell isKindOfClass:[XMMContentBlock15TableViewCell class]] && self.showCBFormOverlay != nil) {
+        [(XMMContentBlock15TableViewCell *) cell
+         setShowCBFormOverlay:self.showCBFormOverlay];
+    }
   
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style offline:self.offline];
@@ -414,6 +455,7 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   if ([cell isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
     XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [[XMMContentBlockListsCache sharedInstance] removeCache];
     [self.delegate didClickContentBlock:cell.contentID];
   }
   
@@ -424,7 +466,8 @@ NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kCon
   
   if ([cell isKindOfClass:[XMMContentBlock3TableViewCell class]]) {
     XMMContentBlock3TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell.contentID != nil) {
+    NSString *id = cell.contentID;
+      if (id != nil && ![id  isEqual: @"None"]) {
       [self.delegate didClickContentBlock:cell.contentID];
     }
     else if (self.navController != nil && self.urls != nil) {

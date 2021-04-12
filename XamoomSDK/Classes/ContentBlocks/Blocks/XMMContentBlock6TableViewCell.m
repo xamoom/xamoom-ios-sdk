@@ -22,6 +22,7 @@ static NSString *language;
 
 - (void)awakeFromNib {
   // Initialization code
+  [[XMMContentBlockListsCache sharedInstance] removeCache];
   self.fileManager = [[XMMOfflineFileManager alloc] init];
   self.contentID = nil;
   self.contentImageView.image = nil;
@@ -59,29 +60,29 @@ static NSString *language;
 }
 
 - (void)downloadContentBlock:(XMMEnduserApi *)api {
-  [self.loadingIndicator startAnimating];
+  XMMContent *cachedContent = [[XMMContentBlockListsCache sharedInstance] cachedContent:self.contentID];
     
-//  XMMContent *content = [[XMMContentBlocksCache sharedInstance] cachedContent:self.contentID];
-//  if (content && [currentLanguage isEqualToString:language]) {
-//    [self.loadingIndicator stopAnimating];
-//    [self showBlockData:content];
-//    return;
-//  }
+  if(cachedContent == nil) {
+      [self.loadingIndicator startAnimating];
+      self.dataTask = [api contentWithID:self.contentID
+                                 options:XMMContentOptionsPreview
+                                  reason:XMMContentReasonLinkedContent
+                                password:nil
+                              completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
+        if (error) {
+          return;
+        }
+        
+        [self.loadingIndicator stopAnimating];
+        
+        [[XMMContentBlockListsCache sharedInstance] saveContent:content key:content.ID];
+        [[XMMContentBlocksCache sharedInstance] saveContent:content key:content.ID];
+        [self showBlockData:content];
+      }];
+  } else {
+      [self showBlockData:cachedContent];
+  }
   
-  self.dataTask = [api contentWithID:self.contentID
-                             options:XMMContentOptionsPreview
-                              reason:XMMContentReasonLinkedContent
-                            password:nil
-                          completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
-    if (error) {
-      return;
-    }
-    
-    [self.loadingIndicator stopAnimating];
-    
-    [[XMMContentBlocksCache sharedInstance] saveContent:content key:content.ID];
-    [self showBlockData:content];
-  }];
 }
 
 - (void)showBlockData:(XMMContent *)content {
