@@ -49,7 +49,8 @@ static int kPageSize = 100;
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
   
-  if (![tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+
+  if (![tableView.indexPathsForVisibleRows containsObject:indexPath] || self.spots.count > 0) {
     return;
   } else {
     _mapView.styleURL = _mapboxStyle;
