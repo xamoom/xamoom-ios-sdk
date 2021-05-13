@@ -71,7 +71,7 @@
 @property (nonatomic) UIColor *webViewControllerNavigationTintColor;
 
 - (void)openLink;
-- (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon;
+- (void)openLink:(NSArray *)internalUrls nonInternalUrls:(NSArray *) nonInternalUrls controller:(UINavigationController *)navCon;
 
 
 -(void)setWebColor:(UIColor *)webColor;

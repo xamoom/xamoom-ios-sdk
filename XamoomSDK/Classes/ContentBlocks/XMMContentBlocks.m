@@ -470,20 +470,20 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
       if (id != nil && ![id  isEqual: @"None"]) {
       [self.delegate didClickContentBlock:cell.contentID];
     }
-    else if (self.navController != nil && self.urls != nil) {
+    else if (self.navController != nil && self.internalUrls != nil && self.nonInternalUrls) {
       cell = (XMMContentBlock3TableViewCell *)cell;
       [cell setWebViewControllerNavigationTintColor: _webViewNavigationBarTintColor];
-      [cell openLink:self.urls controller:self.navController];
+        [cell openLink:self.internalUrls nonInternalUrls:self.nonInternalUrls controller:self.navController];
     } else {
       [cell openLink];
     }
   }
   
   if ([cell isKindOfClass:[XMMContentBlock4TableViewCell class]]) {
-    if (self.navController != nil && self.urls != nil) {
+    if (self.navController != nil && self.internalUrls != nil && self.nonInternalUrls) {
       cell = (XMMContentBlock4TableViewCell *)cell;
       [cell setWebViewControllerNavigationTintColor: _webViewNavigationBarTintColor];
-      [cell openLink:self.urls controller:self.navController];
+      [cell openLink:self.internalUrls nonInternalUrls:self.nonInternalUrls controller:self.navController];
     } else {
       [cell openLink];
     }

@@ -25,9 +25,9 @@ NSString *const XAMOOM_NOTIFICATION_RECEIVE = @"xamoom-push-notification";
   return self;
 }
 
-- (void)messaging:(FIRMessaging *)messaging didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage {
-  NSLog(@"Remote Message Received");
-}
+//- (void)messaging:(FIRMessaging *)messaging didReceiveMessage:(FIRMessagingRemoteMessage *)remoteMessage {
+//  NSLog(@"Remote Message Received");
+//}
   - (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
     NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
     [[NSNotificationCenter defaultCenter] postNotificationName:

@@ -80,7 +80,8 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 @property (nonatomic) BOOL showAllStoreLinks;
 @property (nonatomic) BOOL showAllBlocksWhenOffline;
 @property (nonatomic, getter=isOffline) BOOL offline;
-@property (nonatomic, strong) NSArray *urls;
+@property (nonatomic, strong) NSArray *internalUrls;
+@property (nonatomic, strong) NSArray *nonInternalUrls;
 @property (nonatomic, strong) UINavigationController *navController;
 @property (nonatomic, strong) NSURL *mapboxStyle;
 @property (weak, nonatomic) NSNumber *navigationType;

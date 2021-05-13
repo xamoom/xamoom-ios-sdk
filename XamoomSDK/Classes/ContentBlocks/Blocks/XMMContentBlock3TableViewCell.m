@@ -244,16 +244,25 @@
   }
 }
 
-- (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon {
-  if (urls.count == 0) {
+
+- (void)openLink:(NSArray *)internalUrls nonInternalUrls:(NSArray *) nonInternalUrls controller:(UINavigationController *)navCon {
+  if (internalUrls.count == 0) {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
     return;
+  }
+    
+  for (int i = 0; i < nonInternalUrls.count; i++) {
+    NSString *url = nonInternalUrls[i];
+    if ([self.linkUrl containsString:url]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
+        return;
+    }
   }
   
   BOOL openInternal = NO;
   
-  for (int i = 0; i < urls.count; i++) {
-    NSString *url = urls[i];
+  for (int i = 0; i < internalUrls.count; i++) {
+    NSString *url = internalUrls[i];
     if ([self.linkUrl containsString:url]) {
       openInternal = YES;
       break;

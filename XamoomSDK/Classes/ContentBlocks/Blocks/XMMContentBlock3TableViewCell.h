@@ -35,7 +35,7 @@
 @property (strong, nonatomic) NSString *linkUrl;
 
 - (void)openLink;
-- (void)openLink:(NSArray *)urls controller:(UINavigationController *)navCon;
+- (void)openLink:(NSArray *)internalUrls nonInternalUrls:(NSArray *) nonInternalUrls controller:(UINavigationController *)navCon;
 - (void) setWebViewControllerNavigationTintColor:(UIColor *)webViewControllerNavigationTintColor;
 @end
 
