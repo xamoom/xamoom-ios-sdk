@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *progressIndicator;
 @property (weak, nonatomic) IBOutlet UIView *coverView;
 @property (nonatomic) BOOL showCBFormOverlay;
+@property (weak, nonatomic) IBOutlet UILabel *coverViewLabel;
 
 @end
 

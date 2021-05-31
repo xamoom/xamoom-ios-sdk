@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,7 +19,7 @@
                 <subviews>
                     <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZdJ-6v-mJo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="0ae-Gm-auh"/>
                         </constraints>
@@ -28,7 +29,19 @@
                     </activityIndicatorView>
                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU5-GG-9yr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not available quiz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDA-A0-F64">
+                                <rect key="frame" x="103" y="116.5" width="114" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="0.70061001712328763" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uDA-A0-F64" firstAttribute="centerY" secondItem="GU5-GG-9yr" secondAttribute="centerY" id="2GN-Ql-2kA"/>
+                            <constraint firstItem="uDA-A0-F64" firstAttribute="centerX" secondItem="GU5-GG-9yr" secondAttribute="centerX" id="MbP-v7-s25"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <constraints>
@@ -47,6 +60,7 @@
             <connections>
                 <outlet property="contentView" destination="H2p-sc-9uM" id="Rxr-Rq-wfg"/>
                 <outlet property="coverView" destination="GU5-GG-9yr" id="XFl-HP-mPU"/>
+                <outlet property="coverViewLabel" destination="uDA-A0-F64" id="F2W-0i-Vl0"/>
                 <outlet property="progressIndicator" destination="Cqg-Ei-VCh" id="bKG-rS-iFw"/>
                 <outlet property="webViewContainer" destination="ZdJ-6v-mJo" id="c0M-Iu-mb3"/>
                 <outlet property="webViewContainerHeightConstraint" destination="0ae-Gm-auh" id="rcP-eM-yYV"/>
@@ -54,4 +68,12 @@
             <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
