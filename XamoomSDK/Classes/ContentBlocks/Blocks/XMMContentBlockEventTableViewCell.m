@@ -90,6 +90,7 @@
   self.calendarImageView.tintColor = _currentCalendarTintColor;
   self.navigationView.backgroundColor = _currentNavigationColor;
   self.navigationTitleLabel.textColor = _currentNavigationTintColor;
+  self.navigationDescriptionLabel.textColor = _currentNavigationTintColor;
   self.navigationImageView.tintColor = _currentNavigationTintColor;
 }
 

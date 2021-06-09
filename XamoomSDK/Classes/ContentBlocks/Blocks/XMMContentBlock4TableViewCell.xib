@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTR-s9-34N">
-                        <rect key="frame" x="8" y="0.0" width="304" height="66.5"/>
+                        <rect key="frame" x="8" y="0.0" width="304" height="62.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Mehr text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mE-iO-IL7">
-                                <rect key="frame" x="68" y="35" width="228" height="19.5"/>
+                                <rect key="frame" x="68" y="31" width="228" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                         <constraints>
                             <constraint firstItem="ra4-P8-pN7" firstAttribute="top" secondItem="oTR-s9-34N" secondAttribute="top" constant="12" id="1nG-cs-HmZ"/>
                             <constraint firstAttribute="trailing" secondItem="ra4-P8-pN7" secondAttribute="trailing" constant="8" id="CKj-dI-LBU"/>
-                            <constraint firstItem="0mE-iO-IL7" firstAttribute="top" secondItem="ra4-P8-pN7" secondAttribute="bottom" constant="2" id="Dya-V6-Gbq"/>
+                            <constraint firstItem="0mE-iO-IL7" firstAttribute="top" secondItem="ra4-P8-pN7" secondAttribute="bottom" constant="-2" id="Dya-V6-Gbq"/>
                             <constraint firstItem="ra4-P8-pN7" firstAttribute="leading" secondItem="sQI-f1-ya2" secondAttribute="trailing" constant="18" id="G7V-fU-bAI"/>
                             <constraint firstAttribute="bottom" secondItem="sQI-f1-ya2" secondAttribute="bottom" constant="18" id="Qah-f0-ciP"/>
                             <constraint firstItem="sQI-f1-ya2" firstAttribute="top" secondItem="oTR-s9-34N" secondAttribute="top" constant="18" id="RNR-PD-ITE"/>
