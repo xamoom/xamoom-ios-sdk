@@ -40,10 +40,18 @@
   _currentNavigationColor = [UIColor colorWithRed:0.05 green:0.64 blue:0.38 alpha:1.0f];
   _currentNavigationTintColor = UIColor.whiteColor;
   
+  NSBundle *imagesBundle;
+  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+  if (url) {
+    imagesBundle = [NSBundle bundleWithURL:url];
+  } else {
+    imagesBundle = bundle;
+  }
+    
   self.calendarImage = [[UIImage imageNamed:@"cal"
-                                  inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                                  inBundle:imagesBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   self.navigationImage = [[UIImage imageNamed:@"directional"
-                                 inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                                 inBundle:imagesBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   
   [super awakeFromNib];
 }
