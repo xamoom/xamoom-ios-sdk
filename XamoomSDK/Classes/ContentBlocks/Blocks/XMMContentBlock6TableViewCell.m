@@ -128,7 +128,8 @@ static NSString *language;
       if (contentFromDate != nil) {
           //prepare event dateTime
           NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-          NSLocale *locale = [NSLocale currentLocale];
+          NSString *lan = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
+          NSLocale *locale = [NSLocale localeWithLocaleIdentifier:lan];
           [dateFormatter setLocale:locale];
           [dateFormatter setDateFormat:@"E, d MMM, HH:mm"];
           NSString *eventDateString = [dateFormatter stringFromDate:contentFromDate];

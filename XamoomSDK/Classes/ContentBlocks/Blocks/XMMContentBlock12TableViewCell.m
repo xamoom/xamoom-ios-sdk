@@ -365,7 +365,7 @@
     
     double cellHeight = imageHeight + 14; //14 -> we need to add this exact amount to compensate height of page indicator (dots)
     if (hasBottomSpace) {
-        if(block.title != nil) {
+        if(block.title != nil && ![block.title isEqualToString:@""]) {
             int lineCount = [self linesInLabel:cell.titleLabel];
             if(lineCount > 1) {
                 cellHeight = cellHeight + 19 * (lineCount - 1);
@@ -383,20 +383,8 @@
     [cell layoutIfNeeded];
 }
 
-
-- (int)maxCharInLine:(UILabel*)label {
-    CGSize expectedLabelSizeForTenChars = [@"Musikevent" sizeWithFont:label.font
-                            constrainedToSize:CGSizeMake(10000, label.bounds.size.height)
-                            lineBreakMode:label.lineBreakMode];
-    float singleCharWidth = expectedLabelSizeForTenChars.width / 10;
-    
-    int maxCharInLine = (label.bounds.size.width / singleCharWidth) - 2;
-    return maxCharInLine;
-}
-
 - (int)linesInLabel:(UILabel*)label {
-    NSInteger lineCount = 0;
-        CGSize textSize = CGSizeMake(label.frame.size.width + 20, MAXFLOAT);
+    CGSize textSize = CGSizeMake(label.frame.size.width + 20, MAXFLOAT);
     int rHeight = lroundf([label sizeThatFits:textSize].height);
     int charSize = lroundf(label.font.lineHeight);
     return rHeight/charSize;

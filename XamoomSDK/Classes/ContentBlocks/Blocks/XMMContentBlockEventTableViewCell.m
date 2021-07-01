@@ -30,12 +30,10 @@
   self.calendarDescriptionLabel.text = @"";
   
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-  NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-  if (url) {
-    self.bundle = [NSBundle bundleWithURL:url];
-  } else {
-    self.bundle = bundle;
-  }
+  NSString *lan = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
+  NSString *path = [bundle pathForResource:lan ofType:@"lproj"];
+  NSBundle *newBundle = [NSBundle bundleWithPath:path];
+  self.bundle = newBundle;
 
   _currentCalendarColor = [UIColor colorWithRed:0.23 green:0.35 blue:0.60 alpha:1.0];
   _currentCalendarTintColor = UIColor.whiteColor;
@@ -97,7 +95,8 @@
 - (void)showCalendarView {
   NSDate *eventStartDate = self.relatedContent.fromDate;
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-  NSLocale *locale = [NSLocale currentLocale];
+  NSString *lan = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
+  NSLocale *locale = [NSLocale localeWithLocaleIdentifier:lan];
   [dateFormatter setLocale:locale];
   [dateFormatter setDateFormat:@"E d MMM HH:mm"];
   [self.calendarTitleLabel setText:NSLocalizedStringFromTableInBundle(@"event.calendar.title", @"Localizable", self.bundle, nil)];
@@ -108,6 +107,7 @@
 }
 
 - (void)showNavigationView {
+  NSString *lan = [[NSUserDefaults standardUserDefaults] stringForKey:@"language"];
   [self.navigationTitleLabel setText:NSLocalizedStringFromTableInBundle(@"event.navigation.title", @"Localizable", self.bundle, nil)];
   [self.navigationDescriptionLabel setText:self.relatedSpot.name];
   UITapGestureRecognizer *navigationAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navigateToEvent)];
