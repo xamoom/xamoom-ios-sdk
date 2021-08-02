@@ -16,8 +16,40 @@
   return [self filePathForSavedObject:urlString];
 }
 
+- (NSURL *)urlForSavedData:(NSString *)urlString fileName:(NSString *)fileName {
+  return [self filePathForSavedObject:urlString fileName:fileName];
+}
+
 - (void)saveFileFromUrl:(NSString *)urlString completion:(void (^)(NSString *url, NSData *, NSError *))completion {
   NSURL *filePath = [self filePathForSavedObject:urlString];
+  [[XMMOfflineDownloadManager sharedInstance] downloadFileFromUrl:[NSURL URLWithString:urlString]
+                                                       completion:^(NSString *url, NSData *data, NSError *error) {
+    if (error) {
+      if (completion) {
+        completion(url, nil, error);
+      }
+      return;
+    }
+    
+    NSError *savingError;
+    [data writeToURL:filePath options:NSDataWritingAtomic error:&savingError];
+    
+    if (savingError) {
+      if (completion) {
+        completion(url, nil, savingError);
+      }
+      
+      return;
+    }
+    
+    if (completion) {
+      completion(url, data, nil);
+    }
+  }];
+}
+
+- (void)saveFileFromUrl:(NSString *)urlString fileName:(NSString *)fileName completion:(void (^)(NSString *url, NSData *, NSError *))completion {
+  NSURL *filePath = [self filePathForSavedObject:urlString fileName:fileName];
   [[XMMOfflineDownloadManager sharedInstance] downloadFileFromUrl:[NSURL URLWithString:urlString]
                                                        completion:^(NSString *url, NSData *data, NSError *error) {
     if (error) {
@@ -75,6 +107,20 @@
     fileName = [fileName stringByReplacingOccurrencesOfString:stringToRemove withString:@""];
   }
   fileName = [fileName MD5String];
+  filePath = [filePath URLByAppendingPathComponent:fileName];
+  filePath = [filePath URLByAppendingPathExtension:fileNameUrl.pathExtension];
+  return filePath;
+}
+
+- (NSURL *)filePathForSavedObject:(NSString *)urlString fileName:(NSString *)fileName {
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *documentsPath = [paths objectAtIndex:0];
+  NSURL *filePath = [NSURL URLWithString:[NSString stringWithFormat:@"file://%@", documentsPath]];
+  NSURL *fileNameUrl = [NSURL URLWithString:urlString];
+  if (fileNameUrl.query != nil) {
+    NSString *stringToRemove = [NSString stringWithFormat:@"?%@", [fileNameUrl query]];
+    fileName = [fileName stringByReplacingOccurrencesOfString:stringToRemove withString:@""];
+  }
   filePath = [filePath URLByAppendingPathComponent:fileName];
   filePath = [filePath URLByAppendingPathExtension:fileNameUrl.pathExtension];
   return filePath;

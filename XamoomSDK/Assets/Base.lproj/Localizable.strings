@@ -11,6 +11,7 @@
 "Cancel" = "Cancel";
 "SaveImage" = "Save image to photos?";
 "Open" = "Open";
+"OPEN" = "OPEN";
 "Load more"="Load more";
 "Route" = "Route";
 
@@ -43,3 +44,6 @@
 
 "event.navigation.title" = "Navigate to the location";
 "event.calendar.title" = "Add to calendar";
+
+"contentblock5.alert.download.book.title" = "Ready";
+"contentblock5.alert.download.book.description" = "The desired file has been downloaded and is ready for use.";

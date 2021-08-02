@@ -26,12 +26,30 @@ extern NSString *const kXamoomOfflineSaveFileFromUrlError;
 - (NSURL *)urlForSavedData:(NSString *)urlString;
 
 /**
+ * Get the url to the localfile from urlString.
+ *
+ * @param urlString Url string from xamoom cloud.
+ * @param fileName file name string from xamoom cloud.
+ * @return NSURL to saved file.
+ */
+- (NSURL *)urlForSavedData:(NSString *)urlString fileName:(NSString *)fileName;
+
+/**
  * Download and save file from url.
  *
  * @param urlString Url string from xamoom cloud.
  * @param completion Block for completion
  */
-- (void)saveFileFromUrl:(NSString *)urlString completion:(void(^)(NSString *url, NSData *data, NSError *error))completion;
+- (void)saveFileFromUrl:(NSString *)urlString  completion:(void(^)(NSString *url, NSData *data, NSError *error))completion;
+
+/**
+ * Download and save file from url.
+ *
+ * @param urlString Url string from xamoom cloud.
+ * @param fileName file name string from xamoom cloud.
+ * @param completion Block for completion
+ */
+- (void)saveFileFromUrl:(NSString *)urlString fileName:(NSString *)fileName completion:(void(^)(NSString *url, NSData *data, NSError *error))completion;
 
 /**
  * Get data from saved file.

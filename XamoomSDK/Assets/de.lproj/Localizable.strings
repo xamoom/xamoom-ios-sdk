@@ -10,7 +10,8 @@
 "OK" = "OK";
 "Cancel" = "Abbrechen";
 "SaveImage" = "Bild in Fotos speichern?";
-"Open" = "Öffnen";  
+"Open" = "Öffnen";
+"OPEN" = "ÖFFNEN"; 
 "Load more"="Mehr laden";
 "Route" = "Route";
 
@@ -43,3 +44,6 @@
 
 "event.navigation.title" = "Zum Ort navigieren";
 "event.calendar.title" = "Im Kalender eintragen";
+
+"contentblock5.alert.download.book.title" = "Bereit";
+"contentblock5.alert.download.book.description" = "Die gewünschte Datei wurde heruntergeladen und steht zur Nutzung bereit.";

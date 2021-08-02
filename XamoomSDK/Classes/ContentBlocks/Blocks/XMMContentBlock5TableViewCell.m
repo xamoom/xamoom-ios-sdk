@@ -18,6 +18,8 @@
 
 @implementation XMMContentBlock5TableViewCell
 
+static NSString *bookTitle = @"Book";
+
 - (void)awakeFromNib {
   // Initialization code
   NSBundle *bundle = [NSBundle bundleForClass:[self class]];
@@ -37,8 +39,7 @@
   
   self.titleLabel.text = nil;
   self.artistLabel.text = nil;
-  
-  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInBrowser:)];
+  UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openInReader:)];
   [self addGestureRecognizer:tapGestureRecognizer];
   [super awakeFromNib];
 }
@@ -61,6 +62,7 @@
   self.downloadUrl = block.fileID;
   
   [self updateColors];
+  bookTitle = block.title;
 }
 
 - (void)updateColors {
@@ -81,6 +83,57 @@
   } else {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.downloadUrl]];
   }
+}
+
+
+- (void)openInReader:(id)sender {
+  //download ebook and open in iBooks
+    NSURL *localURL = [self.fileManager urlForSavedData:self.downloadUrl fileName:bookTitle];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL isFileExists = [fileManager fileExistsAtPath:localURL.path];
+    
+    self.docController = [UIDocumentInteractionController interactionControllerWithURL:localURL];
+    self.docController.delegate = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIDocumentInteractionController *docSavedController = self.docController;
+    
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+    if (url != nil) {
+      bundle = [NSBundle bundleWithURL:url];
+    }
+    
+    if (isFileExists) {
+        [UINavigationBar appearance].tintColor = [UIColor systemBlueColor];
+        [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.contentView animated:YES];
+    } else {
+        [self.fileManager saveFileFromUrl:self.downloadUrl fileName:bookTitle completion:^(NSString *url, NSData *data, NSError *error) {
+            if (data != nil) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIViewController* activeVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+                    
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTableInBundle(@"contentblock5.alert.download.book.title", @"Localizable", bundle, nil)
+                                                                                             message:NSLocalizedStringFromTableInBundle(@"contentblock5.alert.download.book.description", @"Localizable", bundle, nil)
+                                                                                      preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"OK", @"Localizable", bundle, nil)
+                                                                       style:UIAlertActionStyleCancel
+                                                                     handler:nil];
+                    [alertController addAction:actionOk];
+                    
+                    UIAlertAction *actionOpen = [UIAlertAction actionWithTitle:NSLocalizedStringFromTableInBundle(@"OPEN", @"Localizable", bundle, nil)
+                                                                       style:UIAlertActionStyleDefault
+                                                                     handler:^(UIAlertAction * action) {
+                        [UINavigationBar appearance].tintColor = [UIColor systemBlueColor];
+                        docSavedController.delegate = activeVC;
+                        [docSavedController presentOpenInMenuFromRect:CGRectZero inView:activeVC.view animated:YES];
+                    }];
+                    [alertController addAction:actionOpen];
+                    
+                    [activeVC presentViewController:alertController animated:YES completion:nil];
+                });
+            }
+        }];
+    }
 }
 
 - (XMMOfflineFileManager *)fileManager {
