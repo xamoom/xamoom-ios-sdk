@@ -35,6 +35,8 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSURL *mapboxStyle;
 @property (weak, nonatomic)  NSNumber *navigationType;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
+@property (weak, nonatomic) IBOutlet UILabel *overlayTitle;
 @end
 
 @interface XMMContentBlock9TableViewCell (XMMTableViewRepresentation)

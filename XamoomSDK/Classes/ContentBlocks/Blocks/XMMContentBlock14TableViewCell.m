@@ -76,7 +76,14 @@ static const NSString *routeLayerIdentifier = @"polyline";
   
   self.mapViewHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   [_mapView setMaximumZoomLevel:17.4];
+  [_mapView setPitchEnabled:true];
+  [_mapView setAllowsTilting:false];
+  [_mapView setScrollEnabled:false];
   _mapView.delegate = self;
+    
+  self.overlayTitle.textColor = UIColor.whiteColor;
+  self.overlayTitle.text = @"USE TWO FINGERS TO MOVE THE MAP";
+  self.overlayView.hidden = false;
   
   
   [self.contentView addConstraints:@[
@@ -97,7 +104,6 @@ static const NSString *routeLayerIdentifier = @"polyline";
         }
     }
     [self.mapView addGestureRecognizer:singleTap];
-
 }
 
 - (void) setButtonsParams {
@@ -830,5 +836,9 @@ static const NSString *routeLayerIdentifier = @"polyline";
   float widthDegrees = max-min;
   float degreesPerPixel = widthDegrees / mapWidth;
   return degreesPerPixel * markerLength;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.overlayView.hidden = true;
 }
 @end

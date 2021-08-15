@@ -15,6 +15,7 @@
 @property (nonatomic) bool showContent;
 @property (nonatomic) bool didLoadStyle;
 @property (nonatomic, strong) NSMutableArray *spots;
+@property (nonatomic, strong) NSMutableArray *downloadedSpots;
 @property (nonatomic, strong) CLLocation *userLocation;
 @property (nonatomic) bool isLocationGranted;
 @end
@@ -40,7 +41,16 @@ static int kPageSize = 100;
   
   self.mapViewHeightConstraint.constant = [UIScreen mainScreen].bounds.size.width - 50;
   [_mapView setMaximumZoomLevel:17.4];
+  [_mapView setPitchEnabled:true];
+  [_mapView setAllowsTilting:false];
   _mapView.delegate = self;
+    
+  UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom:)];
+  [self.mapView addGestureRecognizer:panGestureRecognizer];
+    panGestureRecognizer.minimumNumberOfTouches = 1;
+    panGestureRecognizer.maximumNumberOfTouches = 1;
+    UIViewController *activeVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    panGestureRecognizer.delegate = activeVC;
   
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocationWithNotification:) name:@"LocationUpdateNotification" object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateUserLocationButtonIcon:) name:UIApplicationWillEnterForegroundNotification object:nil];
@@ -91,6 +101,8 @@ static int kPageSize = 100;
   }
   
   self.spots = [[NSMutableArray alloc] init];
+  self.downloadedSpots = [[NSMutableArray alloc] init];
+    
   [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *loadedSpots, bool hasMore, NSString *cursor, NSError *error) {
     if (self.didLoadStyle == NO && loadedSpots.count > 0) {
       [self.spots addObjectsFromArray:loadedSpots];
@@ -101,7 +113,6 @@ static int kPageSize = 100;
       [self showSpotMap:self.spots];
     }
   }];
-  
   [self didUpdateUserLocationButtonIcon:nil];
 }
 
@@ -116,10 +127,13 @@ static int kPageSize = 100;
       completion(nil, false, nil, error);
     }
     
+    [self.downloadedSpots addObjectsFromArray:spots];
+      
     if (hasMore) {
       [self downloadAllSpotsWithSpots:tags cursor:cursor api:api completion:completion];
     } else {
-      completion(spots, false, nil, nil);
+        [self.downloadedSpots setArray:[[NSSet setWithArray:self.downloadedSpots] allObjects]];
+      completion(self.downloadedSpots, false, nil, nil);
     }
   }];
 }
@@ -444,5 +458,20 @@ static int kPageSize = 100;
   float widthDegrees = max-min;
   float degreesPerPixel = widthDegrees / mapWidth;
   return degreesPerPixel * markerLength;
+}
+
+- (void) handleTapFrom: (UIPanGestureRecognizer *)recognizer {
+    if (recognizer.numberOfTouches == 1) {
+        if (recognizer.state == UIGestureRecognizerStateBegan) {
+            self.overlayTitle.textColor = UIColor.whiteColor;
+            self.overlayTitle.text = @"USE TWO FINGERS TO MOVE THE MAP";
+            self.overlayView.hidden = false;
+        }
+        if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
+            self.overlayView.hidden = true;
+        }
+    } else {
+        self.overlayView.hidden = true;
+    }
 }
 @end

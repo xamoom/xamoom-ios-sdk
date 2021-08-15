@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,7 +26,7 @@
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2JW-3D-U1h">
                         <rect key="frame" x="150" y="11" width="20" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="color" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="color" systemColor="labelColor"/>
                     </activityIndicatorView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkc-db-5aY" customClass="MGLMapView">
                         <rect key="frame" x="8" y="40" width="282" height="282"/>
@@ -82,13 +83,34 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aX6-rm-x8l" userLabel="Overlay View">
+                        <rect key="frame" x="8" y="40" width="282" height="282"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NT-6J-33t" userLabel="Overlay Title">
+                                <rect key="frame" x="10" y="127.99999999999999" width="262" height="26.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <constraints>
+                            <constraint firstItem="3NT-6J-33t" firstAttribute="leading" secondItem="aX6-rm-x8l" secondAttribute="leading" constant="10" id="fwx-5a-Pi9"/>
+                            <constraint firstItem="3NT-6J-33t" firstAttribute="centerY" secondItem="aX6-rm-x8l" secondAttribute="centerY" id="gJf-hb-Tmu"/>
+                            <constraint firstAttribute="trailing" secondItem="3NT-6J-33t" secondAttribute="trailing" constant="10" id="k0T-Ue-Mox"/>
+                            <constraint firstItem="3NT-6J-33t" firstAttribute="centerX" secondItem="aX6-rm-x8l" secondAttribute="centerX" id="pza-kQ-CDS"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="dkc-db-5aY" secondAttribute="bottom" constant="8" id="BIo-os-dOf"/>
                     <constraint firstAttribute="trailing" secondItem="bxU-pQ-Utf" secondAttribute="trailing" constant="8" id="Ih7-Mj-VQn"/>
                     <constraint firstItem="bxU-pQ-Utf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="LCI-6n-YWd"/>
+                    <constraint firstAttribute="trailing" secondItem="aX6-rm-x8l" secondAttribute="trailing" constant="8" id="LIt-vF-XFf"/>
+                    <constraint firstItem="aX6-rm-x8l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="MhH-r2-dQ9"/>
                     <constraint firstAttribute="trailing" secondItem="dkc-db-5aY" secondAttribute="trailing" constant="8" id="S7H-1p-wUF"/>
+                    <constraint firstItem="aX6-rm-x8l" firstAttribute="top" secondItem="bxU-pQ-Utf" secondAttribute="bottom" id="VJm-1h-mym"/>
                     <constraint firstItem="dkc-db-5aY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="czh-Fw-q73"/>
+                    <constraint firstAttribute="bottom" secondItem="aX6-rm-x8l" secondAttribute="bottom" constant="8" id="j4l-1K-keS"/>
                     <constraint firstItem="dkc-db-5aY" firstAttribute="top" secondItem="bxU-pQ-Utf" secondAttribute="bottom" id="n21-av-DmB"/>
                     <constraint firstItem="bxU-pQ-Utf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="zFv-sw-2f5"/>
                 </constraints>
@@ -97,13 +119,21 @@
                 <outlet property="centerSpotBoundsButton" destination="OmR-bB-azl" id="eEa-y1-OE5"/>
                 <outlet property="centerUserLocationButton" destination="Kay-ys-kZG" id="oXF-v7-PYV"/>
                 <outlet property="mapView" destination="dkc-db-5aY" id="24g-iK-l2r"/>
+                <outlet property="overlayTitle" destination="3NT-6J-33t" id="if9-tI-njz"/>
+                <outlet property="overlayView" destination="aX6-rm-x8l" id="Zw9-7X-iW6"/>
                 <outlet property="titleView" destination="bxU-pQ-Utf" id="tKk-RN-xBX"/>
             </connections>
-            <point key="canvasLocation" x="52.799999999999997" y="178.11094452773614"/>
+            <point key="canvasLocation" x="52.173913043478265" y="177.45535714285714"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="ic_spot_bounds" width="15" height="15"/>
         <image name="ic_user_location" width="15" height="15"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

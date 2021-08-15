@@ -51,6 +51,8 @@
 @property (strong, nonatomic) UIImage *customMapMarker;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSURL *mapboxStyle;
+@property (weak, nonatomic) IBOutlet UIView *overlayView;
+@property (weak, nonatomic) IBOutlet UILabel *overlayTitle;
 @property (weak, nonatomic)  NSNumber *navigationType;
 @end
 
