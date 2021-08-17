@@ -43,3 +43,5 @@
 
 "event.navigation.title" = "Navigeer naar deze locatie";
 "event.calendar.title" = "Voer de kalender in";
+
+"mapbox.two.fingers.move.label" = "GEBRUIK TWEE VINGERS OM DE KAART TE VERPLAATSEN";

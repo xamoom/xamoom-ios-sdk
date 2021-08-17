@@ -43,3 +43,5 @@
 
 "event.navigation.title" = "Accedi a questa posizione";
 "event.calendar.title" = "Entra nel calendario";
+
+"mapbox.two.fingers.move.label" = "USA DUE DITA PER MUOVERE LA MAPPA";
