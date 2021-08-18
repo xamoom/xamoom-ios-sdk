@@ -36,8 +36,8 @@
 "contentblock14.distance" = "Distanza";
 "contentblock14.ascent" = "Salita";
 "contentblock14.descent" = "Discesa";
-"contentblock14.durationAtKm" = "durata a 5 km/h";
-"contentblock14.durationAtM" = "durata a 3 mph";
+"contentblock14.durationAtKm" = "durata a 3 km/h";
+"contentblock14.durationAtM" = "durata a 1.9 mph";
 "contentblock14.elevation" = "Grafico di altezza";
 "contentblock14.eleavationChart" = "Elevazione";
 

@@ -36,8 +36,8 @@
 "contentblock14.distance" = "Distance";
 "contentblock14.ascent" = "Ascent";
 "contentblock14.descent" = "Descent";
-"contentblock14.durationAtKm" = "duration at 5/km/h";
-"contentblock14.durationAtM" = "duration at 3 mph";
+"contentblock14.durationAtKm" = "duration at 3 km/h";
+"contentblock14.durationAtM" = "duration at 1.9 mph";
 "contentblock14.elevation" = "elevation";
 "contentblock14.eleavationChart" = "eleavation chart";
 
@@ -46,3 +46,5 @@
 
 "contentblock5.alert.download.book.title" = "Ready";
 "contentblock5.alert.download.book.description" = "The desired file has been downloaded and is ready for use.";
+
+"mapbox.two.fingers.move.label" = "USE TWO FINGERS TO MOVE THE MAP";

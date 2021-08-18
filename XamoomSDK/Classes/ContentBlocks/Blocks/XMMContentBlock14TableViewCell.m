@@ -78,12 +78,14 @@ static const NSString *routeLayerIdentifier = @"polyline";
   [_mapView setMaximumZoomLevel:17.4];
   [_mapView setPitchEnabled:true];
   [_mapView setAllowsTilting:false];
-  [_mapView setScrollEnabled:false];
   _mapView.delegate = self;
     
-  self.overlayTitle.textColor = UIColor.whiteColor;
-  self.overlayTitle.text = @"USE TWO FINGERS TO MOVE THE MAP";
-  self.overlayView.hidden = false;
+  UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom:)];
+  [self.mapView addGestureRecognizer:panGestureRecognizer];
+    panGestureRecognizer.minimumNumberOfTouches = 1;
+    panGestureRecognizer.maximumNumberOfTouches = 1;
+    UIViewController *activeVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    panGestureRecognizer.delegate = activeVC;
   
   
   [self.contentView addConstraints:@[
@@ -322,7 +324,7 @@ static const NSString *routeLayerIdentifier = @"polyline";
     
     self.metricTotalDistance = distanceMetric;
     self.imperialTotalDistance = distanceImperial;
-    self.routeSpentTime = [self getTimeInHours:distanceImperial/3.1];
+    self.routeSpentTime = [self getTimeInHours:distanceImperial/1.86];
     
     NSLog(@"ascent metres&feet %f %f ", self.ascentMetres, self.ascentFeet);
     NSLog(@"descent metres%feet %f %f ", self.descentMetres, self.descentFeet);
@@ -367,11 +369,18 @@ static const NSString *routeLayerIdentifier = @"polyline";
     NSString *doubleAsString = [doubleNumber stringValue];
     NSRange dotIndex = [doubleAsString rangeOfString:@"."];
     NSString *wholePart = [doubleAsString substringToIndex:dotIndex.location];
+    NSInteger wholePartNumber = [doubleNumber integerValue];
     NSString *fractionalPart = @"0";
     fractionalPart = [fractionalPart stringByAppendingString:[doubleAsString substringFromIndex:dotIndex.location]];
     fractionalPart = [fractionalPart substringToIndex:4];
     double fractionalDoubleMinutes = ceil([fractionalPart doubleValue] * 60);
     int fractionalMinutes = [[[NSNumber numberWithDouble:fractionalDoubleMinutes] stringValue] intValue];
+    if (fractionalMinutes == 60) {
+        fractionalMinutes = 0;
+        wholePartNumber = wholePartNumber + 1;
+        wholePart = [NSString stringWithFormat: @"%ld", (long)wholePartNumber];
+        return [[wholePart stringByAppendingString: @":"] stringByAppendingString:@"00 h"];
+    }
     NSString *result = [[[wholePart stringByAppendingString: @":"] stringByAppendingString:
                         [[NSNumber numberWithInt:fractionalMinutes] stringValue]]
                         stringByAppendingString:@" h"];
@@ -838,7 +847,24 @@ static const NSString *routeLayerIdentifier = @"polyline";
   return degreesPerPixel * markerLength;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.overlayView.hidden = true;
+- (void) handleTapFrom: (UIPanGestureRecognizer *)recognizer {
+    if (recognizer.numberOfTouches == 1) {
+        if (recognizer.state == UIGestureRecognizerStateBegan) {
+            NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+            NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+            if (url != nil) {
+              bundle = [NSBundle bundleWithURL:url];
+            }
+            
+            self.overlayTitle.textColor = UIColor.whiteColor;
+            self.overlayTitle.text = NSLocalizedStringFromTableInBundle(@"mapbox.two.fingers.move.label", @"Localizable", bundle, nil);
+            self.overlayView.hidden = false;
+        }
+        if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
+            self.overlayView.hidden = true;
+        }
+    } else {
+        self.overlayView.hidden = true;
+    }
 }
 @end

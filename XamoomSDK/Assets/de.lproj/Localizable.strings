@@ -37,8 +37,8 @@
 "contentblock14.distance" = "Distanz";
 "contentblock14.ascent" = "Aufstieg";
 "contentblock14.descent" = "Abstieg";
-"contentblock14.durationAtKm" = "Dauer bei 5 km/h";
-"contentblock14.durationAtM" = "Dauer bei 3 mph";
+"contentblock14.durationAtKm" = "Dauer bei 3 km/h";
+"contentblock14.durationAtM" = "Dauer bei 1.9 mph";
 "contentblock14.elevation" = "Höhendiagramm";
 "contentblock14.eleavationChart" = "Höhe";
 
@@ -47,3 +47,5 @@
 
 "contentblock5.alert.download.book.title" = "Bereit";
 "contentblock5.alert.download.book.description" = "Die gewünschte Datei wurde heruntergeladen und steht zur Nutzung bereit.";
+
+"mapbox.two.fingers.move.label" = "NUTZEN SIE ZWEI FINGER, UM DIE KARTE ZU BEWEGEN";

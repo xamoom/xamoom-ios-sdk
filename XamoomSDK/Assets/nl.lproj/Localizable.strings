@@ -36,8 +36,8 @@
 "contentblock14.distance" = "Afstand";
 "contentblock14.ascent" = "Beklimming";
 "contentblock14.descent" = "Afdaling";
-"contentblock14.durationAtKm" = "duur bij 5 km/u";
-"contentblock14.durationAtM" = "duur bij 3 mph";
+"contentblock14.durationAtKm" = "duur bij 3 km/u";
+"contentblock14.durationAtM" = "duur bij 1.9 mph";
 "contentblock14.elevation" = "Hoogtetabel";
 "contentblock14.eleavationChart" = "Verhoging";
 
