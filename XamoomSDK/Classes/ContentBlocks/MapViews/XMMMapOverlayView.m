@@ -39,6 +39,9 @@
   } else {
     libBundle = bundle;
   }
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  NSString *lang = [userDefaults stringForKey:@"language"];
+  libBundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
     
   [self.openContentButton setTitle:NSLocalizedStringFromTableInBundle(@"Open", @"Localizable", libBundle, nil) forState:UIControlStateNormal];
   [self.routeButton setTitle:NSLocalizedStringFromTableInBundle(@"Route", @"Localizable", libBundle, nil) forState:UIControlStateNormal];

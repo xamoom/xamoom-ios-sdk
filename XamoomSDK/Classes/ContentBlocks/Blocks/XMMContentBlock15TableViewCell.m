@@ -94,7 +94,7 @@
             [self.contentBlocksDelegate onQuizHTMLResponse:html];
         }];
         if(message.body != nil) {
-            float newHeight = [message.body floatValue] + 10;
+            float newHeight = [message.body floatValue] + 15;
             float oldHeight = self.webViewContainerHeightConstraint.constant;
             if(newHeight != oldHeight) {
                 self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webViewContainer.frame.size.width, newHeight);

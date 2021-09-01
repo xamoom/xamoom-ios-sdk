@@ -105,17 +105,20 @@ static NSString *language;
   self.contentExcerptLabel.text = self.content.contentDescription;
   NSDate *contentFromDate = self.content.fromDate;
   NSString *contentLocationName = self.content.relatedSpot.name;
-  //set time and lcoation
+  //set time and location
   if (contentFromDate != nil || (self.content.relatedSpot != nil && contentLocationName != nil)) {
       //prepare description text to use in 1 line
       NSMutableAttributedString *descText = [[NSMutableAttributedString alloc] initWithString:self.content.contentDescription];
       
       //get label max char in line
+      int descTextLength = (int)descText.length;
+      
       int maxCharsInLabel = [self maxCharInLine] * 2;
       if (contentFromDate != nil && contentLocationName != nil) {
           maxCharsInLabel = [self maxCharInLine];
-      } else if (descText.length < maxCharsInLabel) {
-          maxCharsInLabel = descText.length;
+          if (descTextLength < maxCharsInLabel) {
+              maxCharsInLabel = descTextLength;
+          }
       }
       
       //substring description text to 1 or 2 lines based on maxCharSiseInLine

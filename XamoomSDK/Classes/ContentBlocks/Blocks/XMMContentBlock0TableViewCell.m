@@ -198,10 +198,20 @@ static UIColor *contentLinkColor;
                              range:NSMakeRange(0, attributedString.length)];
   }
   
-  NSString *last = [attributedString.string substringFromIndex:[attributedString.string length] - 1];
-  if ([last isEqualToString:@"\n"]) {
-    [attributedString deleteCharactersInRange:NSMakeRange([attributedString.string length] - 1, 1)];
-  }
+    BOOL *isNewLineExist = true;
+    
+    while (isNewLineExist) {
+        NSString *last = [attributedString.string substringFromIndex:[attributedString.string length] - 1];
+        if ([last isEqualToString:@"\n"]) {
+          [attributedString deleteCharactersInRange:NSMakeRange([attributedString.string length] - 1, 1)];
+        } else {
+            isNewLineExist = false;
+        }
+    }
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\n{3,}" options:0 error:NULL];
+    NSString *newString = [regex stringByReplacingMatchesInString:attributedString.mutableString options:0 range:NSMakeRange(0, [attributedString.mutableString length]) withTemplate:@"\n"];
+    [attributedString.mutableString setString:newString];
   
   return attributedString;
 }

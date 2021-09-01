@@ -24,6 +24,9 @@
   } else {
     self.bundle = bundle;
   }
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  NSString *lang = [userDefaults stringForKey:@"language"];
+  self.bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
   
   if (_navigationBarColor == nil) {
     _navigationBarColor = UIColor.whiteColor;

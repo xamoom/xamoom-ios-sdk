@@ -99,9 +99,9 @@ static NSString *bookTitle = @"Book";
     
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-    if (url != nil) {
-      bundle = [NSBundle bundleWithURL:url];
-    }
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *lang = [userDefaults stringForKey:@"language"];
+    bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
     
     if (isFileExists) {
         [UINavigationBar appearance].tintColor = [UIColor systemBlueColor];

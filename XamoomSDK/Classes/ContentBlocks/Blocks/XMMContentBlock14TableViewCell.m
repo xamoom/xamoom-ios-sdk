@@ -106,6 +106,10 @@ static const NSString *routeLayerIdentifier = @"polyline";
         }
     }
     [self.mapView addGestureRecognizer:singleTap];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *lang = [userDefaults stringForKey:@"language"];
+    self.bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
 }
 
 - (void) setButtonsParams {
@@ -850,14 +854,8 @@ static const NSString *routeLayerIdentifier = @"polyline";
 - (void) handleTapFrom: (UIPanGestureRecognizer *)recognizer {
     if (recognizer.numberOfTouches == 1) {
         if (recognizer.state == UIGestureRecognizerStateBegan) {
-            NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-            NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-            if (url != nil) {
-              bundle = [NSBundle bundleWithURL:url];
-            }
-            
             self.overlayTitle.textColor = UIColor.whiteColor;
-            self.overlayTitle.text = NSLocalizedStringFromTableInBundle(@"mapbox.two.fingers.move.label", @"Localizable", bundle, nil);
+            self.overlayTitle.text = NSLocalizedStringFromTableInBundle(@"mapbox.two.fingers.move.label", @"Localizable", self.bundle, nil);
             self.overlayView.hidden = false;
         }
         if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {

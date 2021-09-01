@@ -55,6 +55,9 @@ static int kPageSize = 100;
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateLocationWithNotification:) name:@"LocationUpdateNotification" object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didUpdateUserLocationButtonIcon:) name:UIApplicationWillEnterForegroundNotification object:nil];
 
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *lang = [userDefaults stringForKey:@"language"];
+    self.bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
@@ -463,14 +466,9 @@ static int kPageSize = 100;
 - (void) handleTapFrom: (UIPanGestureRecognizer *)recognizer {
     if (recognizer.numberOfTouches == 1) {
         if (recognizer.state == UIGestureRecognizerStateBegan) {
-            NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-            NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-            if (url != nil) {
-              bundle = [NSBundle bundleWithURL:url];
-            }
             
             self.overlayTitle.textColor = UIColor.whiteColor;
-            self.overlayTitle.text = NSLocalizedStringFromTableInBundle(@"mapbox.two.fingers.move.label", @"Localizable", bundle, nil);
+            self.overlayTitle.text = NSLocalizedStringFromTableInBundle(@"mapbox.two.fingers.move.label", @"Localizable", self.bundle, nil);
             self.overlayView.hidden = false;
         }
         if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
