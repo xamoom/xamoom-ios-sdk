@@ -95,7 +95,10 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
 
 - (void)viewWillDisappear {
   [[NSNotificationCenter defaultCenter] postNotificationName:@"pauseAllSounds" object:self];
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)setupTableView {
