@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
     core.source_files = 'XamoomSDK/Classes/**/**/*.{h,m}'
     core.public_header_files = 'XamoomSDK/Classes/**/*.h'
     
-    core.resource = 'XamoomSDK/Assets/Images.xcassets'
     core.resource_bundles = {
       'XamoomSDK' => ['XamoomSDK/Assets/*.xcassets', 'XamoomSDK/Assets/*.lproj',
       'XamoomSDK/Classes/ContentBlocks/**/*.xib', 'XamoomSDK/Assets/*.xcdatamodeld']

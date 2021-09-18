@@ -280,7 +280,7 @@ static const NSString *routeLayerIdentifier = @"polyline";
                       
                       
                       [self.mapView.style setImage:[UIImage imageNamed:@"ic_route_begin"] forName:@"ic_start_tour"];
-                      shapeLayer.iconImageName = [NSExpression expressionForConstantValue:@"ic_start_tour"];
+                      shapeLayer.iconImageName = [NSExpression expressionForConstantValue:@"ic_start_tour_foreground"];
                       shapeLayer.iconScale = [NSExpression expressionForConstantValue:[NSNumber numberWithFloat:0.1]];
                       
                       [self.mapView.style addSource:shapeSource];

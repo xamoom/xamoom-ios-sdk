@@ -177,9 +177,10 @@ static LocationHelper *sharedInstance;
   
   if (beacons.count == 0) {
     self.beacons = [NSArray new];
-    _lastBeacons = [NSArray new];
-    _lastContents = [NSArray new];
-    _lastBeaconMinors = [NSMutableArray new];
+//    _lastBeacons = [NSArray new];
+//    _lastContents = [NSArray new];
+//    _lastBeaconMinors = [NSMutableArray new];
+      [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_BEACONS_KEY: [NSArray new]}];
     [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_CONTENTS_KEY: [NSArray new]}];
     return;
   }
@@ -215,7 +216,7 @@ static LocationHelper *sharedInstance;
             [_lastBeaconMinors addObject:b.minor];
           }
           
-          [self sendNotificationWithName:BEACON_RANGE userInfo:@{XAMOOM_BEACONS_KEY: cleanBeacons}];
+          [self sendNotificationWithName:BEACON_RANGE userInfo:@{XAMOOM_BEACONS_KEY: cleanContents}];
           [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_CONTENTS_KEY: cleanContents}];
           _lastBeacons = cleanBeacons;
           _lastContents = cleanContents;
@@ -225,7 +226,7 @@ static LocationHelper *sharedInstance;
       }];
     }
     
-    [self sendNotificationWithName:BEACON_RANGE userInfo:@{XAMOOM_BEACONS_KEY: _lastBeacons}];
+    [self sendNotificationWithName:BEACON_RANGE userInfo:@{XAMOOM_BEACONS_KEY: _lastContents}];
     [self sendNotificationWithName:BEACON_CONTENTS userInfo:@{XAMOOM_CONTENTS_KEY: _lastContents}];
     self.beaconsLoading = false;
     
@@ -233,7 +234,6 @@ static LocationHelper *sharedInstance;
 }
 
 - (void) beaconLogic:(NSArray *)beacons completion:(void (^)(NSArray *beacons, NSArray *contents))completion {
-  self.beaconsLoading = YES;
   NSMutableArray *loadedBeacons = [NSMutableArray new];
   NSMutableArray *loadedContents = [NSMutableArray new];
   
@@ -241,7 +241,24 @@ static LocationHelper *sharedInstance;
     CLBeacon *beacon = beacons[i];
     
     BOOL shouldLoadBeacon = true;
-    if ([_lastBeaconMinors containsObject:beacon.minor]) {
+    if (_isDownloadBeaconContent) {
+        self.beaconsLoading = YES;
+        [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
+          if (content != nil && error == nil) {
+            [loadedBeacons addObject:beacon];
+              NSLog(content.ID);
+            [loadedContents addObject:content];
+          }
+          NSLog(@"Beacon load not loaded %d", beacon.minor);
+          
+          if (i == beacons.count - 1) {
+            _isDownloadBeaconContent = false;
+            _lastContents = loadedContents;
+            self.beaconsLoading = NO;
+            completion(loadedBeacons, loadedContents);
+          }
+        }];
+    } else if ([_lastBeaconMinors containsObject:beacon.minor]) {
       int index = -1;
       for (int a = 0; a < _lastBeacons.count; a++) {
         CLBeacon *loadBeacon = [_lastBeacons objectAtIndex: a];
@@ -260,18 +277,6 @@ static LocationHelper *sharedInstance;
       if (i == beacons.count - 1) {
         completion(loadedBeacons, loadedContents);
       }
-    } else {
-      [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
-        if (content != nil && error == nil) {
-          [loadedBeacons addObject:beacon];
-          [loadedContents addObject:content];
-        }
-        NSLog(@"Beacon load not loaded %d", beacon.minor);
-        
-        if (i == beacons.count - 1) {
-          completion(loadedBeacons, loadedContents);
-        }
-      }];
     }
   }
 }

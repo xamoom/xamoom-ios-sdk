@@ -136,4 +136,8 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 
 + (NSString *)kContentBlock9MapContentLinkNotification;
 
++ (NSString *)keyboardWillHideNotification;
+
++ (NSString *)keyboardWillShowNotificatoin;
+
 @end

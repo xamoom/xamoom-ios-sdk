@@ -261,6 +261,14 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
   return kContentBlock9MapContentLinkNotification;
 }
 
++ (NSString *)keyboardWillHideNotification {
+  return keyboardWillHideNotification;
+}
+
++ (NSString *)keyboardWillShowNotificatoin {
+  return keyboardWillShowNotificatoin;
+}
+
 #pragma mark - Custom Methods
 
 - (NSMutableArray *)addContentHeader:(XMMContent *)content {
