@@ -45,7 +45,8 @@
   web.navigationDelegate = self;
   NSString *secureUrlString = [self.url stringByReplacingOccurrencesOfString:@"http://" withString:@"https://"];
   NSURL *urlFromString = [NSURL URLWithString:secureUrlString];
-  NSURLRequest *request = [NSURLRequest requestWithURL:urlFromString];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:urlFromString];
+  [request setHTTPShouldHandleCookies:NO];
   [web loadRequest:request];
   [self.view addSubview:web];
 }

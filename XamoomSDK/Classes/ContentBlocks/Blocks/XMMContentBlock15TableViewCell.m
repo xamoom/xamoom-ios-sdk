@@ -98,7 +98,9 @@ static BOOL *isRequestLocationClick = false;
         self.webView.navigationDelegate = self;
         self.webView.UIDelegate = self;
         [self.progressIndicator startAnimating];
-        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+        NSMutableURLRequest *pageLoadRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+        [pageLoadRequest setHTTPShouldHandleCookies:NO];
+        [self.webView loadRequest:pageLoadRequest];
         [self.webViewContainer addSubview:self.webView];
     }
 }
