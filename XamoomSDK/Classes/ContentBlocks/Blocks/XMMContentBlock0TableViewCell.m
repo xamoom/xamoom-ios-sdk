@@ -104,7 +104,9 @@ static UIColor *contentLinkColor;
   NSError *err = nil;
   
   
-    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\n{2,}" options:0 error:NULL];
+    html = [regex stringByReplacingMatchesInString:html options:0 range:NSMakeRange(0, [html length]) withTemplate:@"\n"];
+
     NSMutableAttributedString *attributedString =
     [[NSMutableAttributedString alloc] initWithData: [@"" dataUsingEncoding:NSUTF8StringEncoding]
                                             options: @{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
@@ -208,10 +210,6 @@ static UIColor *contentLinkColor;
             isNewLineExist = false;
         }
     }
-    
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\n{3,}" options:0 error:NULL];
-    NSString *newString = [regex stringByReplacingMatchesInString:attributedString.mutableString options:0 range:NSMakeRange(0, [attributedString.mutableString length]) withTemplate:@"\n"];
-    [attributedString.mutableString setString:newString];
   
   return attributedString;
 }
@@ -220,8 +218,13 @@ static UIColor *contentLinkColor;
     NSString *style = [NSString stringWithFormat:@"<style>body{font-family: \"Helvetica Neue Light\", \"Helvetica Neue\", Helvetica, Arial, \"Lucida Grande\", sans-serif; font-size:%d; margin:0 !important;} p:last-child{text-align:right;}, p:last-of-type{margin:0px !important;} </style>", fontSize];
     
     html = [html stringByReplacingOccurrencesOfString:@"<p></p>" withString:@""];
-    html = [html stringByReplacingOccurrencesOfString:@"</ul>" withString:@"</ul><br>"];
+//    html = [html stringByReplacingOccurrencesOfString:@"</ul>" withString:@"</ul><br>"];
+    html = [html stringByReplacingOccurrencesOfString:@"<br></li>" withString:@"</li>"];
+    html = [html stringByReplacingOccurrencesOfString:@"<br></p>" withString:@"</p>"];
     html = [html stringByReplacingOccurrencesOfString:@"</p>" withString:@"</p><br>"];
+    html = [html stringByReplacingOccurrencesOfString:@"</p><br><br><p>" withString:@"</p><br><p>"];
+    html = [html stringByReplacingOccurrencesOfString:@"</p><p>" withString:@"</p><p>"];
+    
     html = [NSString stringWithFormat:@"%@%@", style, html];
     
     if(!([html containsString:@"<ul>"])) {
@@ -238,6 +241,11 @@ static UIColor *contentLinkColor;
     }
     
     html = [html stringByReplacingOccurrencesOfString:@"</p></p>" withString:@"</p>"];
+    html = [html stringByReplacingOccurrencesOfString:@"</p><br><br><p>" withString:@"</p><br><p>"];
+    html = [html stringByReplacingOccurrencesOfString:@"<br><br>" withString:@"<br>"];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\s+<p>" options:0 error:NULL];
+    html = [regex stringByReplacingMatchesInString:html options:0 range:NSMakeRange(0, [html length]) withTemplate:@"<p>"];
+    
     return html;
 }
 

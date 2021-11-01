@@ -32,6 +32,19 @@ static BOOL *isRequestLocationClick = false;
     self.contentBlocksDelegate = delegate;
     self.parentTableView = tableView;
     
+    NSBundle *bundle = [NSBundle bundleForClass:[XMMContentBlocks class]];
+    NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+    NSBundle *nibBundle;
+    if (url) {
+      nibBundle = [NSBundle bundleWithURL:url];
+    } else {
+      nibBundle = bundle;
+    }
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *lang = [userDefaults stringForKey:@"language"];
+    nibBundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
+    self.coverViewLabel.text = NSLocalizedStringFromTableInBundle(@"quiz.coverview.label", @"Localizable", nibBundle, nil);
+    
     if(self.showCBFormOverlay == YES) {
         [self.coverView setHidden:NO];
         self.userInteractionEnabled = NO;

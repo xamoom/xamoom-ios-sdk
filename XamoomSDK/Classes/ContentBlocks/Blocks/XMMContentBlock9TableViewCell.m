@@ -62,10 +62,6 @@ static int kPageSize = 100;
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
   
-
-  if (![tableView.indexPathsForVisibleRows containsObject:indexPath] || self.spots.count > 0) {
-    return;
-  } else {
     _mapView.styleURL = _mapboxStyle;
     [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.7326808, -73.9843407)
                         zoomLevel:1
@@ -74,7 +70,6 @@ static int kPageSize = 100;
     self.titleView.text = block.title;
     self.showContent = block.showContent;
     [self getSpotMap:api spotMapTags:block.spotMapTags];
-  }
 }
 
 - (void)setupLocationManager {

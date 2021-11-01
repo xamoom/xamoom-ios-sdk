@@ -48,3 +48,5 @@
 "contentblock5.alert.download.book.description" = "The desired file has been downloaded and is ready for use.";
 
 "mapbox.two.fingers.move.label" = "USE TWO FINGERS TO MOVE THE MAP";
+
+"quiz.coverview.label" = "Already solved quiz";

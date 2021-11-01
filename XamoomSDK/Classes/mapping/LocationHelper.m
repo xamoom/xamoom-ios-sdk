@@ -26,6 +26,7 @@ NSString *const XAMOOM_CONTENTS_KEY = @"contents";
 @end
 
 static LocationHelper *sharedInstance;
+static NSUserDefaults *userDefaults;
 
 @implementation LocationHelper : NSObject
 
@@ -34,6 +35,9 @@ static LocationHelper *sharedInstance;
   dispatch_once(&onceToken, ^{
     sharedInstance = [[self alloc] init];
   });
+    if (sharedInstance) {
+        userDefaults = [NSUserDefaults standardUserDefaults];
+    }
   return sharedInstance;
 }
 
@@ -233,7 +237,35 @@ static LocationHelper *sharedInstance;
   }];
 }
 
+- (void)saveBeaconsContent {
+  BOOL isBeaconRequestUpdate = true;
+    
+  NSTimeInterval timeStamp = [[NSDate date] timeIntervalSince1970];
+    // NSTimeInterval is defined as double
+  NSNumber *timeStampObj = [NSNumber numberWithDouble: timeStamp];
+    
+  if ([userDefaults objectForKey:@"ios.beaconContentUploadCooldown"] != nil) {
+      NSNumber *savedBeaconLoadCooldown = [userDefaults objectForKey:@"ios.beaconContentUploadCooldown"];
+      if (([timeStampObj doubleValue] - [savedBeaconLoadCooldown doubleValue]) > 3600) {
+          [userDefaults setObject:timeStampObj forKey:@"ios.beaconContentUploadCooldown"];
+          [userDefaults synchronize];
+          
+          isBeaconRequestUpdate = true;
+      } else {
+          isBeaconRequestUpdate = false;
+      }
+  } else {
+      [userDefaults setObject:timeStampObj forKey:@"ios.beaconContentUploadCooldown"];
+      [userDefaults synchronize];
+      
+      isBeaconRequestUpdate = true;
+  }
+    [userDefaults setBool:true forKey:@"ios.isRefreshBeaconContent"];
+    [userDefaults synchronize];
+}
+
 - (void) beaconLogic:(NSArray *)beacons completion:(void (^)(NSArray *beacons, NSArray *contents))completion {
+  [self saveBeaconsContent];
   NSMutableArray *loadedBeacons = [NSMutableArray new];
   NSMutableArray *loadedContents = [NSMutableArray new];
   
@@ -241,7 +273,12 @@ static LocationHelper *sharedInstance;
     CLBeacon *beacon = beacons[i];
     
     BOOL shouldLoadBeacon = true;
-    if (_isDownloadBeaconContent) {
+      if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
+          shouldLoadBeacon = _isDownloadBeaconContent;
+      } else {
+          shouldLoadBeacon = [userDefaults objectForKey:@"ios.isRefreshBeaconContent"];
+      }
+    if (shouldLoadBeacon) {
         self.beaconsLoading = YES;
         [self.api contentWithBeaconMajor:self.majorBeaconID minor:beacon.minor options:nil conditions:XMMContentOptionsNone reason:XMMContentReasonBeaconShowContent completion:^(XMMContent *content, NSError *error, BOOL passwordRequired) {
           if (content != nil && error == nil) {

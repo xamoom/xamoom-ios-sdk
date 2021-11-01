@@ -129,9 +129,6 @@ static const NSString *routeLayerIdentifier = @"polyline";
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
   
-  if (![tableView.indexPathsForVisibleRows containsObject:indexPath]) {
-    return;
-  } else {
     _mapView.styleURL = _mapboxStyle;
     [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.7326808, -73.9843407)
                         zoomLevel:1
@@ -147,10 +144,10 @@ static const NSString *routeLayerIdentifier = @"polyline";
     self.tourGeoJsonUrl = block.fileID;
     self.scaleX = block.scaleX;
     self.titleView.text = block.title;
-    self.showContent = block.showContent;
+//    self.showContent = block.showContent;
+    self.showContent = true;
     [self calculateCoordinates:block.fileID showGraph:block.showElevation];
     [self getSpotMap:api spotMapTags:block.spotMapTags];
-  }
 }
 
 
@@ -702,6 +699,18 @@ static const NSString *routeLayerIdentifier = @"polyline";
                        animated:YES];
 }
 
+- (void)mapView:(MGLMapView *)mapView didSelectAnnotation:(id<MGLAnnotation>)annotation {
+  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
+    [self zoomToAnnotationWithAdditionView:annotation];
+    [self openMapAdditionView:annotation];
+  }
+}
+
+- (void)mapView:(MGLMapView *)mapView didDeselectAnnotation:(id<MGLAnnotation>)annotation {
+  if ([annotation isKindOfClass:[XMMAnnotation class]]) {
+    [self closeMapAdditionView];
+  }
+}
 
 - (void)didUpdateLocationWithNotification:(NSNotification *)notification {
   _userLocation = notification.userInfo[@"location"];
@@ -793,7 +802,9 @@ static const NSString *routeLayerIdentifier = @"polyline";
 }
 
 - (IBAction)centerSpotBoundsAction:(id)sender {
-    [self showSpotMap:self.spots];
+    if (self.spots.count != 0) {
+        [self showSpotMap:self.spots];
+    }
 }
 
 - (void)openSettings {
@@ -804,7 +815,7 @@ static const NSString *routeLayerIdentifier = @"polyline";
 }
 
 -(void) zoomToFitAnnotationsAndRoute {
-
+    
     NSMutableArray *latArray = [NSMutableArray new];
     NSMutableArray *lonArray = [NSMutableArray new];
     
@@ -841,6 +852,11 @@ static const NSString *routeLayerIdentifier = @"polyline";
     MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(sw, ne);
     [self.mapView setVisibleCoordinateBounds: bounds];
     
+    if (_mapAdditionView.isHidden == false) {
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self closeMapAdditionView];
+        });
+    }
 }
 
 
