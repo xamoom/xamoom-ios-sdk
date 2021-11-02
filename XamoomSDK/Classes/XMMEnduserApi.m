@@ -1021,16 +1021,19 @@ static XMMEnduserApi *sharedInstance;
   NSDictionary *infoDict = [nibBundle infoDictionary];
   NSString *sdkVersion = [infoDict objectForKey:@"CFBundleShortVersionString"];
   
-  if (appName == nil) {
-    appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+  if (appName == nil || appName.length == 0) {
+      appName = [[NSBundle mainBundle] bundleIdentifier];
   }
+  NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
   NSData *asciiStringData = [appName dataUsingEncoding:NSASCIIStringEncoding
                                   allowLossyConversion:YES];
   appName = [[NSString alloc] initWithData:asciiStringData
                                   encoding:NSASCIIStringEncoding];
-  NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@|%@",
+  NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@ - %@|%@",
                                kHTTPUserAgent,
                                appName,
+                               appVersion,
                                sdkVersion];
   return customUserAgent;
 }
