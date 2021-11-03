@@ -37,16 +37,17 @@
     self.bundle = bundle;
   }
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  NSString *lang = [userDefaults stringForKey:@"language"];
-  self.bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
   
-  self.calendarImage = [[UIImage imageNamed:@"cal"
+  self.calendarImage = [[UIImage imageNamed:@"calendar"
                                   inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   self.contactImage = [[UIImage imageNamed:@"contact"
                                  inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   
   self.gpxImage = [[UIImage imageNamed:@"gpx"
                                   inBundle:self.bundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    NSString *lang = [userDefaults stringForKey:@"language"];
+    self.bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
   
   _currentCalendarColor = [UIColor colorWithRed:0.23 green:0.35 blue:0.60 alpha:1.0];
   _currentCalendarTintColor = UIColor.whiteColor;

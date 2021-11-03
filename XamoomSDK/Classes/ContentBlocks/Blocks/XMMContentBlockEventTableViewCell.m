@@ -48,7 +48,7 @@
     imagesBundle = bundle;
   }
     
-  self.calendarImage = [[UIImage imageNamed:@"cal"
+  self.calendarImage = [[UIImage imageNamed:@"calendar"
                                   inBundle:imagesBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
   self.navigationImage = [[UIImage imageNamed:@"directional"
                                  inBundle:imagesBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
