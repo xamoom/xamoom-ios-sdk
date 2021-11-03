@@ -53,7 +53,9 @@ static UIColor *contentLinkColor;
     self.titleLabel.text = block.title;
   }
   
-  [self displayContent:block.text style:style];
+  if (block.text != nil) {
+      [self displayContent:block.text style:style];
+  }
   
   if (block.copyright != nil && ![block.copyright isEqualToString:@""]) {
     self.copyrightLabel.hidden = NO;
@@ -81,10 +83,14 @@ static UIColor *contentLinkColor;
       color = _contentTextView.textColor;
     }
     
-    self.contentTextView.attributedText = [self attributedStringFromHTML:text
-                                                                fontSize:[XMMContentBlock0TableViewCell fontSize]
-                                                               fontColor:color];
-    [self.contentTextView sizeToFit];
+      if ([text  isEqual: @"<p></p>"]) {
+          [self disappearTextView:self.contentTextView];
+      } else {
+          self.contentTextView.attributedText = [self attributedStringFromHTML:text
+                                                                      fontSize:[XMMContentBlock0TableViewCell fontSize]
+                                                                     fontColor:color];
+          [self.contentTextView sizeToFit];
+      }
   } else {
     [self disappearTextView:self.contentTextView];
   }
@@ -202,6 +208,10 @@ static UIColor *contentLinkColor;
   
     BOOL *isNewLineExist = true;
     
+    NSLog(@"%@", attributedString.string);
+    if ([attributedString.string  isEqual: @""]) {
+        return attributedString;
+    }
     while (isNewLineExist) {
         NSString *last = [attributedString.string substringFromIndex:[attributedString.string length] - 1];
         if ([last isEqualToString:@"\n"]) {

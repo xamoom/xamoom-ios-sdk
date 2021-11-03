@@ -1030,7 +1030,7 @@ static XMMEnduserApi *sharedInstance;
                                   allowLossyConversion:YES];
   appName = [[NSString alloc] initWithData:asciiStringData
                                   encoding:NSASCIIStringEncoding];
-  NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@ - %@|%@",
+  NSString *customUserAgent = [NSString stringWithFormat:@"%@|%@-%@|%@",
                                kHTTPUserAgent,
                                appName,
                                appVersion,
