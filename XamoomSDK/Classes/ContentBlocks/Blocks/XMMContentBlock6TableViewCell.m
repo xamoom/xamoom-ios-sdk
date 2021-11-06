@@ -116,9 +116,10 @@ static NSString *language;
       int maxCharsInLabel = [self maxCharInLine] * 2;
       if (contentFromDate != nil && contentLocationName != nil) {
           maxCharsInLabel = [self maxCharInLine];
-          if (descTextLength < maxCharsInLabel) {
-              maxCharsInLabel = descTextLength;
-          }
+      }
+      
+      if (descTextLength < maxCharsInLabel) {
+          maxCharsInLabel = descTextLength;
       }
       
       //substring description text to 1 or 2 lines based on maxCharSiseInLine

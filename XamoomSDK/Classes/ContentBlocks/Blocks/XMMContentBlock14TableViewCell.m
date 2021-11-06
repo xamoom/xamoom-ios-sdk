@@ -144,7 +144,6 @@ static const NSString *routeLayerIdentifier = @"polyline";
     self.tourGeoJsonUrl = block.fileID;
     self.scaleX = block.scaleX;
     self.titleView.text = block.title;
-//    self.showContent = block.showContent;
     self.showContent = true;
     [self calculateCoordinates:block.fileID showGraph:block.showElevation];
     [self getSpotMap:api spotMapTags:block.spotMapTags];

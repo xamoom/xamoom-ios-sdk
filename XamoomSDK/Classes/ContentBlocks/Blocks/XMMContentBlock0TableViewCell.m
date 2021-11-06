@@ -53,9 +53,7 @@ static UIColor *contentLinkColor;
     self.titleLabel.text = block.title;
   }
   
-  if (block.text != nil) {
-      [self displayContent:block.text style:style];
-  }
+    [self displayContent:block.text style:style];
   
   if (block.copyright != nil && ![block.copyright isEqualToString:@""]) {
     self.copyrightLabel.hidden = NO;

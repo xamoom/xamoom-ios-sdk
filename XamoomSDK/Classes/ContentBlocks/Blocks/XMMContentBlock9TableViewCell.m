@@ -62,15 +62,19 @@ static int kPageSize = 100;
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style api:(XMMEnduserApi *)api offline:(BOOL)offline {
   
-    _mapView.styleURL = _mapboxStyle;
-    [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.7326808, -73.9843407)
-                        zoomLevel:1
-                         animated:NO];
-    
-    self.titleView.text = block.title;
-    self.showContent = block.showContent;
-    [self getSpotMap:api spotMapTags:block.spotMapTags];
-}
+    if (self.spots.count > 0) {
+      return;
+    } else {
+      _mapView.styleURL = _mapboxStyle;
+      [_mapView setCenterCoordinate:CLLocationCoordinate2DMake(40.7326808, -73.9843407)
+                          zoomLevel:1
+                           animated:NO];
+      
+      self.titleView.text = block.title;
+      self.showContent = block.showContent;
+      [self getSpotMap:api spotMapTags:block.spotMapTags];
+    }
+  }
 
 - (void)setupLocationManager {
   self.locationManager = [[CLLocationManager alloc] init];
@@ -99,7 +103,6 @@ static int kPageSize = 100;
   }
   
   self.spots = [[NSMutableArray alloc] init];
-  self.downloadedSpots = [[NSMutableArray alloc] init];
     
   [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *loadedSpots, bool hasMore, NSString *cursor, NSError *error) {
     if (self.didLoadStyle == NO && loadedSpots.count > 0) {
@@ -125,13 +128,10 @@ static int kPageSize = 100;
       completion(nil, false, nil, error);
     }
     
-    [self.downloadedSpots addObjectsFromArray:spots];
-      
     if (hasMore) {
       [self downloadAllSpotsWithSpots:tags cursor:cursor api:api completion:completion];
     } else {
-        [self.downloadedSpots setArray:[[NSSet setWithArray:self.downloadedSpots] allObjects]];
-      completion(self.downloadedSpots, false, nil, nil);
+      completion(spots, false, nil, nil);
     }
   }];
 }
