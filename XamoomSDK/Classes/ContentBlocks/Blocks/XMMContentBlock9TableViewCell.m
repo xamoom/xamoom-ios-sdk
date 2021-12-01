@@ -103,7 +103,6 @@ static int kPageSize = 100;
   }
   
   self.spots = [[NSMutableArray alloc] init];
-    
   [self downloadAllSpotsWithSpots:spotMapTags cursor:nil api:api completion:^(NSArray *loadedSpots, bool hasMore, NSString *cursor, NSError *error) {
     if (self.didLoadStyle == NO && loadedSpots.count > 0) {
       [self.spots addObjectsFromArray:loadedSpots];
@@ -129,6 +128,7 @@ static int kPageSize = 100;
     }
     
     if (hasMore) {
+      completion(spots, true, cursor, nil);
       [self downloadAllSpotsWithSpots:tags cursor:cursor api:api completion:completion];
     } else {
       completion(spots, false, nil, nil);
@@ -459,20 +459,24 @@ static int kPageSize = 100;
 }
 
 - (void) handleTapFrom: (UIPanGestureRecognizer *)recognizer {
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-    NSBundle *libBundle;
-    if (url != nil) {
-      libBundle = [NSBundle bundleWithURL:url];
-    } else {
-      libBundle = bundle;
-    }
+//    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+//    NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+//    NSBundle *libBundle;
+//    if (url != nil) {
+//      libBundle = [NSBundle bundleWithURL:url];
+//    } else {
+//      libBundle = bundle;
+//    }
+//
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    NSString *lang = [userDefaults stringForKey:@"language"];
+//    libBundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
     
     if (recognizer.numberOfTouches == 1) {
         if (recognizer.state == UIGestureRecognizerStateBegan) {
             
             self.overlayTitle.textColor = UIColor.whiteColor;
-            self.overlayTitle.text = NSLocalizedStringFromTableInBundle(@"mapbox.two.fingers.move.label", @"Localizable", libBundle, nil);
+            self.overlayTitle.text = NSLocalizedStringFromTableInBundle(@"mapbox.two.fingers.move.label", @"Localizable", self.bundle, nil);
             self.overlayView.hidden = false;
         }
         if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {

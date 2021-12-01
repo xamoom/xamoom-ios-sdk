@@ -41,6 +41,10 @@ int tableViewTopConstant = 8;
     } else {
       libBundle = bundle;
     }
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *lang = [userDefaults stringForKey:@"language"];
+    libBundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
   
   _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
   _tableView.scrollEnabled = NO;
