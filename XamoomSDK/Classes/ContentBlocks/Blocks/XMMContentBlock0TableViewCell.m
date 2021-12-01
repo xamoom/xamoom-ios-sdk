@@ -210,13 +210,18 @@ static UIColor *contentLinkColor;
     if ([attributedString.string  isEqual: @""]) {
         return attributedString;
     }
-    while (isNewLineExist) {
-        NSString *last = [attributedString.string substringFromIndex:[attributedString.string length] - 1];
-        if ([last isEqualToString:@"\n"]) {
-          [attributedString deleteCharactersInRange:NSMakeRange([attributedString.string length] - 1, 1)];
-        } else {
-            isNewLineExist = false;
+    @try {
+        while (isNewLineExist) {
+            NSString *last = [attributedString.string substringFromIndex:[attributedString.string length] - 1];
+            if ([last isEqualToString:@"\n"]) {
+              [attributedString deleteCharactersInRange:NSMakeRange([attributedString.string length] - 1, 1)];
+            } else {
+                isNewLineExist = false;
+            }
         }
+    }
+    @catch (NSException *exception) {
+        return attributedString;
     }
   
   return attributedString;

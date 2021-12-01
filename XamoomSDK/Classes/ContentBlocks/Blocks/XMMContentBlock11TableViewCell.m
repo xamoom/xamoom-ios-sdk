@@ -35,15 +35,18 @@ int tableViewTopConstant = 8;
   // Initialization code
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *lang = [userDefaults stringForKey:@"language"];
-    self.bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
+    NSBundle *libBundle;
+    if (url != nil) {
+      libBundle = [NSBundle bundleWithURL:url];
+    } else {
+      libBundle = bundle;
+    }
   
   _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
   _tableView.scrollEnabled = NO;
   _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
   
-  [_loadMoreButton setTitle:NSLocalizedStringFromTableInBundle(@"Load more", @"Localizable", self.bundle, nil)
+  [_loadMoreButton setTitle:NSLocalizedStringFromTableInBundle(@"Load more", @"Localizable", libBundle, nil)
                    forState:UIControlStateNormal];
     
     self.isFirstPage = TRUE;

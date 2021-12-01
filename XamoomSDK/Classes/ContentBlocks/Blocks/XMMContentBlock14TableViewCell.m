@@ -867,10 +867,18 @@ static const NSString *routeLayerIdentifier = @"polyline";
 }
 
 - (void) handleTapFrom: (UIPanGestureRecognizer *)recognizer {
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    NSURL *url = [bundle URLForResource:@"XamoomSDK" withExtension:@"bundle"];
+    NSBundle *libBundle;
+    if (url != nil) {
+      libBundle = [NSBundle bundleWithURL:url];
+    } else {
+      libBundle = bundle;
+    }
     if (recognizer.numberOfTouches == 1) {
         if (recognizer.state == UIGestureRecognizerStateBegan) {
             self.overlayTitle.textColor = UIColor.whiteColor;
-            self.overlayTitle.text = NSLocalizedStringFromTableInBundle(@"mapbox.two.fingers.move.label", @"Localizable", self.bundle, nil);
+            self.overlayTitle.text = NSLocalizedStringFromTableInBundle(@"mapbox.two.fingers.move.label", @"Localizable", libBundle, nil);
             self.overlayView.hidden = false;
         }
         if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
