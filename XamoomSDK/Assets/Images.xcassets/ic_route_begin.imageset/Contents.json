@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "play-circle-solid-villach.png",
+      "filename" : "ic_start_route_tourism.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "play-circle-solid-villach-1.png",
+      "filename" : "ic_start_route_tourism-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "play-circle-solid-villach-2.png",
+      "filename" : "ic_start_route_tourism-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
