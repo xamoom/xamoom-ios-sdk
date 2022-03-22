@@ -21,23 +21,24 @@ PODS:
     - FirebaseCoreDiagnosticsInterop (~> 1.2)
     - GoogleUtilities/Environment (~> 6.5)
     - GoogleUtilities/Logger (~> 6.5)
-  - FirebaseCoreDiagnostics (1.2.2):
+  - FirebaseCoreDiagnostics (1.2.4):
     - FirebaseCoreDiagnosticsInterop (~> 1.2)
-    - GoogleDataTransportCCTSupport (~> 2.0)
+    - GoogleDataTransportCCTSupport (~> 3.0)
     - GoogleUtilities/Environment (~> 6.5)
     - GoogleUtilities/Logger (~> 6.5)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.2.0)
-  - FirebaseInstallations (1.1.1):
+  - FirebaseInstallations (1.3.0):
     - FirebaseCore (~> 6.6)
-    - GoogleUtilities/UserDefaults (~> 6.5)
+    - GoogleUtilities/Environment (~> 6.6)
+    - GoogleUtilities/UserDefaults (~> 6.6)
     - PromisesObjC (~> 1.2)
-  - FirebaseInstanceID (4.3.2):
+  - FirebaseInstanceID (4.3.4):
     - FirebaseCore (~> 6.6)
     - FirebaseInstallations (~> 1.0)
     - GoogleUtilities/Environment (~> 6.5)
     - GoogleUtilities/UserDefaults (~> 6.5)
-  - FirebaseMessaging (4.3.0):
+  - FirebaseMessaging (4.3.1):
     - FirebaseAnalyticsInterop (~> 1.5)
     - FirebaseCore (~> 6.6)
     - FirebaseInstanceID (~> 4.3)
@@ -53,27 +54,28 @@ PODS:
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
     - nanopb (= 0.3.9011)
-  - GoogleDataTransport (5.1.0)
-  - GoogleDataTransportCCTSupport (2.0.1):
-    - GoogleDataTransport (~> 5.1)
+  - GoogleDataTransport (6.2.1)
+  - GoogleDataTransportCCTSupport (3.0.0):
+    - GoogleDataTransport (~> 6.0)
     - nanopb (~> 0.3.901)
-  - GoogleUtilities/AppDelegateSwizzler (6.5.2):
+  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.5.2)
-  - GoogleUtilities/Logger (6.5.2):
+  - GoogleUtilities/Environment (6.7.2):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/Logger (6.7.2):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.5.2):
+  - GoogleUtilities/MethodSwizzler (6.7.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.5.2):
+  - GoogleUtilities/Network (6.7.2):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.5.2)"
-  - GoogleUtilities/Reachability (6.5.2):
+  - "GoogleUtilities/NSData+zlib (6.7.2)"
+  - GoogleUtilities/Reachability (6.7.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.5.2):
+  - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
   - HCLineChartView (1.0.2)
   - JAMSVGImage (1.6.1)
@@ -85,18 +87,18 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Nocilla (0.11.0)
-  - OCMock (3.6)
-  - PromisesObjC (1.2.8)
-  - Protobuf (3.11.4)
-  - Pushwoosh (5.23.0):
-    - Pushwoosh/Core (= 5.23.0)
-  - Pushwoosh/Core (5.23.0)
+  - OCMock (3.7.1)
+  - PromisesObjC (1.2.10)
+  - Protobuf (3.13.0)
+  - Pushwoosh (6.0.7):
+    - Pushwoosh/Core (= 6.0.7)
+  - Pushwoosh/Core (6.0.7)
   - SDWebImage (3.8.3):
     - SDWebImage/Core (= 3.8.3)
   - SDWebImage/Core (3.8.3)
-  - XamoomSDK (3.11.19):
-    - XamoomSDK/Core (= 3.11.19)
-  - XamoomSDK/Core (3.11.19):
+  - XamoomSDK (3.11.20):
+    - XamoomSDK/Core (= 3.11.20)
+  - XamoomSDK/Core (3.11.20):
     - Firebase (>= 5.15.0)
     - FirebaseCore (>= 5.1.0)
     - FirebaseMessaging
@@ -158,29 +160,29 @@ SPEC CHECKSUMS:
   FirebaseAnalytics: 572e467f3d977825266e8ccd52674aa3e6f47eac
   FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
   FirebaseCore: ed0a24c758a57c2b88c5efa8e6a8195e868af589
-  FirebaseCoreDiagnostics: e9b4cd8ba60dee0f2d13347332e4b7898cca5b61
+  FirebaseCoreDiagnostics: b59c024493a409f8aecba02c99928d0d8431d159
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
-  FirebaseInstallations: acb3216eb9784d3b1d2d2d635ff74fa892cc0c44
-  FirebaseInstanceID: 7ee0d6777013bb952f377b41965bf132b6a075be
-  FirebaseMessaging: 4ec33842d36b3319e062e51fb8b35a74f726950d
+  FirebaseInstallations: 6f5f680e65dc374397a483c32d1799ba822a395b
+  FirebaseInstanceID: cef67c4967c7cecb56ea65d8acbb4834825c587b
+  FirebaseMessaging: 828e66eb357a893e3cebd9ee0f6bc1941447cc94
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleAppMeasurement: c29d405ff76e18551b5d158eaba6753fda8c7542
-  GoogleDataTransport: b29a21d813e906014ca16c00897827e40e4a24ab
-  GoogleDataTransportCCTSupport: 6f15a89b0ca35d6fa523e1f752ef818588885988
-  GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
+  GoogleDataTransport: 9a8a16f79feffc7f42096743de2a7c4815e84020
+  GoogleDataTransportCCTSupport: 0f39025e8cf51f168711bd3fb773938d7e62ddb5
+  GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
   HCLineChartView: a57d519fc937bc9e17d870d61fca2703d30e1a28
   JAMSVGImage: 7aa966a310ddf5f53de295d5ce5b930df8ff1eb2
   JSONAPI: 8fed55fcfa08ee662674cd4f1bd03c37d8b34e03
   Mapbox-iOS-SDK: c6bab367011e441e7345d4fe9340633c6b476bf4
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Nocilla: 7af7a386071150cc8aa5da4da97d060f049dd61c
-  OCMock: 5ea90566be239f179ba766fd9fbae5885040b992
-  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
-  Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
-  Pushwoosh: 2ba8bb366274da96b85533980b66a6a07826ed84
+  OCMock: 75fbeaa46a9b11f8c182bbb1d1f7e9a35ccc9955
+  PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
+  Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
+  Pushwoosh: 004dbffc5246cea137500a73c7144e256b241b55
   SDWebImage: a72e880a8fe0f7fc31efe15aaed443c074d2a80c
-  XamoomSDK: 42c6e100ddf8fd7bed0ca5e101e55c8f4e6ecd42
+  XamoomSDK: f1b4a1d885b2ebe53a88cae903820429c6fb4d33
 
-PODFILE CHECKSUM: afdb7e8ce1ab08ade4df61308fe3aec149c45f7d
+PODFILE CHECKSUM: bf0cd1004a2e6afa396720a4ed3c487cb7250c84
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.11.3

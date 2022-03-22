@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8830FED41DB629830072DCAC /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8830FED31DB629830072DCAC /* DetailViewController.m */; };
+		8885C54227EA08F3000215CE /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8885C54127EA08F3000215CE /* libPods-Example.a */; };
 		8888DDEA1C47B16C0050A84C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DDE91C47B16C0050A84C /* main.m */; };
 		8888DDED1C47B16C0050A84C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DDEC1C47B16C0050A84C /* AppDelegate.m */; };
 		8888DDF01C47B16C0050A84C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DDEF1C47B16C0050A84C /* ViewController.m */; };
@@ -16,7 +17,6 @@
 		8888DDF81C47B16C0050A84C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8888DDF61C47B16C0050A84C /* LaunchScreen.storyboard */; };
 		8888DE031C47B16C0050A84C /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DE021C47B16C0050A84C /* ExampleTests.m */; };
 		88F6B9B01E38A8DD00877F15 /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F6B9AF1E38A8DD00877F15 /* TestingIDs.plist */; };
-		FA3E5041B94B0E59F74AB27B /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 313816EF563451B31C40BCB4 /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +40,7 @@
 		884DC28F1C6A00B000E11E0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		884DC2911C6A00B700E11E0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		884DC2931C6A00F400E11E0A /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		8885C54127EA08F3000215CE /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDE51C47B16C0050A84C /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8888DDE91C47B16C0050A84C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8888DDEB1C47B16C0050A84C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA3E5041B94B0E59F74AB27B /* libPods-Example.a in Frameworks */,
+				8885C54227EA08F3000215CE /* libPods-Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +152,7 @@
 		FAD4F0CB5257250FC7B3BBA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8885C54127EA08F3000215CE /* libPods-Example.a */,
 				889BA3EC1F0254C5004AC15D /* libstdc++.tbd */,
 				889BA3E41F014A95004AC15D /* libc++.tbd */,
 				889BA3E21F014A89004AC15D /* libz.tbd */,
@@ -172,15 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8888DE071C47B16C0050A84C /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				611D09FF4C11B54189559307 /* [CP] Check Pods Manifest.lock */,
-				2CB744DFF94F5DA598398BBF /* [CP] Check Pods Manifest.lock */,
-				70462C7104FECB3E764495A2 /* [CP] Check Pods Manifest.lock */,
+				82FD29C0A89075B77CEB6B2A /* [CP] Check Pods Manifest.lock */,
 				8888DDE11C47B16C0050A84C /* Sources */,
 				8888DDE21C47B16C0050A84C /* Frameworks */,
 				8888DDE31C47B16C0050A84C /* Resources */,
-				47A3B13C17510F0FBFB9A40E /* [CP] Copy Pods Resources */,
-				7B6C0B27D32A077D2BF9EC07 /* 📦 Copy Pods Resources */,
-				701850B18224A408A3E581D6 /* [CP] Embed Pods Frameworks */,
+				92F3921F42778949D0812A1B /* [CP] Embed Pods Frameworks */,
+				20E8C3182D19591F546E7D3B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -280,22 +279,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2CB744DFF94F5DA598398BBF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		47A3B13C17510F0FBFB9A40E /* [CP] Copy Pods Resources */ = {
+		20E8C3182D19591F546E7D3B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,18 +297,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
-		611D09FF4C11B54189559307 /* [CP] Check Pods Manifest.lock */ = {
+		82FD29C0A89075B77CEB6B2A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
 			);
@@ -333,7 +320,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		701850B18224A408A3E581D6 /* [CP] Embed Pods Frameworks */ = {
+		92F3921F42778949D0812A1B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -341,50 +328,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/F895F414-0640-3A9A-8BFE-93608B075146.bcsymbolmap",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/355BF7AF-DA9C-3E0A-B824-D20D83879E14.bcsymbolmap",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/F895F414-0640-3A9A-8BFE-93608B075146.bcsymbolmap",
-				"${BUILT_PRODUCTS_DIR}/355BF7AF-DA9C-3E0A-B824-D20D83879E14.bcsymbolmap",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		70462C7104FECB3E764495A2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7B6C0B27D32A077D2BF9EC07 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

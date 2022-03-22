@@ -31,9 +31,9 @@
   self.blocks.showAllStoreLinks = YES;
   
   if (self.contentID) {
-    [self.api contentWithID:self.contentID completion:^(XMMContent *content, NSError *error) {
-      [self.blocks displayContent:content];
-    }];
+      [self.api contentWithID:self.contentID password:nil completion:^(XMMContent * _Nullable content, NSError * _Nullable error, BOOL passwordRequired) {
+          [self.blocks displayContent:content];
+      }];
   }
   
   [[NSNotificationCenter defaultCenter]

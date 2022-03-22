@@ -1,0 +1,1 @@
+../../../HCLineChartView/Source/HCLineChartView/HCSupporting Files/HCChartPoint/HCChartPoint.h

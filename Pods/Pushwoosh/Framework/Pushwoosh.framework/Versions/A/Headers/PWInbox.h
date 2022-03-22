@@ -45,6 +45,8 @@ typedef NS_ENUM(NSInteger, PWInboxMessageType) {
 @property (readonly, nonatomic) BOOL isRead;
 //! Action of the Inbox Message is performed (if true, an action was performed in the Inbox see + (void)performActionForMessageWithCode:(NSString *)code or an action was performed on the push tap )
 @property (readonly, nonatomic) BOOL isActionPerformed;
+@property (readonly, nonatomic) NSDictionary *actionParams;
+@property (readonly, nonatomic) NSString *attachmentUrl;
 
 @end
 
@@ -113,9 +115,23 @@ typedef NS_ENUM(NSInteger, PWInboxMessageType) {
  
  @param completion - return the collection of the InboxMessages.
  */
-+ (id<NSObject>)addObserverForUpdateInboxMessagesCompletion:(void (^)(NSArray<NSString *> *messagesDeleted,
++ (id<NSObject>)addObserverForUpdateInboxMessagesCompletion:(void (^)(NSArray<NSObject<PWInboxMessageProtocol> *> *messagesDeleted,
                                                                       NSArray<NSObject<PWInboxMessageProtocol> *> *messagesAdded,
                                                                       NSArray<NSObject<PWInboxMessageProtocol> *> *messagesUpdated))completion;
+
+/**
+Subscribe for unread messages count changes. @warning You need to unsubscribe by calling the removeObserver method, if you don't want to receive notifications
+
+@param block - return the count of unread messages.
+*/
++ (id<NSObject>)addObserverForUnreadMessagesCountUsingBlock:(void (^)(NSUInteger count))block;
+
+/**
+Subscribe for messages with no action performed count changes. @warning You need to unsubscribe by calling the removeObserver method, if you don't want to receive notifications
+
+@param block - return the count of unread messages.
+*/
++ (id<NSObject>)addObserverForNoActionPerformedMessagesCountUsingBlock:(void (^)(NSUInteger count))block;
 
 /**
  Unsubscribes from notifications
@@ -124,4 +140,8 @@ typedef NS_ENUM(NSInteger, PWInboxMessageType) {
  */
 + (void)removeObserver:(id<NSObject>)observer;
 
+/**
+ updates observers
+ */
++ (void)updateInboxForNewUserId:(void (^)(NSUInteger messagesCount))completion;
 @end

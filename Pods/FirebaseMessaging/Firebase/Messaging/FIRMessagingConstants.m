@@ -14,26 +14,35 @@
  * limitations under the License.
  */
 
-#import "FIRMessagingConstants.h"
+#import "Firebase/Messaging/FIRMessagingConstants.h"
 
 NSString *const kFIRMessagingRawDataKey = @"rawData";
 NSString *const kFIRMessagingCollapseKey = @"collapse_key";
 NSString *const kFIRMessagingFromKey = @"from";
 
-NSString *const kFIRMessagingSendTo = @"google." @"to";
-NSString *const kFIRMessagingSendTTL = @"google." @"ttl";
-NSString *const kFIRMessagingSendDelay = @"google." @"delay";
-NSString *const kFIRMessagingSendMessageID = @"google." @"msg_id";
-NSString *const KFIRMessagingSendMessageAppData = @"google." @"data";
+NSString *const kFIRMessagingSendTo = @"google."
+                                      @"to";
+NSString *const kFIRMessagingSendTTL = @"google."
+                                       @"ttl";
+NSString *const kFIRMessagingSendDelay = @"google."
+                                         @"delay";
+NSString *const kFIRMessagingSendMessageID = @"google."
+                                             @"msg_id";
+NSString *const KFIRMessagingSendMessageAppData = @"google."
+                                                  @"data";
 
 NSString *const kFIRMessagingMessageInternalReservedKeyword = @"gcm.";
 NSString *const kFIRMessagingMessagePersistentIDKey = @"persistent_id";
 
-NSString *const kFIRMessagingMessageIDKey = @"gcm." @"message_id";
+NSString *const kFIRMessagingMessageIDKey = @"gcm."
+                                            @"message_id";
 NSString *const kFIRMessagingMessageAPNSContentAvailableKey = @"content-available";
-NSString *const kFIRMessagingMessageSyncViaMCSKey = @"gcm." @"duplex";
-NSString *const kFIRMessagingMessageSyncMessageTTLKey = @"gcm." @"ttl";
-NSString *const kFIRMessagingMessageLinkKey = @"gcm." @"app_link";
+NSString *const kFIRMessagingMessageSyncViaMCSKey = @"gcm."
+                                                    @"duplex";
+NSString *const kFIRMessagingMessageSyncMessageTTLKey = @"gcm."
+                                                        @"ttl";
+NSString *const kFIRMessagingMessageLinkKey = @"gcm."
+                                              @"app_link";
 
 NSString *const kFIRMessagingRemoteNotificationsProxyEnabledInfoPlistKey =
     @"FirebaseAppDelegateProxyEnabled";
@@ -43,10 +52,7 @@ NSString *const kFIRMessagingSubDirectoryName = @"Google/FirebaseMessaging";
 // Notifications
 NSString *const kFIRMessagingCheckinFetchedNotification = @"com.google.gcm.notif-checkin-fetched";
 NSString *const kFIRMessagingAPNSTokenNotification = @"com.firebase.iid.notif.apns-token";
-NSString *const kFIRMessagingFCMTokenNotification = @"com.firebase.iid.notif.fcm-token";
-NSString *const kFIRMessagingInstanceIDTokenRefreshNotification =
-    @"com.firebase.iid.notif.refresh-token";
 NSString *const kFIRMessagingRegistrationTokenRefreshNotification =
     @"com.firebase.iid.notif.refresh-token";
 
-const int kFIRMessagingSendTtlDefault = 24 * 60 * 60; // 24 hours
+const int kFIRMessagingSendTtlDefault = 24 * 60 * 60;  // 24 hours
