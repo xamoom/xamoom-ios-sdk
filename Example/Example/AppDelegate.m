@@ -97,7 +97,7 @@
   
   NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
   [config setHTTPAdditionalHeaders:httpHeaders];
-  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"https://xamoom-cloud-dev.appspot.com/_api/v2/consumer/"] session:[NSURLSession sessionWithConfiguration:config]];
+  XMMRestClient *restClient = [[XMMRestClient alloc] initWithBaseUrl:[NSURL URLWithString:@"https://xamoom-dev.appspot.com/"] session:[NSURLSession sessionWithConfiguration:config]];
   
   self.api = [[XMMEnduserApi alloc] initWithRestClient:restClient];
 }
