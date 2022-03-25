@@ -8,6 +8,13 @@
 #import <Foundation/Foundation.h>
 #import "XMMContent.h"
 
+@interface ExpiringCacheItem : NSObject
+
+@property (nonatomic, strong) XMMContent *content;
+@property (nonatomic, assign) NSDate *expiringCacheItemDate;
+
+@end
+
 @interface XMMContentBlockListsCache : NSObject
 
 @property (nonatomic, strong) NSCache *contentCache;

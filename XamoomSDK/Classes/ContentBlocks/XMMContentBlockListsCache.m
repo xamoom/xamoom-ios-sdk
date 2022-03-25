@@ -13,6 +13,10 @@ static XMMContentBlockListsCache *sharedInstance;
 
 @end
 
+@implementation ExpiringCacheItem
+
+@end
+
 @implementation XMMContentBlockListsCache
 
 
@@ -25,15 +29,36 @@ static XMMContentBlockListsCache *sharedInstance;
 }
 
 - (void)saveContent:(XMMContent *)content key:(NSString *)contentID {
-  [self.contentCache setObject:content forKey:contentID];
+  ExpiringCacheItem *cachedItem = [[ExpiringCacheItem alloc] init];
+  cachedItem.content = content;
+  cachedItem.expiringCacheItemDate = [NSDate date];
+  [self.contentCache setObject:cachedItem forKey:contentID];
 }
 
 - (XMMContent *)cachedContent:(NSString *)key {
+  @try {
+    ExpiringCacheItem *object = [self.contentCache objectForKey:key];
+
+    if (object) {
+      NSTimeInterval timeSinceCache = fabs([object.expiringCacheItemDate timeIntervalSinceNow]);
+      // default 10 min
+      if (timeSinceCache > 600) {
+        [self.contentCache removeObjectForKey:key];
+        return nil;
+      }
+    }
+
+    return object.content;
+  }
+
+  @catch (NSException *exception) {
+    return nil;
+  }
   return [self.contentCache objectForKey:key];
 }
 
 - (void) removeCache {
-    [self.contentCache removeAllObjects];
+//    [self.contentCache removeAllObjects];
 }
 
 @end
