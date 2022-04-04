@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_start_route_tourism.png",
+      "filename" : "ic_start_route_herberstein.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_start_route_tourism-1.png",
+      "filename" : "ic_start_route_herberstein-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_start_route_tourism-2.png",
+      "filename" : "ic_start_route_herberstein-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

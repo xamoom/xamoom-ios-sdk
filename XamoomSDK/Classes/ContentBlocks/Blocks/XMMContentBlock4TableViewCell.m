@@ -175,13 +175,20 @@
     
     if (openInternal) {
       // open internal webview
-      XMMWebViewController *webViewController = [XMMWebViewController new];
       if(self.linkType == 20) {
-          webViewController.url = [self cleanPhoneNumber:self.linkUrl];
-      } else { webViewController.url = self.linkUrl; }
-      webViewController.navigationBarColor = _webViewControllerNavigationTintColor;
-      
-      [navCon pushViewController:webViewController animated:YES];
+        if ([[UIApplication sharedApplication] canOpenURL: [NSURL URLWithString:@"whatsapp://send?text=Hello%2C%20World!"]]) {
+          [[UIApplication sharedApplication] openURL: [NSURL URLWithString:self.linkUrl]];
+        } else {
+          NSString *iTunesLink = @"itms-apps://apps.apple.com/us/app/whatsapp-messenger/id310633997";
+          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+        }
+      } else {
+        XMMWebViewController *webViewController = [XMMWebViewController new];
+        webViewController.url = self.linkUrl;
+        webViewController.navigationBarColor = _webViewControllerNavigationTintColor;
+        
+        [navCon pushViewController:webViewController animated:YES];
+      }
     } else {
       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.linkUrl]];
     }
