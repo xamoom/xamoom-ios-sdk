@@ -10,6 +10,7 @@
 #import "XMMContentBlock.h"
 #import "XMMStyle.h"
 #import "UIColor+HexString.h"
+#import <WebKit/WebKit.h>
 
 /**
  * XMMContentBlock0TableViewCell is used to display text contentBlocks from the xamoom cloud.
@@ -17,7 +18,9 @@
 @interface XMMContentBlock0TableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIView *webViewContainer;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *progressIndicator;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewTopConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *copyrightLabel;
   @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeight;

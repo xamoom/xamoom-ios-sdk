@@ -9,6 +9,7 @@
 #import "XMMContentBlock0TableViewCell.h"
 
 @interface XMMContentBlock0TableViewCell()
+@property (nonatomic, strong) WKWebView *webView;
 @end
 
 @implementation XMMContentBlock0TableViewCell
@@ -38,6 +39,8 @@ static UIColor *contentLinkColor;
 }
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
+    
+    [self.webViewContainer setHidden:YES];
   
   self.copyrightLabel.text = nil;
   self.titleLabel.text = nil;
@@ -60,6 +63,7 @@ static UIColor *contentLinkColor;
     self.copyrightLabel.text = block.copyright;
     [self.copyrightLabel sizeToFit];
   }
+    [self.progressIndicator stopAnimating];
 }
 
 - (void)displayTitle:(NSString *)title block:(XMMContentBlock *)block {
@@ -83,6 +87,8 @@ static UIColor *contentLinkColor;
     
       if ([text  isEqual: @"<p></p>"]) {
           [self disappearTextView:self.contentTextView];
+      } else if ([text containsString: @"iframe"]) {
+          [self embedWebView:text];
       } else {
           self.contentTextView.attributedText = [self attributedStringFromHTML:text
                                                                       fontSize:[XMMContentBlock0TableViewCell fontSize]
@@ -94,6 +100,24 @@ static UIColor *contentLinkColor;
   }
 }
 
+- (void)embedWebView:(NSString *)text {
+    [self.webViewContainer setHidden:NO];
+    [self.progressIndicator startAnimating];
+    WKWebViewConfiguration *webConfiguration = [[WKWebViewConfiguration alloc] init];
+    [self.webViewContainer.heightAnchor constraintEqualToConstant:250.0].active = YES;
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, 250) configuration: webConfiguration];
+    self.webView.UIDelegate = self;
+    self.webView.navigationDelegate = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+            [self.webView loadHTMLString:text baseURL:nil];
+            [self.webViewContainer addSubview: self.webView];
+        });
+  }
+
+//- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+//    [self.progressIndicator stopAnimating];
+//}
+
 - (void)resetTextViewInsets:(UITextView *)textView {
   textView.textContainerInset = UIEdgeInsetsMake(0, -5, 0, -5);
 }
@@ -103,6 +127,12 @@ static UIColor *contentLinkColor;
   textView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);;
   self.contentTextViewTopConstraint.constant = 0;
 }
+
+//- (void)disappearWebView:(UIView *)webView {
+//  [webView setFont:[UIFont systemFontOfSize:0.0f]];
+//  webView.textContainerInset = UIEdgeInsetsMake(0, -5, -20, -5);;
+//  self.contentTextViewTopConstraint.constant = 0;
+//}
 
 - (NSMutableAttributedString*)attributedStringFromHTML:(NSString*)html fontSize:(int)fontSize fontColor:(UIColor *)color {
   NSError *err = nil;
