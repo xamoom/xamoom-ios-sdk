@@ -104,8 +104,10 @@ static UIColor *contentLinkColor;
     [self.webViewContainer setHidden:NO];
     [self.progressIndicator startAnimating];
     WKWebViewConfiguration *webConfiguration = [[WKWebViewConfiguration alloc] init];
-    [self.webViewContainer.heightAnchor constraintEqualToConstant:250.0].active = YES;
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, 250) configuration: webConfiguration];
+   [self.webViewContainer.heightAnchor constraintEqualToConstant:183.0].active = YES;
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, 183) configuration: webConfiguration];
+    self.webView.scrollView.scrollEnabled = NO;
+    self.webView.scrollView.bounces = NO;
     self.webView.UIDelegate = self;
     self.webView.navigationDelegate = self;
     dispatch_async(dispatch_get_main_queue(), ^{
