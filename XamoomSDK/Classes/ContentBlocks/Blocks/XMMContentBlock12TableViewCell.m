@@ -366,18 +366,24 @@
     double cellHeight = imageHeight + 14; //14 -> we need to add this exact amount to compensate height of page indicator (dots)
     if (hasBottomSpace) {
         if(block.title != nil && ![block.title isEqualToString:@""]) {
-            int lineCount = [self linesInLabel:cell.titleLabel];
-            if(lineCount > 1) {
-                cellHeight = cellHeight + 19 * (lineCount - 1);
+          int lineCountTitle = [self linesInLabel:cell.titleLabel];
+          int lineCountCopyrightTitle = [self linesInLabel:cell.copyrightLabel];
+            if (lineCountTitle > lineCountCopyrightTitle) {
+              if(lineCountTitle > 1) {
+                cellHeight = cellHeight + 19 * (lineCountTitle - 1);
+              } else {
+                cellHeight = cellHeight + 19; //19 -> height of text + margin top
+              }
             } else {
-                cellHeight = cellHeight + 19;
+              if (lineCountCopyrightTitle > 1) {
+            cellHeight = cellHeight + 22 * (lineCountCopyrightTitle - 1);
+              } else {
+                cellHeight = cellHeight + 19; //19 -> height of text + margin top
+              }
             }
-            
-        } else {
-            cellHeight = cellHeight + 19; //19 -> height of text + margin top
         }
     }
-    
+            
     cell.frame = CGRectMake(0, 0, imageWidth, cellHeight);
     _containerHeight.constant = CGRectGetMaxY(cell.frame);
     [cell layoutIfNeeded];
