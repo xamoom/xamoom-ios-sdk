@@ -48,7 +48,6 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
     [self defaultStyle];
     
     //self.tableView.backgroundColor = [UIColor colorWithHexString:self.style.backgroundColor];
-    
     [XMMContentBlock0TableViewCell setFontSize:NormalFontSize];
     [XMMContentBlock100TableViewCell setFontSize:NormalFontSize + 1];
   }
@@ -187,6 +186,9 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
     
   nib = [UINib nibWithNibName:@"XMMContentBlock15TableViewCell" bundle:nibBundle];
   [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock15TableViewCell"];
+    
+  nib = [UINib nibWithNibName:@"XMMContentBlock16TableViewCell" bundle:nibBundle];
+  [self.tableView registerNib:nib forCellReuseIdentifier:@"XMMContentBlock16TableViewCell"];
     
 }
 
@@ -433,6 +435,11 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
     
     if ([cell isKindOfClass:[XMMContentBlock15TableViewCell class]] && self.showCBFormOverlay != nil) {
         [(XMMContentBlock15TableViewCell *) cell
+         setShowCBFormOverlay:self.showCBFormOverlay];
+    }
+    
+    if ([cell isKindOfClass:[XMMContentBlock16TableViewCell class]]) {
+        [(XMMContentBlock16TableViewCell *) cell
          setShowCBFormOverlay:self.showCBFormOverlay];
     }
   

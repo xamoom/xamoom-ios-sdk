@@ -34,4 +34,6 @@
 @property (nonatomic) NSNumber *contentListPageSize;
 @property (nonatomic) NSNumber *contentListSortAsc;
 @property (nonatomic) NSNumber *showElevation;
+@property (nonatomic) NSString *iframeUrl;
+@property (nonatomic) NSNumber *fullScreen;
 @end

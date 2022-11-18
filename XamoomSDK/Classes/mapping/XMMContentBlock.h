@@ -70,4 +70,8 @@
 
 @property (nonatomic) BOOL showElevation;
 
+@property (nonatomic) NSString *iframeUrl;
+
+@property (nonatomic) BOOL fullScreen;
+
 @end
