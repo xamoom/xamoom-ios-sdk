@@ -73,16 +73,43 @@
 }
 
 - (XMMMediaFile *)createMediaFileForPosition:(NSString *)ID url:(NSURL *)url title:(NSString *)title artist:(NSString *)artist {
-  XMMMediaFile *mediaFile = [self mediaFileForPosition:ID];
-  
-  if (mediaFile == nil ||
-      ![mediaFile.url.absoluteString isEqualToString:url.absoluteString]) {
-    mediaFile = [[XMMMediaFile alloc] initWithPlaybackDelegate:self ID:ID url:url title:title artist:artist album:nil];
-  }
-  
-  [_mediaFiles setValue:mediaFile forKey:ID];
-  
-  return mediaFile;
+    if (ID == nil || [_mediaFiles objectForKey: ID]){
+        NSUUID *uuid = [NSUUID UUID];
+        NSString *newID = [uuid UUIDString];
+        
+        if ([_mediaFiles objectForKey: newID]) {
+            
+            XMMMediaFile *newMediaFile = [self mediaFileForPosition:ID];
+            newMediaFile = [[XMMMediaFile alloc] initWithPlaybackDelegate:self ID:ID url:url title:title artist:artist album:nil];
+            return newMediaFile = [[XMMAudioManager sharedInstance] createMediaFileForPosition:ID
+                                                                                  url:url
+                                                                                title:title
+                                                                                artist:artist];
+        } else {
+            XMMMediaFile *mediaFile = [self mediaFileForPosition:newID];
+            
+            if (mediaFile == nil ||
+                ![mediaFile.url.absoluteString isEqualToString:url.absoluteString]) {
+                mediaFile = [[XMMMediaFile alloc] initWithPlaybackDelegate:self ID:newID url:url title:title artist:artist album:nil];
+            }
+            
+            [_mediaFiles setValue:mediaFile forKey:newID];
+            
+            return mediaFile;
+        }
+        
+    } else {
+        XMMMediaFile *mediaFile = [self mediaFileForPosition:ID];
+        
+        if (mediaFile == nil ||
+            ![mediaFile.url.absoluteString isEqualToString:url.absoluteString]) {
+            mediaFile = [[XMMMediaFile alloc] initWithPlaybackDelegate:self ID:ID url:url title:title artist:artist album:nil];
+        }
+        
+        [_mediaFiles setValue:mediaFile forKey:ID];
+        
+        return mediaFile;
+    }
 }
 
 - (XMMMediaFile *)mediaFileForPosition:(NSString *)ID {
