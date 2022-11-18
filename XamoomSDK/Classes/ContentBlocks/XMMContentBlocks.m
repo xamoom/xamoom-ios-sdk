@@ -437,11 +437,6 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
         [(XMMContentBlock15TableViewCell *) cell
          setShowCBFormOverlay:self.showCBFormOverlay];
     }
-    
-    if ([cell isKindOfClass:[XMMContentBlock16TableViewCell class]]) {
-        [(XMMContentBlock16TableViewCell *) cell
-         setShowCBFormOverlay:self.showCBFormOverlay];
-    }
   
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style offline:self.offline];
