@@ -1,49 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5dT-sq-rp2" userLabel="Content Block16 Table View Cell" customClass="XMMContentBlock16TableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+        <tableViewCell autoresizesSubviews="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="242" id="5dT-sq-rp2" userLabel="Content Block16 Table View Cell" customClass="XMMContentBlock16TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5dT-sq-rp2" id="JaS-T5-Lw4">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdf-EX-wA1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdf-EX-wA1">
+                        <rect key="frame" x="0.0" y="70" width="320" height="200"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="250" id="5cF-Ir-W2o"/>
+                            <constraint firstAttribute="height" constant="200" id="5cF-Ir-W2o"/>
                         </constraints>
                     </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cOS-SV-Aix">
-                        <rect key="frame" x="150" y="115" width="20" height="20"/>
+                        <rect key="frame" x="150" y="125" width="20" height="20"/>
                     </activityIndicatorView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3St-C0-bK7">
+                        <rect key="frame" x="8" y="0.0" width="304" height="70"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="sdf-EX-wA1" secondAttribute="trailing" id="AHI-1U-t8E"/>
+                    <constraint firstItem="sdf-EX-wA1" firstAttribute="top" secondItem="3St-C0-bK7" secondAttribute="bottom" id="GI8-nX-56E"/>
                     <constraint firstAttribute="bottom" secondItem="sdf-EX-wA1" secondAttribute="bottom" id="R3g-7P-DTq"/>
+                    <constraint firstAttribute="trailing" secondItem="3St-C0-bK7" secondAttribute="trailing" constant="8" id="Ts0-Rv-hOD"/>
                     <constraint firstItem="sdf-EX-wA1" firstAttribute="leading" secondItem="JaS-T5-Lw4" secondAttribute="leading" id="WTl-6X-O4l"/>
                     <constraint firstItem="cOS-SV-Aix" firstAttribute="centerX" secondItem="JaS-T5-Lw4" secondAttribute="centerX" id="bN4-ec-ish"/>
+                    <constraint firstItem="3St-C0-bK7" firstAttribute="leading" secondItem="JaS-T5-Lw4" secondAttribute="leading" constant="8" id="gjY-7H-8Gv"/>
                     <constraint firstItem="cOS-SV-Aix" firstAttribute="centerY" secondItem="JaS-T5-Lw4" secondAttribute="centerY" id="jsA-lU-l3r"/>
-                    <constraint firstItem="sdf-EX-wA1" firstAttribute="top" secondItem="JaS-T5-Lw4" secondAttribute="top" id="kba-en-uq7"/>
+                    <constraint firstItem="3St-C0-bK7" firstAttribute="top" secondItem="JaS-T5-Lw4" secondAttribute="top" id="vCi-v1-xgq"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <connections>
                 <outlet property="contentView" destination="JaS-T5-Lw4" id="Dwx-zq-hFB"/>
+                <outlet property="iframeTitle" destination="3St-C0-bK7" id="KVv-HE-OIz"/>
                 <outlet property="progressIndicator" destination="cOS-SV-Aix" id="FRr-4p-dBR"/>
                 <outlet property="webViewContainer" destination="sdf-EX-wA1" id="W6n-fy-uFH"/>
                 <outlet property="webViewContainerHeightConstraint" destination="5cF-Ir-W2o" id="TRw-vA-7fd"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </tableViewCell>
     </objects>
     <resources>

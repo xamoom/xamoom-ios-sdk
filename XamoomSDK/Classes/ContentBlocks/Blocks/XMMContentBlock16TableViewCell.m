@@ -45,11 +45,13 @@ static BOOL *isRequestLocationClick = false;
     nibBundle = [NSBundle bundleWithPath:[[NSBundle bundleWithURL:url] pathForResource:lang ofType:@"lproj"]];
     
     NSString* iframeUrl = block.iframeUrl;
+    NSString* title = block.title;
     Boolean* isFullScreen  = block.fullScreen;
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* primaryColor = [defaults objectForKey:@"template_primaryColor"];
     self.progressIndicator.color = [self colorFromHexString:[defaults objectForKey:@"template_primaryColor"] alpha:1];
+    self.iframeTitle.text = title;
     [self addWebView:iframeUrl];
 }
 
@@ -88,8 +90,10 @@ static BOOL *isRequestLocationClick = false;
     self.webView.navigationDelegate = self;
     [self.progressIndicator startAnimating];
     dispatch_async(dispatch_get_main_queue(), ^{
-            [self.webView loadHTMLString:iframeUrl baseURL:nil];
-            [self.webViewContainer addSubview: self.webView];
+        [self.webView loadHTMLString:iframeUrl baseURL:nil];
+        [self.webView setOpaque: NO];
+        [self.webView setBackgroundColor:[UIColor clearColor]];
+        [self.webViewContainer addSubview: self.webView];
         });
 }
 
