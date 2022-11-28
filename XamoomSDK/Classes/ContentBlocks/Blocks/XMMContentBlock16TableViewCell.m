@@ -46,13 +46,18 @@ static BOOL *isRequestLocationClick = false;
     
     NSString* iframeUrl = block.iframeUrl;
     NSString* title = block.title;
-    Boolean* isFullScreen  = block.fullScreen;
+    BOOL isFullScreen  = block.fullScreen;
+    
     
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     NSString* primaryColor = [defaults objectForKey:@"template_primaryColor"];
     self.progressIndicator.color = [self colorFromHexString:[defaults objectForKey:@"template_primaryColor"] alpha:1];
-    self.iframeTitle.text = title;
-    [self addWebView:iframeUrl];
+    if (isFullScreen){
+        [self webViewFullScreen:iframeUrl];
+    } else {
+        self.iframeTitle.text = title;
+        [self addWebView:iframeUrl];
+    }
 }
 
    
@@ -134,6 +139,12 @@ static BOOL *isRequestLocationClick = false;
         [self.parentTableView layoutIfNeeded];
         isRequestLocationClick = false;
     }
+}
+
+- (void) webViewFullScreen: (NSString *) url {
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:url forKey:@"iframeUrl"];
+[[NSNotificationCenter defaultCenter] postNotificationName:
+                       @"PostIframeUrl" object:nil userInfo:userInfo];
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
