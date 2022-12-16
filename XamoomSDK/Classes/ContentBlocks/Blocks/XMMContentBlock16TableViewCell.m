@@ -48,107 +48,39 @@ static BOOL *isRequestLocationClick = false;
     NSString* title = block.title;
     BOOL isFullScreen  = block.fullScreen;
     
-    
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    NSString* primaryColor = [defaults objectForKey:@"template_primaryColor"];
     self.progressIndicator.color = [self colorFromHexString:[defaults objectForKey:@"template_primaryColor"] alpha:1];
+    self.iframeTitle.text = title;
+    [self addWebView:iframeUrl];
     if (isFullScreen){
         [self webViewFullScreen:iframeUrl];
-    } else {
-        self.iframeTitle.text = title;
-        [self addWebView:iframeUrl];
     }
 }
-
    
 - (void) addWebView:(NSString *) iframeUrl {
-    NSString *resizeScript = @"function resize() { window.webkit.messageHandlers.test.postMessage(document.body.scrollHeight);} window.onload = resize;";
     
-    NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width, shrink-to-fit=YES'); meta.setAttribute('initial-scale', '1.0'); meta.setAttribute('maximum-scale', '1.0'); meta.setAttribute('minimum-scale', '1.0'); meta.setAttribute('user-scalable', 'no'); document.getElementsByTagName('head')[0].appendChild(meta);";
+    NSString *reSizeHeder = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'></header>";
+    NSString *resizeIframeUrl = [reSizeHeder stringByAppendingString:iframeUrl];
     
-    NSString *locationRequestScript = @"const delegate = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e); const inputDelegate = delegate('input[type=button]'); document.addEventListener('touchend', inputDelegate((el) => window.webkit.messageHandlers.buttonPressed.postMessage('buttonPressed')));";
-    
-    NSString *formChangeScript = @"const delegate1 = (selector) => (cb) => (e) => e.target.matches(selector) && cb(e); const inputDelegate1 = delegate1('input[type=text]'); document.addEventListener('click', inputDelegate1((el) => window.webkit.messageHandlers.formChanged.postMessage('formChanged')));";
-
-    WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-    WKUserScript *wkUScriptResize = [[WKUserScript alloc] initWithSource:resizeScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-    WKUserScript *wkUScriptlocationRequest = [[WKUserScript alloc] initWithSource:locationRequestScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-    WKUserScript *wkUScriptFormChange = [[WKUserScript alloc] initWithSource:formChangeScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-    
-    WKUserContentController *wkUController = [[WKUserContentController alloc] init];
-    [wkUController addUserScript:wkUScript];
-    [wkUController addUserScript:wkUScriptResize];
-    [wkUController addScriptMessageHandler:self name:@"test"];
-    
-    [wkUController addUserScript:wkUScriptlocationRequest];
-    [wkUController addScriptMessageHandler:self name:@"buttonPressed"];
-    
-    [wkUController addUserScript:wkUScriptFormChange];
-    [wkUController addScriptMessageHandler:self name:@"formChanged"];
-
-    WKWebViewConfiguration *webConfiguration = [[WKWebViewConfiguration alloc] init];
-    webConfiguration.userContentController = wkUController;
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, self.webViewContainer.bounds.size.height) configuration: webConfiguration];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, self.webViewContainer.bounds.size.height)];
     self.webView.scrollView.scrollEnabled = NO;
     self.webView.scrollView.bounces = NO;
-    self.webView.UIDelegate = self;
     self.webView.navigationDelegate = self;
     [self.progressIndicator startAnimating];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.webView loadHTMLString:iframeUrl baseURL:nil];
-        [self.webView setOpaque: NO];
-        [self.webView setBackgroundColor:[UIColor clearColor]];
-        [self.webViewContainer addSubview: self.webView];
-        });
-}
-
-- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
-    if([message.name isEqualToString:@"test"]) {
-        [self.webView evaluateJavaScript:@"document.documentElement.outerHTML.toString()" completionHandler:^(id html, NSError *error) {
-            [self.contentBlocksDelegate onQuizHTMLResponse:html];
-        }];
-        if(message.body != nil) {
-            float newHeight = [message.body floatValue] + 15;
-            float oldHeight = self.webViewContainerHeightConstraint.constant;
-            if(newHeight != oldHeight) {
-                self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webViewContainer.frame.size.width, newHeight);
-                if(fabs([message.body floatValue] - self.webViewContainerHeightConstraint.constant) > 3) {
-                    self.webViewContainerHeightConstraint.constant = newHeight;
-                    
-                    [self.parentTableView beginUpdates];
-                    [self.parentTableView endUpdates];
-                    
-                    [self.parentTableView layoutIfNeeded];
-                        
-                }
-            }
-        }
-    } else if ([message.name isEqualToString:@"buttonPressed"] && !isRequestLocationClick) {
-        self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webViewContainer.frame.size.width, self.webViewContainerHeightConstraint.constant + 350);
-        self.webViewContainerHeightConstraint.constant = self.webViewContainerHeightConstraint.constant + 350;
-        [self.parentTableView beginUpdates];
-        [self.parentTableView endUpdates];
-        [self.parentTableView layoutIfNeeded];
-        isRequestLocationClick = true;
-        
-    } else if ([message.name isEqualToString:@"formChanged"] && isRequestLocationClick) {
-        self.webView.frame = CGRectMake(self.webView.frame.origin.x, self.webView.frame.origin.y, self.webViewContainer.frame.size.width, self.webViewContainerHeightConstraint.constant - 350);
-        self.webViewContainerHeightConstraint.constant = self.webViewContainerHeightConstraint.constant - 350;
-        [self.parentTableView beginUpdates];
-        [self.parentTableView endUpdates];
-        [self.parentTableView layoutIfNeeded];
-        isRequestLocationClick = false;
-    }
-}
-
-- (void) webViewFullScreen: (NSString *) url {
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:url forKey:@"iframeUrl"];
-[[NSNotificationCenter defaultCenter] postNotificationName:
-                       @"PostIframeUrl" object:nil userInfo:userInfo];
+    [self.webView loadHTMLString:resizeIframeUrl baseURL:nil];
+    [self.webView setOpaque: NO];
+    [self.webView setBackgroundColor:[UIColor clearColor]];
+    [self.webViewContainer addSubview: self.webView];
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     [self.progressIndicator stopAnimating];
+}
+
+- (void)webViewFullScreen: (NSString *) url {
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:url forKey:@"iframeUrlNotificationObject"];
+[[NSNotificationCenter defaultCenter] postNotificationName:
+                       @"UIWebViewFullScreenNotification" object:nil userInfo:userInfo];
 }
 
 

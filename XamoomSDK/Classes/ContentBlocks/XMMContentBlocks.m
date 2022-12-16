@@ -13,6 +13,8 @@ int const kHorizontalSpaceToSubview = 32;
 NSString* const kContentBlock9MapContentLinkNotification = @"com.xamoom.ios.kContentBlock9MapContentLinkNotification";
 NSString* const keyboardWillShowNotificatoin = @"UIKeyboardWillShowNotification";
 NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification";
+NSString* const webViewFullScreenNotification = @"UIWebViewFullScreenNotification";
+NSString* const iframeUrlNotificationObject = @"iframeUrlNotificationObject";
 
 #pragma mark - XMMContentBlocks Interface
 
@@ -25,6 +27,10 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
 #pragma mark - XMMContentBlocks Implementation
 
 @implementation XMMContentBlocks
+
+{
+@private BOOL is16ContentBloc;
+}
 
 - (NSURL *) mapboxStyle {
     return _mapboxStyle ? _mapboxStyle : [NSURL URLWithString:@"mapbox://styles/xamoom-georg/ck4zb0mei1l371coyi41snaww"];
@@ -70,6 +76,11 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
                                             selector:@selector(keyboardWillHide:)
                                                 name:keyboardWillHideNotification
                                             object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                              selector:@selector(fullScreen:)
+                                                  name:webViewFullScreenNotification
+                                              object:nil];
 }
 
 
@@ -89,6 +100,14 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
         UIEdgeInsets contentInsets = UIEdgeInsetsMake(currentInsets.top, currentInsets.left, keyboardHeight, currentInsets.right);
         [self.tableView setContentInset:contentInsets];
         [self.tableView setScrollIndicatorInsets:contentInsets];
+    }
+}
+
+- (void) fullScreen:(NSNotification *)notification {
+        NSString *iframeUrl = [notification.userInfo objectForKey:iframeUrlNotificationObject];
+    if (is16ContentBloc){
+        [self showFullScreenWebview:iframeUrl];
+        is16ContentBloc = NO;
     }
 }
 
@@ -249,6 +268,43 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
     });
   }
 }
+
+#pragma mark - Show fulscreen webview
+
+- (void) showFullScreenWebview:(NSString *)iframeUrl{
+    NSURL *url = [self extractUrlFromString:iframeUrl];
+    if (url != nil) {
+        [self.navController pushViewController:[self createWebViewController:url] animated:YES];
+    }
+}
+
+- (NSURL *) extractUrlFromString:(NSString *)iframeUrl{
+    NSURL *url;
+    NSDataDetector* detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
+    NSArray *matches = [detector matchesInString:iframeUrl options:0 range:NSMakeRange(0, [iframeUrl length])];
+    for (NSTextCheckingResult *match in matches) {
+        if ([match resultType] == NSTextCheckingTypeLink) {
+            url = [match URL];
+        } else {
+            url = nil;
+        }
+    }
+    return url;
+}
+
+- (UIViewController *) createWebViewController:(NSURL *)url{
+    UIViewController *controller = [[UIViewController alloc]init];
+    Float32 height = self.navController.view.bounds.size.height;
+    Float32 width = self.navController.view.bounds.size.width;
+    WKWebView * webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+    webView.UIDelegate = self;
+    webView.navigationDelegate = self;
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:requestObj];
+    controller.view = webView;
+    return controller;
+}
+
 
 #pragma mark - Setters
 
@@ -433,10 +489,16 @@ NSString* const keyboardWillHideNotification = @"UIKeyboardWillHideNotification"
       [(XMMContentBlock14TableViewCell *) cell setNavigationType:self.navigationType];
   }
     
-    if ([cell isKindOfClass:[XMMContentBlock15TableViewCell class]] && self.showCBFormOverlay != nil) {
-        [(XMMContentBlock15TableViewCell *) cell
-         setShowCBFormOverlay:self.showCBFormOverlay];
-    }
+  if ([cell isKindOfClass:[XMMContentBlock15TableViewCell class]] && self.showCBFormOverlay != nil) {
+      [(XMMContentBlock15TableViewCell *) cell
+      setShowCBFormOverlay:self.showCBFormOverlay];
+  }
+    
+  if ([cell isKindOfClass:[XMMContentBlock16TableViewCell class]]) {
+        is16ContentBloc = YES;
+  } else {
+        is16ContentBloc = NO;
+  }
   
   if ([cell respondsToSelector:@selector(configureForCell:tableView:indexPath:style:offline:)]) {
     [cell configureForCell:block tableView:tableView indexPath:indexPath style:self.style offline:self.offline];
