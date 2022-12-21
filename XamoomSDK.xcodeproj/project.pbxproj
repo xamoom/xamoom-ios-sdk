@@ -45,6 +45,9 @@
 		62E5CF10223F81A5006F06A9 /* LocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 62E5CF0E223F81A5006F06A9 /* LocationHelper.m */; };
 		62F16FF8222E9AF5000DBFB4 /* PushHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 62F16FF6222E9AF5000DBFB4 /* PushHelper.h */; };
 		62F16FF9222E9AF5000DBFB4 /* PushHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 62F16FF7222E9AF5000DBFB4 /* PushHelper.m */; };
+		751C83C52952F70C001E8EEC /* XMMContentBlock16TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 751C83C22952F70C001E8EEC /* XMMContentBlock16TableViewCell.h */; };
+		751C83C62952F70C001E8EEC /* XMMContentBlock16TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751C83C32952F70C001E8EEC /* XMMContentBlock16TableViewCell.xib */; };
+		751C83C72952F70C001E8EEC /* XMMContentBlock16TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 751C83C42952F70C001E8EEC /* XMMContentBlock16TableViewCell.m */; };
 		87146E4524DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 87146E4224DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h */; };
 		87146E4624DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87146E4324DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m */; };
 		87146E4724DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87146E4424DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib */; };
@@ -301,6 +304,9 @@
 		62E5CF0E223F81A5006F06A9 /* LocationHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocationHelper.m; path = XamoomSDK/Classes/mapping/LocationHelper.m; sourceTree = SOURCE_ROOT; };
 		62F16FF6222E9AF5000DBFB4 /* PushHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PushHelper.h; path = XamoomSDK/Classes/mapping/PushHelper.h; sourceTree = SOURCE_ROOT; };
 		62F16FF7222E9AF5000DBFB4 /* PushHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PushHelper.m; path = XamoomSDK/Classes/mapping/PushHelper.m; sourceTree = SOURCE_ROOT; };
+		751C83C22952F70C001E8EEC /* XMMContentBlock16TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock16TableViewCell.h; sourceTree = "<group>"; };
+		751C83C32952F70C001E8EEC /* XMMContentBlock16TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XMMContentBlock16TableViewCell.xib; sourceTree = "<group>"; };
+		751C83C42952F70C001E8EEC /* XMMContentBlock16TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock16TableViewCell.m; sourceTree = "<group>"; };
 		7A53848AD8478E4A421E0232 /* Pods-XamoomSDKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XamoomSDKTests.debug.xcconfig"; path = "Target Support Files/Pods-XamoomSDKTests/Pods-XamoomSDKTests.debug.xcconfig"; sourceTree = "<group>"; };
 		87146E4224DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMContentBlock14TableViewCell.h; sourceTree = "<group>"; };
 		87146E4324DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMContentBlock14TableViewCell.m; sourceTree = "<group>"; };
@@ -750,6 +756,9 @@
 				87146E4224DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h */,
 				87146E4324DB24A10076CDC8 /* XMMContentBlock14TableViewCell.m */,
 				87146E4424DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib */,
+				751C83C22952F70C001E8EEC /* XMMContentBlock16TableViewCell.h */,
+				751C83C42952F70C001E8EEC /* XMMContentBlock16TableViewCell.m */,
+				751C83C32952F70C001E8EEC /* XMMContentBlock16TableViewCell.xib */,
 				875344BD2583487F0054B330 /* XMMContentBlock15TableViewCell.h */,
 				875344BE2583487F0054B330 /* XMMContentBlock15TableViewCell.m */,
 				875344BF2583487F0054B330 /* XMMContentBlock15TableViewCell.xib */,
@@ -1114,6 +1123,7 @@
 				883E55891C4A37FE000C4D09 /* XMMContentBlock3TableViewCell.h in Headers */,
 				886BACF920207EFD00BA31EE /* XamoomSDK.h in Headers */,
 				883E558C1C4A37FE000C4D09 /* XMMContentBlock4TableViewCell.h in Headers */,
+				751C83C52952F70C001E8EEC /* XMMContentBlock16TableViewCell.h in Headers */,
 				88D5B13E1DA3EED90069E2E8 /* XMMCDMarker.h in Headers */,
 				87146E4524DB24A10076CDC8 /* XMMContentBlock14TableViewCell.h in Headers */,
 				88617A511EDDB3A2005D5025 /* XMMContentBlock100TableViewCell.h in Headers */,
@@ -1249,6 +1259,7 @@
 				883E55881C4A37FE000C4D09 /* XMMContentBlock2TableViewCell.xib in Resources */,
 				883E559A1C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.xib in Resources */,
 				883E559D1C4A37FE000C4D09 /* XMMContentBlock9TableViewCell.xib in Resources */,
+				751C83C62952F70C001E8EEC /* XMMContentBlock16TableViewCell.xib in Resources */,
 				6242DA8D233C86D5008CD983 /* XMMContentBlockEventTableViewCell.xib in Resources */,
 				62ACD9AA22CDEFB800F55C23 /* ContenBlock0CollectionViewCell.xib in Resources */,
 				87146E4724DB24A10076CDC8 /* XMMContentBlock14TableViewCell.xib in Resources */,
@@ -1395,6 +1406,7 @@
 				883E559F1C4A37FE000C4D09 /* XMMAnnotation.m in Sources */,
 				883AC7D61DB0BEF000AE7BA7 /* XMMOfflineFileManager.m in Sources */,
 				883E55991C4A37FE000C4D09 /* XMMContentBlock8TableViewCell.m in Sources */,
+				751C83C72952F70C001E8EEC /* XMMContentBlock16TableViewCell.m in Sources */,
 				88B3902D1DA3AF8600216478 /* XMMCDMenu.m in Sources */,
 				88E46E7B1C47E348004D8AC3 /* XMMContentBlock.m in Sources */,
 				888F4F6D1DA53317000E49CE /* XMMCDContentBlock.m in Sources */,
