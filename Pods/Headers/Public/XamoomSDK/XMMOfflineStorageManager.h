@@ -1,1 +1,0 @@
-../../../../XamoomSDK/Classes/XMMOfflineStorageManager.h

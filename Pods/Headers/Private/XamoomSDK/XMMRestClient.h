@@ -1,1 +1,0 @@
-../../../../XamoomSDK/Classes/XMMRestClient.h

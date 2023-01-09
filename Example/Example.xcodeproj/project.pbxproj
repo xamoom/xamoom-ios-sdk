@@ -15,7 +15,6 @@
 		8888DDF51C47B16C0050A84C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8888DDF41C47B16C0050A84C /* Assets.xcassets */; };
 		8888DDF81C47B16C0050A84C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8888DDF61C47B16C0050A84C /* LaunchScreen.storyboard */; };
 		8888DE031C47B16C0050A84C /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8888DE021C47B16C0050A84C /* ExampleTests.m */; };
-		88F6B9B01E38A8DD00877F15 /* TestingIDs.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88F6B9AF1E38A8DD00877F15 /* TestingIDs.plist */; };
 		FA3E5041B94B0E59F74AB27B /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 313816EF563451B31C40BCB4 /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +58,6 @@
 		889BA3EC1F0254C5004AC15D /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		88C1D4861FBC8B1000DB9381 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		88C1D4871FBC8B1000DB9381 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		88F6B9AF1E38A8DD00877F15 /* TestingIDs.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestingIDs.plist; sourceTree = "<group>"; };
 		BF84ED9500E8E5CC18C12CD9 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "../Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,7 +114,6 @@
 				8888DDF41C47B16C0050A84C /* Assets.xcassets */,
 				8888DDF61C47B16C0050A84C /* LaunchScreen.storyboard */,
 				8888DDF91C47B16C0050A84C /* Info.plist */,
-				88F6B9AF1E38A8DD00877F15 /* TestingIDs.plist */,
 				8888DDE81C47B16C0050A84C /* Supporting Files */,
 			);
 			path = Example;
@@ -263,7 +260,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88F6B9B01E38A8DD00877F15 /* TestingIDs.plist in Resources */,
 				8888DDF81C47B16C0050A84C /* LaunchScreen.storyboard in Resources */,
 				8888DDF51C47B16C0050A84C /* Assets.xcassets in Resources */,
 				8888DDF31C47B16C0050A84C /* Main.storyboard in Resources */,
@@ -341,16 +337,10 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/F895F414-0640-3A9A-8BFE-93608B075146.bcsymbolmap",
-				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/355BF7AF-DA9C-3E0A-B824-D20D83879E14.bcsymbolmap",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/F895F414-0640-3A9A-8BFE-93608B075146.bcsymbolmap",
-				"${BUILT_PRODUCTS_DIR}/355BF7AF-DA9C-3E0A-B824-D20D83879E14.bcsymbolmap",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

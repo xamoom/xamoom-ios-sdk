@@ -27,3 +27,6 @@ fastlane/test_output/
 *.xcbkptlist
 .DS_Store
 Breakpoints_v2.xcbkptlist
+# Pods
+Pods
+XamoomSDK.xcworkspace

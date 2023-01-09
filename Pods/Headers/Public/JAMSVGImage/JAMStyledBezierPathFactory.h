@@ -1,1 +1,0 @@
-../../../JAMSVGImage/Classes/JAMSVGImage/Path and Parser/JAMStyledBezierPathFactory.h

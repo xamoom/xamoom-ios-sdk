@@ -1,1 +1,0 @@
-../../../JSONAPI/Classes/JSONAPIResourceDescriptor.h
