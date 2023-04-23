@@ -490,6 +490,8 @@ static const NSString *routeLayerIdentifier = @"polyline";
     } else if (loadedSpots.count > 0) {
       [self.spots addObjectsFromArray:loadedSpots];
       [self showSpotMap:self.spots];
+    } else if (self.graphCoordinates != 0){
+        [self showTourRoute];
     }
   }];
   [self didUpdateUserLocationButtonIcon:nil];
@@ -564,6 +566,14 @@ static const NSString *routeLayerIdentifier = @"polyline";
     MGLSymbolStyleLayer *startRouteIconLayer = [self.mapView.style layerWithIdentifier:@"start-tour-layer-background"];
     [self.mapView.style insertLayer:markerLayer belowLayer:startRouteIconLayer];
 
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+      if(self.graphCoordinates != nil) {
+            [self zoomToFitAnnotationsAndRoute];
+        }
+    });
+}
+
+- (void)showTourRoute {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
       if(self.graphCoordinates != nil) {
             [self zoomToFitAnnotationsAndRoute];
@@ -802,6 +812,8 @@ static const NSString *routeLayerIdentifier = @"polyline";
 - (IBAction)centerSpotBoundsAction:(id)sender {
     if (self.spots.count != 0) {
         [self showSpotMap:self.spots];
+    } else if (self.graphCoordinates.count != 0) {
+        [self showTourRoute];
     }
 }
 
