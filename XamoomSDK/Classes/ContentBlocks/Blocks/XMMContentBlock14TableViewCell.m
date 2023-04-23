@@ -273,11 +273,10 @@ static const NSString *routeLayerIdentifier = @"polyline";
                       
                       MGLShapeSource *shapeSource = [[MGLShapeSource alloc] initWithIdentifier:@"start-tour-source" shape:point options:nil];
                       MGLSymbolStyleLayer *shapeLayer = [[MGLSymbolStyleLayer alloc] initWithIdentifier:@"start-tour-layer-background" source:shapeSource];
-                      
-                      
-                      [self.mapView.style setImage:[UIImage imageNamed:@"ic_route_begin"] forName:@"ic_start_tour"];
-                      shapeLayer.iconImageName = [NSExpression expressionForConstantValue:@"ic_start_tour_foreground"];
-                      shapeLayer.iconScale = [NSExpression expressionForConstantValue:[NSNumber numberWithFloat:0.1]];
+                        
+                      [self.mapView.style setImage:[self createStartTourIcon] forName:@"ic_route_begin"];
+                      shapeLayer.iconImageName = [NSExpression expressionForConstantValue:@"ic_route_begin"];
+                      shapeLayer.iconScale = [NSExpression expressionForConstantValue:[NSNumber numberWithFloat:1]];
                       
                       [self.mapView.style addSource:shapeSource];
                       [self.mapView.style addLayer:shapeLayer];
@@ -344,6 +343,34 @@ static const NSString *routeLayerIdentifier = @"polyline";
         [self drawGraph];
     }
     
+}
+
+- (UIImage *) createStartTourIcon {
+    UIImage *circleImage = [UIImage imageNamed:@"ic_start_tour_background"];
+    UIImage *triangleImage = [UIImage imageNamed:@"ic_start_tour_foreground"];
+
+    UIColor *circleColor = [UIColor colorWithHexString:_currentRouteColor];
+    if (circleColor == nil) {
+        circleColor = [UIColor colorWithHexString:@"7401df"];
+    }
+    UIColor *triangleColor = [UIColor whiteColor];
+    
+    UIGraphicsBeginImageContextWithOptions(circleImage.size, NO, circleImage.scale);
+    [circleColor setFill];
+    CGRect circleBounds = CGRectMake(0, 0, circleImage.size.width, circleImage.size.height);
+    UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:circleBounds];
+    [circlePath fill];
+
+    [triangleColor set];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetBlendMode(context, kCGBlendModeSourceIn);
+    CGContextClipToMask(context, circleBounds, triangleImage.CGImage);
+    CGContextFillRect(context, circleBounds);
+
+    UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return finalImage;
 }
 
 - (void) setInfoValues {
