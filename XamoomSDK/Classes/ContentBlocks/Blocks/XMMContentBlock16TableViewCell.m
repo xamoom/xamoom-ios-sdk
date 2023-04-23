@@ -7,7 +7,7 @@
 
 #import "XMMContentBlock16TableViewCell.h"
 
-@interface XMMContentBlock16TableViewCell()
+@interface XMMContentBlock16TableViewCell() <WKNavigationDelegate>
 
 
 @property (nonatomic, strong) WKWebView *webView;
@@ -59,15 +59,23 @@ static BOOL *isRequestLocationClick = false;
    
 - (void) addWebView:(NSString *) iframeUrl {
     
+    NSString *htmlString;
+    NSString *modifiedIframeUrl = [NSString stringWithFormat:@"<iframe width='100%%' height='90%%' src='%@'></iframe></body></html>", iframeUrl];
     NSString *reSizeHeder = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'></header>";
-    NSString *resizeIframeUrl = [reSizeHeder stringByAppendingString:iframeUrl];
+
+    
+    if ([iframeUrl containsString:@"iframe"]) {
+        htmlString = [reSizeHeder stringByAppendingString:iframeUrl];
+    } else {
+        htmlString = [reSizeHeder stringByAppendingString:modifiedIframeUrl];
+    }
     
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, self.webViewContainer.bounds.size.height)];
     self.webView.scrollView.scrollEnabled = NO;
     self.webView.scrollView.bounces = NO;
     self.webView.navigationDelegate = self;
     [self.progressIndicator startAnimating];
-    [self.webView loadHTMLString:resizeIframeUrl baseURL:nil];
+    [self.webView loadHTMLString:htmlString baseURL:nil];
     [self.webView setOpaque: NO];
     [self.webView setBackgroundColor:[UIColor clearColor]];
     [self.webViewContainer addSubview: self.webView];
