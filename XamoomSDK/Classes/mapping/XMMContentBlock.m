@@ -45,7 +45,7 @@ static JSONAPIResourceDescriptor *__descriptor = nil;
     [__descriptor addProperty:@"contentListSortAsc" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"content-list-sort-asc"]];
     [__descriptor addProperty:@"showElevation" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"show-elevation"]];
       [__descriptor addProperty:@"iframeUrl" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"iframe-url"]];
-      [__descriptor addProperty:@"fullScreen" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"fullScreen"]];
+      [__descriptor addProperty:@"fullScreen" withDescription:[[JSONAPIPropertyDescriptor alloc] initWithJsonName:@"is-iframe-fullscreen"]];
   });
   
   return __descriptor;
