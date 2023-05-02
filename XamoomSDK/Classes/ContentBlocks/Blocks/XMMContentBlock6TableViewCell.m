@@ -86,6 +86,7 @@ static NSString *language;
       }];
   } else {
       [self showBlockData:cachedContent];
+      [self.loadingIndicator stopAnimating];
   }
   
 }
