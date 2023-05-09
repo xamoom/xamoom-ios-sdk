@@ -92,6 +92,17 @@
   if (_mediaFile.isPlaying) {
     [self didStart];
   }
+    [self autoplayAudio];
+}
+
+- (void) autoplayAudio {
+    if (self.autoPlay) {
+        if (!self.isPlaying) {
+            self.playing = YES;
+            [self.audioControlButton setImage:self.pauseImage forState:UIControlStateNormal];
+            [_mediaFile start];
+        }
+    }
 }
 
 - (void)didStart {

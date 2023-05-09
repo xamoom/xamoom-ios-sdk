@@ -274,7 +274,7 @@ static XMMEnduserApi *sharedInstance;
   NSDateComponents *components = [cal components:(NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:[[NSDate alloc] init]];
   
   NSDate *dateTime = [cal dateFromComponents:components];
-  [mutableConditions setObject:[cal dateFromComponents:components] forKey:@"x-datetime"];
+  [mutableConditions setObject:dateTime forKey:@"x-datetime"];
   
   conditions = mutableConditions;
   

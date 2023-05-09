@@ -34,11 +34,13 @@
 @property (weak, nonatomic) IBOutlet XMMMovingBarsView * _Nullable movingBarView;
 @property (weak, nonatomic) IBOutlet XMMProgressBar * _Nullable progressBar;
 @property (nonatomic, getter=isPlaying) BOOL playing;
+@property (nonatomic) BOOL autoPlay;
 @property (strong, nonatomic) XMMOfflineFileManager * _Nullable fileManager;
 @property (strong, nonnull) UIColor *audioPlayerBackgroundColor UI_APPEARANCE_SELECTOR;
 @property (strong, nonnull) UIColor *audioPlayerProgressBarColor UI_APPEARANCE_SELECTOR;
 @property (strong, nonnull) UIColor *audioPlayerProgressBarBackgroundColor UI_APPEARANCE_SELECTOR;
 @property (strong, nonnull) UIColor *audioPlayerTintColor UI_APPEARANCE_SELECTOR;
+
 
 - (IBAction)playButtonTouched:(id _Nonnull )sender;
 
