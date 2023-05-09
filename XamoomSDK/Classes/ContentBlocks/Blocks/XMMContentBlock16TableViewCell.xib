@@ -18,18 +18,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdf-EX-wA1">
-                        <rect key="frame" x="0.0" y="26.5" width="320" height="243.5"/>
+                        <rect key="frame" x="0.0" y="27" width="320" height="243"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="320" id="D8m-3e-i48"/>
-                            <constraint firstAttribute="height" constant="243.5" id="HCj-aR-Fvi"/>
+                            <constraint firstAttribute="height" constant="243" id="Njd-Jk-XUf"/>
                         </constraints>
                     </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cOS-SV-Aix">
                         <rect key="frame" x="150" y="125" width="20" height="20"/>
                     </activityIndicatorView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3St-C0-bK7">
-                        <rect key="frame" x="8" y="0.0" width="304" height="26.5"/>
+                        <rect key="frame" x="8" y="0.0" width="304" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -54,6 +54,7 @@
                 <outlet property="iframeTitle" destination="3St-C0-bK7" id="KVv-HE-OIz"/>
                 <outlet property="progressIndicator" destination="cOS-SV-Aix" id="FRr-4p-dBR"/>
                 <outlet property="webViewContainer" destination="sdf-EX-wA1" id="W6n-fy-uFH"/>
+                <outlet property="webViewContainerHeightConstraint" destination="Njd-Jk-XUf" id="MBK-9U-5qg"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </tableViewCell>

@@ -48,34 +48,60 @@ static BOOL *isRequestLocationClick = false;
     NSString* title = block.title;
     BOOL isFullScreen  = block.fullScreen;
     
+    NSString* iframeHtml = [self getIframeHtml:iframeUrl];
+    int cellHeight = [self extractHeightfromLink:iframeHtml];
+    [self recizeTabelViewCell:cellHeight];
+    
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     self.progressIndicator.color = [self colorFromHexString:[defaults objectForKey:@"template_primaryColor"] alpha:1];
     self.iframeTitle.text = title;
-    [self addWebView:iframeUrl];
+    [self addWebView:iframeHtml];
     if (isFullScreen){
         [self webViewFullScreen:iframeUrl];
     }
 }
-   
-- (void) addWebView:(NSString *) iframeUrl {
-    
-    NSString *htmlString;
-    NSString *modifiedIframeUrl = [NSString stringWithFormat:@"<iframe width='100%%' height='90%%' src='%@'></iframe></body></html>", iframeUrl];
-    NSString *reSizeHeder = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'></header>";
 
-    
-    if ([iframeUrl containsString:@"iframe"]) {
-        htmlString = [reSizeHeder stringByAppendingString:iframeUrl];
-    } else {
-        htmlString = [reSizeHeder stringByAppendingString:modifiedIframeUrl];
+- (int) extractHeightfromLink:(NSString *)link {
+    int heightValue = 0;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"height=['\"](\\d+)" options:0 error:nil];
+    NSTextCheckingResult *result = [regex firstMatchInString:link options:0 range:NSMakeRange(0, link.length)];
+    if (result) {
+        NSRange heightRange = [result rangeAtIndex:1];
+        NSString* heightString = [link substringWithRange:heightRange];
+        heightValue = [heightString intValue];
     }
+    return heightValue;
+}
+
+- (NSString *) getIframeHtml:(NSString *)iframeUrl {
+    NSString *iframeHtml;
+    NSString *reSizeHeder = @"<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'></header>";
+    NSString *modifiedIframeUrl = [NSString stringWithFormat:@"<iframe width='100%%' height='200' src='%@'></iframe></body></html>", iframeUrl];
+    if ([iframeUrl containsString:@"iframe"]) {
+        iframeHtml = [reSizeHeder stringByAppendingString:iframeUrl];
+    } else {
+        iframeHtml = [reSizeHeder stringByAppendingString:modifiedIframeUrl];
+    }
+    return iframeHtml;
+}
+
+- (void) recizeTabelViewCell:(int)cellHeight {
+    int newCellHeight = cellHeight;
+    if (cellHeight == 0) {
+        newCellHeight = 150;
+    }
+    self.webViewContainerHeightConstraint.constant = newCellHeight + 50;
+    [self.webViewContainer layoutIfNeeded];
+}
+   
+- (void) addWebView:(NSString *) iframeHtml {
     
     self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, self.webViewContainer.bounds.size.width, self.webViewContainer.bounds.size.height)];
     self.webView.scrollView.scrollEnabled = NO;
     self.webView.scrollView.bounces = NO;
     self.webView.navigationDelegate = self;
     [self.progressIndicator startAnimating];
-    [self.webView loadHTMLString:htmlString baseURL:nil];
+    [self.webView loadHTMLString:iframeHtml baseURL:nil];
     [self.webView setOpaque: NO];
     [self.webView setBackgroundColor:[UIColor clearColor]];
     [self.webViewContainer addSubview: self.webView];

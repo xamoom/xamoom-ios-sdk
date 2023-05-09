@@ -472,6 +472,12 @@ NSString* const iframeUrlNotificationObject = @"iframeUrlNotificationObject";
       [(XMMContentBlock100TableViewCell *) cell setChromeColor:self.chromeColor];
     }
   }
+    
+    if ([cell isKindOfClass:[XMMContentBlock1TableViewCell class]] && self.mapboxStyle != nil) {
+        NSDictionary *customMeta = self.content.customMeta;
+        bool autoPlay = [customMeta objectForKey:@"autoplay"];
+        [(XMMContentBlock1TableViewCell *) cell setAutoPlay:autoPlay];
+    }
   
   if ([cell isKindOfClass:[XMMContentBlock9TableViewCell class]] && self.mapboxStyle != nil) {
     [(XMMContentBlock9TableViewCell *) cell setMapboxStyle:self.mapboxStyle];

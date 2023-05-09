@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *webViewContainer;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *progressIndicator;
 @property (weak, nonatomic) IBOutlet UILabel * iframeTitle;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *webViewContainerHeightConstraint;
 
 
 @end
