@@ -53,23 +53,6 @@
 
 - (void)configureForCell:(XMMContentBlock *)block tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath style:(XMMStyle *)style offline:(BOOL)offline {
   UIColor *textColor = [UIColor colorWithHexString:style.foregroundFontColor];
-  
-[_blockImageView addConstraint:[NSLayoutConstraint constraintWithItem:_blockImageView
-   attribute:NSLayoutAttributeWidth
-   relatedBy:NSLayoutRelationEqual
-   toItem:nil
-   attribute: NSLayoutAttributeNotAnAttribute
-   multiplier:1
-   constant:_blockImageView.superview.bounds.size.width+50]];
-
-    
-[_blockImageView addConstraint:[NSLayoutConstraint constraintWithItem:_blockImageView
-  attribute:NSLayoutAttributeHeight
-  relatedBy:NSLayoutRelationEqual
-  toItem:nil
-  attribute: NSLayoutAttributeNotAnAttribute
-  multiplier:1
-  constant:_blockImageView.superview.bounds.size.height+50]];
     
   if (textColor != nil) {
     self.titleLabel.textColor = textColor;
@@ -120,8 +103,13 @@
   double newImageWidth = self.bounds.size.width * scalingFactor;
   double sizeDiff = self.bounds.size.width - newImageWidth;
   
-  self.imageLeftHorizontalSpaceConstraint.constant = sizeDiff/2;
-  self.imageRightHorizontalSpaceConstraint.constant = (sizeDiff/2)*(-1);
+    if (sizeDiff == 0) {
+        self.imageLeftHorizontalSpaceConstraint.constant = (sizeDiff/2)+10;
+        self.imageRightHorizontalSpaceConstraint.constant = ((sizeDiff/2)*(-1))-10;
+    } else {
+        self.imageLeftHorizontalSpaceConstraint.constant = (sizeDiff/2);
+        self.imageRightHorizontalSpaceConstraint.constant = ((sizeDiff/2)*(-1));
+    }
 }
 
 - (void)displayImageFromURL:(NSURL *)fileURL tableView:(UITableView *)tableView indexPath:(NSIndexPath *) indexPath {
