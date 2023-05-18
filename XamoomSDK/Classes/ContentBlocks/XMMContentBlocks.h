@@ -59,6 +59,7 @@ typedef NS_OPTIONS(NSInteger, TextFontSize) {
 
 - (void)didClickContentBlock:(NSString *)contentID;
 - (void)onQuizHTMLResponse: (NSString *)htmlResponse;
+- (void)didClickHomeScreenContentBlock;
 
 @end
 

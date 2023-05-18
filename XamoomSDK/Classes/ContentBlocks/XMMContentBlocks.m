@@ -534,11 +534,17 @@ NSString* const iframeUrlNotificationObject = @"iframeUrlNotificationObject";
     [cell openVideo];
   }
   
-  if ([cell isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
-    XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [[XMMContentBlockListsCache sharedInstance] removeCache];
-    [self.delegate didClickContentBlock:cell.contentID];
-  }
+    if ([cell isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
+        XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        [[XMMContentBlockListsCache sharedInstance] removeCache];
+        NSDictionary *customMeta = cell.content.customMeta;
+        bool loadHomeScreen = [customMeta objectForKey:@"home_page"];
+        if (loadHomeScreen) {
+            [self.delegate didClickHomeScreenContentBlock];
+        } else {
+            [self.delegate didClickContentBlock:cell.contentID];
+        }
+    }
   
   if ([cell isKindOfClass:[XMMContentBlock8TableViewCell class]]) {
     id cell = [tableView cellForRowAtIndexPath:indexPath];
