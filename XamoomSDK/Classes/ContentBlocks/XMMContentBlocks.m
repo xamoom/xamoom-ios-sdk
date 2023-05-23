@@ -537,9 +537,10 @@ NSString* const iframeUrlNotificationObject = @"iframeUrlNotificationObject";
     if ([cell isKindOfClass:[XMMContentBlock6TableViewCell class]]) {
         XMMContentBlock6TableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         [[XMMContentBlockListsCache sharedInstance] removeCache];
-        NSDictionary *customMeta = cell.content.customMeta;
-        bool loadHomeScreen = [customMeta objectForKey:@"home_page"];
+        bool loadHomeScreen = [cell.content.tags containsObject:@"X-HOME"];
+        
         if (loadHomeScreen) {
+            //you need to implement this method in ContentViewController for back to home screen
             [self.delegate didClickHomeScreenContentBlock];
         } else {
             [self.delegate didClickContentBlock:cell.contentID];
